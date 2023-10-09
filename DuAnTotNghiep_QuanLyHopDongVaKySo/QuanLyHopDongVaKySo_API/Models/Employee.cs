@@ -16,7 +16,7 @@ namespace QuanLyHopDongVaKySo_API.Models
     {
         [Key]
         [Column("Id")]
-        public int EmployeeId { get; set; }
+        public Guid EmployeeId { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
         [Display(Name = "Họ và tên")]
