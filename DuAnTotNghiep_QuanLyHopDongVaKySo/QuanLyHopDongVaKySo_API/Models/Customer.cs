@@ -11,7 +11,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column("Id")]
         public Guid CustomerId { get; set; }
 
-        [Column(TypeName = "nvarchar(100)"),AllowNull]
+        [Column(TypeName = "nvarchar(100)"), AllowNull]
         [Display(Name = "Tên doanh nghiệp")]
         public string BuisinessName { get; set; }
 
@@ -45,11 +45,50 @@ namespace QuanLyHopDongVaKySo_API.Models
            ErrorMessage = "Email không hợp lệ !")]
         public string Email { get; set; }
 
+        [Column(TypeName = "varchar(50)")]
         [Required(ErrorMessage = "Hãy số chứng minh nhân dân / căn cước công dân !")]
-        [Display(Name = "CMND / CCCD")]
+        [Display(Name = "CMND/CCCD")]
         [MaxLength(20)]
         public string Identification { get; set; }
 
+        [Required(ErrorMessage = "Hãy chọn ngày,tháng,năm cấp CMND/CCCD!")]
+        [Display(Name = "Ngày cấp")]
+        public DateTime IssuanceDate { get; set; }
 
+        [Column(TypeName = "varchar(50)")]
+        [Required(ErrorMessage = "Hãy nhập nơi cấp CMND/CCCD!")]
+        [Display(Name = "Nơi cấp")]
+        public DateTime WhereToIssue { get; set; }
+
+        [Column(TypeName = "varchar(50)")]
+        [Required(ErrorMessage = "Hãy nhập nơi cấp CMND/CCCD!")]
+        [Display(Name = "Nơi cấp")]
+        public string Nationality { get; set; }
+
+        [Column(TypeName = "varchar(50)")]
+        [Required(ErrorMessage = "Hãy nhập số tài khoản ngân hàng!")]
+        [Display(Name = "Số tài khoản ngân hàng")]
+        public string BankAccount { get; set; }
+
+        [Column(TypeName = "varchar(50)")]
+        [Required(ErrorMessage = "Hãy nhập tên ngân hàng!")]
+        [Display(Name = "Tên ngân hàng")]
+        public string BanikName { get; set; }
+
+        [Column(TypeName = "varchar(50)"), AllowNull]
+        [Display(Name = "Mã số thuế")]
+        public string TaxIDNumber { get; set; }
+
+        [Column(TypeName = "nvarchar(255)")]
+        [Required(ErrorMessage = "Hãy nhập địa chỉ thanh toán!")]
+        [Display(Name = "Địa chỉ thanh toán")]
+        public string BillingAddress { get; set; }
+
+        [Display(Name = "Trạng thái hoạt động")]
+        public bool IsLocked { get; set; }
+
+        [Column(TypeName = "nvarchar(255)"), AllowNull]
+        [Display(Name = "Ghi chú")]
+        public string? Note { get; set; }
     }
 }

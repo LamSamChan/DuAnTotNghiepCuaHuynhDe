@@ -44,6 +44,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [MaxLength(50)]
         public string PhoneNumber { get; set; }
 
+        [Column(TypeName = "varchar(50)")]
         [Required(ErrorMessage = "Hãy số chứng minh nhân dân / căn cước công dân !")]
         [Display(Name = "CMND / CCCD")]
         [MaxLength(20)]
