@@ -53,12 +53,12 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [Required(ErrorMessage = "Hãy chọn ngày,tháng,năm cấp CMND/CCCD!")]
         [Display(Name = "Ngày cấp")]
-        public DateTime IssuanceDate { get; set; }
+        public DateTime IssuedDate { get; set; }
 
         [Column(TypeName = "varchar(50)")]
         [Required(ErrorMessage = "Hãy nhập nơi cấp CMND/CCCD!")]
         [Display(Name = "Nơi cấp")]
-        public DateTime WhereToIssue { get; set; }
+        public string IssuedPlace { get; set; }
 
         [Column(TypeName = "varchar(50)")]
         [Required(ErrorMessage = "Hãy nhập nơi cấp CMND/CCCD!")]
@@ -73,7 +73,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column(TypeName = "varchar(50)")]
         [Required(ErrorMessage = "Hãy nhập tên ngân hàng!")]
         [Display(Name = "Tên ngân hàng")]
-        public string BanikName { get; set; }
+        public string BankName { get; set; }
 
         [Column(TypeName = "varchar(50)"), AllowNull]
         [Display(Name = "Mã số thuế")]
