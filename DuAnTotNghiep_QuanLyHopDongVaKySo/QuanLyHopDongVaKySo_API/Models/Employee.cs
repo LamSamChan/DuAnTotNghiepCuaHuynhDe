@@ -56,9 +56,13 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Địa chỉ")]
         public string Address { get; set; }
 
-        [StringLength(500)]
+        [StringLength(500),AllowNull`]
         [Display(Name = "Ảnh đại diện")]
         public string? Image { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Tệp ảnh")]
+        public IFormFile? ImageFile { get; set; }
 
         //tự động tạo và gửi qua mail ghi đăng ký
         [Required(ErrorMessage = "Hãy nhập mât khẩu !")]
