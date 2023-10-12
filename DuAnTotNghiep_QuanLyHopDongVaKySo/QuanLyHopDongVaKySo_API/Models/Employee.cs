@@ -93,5 +93,9 @@ namespace QuanLyHopDongVaKySo_API.Models
         public Role Role { get; set; }
         public Position Position { get; set; }
 
+        public ICollection<DoneContract> DoneContract { get; set; }
+        public ICollection<DoneMinute> DoneMinute { get; set; }
+        public ICollection<PendingContract> PendingContract { get; set; }
+        public ICollection<PendingMinute> PendingMinute { get; set; }
     }
 }

@@ -101,5 +101,8 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         public PFXCertificate PFXCertificate { get; set; }
         public TypeOfCustomer TypeOfCustomer { get; set; }
+        public ICollection<DoneContract> DoneContract { get; set; }
+        public ICollection<PendingContract> PendingContract { get; set; }
+
     }
 }

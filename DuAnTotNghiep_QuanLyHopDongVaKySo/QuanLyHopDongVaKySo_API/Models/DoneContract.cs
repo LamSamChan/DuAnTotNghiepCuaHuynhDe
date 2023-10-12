@@ -25,6 +25,27 @@ namespace QuanLyHopDongVaKySo_API.Models
         public bool IsInEffect { get; set; }
 
         //tạo liên kết
+        [ForeignKey("Employee")]
+        public Guid EmployeeId { get; set; }
+
+        [ForeignKey("Customer")]
+        public Guid CustomerId { get; set; }
+
+        [ForeignKey("TypeOfService")]
+        public int TOS_ID { get; set; }
+
+        [ForeignKey("DoneMinute")]
+        public int DoneMinuteId { get; set; }
+
+
+        public Employee Employee { get; set; }
+        public Customer Customer { get; set; }
+        public TypeOfService TypeOfService { get; set; }
+        public DoneMinute DoneMinute { get; set; }
+
+
+
+
 
     }
 }
