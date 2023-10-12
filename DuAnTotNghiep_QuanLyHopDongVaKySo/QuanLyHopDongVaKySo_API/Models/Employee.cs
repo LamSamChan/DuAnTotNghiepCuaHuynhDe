@@ -56,7 +56,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Địa chỉ")]
         public string Address { get; set; }
 
-        [StringLength(500),AllowNull`]
+        [StringLength(500),AllowNull]
         [Display(Name = "Ảnh đại diện")]
         public string? Image { get; set; }
 

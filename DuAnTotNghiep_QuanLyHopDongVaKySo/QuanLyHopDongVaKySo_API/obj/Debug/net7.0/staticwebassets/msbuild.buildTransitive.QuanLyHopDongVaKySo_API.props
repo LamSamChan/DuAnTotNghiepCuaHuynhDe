@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\QuanLyHopDongVaKySo_API.props" />
+</Project>
