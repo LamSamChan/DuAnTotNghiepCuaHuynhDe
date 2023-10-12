@@ -10,6 +10,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column("Id")]
         public int TOS_ID { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
         [Required(ErrorMessage = "Hãy chọn ngày !")]
         [Display(Name = "Ngày tạo")]
         public DateTime DateAdded { get; set; }
@@ -27,6 +28,9 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column(TypeName = "nvarchar(100)")]
         [Display(Name = "Đơn vị thời gian")]
         public string PerTime { get; set; }
+
+        //tạo liên kết
+
 
 
     }

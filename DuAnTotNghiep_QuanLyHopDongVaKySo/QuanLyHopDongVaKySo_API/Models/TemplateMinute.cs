@@ -9,6 +9,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column("Id")]
         public int TMinuteID { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
         [Display(Name = "Ngày thêm")]
         public DateTime DateAdded { get; set; }
 
@@ -26,5 +27,8 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         public int x_CustomerZone { get; set; }
         public int y_CustomerZone { get; set; }
+
+        //tạo liên kết
+
     }
 }

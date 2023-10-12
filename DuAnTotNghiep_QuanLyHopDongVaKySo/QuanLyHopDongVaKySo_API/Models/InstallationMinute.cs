@@ -11,6 +11,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column("Id")]
         public int InstallationMinuteID { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
         [Display(Name = "Ngày tạo")]
         public DateTime DateCreated { get; set; }
 

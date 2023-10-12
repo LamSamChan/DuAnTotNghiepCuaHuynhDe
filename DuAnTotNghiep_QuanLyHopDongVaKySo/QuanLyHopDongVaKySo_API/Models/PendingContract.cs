@@ -10,6 +10,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column("Id")]
         public int PContractID { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
         [Display(Name = "Ngày tạo")]
         public DateTime DateCreated { get; set; }
 

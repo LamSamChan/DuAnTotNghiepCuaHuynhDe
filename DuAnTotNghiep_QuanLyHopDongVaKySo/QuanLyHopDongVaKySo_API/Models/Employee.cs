@@ -30,6 +30,7 @@ namespace QuanLyHopDongVaKySo_API.Models
             ErrorMessage = "Email không hợp lệ !")]
         public string Email { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Required(ErrorMessage = "Hãy chọn ngày,tháng,năm sinh !")]
         [Display(Name = "Năm sinh")]
         public DateTime DateOfBirth { get; set; }
@@ -78,6 +79,19 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Ghi chú")]
         public string? Note { get; set; }
 
+        //tạo liên kết
+        [ForeignKey("PFXCertificate")]
+        public string SerialPFX { get; set; }
+
+        [ForeignKey("Role")]
+        public int RoleID { get; set; }
+
+        [ForeignKey("Position")]
+        public int PositionID { get; set; }
+
+        public PFXCertificate PFXCertificate { get; set; }
+        public Role Role { get; set; }
+        public Position Position { get; set; }
 
     }
 }

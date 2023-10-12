@@ -15,5 +15,8 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Vai trò")]
         [Required(ErrorMessage = "Hãy điền tên vai trò !")]
         public string RoleName { get; set; }
+
+        //tạo liên kết
+
     }
 }

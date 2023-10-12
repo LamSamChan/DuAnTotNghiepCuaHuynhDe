@@ -10,6 +10,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column("Id")]
         public double HistoryID { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
         [Display(Name = "Ngày")]
         public DateTime Date { get; set; }
 

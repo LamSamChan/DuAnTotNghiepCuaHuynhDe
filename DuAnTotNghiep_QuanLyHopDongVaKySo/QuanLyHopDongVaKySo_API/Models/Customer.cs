@@ -24,6 +24,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Chức vụ")]
         public string Position { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Required(ErrorMessage = "Hãy chọn ngày,tháng,năm sinh !")]
         [Display(Name = "Năm sinh")]
         public DateTime DateOfBirth { get; set; }
@@ -90,5 +91,15 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column(TypeName = "nvarchar(255)"), AllowNull]
         [Display(Name = "Ghi chú")]
         public string? Note { get; set; }
+
+        //tạo liên kết
+        [ForeignKey("PFXCertificate")]
+        public string SerialPFX { get; set; }
+
+        [ForeignKey("TypeOfCustomer")]
+        public int TOC_ID { get; set; }
+
+        public PFXCertificate PFXCertificate { get; set; }
+        public TypeOfCustomer TypeOfCustomer { get; set; }
     }
 }
