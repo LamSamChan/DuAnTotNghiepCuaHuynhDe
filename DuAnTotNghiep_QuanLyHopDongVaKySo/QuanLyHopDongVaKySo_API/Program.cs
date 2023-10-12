@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using QuanLyHopDongVaKySo_API.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddControllersWithViews().AddDataAnnotationsLocalization();
 
 var connectionString = builder.Configuration.GetConnectionString("connection");
-builder.Services.AddDbContext<MyDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<ProjectDbContext>(options => options.UseSqlServer(connectionString));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
