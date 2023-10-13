@@ -16,6 +16,8 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Required(ErrorMessage = "Hãy điền tên vai trò !")]
         public string RoleName { get; set; }
 
+        [Display(Name = "Trạng thái hiển thị")]
+        public bool isHidden { get; set; }
         //tạo liên kết
 
     }

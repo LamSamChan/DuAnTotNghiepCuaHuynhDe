@@ -29,3 +29,34 @@ D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\Q
 D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\QuanLyHopDong.CLIENT.pdb
 D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\QuanLyHopDong.CLIENT.genruntimeconfig.cache
 D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\ref\QuanLyHopDong.CLIENT.dll
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\bin\Debug\net7.0\appsettings.Development.json
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\bin\Debug\net7.0\appsettings.json
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\bin\Debug\net7.0\QuanLyHopDong.CLIENT.staticwebassets.runtime.json
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\bin\Debug\net7.0\QuanLyHopDong.CLIENT.exe
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\bin\Debug\net7.0\QuanLyHopDong.CLIENT.deps.json
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\bin\Debug\net7.0\QuanLyHopDong.CLIENT.runtimeconfig.json
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\bin\Debug\net7.0\QuanLyHopDong.CLIENT.dll
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\bin\Debug\net7.0\QuanLyHopDong.CLIENT.pdb
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\QuanLyHopDong.CLIENT.csproj.AssemblyReference.cache
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\QuanLyHopDong.CLIENT.GeneratedMSBuildEditorConfig.editorconfig
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\QuanLyHopDong.CLIENT.AssemblyInfoInputs.cache
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\QuanLyHopDong.CLIENT.AssemblyInfo.cs
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\QuanLyHopDong.CLIENT.csproj.CoreCompileInputs.cache
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\QuanLyHopDong.CLIENT.MvcApplicationPartsAssemblyInfo.cache
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\QuanLyHopDong.CLIENT.RazorAssemblyInfo.cache
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\QuanLyHopDong.CLIENT.RazorAssemblyInfo.cs
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\staticwebassets\msbuild.QuanLyHopDong.CLIENT.Microsoft.AspNetCore.StaticWebAssets.props
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\staticwebassets\msbuild.build.QuanLyHopDong.CLIENT.props
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.QuanLyHopDong.CLIENT.props
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.QuanLyHopDong.CLIENT.props
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\staticwebassets.pack.json
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\staticwebassets.build.json
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\staticwebassets.development.json
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\scopedcss\bundle\QuanLyHopDong.CLIENT.styles.css
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\scopedcss\projectbundle\QuanLyHopDong.CLIENT.bundle.scp.css
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\QuanLyHopDong.CLIENT.dll
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\refint\QuanLyHopDong.CLIENT.dll
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\QuanLyHopDong.CLIENT.pdb
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\QuanLyHopDong.CLIENT.genruntimeconfig.cache
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong.CLIENT\obj\Debug\net7.0\ref\QuanLyHopDong.CLIENT.dll

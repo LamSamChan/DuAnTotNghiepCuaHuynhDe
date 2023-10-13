@@ -14,7 +14,7 @@ namespace QuanLyHopDongVaKySo_API.Database
         public DbSet<Employee> Employees { get; set; }
         public DbSet<PendingMinute> PendingMinutes { get; set; }
         public DbSet<InstallationRequirement> InstallationRequirements { get; set; }
-        public DbSet<OperationHistory> OperationHistorys { get; set; }
+        public DbSet<OperationHistory> OperationHistories { get; set; }
         public DbSet<PendingContract> PendingContracts { get; set; }
         public DbSet<PFXCertificate> PFXCertificates { get; set; }
         public DbSet<Position> Positions { get; set; }

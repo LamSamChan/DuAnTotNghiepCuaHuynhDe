@@ -19,7 +19,6 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column("Password")]
         public string PfxPassword { get; set; }
 
-
         [Display(Name = "Tổ chức phát hành")]
         [Column("Issuer")]
         public string Issuer { get; set; }

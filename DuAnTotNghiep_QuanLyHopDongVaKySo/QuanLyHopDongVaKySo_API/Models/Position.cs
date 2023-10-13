@@ -16,6 +16,9 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Required(ErrorMessage = "Hãy điền tên chức vụ !")]
         public string PositionName { get; set; }
 
+        [Display(Name = "Trạng thái hiển thị")]
+        public bool isHidden { get; set; }
+
         //tạo liên kết
 
     }

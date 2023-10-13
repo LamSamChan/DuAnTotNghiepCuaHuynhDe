@@ -38,8 +38,6 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [ForeignKey("TemplateMinute")]
         public int TMinuteId { get; set; }
-
-
         public Employee Employee { get; set; }
         public TemplateMinute TemplateMinute { get; set; }
         public DoneContract DoneContract { get; set; }

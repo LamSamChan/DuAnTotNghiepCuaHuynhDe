@@ -466,7 +466,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.HasIndex("TMinuteId");
 
-                    b.ToTable("InstallationMinute", (string)null);
+                    b.ToTable("PendingMinute", (string)null);
                 });
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.Position", b =>
@@ -481,6 +481,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<string>("PositionName")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("isHidden")
+                        .HasColumnType("bit");
 
                     b.HasKey("PositionID");
 
@@ -499,6 +502,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<string>("RoleName")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("isHidden")
+                        .HasColumnType("bit");
 
                     b.HasKey("RoleID");
 
