@@ -33,14 +33,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             Position position = await _positionSvc.GetById(id);
             if(position != null) 
             {
-                Ok(position);
+                return Ok(position);
             }
             else
             {
                 return BadRequest(position);
             }
-
-            return null;
         }
 
         [HttpPost("AddNew")]
