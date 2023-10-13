@@ -6,4 +6,20 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Pages\Shared\_SideBarPartialViewEmpl.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\_SideBarPartialViewEmpl.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\Customer\" />
+    <Folder Include="Pages\Admin\" />
+    <Folder Include="Pages\Boss\" />
+    <Folder Include="Pages\BusinessStaff\" />
+    <Folder Include="Pages\InstalationStaff\" />
+  </ItemGroup>
+
 </Project>
