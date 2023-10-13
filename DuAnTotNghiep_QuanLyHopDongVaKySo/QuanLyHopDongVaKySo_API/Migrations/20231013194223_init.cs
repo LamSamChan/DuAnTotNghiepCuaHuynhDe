@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace QuanLyHopDongVaKySo_API.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstMigration_101323 : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -52,7 +52,8 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PositionName = table.Column<string>(type: "nvarchar(50)", nullable: false)
+                    PositionName = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    isHidden = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -65,7 +66,8 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleName = table.Column<string>(type: "nvarchar(50)", nullable: false)
+                    RoleName = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    isHidden = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -226,23 +228,38 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DoneMinute",
+                name: "DoneContract",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DateDone = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    MinuteName = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    MinuteFile = table.Column<string>(type: "nvarchar(250)", nullable: false),
-                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    DConTractName = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    DContractFile = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsInEffect = table.Column<bool>(type: "bit", nullable: false),
+                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TOS_ID = table.Column<int>(type: "int", nullable: false),
+                    DoneMinuteId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DoneMinute", x => x.Id);
+                    table.PrimaryKey("PK_DoneContract", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_DoneMinute_Employee_EmployeeId",
+                        name: "FK_DoneContract_Customer_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customer",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DoneContract_Employee_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employee",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_DoneContract_TypeOfService_TOS_ID",
+                        column: x => x.TOS_ID,
+                        principalTable: "TypeOfService",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -273,105 +290,49 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         column: x => x.CustomerId,
                         principalTable: "Customer",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_PendingContract_Employee_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employee",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_PendingContract_TemplateContract_TContractId",
                         column: x => x.TContractId,
                         principalTable: "TemplateContract",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_PendingContract_TypeOfService_TOS_ID",
                         column: x => x.TOS_ID,
                         principalTable: "TypeOfService",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "DoneContract",
+                name: "DoneMinute",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     DateDone = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DConTractName = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    DContractFile = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsInEffect = table.Column<bool>(type: "bit", nullable: false),
-                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TOS_ID = table.Column<int>(type: "int", nullable: false),
-                    DoneMinuteId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DoneContract", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_DoneContract_Customer_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "Customer",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
-                    table.ForeignKey(
-                        name: "FK_DoneContract_DoneMinute_DoneMinuteId",
-                        column: x => x.DoneMinuteId,
-                        principalTable: "DoneMinute",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
-                    table.ForeignKey(
-                        name: "FK_DoneContract_Employee_EmployeeId",
-                        column: x => x.EmployeeId,
-                        principalTable: "Employee",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
-                    table.ForeignKey(
-                        name: "FK_DoneContract_TypeOfService_TOS_ID",
-                        column: x => x.TOS_ID,
-                        principalTable: "TypeOfService",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "InstallationMinute",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MinuteName = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    IsIntallation = table.Column<bool>(type: "bit", nullable: false),
-                    IsCustomer = table.Column<bool>(type: "bit", nullable: false),
                     MinuteFile = table.Column<string>(type: "nvarchar(250)", nullable: false),
                     EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    DoneContractId = table.Column<int>(type: "int", nullable: false),
-                    TMinuteId = table.Column<int>(type: "int", nullable: false)
+                    DonContractId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InstallationMinute", x => x.Id);
+                    table.PrimaryKey("PK_DoneMinute", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_InstallationMinute_DoneContract_DoneContractId",
-                        column: x => x.DoneContractId,
+                        name: "FK_DoneMinute_DoneContract_Id",
+                        column: x => x.Id,
                         principalTable: "DoneContract",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_InstallationMinute_Employee_EmployeeId",
+                        name: "FK_DoneMinute_Employee_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employee",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_InstallationMinute_TemplateMinute_TMinuteId",
-                        column: x => x.TMinuteId,
-                        principalTable: "TemplateMinute",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -398,6 +359,43 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "PendingMinute",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    MinuteName = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    IsIntallation = table.Column<bool>(type: "bit", nullable: false),
+                    IsCustomer = table.Column<bool>(type: "bit", nullable: false),
+                    MinuteFile = table.Column<string>(type: "nvarchar(250)", nullable: false),
+                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DoneContractId = table.Column<int>(type: "int", nullable: false),
+                    TMinuteId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PendingMinute", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PendingMinute_DoneContract_DoneContractId",
+                        column: x => x.DoneContractId,
+                        principalTable: "DoneContract",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PendingMinute_Employee_EmployeeId",
+                        column: x => x.EmployeeId,
+                        principalTable: "Employee",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_PendingMinute_TemplateMinute_TMinuteId",
+                        column: x => x.TMinuteId,
+                        principalTable: "TemplateMinute",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Customer_SerialPFX",
                 table: "Customer",
@@ -412,11 +410,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 name: "IX_DoneContract_CustomerId",
                 table: "DoneContract",
                 column: "CustomerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DoneContract_DoneMinuteId",
-                table: "DoneContract",
-                column: "DoneMinuteId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DoneContract_EmployeeId",
@@ -449,21 +442,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 column: "SerialPFX");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InstallationMinute_DoneContractId",
-                table: "InstallationMinute",
-                column: "DoneContractId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InstallationMinute_EmployeeId",
-                table: "InstallationMinute",
-                column: "EmployeeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InstallationMinute_TMinuteId",
-                table: "InstallationMinute",
-                column: "TMinuteId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_InstallationRequirement_DoneContractId",
                 table: "InstallationRequirement",
                 column: "DoneContractId");
@@ -487,13 +465,28 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 name: "IX_PendingContract_TOS_ID",
                 table: "PendingContract",
                 column: "TOS_ID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PendingMinute_DoneContractId",
+                table: "PendingMinute",
+                column: "DoneContractId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PendingMinute_EmployeeId",
+                table: "PendingMinute",
+                column: "EmployeeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PendingMinute_TMinuteId",
+                table: "PendingMinute",
+                column: "TMinuteId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "InstallationMinute");
+                name: "DoneMinute");
 
             migrationBuilder.DropTable(
                 name: "InstallationRequirement");
@@ -505,28 +498,28 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 name: "PendingContract");
 
             migrationBuilder.DropTable(
-                name: "TemplateMinute");
-
-            migrationBuilder.DropTable(
-                name: "DoneContract");
+                name: "PendingMinute");
 
             migrationBuilder.DropTable(
                 name: "TemplateContract");
 
             migrationBuilder.DropTable(
+                name: "DoneContract");
+
+            migrationBuilder.DropTable(
+                name: "TemplateMinute");
+
+            migrationBuilder.DropTable(
                 name: "Customer");
 
             migrationBuilder.DropTable(
-                name: "DoneMinute");
+                name: "Employee");
 
             migrationBuilder.DropTable(
                 name: "TypeOfService");
 
             migrationBuilder.DropTable(
                 name: "TypeOfCustomer");
-
-            migrationBuilder.DropTable(
-                name: "Employee");
 
             migrationBuilder.DropTable(
                 name: "PFXCertificate");
