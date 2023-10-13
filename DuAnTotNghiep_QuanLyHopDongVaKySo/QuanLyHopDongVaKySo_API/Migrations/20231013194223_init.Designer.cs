@@ -12,15 +12,15 @@ using QuanLyHopDongVaKySo_API.Database;
 namespace QuanLyHopDongVaKySo_API.Migrations
 {
     [DbContext(typeof(ProjectDbContext))]
-    [Migration("20231012175709_FirstMigration_10.13.23")]
-    partial class FirstMigration_101323
+    [Migration("20231013194223_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.11")
+                .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -152,8 +152,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.HasIndex("DoneMinuteId");
-
                     b.HasIndex("EmployeeId");
 
                     b.HasIndex("TOS_ID");
@@ -164,14 +162,14 @@ namespace QuanLyHopDongVaKySo_API.Migrations
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.DoneMinute", b =>
                 {
                     b.Property<int>("DoneMinuteID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("Id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DoneMinuteID"));
-
                     b.Property<DateTime>("DateDone")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DonContractId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
@@ -469,7 +467,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.HasIndex("TMinuteId");
 
-                    b.ToTable("InstallationMinute", (string)null);
+                    b.ToTable("PendingMinute", (string)null);
                 });
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.Position", b =>
@@ -484,6 +482,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<string>("PositionName")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("isHidden")
+                        .HasColumnType("bit");
 
                     b.HasKey("PositionID");
 
@@ -502,6 +503,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<string>("RoleName")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("isHidden")
+                        .HasColumnType("bit");
 
                     b.HasKey("RoleID");
 
@@ -658,16 +662,10 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("QuanLyHopDongVaKySo_API.Models.DoneMinute", "DoneMinute")
-                        .WithMany()
-                        .HasForeignKey("DoneMinuteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.Employee", "Employee")
                         .WithMany("DoneContract")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.TypeOfService", "TypeOfService")
@@ -678,8 +676,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.Navigation("Customer");
 
-                    b.Navigation("DoneMinute");
-
                     b.Navigation("Employee");
 
                     b.Navigation("TypeOfService");
@@ -687,11 +683,19 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.DoneMinute", b =>
                 {
+                    b.HasOne("QuanLyHopDongVaKySo_API.Models.DoneContract", "DoneContract")
+                        .WithOne("DoneMinute")
+                        .HasForeignKey("QuanLyHopDongVaKySo_API.Models.DoneMinute", "DoneMinuteID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.Employee", "Employee")
                         .WithMany("DoneMinute")
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("DoneContract");
 
                     b.Navigation("Employee");
                 });
@@ -737,7 +741,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.PendingContract", b =>
                 {
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.Customer", "Customer")
-                        .WithMany("PendingContract")
+                        .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -745,7 +749,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.Employee", "Employee")
                         .WithMany("PendingContract")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.TemplateContract", "TemplateContract")
@@ -780,7 +784,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.Employee", "Employee")
                         .WithMany("PendingMinute")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.TemplateMinute", "TemplateMinute")
@@ -799,8 +803,12 @@ namespace QuanLyHopDongVaKySo_API.Migrations
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.Customer", b =>
                 {
                     b.Navigation("DoneContract");
+                });
 
-                    b.Navigation("PendingContract");
+            modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.DoneContract", b =>
+                {
+                    b.Navigation("DoneMinute")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.Employee", b =>

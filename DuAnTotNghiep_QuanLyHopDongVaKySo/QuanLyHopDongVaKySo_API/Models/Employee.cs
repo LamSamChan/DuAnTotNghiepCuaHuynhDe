@@ -97,5 +97,6 @@ namespace QuanLyHopDongVaKySo_API.Models
         public ICollection<DoneMinute> DoneMinute { get; set; }
         public ICollection<PendingContract> PendingContract { get; set; }
         public ICollection<PendingMinute> PendingMinute { get; set; }
+        public object PendingContracts { get; internal set; }
     }
 }

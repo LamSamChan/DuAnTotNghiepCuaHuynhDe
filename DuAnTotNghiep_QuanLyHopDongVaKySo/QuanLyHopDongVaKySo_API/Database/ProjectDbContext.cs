@@ -42,7 +42,28 @@ namespace QuanLyHopDongVaKySo_API.Database
             modelBuilder.Entity<TemplateMinute>().ToTable("TemplateMinute");
             modelBuilder.Entity<TypeOfCustomer>().ToTable("TypeOfCustomer");
             modelBuilder.Entity<TypeOfService>().ToTable("TypeOfService");
+             modelBuilder.Entity<PendingContract>()
+                .HasOne(p => p.Employee)  // Mối quan hệ với Employee
+                .WithMany(e => e.PendingContract)
+                .HasForeignKey(p => p.EmployeeId)
+                .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<DoneContract>()
+                .HasOne(dc => dc.DoneMinute)
+                .WithOne(dm => dm.DoneContract)
+                .HasForeignKey<DoneMinute>(dm => dm.DoneMinuteID)
+                .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<DoneContract>()
+                .HasOne(dc => dc.Employee)
+                .WithMany(e => e.DoneContract)
+                .HasForeignKey(p => p.EmployeeId)
+                .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<PendingMinute>()
+                .HasOne(p => p.Employee)
+                .WithMany(e => e.PendingMinute)
+                .HasForeignKey(p => p.EmployeeId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
-
+        //dotnet ef migrations add init
+        //
     }
 }
