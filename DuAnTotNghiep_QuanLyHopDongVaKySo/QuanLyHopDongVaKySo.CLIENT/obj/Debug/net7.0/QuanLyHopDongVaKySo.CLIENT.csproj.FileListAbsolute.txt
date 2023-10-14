@@ -1,0 +1,7 @@
+D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.GeneratedMSBuildEditorConfig.editorconfig
+D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.AssemblyInfoInputs.cache
+D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.AssemblyInfo.cs
+D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.csproj.CoreCompileInputs.cache
+D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.MvcApplicationPartsAssemblyInfo.cache
+D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.RazorAssemblyInfo.cache
+D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.RazorAssemblyInfo.cs
