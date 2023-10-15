@@ -335,4 +335,8 @@ main {
 }
 .form-control{
     border:none;
+    border-bottom:1px solid
+}
+.form-label {
+    font-family: Dongle;
 }
