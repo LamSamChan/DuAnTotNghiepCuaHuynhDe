@@ -1,0 +1,95 @@
+﻿@page
+@model QuanLyHopDongVaKySo_CLIENT.Pages.BusinessStaff.PersonalPageModel
+@{
+}
+<div class="container-fluid">
+    <div class="header" style="height:100px;">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="body" style="">
+        <div class="row justify-content-around" style="height:365px;">
+            <div class="col-6">
+                h111
+            </div>
+            <div class="col-5">
+                <div class="row">
+                    <div class="col boxLoad">
+                        <button class="upload">
+                            <i class="ph-bold ph-upload-simple"></i>
+                        </button>
+                        <h3>UPLOAD FILE</h3>
+                    </div>
+                    <div class="col">
+                        <h5>
+                            Stay on the pulse of distributed projects with an anline whiteboard to plan, coordinate and discuss
+                        </h5>
+                        <button>
+                            SAVE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="height:500px;">
+            <div class="infor col-5" style="margin:10px;">
+                <h4>Thông tin cá nhân</h4>
+                <form class="row justify-content-around g-3">
+                    <div class="col-md-5">
+                        <label for="inputName" class="form-label">Họ tên</label>
+                        <input type="text" class="form-control" id="inputName">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputPhone" class="form-label">Số điện thoại</label>
+                        <input type="number" class="form-control" id="inputPhone">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputAddress" class="form-label">Địa chỉ</label>
+                        <input type="text" class="form-control" id="inputAddress">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputDate" class="form-label">Ngày sinh</label>
+                        <input type="date" class="form-control" id="inputDate">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputGender" class="form-label">Giới tính</label>
+                        <select id="inpuGender" class="form-select">
+                            <option selected>Nam</option>
+                            <option>Nữ</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="infor col-4"></div>
+            <div class="col-2"></div>
+        </div>
+
+
+    </div>
+</div>
