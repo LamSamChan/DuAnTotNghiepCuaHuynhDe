@@ -10,21 +10,21 @@ body {
 
 .contai {
     display: flex;
-    align-items: center;
     width: 100%;
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 .sidebar {
     position: relative;
     width: 256px;
-    height: 100vh;
+    height: 94vh;
     display: flex;
     flex-direction: column;
     gap: 20px;
     background-color: #fff;
-    /* padding: 24px;*/
+    padding: 24px;
     transition: all 0.3s;
+    /*margin-top: -55px;*/
 }
 
 .user-img {
@@ -223,8 +223,116 @@ body {
 }
 
 main {
-    margin: 0 auto;
+  width:100%;
+}
 
-    text-align: center;
+/*
+    css - PersonalPartialView
+*/
+/*.horizontal-list {
+    list-style: none;
+    display:flex;
+}*/
+.SearchBox {
+    height: 61px;
+    width: 400px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #FFF;
+    box-shadow: 14px 17px 40px 4px rgba(112, 144, 176, 0.08);
+    align-items: center;
+    position:absolute;
+    top: 70px;
+    right:10px;
+}
+.horizontal-list li{
+    margin-right: 20px;
 
+}
+.horizontal-list li i{
+    font-size: 20px;
+}
+.horizontal-list li a{
+  display:flex;
+  cursor:pointer;
+  
+}
+.horizontal-list li a i{
+    margin:10px 0;
+}
+.horizontal-list li .Search {
+    width: 250px;
+    height: 41px;
+    border-radius: 30px;
+    background-color: #F4F7FE;
+    display: flex;
+}
+.Search i{
+    padding-left:20px;
+    font-size:20px;
+}
+.Search i, .Search input {
+    padding-right: 20px;
+    margin: 10px 0; /* Khoảng cách 10px ở trên và dưới */
+}
+.Search input {
+    border: none;
+    background-color: #F4F7FE;
+    width: 150px;
+}
+.Search input:focus{
+    background-color:none;
+    outline:none;
+}
+
+.body .row .col-6 {
+    background-image: url("../Resource/Image/BackgroundImage.png"); /* Đường dẫn tới hình ảnh */
+    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+    background-size: cover; /* Hiển thị hình ảnh dựa trên toàn bộ kích thước của div */
+    background-position: center;
+    border-radius: 16px;
+    /*margin:0 20px;*/
+    margin-left: -30px;
+}
+.boxLoad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAFCFE;
+    border-radius: 16px;
+    border: 1px dotted #000;
+}
+.boxLoad h3{
+    font-family: DM Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 160% */
+    letter-spacing: -0.4px;
+    color:#4318FF;
+}
+.body .row .col-5{
+    background-color:#FFF ;
+    border-radius:16px;
+}
+.body .row .col-5 .row{
+    margin: 50px 0;
+}
+.body .row .col-5 .upload {
+    font-size: 110px;
+    color: #4318FF;
+    border: none;
+    background: none;
+    height: 200px;
+}
+.body .row form .col-md-5 {
+    border-radius: 10px; /* Bo tròn góc của div */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Tạo bóng cho div */
+    padding: 10px; /* Tạo khoảng cách bên trong div */
+    margin:10px;
+
+}
+.form-control{
+    border:none;
 }

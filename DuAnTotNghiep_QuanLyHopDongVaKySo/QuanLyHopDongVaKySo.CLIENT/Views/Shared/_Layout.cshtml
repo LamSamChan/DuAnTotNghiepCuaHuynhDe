@@ -10,11 +10,11 @@
     <script src="https://unpkg.com/@@phosphor-icons/web"></script>
 </head>
 <body>
-    <header>
+    <header style="background-color:#001529;">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
             <div class="container-fluid">
                 <div class="logo">
-                    <img style="width:40px;" src="~/Resource/LOGO_WITHOUT_BG/2.png" />
+                    <img style="width:40px;" src="~/Resource/Image/LOGO_WITHOUT_BG/2.png" />
                     <a style="color:white; font-weight:bold;" class="navbar-brand" asp-area="" asp-page="/Index">TEACHSEAL</a>
 
                 </div>
@@ -31,21 +31,16 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="contai">
+        @Html.Partial("_SidebarPartialView")
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - QuanLyHopDongVaKySo.CLIENT - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/site.js"></script>
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

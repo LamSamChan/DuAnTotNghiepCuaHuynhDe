@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using QuanLyHopDongVaKySo.CLIENT.Models;
 using System.Diagnostics;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
@@ -14,6 +13,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult PersonalPartialView()
         {
             return View();
         }
