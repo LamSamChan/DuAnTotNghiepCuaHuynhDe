@@ -9,6 +9,7 @@ using QuanLyHopDongVaKySo_API.Database;
 using QuanLyHopDongVaKySo_API.Models;
 using Org.BouncyCastle.Asn1.X509;
 using Org.BouncyCastle.Math;
+using Org.BouncyCastle.X509.Extension;
 
 namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
 {
@@ -37,7 +38,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
             }
         }
 
-        public async Task<string> CreatePFXCertificate(string issuerName, string subjectName, string pfxPassword)
+        public async Task<string> CreatePFXCertificate(string issuerName, string subjectName, string pfxPassword, bool isEmployee)
         {
             try
             {
@@ -59,12 +60,13 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 Org.BouncyCastle.X509.X509Certificate certificate = certificateGenerator.Generate(signatureFactory);
                 
                 cer.Serial = certificate.SerialNumber.ToString();
-                cer.PfxFileName = certificate.SerialNumber + ".pfx";
+                cer.PfxFileName = certificate.SerialNumber.ToString() + ".pfx";
                 cer.PfxPassword = pfxPassword;
                 cer.Issuer = certificate.IssuerDN.ToString();
                 cer.Subject = certificate.SubjectDN.ToString();
                 cer.ValidFrom = certificate.NotBefore;
                 cer.ValidUntil = certificate.NotAfter;
+                cer.IsEmployee = isEmployee;
 
                 Pkcs12Store store = new Pkcs12StoreBuilder().Build();
                 X509CertificateEntry certificateEntry = new X509CertificateEntry(certificate);
@@ -72,7 +74,14 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 store.SetKeyEntry("privateKey", new AsymmetricKeyEntry(keyPair.Private), new X509CertificateEntry[] { certificateEntry });
 
                 //tạo đường dẫn lưu file 
-                string rootDirectory = @"..\..\..\AppData\PFXCertificates"; // Thay đổi đường dẫn gốc tùy theo vị trí bạn muốn lưu trữ thư mục.
+                string appDataDirectory = @"..\..\..\AppData"; // Thay đổi đường dẫn gốc tùy theo vị trí bạn muốn lưu trữ thư mục.
+                string typeofDirectory = "PFXCertificates";
+                string rootDirectory= Path.Combine(appDataDirectory, typeofDirectory);
+
+                if (!Directory.Exists(rootDirectory))
+                {
+                    Directory.CreateDirectory(rootDirectory);
+                }
 
                 DateTime currentDate = DateTime.Now;
                 string year = currentDate.Year.ToString();
@@ -98,19 +107,27 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 {
                     Directory.CreateDirectory(dayDirectory);
                 }
+
                 string pfxFilePath = Path.Combine(dayDirectory, cer.PfxFileName);
+                cer.PfxFilePath = pfxFilePath;
                 using (FileStream pfxFile = new FileStream(pfxFilePath, FileMode.Create, FileAccess.Write))
                 {
                    store.Save(pfxFile, pfxPassword.ToCharArray(), new SecureRandom());
                 }
 
-                // Lưu byte[] vào tệp văn bản (txt)
-                File.WriteAllText(@"../../../../filepath.txt", pfxFilePath);
+                if(AddInfoToDatabase(cer) != null)
+                {
+                    return await AddInfoToDatabase(cer);
+                }
+                else
+                {
+                    return null;
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                return null;
             }
             
         }
@@ -160,24 +177,154 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
             }
         }
 
-        public Task<PFXCertificate> GetById(string serial)
+        public async Task<PFXCertificate> GetById(string serial)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _context.PFXCertificates.FirstOrDefault(p => p.Serial == serial);
+            }
+            catch (Exception ex)
+            {
+                return new PFXCertificate();
+            }
         }
 
-        public Task<string> GetInfoFormPFXCertificate(PFXCertificate pfxCertificate)
+        public async Task<string> UpdateInfoToDatabase(PFXCertificate pfxCertificate)
         {
-            throw new NotImplementedException();
+            string status = null;
+            try
+            {
+                // Lấy đối tượng từ database dựa vào id
+                var existingPfx = _context.PFXCertificates.FirstOrDefault(p => p.Serial == pfxCertificate.Serial);
+
+                // Kiểm tra xem đối tượng có tồn tại trong database không
+                if (existingPfx == null)
+                {
+                    return null;
+                }
+
+                // Cập nhật thông tin của đối tượng 
+                existingPfx.Serial = pfxCertificate.Serial;
+                existingPfx.PfxFileName = pfxCertificate.PfxFileName;
+                existingPfx.PfxPassword = pfxCertificate.PfxPassword;
+                existingPfx.PfxFilePath = pfxCertificate.PfxFilePath;
+                existingPfx.Issuer = pfxCertificate.Issuer;
+                existingPfx.Subject = pfxCertificate.Subject;
+                existingPfx.ValidFrom = pfxCertificate.ValidFrom;
+                existingPfx.ValidUntil = pfxCertificate.ValidUntil;
+                existingPfx.IsEmployee = pfxCertificate.IsEmployee;
+                
+                // Lưu thay đổi vào database
+                await _context.SaveChangesAsync();
+                status = pfxCertificate.Serial;
+            }
+            catch (System.Exception ex)
+            {
+                status = null;
+            }
+            return status;
         }
 
-        public Task<string> UpdateInfoToDatabase(PFXCertificate pfxCertificate)
+        public async Task<string> UpdateNotAfter(string pfxFilePath, string password)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                FileStream fs = new FileStream(pfxFilePath, FileMode.Open, FileAccess.Read);
+                Pkcs12Store store = new Pkcs12Store(fs, password.ToCharArray());
 
-        public Task<string> UpdateNotAfter(string pfxFilePath, string password)
-        {
-            throw new NotImplementedException();
+                string alias = null;
+                foreach (string a in store.Aliases)
+                {
+                    if (store.IsKeyEntry(a))
+                    {
+                        alias = a;
+                        break;
+                    }
+                }
+                AsymmetricKeyEntry keyEntry = store.GetKey(alias);
+                X509CertificateEntry certEntry = store.GetCertificate(alias);
+                X509Certificate certificate = certEntry.Certificate;
+
+                // Gia hạn thời gian hiệu lực của chứng chỉ
+                DateTime newNotBefore = DateTime.Now; // Ngày bắt đầu mới
+                DateTime newNotAfter = DateTime.Now.AddYears(1); // Ngày kết thúc mới
+
+                string pfxFileName = null;
+                X509V3CertificateGenerator generator = new X509V3CertificateGenerator();
+                generator.SetSerialNumber(certificate.SerialNumber);
+                generator.SetNotBefore(newNotBefore);
+                generator.SetNotAfter(newNotAfter);
+                generator.SetIssuerDN(certificate.SubjectDN);
+                generator.SetSubjectDN(certificate.SubjectDN);
+                generator.SetPublicKey(certificate.GetPublicKey());
+                generator.AddExtension(
+                    X509Extensions.AuthorityKeyIdentifier,
+                    false,
+                    new AuthorityKeyIdentifierStructure(certEntry.Certificate));
+
+                // Tạo chứng chỉ mới với thuật toán SHA256WithRSAEncryption
+                ISignatureFactory signatureFactory = new Asn1SignatureFactory("SHA256WithRSAEncryption", keyEntry.Key);
+                X509Certificate newCertificate = generator.Generate(signatureFactory);
+
+                pfxFileName = newCertificate.SerialNumber.ToString() + ".pfx";
+                // Tạo mảng chứa chứng chỉ mới
+                X509CertificateEntry[] newCertificateChain = new X509CertificateEntry[] { new X509CertificateEntry(newCertificate) };
+
+                // Lưu chứng chỉ gia hạn vào tệp .pfx
+                store.SetKeyEntry(alias, keyEntry, newCertificateChain);
+
+                //tạo đường dẫn lưu file 
+                string appDataDirectory = @"..\..\..\AppData"; // Thay đổi đường dẫn gốc tùy theo vị trí bạn muốn lưu trữ thư mục.
+                string typeofDirectory = "PFXCertificates";
+                string rootDirectory = Path.Combine(appDataDirectory, typeofDirectory);
+
+                if (!Directory.Exists(rootDirectory))
+                {
+                    Directory.CreateDirectory(rootDirectory);
+                }
+
+                DateTime currentDate = DateTime.Now;
+                string year = currentDate.Year.ToString();
+                string month = currentDate.Month.ToString();
+                string day = currentDate.Day.ToString();
+
+                string yearDirectory = Path.Combine(rootDirectory, year);
+                string monthDirectory = Path.Combine(yearDirectory, month);
+                string dayDirectory = Path.Combine(monthDirectory, day);
+
+                // Kiểm tra xem thư mục đã tồn tại chưa, nếu không thì tạo mới.
+                if (!Directory.Exists(yearDirectory))
+                {
+                    Directory.CreateDirectory(yearDirectory);
+                }
+
+                if (!Directory.Exists(monthDirectory))
+                {
+                    Directory.CreateDirectory(monthDirectory);
+                }
+
+                if (!Directory.Exists(dayDirectory))
+                {
+                    Directory.CreateDirectory(dayDirectory);
+                }
+
+                fs.Close();
+                File.Delete(pfxFilePath);
+
+                string pfxFilePathNew = Path.Combine(dayDirectory, pfxFileName);
+
+                using (FileStream pfxFile = new FileStream(pfxFilePathNew, FileMode.Create, FileAccess.Write))
+                {
+                    store.Save(pfxFile, password.ToCharArray(), new SecureRandom());
+                }
+
+                return certificate.SerialNumber.ToString();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
     }
 }

@@ -65,7 +65,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PositionService
             try
             {
                 // Lấy đối tượng từ database dựa vào id
-                var existingPostion = _context.Positions.FirstOrDefault(p => p.PositionID == p.PositionID);
+                var existingPostion = _context.Positions.FirstOrDefault(p => p.PositionID == position.PositionID);
 
                 // Kiểm tra xem đối tượng có tồn tại trong database không
                 if (existingPostion == null)

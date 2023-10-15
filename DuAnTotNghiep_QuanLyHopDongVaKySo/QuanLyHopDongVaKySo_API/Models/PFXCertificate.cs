@@ -19,6 +19,9 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column("Password")]
         public string PfxPassword { get; set; }
 
+        [Display(Name = "Đường dẫn tệp PFX")]
+        [Column("FilePath")]
+        public string PfxFilePath { get; set; }
 
         [Display(Name = "Tổ chức phát hành")]
         [Column("Issuer")]
@@ -28,9 +31,6 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column("Subject")]
         public string Subject { get; set; }
 
-        [Display(Name = "Giá trị băm")]
-        [Column("Thumbprint")]
-        public string Thumbprint { get; set; }
         [DisplayFormat(DataFormatString = "{0::HH:mm:ss dd/MM/yyyy}")]
         [Display(Name = "Ngày hiệu lực")]
         [Column("ValidFrom")]
