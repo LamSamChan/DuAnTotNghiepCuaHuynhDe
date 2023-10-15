@@ -22,11 +22,8 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Tệp biên bản")]
         public string TMinuteFile { get; set; }
 
-        public int x_IntallationZone { get; set; }
-        public int y_IntallationZone { get; set; }
-
-        public int x_CustomerZone { get; set; }
-        public int y_CustomerZone { get; set; }
+        public string jsonIntallationZone { get; set; }
+        public string jsonCustomerZone { get; set; }
 
         //tạo liên kết
 

@@ -31,12 +31,12 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Giá trị băm")]
         [Column("Thumbprint")]
         public string Thumbprint { get; set; }
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0::HH:mm:ss dd/MM/yyyy}")]
         [Display(Name = "Ngày hiệu lực")]
         [Column("ValidFrom")]
         public DateTime ValidFrom { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0::HH:mm:ss dd/MM/yyyy}")]
         [Display(Name = "Ngày hết hạn")]
         [Column("ValidUntil")]
         public DateTime ValidUntil { get; set; }

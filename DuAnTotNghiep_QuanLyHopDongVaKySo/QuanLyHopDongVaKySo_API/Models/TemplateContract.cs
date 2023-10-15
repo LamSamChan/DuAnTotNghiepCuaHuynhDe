@@ -22,11 +22,8 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Tệp hợp đồng")]
         public string TContractFile{ get; set; }
 
-        public int x_DirectorZone { get; set; }
-        public int y_DirectorZone { get; set; }
-
-        public int x_CustomerZone { get; set; }
-        public int y_CustomerZone { get; set; }
+        public string jsonDirectorZone { get; set; }
+        public string jsonCustomerZone { get; set; }
 
         //tạo liên kết
 
