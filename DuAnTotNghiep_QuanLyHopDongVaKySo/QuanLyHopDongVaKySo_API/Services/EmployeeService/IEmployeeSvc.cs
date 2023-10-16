@@ -5,9 +5,9 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
 {
     public interface IEmployeeSvc
     {
-       /* Task<List<Employee>> GetAll();
+        Task<List<Employee>> GetAll();
         Task<Employee> GetById(Guid empID);
-        Task<Guid> AddNew(Employee employee);
-        Task<Guid> Update(Employee employee);*/
+        Task<string> AddNew(Employee employee);
+        Task<string> Update(Employee employee);
     }
 }

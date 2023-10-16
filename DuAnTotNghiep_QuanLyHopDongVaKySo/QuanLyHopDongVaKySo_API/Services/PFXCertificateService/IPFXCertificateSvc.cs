@@ -15,7 +15,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
         Task<string> CreatePFXCertificate(string issuerName, string subjectName, string pfxPassword, bool isEmployee);
 
         //cập nhật lại thợi gian hiệu lực đối với file -> lưu thông tin vào dtb
-        Task<string> UpdateNotAfter(string pfxFilePath, string password);
+        Task<PFXCertificate> UpdateNotAfter(string pfxFilePath, string password, bool isEmployee);
 
         //cập nhật vô database
         Task<string> AddInfoToDatabase(PFXCertificate pfxCertificate);

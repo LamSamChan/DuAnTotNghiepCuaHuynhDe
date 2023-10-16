@@ -213,7 +213,10 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 existingPfx.ValidFrom = pfxCertificate.ValidFrom;
                 existingPfx.ValidUntil = pfxCertificate.ValidUntil;
                 existingPfx.IsEmployee = pfxCertificate.IsEmployee;
-                
+                existingPfx.ImageSignature1 = pfxCertificate.ImageSignature1;
+                existingPfx.ImageSignature2 = pfxCertificate.ImageSignature2;
+                existingPfx.ImageSignature3 = pfxCertificate.ImageSignature3;
+
                 // Lưu thay đổi vào database
                 await _context.SaveChangesAsync();
                 status = pfxCertificate.Serial;
@@ -225,7 +228,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
             return status;
         }
 
-        public async Task<string> UpdateNotAfter(string pfxFilePath, string password)
+        public async Task<PFXCertificate> UpdateNotAfter(string pfxFilePath, string password, bool isEmployee)
         {
             try
             {
@@ -249,7 +252,6 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 DateTime newNotBefore = DateTime.Now; // Ngày bắt đầu mới
                 DateTime newNotAfter = DateTime.Now.AddYears(1); // Ngày kết thúc mới
 
-                string pfxFileName = null;
                 X509V3CertificateGenerator generator = new X509V3CertificateGenerator();
                 generator.SetSerialNumber(certificate.SerialNumber);
                 generator.SetNotBefore(newNotBefore);
@@ -266,7 +268,16 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 ISignatureFactory signatureFactory = new Asn1SignatureFactory("SHA256WithRSAEncryption", keyEntry.Key);
                 X509Certificate newCertificate = generator.Generate(signatureFactory);
 
-                pfxFileName = newCertificate.SerialNumber.ToString() + ".pfx";
+                PFXCertificate cer = new PFXCertificate();
+                cer.Serial = certificate.SerialNumber.ToString();
+                cer.PfxFileName = certificate.SerialNumber.ToString() + ".pfx";
+                cer.PfxPassword = password;
+                cer.Issuer = certificate.IssuerDN.ToString();
+                cer.Subject = certificate.SubjectDN.ToString();
+                cer.ValidFrom = newNotBefore;
+                cer.ValidUntil = newNotAfter;
+                cer.IsEmployee = isEmployee;
+
                 // Tạo mảng chứa chứng chỉ mới
                 X509CertificateEntry[] newCertificateChain = new X509CertificateEntry[] { new X509CertificateEntry(newCertificate) };
 
@@ -311,16 +322,17 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 fs.Close();
                 File.Delete(pfxFilePath);
 
-                string pfxFilePathNew = Path.Combine(dayDirectory, pfxFileName);
+                string pfxFilePathNew = Path.Combine(dayDirectory, cer.PfxFileName);
+                cer.PfxFilePath = pfxFilePathNew;
 
                 using (FileStream pfxFile = new FileStream(pfxFilePathNew, FileMode.Create, FileAccess.Write))
                 {
                     store.Save(pfxFile, password.ToCharArray(), new SecureRandom());
                 }
 
-                return certificate.SerialNumber.ToString();
+                return cer;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return null;

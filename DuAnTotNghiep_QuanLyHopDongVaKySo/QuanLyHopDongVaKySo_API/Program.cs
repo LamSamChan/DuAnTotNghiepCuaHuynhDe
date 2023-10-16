@@ -37,12 +37,12 @@ builder.Services.AddScoped<IPendingMinuteSvc, PendingMinuteSvc>();
 builder.Services.AddScoped<IPFXCertificateSvc, PFXCertificateSvc>();
 builder.Services.AddScoped<IPositionSvc, PositionSvc>();
 builder.Services.AddScoped<IRoleSvc, RoleSvc>();
-builder.Services.AddScoped<IUploadImageHelper, UploadImageHelper>();
 builder.Services.AddScoped<ITemplateContractSvc, TemplateContractSvc>();
 builder.Services.AddScoped<ITemplateMinuteSvc, TemplateMinuteSvc>();
 builder.Services.AddScoped<ITypeOfCustomerSvc, TypeOfCustomerSvc>();
 builder.Services.AddScoped<ITypeOfServiceSvc, TypeOfServiceSvc>();
-
+builder.Services.AddScoped<IUploadImageHelper, UploadImageHelper>();
+builder.Services.AddScoped<IEncodeHelper, EncodeHelper>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
