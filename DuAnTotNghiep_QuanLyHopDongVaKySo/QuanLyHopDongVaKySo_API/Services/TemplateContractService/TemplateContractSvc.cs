@@ -20,7 +20,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
             try{
                 if(tContract.File != null)
                 {
-                    _helpers.UploadImage(tContract.File,"data","TContract");
+                    _helpers.UploadImage(tContract.File,"AppData","TContracts");
                 }
                 TemplateContract add = new TemplateContract()
                 {
@@ -67,7 +67,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
                 var update = await getTContractAsnyc(tContract.TContractID);
                 if(tContract.File != null)
                 {
-                    _helpers.UploadImage(tContract.File,"data","TContract");
+                    _helpers.UploadImage(tContract.File,"AppData","TContracts");
                 }
                 if(update != null)
                 {
