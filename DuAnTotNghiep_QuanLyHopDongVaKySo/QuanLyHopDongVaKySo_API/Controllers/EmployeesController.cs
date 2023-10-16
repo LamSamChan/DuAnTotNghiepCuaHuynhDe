@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services.EmployeeService;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
@@ -11,11 +12,13 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     {
         private readonly IPFXCertificateSvc _pfxCertificate;
         private readonly IEmployeeSvc _employeeSvc;
+        private readonly IEncodeHelper _encodeHelper;
 
-        public EmployeesController(IEmployeeSvc employeeSvc ,IPFXCertificateSvc pfxCertificate)
+        public EmployeesController(IEmployeeSvc employeeSvc ,IPFXCertificateSvc pfxCertificate, IEncodeHelper encodeHelper)
         {
             _employeeSvc = employeeSvc;
             _pfxCertificate = pfxCertificate;
+            _encodeHelper = encodeHelper;
         }
 
         [HttpGet]
@@ -41,6 +44,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpPost("AddNew")]
         public async Task<ActionResult<string>> AddNew(Employee employee)
         {
+            _pfxCertificate.CreatePFXCertificate("TechSeal", employee.FullName, _encodeHelper.Encode(employee.Password), true);
             string isError = await _employeeSvc.AddNew(employee);
             if (isError != null)
             {

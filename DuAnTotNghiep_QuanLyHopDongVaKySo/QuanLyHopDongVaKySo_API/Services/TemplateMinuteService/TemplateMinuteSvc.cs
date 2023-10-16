@@ -7,9 +7,9 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
     public class TemplateMinuteSvc : ITemplateMinuteSvc
     {
         private readonly ProjectDbContext _context;
-        private UploadImageHelper _helpers;
+        private readonly IUploadImageHelper _helpers;
 
-        public TemplateMinuteSvc (ProjectDbContext context,UploadImageHelper helpers)
+        public TemplateMinuteSvc (ProjectDbContext context,IUploadImageHelper helpers)
         {
             _context = context;
             _helpers = helpers;
