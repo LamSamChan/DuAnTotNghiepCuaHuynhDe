@@ -34,11 +34,11 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             }
         }
 
-        public async Task<Employee> GetById(Guid empID)
+        public async Task<Employee> GetById(string empID)
         {
             try
             {
-                return _context.Employees.FirstOrDefault(e => e.EmployeeId == empID);
+                return _context.Employees.FirstOrDefault(e => e.EmployeeId == Guid.Parse(empID));
             }
             catch (Exception ex)
             {
