@@ -9,8 +9,8 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
     public class TemplateContractSvc : ITemplateContractSvc
     {
         private readonly ProjectDbContext _context;
-        private UploadImageHelper _helpers;
-        public TemplateContractSvc(ProjectDbContext context,UploadImageHelper helpers)
+        private readonly IUploadImageHelper _helpers;
+        public TemplateContractSvc(ProjectDbContext context,IUploadImageHelper helpers)
         {
             _context = context;
             _helpers = helpers;
@@ -26,7 +26,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
                 {
                     DateAdded = DateTime.Now,
                     TContractName = tContract.TContractName,
-                    TContractFile = "data\\TContract\\"+tContract.File.FileName,
+                    TContractFile = @"..\..\..\AppData\TContracts\"+tContract.File.FileName,
                     jsonCustomerZone = tContract.jsonCustomerZone,
                     jsonDirectorZone = tContract.jsonDirectorZone
                 };
@@ -72,7 +72,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
                 if(update != null)
                 {
                     update.TContractName = tContract.TContractName;
-                    update.TContractFile = "data\\TContract\\"+tContract.File.FileName;
+                    update.TContractFile = @"..\..\..\AppData\TContracts\"+tContract.File.FileName;
                     update.DateAdded = DateTime.Now;
                     update.jsonCustomerZone = tContract.jsonCustomerZone;
                     update.jsonDirectorZone = tContract.jsonDirectorZone;

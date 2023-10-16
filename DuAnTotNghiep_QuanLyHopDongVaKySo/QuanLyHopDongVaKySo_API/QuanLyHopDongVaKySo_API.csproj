@@ -23,7 +23,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AppData\" />
+    <Folder Include="AppData\DoneContracts\" />
+    <Folder Include="AppData\TMinutes\" />
+    <Folder Include="AppData\TContracts\" />
+    <Folder Include="AppData\PFXCertificates\" />
     <Folder Include="Helpers\" />
     <Folder Include="Services\" />
   </ItemGroup>
