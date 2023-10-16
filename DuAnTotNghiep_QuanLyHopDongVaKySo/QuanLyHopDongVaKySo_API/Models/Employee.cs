@@ -96,31 +96,24 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [JsonIgnore]
         [Obsolete]
-        [AllowNull]
         public PFXCertificate PFXCertificate { get; set; }
         [JsonIgnore]
         [Obsolete]
-        [AllowNull]
         public Role Role { get; set; }
         [JsonIgnore]
         [Obsolete]
-        [AllowNull]
         public Position Position { get; set; }
         [JsonIgnore]
         [Obsolete]
-        [AllowNull]
         public ICollection<DoneContract> DoneContract { get; set; }
         [JsonIgnore]
         [Obsolete]
-        [AllowNull]
         public ICollection<DoneMinute> DoneMinute { get; set; }
         [JsonIgnore]
         [Obsolete]
-        [AllowNull]
         public ICollection<PendingContract> PendingContract { get; set; }
         [JsonIgnore]
         [Obsolete]
-        [AllowNull]
         public ICollection<PendingMinute> PendingMinute { get; set; }
 
     }
