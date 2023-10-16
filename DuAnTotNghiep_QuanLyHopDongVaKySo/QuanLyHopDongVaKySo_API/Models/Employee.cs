@@ -1,6 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using NSwag.Annotations;
+using Swashbuckle.AspNetCore.Annotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace QuanLyHopDongVaKySo_API.Models
 {
@@ -23,7 +26,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Required(ErrorMessage = "Hãy điền họ và tên !")]
         public string FullName { get; set; }
 
-        [Column(TypeName = "varchar(100)")]
+        [Column(TypeName = "varchar(100)"),StringLength(50)]
         [Display(Name = "Email")]
         [Required(ErrorMessage = "Hãy điền email !")]
         [RegularExpression("^[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]+)*$",
@@ -63,6 +66,8 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [NotMapped]
         [Display(Name = "Tệp ảnh")]
+        [Obsolete]
+        [JsonIgnore]
         public IFormFile? ImageFile { get; set; }
 
         //tự động tạo và gửi qua mail ghi đăng ký
@@ -89,13 +94,33 @@ namespace QuanLyHopDongVaKySo_API.Models
         [ForeignKey("Position")]
         public int PositionID { get; set; }
 
+        [JsonIgnore]
+        [Obsolete]
+        [AllowNull]
         public PFXCertificate PFXCertificate { get; set; }
+        [JsonIgnore]
+        [Obsolete]
+        [AllowNull]
         public Role Role { get; set; }
+        [JsonIgnore]
+        [Obsolete]
+        [AllowNull]
         public Position Position { get; set; }
-
+        [JsonIgnore]
+        [Obsolete]
+        [AllowNull]
         public ICollection<DoneContract> DoneContract { get; set; }
+        [JsonIgnore]
+        [Obsolete]
+        [AllowNull]
         public ICollection<DoneMinute> DoneMinute { get; set; }
+        [JsonIgnore]
+        [Obsolete]
+        [AllowNull]
         public ICollection<PendingContract> PendingContract { get; set; }
+        [JsonIgnore]
+        [Obsolete]
+        [AllowNull]
         public ICollection<PendingMinute> PendingMinute { get; set; }
 
     }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "u7NDeqKc/dbM5xIicZJaNWySU7qj0RuKRr2y6B32hKC5a0L+EgjJO4EnJ6MsrbwubfPNfIayQS99Qk+YN/XEyg==",
+  "dgSpecHash": "rxpWH1brxpkDt2FJkRNuwCSCmHNDuQgiHTKGM5qfyQ/OXxouaFP3ovizafx5goM24gY65EBdY24xwCgFAAUKSw==",
   "success": true,
   "projectFilePath": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj",
   "expectedPackageFiles": [
@@ -45,7 +45,9 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\nswag.annotations\\13.20.0\\nswag.annotations.13.20.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\6.5.0\\swashbuckle.aspnetcore.annotations.6.5.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",

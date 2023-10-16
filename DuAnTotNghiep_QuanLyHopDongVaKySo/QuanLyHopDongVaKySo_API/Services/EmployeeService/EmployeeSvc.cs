@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QuanLyHopDongVaKySo_API.Database;
+using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
 
 namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
@@ -7,14 +8,16 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
     public class EmployeeSvc : IEmployeeSvc
     {
         private readonly ProjectDbContext _context;
-
-        public EmployeeSvc(ProjectDbContext context)
+        private readonly IEncodeHelper _encodeHelper;
+        public EmployeeSvc(ProjectDbContext context,IEncodeHelper encodeHelper)
         {
             _context = context;
+            _encodeHelper = encodeHelper;
         }
         public async Task<string> AddNew(Employee employee)
         {
             string isSuccess = null;
+            employee.Password=_encodeHelper.Encode(employee.Password);
             _context.Employees.Add(employee);
             await _context.SaveChangesAsync();
             isSuccess = employee.EmployeeId.ToString();
