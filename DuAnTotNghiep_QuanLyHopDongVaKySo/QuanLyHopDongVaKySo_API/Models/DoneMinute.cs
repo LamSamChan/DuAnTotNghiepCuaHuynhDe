@@ -25,8 +25,8 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         //Tạo khoá liên kết
         [ForeignKey("Employee")]
-        public Guid EmployeeId { get; set; }
+        public Guid? EmployeeId { get; set; }
 
-        public Employee Employee { get; set; }
+        public Employee? Employee { get; set; }
     }
 }

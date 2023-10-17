@@ -25,7 +25,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
                 {
                     DateAdded = DateTime.Now,
                     TMinuteName =  tMinute.TMinuteName,
-                    TMinuteFile = @"..\..\..\AppData\TMinutes\"+tMinute.File.FileName,
+                    TMinuteFile = @"AppData\TMinutes\"+tMinute.File.FileName,
                     jsonCustomerZone = tMinute.jsonCustomerZone,
                     jsonIntallationZone = tMinute.jsonDirectorZone
                 };
@@ -70,7 +70,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
                 if(update != null)
                 {
                     update.TMinuteName = tMinute.TMinuteName;
-                    update.TMinuteFile = @"..\..\..\AppData\TContracts\"+tMinute.File.FileName;
+                    update.TMinuteFile = @"AppData\TContracts\"+tMinute.File.FileName;
                     update.DateAdded = DateTime.Now;
                     update.jsonCustomerZone = tMinute.jsonCustomerZone;
                     update.jsonIntallationZone = tMinute.jsonDirectorZone;

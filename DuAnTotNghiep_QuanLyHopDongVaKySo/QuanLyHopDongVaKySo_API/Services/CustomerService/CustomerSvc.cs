@@ -8,11 +8,11 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
     public class CustomerSvc : ICustomerSvc
     {
         private readonly ProjectDbContext _context;
-        private UploadImageHelper _imageHelpers;
-        private EncodeHelper _enocdeHelper;
+        private IUploadImageHelper _imageHelpers;
+        private IEncodeHelper _enocdeHelper;
         private IPFXCertificateSvc _pFXCertificate;
 
-        public CustomerSvc(ProjectDbContext context, UploadImageHelper imageHelpers, EncodeHelper encodeHelper,IPFXCertificateSvc pFXCertificate)
+        public CustomerSvc(ProjectDbContext context, IUploadImageHelper imageHelpers, IEncodeHelper encodeHelper,IPFXCertificateSvc pFXCertificate)
         {
             _context = context;
             _imageHelpers = _imageHelpers;
@@ -23,7 +23,7 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
         {
             string ret = null;
             try{
-                string serialPFX = await _pFXCertificate.CreatePFXCertificate("TechSeal", customer.FullName, _enocdeHelper.Encode(customer.Identification), true);
+                string serialPFX = await _pFXCertificate.CreatePFXCertificate("TechSeal", customer.FullName, _enocdeHelper.Encode(customer.Identification), false);
                 Customer add = new Customer
                 {
                     CustomerId = Guid.NewGuid(),

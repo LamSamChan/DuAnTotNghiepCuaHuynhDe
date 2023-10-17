@@ -2,6 +2,7 @@
 using QuanLyHopDongVaKySo_API.Database;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 
 namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
 {
@@ -9,15 +10,20 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
     {
         private readonly ProjectDbContext _context;
         private readonly IEncodeHelper _encodeHelper;
-        public EmployeeSvc(ProjectDbContext context,IEncodeHelper encodeHelper)
+        private readonly IPFXCertificateSvc _pfxCertificateSvc;
+        public EmployeeSvc(ProjectDbContext context,IEncodeHelper encodeHelper, IPFXCertificateSvc pfxCertificateSvc)
         {
             _context = context;
             _encodeHelper = encodeHelper;
+            _pfxCertificateSvc = pfxCertificateSvc;
         }
         public async Task<string> AddNew(Employee employee)
         {
+            string passwordEncode = _encodeHelper.Encode(employee.Password);
+            string serialPFX = await _pfxCertificateSvc.CreatePFXCertificate("TechSeal", employee.FullName, passwordEncode, true);
             string isSuccess = null;
-            employee.Password=_encodeHelper.Encode(employee.Password);
+            employee.Password = passwordEncode;
+            employee.SerialPFX = serialPFX;
             _context.Employees.Add(employee);
             await _context.SaveChangesAsync();
             isSuccess = employee.EmployeeId.ToString();
@@ -36,6 +42,7 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
                 return new List<Employee>();
             }
         }
+
 
         public async Task<Employee> GetById(string empID)
         {

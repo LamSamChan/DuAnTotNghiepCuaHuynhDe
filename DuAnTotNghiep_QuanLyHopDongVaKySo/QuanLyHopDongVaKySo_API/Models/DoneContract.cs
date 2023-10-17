@@ -38,10 +38,10 @@ namespace QuanLyHopDongVaKySo_API.Models
         public int DoneMinuteId { get; set; }
 
 
-        public Employee Employee { get; set; }
-        public Customer Customer { get; set; }
-        public TypeOfService TypeOfService { get; set; }
-        public DoneMinute DoneMinute { get; set; }
+        public Employee? Employee { get; set; }
+        public Customer? Customer { get; set; }
+        public TypeOfService? TypeOfService { get; set; }
+        public DoneMinute? DoneMinute { get; set; }
 
     }
 }

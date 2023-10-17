@@ -74,7 +74,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 store.SetKeyEntry("privateKey", new AsymmetricKeyEntry(keyPair.Private), new X509CertificateEntry[] { certificateEntry });
 
                 //tạo đường dẫn lưu file 
-                string appDataDirectory = @"..\..\..\AppData"; // Thay đổi đường dẫn gốc tùy theo vị trí bạn muốn lưu trữ thư mục.
+                string appDataDirectory = "AppData"; // Thay đổi đường dẫn gốc tùy theo vị trí bạn muốn lưu trữ thư mục.
                 string typeofDirectory = "PFXCertificates";
                 string rootDirectory= Path.Combine(appDataDirectory, typeofDirectory);
 
@@ -115,9 +115,11 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                    store.Save(pfxFile, pfxPassword.ToCharArray(), new SecureRandom());
                 }
 
-                if(AddInfoToDatabase(cer) != null)
+                string PFXSerial =await AddInfoToDatabase(cer);
+
+                if (PFXSerial != null)
                 {
-                    return await AddInfoToDatabase(cer);
+                    return PFXSerial;
                 }
                 else
                 {

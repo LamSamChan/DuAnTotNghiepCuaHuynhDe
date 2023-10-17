@@ -8,8 +8,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
     public class PendingContractSvc : IPendingContractSvc
     {
         private readonly ProjectDbContext _context;
-        private UploadImageHelper _imageHelper;
-        public PendingContractSvc(ProjectDbContext context, UploadImageHelper imageHelper)
+        private readonly IUploadImageHelper _imageHelper;
+        public PendingContractSvc(ProjectDbContext context, IUploadImageHelper imageHelper)
         {
             _context = context;
             _imageHelper = imageHelper;
@@ -26,7 +26,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 {
                     DateCreated = DateTime.Now,
                     PContractName = PContract.PContractName,
-                    PContractFile = @"..\..\..\AppData\PContracts\"+PContract.File.FileName,
+                    PContractFile = @"AppData\PContracts\"+PContract.File.FileName,
                     IsDirector = false,
                     IsCustomer = false,
                     IsRefuse = false,
@@ -80,7 +80,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 {
                     update.DateCreated = PContract.DateCreated;
                     update.PContractName = PContract.PContractName;
-                    update.PContractFile = @"..\..\..\AppData\PContracts\"+PContract.File.FileName;
+                    update.PContractFile = @"AppData\PContracts\"+PContract.File.FileName;
                     update.IsDirector = PContract.IsDirector;
                     update.IsCustomer = PContract.IsCustomer;
                     update.IsRefuse = PContract.IsRefuse;

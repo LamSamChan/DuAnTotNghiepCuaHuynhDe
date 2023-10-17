@@ -66,7 +66,6 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [NotMapped]
         [Display(Name = "Tệp ảnh")]
-        [Obsolete]
         [JsonIgnore]
         public IFormFile? ImageFile { get; set; }
 
@@ -95,26 +94,19 @@ namespace QuanLyHopDongVaKySo_API.Models
         public int PositionID { get; set; }
 
         [JsonIgnore]
-        [Obsolete]
-        public PFXCertificate PFXCertificate { get; set; }
+        public PFXCertificate? PFXCertificate { get; set; }
         [JsonIgnore]
-        [Obsolete]
-        public Role Role { get; set; }
+        public Role? Role { get; set; }
         [JsonIgnore]
-        [Obsolete]
-        public Position Position { get; set; }
+        public Position? Position { get; set; }
         [JsonIgnore]
-        [Obsolete]
-        public ICollection<DoneContract> DoneContract { get; set; }
+        public ICollection<DoneContract>? DoneContract { get; set; }
         [JsonIgnore]
-        [Obsolete]
-        public ICollection<DoneMinute> DoneMinute { get; set; }
+        public ICollection<DoneMinute>? DoneMinute { get; set; }
         [JsonIgnore]
-        [Obsolete]
-        public ICollection<PendingContract> PendingContract { get; set; }
+        public ICollection<PendingContract>? PendingContract { get; set; }
         [JsonIgnore]
-        [Obsolete]
-        public ICollection<PendingMinute> PendingMinute { get; set; }
+        public ICollection<PendingMinute>? PendingMinute { get; set; }
 
     }
 }

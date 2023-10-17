@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace QuanLyHopDongVaKySo_API.Models
 {
@@ -99,9 +100,10 @@ namespace QuanLyHopDongVaKySo_API.Models
         [ForeignKey("TypeOfCustomer")]
         public int TOC_ID { get; set; }
 
-        public PFXCertificate PFXCertificate { get; set; }
-        public TypeOfCustomer TypeOfCustomer { get; set; }
-        public ICollection<DoneContract> DoneContract { get; set; }
-        public ICollection<PendingContract> PendingContract { get; set; }
+        [JsonIgnore]
+        public PFXCertificate? PFXCertificate { get; set; }
+        public TypeOfCustomer? TypeOfCustomer { get; set; }
+        public ICollection<DoneContract>? DoneContract { get; set; }
+        public ICollection<PendingContract>? PendingContract { get; set; }
     }
 }
