@@ -287,7 +287,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 store.SetKeyEntry(alias, keyEntry, newCertificateChain);
 
                 //tạo đường dẫn lưu file 
-                string appDataDirectory = @"..\..\..\AppData"; // Thay đổi đường dẫn gốc tùy theo vị trí bạn muốn lưu trữ thư mục.
+                string appDataDirectory = "AppData"; // Thay đổi đường dẫn gốc tùy theo vị trí bạn muốn lưu trữ thư mục.
                 string typeofDirectory = "PFXCertificates";
                 string rootDirectory = Path.Combine(appDataDirectory, typeofDirectory);
 

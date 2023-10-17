@@ -14,7 +14,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [Column(TypeName = "nvarchar(100)"), AllowNull]
         [Display(Name = "Tên doanh nghiệp")]
-        public string BuisinessName { get; set; }
+        public string? BuisinessName { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
         [Display(Name = "Họ và tên")]
@@ -23,7 +23,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [Column(TypeName = "nvarchar(100)"), AllowNull]
         [Display(Name = "Chức vụ")]
-        public string Position { get; set; }
+        public string? Position { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Required(ErrorMessage = "Hãy chọn ngày,tháng,năm sinh !")]
