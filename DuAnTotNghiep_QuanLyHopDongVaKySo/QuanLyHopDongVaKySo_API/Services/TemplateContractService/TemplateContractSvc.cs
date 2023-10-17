@@ -26,7 +26,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
                 {
                     DateAdded = DateTime.Now,
                     TContractName = tContract.TContractName,
-                    TContractFile = @"AppData\TContracts\"+tContract.File.FileName,
+                    TContractFile = @"AppData/TContracts/"+tContract.File.FileName,
                     jsonCustomerZone = tContract.jsonCustomerZone,
                     jsonDirectorZone = tContract.jsonDirectorZone
                 };
@@ -72,7 +72,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
                 if(update != null)
                 {
                     update.TContractName = tContract.TContractName;
-                    update.TContractFile = @"..\..\..\AppData\TContracts\"+tContract.File.FileName;
+                    update.TContractFile = @"AppData/TContracts/"+tContract.File.FileName;
                     update.DateAdded = DateTime.Now;
                     update.jsonCustomerZone = tContract.jsonCustomerZone;
                     update.jsonDirectorZone = tContract.jsonDirectorZone;
