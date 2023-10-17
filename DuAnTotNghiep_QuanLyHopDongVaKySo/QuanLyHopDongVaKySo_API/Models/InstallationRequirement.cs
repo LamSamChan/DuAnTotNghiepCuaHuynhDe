@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace QuanLyHopDongVaKySo_API.Models
 {
@@ -30,8 +31,10 @@ namespace QuanLyHopDongVaKySo_API.Models
         [ForeignKey("TemplateMinute")]
         public int TMinuteId { get; set; }
 
-        public DoneContract DoneContract { get; set; }
-       public TemplateMinute TemplateMinute { get; set; }
+        [JsonIgnore]
+        public DoneContract? DoneContract { get; set; }
+        [JsonIgnore]
+        public TemplateMinute? TemplateMinute { get; set; }
 
     }
 }

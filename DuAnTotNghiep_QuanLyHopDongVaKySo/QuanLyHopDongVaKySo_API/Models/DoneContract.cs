@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace QuanLyHopDongVaKySo_API.Models
 {
@@ -37,10 +38,13 @@ namespace QuanLyHopDongVaKySo_API.Models
         [ForeignKey("DoneMinute")]
         public int DoneMinuteId { get; set; }
 
-
+        [JsonIgnore]
         public Employee? Employee { get; set; }
+        [JsonIgnore]
         public Customer? Customer { get; set; }
+        [JsonIgnore]
         public TypeOfService? TypeOfService { get; set; }
+        [JsonIgnore]
         public DoneMinute? DoneMinute { get; set; }
 
     }

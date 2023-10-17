@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace QuanLyHopDongVaKySo_API.Models
 {
@@ -25,8 +26,10 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         //Tạo khoá liên kết
         [ForeignKey("Employee")]
-        public Guid? EmployeeId { get; set; }
 
+        [JsonIgnore]
+        public Guid? EmployeeId { get; set; }
+        [JsonIgnore]
         public Employee? Employee { get; set; }
     }
 }

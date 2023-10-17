@@ -19,10 +19,11 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
         }
         public async Task<string> AddNew(Employee employee)
         {
-            string passwordEncode = _encodeHelper.Encode(employee.Password);
-            string serialPFX = await _pfxCertificateSvc.CreatePFXCertificate("TechSeal", employee.FullName, passwordEncode, true);
+            string passwordPfx = _encodeHelper.Encode(employee.PhoneNumber);
+            string passwordEmp = _encodeHelper.Encode(employee.Password);
+            string serialPFX = await _pfxCertificateSvc.CreatePFXCertificate("TechSeal", employee.FullName, passwordPfx, true);
             string isSuccess = null;
-            employee.Password = passwordEncode;
+            employee.Password = passwordEmp;
             employee.SerialPFX = serialPFX;
             _context.Employees.Add(employee);
             await _context.SaveChangesAsync();

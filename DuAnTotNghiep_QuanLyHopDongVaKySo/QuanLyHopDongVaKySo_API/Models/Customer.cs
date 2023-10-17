@@ -102,8 +102,11 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [JsonIgnore]
         public PFXCertificate? PFXCertificate { get; set; }
+        [JsonIgnore]
         public TypeOfCustomer? TypeOfCustomer { get; set; }
+        [JsonIgnore]
         public ICollection<DoneContract>? DoneContract { get; set; }
+        [JsonIgnore]
         public ICollection<PendingContract>? PendingContract { get; set; }
     }
 }

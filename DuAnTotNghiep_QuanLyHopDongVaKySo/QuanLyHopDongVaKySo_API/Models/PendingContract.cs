@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace QuanLyHopDongVaKySo_API.Models
 {
@@ -47,11 +48,14 @@ namespace QuanLyHopDongVaKySo_API.Models
         [ForeignKey("TemplateContract")]
         public int TContractId { get; set; }
 
-
-        public Employee Employee { get; set; }
-        public Customer Customer { get; set; }
-        public TypeOfService TypeOfService { get; set; }
-        public TemplateContract TemplateContract { get; set; }
+        [JsonIgnore]
+        public Employee? Employee { get; set; }
+        [JsonIgnore]
+        public Customer? Customer { get; set; }
+        [JsonIgnore]
+        public TypeOfService? TypeOfService { get; set; }
+        [JsonIgnore]
+        public TemplateContract? TemplateContract { get; set; }
     }
 
 }
