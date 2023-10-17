@@ -25,13 +25,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AppData\DoneContracts\" />
-    <Folder Include="AppData\PendingContracts\" />
-    <Folder Include="AppData\PendingMinutes\" />
-    <Folder Include="AppData\PFXCertificates\" />
-    <Folder Include="AppData\TContracts\" />
-    <Folder Include="AppData\TMinutes\" />
-    <Folder Include="Services\" />
+    <Folder Include="AppData/DoneContracts/" />
+    <Folder Include="AppData/PendingContracts/" />
+    <Folder Include="AppData/PendingMinutes/" />
+    <Folder Include="AppData/PFXCertificates/" />
+    <Folder Include="AppData/TContracts/" />
+    <Folder Include="AppData/TMinutes/" />
+    <Folder Include="Services/" />
   </ItemGroup>
 
 </Project>

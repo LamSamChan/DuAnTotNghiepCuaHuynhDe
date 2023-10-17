@@ -15,12 +15,12 @@
                 {
                     Directory.CreateDirectory(rootPath);
                 }
-                string dirPath = rootPath + @"\" + category;
+                string dirPath = rootPath + @"/" + category;
                 if (!Directory.Exists(dirPath))
                 {
                     Directory.CreateDirectory(dirPath);
                 }
-                string filePath = dirPath + @"\" + file.FileName;
+                string filePath = dirPath + @"/" + file.FileName;
 
                 if (!File.Exists(filePath))
                 {
