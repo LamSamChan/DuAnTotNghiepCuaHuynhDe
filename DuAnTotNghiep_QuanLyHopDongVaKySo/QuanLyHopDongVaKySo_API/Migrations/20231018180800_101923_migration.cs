@@ -6,24 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace QuanLyHopDongVaKySo_API.Migrations
 {
     /// <inheritdoc />
-    public partial class _101623_Migration : Migration
+    public partial class _101923_migration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "OperationHistory",
-                columns: table => new
-                {
-                    Id = table.Column<double>(type: "float", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    OperationName = table.Column<string>(type: "nvarchar(255)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_OperationHistory", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "PFXCertificate",
                 columns: table => new
@@ -115,7 +102,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TypeName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    isHidden = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -128,10 +115,12 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateAdded = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ServiceName = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PerTime = table.Column<string>(type: "nvarchar(100)", nullable: false)
+                    PerTime = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    isHidden = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -144,17 +133,17 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    Email = table.Column<string>(type: "varchar(100)", nullable: false),
+                    Email = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Identification = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
                     Address = table.Column<string>(type: "nvarchar(255)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    Password = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
+                    Password = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
                     IsLocked = table.Column<bool>(type: "bit", nullable: false),
                     Note = table.Column<string>(type: "nvarchar(255)", nullable: true),
-                    SerialPFX = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    SerialPFX = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     RoleID = table.Column<int>(type: "int", nullable: false),
                     PositionID = table.Column<int>(type: "int", nullable: false)
                 },
@@ -165,20 +154,19 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         name: "FK_Employee_PFXCertificate_SerialPFX",
                         column: x => x.SerialPFX,
                         principalTable: "PFXCertificate",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Employee_Position_PositionID",
                         column: x => x.PositionID,
                         principalTable: "Position",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Employee_Role_RoleID",
                         column: x => x.RoleID,
                         principalTable: "Role",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -186,13 +174,13 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BuisinessName = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    BuisinessName = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     FullName = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    Position = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    Position = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Email = table.Column<string>(type: "varchar(100)", nullable: false),
+                    Email = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
                     Identification = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
                     IssuedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IssuedPlace = table.Column<string>(type: "varchar(50)", nullable: false),
@@ -214,13 +202,13 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         column: x => x.SerialPFX,
                         principalTable: "PFXCertificate",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Customer_TypeOfCustomer_TOC_ID",
                         column: x => x.TOC_ID,
                         principalTable: "TypeOfCustomer",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -232,7 +220,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     DateDone = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MinuteName = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     MinuteFile = table.Column<string>(type: "nvarchar(250)", nullable: false),
-                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -241,6 +229,47 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         name: "FK_DoneMinute_Employee_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employee",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "OperationHistoryEmp",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    OperationName = table.Column<string>(type: "nvarchar(255)", nullable: false),
+                    EmployeeID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OperationHistoryEmp", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_OperationHistoryEmp_Employee_EmployeeID",
+                        column: x => x.EmployeeID,
+                        principalTable: "Employee",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "OperationHistoryCus",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    OperationName = table.Column<string>(type: "nvarchar(255)", nullable: false),
+                    CustomerID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OperationHistoryCus", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_OperationHistoryCus_Customer_CustomerID",
+                        column: x => x.CustomerID,
+                        principalTable: "Customer",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -315,25 +344,25 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         column: x => x.CustomerId,
                         principalTable: "Customer",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_DoneContract_DoneMinute_DoneMinuteId",
                         column: x => x.DoneMinuteId,
                         principalTable: "DoneMinute",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_DoneContract_Employee_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employee",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_DoneContract_TypeOfService_TOS_ID",
                         column: x => x.TOS_ID,
                         principalTable: "TypeOfService",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -388,19 +417,19 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         column: x => x.DoneContractId,
                         principalTable: "DoneContract",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_PendingMinute_Employee_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employee",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_PendingMinute_TemplateMinute_TMinuteId",
                         column: x => x.TMinuteId,
                         principalTable: "TemplateMinute",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
@@ -464,6 +493,16 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 column: "TMinuteId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_OperationHistoryCus_CustomerID",
+                table: "OperationHistoryCus",
+                column: "CustomerID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OperationHistoryEmp_EmployeeID",
+                table: "OperationHistoryEmp",
+                column: "EmployeeID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PendingContract_CustomerId",
                 table: "PendingContract",
                 column: "CustomerId");
@@ -506,7 +545,10 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 name: "InstallationRequirement");
 
             migrationBuilder.DropTable(
-                name: "OperationHistory");
+                name: "OperationHistoryCus");
+
+            migrationBuilder.DropTable(
+                name: "OperationHistoryEmp");
 
             migrationBuilder.DropTable(
                 name: "PendingContract");

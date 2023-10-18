@@ -108,5 +108,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         public ICollection<DoneContract>? DoneContract { get; set; }
         [JsonIgnore]
         public ICollection<PendingContract>? PendingContract { get; set; }
+        [JsonIgnore]
+        public ICollection<OperationHistoryCus>? OperationHistoryCus { get; set; }
     }
 }

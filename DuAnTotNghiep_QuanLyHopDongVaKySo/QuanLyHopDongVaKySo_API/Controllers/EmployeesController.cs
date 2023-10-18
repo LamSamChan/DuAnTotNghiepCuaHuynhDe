@@ -54,15 +54,15 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 string content =
 
     $"<p>Xin chào <b>{employee.FullName}</b>,</p>" +
-    $"<p>Chúc mừng bạn đã tạo thành công tài khoản trên <b>TechSeal - Contract Management & Digital Signature</b>!</p> " +
-    $"<p>Dưới đây là thông tin tài khoản của bạn:</p> " +
+    $"<p>Chúc mừng bạn đã tạo thành công tài khoản trên <b>TechSeal - Contract Management & Digital Signature</b>!</p>" +
+    $"<p>Dưới đây là thông tin tài khoản của bạn:</p>" +
     $"<ul> "+ 
-        $"<li>Tên đăng nhập: {employee.Email}</li> " +
-        $"<li>Mật khẩu: {passwordEmp}</li> " +
+        $"<li>Tên đăng nhập: {employee.Email}</li>" +
+        $"<li>Mật khẩu: {passwordEmp}</li>" +
     $"</ul> " +
-    $"<p>Vui lòng lưu trữ thông tin này một cách an toàn. Hãy thay đổi mật khẩu ngay sau khi đăng nhập lần đầu tiên.</p> " +
-    $"<p>Nếu bạn gặp bất kỳ vấn đề hoặc có câu hỏi, hãy liên hệ với chúng tôi tại <b>techseal.digitalsignature@gmail.com Hoặc Liên Hệ: 0339292975.</b></p> " +
-    $"<p>Chúng tôi rất hân hạnh vì bạn đã trở thành 1 thành viên của <b>TechSeal - Contract Management & Digital Signature</b> và chúc bạn có một ngày tốt lành! </p> " +
+    $"<p>Vui lòng lưu trữ thông tin này một cách an toàn. Hãy thay đổi mật khẩu ngay sau khi đăng nhập lần đầu tiên.</p>" +
+    $"<p>Nếu bạn gặp bất kỳ vấn đề hoặc có câu hỏi, hãy liên hệ với chúng tôi tại <b>techseal.digitalsignature@gmail.com Hoặc Liên Hệ: 0339292975.</b></p>" +
+    $"<p>Chúng tôi rất hân hạnh vì bạn đã trở thành 1 thành viên của <b>TechSeal - Contract Management & Digital Signature</b> và chúc bạn có một ngày tốt lành!</p> " +
     $"<p>Trân trọng,</p> " +
     $"<p>Tech Seal.</p>";
 

@@ -33,7 +33,6 @@
     <Folder Include="AppData/PFXCertificates/" />
     <Folder Include="AppData/TContracts/" />
     <Folder Include="AppData/TMinutes/" />
-    <Folder Include="Services/" />
   </ItemGroup>
 
 </Project>
