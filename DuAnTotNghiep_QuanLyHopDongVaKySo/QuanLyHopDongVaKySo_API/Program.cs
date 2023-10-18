@@ -44,6 +44,7 @@ builder.Services.AddScoped<ITypeOfServiceSvc, TypeOfServiceSvc>();
 builder.Services.AddScoped<IUploadImageHelper, UploadImageHelper>();
 builder.Services.AddScoped<IEncodeHelper, EncodeHelper>();
 builder.Services.AddScoped<ISendMailHelper, SendMailHelper>();
+builder.Services.AddScoped<IRandomPasswordHelper, RandomPasswordHelper>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

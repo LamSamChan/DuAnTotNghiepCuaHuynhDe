@@ -77,8 +77,10 @@ namespace QuanLyHopDongVaKySo_API.Helpers
                 var accessToken = await GetTokenAsync();
                 var client = new RestClient(_configuration["GmailAPI:GmailAPIUrl"] + "/users/me/messages/send");
                 var request = new RestRequest() { Method = Method.Post };
-                var message = BuildMessage(mail.Subject, _configuration["GmailAPI:SenderName"], mail.ReceiverName,
+                var messageTask = BuildMessage(mail.Subject, _configuration["GmailAPI:SenderName"], mail.ReceiverName,
                     _configuration["GmailAPI:From"], mail.ToMail, mail.HtmlContent);
+
+                var message = await messageTask;
 
                 request.AddHeader("Authorization", "Bearer " + accessToken);
                 request.AddJsonBody(new

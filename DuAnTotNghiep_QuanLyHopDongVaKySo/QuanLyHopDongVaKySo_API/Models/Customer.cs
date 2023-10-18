@@ -40,7 +40,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [MaxLength(50)]
         public string PhoneNumber { get; set; }
 
-        [Column(TypeName = "varchar(100)")]
+        [Column(TypeName = "varchar(100)"),StringLength(50)]
         [Display(Name = "Email")]
         [Required(ErrorMessage = "Hãy điền email !")]
         [RegularExpression("^[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]+)*$",
