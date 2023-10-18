@@ -6,6 +6,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PositionService
     {
         Task<List<Position>> GetAll();
         Task<List<Position>> GetAllNotHidden();
+        Task<List<Position>> GetAllHidden();
         Task<Position> GetById(int positionId);
         Task<int> AddNew(Position position);
         Task<int> Update(Position position);

@@ -6,6 +6,8 @@ namespace QuanLyHopDongVaKySo_API.Services.RoleService
     {
         Task<List<Role>> GetAll();
         Task<List<Role>> GetAllNotHidden();
+        Task<List<Role>> GetAllHidden();
+
         Task<Role> GetById(int roleId);
         Task<int> AddNew(Role role);
         Task<int> Update(Role role);

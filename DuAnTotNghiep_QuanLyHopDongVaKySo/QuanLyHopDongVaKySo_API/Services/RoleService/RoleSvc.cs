@@ -46,6 +46,18 @@ namespace QuanLyHopDongVaKySo_API.Services.RoleService
             }
         }
 
+        public async Task<List<Role>> GetAllHidden()
+        {
+            try
+            {
+                return await _context.Roles.Where(h => h.isHidden).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                return new List<Role>();
+            }
+        }
+
         public async Task<Role> GetById(int roleId)
         {
             try

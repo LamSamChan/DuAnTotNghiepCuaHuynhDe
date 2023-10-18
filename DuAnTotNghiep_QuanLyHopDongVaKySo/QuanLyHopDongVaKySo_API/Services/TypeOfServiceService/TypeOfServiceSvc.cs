@@ -80,7 +80,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TypeOfServiceService
                 existingTOS.ServiceName = typeOfService.ServiceName;
                 existingTOS.Price = typeOfService.Price;
                 existingTOS.PerTime = typeOfService.PerTime;
-                existingTOS.DateAdded = typeOfService.DateAdded;
+                existingTOS.DateAdded = existingTOS.DateAdded;
                 existingTOS.DateUpdated = DateTime.Now;
                 existingTOS.isHidden = typeOfService.isHidden;
 

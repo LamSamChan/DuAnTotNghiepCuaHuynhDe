@@ -47,6 +47,18 @@ namespace QuanLyHopDongVaKySo_API.Services.PositionService
             }
         }
 
+        public async Task<List<Position>> GetAllHidden()
+        {
+            try
+            {
+                return await _context.Positions.Where(h => h.isHidden).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                return new List<Position>();
+            }
+        }
+
         public async Task<Position> GetById(int positionId)
         {
             try

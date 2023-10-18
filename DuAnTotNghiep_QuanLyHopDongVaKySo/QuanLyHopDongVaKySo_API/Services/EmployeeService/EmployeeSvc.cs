@@ -3,6 +3,8 @@ using QuanLyHopDongVaKySo_API.Database;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
+using QuanLyHopDongVaKySo_API.Services.PositionService;
+using QuanLyHopDongVaKySo_API.Services.RoleService;
 
 namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
 {
@@ -11,6 +13,8 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
         private readonly ProjectDbContext _context;
         private readonly IEncodeHelper _encodeHelper;
         private readonly IPFXCertificateSvc _pfxCertificateSvc;
+        private readonly IPositionSvc _positionSvc;
+        private readonly IRoleSvc _roleSvc;
         public EmployeeSvc(ProjectDbContext context,IEncodeHelper encodeHelper, IPFXCertificateSvc pfxCertificateSvc)
         {
             _context = context;
@@ -20,16 +24,28 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
         public async Task<string> AddNew(Employee employee)
         {
             string isSuccess = null;
+            string checkFieldExist = await IsFieldExist(employee);
+            string checkRoleAndPositon = await IsRoleOrPositonCheck(employee);
             try
             {
-                string passwordPfx = _encodeHelper.Encode(employee.PhoneNumber);
-                string passwordEmp = _encodeHelper.Encode(employee.Password);
-                string serialPFX = await _pfxCertificateSvc.CreatePFXCertificate("TechSeal", employee.FullName, passwordPfx, true);
-                employee.Password = passwordEmp;
-                employee.SerialPFX = serialPFX;
-                _context.Employees.Add(employee);
-                await _context.SaveChangesAsync();
-                isSuccess = employee.EmployeeId.ToString();
+                if (String.Compare(checkFieldExist , "0") != 0)
+                {
+                    return checkFieldExist;
+                }else if (String.Compare(checkRoleAndPositon, "0") != 0)
+                {
+                    return checkRoleAndPositon;
+                }
+                else
+                {
+                    string passwordPfx = _encodeHelper.Encode(employee.PhoneNumber);
+                    string passwordEmp = _encodeHelper.Encode(employee.Password);
+                    string serialPFX = await _pfxCertificateSvc.CreatePFXCertificate("TechSeal", employee.FullName, passwordPfx, true);
+                    employee.Password = passwordEmp;
+                    employee.SerialPFX = serialPFX;
+                    _context.Employees.Add(employee);
+                    await _context.SaveChangesAsync();
+                    isSuccess = employee.EmployeeId.ToString();
+                }
             }
             catch (Exception ex)
             {
@@ -62,6 +78,91 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             {
                 return new Employee();
             }
+        }
+
+        //return -1: trung mail, -2: trung sđth,-3: trung cccd
+        public async Task<string> IsFieldExist(Employee employee)
+        {
+            string phoneNumber = null;
+
+            if (employee.PhoneNumber.StartsWith("+84"))
+            {
+                phoneNumber = employee.PhoneNumber.Substring(3);
+            }
+            else
+            {
+                phoneNumber = employee.PhoneNumber.Substring(1);
+            }
+
+            foreach (var emp in await _context.Employees.ToListAsync())
+            {
+                string existPhoneNumber = null;
+                if (emp.PhoneNumber.StartsWith("+84"))
+                {
+                    existPhoneNumber = emp.PhoneNumber.Substring(3);
+                }
+                else
+                {
+                    existPhoneNumber = emp.PhoneNumber.Substring(1);
+                }
+
+                if (employee.Email == emp.Email)
+                {
+                    return "-1";
+                }
+                else if (phoneNumber == existPhoneNumber)
+                {
+                    return "-2";
+                }
+                else if (employee.Identification == emp.Identification)
+                {
+                    return "-3";
+                }
+            }
+
+            return "0";
+        }
+
+        //return -4: role đã bị ẩn,-5: position bị ẩn, -6: không tồn tại
+        public async Task<string> IsRoleOrPositonCheck(Employee employee)
+        {
+            var roleHiddenList = await _roleSvc.GetAllHidden();
+            var positionHiddenList = await _positionSvc.GetAllHidden();
+            var roleList = await _roleSvc.GetAll();
+            var positionList = await _positionSvc.GetAll();
+
+            foreach (var role in roleHiddenList)
+            {
+                if (employee.RoleID == role.RoleID)
+                {
+                    return "-4";
+                }
+            }
+
+            foreach (var positon in positionHiddenList)
+            {
+                if (employee.PositionID == positon.PositionID)
+                {
+                    return "-5";
+                }
+            }
+
+
+            foreach (var role in roleList)
+            {
+                if (employee.RoleID == role.RoleID)
+                {
+                    foreach (var positon in positionList)
+                    {
+                        if (employee.PositionID == positon.PositionID)
+                        {
+                            return "0";
+                        }
+                    }
+                }
+            }
+
+            return "-6";
         }
 
         public async Task<string> Update(Employee employee)

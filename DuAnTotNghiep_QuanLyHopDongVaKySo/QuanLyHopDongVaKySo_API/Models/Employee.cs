@@ -45,6 +45,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [Required(ErrorMessage = "Hãy nhập số điện thoại !")]
         [Display(Name = "Số điện thoại")]
+        [RegularExpression("^(?:\\+84|0)\\d{9}$", ErrorMessage = "Số điện thoại không hợp lệ !")]
         [MaxLength(50)]
         public string PhoneNumber { get; set; }
 
