@@ -103,6 +103,7 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
 
                     foreach (var cus in customerWithTOC_ID)
                     {
+                        if (cus.CustomerId == customer.CustomerId) continue;
                         string existPhoneNumber = null;
 
                         if (cus.PhoneNumber.StartsWith("+84"))

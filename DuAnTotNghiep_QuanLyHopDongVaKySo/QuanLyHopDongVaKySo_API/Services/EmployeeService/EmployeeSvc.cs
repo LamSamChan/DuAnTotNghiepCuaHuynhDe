@@ -98,6 +98,8 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
 
             foreach (var emp in await _context.Employees.ToListAsync())
             {
+                if (emp.EmployeeId == employee.EmployeeId) continue;
+
                 string existPhoneNumber = null;
                 if (emp.PhoneNumber.StartsWith("+84"))
                 {
