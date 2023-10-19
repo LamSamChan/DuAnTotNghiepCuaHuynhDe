@@ -38,7 +38,14 @@ namespace QuanLyHopDongVaKySo_API.Services.RoleService
         {
             try
             {
-                return await _context.Roles.Where(h => !h.isHidden).ToListAsync();
+               var notHiddenList = await _context.Roles.Where(h => !h.isHidden).ToListAsync();
+               if (notHiddenList.Count > 0) {
+                    return notHiddenList;
+               }
+               else
+               {
+                    return new List<Role>();
+                }
             }
             catch (Exception ex)
             {
@@ -50,7 +57,15 @@ namespace QuanLyHopDongVaKySo_API.Services.RoleService
         {
             try
             {
-                return await _context.Roles.Where(h => h.isHidden).ToListAsync();
+                var hiddenList = await _context.Roles.Where(h => h.isHidden).ToListAsync();
+                if (hiddenList.Count > 0)
+                {
+                    return hiddenList;
+                }
+                else
+                {
+                    return new List<Role>(); ;
+                }
             }
             catch (Exception ex)
             {

@@ -26,7 +26,36 @@ namespace QuanLyHopDongVaKySo_API.Services.TypeOfCustomerService
         {
             try
             {
-                return await _context.TypeOfCustomers.ToListAsync();
+                var getList = await _context.TypeOfCustomers.ToListAsync();
+                if (getList.Count > 0)
+                {
+                    return getList;
+                }
+                else
+                {
+                    return new List<TypeOfCustomer>();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return new List<TypeOfCustomer>();
+            }
+        }
+
+        public async Task<List<TypeOfCustomer>> GetAllHidden()
+        {
+            try
+            {
+                var getList = await _context.TypeOfCustomers.Where(c => c.isHidden).ToListAsync();
+                if (getList.Count > 0)
+                {
+                    return getList;
+                }
+                else
+                {
+                    return new List<TypeOfCustomer>();
+                }
             }
             catch (Exception ex)
             {
@@ -39,12 +68,22 @@ namespace QuanLyHopDongVaKySo_API.Services.TypeOfCustomerService
         {
             try
             {
-                return await _context.TypeOfCustomers.Where(c => !c.isHidden).ToListAsync();
+                var getList = await _context.TypeOfCustomers.Where(c => !c.isHidden).ToListAsync();
+                if (getList.Count > 0)
+                {
+                    return getList;
+                }
+                else
+                {
+                    return new List<TypeOfCustomer>();
+                }
             }
             catch (Exception ex)
             {
+
                 return new List<TypeOfCustomer>();
             }
+
         }
 
         public async Task<TypeOfCustomer> GetById(int typeOfCustomer_ID)

@@ -38,8 +38,16 @@ namespace QuanLyHopDongVaKySo_API.Services.PositionService
         public async Task<List<Position>> GetAllNotHidden()
         { 
             try
-            {
-                return await _context.Positions.Where(h => !h.isHidden).ToListAsync();
+            { 
+                var notHiddenList = await _context.Positions.Where(h => !h.isHidden).ToListAsync();
+                if (notHiddenList.Count > 0)
+                {
+                    return notHiddenList;
+                }
+                else
+                {
+                    return new List<Position>();
+                }
             }
             catch (Exception ex)
             {
@@ -51,7 +59,15 @@ namespace QuanLyHopDongVaKySo_API.Services.PositionService
         {
             try
             {
-                return await _context.Positions.Where(h => h.isHidden).ToListAsync();
+                var notHiddenList = await _context.Positions.Where(h => h.isHidden).ToListAsync();
+                if (notHiddenList.Count > 0)
+                {
+                    return notHiddenList;
+                }
+                else
+                {
+                    return new List<Position>();
+                }
             }
             catch (Exception ex)
             {

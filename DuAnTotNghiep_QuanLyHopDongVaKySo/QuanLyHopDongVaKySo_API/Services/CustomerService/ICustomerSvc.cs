@@ -7,5 +7,6 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
         Task<Customer> GetByIdAsync(string cusID);
         Task<string> AddNewAsync(Customer customer);
         Task<string> UpdateAsync(Customer customer);
+        Task<string> IsFieldExist(Customer customer);
     }
 }

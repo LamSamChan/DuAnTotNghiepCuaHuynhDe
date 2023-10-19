@@ -53,7 +53,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 certificateGenerator.SetIssuerDN(new X509Name($"CN={issuerName}"));
                 certificateGenerator.SetSubjectDN(new X509Name($"CN={subjectName}"));
                 certificateGenerator.SetNotBefore(DateTime.UtcNow.Date);
-                certificateGenerator.SetNotAfter(DateTime.UtcNow.Date.AddDays(2));
+                certificateGenerator.SetNotAfter(DateTime.UtcNow.Date.AddYears(1));
                 certificateGenerator.SetPublicKey(keyPair.Public);
 
                 ISignatureFactory signatureFactory = new Asn1SignatureFactory("SHA256WITHRSA", keyPair.Private, new SecureRandom());

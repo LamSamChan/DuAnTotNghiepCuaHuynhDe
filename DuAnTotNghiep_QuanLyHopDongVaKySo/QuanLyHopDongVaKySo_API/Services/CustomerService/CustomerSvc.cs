@@ -4,36 +4,48 @@ using QuanLyHopDongVaKySo_API.Helpers;
 using Microsoft.EntityFrameworkCore;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 using Org.BouncyCastle.Ocsp;
+using QuanLyHopDongVaKySo_API.Services.TypeOfCustomerService;
+using iTextSharp.text;
 
 namespace QuanLyHopDongVaKySo_API.Services.CustomerService
 {
     public class CustomerSvc : ICustomerSvc
     {
         private readonly ProjectDbContext _context;
-        private IUploadImageHelper _imageHelpers;
-        private IEncodeHelper _encodeHelper;
-        private IPFXCertificateSvc _pfxCertificate;
-
-        public CustomerSvc(ProjectDbContext context, IUploadImageHelper imageHelpers, IEncodeHelper encodeHelper, IPFXCertificateSvc pFXCertificate)
+        private readonly IUploadImageHelper _imageHelpers;
+        private readonly IEncodeHelper _encodeHelper;
+        private readonly IPFXCertificateSvc _pfxCertificate;
+        private readonly ITypeOfCustomerSvc _typeOfCustomerSvc;
+        public CustomerSvc(ProjectDbContext context, IUploadImageHelper imageHelpers, IEncodeHelper encodeHelper, IPFXCertificateSvc pFXCertificate, ITypeOfCustomerSvc typeOfCustomerSvc)
         {
             _context = context;
             _imageHelpers = _imageHelpers;
             _encodeHelper = encodeHelper;
             _pfxCertificate = pFXCertificate;
+            _typeOfCustomerSvc = typeOfCustomerSvc;
         }
         public async Task<string> AddNewAsync(Customer customer)
         {
             string isSuccess = null;
+            string check = await IsFieldExist(customer);
             try
             {
-                string passwordPfx = _encodeHelper.Encode(customer.PhoneNumber);
-                string serialPFX = await _pfxCertificate.CreatePFXCertificate("TechSeal", customer.FullName, passwordPfx, false);
-                customer.SerialPFX = serialPFX;
-                _context.Customers.Add(customer);
-                await _context.SaveChangesAsync();
-                isSuccess = customer.CustomerId.ToString();
+                if (String.Compare(check, "0") != 0)
+                {
+                    return check;
+                }
+                else
+                {
+                    string subjectName = customer.BuisinessName != null ? customer.BuisinessName : customer.FullName;
+                    string passwordPfx = _encodeHelper.Encode(customer.PhoneNumber);
+                    string serialPFX = await _pfxCertificate.CreatePFXCertificate("TechSeal", subjectName, passwordPfx, false);
+                    customer.SerialPFX = serialPFX;
+                    _context.Customers.Add(customer);
+                    await _context.SaveChangesAsync();
+                    isSuccess = customer.CustomerId.ToString();
+                }
             }
-            catch
+            catch (Exception ex)
             {
                 return isSuccess;
             }
@@ -65,6 +77,68 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
             }
         }
 
+        //return -1: trung mail, -2: trung sđth,-3: trung cccd, -4 trung bank account, -5 trung ma so thue, 0: oke, 1: type đã bị ẩn hoặc không tồn tại
+        public async Task<string> IsFieldExist(Customer customer)
+        {
+            List<TypeOfCustomer> getListNotHidden = await _typeOfCustomerSvc.GetAllNotHidden();
+            string isFoundTOC = "1";
+
+            foreach (TypeOfCustomer item in getListNotHidden)
+            {
+                if (customer.TOC_ID == item.TOC_ID)
+                {
+                    var customerWithTOC_ID = await _context.Customers.Where(e => e.TOC_ID == item.TOC_ID).ToListAsync();
+                    
+                    isFoundTOC = "0";
+                    string phoneNumber = null;
+
+                    if (customer.PhoneNumber.StartsWith("+84"))
+                    {
+                        phoneNumber = customer.PhoneNumber.Substring(3);
+                    }
+                    else
+                    {
+                        phoneNumber = customer.PhoneNumber.Substring(1);
+                    }
+
+                    foreach (var cus in customerWithTOC_ID)
+                    {
+                        string existPhoneNumber = null;
+
+                        if (cus.PhoneNumber.StartsWith("+84"))
+                        {
+                            existPhoneNumber = cus.PhoneNumber.Substring(3);
+                        }
+                        else
+                        {
+                            existPhoneNumber = cus.PhoneNumber.Substring(1);
+                        }
+
+                        if (customer.Email == cus.Email)
+                        {
+                            return "-1";
+                        }
+                        else if (phoneNumber == existPhoneNumber)
+                        {
+                            return "-2";
+                        }
+                        else if (customer.Identification == cus.Identification)
+                        {
+                            return "-3";
+                        }
+                        else if (customer.BankAccount == cus.BankAccount)
+                        {
+                            return "-4";
+                        }
+                        else if (customer.TaxIDNumber == cus.TaxIDNumber)
+                        {
+                            return "-5";
+                        }
+                    }
+                }
+            }
+            return isFoundTOC;
+        }
 
         public async Task<string> UpdateAsync(Customer customer)
         {
@@ -100,9 +174,17 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
                 existingCus.Note = customer.Note;
                 existingCus.SerialPFX = customer.SerialPFX;
                 existingCus.TOC_ID = customer.TOC_ID;
-                
-                await _context.SaveChangesAsync();
-                status = customer.CustomerId.ToString();
+
+                status = await IsFieldExist(existingCus);
+                if (String.Compare(status, "0") != 0)
+                {
+                    return status;
+                }
+                else
+                {
+                    await _context.SaveChangesAsync();
+                    status = customer.CustomerId.ToString();
+                }
             }
             catch (Exception ex)
             {

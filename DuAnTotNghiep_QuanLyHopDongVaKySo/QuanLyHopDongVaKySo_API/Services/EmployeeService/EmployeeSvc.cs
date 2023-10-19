@@ -15,11 +15,13 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
         private readonly IPFXCertificateSvc _pfxCertificateSvc;
         private readonly IPositionSvc _positionSvc;
         private readonly IRoleSvc _roleSvc;
-        public EmployeeSvc(ProjectDbContext context,IEncodeHelper encodeHelper, IPFXCertificateSvc pfxCertificateSvc)
+        public EmployeeSvc(ProjectDbContext context,IEncodeHelper encodeHelper, IPFXCertificateSvc pfxCertificateSvc, IRoleSvc roleSvc, IPositionSvc positionSvc)
         {
             _context = context;
             _encodeHelper = encodeHelper;
             _pfxCertificateSvc = pfxCertificateSvc;
+            _roleSvc = roleSvc;
+            _positionSvc = positionSvc;
         }
         public async Task<string> AddNew(Employee employee)
         {
@@ -126,10 +128,10 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
         //return -4: role đã bị ẩn,-5: position bị ẩn, -6: không tồn tại
         public async Task<string> IsRoleOrPositonCheck(Employee employee)
         {
-            var roleHiddenList = await _roleSvc.GetAllHidden();
-            var positionHiddenList = await _positionSvc.GetAllHidden();
-            var roleList = await _roleSvc.GetAll();
-            var positionList = await _positionSvc.GetAll();
+            List<Role>? roleHiddenList = await _roleSvc.GetAllHidden();
+            List<Position>? positionHiddenList = await _positionSvc.GetAllHidden();
+            List<Role>? roleList = await _roleSvc.GetAll();
+            List<Position>? positionList = await _positionSvc.GetAll();
 
             foreach (var role in roleHiddenList)
             {

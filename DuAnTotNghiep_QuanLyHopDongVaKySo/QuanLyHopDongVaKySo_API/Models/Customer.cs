@@ -10,7 +10,7 @@ namespace QuanLyHopDongVaKySo_API.Models
     {
         [Key]
         [Column("Id")]
-        public Guid CustomerId { get; set; }
+        public Guid? CustomerId { get; set; }
 
         [Column(TypeName = "nvarchar(100)"), AllowNull]
         [Display(Name = "Tên doanh nghiệp")]
@@ -36,6 +36,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         public Gender Gender { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập số điện thoại !")]
+        [RegularExpression("^(?:\\+84|0)\\d{9}$", ErrorMessage = "Số điện thoại không hợp lệ !")]
         [Display(Name = "Số điện thoại")]
         [MaxLength(50)]
         public string PhoneNumber { get; set; }
@@ -53,18 +54,19 @@ namespace QuanLyHopDongVaKySo_API.Models
         [MaxLength(20)]
         public string Identification { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Required(ErrorMessage = "Hãy chọn ngày,tháng,năm cấp CMND/CCCD!")]
         [Display(Name = "Ngày cấp")]
         public DateTime IssuedDate { get; set; }
 
-        [Column(TypeName = "varchar(50)")]
+        [Column(TypeName = "nvarchar(50)")]
         [Required(ErrorMessage = "Hãy nhập nơi cấp CMND/CCCD!")]
         [Display(Name = "Nơi cấp")]
         public string IssuedPlace { get; set; }
 
-        [Column(TypeName = "varchar(50)")]
-        [Required(ErrorMessage = "Hãy nhập nơi cấp CMND/CCCD!")]
-        [Display(Name = "Nơi cấp")]
+        [Column(TypeName = "nvarchar(50)")]
+        [Required(ErrorMessage = "Hãy nhập Quốc Tịch!")]
+        [Display(Name = "Quốc tịch")]
         public string Nationality { get; set; }
 
         [Column(TypeName = "varchar(50)")]
@@ -95,7 +97,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         //tạo liên kết
         [ForeignKey("PFXCertificate")]
-        public string SerialPFX { get; set; }
+        public string? SerialPFX { get; set; }
 
         [ForeignKey("TypeOfCustomer")]
         public int TOC_ID { get; set; }
