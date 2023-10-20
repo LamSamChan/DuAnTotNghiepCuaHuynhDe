@@ -220,21 +220,11 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 existingPfx.ValidFrom = pfxCertificate.ValidFrom;
                 existingPfx.ValidUntil = pfxCertificate.ValidUntil;
                 existingPfx.IsEmployee = pfxCertificate.IsEmployee;
-                if (pfxCertificate.ImageSignature1 == null)
-                {
-                    existingPfx.ImageSignature1 = existingPfx.ImageSignature1;
-                }
-                if (pfxCertificate.ImageSignature2 == null)
-                {
-                    existingPfx.ImageSignature2 = existingPfx.ImageSignature2;
-                }
-                if (pfxCertificate.ImageSignature3 == null)
-                {
-                    existingPfx.ImageSignature3 = existingPfx.ImageSignature3;
-                }
-                
-
-                // Lưu thay đổi vào database
+                existingPfx.ImageSignature1 = pfxCertificate.ImageSignature1;
+                existingPfx.ImageSignature2 = pfxCertificate.ImageSignature2;
+                existingPfx.ImageSignature3 = pfxCertificate.ImageSignature3;
+                existingPfx.ImageSignature4 = pfxCertificate.ImageSignature4;
+                existingPfx.ImageSignature5 = pfxCertificate.ImageSignature5;                // Lưu thay đổi vào database
                 await _context.SaveChangesAsync();
                 status = pfxCertificate.Serial;
             }

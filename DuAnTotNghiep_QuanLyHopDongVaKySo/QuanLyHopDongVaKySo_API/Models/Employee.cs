@@ -96,9 +96,10 @@ namespace QuanLyHopDongVaKySo_API.Models
         [ForeignKey("PFXCertificate")]
         public string? SerialPFX { get; set; }
 
+        [Required(ErrorMessage = "Hãy nhập id của vai trò !")]
         [ForeignKey("Role")]
         public int RoleID { get; set; }
-
+        [Required(ErrorMessage = "Hãy nhập id của chức vụ !")]
         [ForeignKey("Position")]
         public int PositionID { get; set; }
 

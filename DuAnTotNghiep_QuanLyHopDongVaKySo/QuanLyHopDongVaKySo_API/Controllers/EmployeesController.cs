@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.Crmf;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
@@ -59,8 +60,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 {
                     if (employee.ImageFile.Length > 0)
                     {
-                        _uploadFileHelper.UploadFile(employee.ImageFile, "AppData", "Avatars");
-                        employee.Image = employee.ImageFile.FileName;
+                        employee.Image = _uploadFileHelper.UploadFile(employee.ImageFile, "AppData", "Avatars");
                     }
                 }
                 else
@@ -142,8 +142,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 {
                     if (employee.ImageFile.Length > 0)
                     {
-                        _uploadFileHelper.UploadFile(employee.ImageFile, "AppData", "Avatars");
-                        employee.Image = employee.ImageFile.FileName;
+                        _uploadFileHelper.RemoveFile(employee.Image);
+                        employee.Image = _uploadFileHelper.UploadFile(employee.ImageFile, "AppData", "Avatars");
                     }
                 }
                 else

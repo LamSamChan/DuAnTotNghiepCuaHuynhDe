@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 using QuanLyHopDongVaKySo_API.Services.PositionService;
+using System.Text.Json.Serialization;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
@@ -31,7 +33,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(await _pfxCertificate.GetAllAboutToExpire());
         }
-         
+
         [HttpGet("Expire")]
         public async Task<ActionResult<IEnumerable<PFXCertificate>>> GetAllExpire()
         {
@@ -57,7 +59,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             string isUpdateToDatabase = null;
 
-            PFXCertificate isUpdateNotAfter = await _pfxCertificate.UpdateNotAfter(pfxFilePath,_encodeHelper.Encode(password),isEmployee);
+            PFXCertificate isUpdateNotAfter = await _pfxCertificate.UpdateNotAfter(pfxFilePath, _encodeHelper.Encode(password), isEmployee);
 
             if (isUpdateNotAfter != null)
             {
@@ -71,44 +73,43 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 {
                     return BadRequest(isUpdateToDatabase);
                 }
-                
+
             }
             else { return BadRequest(isUpdateNotAfter); }
 
         }
 
-        [HttpPut("UploadImage/{id}")]
-        public async Task<ActionResult<string>> UploadSignatureImage(PFXCertificate certificate)
+        [HttpPut("UploadImage/{serial}")]
+        public async Task<ActionResult<string>> UploadSignatureImage(string serial, IFormFile file)
         {
-            PFXCertificate certificateExist = await _pfxCertificate.GetById(certificate.Serial);
-            certificate = certificateExist;
+            PFXCertificate certificateExist = await _pfxCertificate.GetById(serial);
             try
             {
-                if (certificate.ImageFile != null)
+                if (file != null)
                 {
-                    if (certificate.ImageFile.ContentType.StartsWith("image/"))
+                    if (file.ContentType.StartsWith("image/"))
                     {
-                        if (certificate.ImageFile.Length > 0)
+                        if (file.Length > 0)
                         {
                             if (certificateExist.ImageSignature1 == null)
                             {
-                                certificate.ImageSignature1 = _uploadFileHelper.UploadFile(certificate.ImageFile, "AppData", $"SignatureImages/{certificate.Serial}");
+                                certificateExist.ImageSignature1 = _uploadFileHelper.UploadFile(file, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else if (certificateExist.ImageSignature2 == null)
                             {
-                                certificate.ImageSignature2 = _uploadFileHelper.UploadFile(certificate.ImageFile, "AppData", $"SignatureImages/{certificate.Serial}");
+                                certificateExist.ImageSignature2 = _uploadFileHelper.UploadFile(file, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else if (certificateExist.ImageSignature3 == null)
                             {
-                                certificate.ImageSignature3 = _uploadFileHelper.UploadFile(certificate.ImageFile, "AppData", $"SignatureImages/{certificate.Serial}");
+                                certificateExist.ImageSignature3 = _uploadFileHelper.UploadFile(file, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else if (certificateExist.ImageSignature4 == null)
                             {
-                                certificate.ImageSignature4 = _uploadFileHelper.UploadFile(certificate.ImageFile, "AppData", $"SignatureImages/{certificate.Serial}");
+                                certificateExist.ImageSignature4 = _uploadFileHelper.UploadFile(file, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else if (certificateExist.ImageSignature5 == null)
                             {
-                                certificate.ImageSignature5 = _uploadFileHelper.UploadFile(certificate.ImageFile, "AppData", $"SignatureImages/{certificate.Serial}");
+                                certificateExist.ImageSignature5 = _uploadFileHelper.UploadFile(file, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else
                             {
@@ -121,7 +122,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         return BadRequest("Hãy tải lên tệp có định dạng là ảnh !");
                     }
 
-                    return await _pfxCertificate.UpdateInfoToDatabase(certificate);
+                    return await _pfxCertificate.UpdateInfoToDatabase(certificateExist);
                 }
                 else
                 {
@@ -136,5 +137,44 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         }
 
+        [HttpDelete("DeleteImage/{serial}")]
+        public async Task<ActionResult<string>> DeleteImage(string serial, string filePath)
+        {
+            PFXCertificate certificateExist = await _pfxCertificate.GetById(serial);
+            
+            if (certificateExist.ImageSignature1 == filePath)
+            {
+                _uploadFileHelper.RemoveFile(filePath);
+                certificateExist.ImageSignature1 = null;
+                return Ok(await _pfxCertificate.UpdateInfoToDatabase(certificateExist));
+               
+            }
+            if (certificateExist.ImageSignature2 == filePath)
+            {
+                _uploadFileHelper.RemoveFile(filePath);
+                certificateExist.ImageSignature2 = null;
+                return Ok(await _pfxCertificate.UpdateInfoToDatabase(certificateExist));
+            }
+            if (certificateExist.ImageSignature3 == filePath)
+            {
+                _uploadFileHelper.RemoveFile(filePath);
+                certificateExist.ImageSignature3 = null;
+                return Ok(await _pfxCertificate.UpdateInfoToDatabase(certificateExist));
+            }
+            if (certificateExist.ImageSignature4 == filePath)
+            {
+                _uploadFileHelper.RemoveFile(filePath);
+                certificateExist.ImageSignature4 = null;
+                return Ok(await _pfxCertificate.UpdateInfoToDatabase(certificateExist));
+            }
+            if (certificateExist.ImageSignature5 == filePath)
+            {
+                _uploadFileHelper.RemoveFile(filePath);
+                certificateExist.ImageSignature5 = null;
+                return Ok(await _pfxCertificate.UpdateInfoToDatabase(certificateExist));
+            }
+
+            return BadRequest("Không thể xoá ảnh, hãy kiểm tra lại !");
+        }
     }
 }
