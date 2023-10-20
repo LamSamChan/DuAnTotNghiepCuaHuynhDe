@@ -155,7 +155,7 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
                     return status;
                 }
 
-                existingCus.CustomerId = customer.CustomerId;
+                existingCus.CustomerId = existingCus.CustomerId;
                 existingCus.BuisinessName = customer.BuisinessName;
                 existingCus.FullName = customer.FullName;
                 existingCus.Position = customer.Position;
@@ -173,7 +173,7 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
                 existingCus.BillingAddress = customer.BillingAddress;
                 existingCus.IsLocked = customer.IsLocked;
                 existingCus.Note = customer.Note;
-                existingCus.SerialPFX = customer.SerialPFX;
+                existingCus.SerialPFX = existingCus.SerialPFX;
                 existingCus.TOC_ID = customer.TOC_ID;
 
                 status = await IsFieldExist(existingCus);

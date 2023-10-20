@@ -117,11 +117,40 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             string isError = await _employeeSvc.Update(employee);
 
-            if (isError != null)
+            //-1: email trùng, -2: số điện thoại trùng, -3 cccd trùng
+            if (isError != "-1" && isError != "-2" && isError != "-3" && isError != "-4" && isError != "-5" && isError != "-6" && isError != null)
             {
                 return Ok(isError);
             }
-            else { return BadRequest(isError); }
+            else
+            {
+                if (isError == "-1")
+                {
+                    return BadRequest("Email nhân viên này đã tồn tại !");
+
+                }
+                else if (isError == "-2")
+                {
+                    return BadRequest("Số điện thoại nhân viên này đã tồn tại !");
+                }
+                else if (isError == "-3")
+                {
+                    return BadRequest("Chứng minh nhân dân / Căn cước công dân của nhân viên này đã tồn tại !");
+                }
+                else if (isError == "-4")
+                {
+                    return BadRequest("Vai trò này đã bị ẩn!");
+                }
+                else if (isError == "-5")
+                {
+                    return BadRequest("Chức vụ này đã bị ẩn !");
+                }
+                else if (isError == "-6")
+                {
+                    return BadRequest("Chức vụ hoặc vai trò không tồn tại!");
+                }
+                else return BadRequest(isError);
+            }
         }
     }
 }

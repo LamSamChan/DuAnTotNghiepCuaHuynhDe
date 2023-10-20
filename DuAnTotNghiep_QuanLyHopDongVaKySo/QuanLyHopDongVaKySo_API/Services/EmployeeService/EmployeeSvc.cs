@@ -184,7 +184,7 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
                 }
 
                 // Cập nhật thông tin của đối tượng 
-                existingEmp.EmployeeId = employee.EmployeeId;
+                existingEmp.EmployeeId = existingEmp.EmployeeId;
                 existingEmp.FullName = employee.FullName;
                 existingEmp.Email = employee.Email;
                 existingEmp.DateOfBirth = employee.DateOfBirth;
@@ -193,19 +193,28 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
                 existingEmp.Identification = employee.Identification;
                 existingEmp.Image = employee.Image;
                 existingEmp.Address = employee.Address;
-                if (employee.Password == null)
-                {
-                    existingEmp.Password = existingEmp.Password;
-                }
+                existingEmp.Password = existingEmp.Password;
                 existingEmp.IsLocked = employee.IsLocked;
                 existingEmp.Note = employee.Note;
-                existingEmp.SerialPFX = employee.SerialPFX;
+                existingEmp.SerialPFX = existingEmp.SerialPFX;
                 existingEmp.RoleID = employee.RoleID;
                 existingEmp.PositionID = employee.PositionID;
 
-                // Lưu thay đổi vào database
-                await _context.SaveChangesAsync();
-                status = employee.EmployeeId.ToString();
+                string checkFiled = await IsFieldExist(existingEmp);
+                string checkHidden = await IsRoleOrPositonCheck(existingEmp);
+                if (String.Compare(checkFiled, "0") != 0)
+                {
+                    return checkFiled;
+
+                }else if(String.Compare(checkHidden, "0") != 0)
+                {
+                    return checkHidden;
+                }
+                else
+                {
+                    await _context.SaveChangesAsync();
+                    status = employee.EmployeeId.ToString();
+                }
             }
             catch (System.Exception ex)
             {
