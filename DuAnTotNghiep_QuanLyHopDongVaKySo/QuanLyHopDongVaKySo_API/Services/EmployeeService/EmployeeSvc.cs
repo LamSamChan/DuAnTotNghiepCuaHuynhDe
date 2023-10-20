@@ -44,6 +44,7 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
                     string serialPFX = await _pfxCertificateSvc.CreatePFXCertificate("TechSeal", employee.FullName, passwordPfx, true);
                     employee.Password = passwordEmp;
                     employee.SerialPFX = serialPFX;
+                    employee.IsFirstLogin = true;
                     _context.Employees.Add(employee);
                     await _context.SaveChangesAsync();
                     isSuccess = employee.EmployeeId.ToString();
@@ -191,7 +192,10 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
                 existingEmp.Gender = employee.Gender;
                 existingEmp.PhoneNumber = employee.PhoneNumber;
                 existingEmp.Identification = employee.Identification;
-                existingEmp.Image = employee.Image;
+                if (employee.Image == null)
+                {
+                    existingEmp.Image = existingEmp.Image;
+                }
                 existingEmp.Address = employee.Address;
                 existingEmp.Password = existingEmp.Password;
                 existingEmp.IsLocked = employee.IsLocked;
@@ -199,6 +203,7 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
                 existingEmp.SerialPFX = existingEmp.SerialPFX;
                 existingEmp.RoleID = employee.RoleID;
                 existingEmp.PositionID = employee.PositionID;
+                existingEmp.IsFirstLogin = existingEmp.IsFirstLogin;
 
                 string checkFiled = await IsFieldExist(existingEmp);
                 string checkHidden = await IsRoleOrPositonCheck(existingEmp);

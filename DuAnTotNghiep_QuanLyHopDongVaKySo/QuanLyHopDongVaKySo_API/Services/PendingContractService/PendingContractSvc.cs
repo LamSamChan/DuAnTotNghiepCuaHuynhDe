@@ -8,8 +8,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
     public class PendingContractSvc : IPendingContractSvc
     {
         private readonly ProjectDbContext _context;
-        private readonly IUploadImageHelper _imageHelper;
-        public PendingContractSvc(ProjectDbContext context, IUploadImageHelper imageHelper)
+        private readonly IUploadFileHelper _imageHelper;
+        public PendingContractSvc(ProjectDbContext context, IUploadFileHelper imageHelper)
         {
             _context = context;
             _imageHelper = imageHelper;
@@ -20,7 +20,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             try{
                 if(PContract.File != null)
                 {
-                    _imageHelper.UploadImage(PContract.File,"AppData","PContracts");
+                    _imageHelper.UploadFile(PContract.File,"AppData","PContracts");
                 }
                 PendingContract add = new PendingContract()
                 {
@@ -74,7 +74,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             try{
                 if(PContract.File != null)
                 {
-                    _imageHelper.UploadImage(PContract.File,"AppData","PContracts");
+                    _imageHelper.UploadFile(PContract.File,"AppData","PContracts");
                 }
                 if(update != null)
                 {

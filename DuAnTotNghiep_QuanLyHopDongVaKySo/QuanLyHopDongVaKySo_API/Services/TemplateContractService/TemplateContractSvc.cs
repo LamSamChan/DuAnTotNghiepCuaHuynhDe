@@ -9,8 +9,8 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
     public class TemplateContractSvc : ITemplateContractSvc
     {
         private readonly ProjectDbContext _context;
-        private readonly IUploadImageHelper _helpers;
-        public TemplateContractSvc(ProjectDbContext context,IUploadImageHelper helpers)
+        private readonly IUploadFileHelper _helpers;
+        public TemplateContractSvc(ProjectDbContext context, IUploadFileHelper helpers)
         {
             _context = context;
             _helpers = helpers;
@@ -20,7 +20,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
             try{
                 if(tContract.File != null)
                 {
-                    _helpers.UploadImage(tContract.File,"AppData","TContracts");
+                    _helpers.UploadFile(tContract.File,"AppData","TContracts");
                 }
                 TemplateContract add = new TemplateContract()
                 {
@@ -67,7 +67,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
                 var update = await getTContractAsnyc(tContract.TContractID);
                 if(tContract.File != null)
                 {
-                    _helpers.UploadImage(tContract.File,"AppData","TContracts");
+                    _helpers.UploadFile(tContract.File,"AppData","TContracts");
                 }
                 if(update != null)
                 {

@@ -1,14 +1,14 @@
 ﻿namespace QuanLyHopDongVaKySo_API.Helpers
 {   
-        public interface IUploadImageHelper
+        public interface IUploadFileHelper
         {
-            void UploadImage(IFormFile file, string rootPath, string category);
-            void RemoveImage(string filePath);
+            string UploadFile(IFormFile file, string rootPath, string category);
+            void RemoveFile(string filePath);
 
         }
-        public class UploadImageHelper : IUploadImageHelper
+        public class UploadFileHelper : IUploadFileHelper
     {
-            public void UploadImage(IFormFile file, string rootPath, string category)
+            public string UploadFile(IFormFile file, string rootPath, string category)
             {
                 //string path = Path.Combine(_hostingEnvironment.WebRootPath, "images", file.FileName);
                 if (!Directory.Exists(rootPath))
@@ -29,17 +29,14 @@
                         file.CopyTo(stream);
                     }
                 }
+                return filePath;
             }
 
-            public void RemoveImage(string filePath)
+            public void RemoveFile(string filePath)
             {
                 if (File.Exists(filePath))
                 {
                     File.Delete(filePath);
-
-                    //string path = Path.Combine(_hostingEnvironment.WebRootPath, "images", file.FileName);
-                    //var getFile = new FileInfo(filePath);
-                    //getFile.Delete();
                 }
             }
         }

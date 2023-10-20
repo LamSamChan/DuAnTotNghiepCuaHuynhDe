@@ -9,27 +9,27 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Key]
         [Column("Id")]
         [Display(Name = "Số Seri")]
-        public string Serial { get; set; }
+        public string? Serial { get; set; }
 
         [Display(Name = "Tên tệp PFX")]
         [Column("Name")]
-        public string PfxFileName { get; set; }
+        public string? PfxFileName { get; set; }
 
         [Display(Name = "Mật khẩu tệp PFX")]
         [Column("Password")]
-        public string PfxPassword { get; set; }
+        public string? PfxPassword { get; set; }
 
         [Display(Name = "Đường dẫn tệp PFX")]
         [Column("FilePath")]
-        public string PfxFilePath { get; set; }
+        public string? PfxFilePath { get; set; }
 
         [Display(Name = "Tổ chức phát hành")]
         [Column("Issuer")]
-        public string Issuer { get; set; }
+        public string? Issuer { get; set; }
 
         [Display(Name = "Người sở hữu")]
         [Column("Subject")]
-        public string Subject { get; set; }
+        public string? Subject { get; set; }
 
         [DisplayFormat(DataFormatString = "{0::HH:mm:ss dd/MM/yyyy}")]
         [Display(Name = "Ngày hiệu lực")]
@@ -41,7 +41,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column("ValidUntil")]
         public DateTime ValidUntil { get; set; }
 
-        public bool IsEmployee { get; set; }
+        public bool? IsEmployee { get; set; }
 
         [StringLength(500),AllowNull]
         [Display(Name = "Ảnh chữ ký 1")]
@@ -55,6 +55,13 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Ảnh chữ ký 3")]
         public string? ImageSignature3{ get; set; }
 
+        [StringLength(500), AllowNull]
+        [Display(Name = "Ảnh chữ ký 4")]
+        public string? ImageSignature4 { get; set; }
+
+        [StringLength(500), AllowNull]
+        [Display(Name = "Ảnh chữ ký 5")]
+        public string? ImageSignature5 { get; set; }
         [NotMapped]
         [Display(Name = "Tệp ảnh")]
         public IFormFile? ImageFile { get; set; }

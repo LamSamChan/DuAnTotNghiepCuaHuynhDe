@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Org.BouncyCastle.Asn1.Crmf;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
@@ -14,11 +15,13 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IEmployeeSvc _employeeSvc;
         private readonly ISendMailHelper _sendMailHelper;
         private readonly IRandomPasswordHelper _randomPasswordHelper;
-        public EmployeesController(IEmployeeSvc employeeSvc, ISendMailHelper sendMailHelper, IRandomPasswordHelper randomPasswordHelper)
+        private readonly IUploadFileHelper _uploadFileHelper;
+        public EmployeesController(IEmployeeSvc employeeSvc, ISendMailHelper sendMailHelper, IRandomPasswordHelper randomPasswordHelper, IUploadFileHelper uploadFileHelper)
         {
             this._employeeSvc = employeeSvc;
             this._sendMailHelper = sendMailHelper;
             this._randomPasswordHelper = randomPasswordHelper;
+            _uploadFileHelper = uploadFileHelper;
         }
 
         [HttpGet]
@@ -48,6 +51,24 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             employee.EmployeeId = Guid.NewGuid();
             string passwordEmp = await _randomPasswordHelper.GeneratePassword(8);
             employee.Password = passwordEmp;
+
+            
+            if (employee.ImageFile != null)
+            {
+                if (employee.ImageFile.ContentType.StartsWith("image/"))
+                {
+                    if (employee.ImageFile.Length > 0)
+                    {
+                        _uploadFileHelper.UploadFile(employee.ImageFile, "AppData", "Avatars");
+                        employee.Image = employee.ImageFile.FileName;
+                    }
+                }
+                else
+                {
+                    return BadRequest("Hãy tải lên tệp có định dạng là ảnh !");
+                }
+            } 
+
             string isError = await _employeeSvc.AddNew(employee);
 
             //-1: email trùng, -2: số điện thoại trùng, -3 cccd trùng
@@ -108,13 +129,29 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 {
                     return BadRequest("Chức vụ hoặc vai trò không tồn tại!");
                 }
-                else return BadRequest(isError);
+                else return BadRequest();
             }
         }
 
         [HttpPut("Update/{id}")]
         public async Task<ActionResult<string>> Update(Employee employee)
         {
+            if (employee.ImageFile != null)
+            {
+                if (employee.ImageFile.ContentType.StartsWith("image/"))
+                {
+                    if (employee.ImageFile.Length > 0)
+                    {
+                        _uploadFileHelper.UploadFile(employee.ImageFile, "AppData", "Avatars");
+                        employee.Image = employee.ImageFile.FileName;
+                    }
+                }
+                else
+                {
+                    return BadRequest("Hãy tải lên tệp có định dạng là ảnh !");
+                }
+            }
+
             string isError = await _employeeSvc.Update(employee);
 
             //-1: email trùng, -2: số điện thoại trùng, -3 cccd trùng

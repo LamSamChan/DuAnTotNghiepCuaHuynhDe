@@ -12,11 +12,11 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
     public class CustomerSvc : ICustomerSvc
     {
         private readonly ProjectDbContext _context;
-        private readonly IUploadImageHelper _imageHelpers;
+        private readonly IUploadFileHelper _imageHelpers;
         private readonly IEncodeHelper _encodeHelper;
         private readonly IPFXCertificateSvc _pfxCertificate;
         private readonly ITypeOfCustomerSvc _typeOfCustomerSvc;
-        public CustomerSvc(ProjectDbContext context, IUploadImageHelper imageHelpers, IEncodeHelper encodeHelper, IPFXCertificateSvc pFXCertificate, ITypeOfCustomerSvc typeOfCustomerSvc)
+        public CustomerSvc(ProjectDbContext context, IUploadFileHelper imageHelpers, IEncodeHelper encodeHelper, IPFXCertificateSvc pFXCertificate, ITypeOfCustomerSvc typeOfCustomerSvc)
         {
             _context = context;
             _imageHelpers = _imageHelpers;

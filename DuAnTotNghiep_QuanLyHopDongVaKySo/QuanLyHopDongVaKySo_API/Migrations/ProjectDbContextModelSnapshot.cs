@@ -24,7 +24,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.Customer", b =>
                 {
-                    b.Property<Guid>("CustomerId")
+                    b.Property<Guid?>("CustomerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("Id");
@@ -72,11 +72,11 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.Property<string>("IssuedPlace")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Nationality")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Note")
                         .HasColumnType("nvarchar(255)");
@@ -90,7 +90,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("SerialPFX")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("TOC_ID")
@@ -221,6 +220,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<string>("Image")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("IsFirstLogin")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsLocked")
                         .HasColumnType("bit");
@@ -362,31 +364,34 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<bool>("IsEmployee")
+                    b.Property<string>("ImageSignature4")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("ImageSignature5")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool?>("IsEmployee")
                         .HasColumnType("bit");
 
                     b.Property<string>("Issuer")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Issuer");
 
                     b.Property<string>("PfxFileName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Name");
 
                     b.Property<string>("PfxFilePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("FilePath");
 
                     b.Property<string>("PfxPassword")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Password");
 
                     b.Property<string>("Subject")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Subject");
 
@@ -673,9 +678,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 {
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.PFXCertificate", "PFXCertificate")
                         .WithMany()
-                        .HasForeignKey("SerialPFX")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SerialPFX");
 
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.TypeOfCustomer", "TypeOfCustomer")
                         .WithMany()

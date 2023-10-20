@@ -12,11 +12,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     {
         private readonly IPFXCertificateSvc _pfxCertificate;
         private readonly IEncodeHelper _encodeHelper;
-
-        public PFXCertificatesController(IPFXCertificateSvc pfxCertificate, IEncodeHelper encodeHelper)
+        private readonly IUploadFileHelper _uploadFileHelper;
+        public PFXCertificatesController(IPFXCertificateSvc pfxCertificate, IEncodeHelper encodeHelper, IUploadFileHelper uploadFileHelper)
         {
             _pfxCertificate = pfxCertificate;
             _encodeHelper = encodeHelper;
+            this._uploadFileHelper = uploadFileHelper;
         }
 
         [HttpGet]
@@ -73,6 +74,65 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 
             }
             else { return BadRequest(isUpdateNotAfter); }
+
+        }
+
+        [HttpPut("UploadImage/{id}")]
+        public async Task<ActionResult<string>> UploadSignatureImage(PFXCertificate certificate)
+        {
+            PFXCertificate certificateExist = await _pfxCertificate.GetById(certificate.Serial);
+            certificate = certificateExist;
+            try
+            {
+                if (certificate.ImageFile != null)
+                {
+                    if (certificate.ImageFile.ContentType.StartsWith("image/"))
+                    {
+                        if (certificate.ImageFile.Length > 0)
+                        {
+                            if (certificateExist.ImageSignature1 == null)
+                            {
+                                certificate.ImageSignature1 = _uploadFileHelper.UploadFile(certificate.ImageFile, "AppData", $"SignatureImages/{certificate.Serial}");
+                            }
+                            else if (certificateExist.ImageSignature2 == null)
+                            {
+                                certificate.ImageSignature2 = _uploadFileHelper.UploadFile(certificate.ImageFile, "AppData", $"SignatureImages/{certificate.Serial}");
+                            }
+                            else if (certificateExist.ImageSignature3 == null)
+                            {
+                                certificate.ImageSignature3 = _uploadFileHelper.UploadFile(certificate.ImageFile, "AppData", $"SignatureImages/{certificate.Serial}");
+                            }
+                            else if (certificateExist.ImageSignature4 == null)
+                            {
+                                certificate.ImageSignature4 = _uploadFileHelper.UploadFile(certificate.ImageFile, "AppData", $"SignatureImages/{certificate.Serial}");
+                            }
+                            else if (certificateExist.ImageSignature5 == null)
+                            {
+                                certificate.ImageSignature5 = _uploadFileHelper.UploadFile(certificate.ImageFile, "AppData", $"SignatureImages/{certificate.Serial}");
+                            }
+                            else
+                            {
+                                return BadRequest("Kho ảnh chữ ký đã đầy, Hãy xóa 1 ảnh chữ ký để có thể tải lên ảnh chữ ký mới!");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return BadRequest("Hãy tải lên tệp có định dạng là ảnh !");
+                    }
+
+                    return await _pfxCertificate.UpdateInfoToDatabase(certificate);
+                }
+                else
+                {
+                    return BadRequest("Hãy tải lên ảnh chữ ký của bạn");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
 
         }
 

@@ -7,9 +7,9 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
     public class TemplateMinuteSvc : ITemplateMinuteSvc
     {
         private readonly ProjectDbContext _context;
-        private readonly IUploadImageHelper _helpers;
+        private readonly IUploadFileHelper _helpers;
 
-        public TemplateMinuteSvc (ProjectDbContext context,IUploadImageHelper helpers)
+        public TemplateMinuteSvc (ProjectDbContext context,IUploadFileHelper helpers)
         {
             _context = context;
             _helpers = helpers;
@@ -19,7 +19,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
             try{
                 if(tMinute.File != null)
                 {
-                    _helpers.UploadImage(tMinute.File,"AppData","TMinutes");
+                    _helpers.UploadFile(tMinute.File,"AppData","TMinutes");
                 }
                 TemplateMinute add = new TemplateMinute
                 {
@@ -65,7 +65,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
                 var update = await getTMinuteAsnyc(tMinute.TMinuteID);
                 if(tMinute.File != null)
                 {
-                    _helpers.UploadImage(tMinute.File,"Appdata","TMinutes");
+                    _helpers.UploadFile(tMinute.File,"Appdata","TMinutes");
                 }
                 if(update != null)
                 {

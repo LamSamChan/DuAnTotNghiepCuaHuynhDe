@@ -43,10 +43,11 @@ builder.Services.AddScoped<ITemplateContractSvc, TemplateContractSvc>();
 builder.Services.AddScoped<ITemplateMinuteSvc, TemplateMinuteSvc>();
 builder.Services.AddScoped<ITypeOfCustomerSvc, TypeOfCustomerSvc>();
 builder.Services.AddScoped<ITypeOfServiceSvc, TypeOfServiceSvc>();
-builder.Services.AddScoped<IUploadImageHelper, UploadImageHelper>();
+builder.Services.AddScoped<IUploadFileHelper, UploadFileHelper>();
 builder.Services.AddScoped<IEncodeHelper, EncodeHelper>();
 builder.Services.AddScoped<ISendMailHelper, SendMailHelper>();
 builder.Services.AddScoped<IRandomPasswordHelper, RandomPasswordHelper>();
+builder.Services.AddScoped<IOTPGeneratorHelper, OTPGeneratorHelper>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
