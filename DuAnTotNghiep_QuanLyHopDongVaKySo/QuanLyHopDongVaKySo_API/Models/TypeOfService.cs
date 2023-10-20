@@ -11,9 +11,12 @@ namespace QuanLyHopDongVaKySo_API.Models
         public int TOS_ID { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
-        [Required(ErrorMessage = "Hãy chọn ngày !")]
         [Display(Name = "Ngày tạo")]
-        public DateTime DateAdded { get; set; }
+        public DateTime? DateAdded { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
+        [Display(Name = "Ngày cập nhật")]
+        public DateTime? DateUpdated { get; set; }
 
         [Required(ErrorMessage = "Hãy điền tên loại dịch vụ !")]
         [Column(TypeName = "nvarchar(100)")]
@@ -28,6 +31,8 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column(TypeName = "nvarchar(100)")]
         [Display(Name = "Đơn vị thời gian")]
         public string PerTime { get; set; }
+
+        public bool isHidden { get; set; }
 
         //tạo liên kết
 

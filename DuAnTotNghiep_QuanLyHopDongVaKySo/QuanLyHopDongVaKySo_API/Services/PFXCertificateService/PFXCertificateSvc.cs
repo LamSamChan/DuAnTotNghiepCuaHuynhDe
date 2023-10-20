@@ -154,12 +154,16 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 DateTime toDay = DateTime.Now;
                 int soNgayGanHetHan = 7;
 
-                return await _context.PFXCertificates.Where(p => (p.ValidUntil.Date - toDay.Date).TotalDays 
-                <= soNgayGanHetHan && (p.ValidUntil.Date - toDay.Date).TotalDays >= 0).ToListAsync();
+                var certificates = await _context.PFXCertificates.ToListAsync();
+
+                var aboutToExpireCertificates = certificates
+                    .Where(p => (p.ValidUntil.Date - toDay.Date).TotalDays <= soNgayGanHetHan && (p.ValidUntil.Date - toDay.Date).TotalDays >= 0)
+                    .ToList();
+
+                return aboutToExpireCertificates;
             }
             catch (Exception ex)
             {
-
                 return new List<PFXCertificate>();
             }
         }
@@ -169,8 +173,9 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
             try
             {
                 DateTime toDay = DateTime.Now;
-
-                return await _context.PFXCertificates.Where(p => (p.ValidUntil.Date - toDay.Date).TotalDays < 0).ToListAsync();
+                var certificates = await _context.PFXCertificates.ToListAsync();
+                var expireCertificates = certificates.Where(p => (p.ValidUntil.Date - toDay.Date).TotalDays < 0).ToList();
+                return expireCertificates;
             }
             catch (Exception ex)
             {
@@ -252,13 +257,13 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
 
                 // Gia hạn thời gian hiệu lực của chứng chỉ
                 DateTime newNotBefore = DateTime.Now; // Ngày bắt đầu mới
-                DateTime newNotAfter = DateTime.Now.AddYears(1); // Ngày kết thúc mới
+                DateTime newNotAfter = DateTime.Now.AddDays(2); // Ngày kết thúc mới
 
                 X509V3CertificateGenerator generator = new X509V3CertificateGenerator();
                 generator.SetSerialNumber(certificate.SerialNumber);
                 generator.SetNotBefore(newNotBefore);
                 generator.SetNotAfter(newNotAfter);
-                generator.SetIssuerDN(certificate.SubjectDN);
+                generator.SetIssuerDN(certificate.IssuerDN);
                 generator.SetSubjectDN(certificate.SubjectDN);
                 generator.SetPublicKey(certificate.GetPublicKey());
                 generator.AddExtension(

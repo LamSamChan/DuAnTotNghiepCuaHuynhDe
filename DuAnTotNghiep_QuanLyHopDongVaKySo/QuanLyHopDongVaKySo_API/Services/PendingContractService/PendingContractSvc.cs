@@ -26,7 +26,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 {
                     DateCreated = DateTime.Now,
                     PContractName = PContract.PContractName,
-                    PContractFile = @"AppData\PContracts\"+PContract.File.FileName,
+                    PContractFile = @"AppData/PContracts/"+PContract.File.FileName,
                     IsDirector = false,
                     IsCustomer = false,
                     IsRefuse = false,

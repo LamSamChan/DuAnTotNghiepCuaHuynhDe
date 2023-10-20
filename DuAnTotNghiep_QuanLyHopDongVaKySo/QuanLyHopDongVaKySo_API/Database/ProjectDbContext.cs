@@ -13,7 +13,8 @@ namespace QuanLyHopDongVaKySo_API.Database
         public DbSet<DoneContract> DoneContracts { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<InstallationRequirement> InstallationRequirements { get; set; }
-        public DbSet<OperationHistory> OperationHistorys { get; set; }
+        public DbSet<OperationHistoryEmp> OperationHistoryEmps { get; set; }
+        public DbSet<OperationHistoryCus> OperationHistoryCuss { get; set; }
         public DbSet<PendingContract> PendingContracts { get; set; }
         public DbSet<PFXCertificate> PFXCertificates { get; set; }
         public DbSet<Position> Positions { get; set; }
@@ -30,7 +31,8 @@ namespace QuanLyHopDongVaKySo_API.Database
             modelBuilder.Entity<Employee>().ToTable("Employee");
             modelBuilder.Entity<Customer>().ToTable("Customer");
             modelBuilder.Entity<InstallationRequirement>().ToTable("InstallationRequirement");
-            modelBuilder.Entity<OperationHistory>().ToTable("OperationHistory");
+            modelBuilder.Entity<OperationHistoryEmp>().ToTable("OperationHistoryEmp");
+            modelBuilder.Entity<OperationHistoryCus>().ToTable("OperationHistoryCus");
             modelBuilder.Entity<Employee>().ToTable("Employee");
             modelBuilder.Entity<PendingContract>().ToTable("PendingContract");
             modelBuilder.Entity<PFXCertificate>().ToTable("PFXCertificate");

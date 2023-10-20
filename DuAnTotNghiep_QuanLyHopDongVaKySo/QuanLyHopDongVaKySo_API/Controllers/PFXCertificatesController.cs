@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 using QuanLyHopDongVaKySo_API.Services.PositionService;
@@ -10,9 +11,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     public class PFXCertificatesController : ControllerBase
     {
         private readonly IPFXCertificateSvc _pfxCertificate;
-        public PFXCertificatesController(IPFXCertificateSvc pfxCertificate)
+        private readonly IEncodeHelper _encodeHelper;
+
+        public PFXCertificatesController(IPFXCertificateSvc pfxCertificate, IEncodeHelper encodeHelper)
         {
             _pfxCertificate = pfxCertificate;
+            _encodeHelper = encodeHelper;
         }
 
         [HttpGet]
@@ -51,7 +55,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         public async Task<ActionResult<string>> UpdateNotAfter(string pfxFilePath, string password, bool isEmployee)
         {
             string isUpdateToDatabase = null;
-            PFXCertificate isUpdateNotAfter = await _pfxCertificate.UpdateNotAfter(pfxFilePath,password,isEmployee);
+
+            PFXCertificate isUpdateNotAfter = await _pfxCertificate.UpdateNotAfter(pfxFilePath,_encodeHelper.Encode(password),isEmployee);
 
             if (isUpdateNotAfter != null)
             {

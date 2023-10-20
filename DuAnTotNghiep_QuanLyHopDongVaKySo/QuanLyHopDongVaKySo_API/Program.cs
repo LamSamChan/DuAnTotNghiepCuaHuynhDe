@@ -6,7 +6,8 @@ using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 using QuanLyHopDongVaKySo_API.Services.DoneMinuteService;
 using QuanLyHopDongVaKySo_API.Services.EmployeeService;
 using QuanLyHopDongVaKySo_API.Services.InstallationRequirementService;
-using QuanLyHopDongVaKySo_API.Services.OperationHistoryService;
+using QuanLyHopDongVaKySo_API.Services.OperationHistoryCusService;
+using QuanLyHopDongVaKySo_API.Services.OperationHistoryEmpService;
 using QuanLyHopDongVaKySo_API.Services.PendingContractService;
 using QuanLyHopDongVaKySo_API.Services.PendingMinuteService;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
@@ -31,7 +32,8 @@ builder.Services.AddScoped<IDoneContractSvc, DoneContractSvc>();
 builder.Services.AddScoped<IDoneMinuteSvc, DoneMinuteSvc>();
 builder.Services.AddScoped<IEmployeeSvc, EmployeeSvc>();
 builder.Services.AddScoped<IInstallationRequirementSvc, InstallationRequirementSvc>();
-builder.Services.AddScoped<IOperationHistorySvc, OperationHistorySvc>();
+builder.Services.AddScoped<IOperationHistoryCusSvc, OperationHistoryCusSvc>();
+builder.Services.AddScoped<IOperationHistoryEmpSvc, OperationHistoryEmpSvc>();
 builder.Services.AddScoped<IPendingContractSvc, PendingContractSvc>();
 builder.Services.AddScoped<IPendingMinuteSvc, PendingMinuteSvc>();
 builder.Services.AddScoped<IPFXCertificateSvc, PFXCertificateSvc>();
@@ -43,6 +45,9 @@ builder.Services.AddScoped<ITypeOfCustomerSvc, TypeOfCustomerSvc>();
 builder.Services.AddScoped<ITypeOfServiceSvc, TypeOfServiceSvc>();
 builder.Services.AddScoped<IUploadImageHelper, UploadImageHelper>();
 builder.Services.AddScoped<IEncodeHelper, EncodeHelper>();
+builder.Services.AddScoped<ISendMailHelper, SendMailHelper>();
+builder.Services.AddScoped<IRandomPasswordHelper, RandomPasswordHelper>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

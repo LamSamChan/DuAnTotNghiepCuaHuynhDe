@@ -12,8 +12,8 @@ using QuanLyHopDongVaKySo_API.Database;
 namespace QuanLyHopDongVaKySo_API.Migrations
 {
     [DbContext(typeof(ProjectDbContext))]
-    [Migration("20231016042859_101623_Migration")]
-    partial class _101623_Migration
+    [Migration("20231018180800_101923_migration")]
+    partial class _101923_migration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,7 +45,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("BuisinessName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime>("DateOfBirth")
@@ -53,6 +52,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("FullName")
@@ -90,7 +90,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Position")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("SerialPFX")
@@ -173,7 +172,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<DateTime>("DateDone")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("EmployeeId")
+                    b.Property<Guid?>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MinuteFile")
@@ -193,7 +192,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.Employee", b =>
                 {
-                    b.Property<Guid>("EmployeeId")
+                    b.Property<Guid?>("EmployeeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("Id");
@@ -207,6 +206,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("FullName")
@@ -232,7 +232,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
@@ -248,7 +247,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("SerialPFX")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("EmployeeId");
@@ -297,11 +295,17 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.ToTable("InstallationRequirement", (string)null);
                 });
 
-            modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.OperationHistory", b =>
+            modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.OperationHistoryCus", b =>
                 {
-                    b.Property<double>("HistoryID")
-                        .HasColumnType("float")
+                    b.Property<int>("HistoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HistoryID"));
+
+                    b.Property<Guid>("CustomerID")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -312,7 +316,35 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.HasKey("HistoryID");
 
-                    b.ToTable("OperationHistory", (string)null);
+                    b.HasIndex("CustomerID");
+
+                    b.ToTable("OperationHistoryCus", (string)null);
+                });
+
+            modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.OperationHistoryEmp", b =>
+                {
+                    b.Property<int>("HistoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HistoryID"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("EmployeeID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("OperationName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("HistoryID");
+
+                    b.HasIndex("EmployeeID");
+
+                    b.ToTable("OperationHistoryEmp", (string)null);
                 });
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.PFXCertificate", b =>
@@ -594,12 +626,12 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TOC_ID"));
 
-                    b.Property<DateTime>("DateAdded")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("TypeName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isHidden")
+                        .HasColumnType("bit");
 
                     b.HasKey("TOC_ID");
 
@@ -615,7 +647,10 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TOS_ID"));
 
-                    b.Property<DateTime>("DateAdded")
+                    b.Property<DateTime?>("DateAdded")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PerTime")
@@ -628,6 +663,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<string>("ServiceName")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("isHidden")
+                        .HasColumnType("bit");
 
                     b.HasKey("TOS_ID");
 
@@ -692,9 +730,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 {
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.Employee", "Employee")
                         .WithMany("DoneMinute")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployeeId");
 
                     b.Navigation("Employee");
                 });
@@ -715,9 +751,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.PFXCertificate", "PFXCertificate")
                         .WithMany()
-                        .HasForeignKey("SerialPFX")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SerialPFX");
 
                     b.Navigation("PFXCertificate");
 
@@ -743,6 +777,28 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Navigation("DoneContract");
 
                     b.Navigation("TemplateMinute");
+                });
+
+            modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.OperationHistoryCus", b =>
+                {
+                    b.HasOne("QuanLyHopDongVaKySo_API.Models.Customer", "Customer")
+                        .WithMany("OperationHistoryCus")
+                        .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.OperationHistoryEmp", b =>
+                {
+                    b.HasOne("QuanLyHopDongVaKySo_API.Models.Employee", "Employee")
+                        .WithMany("OperationHistoryEmp")
+                        .HasForeignKey("EmployeeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.PendingContract", b =>
@@ -811,6 +867,8 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 {
                     b.Navigation("DoneContract");
 
+                    b.Navigation("OperationHistoryCus");
+
                     b.Navigation("PendingContract");
                 });
 
@@ -819,6 +877,8 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Navigation("DoneContract");
 
                     b.Navigation("DoneMinute");
+
+                    b.Navigation("OperationHistoryEmp");
 
                     b.Navigation("PendingContract");
 

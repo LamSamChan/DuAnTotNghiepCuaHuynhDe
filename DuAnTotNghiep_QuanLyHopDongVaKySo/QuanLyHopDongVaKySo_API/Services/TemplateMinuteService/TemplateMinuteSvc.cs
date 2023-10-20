@@ -25,7 +25,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
                 {
                     DateAdded = DateTime.Now,
                     TMinuteName =  tMinute.TMinuteName,
-                    TMinuteFile = @"AppData\TMinutes\"+tMinute.File.FileName,
+                    TMinuteFile = @"AppData/TMinutes/"+tMinute.File.FileName,
                     jsonCustomerZone = tMinute.jsonCustomerZone,
                     jsonIntallationZone = tMinute.jsonDirectorZone
                 };

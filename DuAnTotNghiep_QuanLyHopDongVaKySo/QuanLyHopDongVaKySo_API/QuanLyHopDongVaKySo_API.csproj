@@ -19,7 +19,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NSwag.Annotations" Version="13.20.0" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
   </ItemGroup>
@@ -31,7 +33,6 @@
     <Folder Include="AppData/PFXCertificates/" />
     <Folder Include="AppData/TContracts/" />
     <Folder Include="AppData/TMinutes/" />
-    <Folder Include="Services/" />
   </ItemGroup>
 
 </Project>

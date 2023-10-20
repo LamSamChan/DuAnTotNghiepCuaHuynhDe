@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "IoVMWFQpmkch3oEa5PzsnScmr/o8NtbAomGKxqImm+SHGUYtTTN17x3Vw0cCrKnRGSY3qmtx7AJuQJkcvibFAw==",
+  "dgSpecHash": "/MatmBVCQpcaiNYGmTm+yxSEXHbpJh9YyWwQYU15nrZAF3b+Ma0YaSY1ytzg9V9zvrkiOj2jZ7IsByDKPXKSWw==",
   "success": true,
-  "projectFilePath": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PC\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

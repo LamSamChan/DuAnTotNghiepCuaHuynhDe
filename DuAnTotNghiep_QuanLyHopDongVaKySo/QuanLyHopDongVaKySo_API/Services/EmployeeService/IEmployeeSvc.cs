@@ -9,5 +9,7 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
         Task<Employee> GetById(string empID);
         Task<string> AddNew(Employee employee);
         Task<string> Update(Employee employee);
+        Task<string> IsFieldExist(Employee employee);
+        Task<string> IsRoleOrPositonCheck(Employee employee);
     }
 }

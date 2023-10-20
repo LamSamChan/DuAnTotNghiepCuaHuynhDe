@@ -19,7 +19,7 @@ namespace QuanLyHopDongVaKySo_API.Models
     {
         [Key]
         [Column("Id")]
-        public Guid EmployeeId { get; set; }
+        public Guid? EmployeeId { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
         [Display(Name = "Họ và tên")]
@@ -45,6 +45,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [Required(ErrorMessage = "Hãy nhập số điện thoại !")]
         [Display(Name = "Số điện thoại")]
+        [RegularExpression("^(?:\\+84|0)\\d{9}$", ErrorMessage = "Số điện thoại không hợp lệ !")]
         [MaxLength(50)]
         public string PhoneNumber { get; set; }
 
@@ -70,11 +71,11 @@ namespace QuanLyHopDongVaKySo_API.Models
         public IFormFile? ImageFile { get; set; }
 
         //tự động tạo và gửi qua mail ghi đăng ký
-        [Required(ErrorMessage = "Hãy nhập mât khẩu !")]
+
         [Column(TypeName = "varchar(50)"), MaxLength(50), MinLength(8, ErrorMessage = "Mật khẩu phải nhiều hơn 8 ký tự !")]
         [DataType(DataType.Password)]
         [Display(Name = "Mật khẩu")]
-        public string Password { get; set; }
+        public string? Password { get; set; }
 
         [Display(Name = "Trạng thái hoạt động")]
         public bool IsLocked { get; set; }
@@ -85,7 +86,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         //tạo liên kết
         [ForeignKey("PFXCertificate")]
-        public string SerialPFX { get; set; }
+        public string? SerialPFX { get; set; }
 
         [ForeignKey("Role")]
         public int RoleID { get; set; }
@@ -107,6 +108,8 @@ namespace QuanLyHopDongVaKySo_API.Models
         public ICollection<PendingContract>? PendingContract { get; set; }
         [JsonIgnore]
         public ICollection<PendingMinute>? PendingMinute { get; set; }
+        [JsonIgnore]
+        public ICollection<OperationHistoryEmp>? OperationHistoryEmp { get; set; }
 
     }
 }

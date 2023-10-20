@@ -26,6 +26,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(await _roleSvc.GetAllNotHidden());
         }
+        [HttpGet("Hidden")]
+        public async Task<ActionResult<IEnumerable<Role>>> GetAllHidden()
+        {
+            return Ok(await _roleSvc.GetAllHidden());
+        }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Role>> GetById(int id)
