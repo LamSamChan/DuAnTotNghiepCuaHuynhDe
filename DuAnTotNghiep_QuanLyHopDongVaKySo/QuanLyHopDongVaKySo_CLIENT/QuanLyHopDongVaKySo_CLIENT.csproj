@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Pages\Customer\" />
+    <Folder Include="Pages\Admin\" />
+    <Folder Include="Pages\InstallingStaff\" />
+    <Folder Include="Pages\Boss\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
