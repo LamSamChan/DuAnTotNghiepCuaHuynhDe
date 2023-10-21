@@ -150,17 +150,32 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
         }
 
-        [HttpPut("Update/{id}")]
-        public async Task<ActionResult<string>> Update(Employee employee)
+        [HttpPut("Update")]
+        public async Task<ActionResult<string>> Update([FromForm]PutEmployee putEmployee)
         {
-            if (employee.ImageFile != null)
+            Employee employee = new Employee {
+                EmployeeId = putEmployee.EmployeeId,
+                FullName = putEmployee.FullName,
+                Email = putEmployee.Email,
+                DateOfBirth = putEmployee.DateOfBirth,
+                Gender = putEmployee.Gender,
+                PhoneNumber = putEmployee.PhoneNumber,
+                Identification = putEmployee.Identification,
+                Address = putEmployee.Address,
+                IsLocked = putEmployee.IsLocked,
+                Note = putEmployee.Note,
+                RoleID = putEmployee.RoleID,
+                PositionID = putEmployee.PositionID,
+            };
+            var existEmp =await _employeeSvc.GetById(employee.EmployeeId.ToString());
+            if (putEmployee.ImageFile != null)
             {
-                if (employee.ImageFile.ContentType.StartsWith("image/"))
+                if (putEmployee.ImageFile.ContentType.StartsWith("image/"))
                 {
-                    if (employee.ImageFile.Length > 0)
+                    if (putEmployee.ImageFile.Length > 0)
                     {
-                        _uploadFileHelper.RemoveFile(employee.Image);
-                        employee.Image = _uploadFileHelper.UploadFile(employee.ImageFile, "AppData", "Avatars");
+                        _uploadFileHelper.RemoveFile(existEmp.Image);
+                        employee.Image = _uploadFileHelper.UploadFile(putEmployee.ImageFile, "AppData", "Avatars");
                     }
                 }
                 else

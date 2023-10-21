@@ -81,7 +81,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [Column(TypeName = "varchar(50)"), AllowNull]
         [Display(Name = "Mã số thuế")]
-        public string TaxIDNumber { get; set; }
+        public string? TaxIDNumber { get; set; }
 
         [Column(TypeName = "nvarchar(255)")]
         [Required(ErrorMessage = "Hãy nhập địa chỉ thanh toán!")]

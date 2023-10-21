@@ -55,11 +55,14 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost("UpdateNotAfter")]
-        public async Task<ActionResult<string>> UpdateNotAfter(string pfxFilePath, string password, bool isEmployee)
+        public async Task<ActionResult<string>> UpdateNotAfter(string serial)
         {
+
+            var certi = await _pfxCertificate.GetById(serial);
+
             string isUpdateToDatabase = null;
 
-            PFXCertificate isUpdateNotAfter = await _pfxCertificate.UpdateNotAfter(pfxFilePath, _encodeHelper.Encode(password), isEmployee);
+            PFXCertificate isUpdateNotAfter = await _pfxCertificate.UpdateNotAfter(certi.PfxFilePath, certi.PfxPassword, certi.IsEmployee);
 
             if (isUpdateNotAfter != null)
             {
@@ -79,37 +82,37 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         }
 
-        [HttpPut("UploadImage/{serial}")]
-        public async Task<ActionResult<string>> UploadSignatureImage(string serial, IFormFile file)
+        [HttpPut("UploadImage")]
+        public async Task<ActionResult<string>> UploadSignatureImage(string serial, IFormFile imageFile)
         {
             PFXCertificate certificateExist = await _pfxCertificate.GetById(serial);
             try
             {
-                if (file != null)
+                if (imageFile != null)
                 {
-                    if (file.ContentType.StartsWith("image/"))
+                    if (imageFile.ContentType.StartsWith("image/"))
                     {
-                        if (file.Length > 0)
+                        if (imageFile.Length > 0)
                         {
                             if (certificateExist.ImageSignature1 == null)
                             {
-                                certificateExist.ImageSignature1 = _uploadFileHelper.UploadFile(file, "AppData", $"SignatureImages/{certificateExist.Serial}");
+                                certificateExist.ImageSignature1 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else if (certificateExist.ImageSignature2 == null)
                             {
-                                certificateExist.ImageSignature2 = _uploadFileHelper.UploadFile(file, "AppData", $"SignatureImages/{certificateExist.Serial}");
+                                certificateExist.ImageSignature2 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else if (certificateExist.ImageSignature3 == null)
                             {
-                                certificateExist.ImageSignature3 = _uploadFileHelper.UploadFile(file, "AppData", $"SignatureImages/{certificateExist.Serial}");
+                                certificateExist.ImageSignature3 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else if (certificateExist.ImageSignature4 == null)
                             {
-                                certificateExist.ImageSignature4 = _uploadFileHelper.UploadFile(file, "AppData", $"SignatureImages/{certificateExist.Serial}");
+                                certificateExist.ImageSignature4 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else if (certificateExist.ImageSignature5 == null)
                             {
-                                certificateExist.ImageSignature5 = _uploadFileHelper.UploadFile(file, "AppData", $"SignatureImages/{certificateExist.Serial}");
+                                certificateExist.ImageSignature5 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else
                             {
@@ -137,7 +140,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         }
 
-        [HttpDelete("DeleteImage/{serial}")]
+        [HttpDelete("DeleteImage")]
         public async Task<ActionResult<string>> DeleteImage(string serial, string filePath)
         {
             PFXCertificate certificateExist = await _pfxCertificate.GetById(serial);

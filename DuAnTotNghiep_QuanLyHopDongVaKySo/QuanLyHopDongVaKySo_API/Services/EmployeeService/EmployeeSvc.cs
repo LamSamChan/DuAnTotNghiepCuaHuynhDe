@@ -195,6 +195,10 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
                 {
                     existingEmp.Image = existingEmp.Image;
                 }
+                else
+                {
+                    existingEmp.Image = employee.Image;
+                }
                 existingEmp.Address = employee.Address;
                 existingEmp.Password = existingEmp.Password;
                 existingEmp.IsLocked = employee.IsLocked;

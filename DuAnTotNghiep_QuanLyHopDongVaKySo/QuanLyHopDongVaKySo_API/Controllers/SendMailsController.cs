@@ -17,7 +17,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost("Send")]
-        public async Task<ActionResult<string>> SendMail(SendMail mail)
+        public async Task<ActionResult<string>> SendMail([FromForm] SendMail mail)
         {
             string isSuccess = await _sendMailHelper.SendMail(mail);
 

@@ -42,7 +42,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column("ValidUntil")]
         public DateTime ValidUntil { get; set; }
 
-        public bool? IsEmployee { get; set; }
+        public bool IsEmployee { get; set; }
 
         [StringLength(500),AllowNull]
         [Display(Name = "Ảnh chữ ký 1")]

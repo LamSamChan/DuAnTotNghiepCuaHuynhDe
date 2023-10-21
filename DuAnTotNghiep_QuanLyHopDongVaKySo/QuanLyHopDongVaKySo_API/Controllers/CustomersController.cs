@@ -37,9 +37,31 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost("AddNew")]
-        public async Task<ActionResult<string>> AddNew(Customer customer)
+        public async Task<ActionResult<string>> AddNew([FromForm] PostCustomer postCustomer)
         {
-            customer.CustomerId = Guid.NewGuid();
+            Customer customer = new Customer
+            {
+                CustomerId = Guid.NewGuid(),
+                BuisinessName = postCustomer.BuisinessName,
+                FullName = postCustomer.FullName,
+                Position = postCustomer.Position,
+                DateOfBirth = postCustomer.DateOfBirth,
+                Gender = postCustomer.Gender,
+                PhoneNumber = postCustomer.PhoneNumber,
+                Email = postCustomer.Email,
+                Identification = postCustomer.Identification,
+                IssuedDate = postCustomer.IssuedDate,
+                IssuedPlace = postCustomer.IssuedPlace,
+                Nationality = postCustomer.Nationality,
+                BankAccount = postCustomer.BankAccount,
+                BankName = postCustomer.BankName,
+                TaxIDNumber = postCustomer.TaxIDNumber,
+                BillingAddress = postCustomer.BillingAddress,
+                IsLocked = postCustomer.IsLocked,
+                Note = postCustomer.Note,
+                TOC_ID = postCustomer.TOC_ID
+            };
+            
             string isError = await _customerSvc.AddNewAsync(customer);
             if (isError != null && isError != "-1" && isError != "-2" && isError != "-3" && isError != "-4" && isError != "-5" && isError != "1")
             {
@@ -72,9 +94,30 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             else { return BadRequest(isError); }
         }
 
-        [HttpPut("Update/{id}")]
-        public async Task<ActionResult<string>> Update(Customer customer)
+        [HttpPut("Update")]
+        public async Task<ActionResult<string>> Update([FromForm] PutCustomer putCustomer)
         {
+            Customer customer = new Customer {
+                CustomerId = putCustomer.CustomerId,
+                BuisinessName = putCustomer.BuisinessName,
+                FullName = putCustomer.FullName,
+                Position = putCustomer.Position,
+                DateOfBirth = putCustomer.DateOfBirth,
+                Gender = putCustomer.Gender,
+                PhoneNumber = putCustomer.PhoneNumber,
+                Email = putCustomer.Email,
+                Identification = putCustomer.Identification,
+                IssuedDate = putCustomer.IssuedDate,
+                IssuedPlace = putCustomer.IssuedPlace,
+                Nationality = putCustomer.Nationality,
+                BankAccount = putCustomer.BankAccount,
+                BankName = putCustomer.BankName,
+                TaxIDNumber = putCustomer.TaxIDNumber,
+                BillingAddress = putCustomer.BillingAddress,
+                IsLocked = putCustomer.IsLocked,
+                Note = putCustomer.Note,
+                TOC_ID = putCustomer.TOC_ID
+            };
             string isError = await _customerSvc.UpdateAsync(customer);
 
             if (isError != null && isError != "-1" && isError != "-2" && isError != "-3" && isError != "-4" && isError != "-5" && isError != "1")

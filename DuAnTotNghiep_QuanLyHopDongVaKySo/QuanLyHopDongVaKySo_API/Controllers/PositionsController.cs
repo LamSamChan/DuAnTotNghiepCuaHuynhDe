@@ -42,7 +42,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost("AddNew")]
-        public async Task<ActionResult<int>> AddNew(Position position)
+        public async Task<ActionResult<int>> AddNew([FromForm] Position position)
         {
             int isError = await _positionSvc.AddNew(position);
             if (isError != 0)
@@ -52,8 +52,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             else { return BadRequest(isError); }
         }
 
-        [HttpPut("Update/{id}")]
-        public async Task<ActionResult<int>> Update(Position position)
+        [HttpPut("Update")]
+        public async Task<ActionResult<int>> Update([FromForm] Position position)
         {
             int isError = await _positionSvc.Update(position);
             if (isError != 0)

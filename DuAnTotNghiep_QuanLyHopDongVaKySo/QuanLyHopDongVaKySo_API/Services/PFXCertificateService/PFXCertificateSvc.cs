@@ -257,7 +257,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
 
                 // Gia hạn thời gian hiệu lực của chứng chỉ
                 DateTime newNotBefore = DateTime.Now; // Ngày bắt đầu mới
-                DateTime newNotAfter = DateTime.Now.AddDays(2); // Ngày kết thúc mới
+                DateTime newNotAfter = DateTime.Now.AddYears(1); // Ngày kết thúc mới
 
                 X509V3CertificateGenerator generator = new X509V3CertificateGenerator();
                 generator.SetSerialNumber(certificate.SerialNumber);

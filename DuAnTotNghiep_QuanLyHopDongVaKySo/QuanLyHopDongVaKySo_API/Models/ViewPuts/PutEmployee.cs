@@ -9,7 +9,8 @@ namespace QuanLyHopDongVaKySo_API.Models.ViewPuts
     {
         [Column("Id")]
         [ReadOnly(true)]
-        public Guid? EmployeeId { get; set; }
+        [Required]
+        public Guid EmployeeId { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
         [Display(Name = "Họ và tên")]
@@ -64,16 +65,10 @@ namespace QuanLyHopDongVaKySo_API.Models.ViewPuts
         [Display(Name = "Ghi chú")]
         public string? Note { get; set; }
 
-        //tạo liên kết
-        [ForeignKey("PFXCertificate")]
-        [ReadOnly(true)]
-        public string? SerialPFX { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập id của vai trò !")]
-        [ForeignKey("Role")]
         public int RoleID { get; set; }
         [Required(ErrorMessage = "Hãy nhập id của chức vụ !")]
-        [ForeignKey("Position")]
         public int PositionID { get; set; }
     }
 }
