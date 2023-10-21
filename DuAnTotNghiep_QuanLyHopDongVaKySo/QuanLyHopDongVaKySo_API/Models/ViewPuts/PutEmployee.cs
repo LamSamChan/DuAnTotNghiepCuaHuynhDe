@@ -1,24 +1,14 @@
-﻿using NSwag.Annotations;
-using Swashbuckle.AspNetCore.Annotations;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
-using System.Text.Json.Serialization;
 
-namespace QuanLyHopDongVaKySo_API.Models
+namespace QuanLyHopDongVaKySo_API.Models.ViewPuts
 {
-
-    public enum Gender
+    public class PutEmployee
     {
-        [Display(Name = "Nam")]
-        Male = 1,
-        [Display(Name = "Nữ")]
-        Female = 2
-    }
-    public class Employee
-    {
-        [Key]
         [Column("Id")]
+        [ReadOnly(true)]
         public Guid? EmployeeId { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
@@ -26,7 +16,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Required(ErrorMessage = "Hãy điền họ và tên !")]
         public string FullName { get; set; }
 
-        [Column(TypeName = "varchar(100)"),StringLength(50)]
+        [Column(TypeName = "varchar(100)"), StringLength(50)]
         [Display(Name = "Email")]
         [Required(ErrorMessage = "Hãy điền email !")]
         [RegularExpression("^[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]+)*$",
@@ -61,25 +51,11 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Địa chỉ")]
         public string Address { get; set; }
 
-        [StringLength(500),AllowNull]
-        [Display(Name = "Ảnh đại diện")]
-        public string? Image { get; set; }
         [NotMapped]
+        [Display(Name = "Tệp ảnh")]
         public IFormFile? ImageFile { get; set; }
 
         //tự động tạo và gửi qua mail ghi đăng ký
-
-        [Column(TypeName = "varchar(50)"), MaxLength(50), MinLength(8, ErrorMessage = "Mật khẩu phải nhiều hơn 8 ký tự !")]
-        [DataType(DataType.Password)]
-        [Display(Name = "Mật khẩu")]
-        public string? Password { get; set; }
-
-        [NotMapped]
-        [Column(TypeName = "varchar(50)"), MaxLength(50),MinLength(8, ErrorMessage = "Mật khẩu phải nhiều hơn 8 ký tự !")]
-        [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Mật khẩu không trung khớp!")]
-        [Display(Name = "Mật khẩu hiện tại")]
-        public string? ConfirmPassword { get; set; }
 
         [Display(Name = "Trạng thái hoạt động")]
         public bool IsLocked { get; set; }
@@ -88,10 +64,9 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Ghi chú")]
         public string? Note { get; set; }
 
-        public bool IsFirstLogin { get; set; }
-
         //tạo liên kết
         [ForeignKey("PFXCertificate")]
+        [ReadOnly(true)]
         public string? SerialPFX { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập id của vai trò !")]
@@ -100,23 +75,5 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Required(ErrorMessage = "Hãy nhập id của chức vụ !")]
         [ForeignKey("Position")]
         public int PositionID { get; set; }
-
-        [JsonIgnore]
-        public PFXCertificate? PFXCertificate { get; set; }
-        [JsonIgnore]
-        public Role? Role { get; set; }
-        [JsonIgnore]
-        public Position? Position { get; set; }
-        [JsonIgnore]
-        public ICollection<DoneContract>? DoneContract { get; set; }
-        [JsonIgnore]
-        public ICollection<DoneMinute>? DoneMinute { get; set; }
-        [JsonIgnore]
-        public ICollection<PendingContract>? PendingContract { get; set; }
-        [JsonIgnore]
-        public ICollection<PendingMinute>? PendingMinute { get; set; }
-        [JsonIgnore]
-        public ICollection<OperationHistoryEmp>? OperationHistoryEmp { get; set; }
-
     }
 }

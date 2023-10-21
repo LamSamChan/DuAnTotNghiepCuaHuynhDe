@@ -4,6 +4,8 @@ using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.Crmf;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Models.ViewPost;
+using QuanLyHopDongVaKySo_API.Models.ViewPuts;
 using QuanLyHopDongVaKySo_API.Services.EmployeeService;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 
@@ -47,20 +49,35 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
         //Chưa bắt lỗi khi dùng Role Với Positon đang bị ẩn trong table, trùng nhân viên
         [HttpPost("AddNew")]
-        public async Task<ActionResult<string>> AddNew(Employee employee)
+        public async Task<ActionResult<string>> AddNew([FromForm] PostEmployee postEmployee)
         {
-            employee.EmployeeId = Guid.NewGuid();
-            string passwordEmp = await _randomPasswordHelper.GeneratePassword(8);
-            employee.Password = passwordEmp;
-
             
-            if (employee.ImageFile != null)
+            string passwordEmp = await _randomPasswordHelper.GeneratePassword(8);
+            Employee employee = new Employee
             {
-                if (employee.ImageFile.ContentType.StartsWith("image/"))
+                EmployeeId = Guid.NewGuid(),
+                FullName = postEmployee.FullName,
+                Email = postEmployee.Email,
+                DateOfBirth = postEmployee.DateOfBirth,
+                Gender = postEmployee.Gender,
+                PhoneNumber = postEmployee.PhoneNumber,
+                Identification = postEmployee.Identification,
+                Address = postEmployee.Address,
+                Password = passwordEmp,
+                IsFirstLogin = true,
+                IsLocked = false,
+                Note = postEmployee.Note,
+                RoleID = postEmployee.RoleID,
+                PositionID = postEmployee.PositionID,
+        };
+
+            if (postEmployee.ImageFile != null)
+            {
+                if (postEmployee.ImageFile.ContentType.StartsWith("image/"))
                 {
-                    if (employee.ImageFile.Length > 0)
+                    if (postEmployee.ImageFile.Length > 0)
                     {
-                        employee.Image = _uploadFileHelper.UploadFile(employee.ImageFile, "AppData", "Avatars");
+                        employee.Image = _uploadFileHelper.UploadFile(postEmployee.ImageFile, "AppData", "Avatars");
                     }
                 }
                 else

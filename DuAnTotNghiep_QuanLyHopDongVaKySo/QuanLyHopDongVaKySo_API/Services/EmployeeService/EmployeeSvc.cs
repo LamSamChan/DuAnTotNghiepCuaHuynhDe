@@ -42,9 +42,8 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
                     string passwordPfx = _encodeHelper.Encode(employee.PhoneNumber);
                     string passwordEmp = _encodeHelper.Encode(employee.Password);
                     string serialPFX = await _pfxCertificateSvc.CreatePFXCertificate("TechSeal", employee.FullName, passwordPfx, true);
-                    employee.Password = passwordEmp;
                     employee.SerialPFX = serialPFX;
-                    employee.IsFirstLogin = true;
+                    employee.Password = passwordEmp;
                     _context.Employees.Add(employee);
                     await _context.SaveChangesAsync();
                     isSuccess = employee.EmployeeId.ToString();
