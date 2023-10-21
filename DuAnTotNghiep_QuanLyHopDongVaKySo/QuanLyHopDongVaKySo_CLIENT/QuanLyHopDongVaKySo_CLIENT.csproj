@@ -6,4 +6,24 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Pages\BusinessStaff\DetailsContractListWaitSig.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\BusinessStaff\DetailsContractListWaitSig.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\BusinessStaff\DetailsContractListWaitSig.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\BusinessStaff\DetailsContractListWaitSig.cshtml" />
+  </ItemGroup>
+
 </Project>
