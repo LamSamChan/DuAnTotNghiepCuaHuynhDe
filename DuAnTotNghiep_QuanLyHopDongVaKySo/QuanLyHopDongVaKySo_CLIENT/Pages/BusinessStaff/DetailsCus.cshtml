@@ -1,0 +1,142 @@
+﻿@page
+@model QuanLyHopDongVaKySo_CLIENT.Pages.BusinessStaff.DetailsCusModel
+@{
+}
+<div class="container-fluid">
+    <div class="header">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row justify-content-around" style="margin-top: 100px;">
+        <div class="col-md-5">
+            <div class="box1">
+                <div class="avatar">
+                    <img src="~/Resource/Image/LOGO_WITHOUT_BG/1.png" style="width: 248px;height: 215px;" />
+                </div>
+                <form class="row g-3" style="width:500px; margin: 0 auto;">
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Trạng thái tài khoản</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label" style="border-radius: 8px;
+background: rgba(40, 199, 111, 0.35); height: 40px;
+padding: 8px 12px;color: #28C76F;
+font-family: Jost;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+    ALIGN-ITEMS: CENTER;
+    display: flex;
+    justify-content: center;">KÍCH HOẠT</label>
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress" class="form-label">Họ và tên</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress2" class="form-label">CCCD/CMND</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputCity" class="form-label">Ngày cấp</label>
+                        <input type="date" class="form-control" id="inputCity">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputCity" class="form-label">Ngày hết hạn</label>
+                        <input type="date" class="form-control" id="inputCity">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="box2">
+                <form class="row g-3" style="width:500px; margin: 0 auto;">
+                    <div class="col-12">
+                        <label for="inputAddress" class="form-label">Mã thuế</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Địa chỉ thường trú</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Password</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputCity" class="form-label">Quốc tịch</label>
+                        <select id="inputState" class="form-select">
+                            <option selected>Việt Nam</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputCity" class="form-label">Giới tính</label>
+                        <select id="inputState" class="form-select">
+                            <option selected>Nam</option>
+                            <option>Nữ</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Số seri chứng chỉ</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" id="disable-checkbox"> khách hàng doanh nghiệp
+                        <div class="content row " style="margin-top:10px;">
+                            <div class="col-md-5" style="margin:0 auto;">
+                                <label for="inputCity" class="form-label">Tên doanh nghiệp</label>
+                                <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="col-md-5" style="margin:0 auto;">
+                                <label for="inputCity" class="form-label">Chức vụ</label>
+                                <input type="text" class="form-control" id="inputCity">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-around " style="margin-top:70px;">
+                        <div class="col-md-5">
+                            <button style="border-radius: 8px; width: 200px;
+background: #2CDDBD; border:none; color: white;font-weight:bold;">
+                                LƯU THAY ĐỔI
+                            </button>
+                        </div>
+                        <div class="col-md-5">
+                            <button style="border-radius: 8px;width: 200px;
+background: #2CA8DD; border:none; color: white;font-weight:bold;">
+                                TẠO HỢP ĐỒNG
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

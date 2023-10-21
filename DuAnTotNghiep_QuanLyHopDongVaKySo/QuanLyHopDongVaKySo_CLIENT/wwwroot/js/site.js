@@ -19,10 +19,23 @@ $(".menu > ul > li").click(function (e) {
 $(".menu-btn").click(function () {
     $(".sidebar").toggleClass("active");
 });
-$(" .menu .sub-menu li").click(function (e) {
+$(".menu .sub-menu li").click(function (e) {
     // Xử lý sự kiện khi menu con cấp 3 được chọn
     // Ví dụ: Cập nhật lớp "active" cho menu con cấp 3
     $(this).siblings().removeClass("active");
     $(this).toggleClass("active");
     e.stopPropagation();
+});
+
+
+// Tạo vùng checkbox
+const checkbox = document.getElementById('disable-checkbox');
+const content = document.querySelector('.content');
+
+checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+        content.classList.add('disabled');
+    }else {
+        content.classList.remove('disabled');
+    }
 });

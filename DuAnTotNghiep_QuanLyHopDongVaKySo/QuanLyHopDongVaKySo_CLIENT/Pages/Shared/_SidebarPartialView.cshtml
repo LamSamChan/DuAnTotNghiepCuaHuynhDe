@@ -18,7 +18,6 @@
     </div> -->
     <div class="nav">
         <div class="menu">
-
             <ul>
                 <li>
                     <a href="#">
@@ -29,7 +28,7 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="#">
+                            <a asp-area="" asp-page="/BusinessStaff/ContractFormPage">
                                 <span class="text">Thêm mẫu hợp đồng</span>
                             </a>
                         </li>
@@ -45,8 +44,23 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
+                                    <a asp-area="" asp-page="/BusinessStaff/DetailsContractListRefuse">
+                                        <span class="text">Hợp đồng chờ duyệt</span>
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="#">
-                                        <span class="text">Tạo hợp đồng</span>
+                                        <span class="text">Hợp đồng chờ khách ký</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text">Hợp đồng từ chối duyệt</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text">Hợp đồng đang hiệu lực</span>
                                     </a>
                                 </li>
                             </ul>
@@ -61,7 +75,7 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="#">
+                            <a asp-area="" asp-page="/BusinessStaff/ListCus">
                                 <span class="text">Danh sách khách hàng</span>
                             </a>
                         </li>
@@ -69,7 +83,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
+                    <a asp-area="" asp-page="/BusinessStaff/DetailsCus">
                         <i class="icon ph-bold ph-paper-plane-tilt"></i>
                         <span class="text">Gửi mail</span>
 
@@ -77,7 +91,7 @@
 
                 </li>
                 <li class="active">
-                    <a asp-area="" asp-page="./BusinessStaff/PersonalPage">
+                    <a asp-area ="" asp-page="/BusinessStaff/PersonalPage">
                         <i class="icon ph-bold ph-user"></i>
                         <span class="text">Cá nhân</span>
                     </a>
