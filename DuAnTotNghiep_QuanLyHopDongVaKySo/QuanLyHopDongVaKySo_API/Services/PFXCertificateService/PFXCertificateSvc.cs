@@ -10,6 +10,9 @@ using QuanLyHopDongVaKySo_API.Models;
 using Org.BouncyCastle.Asn1.X509;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.X509.Extension;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using iTextSharp.text.pdf.security;
 
 namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
 {
@@ -194,6 +197,61 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
             {
                 return new PFXCertificate();
             }
+        }
+
+        public async Task<string> SignContract(string imagePath, string inputPdfPath, string outputPdfPath, string serialCerti, float xCoordinate, float yCoodinate)
+        {
+
+            var certi = await GetById(serialCerti);
+
+            try
+            {
+                Pkcs12Store store = new Pkcs12StoreBuilder().Build();
+                using (FileStream pfxFile = new FileStream(certi.PfxFilePath, FileMode.Open, FileAccess.Read))
+                {
+                    store.Load(pfxFile, certi.PfxPassword.ToCharArray());
+                }
+
+                // Lấy danh sách alias từ kho lưu trữ
+                var alias = store.Aliases.Cast<string>().FirstOrDefault(entryAlias => store.IsKeyEntry(entryAlias));
+
+                X509CertificateEntry certificateEntry = store.GetCertificate(alias.ToString());
+
+                // Đọc tệp PDF đầu vào
+                using (FileStream pdfFile = new FileStream(inputPdfPath, FileMode.Open, FileAccess.Read))
+                {
+                    PdfReader pdfReader = new PdfReader(pdfFile);
+                    using (FileStream signedPdfFile = new FileStream(outputPdfPath, FileMode.Create, FileAccess.Write))
+                    {
+                        PdfStamper pdfStamper = PdfStamper.CreateSignature(pdfReader, signedPdfFile, '\0');
+
+                        PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
+                        // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
+                        Image signatureImage = Image.GetInstance(imagePath);
+                        signatureImage.SetAbsolutePosition(xCoordinate, yCoodinate); // Đặt vị trí của hình ảnh chữ ký
+                        signatureImage.ScaleToFit(100, 50); // Đặt kích thước của hình ảnh chữ ký
+
+                        // Chèn hình ảnh chữ ký vào tài liệu PDF
+                        pdfStamper.GetOverContent(1).AddImage(signatureImage);
+
+                        // Lấy khóa riêng tư từ chứng chỉ
+                        ICipherParameters privateKey = store.GetKey(alias).Key;
+
+                        // Thực hiện ký
+                        IExternalSignature pks = new PrivateKeySignature(privateKey, "SHA-256");
+                        MakeSignature.SignDetached(signatureAppearance, pks, new X509Certificate[] { certificateEntry.Certificate }, null, null, null, 0, CryptoStandard.CMS);
+
+                        pdfStamper.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message;
+            }
+
+            return outputPdfPath;
         }
 
         public async Task<string> UpdateInfoToDatabase(PFXCertificate pfxCertificate)

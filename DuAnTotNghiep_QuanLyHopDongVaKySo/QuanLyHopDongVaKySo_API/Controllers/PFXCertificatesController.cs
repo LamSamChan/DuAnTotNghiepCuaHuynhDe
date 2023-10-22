@@ -5,7 +5,6 @@ using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 using QuanLyHopDongVaKySo_API.Services.PositionService;
 using System.Text.Json.Serialization;
-
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
@@ -19,7 +18,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             _pfxCertificate = pfxCertificate;
             _encodeHelper = encodeHelper;
-            this._uploadFileHelper = uploadFileHelper;
+            _uploadFileHelper = uploadFileHelper;
         }
 
         [HttpGet]
@@ -27,7 +26,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(await _pfxCertificate.GetAll());
         }
-
         [HttpGet("AboutToExpire")]
         public async Task<ActionResult<IEnumerable<PFXCertificate>>> GetAllAboutToExpire()
         {

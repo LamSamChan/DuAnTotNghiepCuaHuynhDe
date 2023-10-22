@@ -12,9 +12,11 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Required(ErrorMessage = "Hãy thêm tên trên trường !")]
         public string FieldName { get; set; }
         [Required(ErrorMessage = "Hãy thêm toạ độ X !")]
-        public double X { get; set; }
+        public float X { get; set; }
         [Required(ErrorMessage = "Hãy thêm toạ độ Y !")]
-        public double Y { get; set; }
+        public float Y { get; set; }
+        [Required]
+        public int SignaturePage  { get; set; }
 
         //tạo liên kết
         [Required(ErrorMessage = "Hãy thêm ID của hợp đồng mẫu !")]
