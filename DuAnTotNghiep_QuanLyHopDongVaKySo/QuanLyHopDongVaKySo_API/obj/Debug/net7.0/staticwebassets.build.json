@@ -1,38 +1,38 @@
 {
   "Version": 1,
-  "Hash": "az3aAS9PcMdbUOVpkar15CduuYc9ZQtQS7zAVSRTQgA=",
+  "Hash": "A6i3gqOVjPsMu/j6cWMtmbRlveWyI8gE9QKM46TDhmU=",
   "Source": "QuanLyHopDongVaKySo_API",
   "BasePath": "_content/QuanLyHopDongVaKySo_API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/QuanLyHopDongVaKySo_CLIENT.csproj",
       "Version": 2,
       "Source": "QuanLyHopDongVaKySo_CLIENT",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishProperties": "",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildProperties": "",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
     }
   ],
   "DiscoveryPatterns": [
     {
-      "Name": "QuanLyHopDongVaKySo_CLIENT\\wwwroot",
+      "Name": "QuanLyHopDongVaKySo_CLIENT/wwwroot",
       "Source": "QuanLyHopDongVaKySo_CLIENT",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\obj\\Debug\\net7.0\\scopedcss\\bundle\\QuanLyHopDongVaKySo_API.styles.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/scopedcss/bundle/QuanLyHopDongVaKySo_API.styles.css",
       "SourceId": "QuanLyHopDongVaKySo_API",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/scopedcss/bundle/",
       "BasePath": "_content/QuanLyHopDongVaKySo_API",
       "RelativePath": "QuanLyHopDongVaKySo_API.styles.css",
       "AssetKind": "All",
@@ -43,13 +43,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\obj\\Debug\\net7.0\\scopedcss\\bundle\\QuanLyHopDongVaKySo_API.styles.css"
+      "OriginalItemSpec": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/scopedcss/bundle/QuanLyHopDongVaKySo_API.styles.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\QuanLyHopDongVaKySo_CLIENT.bundle.scp.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/obj/Debug/net7.0/scopedcss/projectbundle/QuanLyHopDongVaKySo_CLIENT.bundle.scp.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/obj/Debug/net7.0/scopedcss/projectbundle/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "QuanLyHopDongVaKySo_CLIENT.bundle.scp.css",
       "AssetKind": "All",
@@ -60,13 +60,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\QuanLyHopDongVaKySo_CLIENT.bundle.scp.css"
+      "OriginalItemSpec": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/obj/Debug/net7.0/scopedcss/projectbundle/QuanLyHopDongVaKySo_CLIENT.bundle.scp.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\ContractFormPage.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/ContractFormPage.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/ContractFormPage.css",
       "AssetKind": "All",
@@ -77,13 +77,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\ContractFormPage.css"
+      "OriginalItemSpec": "wwwroot/css/ContractFormPage.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\ContractList.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/ContractList.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/ContractList.css",
       "AssetKind": "All",
@@ -94,13 +94,30 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\ContractList.css"
+      "OriginalItemSpec": "wwwroot/css/ContractList.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\DetailsContractList.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/CreateFormContract.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "css/CreateFormContract.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/CreateFormContract.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/DetailsContractList.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/DetailsContractList.css",
       "AssetKind": "All",
@@ -111,13 +128,30 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\DetailsContractList.css"
+      "OriginalItemSpec": "wwwroot/css/DetailsContractList.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\main.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/DetailsInstallationRecord.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "css/DetailsInstallationRecord.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/DetailsInstallationRecord.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/main.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/main.css",
       "AssetKind": "All",
@@ -128,13 +162,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\main.css"
+      "OriginalItemSpec": "wwwroot/css/main.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\site.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/site.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -145,13 +179,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\site.css"
+      "OriginalItemSpec": "wwwroot/css/site.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\favicon.ico",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/favicon.ico",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -162,13 +196,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.ico"
+      "OriginalItemSpec": "wwwroot/favicon.ico"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\js\\site.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/js/site.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -179,149 +213,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\site.js"
+      "OriginalItemSpec": "wwwroot/js/site.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -332,13 +230,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -349,13 +247,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -366,13 +264,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -383,13 +281,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -400,13 +298,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -417,13 +315,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -434,13 +332,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -451,13 +349,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -468,13 +366,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -485,13 +383,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -502,13 +400,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -519,13 +417,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -536,13 +434,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -553,13 +451,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -570,13 +468,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -587,13 +485,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -604,13 +502,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -621,13 +519,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -638,13 +536,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -655,13 +553,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -672,13 +570,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -689,13 +587,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -706,13 +604,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -723,13 +621,149 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -740,13 +774,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -757,13 +791,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -774,13 +808,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -791,13 +825,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -808,13 +842,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -825,13 +859,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -842,13 +876,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -859,13 +893,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -876,13 +910,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -893,13 +927,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.js.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -910,13 +944,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -927,13 +961,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/LICENSE",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -944,166 +978,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/LICENSE"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery/dist/jquery.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery/dist/jquery.min.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery/dist/jquery.min.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery\\LICENSE.txt",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery/LICENSE.txt",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery-validation/LICENSE.md",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1114,13 +995,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1131,13 +1012,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -1148,15 +1029,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation/dist/additional-methods.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.css",
+      "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1165,15 +1046,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.css"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation/dist/additional-methods.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.css.map",
+      "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1182,15 +1063,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.css.map"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation/dist/additional-methods.min.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css",
+      "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1199,15 +1080,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.min.css"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation/dist/jquery.validate.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css.map",
+      "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1216,15 +1097,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation/dist/jquery.validate.min.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation/LICENSE.md",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css",
+      "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1233,15 +1114,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.css"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation/LICENSE.md"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery/dist/jquery.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css.map",
+      "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1250,15 +1131,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/lib/jquery/dist/jquery.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery/dist/jquery.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css",
+      "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1267,15 +1148,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/lib/jquery/dist/jquery.min.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery/dist/jquery.min.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css.map",
+      "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1284,13 +1165,30 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/jquery/dist/jquery.min.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery/LICENSE.txt",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/jquery/LICENSE.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -1301,13 +1199,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -1318,13 +1216,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -1335,13 +1233,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.min.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.min.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -1352,13 +1250,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.min.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -1369,13 +1267,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -1386,13 +1284,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -1403,13 +1301,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -1420,13 +1318,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -1437,13 +1335,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -1454,13 +1352,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -1471,13 +1369,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.min.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -1488,13 +1386,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.min.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -1505,13 +1403,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -1522,13 +1420,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -1539,13 +1437,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -1556,13 +1454,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -1573,13 +1471,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -1590,13 +1488,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -1607,13 +1505,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.min.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -1624,13 +1522,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.min.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -1641,13 +1539,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -1658,13 +1556,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -1675,13 +1573,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -1692,13 +1590,149 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.js",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -1709,13 +1743,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.js"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -1726,13 +1760,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.js.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.js.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -1743,13 +1777,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.min.js"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -1760,13 +1794,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.min.js.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -1777,13 +1811,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.js"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -1794,13 +1828,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.js.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.js.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -1811,13 +1845,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.min.js"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.min.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.min.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -1828,13 +1862,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.min.js.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -1845,13 +1879,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.js"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -1862,13 +1896,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.js.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.js.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -1879,13 +1913,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.min.js"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.min.js"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.min.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.min.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -1896,13 +1930,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.min.js.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.min.js.map"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\BackgroundImage.png",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/Image/BackgroundImage.png",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/Image/BackgroundImage.png",
       "AssetKind": "All",
@@ -1913,47 +1947,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\Image\\BackgroundImage.png"
+      "OriginalItemSpec": "wwwroot/Resource/Image/BackgroundImage.png"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\LOGO\\1.png",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/Image/LOGO_WITHOUT_BG/1.png",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/Image/LOGO/1.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\Image\\LOGO\\1.png"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\LOGO\\2.png",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/Image/LOGO/2.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\Image\\LOGO\\2.png"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\LOGO_WITHOUT_BG\\1.png",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/Image/LOGO_WITHOUT_BG/1.png",
       "AssetKind": "All",
@@ -1964,13 +1964,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\Image\\LOGO_WITHOUT_BG\\1.png"
+      "OriginalItemSpec": "wwwroot/Resource/Image/LOGO_WITHOUT_BG/1.png"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\LOGO_WITHOUT_BG\\2.png",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/Image/LOGO_WITHOUT_BG/2.png",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/Image/LOGO_WITHOUT_BG/2.png",
       "AssetKind": "All",
@@ -1981,13 +1981,47 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\Image\\LOGO_WITHOUT_BG\\2.png"
+      "OriginalItemSpec": "wwwroot/Resource/Image/LOGO_WITHOUT_BG/2.png"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\JQuery3.7\\JQuery3.7.1.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/Image/LOGO/1.png",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Project",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/Image/LOGO/1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/Image/LOGO/1.png"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/Image/LOGO/2.png",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/Image/LOGO/2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/Image/LOGO/2.png"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/JQuery3.7/JQuery3.7.1.js",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/JQuery3.7/JQuery3.7.1.js",
       "AssetKind": "All",
@@ -1998,7 +2032,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\JQuery3.7\\JQuery3.7.1.js"
+      "OriginalItemSpec": "wwwroot/Resource/JQuery3.7/JQuery3.7.1.js"
     }
   ]
 }
