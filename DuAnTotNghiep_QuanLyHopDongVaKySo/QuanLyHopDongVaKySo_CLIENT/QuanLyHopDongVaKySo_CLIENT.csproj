@@ -10,23 +10,23 @@
     <Compile Remove="Pages\Admin\**" />
     <Compile Remove="Pages\Boss\**" />
     <Compile Remove="Pages\Customer\**" />
+    <Compile Remove="Services\**" />
     <Content Remove="Pages\Admin\**" />
     <Content Remove="Pages\Boss\**" />
     <Content Remove="Pages\Customer\**" />
+    <Content Remove="Services\**" />
     <EmbeddedResource Remove="Pages\Admin\**" />
     <EmbeddedResource Remove="Pages\Boss\**" />
     <EmbeddedResource Remove="Pages\Customer\**" />
+    <EmbeddedResource Remove="Services\**" />
     <None Remove="Pages\Admin\**" />
     <None Remove="Pages\Boss\**" />
     <None Remove="Pages\Customer\**" />
+    <None Remove="Services\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Pages\BusinessStaff\DetailsContractListWaitSig.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nlyni9Zu5MXMw7rIX6uY8r2vn9kFy0H01PwpwgdJ8XUnlT7GG7ugbqoyp3teqf82Y42JLuTYSyzNxP9NcGkfiQ==",
+  "dgSpecHash": "oyXWJwP4QOBrXkZYtgf6G8xEDwjlAZdjOH2Sg6nWARsFdFK+w3zkSwsPaPx0CbB5ReRtXYAmQb9tX2QtjoPiEA==",
   "success": true,
-  "projectFilePath": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj",
+  "projectFilePath": "C:\\Users\\do272\\DATN\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\do272\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
