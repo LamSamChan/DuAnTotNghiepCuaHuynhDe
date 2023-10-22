@@ -1,8 +1,9 @@
 ﻿@import url("ContractFormPage.css");
 @import url("ContractList.css");
 @import url("DetailsContractList.css");
-
-
+@import url("CreateFormContract.css");
+@import url("CreateFormContract.css");
+@import url("DetailsInstallationRecord.css");
 *{
     box-sizing: border-box;
     margin: 0;
@@ -395,7 +396,6 @@ main {
 }
 
 
-/*css - ContractForm*/
 
 /*css - AddCus*/
 
@@ -438,4 +438,9 @@ input[type="checkbox"] {
   opacity: 1;
    transition: opacity 0.3s ease;
 }
+button[class="return"] {
+    border: none;
+    font-size:30px;
+    background-color:transparent;
 
+}
