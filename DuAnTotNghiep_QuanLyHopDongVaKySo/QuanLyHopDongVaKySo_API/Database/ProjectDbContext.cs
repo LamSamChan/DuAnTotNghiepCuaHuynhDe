@@ -23,7 +23,8 @@ namespace QuanLyHopDongVaKySo_API.Database
         public DbSet<TemplateMinute> TemplateMinutes { get; set; }
         public DbSet<TypeOfCustomer> TypeOfCustomers { get; set; }
         public DbSet<TypeOfService> TypeOfServices { get; set; }
-
+        public DbSet<ContractCoordinate> ContractCoordinates { get; set; }
+        public DbSet<MinuteCoordinate> MinuteCoordinates { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>().ToTable("Customer");
@@ -42,6 +43,8 @@ namespace QuanLyHopDongVaKySo_API.Database
             modelBuilder.Entity<TemplateMinute>().ToTable("TemplateMinute");
             modelBuilder.Entity<TypeOfCustomer>().ToTable("TypeOfCustomer");
             modelBuilder.Entity<TypeOfService>().ToTable("TypeOfService");
+            modelBuilder.Entity<ContractCoordinate>().ToTable("ContractCoordinate");
+            modelBuilder.Entity<MinuteCoordinate>().ToTable("MinuteCoordinate");
         }
 
     }

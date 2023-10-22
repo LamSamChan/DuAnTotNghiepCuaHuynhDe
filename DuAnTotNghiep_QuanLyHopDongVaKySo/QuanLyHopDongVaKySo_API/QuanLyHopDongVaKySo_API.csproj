@@ -37,4 +37,8 @@
     <Folder Include="AppData\SignatureImages\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\QuanLyHopDongVaKySo_CLIENT\QuanLyHopDongVaKySo_CLIENT.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -26,6 +26,6 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string jsonCustomerZone { get; set; }
 
         //tạo liên kết
-
+        public ICollection<MinuteCoordinate>? MinuteCoordinates { get; set; }
     }
 }
