@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4QypQgvnl+eCqXJUwPDhekNTT5747VLodBqh8P86FVs=",
+  "Hash": "o4zngG1QBBHFVSouW8c21yKXJ41dNUpOrWYScPN6uZA=",
   "Source": "QuanLyHopDongVaKySo_CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
   "Mode": "Default",
@@ -51,23 +51,6 @@
       "OriginalItemSpec": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\QuanLyHopDongVaKySo_CLIENT.bundle.scp.css"
     },
     {
-      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\AddCus.css",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "css/AddCus.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\AddCus.css"
-    },
-    {
       "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\ContractFormPage.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
@@ -102,6 +85,23 @@
       "OriginalItemSpec": "wwwroot\\css\\ContractList.css"
     },
     {
+      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\CreateFormContract.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "css/CreateFormContract.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\CreateFormContract.css"
+    },
+    {
       "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\DetailsContractList.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
@@ -119,6 +119,23 @@
       "OriginalItemSpec": "wwwroot\\css\\DetailsContractList.css"
     },
     {
+      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\DetailsInstallationRecord.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "css/DetailsInstallationRecord.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\DetailsInstallationRecord.css"
+    },
+    {
       "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\main.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
@@ -134,23 +151,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\main.css"
-    },
-    {
-      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\PersonalPage.css",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "css/PersonalPage.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\PersonalPage.css"
     },
     {
       "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\site.css",

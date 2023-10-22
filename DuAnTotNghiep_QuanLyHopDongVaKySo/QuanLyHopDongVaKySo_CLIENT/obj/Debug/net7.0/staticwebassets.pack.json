@@ -205,10 +205,6 @@
       "PackagePath": "staticwebassets\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\AddCus.css",
-      "PackagePath": "staticwebassets\\css\\AddCus.css"
-    },
-    {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\ContractFormPage.css",
       "PackagePath": "staticwebassets\\css\\ContractFormPage.css"
     },
@@ -217,12 +213,16 @@
       "PackagePath": "staticwebassets\\css\\ContractList.css"
     },
     {
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\CreateFormContract.css",
+      "PackagePath": "staticwebassets\\css\\CreateFormContract.css"
+    },
+    {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\DetailsContractList.css",
       "PackagePath": "staticwebassets\\css\\DetailsContractList.css"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\PersonalPage.css",
-      "PackagePath": "staticwebassets\\css\\PersonalPage.css"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\DetailsInstallationRecord.css",
+      "PackagePath": "staticwebassets\\css\\DetailsInstallationRecord.css"
     },
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\main.css",

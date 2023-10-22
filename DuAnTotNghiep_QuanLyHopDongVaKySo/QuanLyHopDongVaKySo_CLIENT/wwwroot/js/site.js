@@ -39,3 +39,12 @@ checkbox.addEventListener('change', function () {
         content.classList.remove('disabled');
     }
 });
+
+
+
+
+// Phân vùng toạ độ
+
+
+
+

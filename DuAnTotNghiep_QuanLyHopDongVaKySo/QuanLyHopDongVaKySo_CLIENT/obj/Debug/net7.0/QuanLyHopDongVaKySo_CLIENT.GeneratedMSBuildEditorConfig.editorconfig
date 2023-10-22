@@ -28,6 +28,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxDb250cmFjdExpc3RQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/CreateFormContract.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxDcmVhdGVGb3JtQ29udHJhY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/DetailsContractList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxEZXRhaWxzQ29udHJhY3RMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -48,10 +52,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxMaXN0Q3VzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/PersonalPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxQZXJzb25hbFBhZ2UuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/SendMail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxTZW5kTWFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -64,6 +64,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/InstallationStaff/CompleteRecord.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdGFsbGF0aW9uU3RhZmZcQ29tcGxldGVSZWNvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/InstallationStaff/DetailsInstallationRecord.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdGFsbGF0aW9uU3RhZmZcRGV0YWlsc0luc3RhbGxhdGlvblJlY29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/InstallationStaff/DetailsInstallationRecordWait.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdGFsbGF0aW9uU3RhZmZcRGV0YWlsc0luc3RhbGxhdGlvblJlY29yZFdhaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/InstallationStaff/ListInstallationRecord.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdGFsbGF0aW9uU3RhZmZcTGlzdEluc3RhbGxhdGlvblJlY29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/InstallationStaff/SignedByCus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdGFsbGF0aW9uU3RhZmZcU2lnbmVkQnlDdXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/InstallationStaff/SignedByStaff.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdGFsbGF0aW9uU3RhZmZcU2lnbmVkQnlTdGFmZi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -74,6 +98,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/_PersonalPagePartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1BlcnNvbmFsUGFnZVBhcnRpYWxWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/_ViewImports.cshtml]

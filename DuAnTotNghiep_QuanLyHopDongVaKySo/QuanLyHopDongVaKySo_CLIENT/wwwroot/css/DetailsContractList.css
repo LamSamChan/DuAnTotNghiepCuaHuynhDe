@@ -13,16 +13,16 @@
     flex-direction:column;
 
 }
-.inforCus > form input {
+.inforCus > .form-input {
     border: none;
     border-bottom: 1px solid #685E5E;
-    padding : 0;
+    padding: 0;
     outline: none;
     width: 400px;
+    background-color: transparent;
 }
 .inforCus > .row  .form-label {
     color: #685E5E;
-    font-family: Inter;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;

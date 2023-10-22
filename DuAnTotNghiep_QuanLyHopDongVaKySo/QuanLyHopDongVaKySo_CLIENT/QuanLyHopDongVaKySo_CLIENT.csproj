@@ -7,14 +7,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Admin\**" />
+    <Compile Remove="Pages\Boss\**" />
+    <Compile Remove="Pages\Customer\**" />
+    <Content Remove="Pages\Admin\**" />
+    <Content Remove="Pages\Boss\**" />
+    <Content Remove="Pages\Customer\**" />
+    <EmbeddedResource Remove="Pages\Admin\**" />
+    <EmbeddedResource Remove="Pages\Boss\**" />
+    <EmbeddedResource Remove="Pages\Customer\**" />
+    <None Remove="Pages\Admin\**" />
+    <None Remove="Pages\Boss\**" />
+    <None Remove="Pages\Customer\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Pages\BusinessStaff\DetailsContractListWaitSig.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Customer\" />
-    <Folder Include="Pages\Admin\" />
-    <Folder Include="Pages\InstallingStaff\" />
-    <Folder Include="Pages\Boss\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
