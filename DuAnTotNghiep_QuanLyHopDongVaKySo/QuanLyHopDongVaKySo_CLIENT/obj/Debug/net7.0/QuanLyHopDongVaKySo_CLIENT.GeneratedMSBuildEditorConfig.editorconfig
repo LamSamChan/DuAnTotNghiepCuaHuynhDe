@@ -9,81 +9,81 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = QuanLyHopDongVaKySo_CLIENT
 build_property.RootNamespace = QuanLyHopDongVaKySo_CLIENT
-build_property.ProjectDir = D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\
+build_property.ProjectDir = /Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT
+build_property.MSBuildProjectDirectory = /Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/AddCus.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxBZGRDdXMuY3NodG1s
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/AddCus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQnVzaW5lc3NTdGFmZi9BZGRDdXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/ContractFormPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxDb250cmFjdEZvcm1QYWdlLmNzaHRtbA==
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/ContractFormPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQnVzaW5lc3NTdGFmZi9Db250cmFjdEZvcm1QYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/ContractListPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxDb250cmFjdExpc3RQYWdlLmNzaHRtbA==
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/ContractListPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQnVzaW5lc3NTdGFmZi9Db250cmFjdExpc3RQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/DetailsContractList.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxEZXRhaWxzQ29udHJhY3RMaXN0LmNzaHRtbA==
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/DetailsContractList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQnVzaW5lc3NTdGFmZi9EZXRhaWxzQ29udHJhY3RMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/DetailsContractListRefuse.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxEZXRhaWxzQ29udHJhY3RMaXN0UmVmdXNlLmNzaHRtbA==
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/DetailsContractListRefuse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQnVzaW5lc3NTdGFmZi9EZXRhaWxzQ29udHJhY3RMaXN0UmVmdXNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/DetailsCus.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxEZXRhaWxzQ3VzLmNzaHRtbA==
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/DetailsCus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQnVzaW5lc3NTdGFmZi9EZXRhaWxzQ3VzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/HistoryOperation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxIaXN0b3J5T3BlcmF0aW9uLmNzaHRtbA==
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/HistoryOperation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQnVzaW5lc3NTdGFmZi9IaXN0b3J5T3BlcmF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/ListCus.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxMaXN0Q3VzLmNzaHRtbA==
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/ListCus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQnVzaW5lc3NTdGFmZi9MaXN0Q3VzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/PersonalPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxQZXJzb25hbFBhZ2UuY3NodG1s
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/PersonalPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQnVzaW5lc3NTdGFmZi9QZXJzb25hbFBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/SendMail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxTZW5kTWFpbC5jc2h0bWw=
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/SendMail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQnVzaW5lc3NTdGFmZi9TZW5kTWFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Shared/_SidebarPartialView.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9TaWRlYmFyUGFydGlhbFZpZXcuY3NodG1s
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Shared/_SidebarPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19TaWRlYmFyUGFydGlhbFZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-ycq8lrpcze
+[/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-imusrwyod4

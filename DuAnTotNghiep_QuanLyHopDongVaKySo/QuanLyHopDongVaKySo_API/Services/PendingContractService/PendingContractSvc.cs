@@ -18,15 +18,11 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
         {
             string ret = null;
             try{
-                if(PContract.File != null)
-                {
-                    _imageHelper.UploadFile(PContract.File,"AppData","PContracts");
-                }
                 PendingContract add = new PendingContract()
                 {
                     DateCreated = DateTime.Now,
                     PContractName = PContract.PContractName,
-                    PContractFile = @"AppData/PContracts/"+PContract.File.FileName,
+                    PContractFile = "",
                     IsDirector = false,
                     IsCustomer = false,
                     IsRefuse = false,
@@ -67,6 +63,15 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             return await _context.PendingContracts.ToListAsync();
         }
 
+        public async Task<int> updatePContractFile(int id, string File)
+        {
+            var update = await getPContractAsnyc(id);
+
+            update.PContractFile = File;
+            _context.PendingContracts.Update(update);
+            await _context.SaveChangesAsync();
+            return 1;
+        }
         public async Task<string> updatePContractAsnyc(PutPendingContract PContract)
         {
             string ret = null;

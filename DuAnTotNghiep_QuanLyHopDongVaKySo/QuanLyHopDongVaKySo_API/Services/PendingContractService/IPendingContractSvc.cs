@@ -10,5 +10,6 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
         Task<string> addPContractAsnyc(PostPendingContract PContract);
         Task<string> updatePContractAsnyc(PutPendingContract PContract);
         Task<bool> deletePContractAsnyc(int id);
+        Task<int> updatePContractFile(int id, string File);
     }
 }
