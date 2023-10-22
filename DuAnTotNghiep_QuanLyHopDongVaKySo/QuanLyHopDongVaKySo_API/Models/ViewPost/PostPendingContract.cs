@@ -9,8 +9,6 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         public string PContractName { get; set; }
 
-        public string PContractFile { get; set; }
-
         public bool IsRefuse { get; set; }
 
         public string? Reason { get; set; }
