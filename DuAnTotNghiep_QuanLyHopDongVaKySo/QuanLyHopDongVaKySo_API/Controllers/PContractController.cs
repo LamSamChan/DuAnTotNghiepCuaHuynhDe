@@ -105,7 +105,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         if(item.FieldName == "MaSoThue")
                         {
                             ColumnText.ShowTextAligned(pdfStamper.GetOverContent(item.SignaturePage),
-                            Element.ALIGN_BASELINE, new Phrase(cus.BillingAddress, font), (float)item.X, (float)item.Y, 0);
+                            Element.ALIGN_BASELINE, new Phrase(cus.Address, font), (float)item.X, (float)item.Y, 0);
                         }
                     }
                     pdfStamper.Close();
