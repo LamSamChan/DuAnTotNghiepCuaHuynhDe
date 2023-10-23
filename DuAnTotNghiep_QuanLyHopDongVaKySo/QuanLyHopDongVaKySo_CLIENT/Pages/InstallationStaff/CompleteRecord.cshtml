@@ -10,52 +10,42 @@
         <div class="col-md-5">
             <div class="box1">
                 <div class="avatar">
-                    <img src="~/Resource/Image/LOGO_WITHOUT_BG/1.png" style="width: 248px;height: 215px;" />
+                    <img src="~/Resource/Image/LOGO_WITHOUT_BG/1.png" />
                 </div>
                 <form class="row g-3" style="width:500px; margin: 0 auto;">
                     <div class="col-md-6">
-                        <label for="inputEmail4" class="form-label">Biên bản lắp đặt</label>
+                        <label class="form-label">Biên bản lắp đặt</label>
                     </div>
                     <div class="col-md-6">
-                        <button for="inputEmail4" class="form-label" style="border-radius: 8px;
-background: #2CA8DD; height: 40px;
-padding: 8px 12px;color: #FFFFFF;
-font-family: Jost;
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-    ALIGN-ITEMS: CENTER;
-    display: flex;
-    justify-content: center; border:none; width:100%;">
+                        <button class="btn_details">
                             CHI TIẾT
                         </button>
                     </div>
                     <div class="col-12">
-                        <label for="inputAddress" class="form-label">Họ và tên</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                        <label for="inputName" class="form-label">Họ và tên</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="abc">
                     </div>
                     <div class="col-12">
-                        <label for="inputAddress2" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                        <label for="inputEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="abc@gmail.com">
                     </div>
                     <div class="col-12">
-                        <label for="inputAddress2" class="form-label">CCCD/CMND</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                        <label for="inputCCCD" class="form-label">CCCD/CMND</label>
+                        <input type="text" class="form-control" id="inputCCCD" placeholder="CCCD/CMND">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputCity" class="form-label">Ngày cấp</label>
-                        <input type="date" class="form-control" id="inputCity">
+                        <label for="inputDateStart" class="form-label">Ngày cấp</label>
+                        <input type="date" class="form-control" id="inputDateStart">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputCity" class="form-label">Ngày hết hạn</label>
-                        <input type="date" class="form-control" id="inputCity">
+                        <label for="inputDateEnd" class="form-label">Ngày hết hạn</label>
+                        <input type="date" class="form-control" id="inputDateEnd">
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <div class="inforCus" style="position: absolute;top: 120px;left: 950px;">
+    <div class="inforStaff">
         <h4 style="color: #4318FF;">
             Nhân viên chiệu trách nhiệm lắp
         </h4>
@@ -65,8 +55,8 @@ line-height: normal;
                 <input type="text" class="form-input" id="inputName" placeholder="Họ và tên">
             </div>
             <div class="col-md-3">
-                <label for="inputState" class="form-label">Giới tính</label>
-                <select id="inputState" class="form-select" style="background-color:transparent;">
+                <label for="inputGender" class="form-label">Giới tính</label>
+                <select id="inputGender" class="form-select" style="background-color:transparent;">
                     <option selected>Nam</option>
                     <option>Nữ</option>
                 </select>
@@ -75,7 +65,7 @@ line-height: normal;
                 <label for="inputCCCD" class="form-label">CCCD/CMND</label>
                 <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND">
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label for="inputPhone" class="form-label">Số điện thoại</label>
                 <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại">
             </div>
@@ -83,38 +73,24 @@ line-height: normal;
                 <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
                 <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email">
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label for="inputAddress" class="form-label">Nơi ở</label>
                 <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở">
             </div>
         </form>
-        <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
+        <h4 style="color: #4318FF; padding-top:30px;">
             Hướng dẫn chi tiết
         </h4>
         <div class="col-md-12">
-            <label for="inputAddress" class="form-label">Địa chỉ lấp cụ thể</label>
-            <input type="text" class="" id="inputName" style="border-radius: 20px;background: #D9D9D9; width: 99%; border: none;border: none;outline: none;height: 60px;">
+            <label for="inputAddress2" class="form-label">Địa chỉ lấp cụ thể</label>
+            <input type="text" class="" id="inputAddress2" style="border-radius: 20px;background: #D9D9D9; width: 99%; border: none;border: none;outline: none;height: 60px;">
         </div>
         <div class="col-md-12" style="padding-top:10px;">
-            <label for="inputAddress" class="form-label">Danh sách công việc cụ thể</label>
-            <textarea type="text" class="" id="inputName" style="border-radius: 10px;background: #D9D9D9; width: 99%; border: none;border: none;outline: none;height: 160px;"></textarea>
+            <label for="inputList" class="form-label">Danh sách công việc cụ thể</label>
+            <textarea type="text" class="" id="inputList" style="border-radius: 10px;background: #D9D9D9; width: 99%; border: none;border: none;outline: none;height: 160px;"></textarea>
         </div>
-        <div class="col-md-12 custom_center" style="display: flex;
-    justify-content: center;
-    align-items: center;
-margin-top:20px;">
-            <button style="display: flex;
-width: 331px;
-height: 40px;
-padding: 8px 12px;
-justify-content: space-between;
-align-items: center;
-flex-shrink: 0;
-border-radius: 8px;
-background: #2CDDB3;
-font-weight:bold;
-color:#FFFFFF;
-border:none;">
+        <div class="col-md-12 " id="custom_center">
+            <button class="confirm">
                 XÁC NHẬN HOÀN TẤT BIÊN BẢN LẮP ĐẶT
             </button>
         </div>

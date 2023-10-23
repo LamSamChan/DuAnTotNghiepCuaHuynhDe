@@ -1,9 +1,21 @@
-﻿@import url("ContractFormPage.css");
-@import url("ContractList.css");
-@import url("DetailsContractList.css");
-@import url("CreateFormContract.css");
-@import url("CreateFormContract.css");
-@import url("DetailsInstallationRecord.css");
+﻿/* cssStyle - Business*/
+@import url("styleBusiness/DetailsContractListPage.css");
+@import url("styleBusiness/CreateFormContractPage.css");
+@import url("styleBusiness/PersonalPageStyle.css");
+@import url("styleBusiness/AddCusPageStyle.css");
+@import url("styleBusiness/ListCusPage.css");
+@import url("styleBusiness/ContractFormPage.css");
+@import url("styleBusiness/ContractListPage.css");
+@import url("styleBusiness/HistoryOperationPage.css");
+@import url("styleBusiness/DetailsCusPage.css");
+
+/*cssStyle - InstallationStaff*/
+@import url("stylesInstaller/CompleteRecordPage.css");
+@import url("stylesInstaller/SignedByStaff.css");
+@import url("stylesInstaller/ListInstallRecordPage.css");
+
+
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -233,11 +245,8 @@ main {
   width:100%;
 }
 
-/*css - PersonalPage*/
-/*.horizontal-list {
-    list-style: none;
-    display:flex;
-}*/
+/*css - Mic*/
+
 .SearchBox {
     height: 61px;
     width: 400px;
@@ -297,150 +306,6 @@ main {
         outline: none;
     }
 
-.body .row .col-6 {
-    background-image: url("../Resource/Image/BackgroundImage.png"); /* Đường dẫn tới hình ảnh */
-    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
-    background-size: cover; /* Hiển thị hình ảnh dựa trên toàn bộ kích thước của div */
-    background-position: center;
-    border-radius: 16px;
-    /*margin:0 20px;*/
-    margin-left: -30px;
-}
-
-.boxLoad {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #FAFCFE;
-    border-radius: 16px;
-    border: 1px dotted #000;
-}
-
-    .boxLoad h3 {
-        font-family: DM Sans;
-        font-size: 30px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 32px; /* 160% */
-        letter-spacing: -0.4px;
-        color: #4318FF;
-    }
-
-.body .row .col-4,
-.body .row .col-5 {
-    background-color: #FFF;
-    border-radius: 26px;
-}
-
-    .body .row .col-5 .row {
-        margin: 50px 0;
-    }
-
-    .body .row .col-5 .upload {
-        font-size: 110px;
-        color: #4318FF;
-        border: none;
-        background: none;
-        height: 200px;
-    }
-
-.body .row form .col-md-5 {
-    border-radius: 30px; /* Bo tròn góc của div */
-    box-shadow: 0px 18px 40px 0px rgba(112, 144, 176, 0.12);
-    padding: 10px; /* Tạo khoảng cách bên trong div */
-    margin: 10px;
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-input {
-    border: none;
-    padding: .375rem .75rem;
-    line-height: 1.5;
-}
-
-    .form-input:focus {
-        outline: none;
-    }
-
-.form-select {
-    border: none;
-}
-
-/*.form-label {
-    font-family: Dongle;
-}*/
-
-.title {
-    color: #2B3674;
-    font-family: Dongle;
-    /*font-size: 36px;*/
-    font-style: normal;
-    font-weight: 700;
-    line-height: 32px; /* 88.889% */
-    letter-spacing: -0.72px;
-    margin: 10px;
-}
-
-.save {
-    width: 140px;
-    height: 46px;
-    background-color: #4318FF;
-    font-weight: bold;
-    border: none;
-    color: white;
-    border-radius: 20px;
-    margin-top: 100px;
-}
 
 
 
-/*css - AddCus*/
-
-.container-fluid .row .box2,
-.container-fluid .row .box1 {
-    height: 800px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    background: #FFF;
-    box-shadow: 6px 4px 13px 0px rgba(0, 0, 0, 0.25);
-}
-.container-fluid .row .box1 .avatar {
-    display: flex;
-    width: 358px;
-    height: 230px;
-    padding: 8px 36px 7px 74px;
-    justify-content: flex-end;
-    align-items: center;
-    flex-shrink: 0;
-    border-radius: 20px;
-    background: #FFF;
-    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.25);
-    margin: 0 auto;
-    
-}  
-
-input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-.content {
-    opacity: 0.5;
-    pointer-events: none;
-    border-radius: 58px;
-    border: 1px solid #000;
-    height: 100px;
-}
-
-.content.disabled {
-  opacity: 1;
-   transition: opacity 0.3s ease;
-}
-button[class="return"] {
-    border: none;
-    font-size:30px;
-    background-color:transparent;
-
-}
