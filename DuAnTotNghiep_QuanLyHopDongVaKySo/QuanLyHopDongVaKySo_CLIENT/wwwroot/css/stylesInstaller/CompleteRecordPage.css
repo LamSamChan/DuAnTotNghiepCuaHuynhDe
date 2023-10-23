@@ -1,0 +1,56 @@
+﻿div[class="box1"] div[class="avatar"] img {
+    width: 248px;
+    height: 215px;
+}
+button[class="btn_details"] {
+    border-radius: 8px;
+    background: #2CA8DD;
+    height: 40px;
+    padding: 8px 12px;
+    color: #FFFFFF;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    ALIGN-ITEMS: CENTER;
+    display: flex;
+    justify-content: center;
+    border: none;
+    width: 100%;
+}
+input[class="form-input"]{
+    background-color:transparent;
+}
+
+div[class="inforStaff"] {
+    position: absolute;
+    top: 120px;
+    left: 950px;
+
+}
+div[class="inforStaff"]  .row .col-md-6{
+    display: flex;
+    flex-direction:column;
+}
+
+div[id="custom_center"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+button[class="confirm"] {
+    display: flex;
+    width: 331px;
+    height: 40px;
+    padding: 8px 12px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #2CDDB3;
+    font-weight: bold;
+    color: #FFFFFF;
+    border: none;
+}

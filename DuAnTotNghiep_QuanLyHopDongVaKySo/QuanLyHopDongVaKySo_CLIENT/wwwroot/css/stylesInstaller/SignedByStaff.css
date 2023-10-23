@@ -1,0 +1,62 @@
+﻿button[class="create_regions"] {
+    font-size: 30px;
+    border: none;
+    background-color: transparent;
+}
+
+div[id="form_signed"] {
+    padding-top: 30px;
+    margin : 0 10px;
+}
+
+div[id="form_signed"]  .col-4{
+    width: 485px;
+    height: 500px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: rgba(217, 217, 217, 0.50);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+div[id="form_signed"]  .col-8{
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background-color: #FFFFFF;
+    margin-left: 40px;
+    border-radius: 15px;
+    height:800px;
+    flex: 0 0 auto;
+    width: 66.66666667%;
+}
+
+
+div[class="form_signed"] div[class="img_Sig"]{
+    width: 343px;
+    height: 321px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: rgba(217, 217, 217, 0.50);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin: 30px auto;
+    border: 1px dashed #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+button[class="verify"],
+button[class="Sig_Cus"] {
+    display: flex;
+    width: 100%;
+    height: 25.003px;
+    padding: 0px 8px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #2CA8DD;
+    border: none;
+    color: #FFFFFF;
+}
