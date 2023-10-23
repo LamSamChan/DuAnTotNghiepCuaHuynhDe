@@ -61,6 +61,10 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("Id");
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(255)");
+
                     b.Property<string>("BankAccount")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
@@ -68,10 +72,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<string>("BankName")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
-
-                    b.Property<string>("BillingAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("BuisinessName")
                         .HasColumnType("nvarchar(100)");
@@ -530,12 +530,12 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.PendingMinute", b =>
                 {
-                    b.Property<int>("InstallationMinuteID")
+                    b.Property<int>("PendingMinuteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("Id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InstallationMinuteID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PendingMinuteId"));
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
@@ -563,7 +563,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<int>("TMinuteId")
                         .HasColumnType("int");
 
-                    b.HasKey("InstallationMinuteID");
+                    b.HasKey("PendingMinuteId");
 
                     b.HasIndex("DoneContractId");
 
@@ -571,7 +571,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.HasIndex("TMinuteId");
 
-                    b.ToTable("PendingMinute");
+                    b.ToTable("PendingMinute", (string)null);
                 });
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.Position", b =>

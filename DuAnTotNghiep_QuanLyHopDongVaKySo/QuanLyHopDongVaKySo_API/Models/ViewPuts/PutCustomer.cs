@@ -82,9 +82,9 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string? TaxIDNumber { get; set; }
 
         [Column(TypeName = "nvarchar(255)")]
-        [Required(ErrorMessage = "Hãy nhập địa chỉ thanh toán!")]
-        [Display(Name = "Địa chỉ thanh toán")]
-        public string BillingAddress { get; set; }
+        [Required(ErrorMessage = "Hãy nhập địa chỉ thường chú / giao dịch!")]
+        [Display(Name = "Địa chỉ thường chú / giao dịch")]
+        public string Address { get; set; }
 
         [Display(Name = "Trạng thái hoạt động")]
         public bool IsLocked { get; set; }

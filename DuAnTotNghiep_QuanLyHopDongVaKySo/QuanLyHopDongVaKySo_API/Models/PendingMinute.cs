@@ -10,7 +10,7 @@ namespace QuanLyHopDongVaKySo_API.Models
     {
         [Key]
         [Column("Id")]
-        public int InstallationMinuteID { get; set; }
+        public int PendingMinuteId { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
         [Display(Name = "Ngày tạo")]

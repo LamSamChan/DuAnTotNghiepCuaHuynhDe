@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using QuanLyHopDongVaKySo_API.Database;
 using QuanLyHopDongVaKySo_API.Helpers;
+using QuanLyHopDongVaKySo_API.Services;
 using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 using QuanLyHopDongVaKySo_API.Services.DoneMinuteService;
@@ -48,7 +49,7 @@ builder.Services.AddScoped<IEncodeHelper, EncodeHelper>();
 builder.Services.AddScoped<ISendMailHelper, SendMailHelper>();
 builder.Services.AddScoped<IRandomPasswordHelper, RandomPasswordHelper>();
 builder.Services.AddScoped<IOTPGeneratorHelper, OTPGeneratorHelper>();
-
+builder.Services.AddScoped<IContractCoordinateSvc, ContractCoordinateSvc>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

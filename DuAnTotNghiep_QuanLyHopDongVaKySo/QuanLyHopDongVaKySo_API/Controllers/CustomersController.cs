@@ -56,7 +56,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 BankAccount = postCustomer.BankAccount,
                 BankName = postCustomer.BankName,
                 TaxIDNumber = postCustomer.TaxIDNumber,
-                BillingAddress = postCustomer.BillingAddress,
+                Address = postCustomer.Address,
                 IsLocked = postCustomer.IsLocked,
                 Note = postCustomer.Note,
                 TOC_ID = postCustomer.TOC_ID
@@ -113,7 +113,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 BankAccount = putCustomer.BankAccount,
                 BankName = putCustomer.BankName,
                 TaxIDNumber = putCustomer.TaxIDNumber,
-                BillingAddress = putCustomer.BillingAddress,
+                Address = putCustomer.Address,
                 IsLocked = putCustomer.IsLocked,
                 Note = putCustomer.Note,
                 TOC_ID = putCustomer.TOC_ID
