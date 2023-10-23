@@ -170,7 +170,7 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
                 existingCus.BankAccount = customer.BankAccount;
                 existingCus.BankName = customer.BankName;
                 existingCus.TaxIDNumber = customer.TaxIDNumber;
-                existingCus.BillingAddress = customer.BillingAddress;
+                existingCus.Address = customer.Address;
                 existingCus.IsLocked = customer.IsLocked;
                 existingCus.Note = customer.Note;
                 existingCus.SerialPFX = existingCus.SerialPFX;
