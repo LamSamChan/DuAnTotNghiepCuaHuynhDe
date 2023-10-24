@@ -9,6 +9,10 @@ using iTextSharp.text;
 using System.Data.Common;
 using QuanLyHopDongVaKySo_API.Services;
 using Microsoft.AspNetCore.Http.Features;
+using QuanLyHopDongVaKySo_API.Database;
+using QuanLyHopDongVaKySo_API.Models.ContractInfo;
+using System.Diagnostics.Contracts;
+using System.Reflection;
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
@@ -19,8 +23,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly ICustomerSvc _CustomerSvc;
         private readonly ITemplateContractSvc _TContractSvc;
         private readonly IContractCoordinateSvc _CCoordinateSvc;
-
-        public PContractController(IPendingContractSvc PContractSvc, ICustomerSvc CustomerSvc, ITemplateContractSvc TContractSvc, IContractCoordinateSvc CCoordinateSvc)
+        public PContractController(IPendingContractSvc PContractSvc, ICustomerSvc CustomerSvc,
+         ITemplateContractSvc TContractSvc, IContractCoordinateSvc CCoordinateSvc,ProjectDbContext context)
         {
             _PContractSvc = PContractSvc;
             _CustomerSvc = CustomerSvc;
@@ -31,83 +35,46 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPContractAsnyc([FromForm] PostPendingContract PContract)
         {
-            var cus = await _CustomerSvc.GetByIdAsync(PContract.CustomerId.ToString());
+            //lây thông tin mẫu hợp đồng
             var tContract =await _TContractSvc.getTContractAsnyc(PContract.TContractId);
+            //lây thông tin toạ động mẫu hợp đòng
             var Coordinates = await _CCoordinateSvc.getByTContract(PContract.TContractId);
             if(ModelState.IsValid)
             {
+                //thêm hợp đồng
                 string id_Pcontract = await _PContractSvc.addPContractAsnyc(PContract);
-                
-                if(cus != null)
+                var pContract = await _PContractSvc.getPContractAsnyc(int.Parse(id_Pcontract));
+                var contract = await _PContractSvc.ExportContract(pContract);
+                if(contract != null)
                 {
                     string pdfFilePath = tContract.TContractFile ;
                     string outputPdfFile = "AppData/PContracts/"+id_Pcontract+".pdf";
                     PdfReader pdfReader = new PdfReader(pdfFilePath);
                     PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(outputPdfFile, FileMode.Create));
-
                     // Tạo một font cho trường văn bản
                     BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
-                    string[] fielNames = {"MaKH","MaHD","NgayTao","HoTen","NgaySinh","CCCC","NgayCap","NoiCap","NganHang","SoTK","MaSoThue"};
                     // Thiết lập font và kích thước cho trường văn bản
                     Font font = new Font(bf, 12);
-                    foreach (var item in Coordinates)
+                    
+                    foreach(var coordinate in Coordinates)
                     {
-                        if(item.FieldName == "MaKH")
+                        string fieldName = "CustomerId"; // Tên trường từ bảng toạ độ
+                        float x = coordinate.X; // Lấy tọa độ X từ bảng toạ độ
+                        float y = coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                        PropertyInfo property = typeof(ContractInternet).GetProperty(fieldName);
+                        if (property != null)
                         {
-                            ColumnText.ShowTextAligned(pdfStamper.GetOverContent(item.SignaturePage),
-                            Element.ALIGN_BASELINE, new Phrase(cus.CustomerId.ToString(), font), (float)item.X, (float)item.Y, 0);
+                            object value = property.GetValue(contract);
+                            if (value != null)
+                            {
+                                string contractValue = value.ToString();
+                                ColumnText.ShowTextAligned(pdfStamper.GetOverContent(coordinate.SignaturePage),
+                                Element.ALIGN_BASELINE, new Phrase(contractValue, font), (float)coordinate.X, (float)coordinate.Y, 0);
+                            }
                         }
-                        if(item.FieldName == "MaHD")
-                        {
-                            ColumnText.ShowTextAligned(pdfStamper.GetOverContent(item.SignaturePage),
-                            Element.ALIGN_BASELINE, new Phrase(id_Pcontract, font), (float)item.X, (float)item.Y, 0);
-                        }
-                        if(item.FieldName == "NgayTao")
-                        {
-                            ColumnText.ShowTextAligned(pdfStamper.GetOverContent(item.SignaturePage),
-                            Element.ALIGN_BASELINE, new Phrase(DateTime.Now.Date.ToString("dd/MM/yyyy"), font), (float)item.X, (float)item.Y, 0);
-                        }
-                        if(item.FieldName == "HoTen")
-                        {
-                            ColumnText.ShowTextAligned(pdfStamper.GetOverContent(item.SignaturePage),
-                            Element.ALIGN_BASELINE, new Phrase(cus.FullName, font), (float)item.X, (float)item.Y, 0);
-                        }
-                        if(item.FieldName == "NgaySinh")
-                        {
-                            ColumnText.ShowTextAligned(pdfStamper.GetOverContent(item.SignaturePage),
-                            Element.ALIGN_BASELINE, new Phrase(cus.DateOfBirth.ToString("dd/MM/yyyy"), font), (float)item.X, (float)item.Y, 0);
-                        }
-                        if(item.FieldName == "CCCC")
-                        {
-                            ColumnText.ShowTextAligned(pdfStamper.GetOverContent(item.SignaturePage),
-                            Element.ALIGN_BASELINE, new Phrase(cus.Identification, font), (float)item.X, (float)item.Y, 0);
-                        }
-                        if(item.FieldName == "NgayCap")
-                        {
-                            ColumnText.ShowTextAligned(pdfStamper.GetOverContent(item.SignaturePage),
-                            Element.ALIGN_BASELINE, new Phrase(cus.IssuedDate.ToString("dd/MM/yyyy"), font), (float)item.X, (float)item.Y, 0);
-                        }
-                        if(item.FieldName == "NoiCap")
-                        {
-                            ColumnText.ShowTextAligned(pdfStamper.GetOverContent(item.SignaturePage),
-                            Element.ALIGN_BASELINE, new Phrase(cus.IssuedPlace, font), (float)item.X, (float)item.Y, 0);
-                        }
-                        if(item.FieldName == "NganHang")
-                        {
-                            ColumnText.ShowTextAligned(pdfStamper.GetOverContent(item.SignaturePage),
-                            Element.ALIGN_BASELINE, new Phrase(cus.BankName, font), (float)item.X, (float)item.Y, 0);
-                        }
-                        if(item.FieldName == "SoTK")
-                        {
-                            ColumnText.ShowTextAligned(pdfStamper.GetOverContent(item.SignaturePage),
-                            Element.ALIGN_BASELINE, new Phrase(cus.BankAccount, font), (float)item.X, (float)item.Y, 0);
-                        }
-                        if(item.FieldName == "MaSoThue")
-                        {
-                            ColumnText.ShowTextAligned(pdfStamper.GetOverContent(item.SignaturePage),
-                            Element.ALIGN_BASELINE, new Phrase(cus.Address, font), (float)item.X, (float)item.Y, 0);
-                        }
+                        
                     }
+                    
                     pdfStamper.Close();
                     pdfReader.Close();
                     await _PContractSvc.updatePContractFile(int.Parse(id_Pcontract),outputPdfFile);

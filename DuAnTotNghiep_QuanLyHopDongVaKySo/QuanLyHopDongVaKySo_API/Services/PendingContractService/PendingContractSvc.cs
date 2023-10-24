@@ -3,16 +3,20 @@ using QuanLyHopDongVaKySo_API.Database;
 using QuanLyHopDongVaKySo_API.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System;
+using QuanLyHopDongVaKySo_API.Models.ContractInfo;
+using QuanLyHopDongVaKySo_API.Services.CustomerService;
 namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
 {
     public class PendingContractSvc : IPendingContractSvc
     {
         private readonly ProjectDbContext _context;
         private readonly IUploadFileHelper _imageHelper;
-        public PendingContractSvc(ProjectDbContext context, IUploadFileHelper imageHelper)
+        private readonly ICustomerSvc _customerSvc;
+        public PendingContractSvc(ProjectDbContext context, IUploadFileHelper imageHelper, ICustomerSvc customerSvc)
         {
             _context = context;
             _imageHelper = imageHelper;
+            _customerSvc = customerSvc;
         }
         public async Task<string> addPContractAsnyc(PostPendingContract PContract)
         {
@@ -102,6 +106,42 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             {
                 return ret;
             }
+        }
+
+        public async Task<ContractInternet> ExportContract(PendingContract PContract)
+        {
+            Customer cus = await _customerSvc.GetByIdAsync(PContract.CustomerId.ToString());
+
+            ContractInternet contract = new ContractInternet();
+            if(cus != null)
+            {
+                //contract.CustomerId = cus.CustomerId.ToString();
+                contract.CustomerId = "123";
+                contract.ContractId = PContract.PContractID.ToString();
+                contract.Date = PContract.DateCreated.ToString();
+                contract.BuisinessName = cus.BuisinessName;
+                contract.FullName = cus.FullName;
+                contract.Position = cus.Position;
+                contract.DateOfBirth = cus.DateOfBirth;
+                contract.Gender = cus.Gender;
+                contract.PhoneNumber = cus.PhoneNumber;
+                contract.Email = cus.Email;
+                contract.Identification = cus.Identification;
+                contract.IssuedDate = cus.IssuedDate;
+                contract.IssuedPlace = cus.IssuedPlace;
+                contract.Nationality = cus.Nationality;
+                contract.BankAccount = cus.BankAccount;
+                contract.BankName = cus.BankName;
+                contract.TaxIDNumber = cus.TaxIDNumber;
+                contract.Address = cus.Address;
+                contract.ChargeNoticeAddress = "25 phung van cung";
+                contract.InvoiceIssuingAddress = "25 phung van cung";
+                contract.Username = "Danhkunz";
+                contract.TariffPackage = "Goi intetnet gia dinh";
+                contract.ServiceRate = "25000000";
+                contract.InstallationAddress = "25 phung van cung";
+            }
+            return contract;
         }
     }
 }
