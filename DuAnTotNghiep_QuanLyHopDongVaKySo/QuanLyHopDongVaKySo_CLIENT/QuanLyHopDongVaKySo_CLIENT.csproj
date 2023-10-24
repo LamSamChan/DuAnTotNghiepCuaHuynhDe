@@ -41,4 +41,8 @@
     <None Include="Pages\BusinessStaff\DetailsContractListWaitSig.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\QuanLyHopDongVaKySo_API\QuanLyHopDongVaKySo_API.csproj" />
+  </ItemGroup>
+
 </Project>
