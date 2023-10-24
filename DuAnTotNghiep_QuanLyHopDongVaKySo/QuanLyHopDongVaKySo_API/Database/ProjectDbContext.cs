@@ -11,6 +11,7 @@ namespace QuanLyHopDongVaKySo_API.Database
         }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<DoneContract> DoneContracts { get; set; }
+        public DbSet<DoneMinute> DoneMinutes { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<InstallationRequirement> InstallationRequirements { get; set; }
         public DbSet<OperationHistoryEmp> OperationHistoryEmps { get; set; }
@@ -30,6 +31,7 @@ namespace QuanLyHopDongVaKySo_API.Database
         {
             modelBuilder.Entity<Customer>().ToTable("Customer");
             modelBuilder.Entity<DoneContract>().ToTable("DoneContract");
+            modelBuilder.Entity<DoneMinute>().ToTable("DoneMinute");
             modelBuilder.Entity<Employee>().ToTable("Employee");
             modelBuilder.Entity<Customer>().ToTable("Customer");
             modelBuilder.Entity<InstallationRequirement>().ToTable("InstallationRequirement");

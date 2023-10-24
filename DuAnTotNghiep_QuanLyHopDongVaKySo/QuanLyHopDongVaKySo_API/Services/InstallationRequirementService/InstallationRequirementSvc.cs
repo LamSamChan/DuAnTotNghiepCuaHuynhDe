@@ -14,9 +14,9 @@ namespace QuanLyHopDongVaKySo_API.Services.InstallationRequirementService
         }
         public async Task<int> CreateIRequirement(InstallationRequirement installationRequirement)
         {
+            int isSuccess = 0;
             try
             {
-                int isSuccess = 0;
                 _context.InstallationRequirements.Add(installationRequirement);
                 await _context.SaveChangesAsync();
                 isSuccess = installationRequirement.InstallRequireID;
@@ -26,6 +26,24 @@ namespace QuanLyHopDongVaKySo_API.Services.InstallationRequirementService
             {
                 return 0;
             }
+        }
+
+        public async Task<int> DeleteIRequirement(int installationRequirementID)
+        {
+            int status = 0;
+            try
+            {
+                var requirements = _context.InstallationRequirements.FirstOrDefault(r => r.InstallRequireID == installationRequirementID);
+                _context.Remove(requirements);
+                await _context.SaveChangesAsync();
+                status = requirements.InstallRequireID;
+            }
+            catch (Exception ex)
+            {
+                return status;
+            }
+            return status;
+
         }
 
         public async Task<List<InstallationRequirement>> GetAll()

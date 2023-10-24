@@ -5,6 +5,7 @@ using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 using QuanLyHopDongVaKySo_API.Services.PositionService;
 using QuanLyHopDongVaKySo_API.Services.RoleService;
+using QuanLyHopDongVaKySo_API.ViewModels;
 
 namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
 {
@@ -54,6 +55,11 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
                 return isSuccess;
             }
             return isSuccess;
+        }
+
+        public Task<int> ChangePassword(string empId, ChangePassword changePassword)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<List<Employee>> GetAll()
@@ -167,6 +173,11 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             }
 
             return "-6";
+        }
+
+        public Task<string> Login(ViewLogin viewLogin)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<string> Update(Employee employee)

@@ -7,6 +7,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
         Task<List<PendingMinute>> GetAll();
         Task<List<PendingMinute>> GetListByEmpId(string EmployeeId);
         Task<PendingMinute> GetById(int pMinuteId);
+        Task<int> DeletePMinute(int pMinuteId);
         Task<int> GetJobFormIRequirement(PendingMinute pendingMinute);
     }
 }

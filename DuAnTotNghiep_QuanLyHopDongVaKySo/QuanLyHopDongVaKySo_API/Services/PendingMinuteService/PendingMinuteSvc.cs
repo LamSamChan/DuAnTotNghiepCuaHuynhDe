@@ -12,6 +12,24 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
         {
             _context = context;
         }
+
+        public async Task<int> DeletePMinute(int pMinuteId)
+        {
+            int status = 0;
+            try
+            {
+                var pMinute = _context.PendingMinutes.FirstOrDefault(m => m.PendingMinuteId == pMinuteId);
+                _context.Remove(pMinute);
+                await _context.SaveChangesAsync();
+                status = pMinute.PendingMinuteId;
+            }
+            catch (Exception ex)
+            {
+                return status;
+            }
+            return status;
+        }
+
         public async Task<List<PendingMinute>> GetAll()
         {
             try
