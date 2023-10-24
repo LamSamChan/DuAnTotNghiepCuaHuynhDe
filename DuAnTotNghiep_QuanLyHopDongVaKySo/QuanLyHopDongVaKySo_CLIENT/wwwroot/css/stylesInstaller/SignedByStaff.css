@@ -4,21 +4,22 @@
     background-color: transparent;
 }
 
-div[id="form_signed"] {
-    padding-top: 30px;
-    margin : 0 10px;
+div[id="form_SignedStaff"] {
+    /*padding-top: 30px;*/
+    margin: 0 10px;
 }
 
-div[id="form_signed"]  .col-4{
+div[id="form_SignedStaff"]  .col-4{
     width: 485px;
     height: 500px;
     flex-shrink: 0;
     border-radius: 40px;
     background: rgba(217, 217, 217, 0.50);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin:auto 0;
 }
 
-div[id="form_signed"]  .col-8{
+div[id="form_SignedStaff"]  .col-8{
     display: inline-flex;
     justify-content: flex-end;
     align-items: flex-start;
@@ -31,7 +32,7 @@ div[id="form_signed"]  .col-8{
 }
 
 
-div[class="form_signed"] div[class="img_Sig"]{
+div[id="form_SignedStaff"] .col-4 > div[class="img_Sig"]{
     width: 343px;
     height: 321px;
     flex-shrink: 0;

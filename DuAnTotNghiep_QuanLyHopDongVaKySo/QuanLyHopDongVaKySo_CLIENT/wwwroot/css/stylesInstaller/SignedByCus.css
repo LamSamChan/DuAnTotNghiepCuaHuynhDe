@@ -1,0 +1,98 @@
+﻿button[class="create_regions"] {
+    font-size: 30px;
+    border: none;
+    background-color: transparent;
+}
+
+div[id="form_SignedCus"] {
+    /*padding-top: 30px;*/
+    margin: 0 10px;
+}
+
+div[id="form_SignedCus"]  .col-4{
+    width: 485px;
+    /*height: 500px;*/
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: rgba(217, 217, 217, 0.50);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+   /* margin:auto 0;*/
+}
+
+div[id="form_SignedCus"]  .col-8{
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background-color: #FFFFFF;
+    margin-left: 40px;
+    border-radius: 15px;
+    height:800px;
+    flex: 0 0 auto;
+    width: 66.66666667%;
+}
+
+
+div[id="form_SignedCus"] .col-4 > div[class="img_Sig"]{
+    width: 250px;
+    height: 220px;
+    flex-shrink: 0;
+   /* border-radius: 40px;*/
+    /*background: rgba(217, 217, 217, 0.50);*/
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin: 30px auto;
+  /*  border: 1px dashed #000;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div[id="form_SignedCus"] div[class="signing-Zone"]{
+    width: 300px;
+    height: 200px;
+    background-color: #FFF;
+    stroke-width: 0.555px;
+    stroke: #B9C2C8;
+    margin: 0 auto;
+}
+
+button[class="del"] {
+    display: flex;
+    width: 100%;
+    height: 25.003px;
+    padding: 0px 8px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #FC6767;
+    border: none;
+    color: #FFFFFF;
+}
+
+button[class="Sign"] {
+    display: flex;
+    width: 100%;
+    height: 25.003px;
+    padding: 0px 8px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #2CA8DD;
+    border: none;
+    color: #FFFFFF;
+}
+button[class="access"] {
+    display: flex;
+    width: 240px;
+    height: 40px;
+    padding: 8px 12px;
+    justify-content: center;
+    font-weight:bold;
+    align-items: center;
+    border-radius: 50px;
+    background: #2CDDBD;
+    border:none;
+    color:#FFFFFF;
+}
