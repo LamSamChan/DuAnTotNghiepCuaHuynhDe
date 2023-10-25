@@ -216,7 +216,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 var alias = store.Aliases.Cast<string>().FirstOrDefault(entryAlias => store.IsKeyEntry(entryAlias));
 
                 X509CertificateEntry certificateEntry = store.GetCertificate(alias.ToString());
-
+                
                 // Đọc tệp PDF đầu vào
                 using (FileStream pdfFile = new FileStream(inputPdfPath, FileMode.Open, FileAccess.Read))
                 {
@@ -224,7 +224,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                     using (FileStream signedPdfFile = new FileStream(outputPdfPath, FileMode.Create, FileAccess.Write))
                     {
                         PdfStamper pdfStamper = PdfStamper.CreateSignature(pdfReader, signedPdfFile, '\0');
-
+                        int lastPageNumber = pdfReader.NumberOfPages;
                         PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
                         // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
                         Image signatureImage = Image.GetInstance(imagePath);
@@ -232,7 +232,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                         signatureImage.ScaleToFit(100, 50); // Đặt kích thước của hình ảnh chữ ký
 
                         // Chèn hình ảnh chữ ký vào tài liệu PDF
-                        pdfStamper.GetOverContent(1).AddImage(signatureImage);
+                        pdfStamper.GetOverContent(lastPageNumber).AddImage(signatureImage);
 
                         // Lấy khóa riêng tư từ chứng chỉ
                         ICipherParameters privateKey = store.GetKey(alias).Key;

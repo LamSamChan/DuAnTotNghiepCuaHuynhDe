@@ -2,9 +2,14 @@
 using Newtonsoft.Json;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Services.PendingContractService;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 using QuanLyHopDongVaKySo_API.Services.PositionService;
+using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
+using System.Diagnostics.Contracts;
 using System.Text.Json.Serialization;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
@@ -12,13 +17,18 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     public class PFXCertificatesController : ControllerBase
     {
         private readonly IPFXCertificateSvc _pfxCertificate;
+        private readonly IPendingContractSvc _pendingContract;
         private readonly IEncodeHelper _encodeHelper;
         private readonly IUploadFileHelper _uploadFileHelper;
-        public PFXCertificatesController(IPFXCertificateSvc pfxCertificate, IEncodeHelper encodeHelper, IUploadFileHelper uploadFileHelper)
+        private readonly ITemplateContractSvc _templateContractSvc;
+
+        public PFXCertificatesController(IPFXCertificateSvc pfxCertificate, IEncodeHelper encodeHelper, IUploadFileHelper uploadFileHelper, IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc)
         {
             _pfxCertificate = pfxCertificate;
             _encodeHelper = encodeHelper;
             _uploadFileHelper = uploadFileHelper;
+            _pendingContract = pendingContract;
+            _templateContractSvc = templateContractSvc;
         }
 
         [HttpGet]
@@ -177,5 +187,57 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             return BadRequest("Không thể xoá ảnh, hãy kiểm tra lại !");
         }
+
+        [HttpPost]
+        public async Task<ActionResult<string>> SignContract(string serial,int idContract)
+        {
+            var certi = await _pfxCertificate.GetById(serial);
+            var pContract = await _pendingContract.getPContractAsnyc(idContract);
+
+            if (certi.IsEmployee && pContract.IsDirector)   
+            {
+                return BadRequest("Hợp đồng này đã được giám đốc ký");
+            }
+            TemplateContract tContract = await _templateContractSvc.getTContractAsnyc(pContract.TContractId);
+            DirectorZone directorZone = JsonConvert.DeserializeObject<DirectorZone>(tContract.jsonCustomerZone);
+            CustomerZone customerZone = JsonConvert.DeserializeObject<CustomerZone>(tContract.jsonCustomerZone);
+
+            var outputContract = await _pfxCertificate.SignContract(@"D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\Logo\LOGO\2.png", pContract.PContractFile, pContract.PContractFile, certi.Serial, certi.IsEmployee ? directorZone.X : customerZone.X, certi.IsEmployee ? directorZone.Y : customerZone.Y);
+            
+            bool isDirector = false;
+            bool isCustomer = false;
+
+            if (certi.IsEmployee)
+            {
+                isDirector = true;
+            }
+            else
+            {
+                isDirector = true;
+            }
+
+            if (pContract.IsDirector)
+            {
+                isCustomer = true;
+            }
+
+            PutPendingContract pendingContract = new PutPendingContract {
+                PContractId = pContract.PContractID,
+                DateCreated = pContract.DateCreated,
+                PContractName = pContract.PContractName,
+                PContractFile = outputContract,
+                IsDirector = isDirector,
+                IsCustomer = isCustomer,
+                IsRefuse = pContract.IsRefuse,
+                Reason = pContract.Reason,
+                EmployeeId = pContract.EmployeeId,
+                CustomerId = pContract.CustomerId,
+                TOS_ID = pContract.TOS_ID,
+                TContractId = pContract.TContractId
+            };
+            await _pendingContract.updatePContractAsnyc(pendingContract);
+            return Ok(outputContract);
+        }
+
     }
 }

@@ -89,7 +89,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 {
                     update.DateCreated = PContract.DateCreated;
                     update.PContractName = PContract.PContractName;
-                    update.PContractFile = @"AppData\PContracts\"+PContract.File.FileName;
+                    update.PContractFile = PContract.PContractFile;
                     update.IsDirector = PContract.IsDirector;
                     update.IsCustomer = PContract.IsCustomer;
                     update.IsRefuse = PContract.IsRefuse;

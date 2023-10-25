@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\QuanLyHopDongVaKySo_CLIENT.props" />
+</Project>
