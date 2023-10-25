@@ -1,108 +1,151 @@
-﻿.body .row .col-6 {
-    background-image: url("../../Resource/Image/BackgroundImage.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    border-radius: 16px;
-    margin-left: -30px;
+﻿
+
+/* CSS cho màn hình 15.6 inch  */
+    .body {
+        margin-top: 100px;
+    }
+
+        .body .row .col-6 {
+            background-image: url("../../Resource/Image/BackgroundImage.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+            margin-left: -30px;
+        }
+
+        .body div[class="box_avatar"] {
+            position: relative;
+            width: 257px;
+            bottom: 30px;
+            left: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    div[class="box_avatar"] > img {
+        width: 257px;
+        height: 210px;
+        border: 10px solid #FFF;
+        border-radius: 10px;
+    }
+
+    div[id="box_load"] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #FAFCFE;
+        border-radius: 16px;
+        border: 1px dotted #000;
+    }
+
+    .body .row .col-5 {
+        background-color: #FFF;
+        border-radius: 26px;
+    }
+
+        .body .row .col-5 .row {
+            margin: 50px 0;
+        }
+
+    button[class="upload"] {
+        font-size: 110px;
+        color: #4318FF;
+        border: none;
+        background: none;
+        height: 200px;
+    }
+
+    h3[class="tt"] {
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px; /* 160% */
+        letter-spacing: -0.4px;
+        color: #4318FF;
+    }
+
+    .body .row form .col-md-5 {
+        border-radius: 30px;
+        box-shadow: 0px 18px 40px 0px rgba(112, 144, 176, 0.12);
+        padding: 10px;
+        margin: 10px;
+        background-color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-input {
+        border: none;
+        padding: .375rem .75rem;
+        line-height: 1.5;
+    }
+
+        .form-input:focus {
+            outline: none;
+        }
+
+    .form-select {
+        border: none;
+    }
+
+    h4[class="title"] {
+        color: #2B3674;
+        font-family: Dongle;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px; /* 88.889% */
+        letter-spacing: -0.72px;
+        margin: 10px;
+    }
+
+    button[class="save"] {
+        width: 140px;
+        height: 46px;
+        background-color: #4318FF;
+        font-weight: bold;
+        border: none;
+        color: white;
+        border-radius: 20px;
+        margin-top: 100px;
+    }
+
+@media screen and (min-width: 1366px) and (max-width: 1919px) {
+    .body div[class="box_avatar"] {
+        position: relative;
+        width: 257px;
+        bottom: 30px;
+        left: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 1365px) {
+    .body div[class="box_avatar"] {
+        position: relative;
+        width: 257px;
+        bottom: 30px;
+        left: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 
-.body  div[class="box_avatar"] {
-    position: relative;
-    width: 257px;
-    bottom: 30px;
-    left: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-div[class="box_avatar"] > img {
-    width: 257px;
-    height: 210px;
-    border: 10px solid #FFF;
-    border-radius: 10px;
-}
+/* Media Query cho màn hình nhỏ */
+/*@media screen and (max-width: 768px) {
+    .body .row .col-6 {
+        background-size: contain;
+    }
 
+    .body div[class="box_avatar"] {*/
+        /* Điều chỉnh các thuộc tính khác cho màn hình nhỏ */
+    /*}*/
 
-div[id="box_load"] {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #FAFCFE;
-    border-radius: 16px;
-    border: 1px dotted #000;
-}
-
-
-.body .row .col-5 {
-    background-color: #FFF;
-    border-radius: 26px;
-}
-
-.body .row .col-5 .row {
-    margin: 50px 0;
-}
-
-button[class="upload"]{
-    font-size: 110px;
-    color: #4318FF;
-    border: none;
-    background: none;
-    height: 200px;
-}
-h3[class="tt"]{
-   font-size: 30px;
-   font-style: normal;
-   font-weight: 700;
-   line-height: 32px; /* 160% */
-   letter-spacing: -0.4px;
-   color: #4318FF; 
-}
-
-.body .row form .col-md-5 {
-    border-radius: 30px;
-    box-shadow: 0px 18px 40px 0px rgba(112, 144, 176, 0.12);
-    padding: 10px; 
-    margin: 10px;
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-input {
-    border: none;
-    padding: .375rem .75rem;
-    line-height: 1.5;
-}
-
-.form-input:focus {
-    outline: none;
-}    
-
-.form-select {
-    border: none;
-}
-
-h4[class="title"] {
-    color: #2B3674;
-    font-family: Dongle;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 32px; /* 88.889% */
-    letter-spacing: -0.72px;
-    margin: 10px;
-}
-
-button[class="save"] {
-    width: 140px;
-    height: 46px;
-    background-color: #4318FF;
-    font-weight: bold;
-    border: none;
-    color: white;
-    border-radius: 20px;
-    margin-top: 100px;
-}
-
+    /* Thêm các quy tắc khác cần thiết cho màn hình nhỏ */
+/*}*/

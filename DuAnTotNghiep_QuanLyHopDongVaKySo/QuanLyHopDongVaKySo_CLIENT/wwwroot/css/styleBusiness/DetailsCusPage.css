@@ -1,35 +1,40 @@
-﻿div[class="box1"] div[class="avatar"] > img {
-    width: 248px;
-    height: 215px;
-}
-label[class="label_status"] {
-    border-radius: 8px;
-    background: rgba(40, 199, 111, 0.35);
-    height: 40px;
-    padding: 8px 12px;
-    color: #28C76F;
-    font-family: Jost;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    ALIGN-ITEMS: CENTER;
-    display: flex;
-    justify-content: center;
-}
-button[class="save_Changes"] {
-    border-radius: 8px;
-    width: 200px;
-    background: #2CDDBD;
-    border: none;
-    color: white;
-    font-weight: bold;
-}
-button[class="create_Record"] {
-    border-radius: 8px;
-    width: 200px;
-    background: #2CA8DD;
-    border: none;
-    color: white;
-    font-weight: bold;
+﻿@media screen and (min-width: 1366px) and (max-width: 1920px) {
+    div[class="box1"] div[class="avatar"] > img {
+        width: 248px;
+        height: 215px;
+    }
+
+    label[class="label_status"] {
+        border-radius: 8px;
+        background: rgba(40, 199, 111, 0.35);
+        height: 40px;
+        padding: 8px 12px;
+        color: #28C76F;
+        font-family: Jost;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        ALIGN-ITEMS: CENTER;
+        display: flex;
+        justify-content: center;
+    }
+
+    button[class="save_Changes"] {
+        border-radius: 8px;
+        width: 200px;
+        background: #2CDDBD;
+        border: none;
+        color: white;
+        font-weight: bold;
+    }
+
+    button[class="create_Record"] {
+        border-radius: 8px;
+        width: 200px;
+        background: #2CA8DD;
+        border: none;
+        color: white;
+        font-weight: bold;
+    }
 }

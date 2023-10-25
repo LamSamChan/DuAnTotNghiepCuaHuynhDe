@@ -205,8 +205,16 @@
       "PackagePath": "staticwebassets\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\DetailsInstallationRecord.css",
-      "PackagePath": "staticwebassets\\css\\DetailsInstallationRecord.css"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\StyleBoss\\ContractsAwating.css",
+      "PackagePath": "staticwebassets\\css\\StyleBoss\\ContractsAwating.css"
+    },
+    {
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\StyleBoss\\DetailsContractAwait.css",
+      "PackagePath": "staticwebassets\\css\\StyleBoss\\DetailsContractAwait.css"
+    },
+    {
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\StyleBoss\\DetalisAprovedContract.css",
+      "PackagePath": "staticwebassets\\css\\StyleBoss\\DetalisAprovedContract.css"
     },
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\main.css",

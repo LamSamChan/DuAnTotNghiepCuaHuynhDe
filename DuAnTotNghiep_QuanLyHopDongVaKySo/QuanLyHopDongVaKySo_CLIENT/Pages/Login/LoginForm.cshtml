@@ -1,0 +1,90 @@
+﻿@page
+@model QuanLyHopDongVaKySo_CLIENT.Pages.Login.LoginModelModel
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- ICONS -->
+    <script src="https://unpkg.com/@@phosphor-icons/web"></script>
+    <style>
+        .form_login{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+       
+        .side,
+        .banner{
+            width: 50%;
+            height: 100%;
+        }
+        .top img{
+           width: 366px;
+            height: 366px;
+        }
+        .form{
+            width: 486px;
+            height: 520px;
+            border-radius: 46px;
+            opacity: 0.3;
+            background: #D9D9D9;
+        }
+        h3{
+            display: flex;
+            width: 335px;
+            height: 123px;
+            flex-direction: column;
+            justify-content: center;
+            color: #0f172a;
+            text-align: center;
+            font-family: Montserrat;
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="form_login">
+        <div class="banner">
+
+        </div>
+        <div class="side">
+            <div class="top">
+                <img src="~/Resource/Image/LOGO_WITHOUT_BG/2.png" />
+            </div>
+            <div class="form">
+                <h3>ĐĂNG NHẬP</h3>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">MÃ NHÂN VIÊN</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">MẬT KHẨU</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+
+                    </div>
+                    <div class="col-md-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</html>

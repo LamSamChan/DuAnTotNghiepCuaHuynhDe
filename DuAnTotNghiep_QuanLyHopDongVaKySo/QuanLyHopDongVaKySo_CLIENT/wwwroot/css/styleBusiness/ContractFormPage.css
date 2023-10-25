@@ -1,72 +1,79 @@
-﻿div[class="tab-container"] {
-    display: flex;
-    margin-top: 30px;
-}
+﻿@media screen and (min-width: 1366px) and (max-width: 1920px) {
+    div[class="tab-container"] {
+        display: flex;
+        margin-top: 30px;
+    }
 
 
-.tab-content {
-    display: none;
-    margin-top: 10px;
-    height: 870px;
-}
+    .tab-content {
+        display: none;
+        margin-top: 10px;
+        height: 870px;
+    }
 
-.active {
-    display: block;
-}
+    .active {
+        display: block;
+    }
 
-.tab-button {
-    cursor: pointer;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background: rgba(171, 181, 190, 0.37);
-    box-shadow: 0px -3px 0px 0px #CFD4DA inset;
-   
-}
- .tab-button.active {
+    .tab-button {
+        cursor: pointer;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background: rgba(171, 181, 190, 0.37);
+        box-shadow: 0px -3px 0px 0px #CFD4DA inset;
+    }
+
+    .tab-button.active {
         font-weight: bold;
         border: 1px solid #333;
         background-color: #fff;
         box-shadow: 0px -3px 0px 0px #DF4949 inset;
         border: none;
- }
-.tab-content .row .col-4 {
-    width: 485px;
-    height: 747px;
-    flex-shrink: 0;
-    border-radius: 40px;
-    background: rgba(217, 217, 217, 0.50);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-.tab-content .row{
-    margin: 0 10px;
-}
-.tab-content > .row > .col-4 > .upForm {
-    width: 317px;
-    height: 192px;
-    flex-shrink: 0;
-    border: 1px dashed #000;
-    background: rgba(255, 255, 255, 0.60);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin: 30px auto;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.tab-content > .row > .col-4 > .upForm .upload{
-    font-size: 80px;
-    color: #4318FF;
-    border: none;
-    background: none;
-    height: 200px;
-}
-.tab-content > .row > .col-8 {
-    display: inline-flex;
-    padding: 0px 0.021px 0px 35.856px;
-    justify-content: flex-end;
-    align-items: flex-start;
-    background-color: #FFFFFF;
-    margin-left: 40px;
-    border-radius:15px;
+    }
+
+    .tab-content .row .col-4 {
+        width: 485px;
+        height: 747px;
+        flex-shrink: 0;
+        border-radius: 40px;
+        background: rgba(217, 217, 217, 0.50);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .tab-content .row {
+        margin: 0 10px;
+    }
+
+    .tab-content > .row > .col-4 > .upForm {
+        width: 317px;
+        height: 192px;
+        flex-shrink: 0;
+        border: 1px dashed #000;
+        background: rgba(255, 255, 255, 0.60);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        margin: 30px auto;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tab-content > .row > .col-4 > .upForm .upload {
+        font-size: 80px;
+        color: #4318FF;
+        border: none;
+        background: none;
+        height: 200px;
+    }
+
+    .tab-content > .row > .col-8 {
+        display: inline-flex;
+        padding: 0px 0.021px 0px 35.856px;
+        justify-content: flex-end;
+        align-items: flex-start;
+        background-color: #FFFFFF;
+        margin-left: 40px;
+        border-radius: 15px;
+    }
 }
