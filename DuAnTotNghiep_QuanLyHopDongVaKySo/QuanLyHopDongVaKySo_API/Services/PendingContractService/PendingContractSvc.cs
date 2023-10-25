@@ -116,14 +116,13 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             if(cus != null)
             {
                 //contract.CustomerId = cus.CustomerId.ToString();
-                contract.CustomerId = "123";
+                contract.CustomerId = cus.CustomerId.ToString();
                 contract.ContractId = PContract.PContractID.ToString();
                 contract.Date = PContract.DateCreated.ToString();
                 contract.BuisinessName = cus.BuisinessName;
                 contract.FullName = cus.FullName;
                 contract.Position = cus.Position;
                 contract.DateOfBirth = cus.DateOfBirth;
-                contract.Gender = cus.Gender;
                 contract.PhoneNumber = cus.PhoneNumber;
                 contract.Email = cus.Email;
                 contract.Identification = cus.Identification;
