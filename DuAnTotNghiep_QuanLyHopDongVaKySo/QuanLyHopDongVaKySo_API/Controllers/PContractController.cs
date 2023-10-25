@@ -47,6 +47,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 var contract = await _PContractSvc.ExportContract(pContract);
                 if(contract != null)
                 {
+                    if (!Directory.Exists("AppData/PContracts/"))
+                    {
+                        Directory.CreateDirectory("AppData/PContracts/");
+                    }
                     string pdfFilePath = tContract.TContractFile ;
                     string outputPdfFile = "AppData/PContracts/"+id_Pcontract+".pdf";
                     PdfReader pdfReader = new PdfReader(pdfFilePath);

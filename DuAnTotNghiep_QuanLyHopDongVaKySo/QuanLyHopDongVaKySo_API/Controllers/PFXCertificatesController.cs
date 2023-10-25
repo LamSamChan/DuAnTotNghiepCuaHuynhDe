@@ -7,6 +7,7 @@ using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 using QuanLyHopDongVaKySo_API.Services.PositionService;
 using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
 using System.Diagnostics.Contracts;
+using System.Security.AccessControl;
 using System.Text.Json.Serialization;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
@@ -188,22 +189,37 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return BadRequest("Không thể xoá ảnh, hãy kiểm tra lại !");
         }
 
-        [HttpPost]
-        public async Task<ActionResult<string>> SignContract(string serial,int idContract)
+        //chưa test khi dùng chữ ký hết hạn
+        [HttpPost("SignContract")]
+        public async Task<ActionResult<string>> SignContract(string serial,int idContract, string imagePath)
         {
             var certi = await _pfxCertificate.GetById(serial);
             var pContract = await _pendingContract.getPContractAsnyc(idContract);
 
+            if (pContract.IsRefuse)
+            {
+                return BadRequest("Hợp đồng này đã bị từ chối duyệt!");
+            }
+
             if (certi.IsEmployee && pContract.IsDirector)   
             {
-                return BadRequest("Hợp đồng này đã được giám đốc ký");
+                return BadRequest("Hợp đồng này đã được giám đốc ký !");
             }
+
+            if (!certi.IsEmployee && !pContract.IsDirector)
+            {
+                return BadRequest("Hợp đồng này chưa được giám đốc ký !");
+            }
+
+            if (!certi.IsEmployee && pContract.IsCustomer)
+            {
+                return BadRequest("Hợp đồng này đã được khách hàng ký !");
+            }
+
             TemplateContract tContract = await _templateContractSvc.getTContractAsnyc(pContract.TContractId);
             DirectorZone directorZone = JsonConvert.DeserializeObject<DirectorZone>(tContract.jsonCustomerZone);
             CustomerZone customerZone = JsonConvert.DeserializeObject<CustomerZone>(tContract.jsonCustomerZone);
 
-            var outputContract = await _pfxCertificate.SignContract(@"D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\Logo\LOGO\2.png", pContract.PContractFile, pContract.PContractFile, certi.Serial, certi.IsEmployee ? directorZone.X : customerZone.X, certi.IsEmployee ? directorZone.Y : customerZone.Y);
-            
             bool isDirector = false;
             bool isCustomer = false;
 
@@ -220,6 +236,32 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 isCustomer = true;
             }
+            
+            string outputContract = null;
+
+            if (pContract.IsDirector && !certi.IsEmployee)
+            {
+                outputContract = pContract.PContractFile.Replace("PContracts", "DContracts");
+
+                if (!Directory.Exists("AppData/DContracts/"))
+                {
+                    Directory.CreateDirectory("AppData/DContracts/");
+                }
+            }
+            else
+            {
+                outputContract = pContract.PContractFile;
+            }
+
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath, pContract.PContractFile, outputContract, certi.Serial, certi.IsEmployee ? directorZone.X : customerZone.X, certi.IsEmployee ? directorZone.Y : customerZone.Y);
+
+            if (pContract.IsDirector && !certi.IsEmployee)
+            {
+                FileStream fs = new FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
+                fs.Close();
+                System.IO.File.Delete(pContract.PContractFile);
+            }
+
 
             PutPendingContract pendingContract = new PutPendingContract {
                 PContractId = pContract.PContractID,
@@ -236,7 +278,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 TContractId = pContract.TContractId
             };
             await _pendingContract.updatePContractAsnyc(pendingContract);
-            return Ok(outputContract);
+            return Ok(signedContractPath);
         }
 
     }

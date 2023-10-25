@@ -7,6 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AppData\PendingContracts\**" />
+    <Compile Remove="AppData\PendingMinutes\**" />
+    <Compile Remove="AppData\TMinutes\**" />
+    <Content Remove="AppData\PendingContracts\**" />
+    <Content Remove="AppData\PendingMinutes\**" />
+    <Content Remove="AppData\TMinutes\**" />
+    <EmbeddedResource Remove="AppData\PendingContracts\**" />
+    <EmbeddedResource Remove="AppData\PendingMinutes\**" />
+    <EmbeddedResource Remove="AppData\TMinutes\**" />
+    <None Remove="AppData\PendingContracts\**" />
+    <None Remove="AppData\PendingMinutes\**" />
+    <None Remove="AppData\TMinutes\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BouncyCastle" Version="1.8.9" />
     <PackageReference Include="iTextSharp" Version="5.5.13.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.12" />
@@ -27,12 +42,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AppData/DoneContracts/" />
-    <Folder Include="AppData/PendingContracts/" />
-    <Folder Include="AppData/PendingMinutes/" />
+    <Folder Include="AppData\DContracts\" />
     <Folder Include="AppData/PFXCertificates/" />
     <Folder Include="AppData/TContracts/" />
-    <Folder Include="AppData/TMinutes/" />
     <Folder Include="AppData\Avatars\" />
     <Folder Include="AppData\SignatureImages\" />
   </ItemGroup>

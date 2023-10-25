@@ -29,7 +29,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     PContractFile = "",
                     IsDirector = false,
                     IsCustomer = false,
-                    IsRefuse = false,
+                    IsRefuse = PContract.IsRefuse,
                     Reason = PContract.Reason,
                     EmployeeId = PContract.EmployeeId,
                     CustomerId = PContract.CustomerId,
