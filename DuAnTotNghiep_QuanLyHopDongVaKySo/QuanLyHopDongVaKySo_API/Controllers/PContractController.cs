@@ -58,7 +58,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     
                     foreach(var coordinate in Coordinates)
                     {
-                        string fieldName = "CustomerId"; // Tên trường từ bảng toạ độ
+                        string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
                         float x = coordinate.X; // Lấy tọa độ X từ bảng toạ độ
                         float y = coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                         PropertyInfo property = typeof(ContractInternet).GetProperty(fieldName);

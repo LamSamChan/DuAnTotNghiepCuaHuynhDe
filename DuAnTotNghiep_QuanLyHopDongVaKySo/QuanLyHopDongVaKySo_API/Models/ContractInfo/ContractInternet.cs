@@ -33,10 +33,10 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
         [Display(Name = "Năm sinh")]
         public DateTime DateOfBirth { get; set; }
 
-        [Required(ErrorMessage = "Hãy chọn giới tính !"),
-            Range(1, 2, ErrorMessage = "Giới tính không hợp lệ !")]
-        [Display(Name = "Giới tính")]
-        public Gender Gender { get; set; }
+        // [Required(ErrorMessage = "Hãy chọn giới tính !"),
+        //     Range(1, 2, ErrorMessage = "Giới tính không hợp lệ !")]
+        // [Display(Name = "Giới tính")]
+        // public Gender Gender { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập số điện thoại !")]
         [RegularExpression("^(?:\\+84|0)\\d{9}$", ErrorMessage = "Số điện thoại không hợp lệ !")]
