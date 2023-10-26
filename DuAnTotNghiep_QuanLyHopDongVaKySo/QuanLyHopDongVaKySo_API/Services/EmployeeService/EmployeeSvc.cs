@@ -82,6 +82,22 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             }
         }
 
+        public async Task<int> ForgotPassword(string newPassword, ForgotPassword forgotPassword)
+        {
+            var employee = await _context.Employees.FirstOrDefaultAsync(e => e.Email == forgotPassword.Email);
+
+            if (employee != null)
+            {
+                employee.Password = _encodeHelper.Encode(newPassword);
+                await Update(employee);
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         public async Task<List<Employee>> GetAll()
         {
             try
@@ -99,6 +115,18 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             try
             {
                 return _context.Employees.FirstOrDefault(e => e.EmployeeId == Guid.Parse(empID));
+            }
+            catch (Exception ex)
+            {
+                return new Employee();
+            }
+        }
+
+        public async Task<Employee> GetByEmail(string empEmail)
+        {
+            try
+            {
+                return await _context.Employees.FirstOrDefaultAsync (e => e.Email == empEmail);
             }
             catch (Exception ex)
             {
