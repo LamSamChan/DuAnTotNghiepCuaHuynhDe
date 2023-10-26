@@ -82,9 +82,9 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             }
         }
 
-        public async Task<int> ForgotPassword(string newPassword, ForgotPassword forgotPassword)
+        public async Task<int> ForgotPassword(string newPassword, string empEmail)
         {
-            var employee = await _context.Employees.FirstOrDefaultAsync(e => e.Email == forgotPassword.Email);
+            var employee =  _context.Employees.FirstOrDefault(e => e.Email == empEmail);
 
             if (employee != null)
             {

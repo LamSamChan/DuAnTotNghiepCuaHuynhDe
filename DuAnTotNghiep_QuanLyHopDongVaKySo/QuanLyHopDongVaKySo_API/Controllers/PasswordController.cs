@@ -1,30 +1,32 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo_API.Helpers;
-using QuanLyHopDongVaKySo_API.Services.EmployeeService;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Services.EmployeeService;
 using QuanLyHopDongVaKySo_API.ViewModels;
+
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class PasswordController : ControllerBase
     {
-        private static string otpChange;
-        private static string otpForgot;
+        private static string otpChange = String.Empty;
+        private static string otpForgot = String.Empty;
+        private static string emailEmp = String.Empty;
         private readonly IEmployeeSvc _employeeSvc;
         private readonly IOTPGeneratorHelper _otpGeneratorHelper;
         private readonly ISendMailHelper _sendMailHelper;
         private readonly IRandomPasswordHelper _randomPasswordHelper;
 
-        public PasswordController(IEmployeeSvc employeeSvc, IOTPGeneratorHelper otpGeneratorHelper, ISendMailHelper sendMailHelper, IRandomPasswordHelper randomPasswordHelper) { 
+        public PasswordController(IEmployeeSvc employeeSvc, IOTPGeneratorHelper otpGeneratorHelper, ISendMailHelper sendMailHelper, IRandomPasswordHelper randomPasswordHelper)
+        {
             _employeeSvc = employeeSvc;
             _otpGeneratorHelper = otpGeneratorHelper;
             _sendMailHelper = sendMailHelper;
             _randomPasswordHelper = randomPasswordHelper;
         }
 
-        [HttpPost]
+        [HttpPost("ChangePassword")]
         public async Task<ActionResult<string>> ChangePassword([FromForm] ChangePassword changePassword, string employeeId, string comfirmOTP)
         {
             if (otpChange == comfirmOTP)
@@ -50,45 +52,71 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 return BadRequest("Mã xác nhận OTP không đúng!");
             }
-            
         }
 
-        [HttpPost]
-        public async Task<ActionResult<string>> ForgotPassword([FromForm] ForgotPassword forgotPassword, string comfirmOTP)
+        [HttpPost("ForgotPassword")]
+        public async Task<ActionResult<string>> ForgotPassword(string comfirmOTP)
         {
             if (otpForgot == comfirmOTP)
             {
                 string newPassword = await _randomPasswordHelper.GeneratePassword(8);
-                int result = await _employeeSvc.ForgotPassword(newPassword, forgotPassword);
+                int result = await _employeeSvc.ForgotPassword(newPassword, emailEmp);
+                var employee = await _employeeSvc.GetByEmail(emailEmp);
                 if (result == 1)
                 {
+                    string content = $"<h1> Thiết lập Mật khẩu Mới</h1>" +
+                                     $"<p> Xin chào {employee.FullName},</p>" +
+                                     $"<p>" +
+                                        $"Bạn(hoặc một người nào đó) đã yêu cầu thiết lập lại mật khẩu của bạn. Dưới đây là mật khẩu mới của bạn:" +
+                                    $"</p>" +
+                                    $"<p><strong>{newPassword}</strong></p>" +
+                                    $"<p>" +
+                                        $"Đừng quên thay đổi mật khẩu này ngay sau khi bạn đăng nhập. Nếu bạn không thực hiện yêu cầu này, hãy liên hệ với chúng tôi ngay lập tức." +
+                                    $"</p>" +
+                                    $"<p>" +
+                                        $"Trân trọng," +
+                                    $"</p>"+
+                                    $"<p>" +
+                                       $"Tech Seal" +
+                                    $"</p>";
 
-                    return Ok("Đã cấp mật khẩu mới");
+                    SendMail mail = new SendMail();
+                    mail.Subject = "Lấy Mật khẩu Mới";
+                    mail.ReceiverName = employee.FullName;
+                    mail.ToMail = employee.Email;
+                    mail.HtmlContent = content;
+                    string isSuccess = await _sendMailHelper.SendMail(mail);
+                    if (isSuccess != null)
+                    {
+                        return Ok("Đã cấp mật khẩu mới");
+                    }
+                    else
+                    {
+                        return BadRequest("Cấp mật khẩu mới thất bại");
+                    }
+                    
                 }
                 else
                 {
                     return BadRequest("Cấp mật khẩu mới không thành công");
                 }
-                
             }
             else
             {
                 return BadRequest("Mã xác nhận OTP không đúng!");
             }
-
         }
 
         [HttpPost("GetOTPChange")]
         public async Task<ActionResult<string>> GetOTPChange(string employeeId)
         {
-
             var employee = await _employeeSvc.GetById(employeeId);
             string otp = await _otpGeneratorHelper.GenerateOTP(6);
 
             otpChange = otp;
 
             string content = $"<div style = \"font-family: Arial, sans-serif; padding: 20px; \">" +
-        $"<h2> Xác thực bằng Mã OTP từ Tech Seal </h2>" + 
+        $"<h2> Xác thực bằng Mã OTP từ Tech Seal </h2>" +
         $"<p> Cảm ơn bạn đã sử dụng dịch vụ của Tech Seal.</p>" +
         $"<p> Dưới đây là mã OTP của bạn:</p>" +
         $"<p style=\"font-size: 24px; font-weight: bold;\">{otp}</p>" +
@@ -121,27 +149,34 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpPost("GetOTPForgot")]
         public async Task<ActionResult<string>> GetOTPForgot([FromForm] ForgotPassword forgotPassword)
         {
-
             var employee = await _employeeSvc.GetByEmail(forgotPassword.Email);
-            string otp = await _otpGeneratorHelper.GenerateOTP(6);
 
+            if (employee == null)
+            {
+                return BadRequest("Gửi OTP thất bại!");
+            }
+
+            string otp = await _otpGeneratorHelper.GenerateOTP(6);
+            emailEmp = employee.Email;
             otpForgot = otp;
 
-            string content = $"<h1> Xác Minh Tài Khoản</h1>"+
-    $"<p> Xin chào ${employee.FullName},</p>"+
-    $"<p>"+
-       $"Bạn đã yêu cầu lấy lại mật khẩu của bạn.Đây là mã OTP(Mã Xác Minh) của bạn:"+
+            string content = $"<h1> Xác Minh Tài Khoản</h1>" +
+    $"<p> Xin chào {employee.FullName},</p>" +
+    $"<p>" +
+       $"Bạn đã yêu cầu lấy lại mật khẩu của bạn.Đây là mã OTP(Mã Xác Minh) của bạn:" +
+    $"</p>" +
+    $"<p><strong>{otp}</strong></p>" +
+    $"<p>" +
+       $" Vui lòng sử dụng mã OTP này để xác minh tài khoản của bạn sau đó mật khẩu mới sẽ được gửi đến email cho bạn. Hãy chắc chắn rằng bạn không tiết lộ mã OTP này cho bất kỳ ai khác." +
+    $"</p>" +
+    $"<p>" +
+       $"Mã OTP này có hiệu lực trong <b>1 phút</b>.Nếu bạn không thực hiện yêu cầu này, hãy liên hệ với chúng tôi." +
+    $"</p>" +
+    $"<p>" +
+        $"Trân trọng," +
     $"</p>"+
-    $"<p><strong>${otp}</strong></p>"+
     $"<p>"+
-       $" Vui lòng sử dụng mã OTP này để xác minh tài khoản của bạn sau đó mật khẩu mới sẽ được gửi đến email cho bạn. Hãy chắc chắn rằng bạn không tiết lộ mã OTP này cho bất kỳ ai khác."+
-    $"</p>"+
-    $"<p>"+
-       $"Mã OTP này có hiệu lực trong <b>1 phút</b>.Nếu bạn không thực hiện yêu cầu này, hãy liên hệ với chúng tôi."+
-    $"</p>"+
-    $"<p>"+
-        $"Trân trọng,"+
-        $"Tech Seal"+
+        $"Tech Seal" +
     $"</p>";
 
             SendMail mail = new SendMail();
