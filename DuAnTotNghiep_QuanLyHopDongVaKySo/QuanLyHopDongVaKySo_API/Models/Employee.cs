@@ -74,13 +74,6 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Mật khẩu")]
         public string? Password { get; set; }
 
-        [NotMapped]
-        [Column(TypeName = "varchar(50)"), MaxLength(50),MinLength(8, ErrorMessage = "Mật khẩu phải nhiều hơn 8 ký tự !")]
-        [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Mật khẩu không trung khớp!")]
-        [Display(Name = "Mật khẩu hiện tại")]
-        public string? ConfirmPassword { get; set; }
-
         [Display(Name = "Trạng thái hoạt động")]
         public bool IsLocked { get; set; }
 
