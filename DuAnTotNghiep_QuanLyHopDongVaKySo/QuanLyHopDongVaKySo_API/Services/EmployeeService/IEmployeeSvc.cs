@@ -15,6 +15,6 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
         Task<string> IsRoleOrPositonCheck(Employee employee);
         Task<Employee> Login(ViewLogin viewLogin);
         Task<int?> ChangePassword(string empId, ChangePassword changePassword);
-        Task<int> ForgotPassword(string newPassword, ForgotPassword forgotPassword);
+        Task<int> ForgotPassword(string newPassword, string empEmail);
     }
 }
