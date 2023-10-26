@@ -9,7 +9,15 @@
       "PackagePath": "staticwebassets\\Resource\\Image\\BackgroundImage.png"
     },
     {
+<<<<<<< HEAD
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\Background_Login.png",
+      "PackagePath": "staticwebassets\\Resource\\Image\\Background_Login.png"
+    },
+    {
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\LOGO\\1.png",
+=======
       "Id": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\LOGO\\1.png",
+>>>>>>> main
       "PackagePath": "staticwebassets\\Resource\\Image\\LOGO\\1.png"
     },
     {
