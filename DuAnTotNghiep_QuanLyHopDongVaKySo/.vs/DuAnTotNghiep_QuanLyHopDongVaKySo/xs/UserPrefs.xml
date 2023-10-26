@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="Multiple Projects">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="QuanLyHopDongVaKySo_API/appsettings.json">
+    <Files>
+      <File FileName="QuanLyHopDongVaKySo_API/appsettings.Development.json" />
+      <File FileName="QuanLyHopDongVaKySo_API/appsettings.json" Line="5" Column="40" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DuAnTotNghiep_QuanLyHopDongVaKySo" expanded="True">
+            <Node name="QuanLyHopDongVaKySo_CLIENT" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects" />
+  </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

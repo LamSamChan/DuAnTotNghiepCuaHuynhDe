@@ -29,7 +29,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     PContractFile = "",
                     IsDirector = false,
                     IsCustomer = false,
-                    IsRefuse = false,
+                    IsRefuse = PContract.IsRefuse,
                     Reason = PContract.Reason,
                     EmployeeId = PContract.EmployeeId,
                     CustomerId = PContract.CustomerId,
@@ -89,7 +89,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 {
                     update.DateCreated = PContract.DateCreated;
                     update.PContractName = PContract.PContractName;
-                    update.PContractFile = @"AppData\PContracts\"+PContract.File.FileName;
+                    update.PContractFile = PContract.PContractFile;
                     update.IsDirector = PContract.IsDirector;
                     update.IsCustomer = PContract.IsCustomer;
                     update.IsRefuse = PContract.IsRefuse;
@@ -116,14 +116,13 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             if(cus != null)
             {
                 //contract.CustomerId = cus.CustomerId.ToString();
-                contract.CustomerId = "123";
+                contract.CustomerId = cus.CustomerId.ToString();
                 contract.ContractId = PContract.PContractID.ToString();
                 contract.Date = PContract.DateCreated.ToString();
                 contract.BuisinessName = cus.BuisinessName;
                 contract.FullName = cus.FullName;
                 contract.Position = cus.Position;
                 contract.DateOfBirth = cus.DateOfBirth;
-                contract.Gender = cus.Gender;
                 contract.PhoneNumber = cus.PhoneNumber;
                 contract.Email = cus.Email;
                 contract.Identification = cus.Identification;
