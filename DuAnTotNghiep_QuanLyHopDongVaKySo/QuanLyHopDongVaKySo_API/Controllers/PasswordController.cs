@@ -62,6 +62,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 int result = await _employeeSvc.ForgotPassword(newPassword, forgotPassword);
                 if (result == 1)
                 {
+
                     return Ok("Đã cấp mật khẩu mới");
                 }
                 else
