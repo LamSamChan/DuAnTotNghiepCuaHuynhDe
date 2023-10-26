@@ -75,7 +75,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                                     $"</p>" +
                                     $"<p>" +
                                         $"Trân trọng," +
-                                        $"Tech Seal" +
+                                    $"</p>"+
+                                    $"<p>" +
+                                       $"Tech Seal" +
                                     $"</p>";
 
                     SendMail mail = new SendMail();
@@ -172,6 +174,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     $"</p>" +
     $"<p>" +
         $"Trân trọng," +
+    $"</p>"+
+    $"<p>"+
         $"Tech Seal" +
     $"</p>";
 
