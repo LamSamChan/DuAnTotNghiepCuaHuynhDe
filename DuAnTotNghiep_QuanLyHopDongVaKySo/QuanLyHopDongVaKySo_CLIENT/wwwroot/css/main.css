@@ -20,7 +20,7 @@
 @import url("StyleBoss/ContractsAwating.css");
 @import url("StyleBoss/DetalisAprovedContract.css");
 @import url("StyleBoss/DetailsContractAwait.css");
-
+@import url("StyleBoss/InforSign.css");
 
 @media screen and (min-width: 1366px) and (max-width: 1920px) {
     * {

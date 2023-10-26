@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "On7uqsjlO2M4rA98L499xN0lkMB9fMFNNLsnfmJVpWo=",
+  "Hash": "C3gjM4FMGD1RNcm/esHOBeqMrpnBGxqM1OdjjyBFTaU=",
   "Source": "QuanLyHopDongVaKySo_CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
   "Mode": "Default",
@@ -146,6 +146,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\StyleBoss\\DetalisAprovedContract.css"
+    },
+    {
+      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\StyleBoss\\InforSign.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "css/StyleBoss/InforSign.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\StyleBoss\\InforSign.css"
     },
     {
       "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\styleBusiness\\AddCusPageStyle.css",
@@ -2137,6 +2154,23 @@
       "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\Avatar.jpg",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/Image/Avatar.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Resource\\Image\\Avatar.jpg"
+    },
+    {
       "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\Background_Login.png",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
@@ -2169,6 +2203,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Resource\\Image\\BackgroundImage.png"
+    },
+    {
+      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\img_sign.png",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/Image/img_sign.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Resource\\Image\\img_sign.png"
     },
     {
       "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\LOGO\\1.png",

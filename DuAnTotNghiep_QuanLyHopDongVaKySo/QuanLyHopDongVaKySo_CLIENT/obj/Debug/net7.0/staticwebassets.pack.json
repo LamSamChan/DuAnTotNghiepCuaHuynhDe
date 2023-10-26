@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\QuanLyHopDongVaKySo_CLIENT.bundle.scp.css"
     },
     {
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\Avatar.jpg",
+      "PackagePath": "staticwebassets\\Resource\\Image\\Avatar.jpg"
+    },
+    {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\BackgroundImage.png",
       "PackagePath": "staticwebassets\\Resource\\Image\\BackgroundImage.png"
     },
@@ -27,6 +31,10 @@
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\LOGO_WITHOUT_BG\\2.png",
       "PackagePath": "staticwebassets\\Resource\\Image\\LOGO_WITHOUT_BG\\2.png"
+    },
+    {
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\img_sign.png",
+      "PackagePath": "staticwebassets\\Resource\\Image\\img_sign.png"
     },
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\JQuery3.7\\JQuery3.7.1.js",
@@ -219,6 +227,10 @@
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\StyleBoss\\DetalisAprovedContract.css",
       "PackagePath": "staticwebassets\\css\\StyleBoss\\DetalisAprovedContract.css"
+    },
+    {
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\StyleBoss\\InforSign.css",
+      "PackagePath": "staticwebassets\\css\\StyleBoss\\InforSign.css"
     },
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\main.css",
