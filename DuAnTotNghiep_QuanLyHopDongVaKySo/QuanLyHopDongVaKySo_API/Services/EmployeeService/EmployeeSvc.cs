@@ -16,7 +16,8 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
         private readonly IPFXCertificateSvc _pfxCertificateSvc;
         private readonly IPositionSvc _positionSvc;
         private readonly IRoleSvc _roleSvc;
-        public EmployeeSvc(ProjectDbContext context,IEncodeHelper encodeHelper, IPFXCertificateSvc pfxCertificateSvc, IRoleSvc roleSvc, IPositionSvc positionSvc)
+
+        public EmployeeSvc(ProjectDbContext context, IEncodeHelper encodeHelper, IPFXCertificateSvc pfxCertificateSvc, IRoleSvc roleSvc, IPositionSvc positionSvc)
         {
             _context = context;
             _encodeHelper = encodeHelper;
@@ -24,6 +25,7 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             _roleSvc = roleSvc;
             _positionSvc = positionSvc;
         }
+
         public async Task<string> AddNew(Employee employee)
         {
             string isSuccess = null;
@@ -31,10 +33,11 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             string checkRoleAndPositon = await IsRoleOrPositonCheck(employee);
             try
             {
-                if (String.Compare(checkFieldExist , "0") != 0)
+                if (String.Compare(checkFieldExist, "0") != 0)
                 {
                     return checkFieldExist;
-                }else if (String.Compare(checkRoleAndPositon, "0") != 0)
+                }
+                else if (String.Compare(checkRoleAndPositon, "0") != 0)
                 {
                     return checkRoleAndPositon;
                 }
@@ -57,9 +60,26 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             return isSuccess;
         }
 
-        public Task<int> ChangePassword(string empId, ChangePassword changePassword)
+        public async Task<int?> ChangePassword(string employeeId, ChangePassword changePassword)
         {
-            throw new NotImplementedException();
+            var employee = await GetById(employeeId);
+            if (employee != null)
+            {
+                if (employee.Password != _encodeHelper.Encode(changePassword.Password))
+                {
+                    return 0;
+                }
+                else
+                {
+                    employee.Password = _encodeHelper.Encode(changePassword.NewPassword);
+                    await Update(employee);
+                    return 1;
+                }
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public async Task<List<Employee>> GetAll()
@@ -70,11 +90,9 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             }
             catch (Exception ex)
             {
-
                 return new List<Employee>();
             }
         }
-
 
         public async Task<Employee> GetById(string empID)
         {
@@ -157,7 +175,6 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
                 }
             }
 
-
             foreach (var role in roleList)
             {
                 if (employee.RoleID == role.RoleID)
@@ -175,9 +192,11 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             return "-6";
         }
 
-        public Task<string> Login(ViewLogin viewLogin)
+        public async Task<Employee> Login(ViewLogin viewLogin)
         {
-            throw new NotImplementedException();
+            var login = _context.Employees.FirstOrDefault(e => e.Email.Equals(viewLogin.Email) && e.Password.Equals(_encodeHelper.Encode(viewLogin.Password)));
+
+            return login;
         }
 
         public async Task<string> Update(Employee employee)
@@ -194,7 +213,7 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
                     return status;
                 }
 
-                // Cập nhật thông tin của đối tượng 
+                // Cập nhật thông tin của đối tượng
                 existingEmp.EmployeeId = existingEmp.EmployeeId;
                 existingEmp.FullName = employee.FullName;
                 existingEmp.Email = employee.Email;
@@ -224,8 +243,8 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
                 if (String.Compare(checkFiled, "0") != 0)
                 {
                     return checkFiled;
-
-                }else if(String.Compare(checkHidden, "0") != 0)
+                }
+                else if (String.Compare(checkHidden, "0") != 0)
                 {
                     return checkHidden;
                 }

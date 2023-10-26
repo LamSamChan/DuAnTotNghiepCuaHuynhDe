@@ -84,6 +84,7 @@ D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\Q
 D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo_CLIENT.pdb
 D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo_CLIENT.genruntimeconfig.cache
 D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_CLIENT.dll
+<<<<<<< HEAD
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\bin\Debug\net7.0\appsettings.Development.json
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\bin\Debug\net7.0\appsettings.json
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.deps.json
@@ -170,3 +171,10 @@ D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo_CLIENT.pdb
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo_CLIENT.genruntimeconfig.cache
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_CLIENT.dll
+=======
+D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\bin\Debug\net7.0\Scrutor.dll
+D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
+D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+>>>>>>> main

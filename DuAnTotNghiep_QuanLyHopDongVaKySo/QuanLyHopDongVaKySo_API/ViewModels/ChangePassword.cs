@@ -23,12 +23,5 @@ namespace QuanLyHopDongVaKySo_API.ViewModels
         [Display(Name = "Xác nhận lại mật khẩu mới")]
         public string ConfirmNewPassword { get; set; }
 
-        public string Otp { get; set; }
-
-        [Column(TypeName = "varchar(50)"), MaxLength(50)]
-        [Compare("Otp", ErrorMessage = "Mã xác nhận không đúng !")]
-        [Display(Name = "Mã xác nhận")]
-        public string ConfirmOtp { get; set; }
-
     }
 }

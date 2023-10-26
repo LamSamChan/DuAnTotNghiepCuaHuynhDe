@@ -12,8 +12,8 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
         Task<string> Update(Employee employee);
         Task<string> IsFieldExist(Employee employee);
         Task<string> IsRoleOrPositonCheck(Employee employee);
-        Task<string> Login(ViewLogin viewLogin);
-        Task<int> ChangePassword(string empId, ChangePassword changePassword);
+        Task<Employee> Login(ViewLogin viewLogin);
+        Task<int?> ChangePassword(string empId, ChangePassword changePassword);
 
     }
 }
