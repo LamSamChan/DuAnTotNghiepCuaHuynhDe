@@ -4,6 +4,7 @@ namespace QuanLyHopDongVaKySo_API.ViewModels
 {
     public class ViewLogin
     {
+        [MaxLength(50)]
         [Required(ErrorMessage = "Hãy điền email !")]
         [RegularExpression("^[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]+)*$",
             ErrorMessage = "Email không hợp lệ !")]
