@@ -12,10 +12,15 @@ if (!app.Environment.IsDevelopment())
 }
 app.UseStaticFiles();
 
+
 app.UseRouting();
+
 
 app.UseAuthorization();
 
+app.UseEndpoints(endpoints => endpoints.MapRazorPages());
+
 app.MapRazorPages();
+
 
 app.Run();

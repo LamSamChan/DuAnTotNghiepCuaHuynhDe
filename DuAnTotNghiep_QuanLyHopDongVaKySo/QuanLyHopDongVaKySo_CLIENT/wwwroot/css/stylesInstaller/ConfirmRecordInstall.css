@@ -1,15 +1,17 @@
-﻿button[class="confirmRecordInst"] {
-    display: flex;
-    width: 400px;
-    height: 40px;
-    padding: 8px 12px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    border-radius: 8px;
-    background: #2CDDB3;
-    border:none;
-    color: white;
-    font-weight:bold;
-
+﻿
+@media screen and (min-width: 1366px) and (max-width: 1920px) {
+    button[class="confirmRecordInst"] {
+        display: flex;
+        width: 400px;
+        height: 40px;
+        padding: 8px 12px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background: #2CDDB3;
+        border: none;
+        color: white;
+        font-weight: bold;
+    }
 }

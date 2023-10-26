@@ -1,0 +1,18 @@
+﻿
+@media screen and (min-width: 1366px) and (max-width: 1920px) {
+    button[class="apro"] {
+        display: flex;
+        width: 189px;
+        height: 33px;
+        padding: 0px 8px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background: #2CA8DD;
+        border: 1px solid #FFFFFF;
+        color: #FFFFFF;
+        position: relative;
+        right: -75%;
+        font-weight: 600;
+    }
+}
