@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\Resource\\Image\\BackgroundImage.png"
     },
     {
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\Background_Login.png",
+      "PackagePath": "staticwebassets\\Resource\\Image\\Background_Login.png"
+    },
+    {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\LOGO\\1.png",
       "PackagePath": "staticwebassets\\Resource\\Image\\LOGO\\1.png"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dFsj4fvUCvs2Go/ItAFpY6KD7GzQKkT8AtuaiH1/lBc=",
+  "Hash": "On7uqsjlO2M4rA98L499xN0lkMB9fMFNNLsnfmJVpWo=",
   "Source": "QuanLyHopDongVaKySo_CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
   "Mode": "Default",
@@ -2135,6 +2135,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\Background_Login.png",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/Image/Background_Login.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Resource\\Image\\Background_Login.png"
     },
     {
       "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\BackgroundImage.png",
