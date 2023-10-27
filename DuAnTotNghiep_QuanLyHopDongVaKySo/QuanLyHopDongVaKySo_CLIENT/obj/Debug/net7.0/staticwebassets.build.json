@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "UwbRbM1HGcuCpNfrdvHHfioOyZ7OfozY4fUcN9om0qY=",
+  "Hash": "4geBq2Uhs0lsUmRn9k2sldGayve9awrZP8fkJSP0gJQ=",
   "Source": "QuanLyHopDongVaKySo_CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/QuanLyHopDongVaKySo_API.csproj",
       "Version": 2,
       "Source": "QuanLyHopDongVaKySo_API",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -20,19 +20,19 @@
   ],
   "DiscoveryPatterns": [
     {
-      "Name": "QuanLyHopDongVaKySo_CLIENT\\wwwroot",
+      "Name": "QuanLyHopDongVaKySo_CLIENT/wwwroot",
       "Source": "QuanLyHopDongVaKySo_CLIENT",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\Debug\\net7.0\\scopedcss\\bundle\\QuanLyHopDongVaKySo_CLIENT.styles.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/obj/Debug/net7.0/scopedcss/bundle/QuanLyHopDongVaKySo_CLIENT.styles.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Computed",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/obj/Debug/net7.0/scopedcss/bundle/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "QuanLyHopDongVaKySo_CLIENT.styles.css",
       "AssetKind": "All",
@@ -43,13 +43,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\Debug\\net7.0\\scopedcss\\bundle\\QuanLyHopDongVaKySo_CLIENT.styles.css"
+      "OriginalItemSpec": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/obj/Debug/net7.0/scopedcss/bundle/QuanLyHopDongVaKySo_CLIENT.styles.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\QuanLyHopDongVaKySo_CLIENT.bundle.scp.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/obj/Debug/net7.0/scopedcss/projectbundle/QuanLyHopDongVaKySo_CLIENT.bundle.scp.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Computed",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/obj/Debug/net7.0/scopedcss/projectbundle/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "QuanLyHopDongVaKySo_CLIENT.bundle.scp.css",
       "AssetKind": "All",
@@ -60,13 +60,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\QuanLyHopDongVaKySo_CLIENT.bundle.scp.css"
+      "OriginalItemSpec": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/obj/Debug/net7.0/scopedcss/projectbundle/QuanLyHopDongVaKySo_CLIENT.bundle.scp.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\main.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/main.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/main.css",
       "AssetKind": "All",
@@ -77,13 +77,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\main.css"
+      "OriginalItemSpec": "wwwroot/css/main.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\site.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/site.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -94,13 +94,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\site.css"
+      "OriginalItemSpec": "wwwroot/css/site.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\StyleBoss\\ContractsAwating.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/StyleBoss/ContractsAwating.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/StyleBoss/ContractsAwating.css",
       "AssetKind": "All",
@@ -111,13 +111,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\StyleBoss\\ContractsAwating.css"
+      "OriginalItemSpec": "wwwroot/css/StyleBoss/ContractsAwating.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\StyleBoss\\DetailsContractAwait.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/StyleBoss/DetailsContractAwait.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/StyleBoss/DetailsContractAwait.css",
       "AssetKind": "All",
@@ -128,13 +128,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\StyleBoss\\DetailsContractAwait.css"
+      "OriginalItemSpec": "wwwroot/css/StyleBoss/DetailsContractAwait.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\StyleBoss\\DetalisAprovedContract.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/StyleBoss/DetalisAprovedContract.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/StyleBoss/DetalisAprovedContract.css",
       "AssetKind": "All",
@@ -145,13 +145,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\StyleBoss\\DetalisAprovedContract.css"
+      "OriginalItemSpec": "wwwroot/css/StyleBoss/DetalisAprovedContract.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\StyleBoss\\InforSign.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/StyleBoss/InforSign.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/StyleBoss/InforSign.css",
       "AssetKind": "All",
@@ -162,13 +162,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\StyleBoss\\InforSign.css"
+      "OriginalItemSpec": "wwwroot/css/StyleBoss/InforSign.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\styleBusiness\\AddCusPageStyle.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/styleBusiness/AddCusPageStyle.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/styleBusiness/AddCusPageStyle.css",
       "AssetKind": "All",
@@ -179,13 +179,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleBusiness\\AddCusPageStyle.css"
+      "OriginalItemSpec": "wwwroot/css/styleBusiness/AddCusPageStyle.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\styleBusiness\\ContractFormPage.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/styleBusiness/ContractFormPage.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/styleBusiness/ContractFormPage.css",
       "AssetKind": "All",
@@ -196,13 +196,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleBusiness\\ContractFormPage.css"
+      "OriginalItemSpec": "wwwroot/css/styleBusiness/ContractFormPage.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\styleBusiness\\ContractListPage.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/styleBusiness/ContractListPage.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/styleBusiness/ContractListPage.css",
       "AssetKind": "All",
@@ -213,13 +213,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleBusiness\\ContractListPage.css"
+      "OriginalItemSpec": "wwwroot/css/styleBusiness/ContractListPage.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\styleBusiness\\CreateFormContractPage.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/styleBusiness/CreateFormContractPage.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/styleBusiness/CreateFormContractPage.css",
       "AssetKind": "All",
@@ -230,13 +230,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleBusiness\\CreateFormContractPage.css"
+      "OriginalItemSpec": "wwwroot/css/styleBusiness/CreateFormContractPage.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\styleBusiness\\DetailsContractListPage.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/styleBusiness/DetailsContractListPage.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/styleBusiness/DetailsContractListPage.css",
       "AssetKind": "All",
@@ -247,13 +247,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleBusiness\\DetailsContractListPage.css"
+      "OriginalItemSpec": "wwwroot/css/styleBusiness/DetailsContractListPage.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\styleBusiness\\DetailsCusPage.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/styleBusiness/DetailsCusPage.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/styleBusiness/DetailsCusPage.css",
       "AssetKind": "All",
@@ -264,13 +264,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleBusiness\\DetailsCusPage.css"
+      "OriginalItemSpec": "wwwroot/css/styleBusiness/DetailsCusPage.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\styleBusiness\\HistoryOperationPage.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/styleBusiness/HistoryOperationPage.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/styleBusiness/HistoryOperationPage.css",
       "AssetKind": "All",
@@ -281,13 +281,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleBusiness\\HistoryOperationPage.css"
+      "OriginalItemSpec": "wwwroot/css/styleBusiness/HistoryOperationPage.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\styleBusiness\\ListCusPage.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/styleBusiness/ListCusPage.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/styleBusiness/ListCusPage.css",
       "AssetKind": "All",
@@ -298,13 +298,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleBusiness\\ListCusPage.css"
+      "OriginalItemSpec": "wwwroot/css/styleBusiness/ListCusPage.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\styleBusiness\\PersonalPageStyle.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/styleBusiness/PersonalPageStyle.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/styleBusiness/PersonalPageStyle.css",
       "AssetKind": "All",
@@ -315,13 +315,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleBusiness\\PersonalPageStyle.css"
+      "OriginalItemSpec": "wwwroot/css/styleBusiness/PersonalPageStyle.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\stylesInstaller\\CompleteRecordPage.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/stylesInstaller/CompleteRecordPage.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/stylesInstaller/CompleteRecordPage.css",
       "AssetKind": "All",
@@ -332,13 +332,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\stylesInstaller\\CompleteRecordPage.css"
+      "OriginalItemSpec": "wwwroot/css/stylesInstaller/CompleteRecordPage.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\stylesInstaller\\ConfirmRecordInstall.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/stylesInstaller/ConfirmRecordInstall.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/stylesInstaller/ConfirmRecordInstall.css",
       "AssetKind": "All",
@@ -349,13 +349,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\stylesInstaller\\ConfirmRecordInstall.css"
+      "OriginalItemSpec": "wwwroot/css/stylesInstaller/ConfirmRecordInstall.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\stylesInstaller\\ListInstallRecordPage.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/stylesInstaller/ListInstallRecordPage.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/stylesInstaller/ListInstallRecordPage.css",
       "AssetKind": "All",
@@ -366,13 +366,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\stylesInstaller\\ListInstallRecordPage.css"
+      "OriginalItemSpec": "wwwroot/css/stylesInstaller/ListInstallRecordPage.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\stylesInstaller\\SignedByCus.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/stylesInstaller/SignedByCus.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/stylesInstaller/SignedByCus.css",
       "AssetKind": "All",
@@ -383,13 +383,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\stylesInstaller\\SignedByCus.css"
+      "OriginalItemSpec": "wwwroot/css/stylesInstaller/SignedByCus.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\css\\stylesInstaller\\SignedByStaff.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/css/stylesInstaller/SignedByStaff.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "css/stylesInstaller/SignedByStaff.css",
       "AssetKind": "All",
@@ -400,13 +400,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\stylesInstaller\\SignedByStaff.css"
+      "OriginalItemSpec": "wwwroot/css/stylesInstaller/SignedByStaff.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\favicon.ico",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/favicon.ico",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -417,13 +417,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.ico"
+      "OriginalItemSpec": "wwwroot/favicon.ico"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\js\\site.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/js/site.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -434,149 +434,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\site.js"
+      "OriginalItemSpec": "wwwroot/js/site.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -587,13 +451,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -604,13 +468,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -621,13 +485,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -638,13 +502,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -655,13 +519,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -672,13 +536,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -689,13 +553,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -706,13 +570,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -723,13 +587,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -740,13 +604,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -757,13 +621,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -774,13 +638,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -791,13 +655,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -808,13 +672,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -825,13 +689,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -842,13 +706,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -859,13 +723,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -876,13 +740,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -893,13 +757,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -910,13 +774,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -927,13 +791,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -944,13 +808,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -961,13 +825,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -978,13 +842,149 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -995,13 +995,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -1012,13 +1012,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -1029,13 +1029,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -1046,13 +1046,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -1063,13 +1063,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -1080,13 +1080,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -1097,13 +1097,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -1114,13 +1114,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -1131,13 +1131,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -1148,13 +1148,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.js.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -1165,13 +1165,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -1182,13 +1182,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/bootstrap/LICENSE",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -1199,166 +1199,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
+      "OriginalItemSpec": "wwwroot/lib/bootstrap/LICENSE"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery/dist/jquery.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery/dist/jquery.min.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery/dist/jquery.min.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery\\LICENSE.txt",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery/LICENSE.txt",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "lib/jquery-validation/LICENSE.md",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1369,13 +1216,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1386,13 +1233,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -1403,15 +1250,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation/dist/additional-methods.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.css",
+      "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1420,15 +1267,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.css"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation/dist/additional-methods.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.css.map",
+      "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1437,15 +1284,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.css.map"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation/dist/additional-methods.min.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css",
+      "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1454,15 +1301,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.min.css"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation/dist/jquery.validate.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css.map",
+      "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1471,15 +1318,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation/dist/jquery.validate.min.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery-validation/LICENSE.md",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css",
+      "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1488,15 +1335,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.css"
+      "OriginalItemSpec": "wwwroot/lib/jquery-validation/LICENSE.md"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery/dist/jquery.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css.map",
+      "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1505,15 +1352,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/lib/jquery/dist/jquery.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery/dist/jquery.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css",
+      "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1522,15 +1369,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/lib/jquery/dist/jquery.min.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery/dist/jquery.min.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css.map",
+      "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1539,13 +1386,30 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/lib/jquery/dist/jquery.min.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/lib/jquery/LICENSE.txt",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "lib/jquery/LICENSE.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -1556,13 +1420,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -1573,13 +1437,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -1590,13 +1454,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.min.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.min.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -1607,13 +1471,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.min.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -1624,13 +1488,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -1641,13 +1505,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -1658,13 +1522,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -1675,13 +1539,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-grid.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -1692,13 +1556,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -1709,13 +1573,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -1726,13 +1590,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.min.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -1743,13 +1607,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.min.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -1760,13 +1624,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -1777,13 +1641,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -1794,13 +1658,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -1811,13 +1675,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-reboot.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -1828,13 +1692,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -1845,13 +1709,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -1862,13 +1726,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.min.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -1879,13 +1743,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.min.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -1896,13 +1760,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -1913,13 +1777,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.min.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -1930,13 +1794,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.min.css"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.min.css.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -1947,13 +1811,149 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap-utilities.rtl.min.css.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.css",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css.map",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.js",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -1964,13 +1964,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.js"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -1981,13 +1981,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.js.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.js.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -1998,13 +1998,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.min.js"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -2015,13 +2015,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.bundle.min.js.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -2032,13 +2032,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.js"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -2049,13 +2049,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.js.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.js.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -2066,13 +2066,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.min.js"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.min.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.min.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -2083,13 +2083,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.esm.min.js.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -2100,13 +2100,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.js"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -2117,13 +2117,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.js.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.js.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.min.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.min.js",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -2134,13 +2134,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.min.js"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.min.js"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.min.js.map",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.min.js.map",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/bootstrap-5.3.2-dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -2151,13 +2151,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\bootstrap-5.3.2-dist\\js\\bootstrap.min.js.map"
+      "OriginalItemSpec": "wwwroot/Resource/bootstrap-5.3.2-dist/js/bootstrap.min.js.map"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\Avatar.jpg",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/Image/Avatar.jpg",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/Image/Avatar.jpg",
       "AssetKind": "All",
@@ -2168,13 +2168,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\Image\\Avatar.jpg"
+      "OriginalItemSpec": "wwwroot/Resource/Image/Avatar.jpg"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\Background_Login.png",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/Image/Background_Login.png",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/Image/Background_Login.png",
       "AssetKind": "All",
@@ -2185,13 +2185,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\Image\\Background_Login.png"
+      "OriginalItemSpec": "wwwroot/Resource/Image/Background_Login.png"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\BackgroundImage.png",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/Image/BackgroundImage.png",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/Image/BackgroundImage.png",
       "AssetKind": "All",
@@ -2202,13 +2202,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\Image\\BackgroundImage.png"
+      "OriginalItemSpec": "wwwroot/Resource/Image/BackgroundImage.png"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\img_sign.png",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/Image/img_sign.png",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/Image/img_sign.png",
       "AssetKind": "All",
@@ -2219,47 +2219,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\Image\\img_sign.png"
+      "OriginalItemSpec": "wwwroot/Resource/Image/img_sign.png"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\LOGO\\1.png",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/Image/LOGO_WITHOUT_BG/1.png",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/Image/LOGO/1.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\Image\\LOGO\\1.png"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\LOGO\\2.png",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
-      "RelativePath": "Resource/Image/LOGO/2.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\Image\\LOGO\\2.png"
-    },
-    {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\LOGO_WITHOUT_BG\\1.png",
-      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/Image/LOGO_WITHOUT_BG/1.png",
       "AssetKind": "All",
@@ -2270,13 +2236,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\Image\\LOGO_WITHOUT_BG\\1.png"
+      "OriginalItemSpec": "wwwroot/Resource/Image/LOGO_WITHOUT_BG/1.png"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\Image\\LOGO_WITHOUT_BG\\2.png",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/Image/LOGO_WITHOUT_BG/2.png",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/Image/LOGO_WITHOUT_BG/2.png",
       "AssetKind": "All",
@@ -2287,13 +2253,47 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\Image\\LOGO_WITHOUT_BG\\2.png"
+      "OriginalItemSpec": "wwwroot/Resource/Image/LOGO_WITHOUT_BG/2.png"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Resource\\JQuery3.7\\JQuery3.7.1.js",
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/Image/LOGO/1.png",
       "SourceId": "QuanLyHopDongVaKySo_CLIENT",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/Image/LOGO/1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/Image/LOGO/1.png"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/Image/LOGO/2.png",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
+      "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
+      "RelativePath": "Resource/Image/LOGO/2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Resource/Image/LOGO/2.png"
+    },
+    {
+      "Identity": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/Resource/JQuery3.7/JQuery3.7.1.js",
+      "SourceId": "QuanLyHopDongVaKySo_CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/wwwroot/",
       "BasePath": "_content/QuanLyHopDongVaKySo_CLIENT",
       "RelativePath": "Resource/JQuery3.7/JQuery3.7.1.js",
       "AssetKind": "All",
@@ -2304,7 +2304,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Resource\\JQuery3.7\\JQuery3.7.1.js"
+      "OriginalItemSpec": "wwwroot/Resource/JQuery3.7/JQuery3.7.1.js"
     }
   ]
 }

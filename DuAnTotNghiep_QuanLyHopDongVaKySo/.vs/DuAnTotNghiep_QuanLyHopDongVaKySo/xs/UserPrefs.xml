@@ -1,25 +1,34 @@
 ﻿<Properties StartupConfiguration="Multiple Projects">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="QuanLyHopDongVaKySo_API/appsettings.json">
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects" />
+  </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.Workbench ActiveDocument="QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs">
     <Files>
       <File FileName="QuanLyHopDongVaKySo_API/appsettings.Development.json" />
-      <File FileName="QuanLyHopDongVaKySo_API/appsettings.json" Line="5" Column="40" />
+      <File FileName="QuanLyHopDongVaKySo_API/appsettings.json" Line="5" Column="15" />
+      <File FileName="QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DuAnTotNghiep_QuanLyHopDongVaKySo" expanded="True">
+            <Node name="QuanLyHopDongVaKySo_API" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="PFXCertificatesController.cs" selected="True" />
+              </Node>
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
             <Node name="QuanLyHopDongVaKySo_CLIENT" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations>
-    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects" />
-  </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs" relfile="QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs" line="281" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

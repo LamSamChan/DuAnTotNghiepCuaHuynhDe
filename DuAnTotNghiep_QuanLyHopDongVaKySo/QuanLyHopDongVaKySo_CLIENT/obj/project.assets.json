@@ -3488,40 +3488,33 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/danhkunz/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
+      "projectUniqueName": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/QuanLyHopDongVaKySo_CLIENT.csproj",
       "projectName": "QuanLyHopDongVaKySo_CLIENT",
-      "projectPath": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\",
+      "projectPath": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/QuanLyHopDongVaKySo_CLIENT.csproj",
+      "packagesPath": "/Users/danhkunz/.nuget/packages/",
+      "outputPath": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/danhkunz/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
+        "/usr/local/share/dotnet/sdk/7.0.302/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj": {
-              "projectPath": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj"
+            "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/QuanLyHopDongVaKySo_API.csproj": {
+              "projectPath": "/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/QuanLyHopDongVaKySo_API.csproj"
             }
           }
         }
@@ -3554,7 +3547,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
       }
     }
   },
