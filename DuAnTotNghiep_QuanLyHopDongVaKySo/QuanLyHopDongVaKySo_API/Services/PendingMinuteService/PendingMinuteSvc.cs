@@ -13,6 +13,31 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
             _context = context;
         }
 
+        public async Task<string> addAsnyc(PutTMinute pMinute)
+        {
+            // string ret = null;
+            // try{
+            //     PendingMinute add = new PendingMinute()
+            //     {
+            //         DateCreated = DateTime.Now,
+            //         MinuteName = pMinute.TMinuteName,
+            //         IsIntallation = false,
+            //         IsCustomer = false,
+            //         MinuteFile = "",
+            //         EmployeeId = "",
+            //         DoneContractId = PContract.EmployeeCreatedId,
+            //         TMinuteId = null,
+            //     };
+            //     await _context.PendingMinutes.AddAsync(add);
+            //     await _context.SaveChangesAsync();
+            //     return add.PendingMinuteId.ToString();
+            // }catch
+            // {
+            //     return ret;
+            // }
+            return "";
+        }
+
         public async Task<int> DeletePMinute(int pMinuteId)
         {
             int status = 0;

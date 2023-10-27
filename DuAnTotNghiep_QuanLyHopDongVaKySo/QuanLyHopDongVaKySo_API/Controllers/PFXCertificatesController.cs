@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services.CustomerService;
+using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 using QuanLyHopDongVaKySo_API.Services.EmployeeService;
 using QuanLyHopDongVaKySo_API.Services.PendingContractService;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
@@ -26,11 +27,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly ITemplateContractSvc _templateContractSvc;
         private readonly IEmployeeSvc _employeeSvc;
         private readonly ICustomerSvc _customerSvc;
-
+        private readonly IDoneContractSvc _dContractSvc;
 
 
         public PFXCertificatesController(IPFXCertificateSvc pfxCertificate, IEncodeHelper encodeHelper, IUploadFileHelper uploadFileHelper, 
-            IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc)
+            IDoneContractSvc dContractSvc,IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc)
         {
             _pfxCertificate = pfxCertificate;
             _encodeHelper = encodeHelper;
@@ -39,6 +40,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _templateContractSvc = templateContractSvc;
             _employeeSvc = employeeSvc;
             _customerSvc = customerSvc;
+            _dContractSvc = dContractSvc;
         }
 
         [HttpGet]
@@ -246,7 +248,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
 
             TemplateContract tContract = await _templateContractSvc.getTContractAsnyc(pContract.TContractId);
-            DirectorZone directorZone = JsonConvert.DeserializeObject<DirectorZone>(tContract.jsonCustomerZone);
+            DirectorZone directorZone = JsonConvert.DeserializeObject<DirectorZone>(tContract.jsonDirectorZone);
             CustomerZone customerZone = JsonConvert.DeserializeObject<CustomerZone>(tContract.jsonCustomerZone);
 
             bool isDirector = false;
@@ -291,47 +293,32 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 System.IO.File.Delete(pContract.PContractFile);
             }
 
-            PutPendingContract pendingContract = new PutPendingContract();
-            if (certi.IsEmployee)
+            PutPendingContract pendingContract = new PutPendingContract
             {
-                pendingContract = new PutPendingContract
-                {
-                    PContractId = pContract.PContractID,
-                    DateCreated = pContract.DateCreated,
-                    PContractName = pContract.PContractName,
-                    PContractFile = outputContract,
-                    IsDirector = isDirector,
-                    IsCustomer = isCustomer,
-                    IsRefuse = pContract.IsRefuse,
-                    Reason = pContract.Reason,
-                    EmployeeCreatedId = pContract.EmployeeCreatedId,
-                    DirectorSignedId = director.EmployeeId,
-                    CustomerId = pContract.CustomerId,
-                    TOS_ID = pContract.TOS_ID,
-                    TContractId = pContract.TContractId
-                };
+                PContractId = pContract.PContractID,
+                DateCreated = pContract.DateCreated,
+                PContractName = pContract.PContractName,
+                PContractFile = outputContract,
+                IsDirector = isDirector,
+                IsCustomer = isCustomer,
+                IsRefuse = pContract.IsRefuse,
+                Reason = pContract.Reason,
+                EmployeeCreatedId = pContract.EmployeeCreatedId,
+                DirectorSignedId = certi.IsEmployee ? director.EmployeeId : pContract.DirectorSignedId,
+                CustomerId = pContract.CustomerId,
+                TOS_ID = pContract.TOS_ID,
+                TContractId = pContract.TContractId
+            };
+            if(isDirector && isCustomer)
+            {
+                await _dContractSvc.addAsnyc(pendingContract);
+                await _pendingContract.deletePContractAsnyc(pendingContract.PContractId);
             }
             else
             {
-                pendingContract = new PutPendingContract
-                {
-                    PContractId = pContract.PContractID,
-                    DateCreated = pContract.DateCreated,
-                    PContractName = pContract.PContractName,
-                    PContractFile = outputContract,
-                    IsDirector = isDirector,
-                    IsCustomer = isCustomer,
-                    IsRefuse = pContract.IsRefuse,
-                    Reason = pContract.Reason,
-                    EmployeeCreatedId = pContract.EmployeeCreatedId,
-                    DirectorSignedId = pContract.DirectorSignedId,
-                    CustomerId = pContract.CustomerId,
-                    TOS_ID = pContract.TOS_ID,
-                    TContractId = pContract.TContractId
-                };
+                await _pendingContract.updatePContractAsnyc(pendingContract);
             }
-
-            await _pendingContract.updatePContractAsnyc(pendingContract);
+            
             return Ok(signedContractPath);
         }
 

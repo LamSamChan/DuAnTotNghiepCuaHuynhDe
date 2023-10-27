@@ -12,7 +12,5 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string jsonDirectorZone { get; set; }
         [Required]
         public string jsonCustomerZone { get; set; }
-        [Required]
-        public IFormFile File {get;set;}
     }
 }
