@@ -13,7 +13,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         public string? Reason { get; set; }
 
-        public Guid EmployeeId { get; set; }
+        public Guid EmployeeCreatedId { get; set; }
         public Guid CustomerId { get; set; }
 
         public int TOS_ID { get; set; }

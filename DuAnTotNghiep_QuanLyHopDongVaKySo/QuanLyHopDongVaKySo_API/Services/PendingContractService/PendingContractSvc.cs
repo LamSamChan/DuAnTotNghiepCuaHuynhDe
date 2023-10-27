@@ -31,7 +31,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     IsCustomer = false,
                     IsRefuse = PContract.IsRefuse,
                     Reason = PContract.Reason,
-                    EmployeeId = PContract.EmployeeId,
+                    EmployeeCreatedId = PContract.EmployeeCreatedId,
+                    DirectorSignedId = null,
                     CustomerId = PContract.CustomerId,
                     TOS_ID = PContract.TOS_ID,
                     TContractId = PContract.TContractId
@@ -94,7 +95,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     update.IsCustomer = PContract.IsCustomer;
                     update.IsRefuse = PContract.IsRefuse;
                     update.Reason = PContract.Reason;
-                    update.EmployeeId = PContract.EmployeeId;
+                    update.EmployeeCreatedId = PContract.EmployeeCreatedId;
+                    update.DirectorSignedId = PContract.DirectorSignedId;
                     update.CustomerId = PContract.CustomerId;
                     update.TOS_ID = PContract.TOS_ID;
                     update.TContractId = PContract.TContractId;

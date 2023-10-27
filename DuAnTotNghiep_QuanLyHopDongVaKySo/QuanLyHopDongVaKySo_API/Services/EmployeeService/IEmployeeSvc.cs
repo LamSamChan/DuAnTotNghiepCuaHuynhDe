@@ -9,6 +9,8 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
         Task<List<Employee>> GetAll();
         Task<Employee> GetById(string empID);
         Task<Employee> GetByEmail(string empEmail);
+        Task<Employee> GetBySerialPFX(string serial);
+
         Task<string> AddNew(Employee employee);
         Task<string> Update(Employee employee);
         Task<string> IsFieldExist(Employee employee);

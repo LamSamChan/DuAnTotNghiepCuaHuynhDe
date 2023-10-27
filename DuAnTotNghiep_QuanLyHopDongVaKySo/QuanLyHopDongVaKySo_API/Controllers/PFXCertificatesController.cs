@@ -2,6 +2,8 @@
 using Newtonsoft.Json;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Services.CustomerService;
+using QuanLyHopDongVaKySo_API.Services.EmployeeService;
 using QuanLyHopDongVaKySo_API.Services.PendingContractService;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 using QuanLyHopDongVaKySo_API.Services.PositionService;
@@ -22,14 +24,21 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IEncodeHelper _encodeHelper;
         private readonly IUploadFileHelper _uploadFileHelper;
         private readonly ITemplateContractSvc _templateContractSvc;
+        private readonly IEmployeeSvc _employeeSvc;
+        private readonly ICustomerSvc _customerSvc;
 
-        public PFXCertificatesController(IPFXCertificateSvc pfxCertificate, IEncodeHelper encodeHelper, IUploadFileHelper uploadFileHelper, IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc)
+
+
+        public PFXCertificatesController(IPFXCertificateSvc pfxCertificate, IEncodeHelper encodeHelper, IUploadFileHelper uploadFileHelper, 
+            IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc)
         {
             _pfxCertificate = pfxCertificate;
             _encodeHelper = encodeHelper;
             _uploadFileHelper = uploadFileHelper;
             _pendingContract = pendingContract;
             _templateContractSvc = templateContractSvc;
+            _employeeSvc = employeeSvc;
+            _customerSvc = customerSvc;
         }
 
         [HttpGet]
@@ -194,7 +203,27 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         public async Task<ActionResult<string>> SignContract(string serial,int idContract, string imagePath)
         {
             var certi = await _pfxCertificate.GetById(serial);
+            Employee director = null;
+            Customer customer = null;
+
+            if (certi.IsEmployee)
+            {
+                director = await _employeeSvc.GetBySerialPFX(serial);
+            }
+            else
+            {
+                customer = await _customerSvc.GetBySerialPFXAsync(serial);
+            }
+
             var pContract = await _pendingContract.getPContractAsnyc(idContract);
+
+            if (customer != null)
+            {
+                if (serial != customer.SerialPFX)
+                {
+                    return BadRequest("Chữ ký không đúng với khách hàng của hợp đồng này");
+                }
+            }
 
             if (pContract.IsRefuse)
             {
@@ -262,21 +291,46 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 System.IO.File.Delete(pContract.PContractFile);
             }
 
+            PutPendingContract pendingContract = new PutPendingContract();
+            if (certi.IsEmployee)
+            {
+                pendingContract = new PutPendingContract
+                {
+                    PContractId = pContract.PContractID,
+                    DateCreated = pContract.DateCreated,
+                    PContractName = pContract.PContractName,
+                    PContractFile = outputContract,
+                    IsDirector = isDirector,
+                    IsCustomer = isCustomer,
+                    IsRefuse = pContract.IsRefuse,
+                    Reason = pContract.Reason,
+                    EmployeeCreatedId = pContract.EmployeeCreatedId,
+                    DirectorSignedId = director.EmployeeId,
+                    CustomerId = pContract.CustomerId,
+                    TOS_ID = pContract.TOS_ID,
+                    TContractId = pContract.TContractId
+                };
+            }
+            else
+            {
+                pendingContract = new PutPendingContract
+                {
+                    PContractId = pContract.PContractID,
+                    DateCreated = pContract.DateCreated,
+                    PContractName = pContract.PContractName,
+                    PContractFile = outputContract,
+                    IsDirector = isDirector,
+                    IsCustomer = isCustomer,
+                    IsRefuse = pContract.IsRefuse,
+                    Reason = pContract.Reason,
+                    EmployeeCreatedId = pContract.EmployeeCreatedId,
+                    DirectorSignedId = pContract.DirectorSignedId,
+                    CustomerId = pContract.CustomerId,
+                    TOS_ID = pContract.TOS_ID,
+                    TContractId = pContract.TContractId
+                };
+            }
 
-            PutPendingContract pendingContract = new PutPendingContract {
-                PContractId = pContract.PContractID,
-                DateCreated = pContract.DateCreated,
-                PContractName = pContract.PContractName,
-                PContractFile = outputContract,
-                IsDirector = isDirector,
-                IsCustomer = isCustomer,
-                IsRefuse = pContract.IsRefuse,
-                Reason = pContract.Reason,
-                EmployeeId = pContract.EmployeeId,
-                CustomerId = pContract.CustomerId,
-                TOS_ID = pContract.TOS_ID,
-                TContractId = pContract.TContractId
-            };
             await _pendingContract.updatePContractAsnyc(pendingContract);
             return Ok(signedContractPath);
         }

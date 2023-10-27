@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Ocsp;
 using QuanLyHopDongVaKySo_API.Database;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
@@ -288,6 +289,18 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             }
 
             return status;
+        }
+
+        public async Task<Employee> GetBySerialPFX(string serial)
+        {
+            try
+            {
+                return _context.Employees.FirstOrDefault(e => e.SerialPFX == serial);
+            }
+            catch (Exception ex)
+            {
+                return new Employee();
+            }
         }
     }
 }

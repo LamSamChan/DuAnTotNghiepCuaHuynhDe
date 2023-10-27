@@ -77,6 +77,18 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
             }
         }
 
+        public async Task<Customer> GetBySerialPFXAsync(string serial)
+        {
+            try
+            {
+                return _context.Customers.FirstOrDefault(e => e.SerialPFX == serial);
+            }
+            catch (Exception ex)
+            {
+                return new Customer();
+            }
+        }
+
         //return -1: trung mail, -2: trung sđth,-3: trung cccd, -4 trung bank account, -5 trung ma so thue, 0: oke, 1: type đã bị ẩn hoặc không tồn tại
         public async Task<string> IsFieldExist(Customer customer)
         {
@@ -133,6 +145,10 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
                         }
                         else if (customer.TaxIDNumber == cus.TaxIDNumber)
                         {
+                            if (customer.TaxIDNumber == null && cus.TaxIDNumber == null)
+                            {
+                                return isFoundTOC;
+                            }
                             return "-5";
                         }
                     }
