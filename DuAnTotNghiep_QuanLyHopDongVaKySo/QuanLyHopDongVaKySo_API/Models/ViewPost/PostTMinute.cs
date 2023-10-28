@@ -7,7 +7,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Required]
         public string TMinuteName { get; set; }
         [Required]
-        public string TMinuteFile{ get; set; }
+        public IFormFile File {get;set;}
         [Required]
         public string jsonDirectorZone { get; set; }
         [Required]

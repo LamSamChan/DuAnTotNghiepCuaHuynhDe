@@ -33,18 +33,18 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPContractAsnyc([FromForm] PostPendingContract PContract)
+        public async Task<IActionResult> AddPContractAsnyc([FromForm] PostPendingContract pContract)
         {
             //lây thông tin mẫu hợp đồng
-            var tContract =await _TContractSvc.getTContractAsnyc(PContract.TContractId);
+            var tContract =await _TContractSvc.getTContractAsnyc(pContract.TContractId);
             //lây thông tin toạ động mẫu hợp đòng
-            var Coordinates = await _CCoordinateSvc.getByTContract(PContract.TContractId);
+            var Coordinates = await _CCoordinateSvc.getByTContract(pContract.TContractId);
             if(ModelState.IsValid)
             {
                 //thêm hợp đồng
-                string id_Pcontract = await _PContractSvc.addPContractAsnyc(PContract);
-                var pContract = await _PContractSvc.getPContractAsnyc(int.Parse(id_Pcontract));
-                var contract = await _PContractSvc.ExportContract(pContract);
+                string id_Pcontract = await _PContractSvc.addPContractAsnyc(pContract);
+                var contractById = await _PContractSvc.getPContractAsnyc(int.Parse(id_Pcontract));
+                var contract = await _PContractSvc.ExportContract(contractById);
                 if(contract != null)
                 {
                     if (!Directory.Exists("AppData/PContracts/"))
