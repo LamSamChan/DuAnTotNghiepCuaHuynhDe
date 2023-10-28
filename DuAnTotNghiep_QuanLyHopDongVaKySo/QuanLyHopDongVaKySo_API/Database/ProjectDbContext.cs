@@ -14,6 +14,8 @@ namespace QuanLyHopDongVaKySo_API.Database
         public DbSet<DoneMinute> DoneMinutes { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<InstallationRequirement> InstallationRequirements { get; set; }
+        public DbSet<InstallationDevice> InstallationDevices { get; set; }
+
         public DbSet<OperationHistoryEmp> OperationHistoryEmps { get; set; }
         public DbSet<OperationHistoryCus> OperationHistoryCuss { get; set; }
         public DbSet<PendingContract> PendingContracts { get; set; }
@@ -49,6 +51,8 @@ namespace QuanLyHopDongVaKySo_API.Database
             modelBuilder.Entity<TypeOfService>().ToTable("TypeOfService");
             modelBuilder.Entity<ContractCoordinate>().ToTable("ContractCoordinate");
             modelBuilder.Entity<MinuteCoordinate>().ToTable("MinuteCoordinate");
+            modelBuilder.Entity<InstallationDevice>().ToTable("InstallationDevice");
+
         }
 
     }

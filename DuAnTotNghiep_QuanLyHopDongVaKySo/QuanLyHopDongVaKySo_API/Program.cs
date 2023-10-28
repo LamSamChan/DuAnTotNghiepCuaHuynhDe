@@ -22,6 +22,7 @@ using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
 using QuanLyHopDongVaKySo_API.Services.TemplateMinuteService;
 using QuanLyHopDongVaKySo_API.Services.TypeOfCustomerService;
 using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
+using QuanLyHopDongVaKySo_API.Services.InstallationDeviceService;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 
@@ -39,6 +40,7 @@ builder.Services.AddScoped<IDoneContractSvc, DoneContractSvc>();
 builder.Services.AddScoped<IDoneMinuteSvc, DoneMinuteSvc>();
 builder.Services.AddScoped<IEmployeeSvc, EmployeeSvc>();
 builder.Services.AddScoped<IInstallationRequirementSvc, InstallationRequirementSvc>();
+builder.Services.AddScoped<IInstallationDeviceSvc, InstallationDeviceSvc>();
 builder.Services.AddScoped<IOperationHistoryCusSvc, OperationHistoryCusSvc>();
 builder.Services.AddScoped<IOperationHistoryEmpSvc, OperationHistoryEmpSvc>();
 builder.Services.AddScoped<IPendingContractSvc, PendingContractSvc>();

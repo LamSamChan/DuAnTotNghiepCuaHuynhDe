@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace QuanLyHopDongVaKySo_API.Models
 {
@@ -35,7 +36,8 @@ namespace QuanLyHopDongVaKySo_API.Models
         public bool isHidden { get; set; }
 
         //tạo liên kết
-
+        [JsonIgnore]
+        public ICollection<InstallationDevice>? InstallationDevice { get; set; }
 
 
     }
