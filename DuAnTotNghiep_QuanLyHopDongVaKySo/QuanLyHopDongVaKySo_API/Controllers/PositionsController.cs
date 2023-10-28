@@ -21,6 +21,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(await _positionSvc.GetAll());
         }
 
+
         [HttpGet("NotHidden")]
         public async Task<ActionResult<IEnumerable<Position>>> GetAllNotHidden()
         {
