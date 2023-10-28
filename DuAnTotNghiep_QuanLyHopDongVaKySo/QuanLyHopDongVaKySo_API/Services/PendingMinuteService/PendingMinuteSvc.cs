@@ -13,28 +13,28 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
             _context = context;
         }
 
-        public async Task<string> addAsnyc(PutTMinute pMinute)
+        public async Task<string> addAsnyc(PostPMinute pMinute)
         {
-            // string ret = null;
-            // try{
-            //     PendingMinute add = new PendingMinute()
-            //     {
-            //         DateCreated = DateTime.Now,
-            //         MinuteName = pMinute.TMinuteName,
-            //         IsIntallation = false,
-            //         IsCustomer = false,
-            //         MinuteFile = "",
-            //         EmployeeId = "",
-            //         DoneContractId = PContract.EmployeeCreatedId,
-            //         TMinuteId = null,
-            //     };
-            //     await _context.PendingMinutes.AddAsync(add);
-            //     await _context.SaveChangesAsync();
-            //     return add.PendingMinuteId.ToString();
-            // }catch
-            // {
-            //     return ret;
-            // }
+            string ret = null;
+            try{
+                PendingMinute add = new PendingMinute()
+                {
+                    DateCreated = DateTime.Now,
+                    MinuteName = pMinute.MinuteName,
+                    IsIntallation = false,
+                    IsCustomer = false,
+                    MinuteFile = "",
+                    EmployeeId = pMinute.EmployeeId,
+                    DoneContractId = pMinute.DoneContractId,
+                    TMinuteId = pMinute.TMinuteId,
+                };
+                await _context.PendingMinutes.AddAsync(add);
+                await _context.SaveChangesAsync();
+                return add.PendingMinuteId.ToString();
+            }catch
+            {
+                return ret;
+            }
             return "";
         }
 
@@ -108,5 +108,9 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
                 return new List<PendingMinute>();
             }
         }
+        // public async Task<MinuteCoordinate> ExportPMinute(int id)
+        // {
+
+        // }
     }
 }

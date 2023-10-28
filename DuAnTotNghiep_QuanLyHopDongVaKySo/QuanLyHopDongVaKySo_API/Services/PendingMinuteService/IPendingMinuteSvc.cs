@@ -9,6 +9,6 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
         Task<PendingMinute> GetById(int pMinuteId);
         Task<int> DeletePMinute(int pMinuteId);
         Task<int> GetJobFormIRequirement(PendingMinute pendingMinute);
-        Task<string> addAsnyc(PutTMinute tMinute);
+        Task<string> addAsnyc(PostPMinute pMinute);
     }
 }
