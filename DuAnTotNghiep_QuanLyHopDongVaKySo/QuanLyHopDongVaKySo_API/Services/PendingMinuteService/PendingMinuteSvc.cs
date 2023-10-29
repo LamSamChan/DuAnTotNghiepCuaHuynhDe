@@ -1,16 +1,31 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QuanLyHopDongVaKySo_API.Database;
 using QuanLyHopDongVaKySo_API.Models;
-
+using QuanLyHopDongVaKySo_API.Services.CustomerService;
+using QuanLyHopDongVaKySo_API.Services.DoneContractService;
+using QuanLyHopDongVaKySo_API.Services.EmployeeService;
+using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
+using QuanLyHopDongVaKySo_API.Services.InstallationDeviceService;
 namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
+
 {
     public class PendingMinuteSvc : IPendingMinuteSvc
     {
         private readonly ProjectDbContext _context;
-
-        public PendingMinuteSvc(ProjectDbContext context)
+        private readonly ICustomerSvc _customerSvc;
+        private readonly IDoneContractSvc _doneContractSvc;
+        private readonly IEmployeeSvc _employeeSvc;
+        private readonly ITypeOfServiceSvc _typeOfServiceSvc;
+        private readonly IInstallationDeviceSvc _installationDeviceSvc;
+        public PendingMinuteSvc(ProjectDbContext context, ICustomerSvc customerSvc, IDoneContractSvc doneContractSvc, IEmployeeSvc employeeSvc,
+                ITypeOfServiceSvc typeOfServiceSvc, IInstallationDeviceSvc installationDeviceSvc)
         {
             _context = context;
+            _customerSvc = customerSvc;
+            _doneContractSvc = doneContractSvc;
+            _employeeSvc = employeeSvc;
+            _typeOfServiceSvc = typeOfServiceSvc;
+            _installationDeviceSvc = installationDeviceSvc;
         }
 
         public async Task<string> addAsnyc(PostPMinute pMinute)
@@ -53,6 +68,11 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
                 return status;
             }
             return status;
+        }
+
+        public Task<MinuteInfo> ExportContract(PendingMinute PContract)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<List<PendingMinute>> GetAll()
@@ -107,10 +127,44 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
 
                 return new List<PendingMinute>();
             }
-        }
-        // public async Task<MinuteCoordinate> ExportPMinute(int id)
-        // {
+        } 
+        public async Task<MinuteInfo> ExportContract(PendingMinute pMinute, string empId)
+        {
+            var dContract = await _doneContractSvc.getByIdAsnyc(pMinute.DoneContractId);
+            var cus = await _customerSvc.GetByIdAsync(dContract.CustomerId.ToString());
+            var emp = await _employeeSvc.GetById(empId);
+            var tOS = await _typeOfServiceSvc.GetById(dContract.TOS_ID);
+            var device = await _installationDeviceSvc.GetAllByServiceId(tOS.TOS_ID);
+            MinuteInfo minuteInfo = new MinuteInfo();
+            if (cus != null && emp != null)
+            {
+                minuteInfo.MinuteContent = "Bien ban lap dat dich vu " + tOS.ServiceName + "hop dong" + dContract.DConTractName;
+                minuteInfo.MinuteId = pMinute.PendingMinuteId.ToString();
+                minuteInfo.ContractId = dContract.DContractID.ToString();
+                minuteInfo.InstallationCompany = "Tech steal";
+                minuteInfo.InstallationCustomer = emp.FullName;
+                minuteInfo.InstallationPosition = emp.Position.ToString();
+                minuteInfo.InstallationPosition = emp.PhoneNumber;
+                minuteInfo.InstallationAddress = cus.Address;
+                minuteInfo.CustomerName = cus.FullName;
+                minuteInfo.CustomerPosition = cus.Position;
+                minuteInfo.CustomerPhone = cus.PhoneNumber;
+                minuteInfo.InstallationDate = DateTime.Now.AddDays(2);
+                minuteInfo.Number1 = 1;
+                minuteInfo.FirstDevice = device[0].DeviceName;
+                minuteInfo.Quantity1 = 1;
+                minuteInfo.Number1 = 2;
+                minuteInfo.FirstDevice = device[1].DeviceName;
+                minuteInfo.Quantity1 = 1;
+                minuteInfo.Number1 = 3;
+                minuteInfo.FirstDevice = device[2].DeviceName;
+                minuteInfo.Quantity1 = 1;
+                minuteInfo.Number1 = 4;
+                minuteInfo.FirstDevice = device[3].DeviceName;
+                minuteInfo.Quantity1 = 1;
 
-        // }
+            }
+            return minuteInfo;
+        }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace QuanLyHopDongVaKySo_API.Models.MinuteInfo
+namespace QuanLyHopDongVaKySo_API.Models
 {
-    public class MuniteInfo
+    public class MinuteInfo
     {
         [Required(ErrorMessage = "Hãy nhập nội dung của biên bản !")]
         [Display(Name = "Nội dung biên bản lắp đặt")]
