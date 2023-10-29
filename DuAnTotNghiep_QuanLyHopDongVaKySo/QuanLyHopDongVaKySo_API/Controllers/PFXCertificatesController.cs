@@ -5,6 +5,7 @@ using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 using QuanLyHopDongVaKySo_API.Services.EmployeeService;
+using QuanLyHopDongVaKySo_API.Services.InstallationRequirementService;
 using QuanLyHopDongVaKySo_API.Services.PendingContractService;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 using QuanLyHopDongVaKySo_API.Services.PositionService;
@@ -28,9 +29,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IEmployeeSvc _employeeSvc;
         private readonly ICustomerSvc _customerSvc;
         private readonly IDoneContractSvc _dContractSvc;
+        private readonly IInstallationRequirementSvc _requirementSvc;
 
-
-        public PFXCertificatesController(IPFXCertificateSvc pfxCertificate, IEncodeHelper encodeHelper, IUploadFileHelper uploadFileHelper, 
+        public PFXCertificatesController(IPFXCertificateSvc pfxCertificate, IEncodeHelper encodeHelper, IUploadFileHelper uploadFileHelper,IInstallationRequirementSvc requirementSvc,  
             IDoneContractSvc dContractSvc,IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc)
         {
             _pfxCertificate = pfxCertificate;
@@ -41,6 +42,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _employeeSvc = employeeSvc;
             _customerSvc = customerSvc;
             _dContractSvc = dContractSvc;
+            _requirementSvc = requirementSvc;
         }
 
         [HttpGet]
@@ -311,8 +313,18 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             };
             if(isDirector && isCustomer)
             {
-                await _dContractSvc.addAsnyc(pendingContract);
+                var dContract = await _dContractSvc.addAsnyc(pendingContract);
                 await _pendingContract.deletePContractAsnyc(pendingContract.PContractId);
+
+                InstallationRequirement requirement = new InstallationRequirement()
+                {
+                    DateCreated = DateTime.Now,
+                    MinuteName = "Biên bản lắp đặt hợp đồng" + dContract,
+                    DoneContractId = int.Parse(dContract),
+                    MinuteFile = "",
+                    TMinuteId = 1
+                };
+                await _requirementSvc.CreateIRequirement(requirement);
             }
             else
             {

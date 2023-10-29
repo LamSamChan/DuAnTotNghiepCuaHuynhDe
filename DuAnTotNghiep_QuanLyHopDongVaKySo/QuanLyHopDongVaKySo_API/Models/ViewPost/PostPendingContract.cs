@@ -7,9 +7,9 @@ namespace QuanLyHopDongVaKySo_API.Models
     public class PostPendingContract
     {
 
-        public string PContractName { get; set; }
+        //public string PContractName { get; set; }
 
-        public bool IsRefuse { get; set; }
+        //public bool IsRefuse { get; set; }
 
         public string? Reason { get; set; }
 
