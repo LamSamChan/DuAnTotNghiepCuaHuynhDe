@@ -50,7 +50,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
             {
                 return ret;
             }
-            return "";
+            return ret;
         }
 
         public async Task<int> DeletePMinute(int pMinuteId)
@@ -68,11 +68,6 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
                 return status;
             }
             return status;
-        }
-
-        public Task<MinuteInfo> ExportContract(PendingMinute PContract)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<List<PendingMinute>> GetAll()
@@ -135,6 +130,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
             var emp = await _employeeSvc.GetById(empId);
             var tOS = await _typeOfServiceSvc.GetById(dContract.TOS_ID);
             var device = await _installationDeviceSvc.GetAllByServiceId(tOS.TOS_ID);
+            var deviceNames = device.Select(d => d == null ? " " : d.DeviceName).ToList();
+
             MinuteInfo minuteInfo = new MinuteInfo();
             if (cus != null && emp != null)
             {
@@ -143,28 +140,38 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
                 minuteInfo.ContractId = dContract.DContractID.ToString();
                 minuteInfo.InstallationCompany = "Tech steal";
                 minuteInfo.InstallationCustomer = emp.FullName;
-                minuteInfo.InstallationPosition = emp.Position.ToString();
+                minuteInfo.InstallationPosition = emp.Position == null? " " : emp.Position.ToString();
                 minuteInfo.InstallationPosition = emp.PhoneNumber;
                 minuteInfo.InstallationAddress = cus.Address;
                 minuteInfo.CustomerName = cus.FullName;
-                minuteInfo.CustomerPosition = cus.Position;
+                minuteInfo.CustomerPosition = cus.Position == null? " " : cus.Position.ToString();
                 minuteInfo.CustomerPhone = cus.PhoneNumber;
                 minuteInfo.InstallationDate = DateTime.Now.AddDays(2);
                 minuteInfo.Number1 = 1;
-                minuteInfo.FirstDevice = device[0].DeviceName;
+                minuteInfo.FirstDevice = deviceNames[0];
                 minuteInfo.Quantity1 = 1;
                 minuteInfo.Number1 = 2;
-                minuteInfo.FirstDevice = device[1].DeviceName;
+                minuteInfo.SecondDevice = " ";
                 minuteInfo.Quantity1 = 1;
                 minuteInfo.Number1 = 3;
-                minuteInfo.FirstDevice = device[2].DeviceName;
+                minuteInfo.ThirdDevice = " ";
                 minuteInfo.Quantity1 = 1;
                 minuteInfo.Number1 = 4;
-                minuteInfo.FirstDevice = device[3].DeviceName;
+                minuteInfo.FourthDevice = " ";
                 minuteInfo.Quantity1 = 1;
 
             }
             return minuteInfo;
+        }
+
+        public async Task<int> updatePMinuteFile(int id, string File)
+        {
+            var update = await GetById(id);
+
+            update.MinuteFile = File;
+            _context.PendingMinutes.Update(update);
+            await _context.SaveChangesAsync();
+            return 1;
         }
     }
 }

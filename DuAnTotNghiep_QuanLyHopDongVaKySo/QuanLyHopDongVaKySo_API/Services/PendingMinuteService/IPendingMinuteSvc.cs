@@ -11,5 +11,6 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
         Task<int> GetJobFormIRequirement(PendingMinute pendingMinute);
         Task<string> addAsnyc(PostPMinute pMinute);
         Task<MinuteInfo> ExportContract(PendingMinute pMinute,string empId);
+        Task<int> updatePMinuteFile(int id, string File);
     }
 }

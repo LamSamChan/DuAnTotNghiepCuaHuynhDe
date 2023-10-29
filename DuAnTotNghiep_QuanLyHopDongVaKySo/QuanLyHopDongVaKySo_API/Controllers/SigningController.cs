@@ -186,39 +186,39 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(signedContractPath);
         }
 
-        private string GenerateToken(int contractID, string customerID)
-        {
-            List<Claim> claims = new List<Claim>() {
-                new Claim("ContractID", contractID.ToString()),
-                new Claim("CustomerID", customerID),
-            };
+        // private string GenerateToken(int contractID, string customerID)
+        // {
+        //     List<Claim> claims = new List<Claim>() {
+        //         new Claim("ContractID", contractID.ToString()),
+        //         new Claim("CustomerID", customerID),
+        //     };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                _configuration["AppSettings:Token"]!));
+        //     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+        //         _configuration["AppSettings:Token"]!));
 
-            var creads = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+        //     var creads = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
-            var token = new JwtSecurityToken(
-                    claims: claims,
-                    expires: DateTime.Now.AddDays(1),
-                    signingCredentials: creads
-                );
+        //     var token = new JwtSecurityToken(
+        //             claims: claims,
+        //             expires: DateTime.Now.AddDays(1),
+        //             signingCredentials: creads
+        //         );
 
-            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+        //     var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
-            return jwt;
-        }
+        //     return jwt;
+        // }
 
-        public string GenerateUrl(string customerId, int contractId)
-        {
-            // Tạo token với id khách hàng và id hợp đồng
-            var token = GenerateToken(contractId, customerId);
+        // public string GenerateUrl(string customerId, int contractId)
+        // {
+        //     // Tạo token với id khách hàng và id hợp đồng
+        //     var token = GenerateToken(contractId, customerId);
 
-            // Tạo đường link có chứa token
-            var url = $"/api/contracts/viewcontract?token={token}";
+        //     // Tạo đường link có chứa token
+        //     var url = $"/api/contracts/viewcontract?token={token}";
 
-            // Gửi URL cho khách hàng
-            return url;
-        }
+        //     // Gửi URL cho khách hàng
+        //     return url;
+        // }
     }
 }
