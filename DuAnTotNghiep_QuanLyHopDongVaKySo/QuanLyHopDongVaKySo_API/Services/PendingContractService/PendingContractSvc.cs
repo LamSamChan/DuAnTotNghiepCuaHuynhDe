@@ -25,11 +25,11 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 PendingContract add = new PendingContract()
                 {
                     DateCreated = DateTime.Now,
-                    PContractName = PContract.PContractName,
+                    PContractName = "Hợp đồng sử dụng" + (PContract.TOS_ID == 1? "internet": "Dien thoai").ToString(),
                     PContractFile = "",
                     IsDirector = false,
                     IsCustomer = false,
-                    IsRefuse = PContract.IsRefuse,
+                    IsRefuse = false,
                     Reason = PContract.Reason,
                     EmployeeCreatedId = PContract.EmployeeCreatedId,
                     DirectorSignedId = null,
