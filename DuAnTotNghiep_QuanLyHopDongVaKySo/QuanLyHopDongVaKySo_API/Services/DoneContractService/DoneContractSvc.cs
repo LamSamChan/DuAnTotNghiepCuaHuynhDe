@@ -22,6 +22,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     DContractFile = pContract.PContractFile,
                     IsInEffect = true,
                     EmployeeCreatedId = pContract.EmployeeCreatedId,
+                    DirectorSignedId = (Guid)pContract.DirectorSignedId,
                     CustomerId = pContract.CustomerId,
                     TOS_ID = pContract.TOS_ID,
                 };
