@@ -3,10 +3,10 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
 {
     public interface ITemplateContractSvc
     {
-        Task<List<TemplateContract>> getTContractsAsnyc();
-        Task<TemplateContract> getTContractAsnyc(int id);
-        Task<int> addTContract(PostTContract tContract);
-        Task<int> updateTContract (PutTContract tContract);
-        Task<bool> deleteTContract (int id);
+        Task<List<TemplateContract>> getAllAsnyc();
+        Task<TemplateContract> getByIdAsnyc(int id);
+        Task<int> addAsnyc(PostTContract tContract);
+        Task<int> updateAsnyc (PutTContract tContract);
+        Task<bool> deleteAsnyc (int id);
     }
 }

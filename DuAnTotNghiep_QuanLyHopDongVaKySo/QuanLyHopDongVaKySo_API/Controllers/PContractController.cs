@@ -36,14 +36,14 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         public async Task<IActionResult> AddPContractAsnyc([FromForm] PostPendingContract pContract)
         {
             //lây thông tin mẫu hợp đồng
-            var tContract =await _TContractSvc.getTContractAsnyc(pContract.TContractId);
+            var tContract =await _TContractSvc.getByIdAsnyc(pContract.TContractId);
             //lây thông tin toạ động mẫu hợp đòng
             var Coordinates = await _CCoordinateSvc.getByTContract(pContract.TContractId);
             if(ModelState.IsValid)
             {
                 //thêm hợp đồng
-                string id_Pcontract = await _PContractSvc.addPContractAsnyc(pContract);
-                var contractById = await _PContractSvc.getPContractAsnyc(int.Parse(id_Pcontract));
+                string id_Pcontract = await _PContractSvc.addAsnyc(pContract);
+                var contractById = await _PContractSvc.getByIdAsnyc(int.Parse(id_Pcontract));
                 var contract = await _PContractSvc.ExportContract(contractById);
                 if(contract != null)
                 {
@@ -87,7 +87,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     {
                         return Ok (new{
                             retText = "Thêm hợp đồng thành công",
-                            data = await _PContractSvc.getPContractAsnyc(int.Parse(id_Pcontract))
+                            data = await _PContractSvc.getByIdAsnyc(int.Parse(id_Pcontract))
                         });
                     }
             }
@@ -120,7 +120,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(new{
                 retText = "Lấy danh sách hợp đồng thành công",
-                data = await _PContractSvc.getPContractsAsnyc()
+                data = await _PContractSvc.getAllAsnyc()
             });
         }
         // public async Task<IActionResult> UpdatePContractAsync()

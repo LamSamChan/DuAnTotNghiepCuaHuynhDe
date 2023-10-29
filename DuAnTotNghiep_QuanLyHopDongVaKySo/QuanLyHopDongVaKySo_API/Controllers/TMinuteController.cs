@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services;
 using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
-
+using QuanLyHopDongVaKySo_API.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo_API.Services.TemplateMinuteService;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -14,10 +14,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     public class TMinuteController:ControllerBase
     {
         private readonly ITemplateMinuteSvc _TMinuteSvc;
-
-        public TMinuteController(ITemplateMinuteSvc TMinuteSvc)
+        private readonly IUploadFileHelper _helpers;
+        public TMinuteController(ITemplateMinuteSvc TMinuteSvc,IUploadFileHelper helpers)
         {
             _TMinuteSvc = TMinuteSvc;
+            _helpers = helpers
         }
 
         /// <summary>
@@ -29,7 +30,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(new{
                 retText = "Lấy danh sách mẫu biên bản thành công",
-                data = await _TMinuteSvc.getTMinutesAsnyc()
+                data = await _TMinuteSvc.getAllAsnyc()
             });
         }
 
@@ -43,7 +44,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(new{
                 retText = "Lấy mẫu biên bản thành công",
-                data = await _TMinuteSvc.getTMinuteAsnyc(id)
+                data = await _TMinuteSvc.getByIdAsnyc(id)
             });
         }
 
@@ -58,14 +59,18 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             if(ModelState.IsValid)
             {
-                int id_Tminute = await _TMinuteSvc.addTMinuteAsnyc(tMinute);
+                int id_Tminute = await _TMinuteSvc.addAsnyc(tMinute);
 
                 if(id_Tminute >0)
                 {
-                    return Ok(new {
-                    retText = "Thêm mẫu biên bản thành công",
-                    data = await _TMinuteSvc.getTMinuteAsnyc(id_Tminute)
-                    });
+                    if(tMinute.File != null)
+                    {
+                        _helpers.UploadFile(tMinute.File,"AppData","TMinutes");
+                        return Ok(new {
+                        retText = "Thêm mẫu biên bản thành công",
+                        data = await _TMinuteSvc.getByIdAsnyc(id_Tminute)
+                        });
+                    }
                 }
             }
             return Ok(new {
@@ -84,13 +89,17 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             if(ModelState.IsValid)
             {
-                int id_Tminute = await _TMinuteSvc.updateTMinuteAsnyc(tMinute);
+                int id_Tminute = await _TMinuteSvc.updateAsnyc(tMinute);
                 if(id_Tminute >0)
                 {
-                    return Ok(new{
-                        retText = "Sữa mâu biên bản thành công",
-                        data = await _TMinuteSvc.getTMinuteAsnyc(id_Tminute)
-                    });
+                    if(tMinute.File != null)
+                    {
+                        _helpers.UploadFile(tMinute.File,"AppData","TMinutes");
+                        return Ok(new{
+                            retText = "Sữa mâu biên bản thành công",
+                            data = await _TMinuteSvc.getByIdAsnyc(id_Tminute)
+                        });
+                    }
                 }
             }
             return Ok(new{

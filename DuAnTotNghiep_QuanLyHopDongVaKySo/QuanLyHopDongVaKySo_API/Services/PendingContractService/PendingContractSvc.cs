@@ -18,7 +18,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             _imageHelper = imageHelper;
             _customerSvc = customerSvc;
         }
-        public async Task<string> addPContractAsnyc(PostPendingContract PContract)
+        public async Task<string> addAsnyc(PostPendingContract PContract)
         {
             string ret = null;
             try{
@@ -46,9 +46,9 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             }
         }
 
-        public async Task<bool> deletePContractAsnyc(int id)
+        public async Task<bool> deleteAsnyc(int id)
         {
-            var delete = await getPContractAsnyc(id);
+            var delete = await getByIdAsnyc(id);
             if(delete != null)
             {
                 _context.PendingContracts.Remove(delete);
@@ -58,34 +58,30 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             return false;
         }
 
-        public async Task<PendingContract> getPContractAsnyc(int id)
+        public async Task<PendingContract> getByIdAsnyc(int id)
         {
             return await _context.PendingContracts.Where(p => p.PContractID == id).FirstOrDefaultAsync();
         }
 
-        public async Task<List<PendingContract>> getPContractsAsnyc()
+        public async Task<List<PendingContract>> getAllAsnyc()
         {
             return await _context.PendingContracts.ToListAsync();
         }
 
         public async Task<int> updatePContractFile(int id, string File)
         {
-            var update = await getPContractAsnyc(id);
+            var update = await getByIdAsnyc(id);
 
             update.PContractFile = File;
             _context.PendingContracts.Update(update);
             await _context.SaveChangesAsync();
             return 1;
         }
-        public async Task<string> updatePContractAsnyc(PutPendingContract PContract)
+        public async Task<string> updateAsnyc(PutPendingContract PContract)
         {
             string ret = null;
-            var update = await getPContractAsnyc(PContract.PContractId);
+            var update = await getByIdAsnyc(PContract.PContractId);
             try{
-                if(PContract.File != null)
-                {
-                    _imageHelper.UploadFile(PContract.File,"AppData","PContracts");
-                }
                 if(update != null)
                 {
                     update.DateCreated = PContract.DateCreated;

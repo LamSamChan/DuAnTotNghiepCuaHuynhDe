@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services;
 using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
+using QuanLyHopDongVaKySo_API.Helpers;
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
@@ -10,10 +11,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     public class TContractController:ControllerBase
     {
         private readonly ITemplateContractSvc _TContractSvc;
-
-        public TContractController(ITemplateContractSvc TContractSvc)
+         private readonly IUploadFileHelper _helpers;
+        public TContractController(ITemplateContractSvc TContractSvc,IUploadFileHelper helpers)
         {
             _TContractSvc = TContractSvc;
+            _helpers = helpers;
         }
 
         /// <summary>
@@ -26,7 +28,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(new
                 {
                     retText = "Lấy danh sách mẫu hợp đồng thành công",
-                    data = await _TContractSvc.getTContractsAsnyc()
+                    data = await _TContractSvc.getAllAsnyc()
                 }
             );
         }
@@ -41,7 +43,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(new{
                 retText = "Lấy hợp đồng mẫu thành công",
-                data = await _TContractSvc.getTContractAsnyc(id)
+                data = await _TContractSvc.getByIdAsnyc(id)
             });
         }
 
@@ -55,13 +57,17 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
              if(ModelState.IsValid)
              {
-                int id_Tcontract = await _TContractSvc.addTContract(tContract);
+                int id_Tcontract = await _TContractSvc.addAsnyc(tContract);
                 if(id_Tcontract > 0)
                 {
-                    return Ok (new{
+                    if(tContract.File != null)
+                    {
+                        _helpers.UploadFile(tContract.File,"AppData","TContracts");
+                        return Ok (new{
                         retText = "Thêm mẫu hợp đồng thành công",
-                        data = await _TContractSvc.getTContractAsnyc(id_Tcontract)
-                    });
+                        data = await _TContractSvc.getByIdAsnyc(id_Tcontract)
+                        });
+                    }
                 }
              }
             return Ok(new {
@@ -80,13 +86,17 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
              if(ModelState.IsValid)
              {
-                int id_Tcontract = await _TContractSvc.updateTContract(tContract);
+                int id_Tcontract = await _TContractSvc.updateAsnyc(tContract);
                 if(id_Tcontract > 0)
                 {
-                    return Ok (new{
-                        retText = "sửa mẫu hợp đồng thành công",
-                        data = await _TContractSvc.getTContractAsnyc(id_Tcontract)
-                    });
+                    if(tContract.File != null)
+                    {
+                        _helpers.UploadFile(tContract.File,"AppData","TContracts");
+                        return Ok (new{
+                            retText = "sửa mẫu hợp đồng thành công",
+                            data = await _TContractSvc.getByIdAsnyc(id_Tcontract)
+                        });
+                    }
                 }
              }
             return Ok(new {

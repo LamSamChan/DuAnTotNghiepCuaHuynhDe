@@ -9,19 +9,13 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
     public class TemplateContractSvc : ITemplateContractSvc
     {
         private readonly ProjectDbContext _context;
-        private readonly IUploadFileHelper _helpers;
-        public TemplateContractSvc(ProjectDbContext context, IUploadFileHelper helpers)
+        public TemplateContractSvc(ProjectDbContext context)
         {
             _context = context;
-            _helpers = helpers;
         }
-        public async Task<int> addTContract(PostTContract tContract)
+        public async Task<int> addAsnyc(PostTContract tContract)
         {
             try{
-                if(tContract.File != null)
-                {
-                    _helpers.UploadFile(tContract.File,"AppData","TContracts");
-                }
                 TemplateContract add = new TemplateContract()
                 {
                     DateAdded = DateTime.Now,
@@ -39,9 +33,9 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
             }
         }
 
-        public async Task<bool> deleteTContract(int id)
+        public async Task<bool> deleteAsnyc(int id)
         {
-            var delete = await getTContractAsnyc(id);
+            var delete = await getByIdAsnyc(id);
             if(delete != null)
             {
                 _context.TemplateContracts.Remove(delete);
@@ -51,24 +45,20 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
             return false;
         }
 
-        public async Task<TemplateContract> getTContractAsnyc(int id)
+        public async Task<TemplateContract> getByIdAsnyc(int id)
         {
             return await _context.TemplateContracts.Where(t => t.TContactID == id).FirstOrDefaultAsync();
         }
 
-        public async Task<List<TemplateContract>> getTContractsAsnyc()
+        public async Task<List<TemplateContract>> getAllAsnyc()
         {
             return await _context.TemplateContracts.ToListAsync();
         }
 
-        public async Task<int> updateTContract(PutTContract tContract)
+        public async Task<int> updateAsnyc(PutTContract tContract)
         {
             try{
-                var update = await getTContractAsnyc(tContract.TContractID);
-                if(tContract.File != null)
-                {
-                    _helpers.UploadFile(tContract.File,"AppData","TContracts");
-                }
+                var update = await getByIdAsnyc(tContract.TContractID);
                 if(update != null)
                 {
                     update.TContractName = tContract.TContractName;

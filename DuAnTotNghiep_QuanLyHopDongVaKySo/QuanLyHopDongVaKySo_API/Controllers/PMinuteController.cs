@@ -32,7 +32,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
          public async Task<IActionResult> AddPMinuteAsnyc([FromForm] PostPMinute pMinute, string empId)
          {
              // lấy thông tin biên bản mẫu
-             var tMinute = await _tMinuteSvc.getTMinuteAsnyc(pMinute.TMinuteId);
+             var tMinute = await _tMinuteSvc.getByIdAsnyc(pMinute.TMinuteId);
              //lây thông tin toạ động mẫu biên bản
              var Coordinates = await _mCoordinateSvc.getByTMinute(pMinute.TMinuteId);
              if(ModelState.IsValid)

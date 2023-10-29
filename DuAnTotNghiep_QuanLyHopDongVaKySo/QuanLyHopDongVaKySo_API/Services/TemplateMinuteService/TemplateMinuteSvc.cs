@@ -7,20 +7,14 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
     public class TemplateMinuteSvc : ITemplateMinuteSvc
     {
         private readonly ProjectDbContext _context;
-        private readonly IUploadFileHelper _helpers;
 
-        public TemplateMinuteSvc (ProjectDbContext context,IUploadFileHelper helpers)
+        public TemplateMinuteSvc (ProjectDbContext context)
         {
             _context = context;
-            _helpers = helpers;
         }
-        public async Task<int> addTMinuteAsnyc(PostTMinute tMinute)
+        public async Task<int> addAsnyc(PostTMinute tMinute)
         {
             try{
-                if(tMinute.File != null)
-                {
-                    _helpers.UploadFile(tMinute.File,"AppData","TMinutes");
-                }
                 TemplateMinute add = new TemplateMinute
                 {
                     DateAdded = DateTime.Now,
@@ -37,9 +31,9 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
             }
         }
 
-        public async Task<bool> deleteTMinueAsnyc(int id)
+        public async Task<bool> deleteAsnyc(int id)
         {
-            var delete = await getTMinuteAsnyc(id);
+            var delete = await getByIdAsnyc(id);
             if(delete != null)
             {
                 _context.TemplateMinutes.Remove(delete);
@@ -49,24 +43,20 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
             return false;
         }
 
-        public async Task<TemplateMinute> getTMinuteAsnyc(int id)
+        public async Task<TemplateMinute> getByIdAsnyc(int id)
         {
             return await _context.TemplateMinutes.Where(M => M.TMinuteID == id).FirstOrDefaultAsync();
         }
 
-        public async Task<List<TemplateMinute>> getTMinutesAsnyc()
+        public async Task<List<TemplateMinute>> getAllAsnyc()
         {
             return await _context.TemplateMinutes.ToListAsync();
         }
 
-        public async Task<int> updateTMinuteAsnyc(PutTMinute tMinute)
+        public async Task<int> updateAsnyc(PutTMinute tMinute)
         {
             try{
-                var update = await getTMinuteAsnyc(tMinute.TMinuteID);
-                if(tMinute.File != null)
-                {
-                    _helpers.UploadFile(tMinute.File,"Appdata","TMinutes");
-                }
+                var update = await getByIdAsnyc(tMinute.TMinuteID);
                 if(update != null)
                 {
                     update.TMinuteName = tMinute.TMinuteName;

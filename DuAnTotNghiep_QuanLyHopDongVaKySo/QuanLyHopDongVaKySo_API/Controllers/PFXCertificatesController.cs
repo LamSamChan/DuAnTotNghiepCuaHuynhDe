@@ -219,7 +219,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 customer = await _customerSvc.GetBySerialPFXAsync(serial);
             }
 
-            var pContract = await _pendingContract.getPContractAsnyc(idContract);
+            var pContract = await _pendingContract.getByIdAsnyc(idContract);
 
             if (customer != null)
             {
@@ -249,7 +249,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 return BadRequest("Hợp đồng này đã được khách hàng ký !");
             }
 
-            TemplateContract tContract = await _templateContractSvc.getTContractAsnyc(pContract.TContractId);
+            TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(pContract.TContractId);
             DirectorZone directorZone = JsonConvert.DeserializeObject<DirectorZone>(tContract.jsonDirectorZone);
             CustomerZone customerZone = JsonConvert.DeserializeObject<CustomerZone>(tContract.jsonCustomerZone);
 
@@ -314,7 +314,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             if(isDirector && isCustomer)
             {
                 var dContract = await _dContractSvc.addAsnyc(pendingContract);
-                await _pendingContract.deletePContractAsnyc(pendingContract.PContractId);
+                await _pendingContract.deleteAsnyc(pendingContract.PContractId);
 
                 InstallationRequirement requirement = new InstallationRequirement()
                 {
@@ -328,7 +328,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
             else
             {
-                await _pendingContract.updatePContractAsnyc(pendingContract);
+                await _pendingContract.updateAsnyc(pendingContract);
             }
             
             return Ok(signedContractPath);

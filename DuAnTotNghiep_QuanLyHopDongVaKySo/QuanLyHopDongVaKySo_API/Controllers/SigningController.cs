@@ -58,7 +58,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 return BadRequest("Chữ ký không hợp lệ");
             }
 
-            var pContract = await _pendingContract.getPContractAsnyc(idContract);
+            var pContract = await _pendingContract.getByIdAsnyc(idContract);
 
             if (pContract.IsRefuse)
             {
@@ -75,7 +75,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 return BadRequest("Hợp đồng này đã được khách hàng ký !");
             }
 
-            TemplateContract tContract = await _templateContractSvc.getTContractAsnyc(pContract.TContractId);
+            TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(pContract.TContractId);
             DirectorZone directorZone = JsonConvert.DeserializeObject<DirectorZone>(tContract.jsonDirectorZone);
 
             var signedContractPath = await _pfxCertificate.SignContract(imagePath, pContract.PContractFile, pContract.PContractFile, certi.Serial, directorZone.X, directorZone.Y);
@@ -115,7 +115,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 customer = await _customerSvc.GetBySerialPFXAsync(serial);
             }
 
-            var pContract = await _pendingContract.getPContractAsnyc(idContract);
+            var pContract = await _pendingContract.getByIdAsnyc(idContract);
 
             if (serial != customer.SerialPFX)
             {
@@ -137,7 +137,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 return BadRequest("Hợp đồng này đã được khách hàng ký !");
             }
 
-            TemplateContract tContract = await _templateContractSvc.getTContractAsnyc(pContract.TContractId);
+            TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(pContract.TContractId);
             CustomerZone customerZone = JsonConvert.DeserializeObject<CustomerZone>(tContract.jsonCustomerZone);
 
             string outputContract = pContract.PContractFile.Replace("PContracts", "DContracts");
@@ -171,7 +171,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             };
 
             var dContract = await _dContractSvc.addAsnyc(pendingContract);
-            await _pendingContract.deletePContractAsnyc(pendingContract.PContractId);
+            await _pendingContract.deleteAsnyc(pendingContract.PContractId);
 
             InstallationRequirement requirement = new InstallationRequirement()
             {
