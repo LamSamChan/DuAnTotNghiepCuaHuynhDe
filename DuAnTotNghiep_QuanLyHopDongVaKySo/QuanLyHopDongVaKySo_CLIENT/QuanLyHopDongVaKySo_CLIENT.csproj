@@ -8,13 +8,9 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
-    <Compile Remove="Pages\Admin\**" />
     <Compile Remove="Services\**" />
-    <Content Remove="Pages\Admin\**" />
     <Content Remove="Services\**" />
-    <EmbeddedResource Remove="Pages\Admin\**" />
     <EmbeddedResource Remove="Services\**" />
-    <None Remove="Pages\Admin\**" />
     <None Remove="Services\**" />
   </ItemGroup>
 
@@ -36,6 +32,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\QuanLyHopDongVaKySo_API\QuanLyHopDongVaKySo_API.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Admin_Resource\" />
   </ItemGroup>
 
 </Project>
