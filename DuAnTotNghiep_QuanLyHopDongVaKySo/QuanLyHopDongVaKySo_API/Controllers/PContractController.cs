@@ -107,21 +107,16 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPContractAsync(int id)
         {
-            int totalPage;
-            var pdfPath = _PContractSvc.getByIdAsnyc(id).Result.PContractFile;
-            PdfReader pdfReader = new PdfReader(pdfPath);
-            totalPage = pdfReader.NumberOfPages;
-            FileStream fs = new FileStream(pdfPath, FileMode.Open, FileAccess.Read);
-            fs.Close();
 
-            var fileName = Path.GetFileNameWithoutExtension(pdfPath.ToString());
-            _pdfToImageHelper.PdfToPng(pdfPath, id, totalPage);
+            var pdfPath = _PContractSvc.getByIdAsnyc(id).Result.PContractFile;
+            List<string> outputPathContracts = _pdfToImageHelper.PdfToPng(pdfPath, id);
 
             return Ok(new
             {
                 retText = "Lấy hợp đồng thành công",
-                data = await _PContractSvc.getByIdAsnyc(id)
-            });
+                data = await _PContractSvc.getByIdAsnyc(id),
+                Path = outputPathContracts
+            }) ;
         }
 
         /// <summary>

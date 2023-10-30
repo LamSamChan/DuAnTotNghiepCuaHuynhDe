@@ -1,37 +1,48 @@
 ﻿using Ghostscript.NET.Rasterizer;
+using iTextSharp.text.pdf;
+using Microsoft.AspNetCore.Http;
 using System.Drawing.Imaging;
 
 namespace QuanLyHopDongVaKySo_API.Helpers
 {
     public interface IPdfToImageHelper
     {
-        void PdfToPng(string inputFile, int idPContract, int totalPage);
+        List<string> PdfToPng(string inputFile, int idPContract);
     }
     public class PdfToImageHelper : IPdfToImageHelper
     {
-        public void PdfToPng(string inputFile, int idContract, int totalPage)
+        public List<string> PdfToPng(string inputFile, int idContract)
         {
+            int totalPage;
 
+            PdfReader pdfReader = new PdfReader(inputFile);
+            totalPage = pdfReader.NumberOfPages;
+            FileStream fs = new FileStream(inputFile, FileMode.Open, FileAccess.Read);
+            fs.Close();
+            List<string> output = new List<string>();
+            string outputDirectoryPath = null;
             using (var rasterizer = new GhostscriptRasterizer()) //create an instance for GhostscriptRasterizer
             {
                 rasterizer.Open(inputFile); //opens the PDF file for rasterizing
-                var outputDirectoryPath = $"AppData/ContractImage/{idContract}";
+                outputDirectoryPath = $"AppData/ContractImage/{idContract}";
                 if(!Directory.Exists(outputDirectoryPath))
                 {
                     Directory.CreateDirectory(outputDirectoryPath);
                 }
-                 //set the output image(png's) complete path
-               
-
+                //set the output image(png's) complete path
+                var outputImagePath = outputDirectoryPath + @"/";
                 //converts the PDF pages to png's 
                 for (int i = 0; i < totalPage; i++)
                 {
-                    var outputPNGPath = Path.Combine(outputDirectoryPath, string.Format("{0}.png", i+1));
+                    var outputPNGPath = outputImagePath + $"{i+1}.png";
+                    output.Add(outputPNGPath);
                     var pdf2PNG = rasterizer.GetPage(300, i + 1);
                     //save the png's
                     pdf2PNG.Save(outputPNGPath, ImageFormat.Png);
                 }
             }
+
+            return output;
         }
     }
 }

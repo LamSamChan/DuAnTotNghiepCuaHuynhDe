@@ -33,9 +33,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IInstallationRequirementSvc _requirementSvc;
         private readonly IConfiguration _configuration;
         private readonly IGenerateQRCodeHelper _generateQRCodeHelper;
+        private readonly IPdfToImageHelper _pdfToImageHelper;
         public SigningController(IPFXCertificateSvc pfxCertificate, IInstallationRequirementSvc requirementSvc, IDoneContractSvc dContractSvc,
             IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc, 
-            IGenerateQRCodeHelper generateQRCodeHelper,IConfiguration configuration)
+            IGenerateQRCodeHelper generateQRCodeHelper, IConfiguration configuration, IPdfToImageHelper pdfToImageHelper)
         {
             _pfxCertificate = pfxCertificate;
             _pendingContract = pendingContract;
@@ -46,6 +47,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _requirementSvc = requirementSvc;
             _configuration = configuration;
             _generateQRCodeHelper = generateQRCodeHelper;
+            _pdfToImageHelper = pdfToImageHelper;
+
         }
 
         //chưa test khi dùng chữ ký hết hạn
@@ -106,6 +109,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 TOS_ID = pContract.TOS_ID,
                 TContractId = pContract.TContractId
             };
+
+            _pdfToImageHelper.PdfToPng(pContract.PContractFile, pendingContract.PContractId);
             await _pendingContract.updateAsnyc(pendingContract);
             return Ok(signedContractPath);
         }
@@ -182,6 +187,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 TContractId = pContract.TContractId
             };
 
+            _pdfToImageHelper.PdfToPng(outputContract, pendingContract.PContractId);
             var dContract = await _dContractSvc.addAsnyc(pendingContract);
             await _pendingContract.deleteAsnyc(pendingContract.PContractId);
 
@@ -195,7 +201,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             };
             var result = await _requirementSvc.CreateIRequirement(requirement);
 
-            return Ok(signedContractPath + result);
+            return Ok(signedContractPath);
         }
 
         //function test
