@@ -9,6 +9,7 @@
       "QuanLyHopDongVaKySo_API/1.0.0": {
         "dependencies": {
           "BouncyCastle": "1.8.9",
+          "Ghostscript.NET": "1.2.3.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.13",
           "Microsoft.EntityFrameworkCore": "7.0.12",
           "Microsoft.EntityFrameworkCore.Design": "7.0.12",
@@ -17,6 +18,7 @@
           "NSwag.Annotations": "13.20.0",
           "Newtonsoft.Json": "13.0.3",
           "PdfiumViewer": "2.13.0",
+          "QRCoder": "1.4.1",
           "RestSharp": "110.2.0",
           "Swashbuckle.AspNetCore": "6.5.0",
           "Swashbuckle.AspNetCore.Annotations": "6.5.0",
@@ -67,6 +69,14 @@
           "lib/BouncyCastle.Crypto.dll": {
             "assemblyVersion": "1.8.9.0",
             "fileVersion": "1.8.20343.1"
+          }
+        }
+      },
+      "Ghostscript.NET/1.2.3.1": {
+        "runtime": {
+          "lib/net40/Ghostscript.NET.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
           }
         }
       },
@@ -457,6 +467,17 @@
           }
         }
       },
+      "QRCoder/1.4.1": {
+        "dependencies": {
+          "System.Drawing.Common": "7.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/QRCoder.dll": {
+            "assemblyVersion": "1.4.1.0",
+            "fileVersion": "1.4.1.0"
+          }
+        }
+      },
       "RestSharp/110.2.0": {
         "dependencies": {
           "System.Text.Json": "7.0.2"
@@ -751,6 +772,13 @@
       "path": "bouncycastle/1.8.9",
       "hashPath": "bouncycastle.1.8.9.nupkg.sha512"
     },
+    "Ghostscript.NET/1.2.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m93pfry6YefiEIBlma/P7MSmVmpcPay1w4XoqG9rbV02kMcqPXEWkYuCiGAN3jh40E+PqpIqy5Rec0EHentDPw==",
+      "path": "ghostscript.net/1.2.3.1",
+      "hashPath": "ghostscript.net.1.2.3.1.nupkg.sha512"
+    },
     "Humanizer.Core/2.14.1": {
       "type": "package",
       "serviceable": true,
@@ -1044,6 +1072,13 @@
       "sha512": "sha512-Nw4owBmJzDVXoMRjCnqPbET07CPOawwhcNjt+PyRaSxONN9bsFF+cm9kcMsDLEAEaxsiDJo5jls8bCQjvjidkA==",
       "path": "pdfiumviewer/2.13.0",
       "hashPath": "pdfiumviewer.2.13.0.nupkg.sha512"
+    },
+    "QRCoder/1.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W8KwCwsOJe9SI7Cm7XeIMawd08F/US6xNw34lg2Qnx6m7GYYakxbyBQaNoW1Q75oJOmX/32sJUZr6Cix2B6GUQ==",
+      "path": "qrcoder/1.4.1",
+      "hashPath": "qrcoder.1.4.1.nupkg.sha512"
     },
     "RestSharp/110.2.0": {
       "type": "package",
