@@ -55,6 +55,19 @@
           "lib/BouncyCastle.Crypto.dll": {}
         }
       },
+      "Ghostscript.NET/1.2.3.1": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Ghostscript.NET.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/Ghostscript.NET.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "iTextSharp/5.5.13.3": {
         "type": "package",
         "dependencies": {
@@ -1236,6 +1249,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "BouncyCastle": "1.8.9",
+          "Ghostscript.NET": "1.2.3.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.13",
           "Microsoft.EntityFrameworkCore": "7.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.12",
@@ -1312,6 +1326,19 @@
         "bouncycastle.1.8.9.nupkg.sha512",
         "bouncycastle.nuspec",
         "lib/BouncyCastle.Crypto.dll"
+      ]
+    },
+    "Ghostscript.NET/1.2.3.1": {
+      "sha512": "m93pfry6YefiEIBlma/P7MSmVmpcPay1w4XoqG9rbV02kMcqPXEWkYuCiGAN3jh40E+PqpIqy5Rec0EHentDPw==",
+      "type": "package",
+      "path": "ghostscript.net/1.2.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ghostscript.net.1.2.3.1.nupkg.sha512",
+        "ghostscript.net.nuspec",
+        "lib/net40/Ghostscript.NET.dll",
+        "lib/net40/Ghostscript.NET.xml"
       ]
     },
     "iTextSharp/5.5.13.3": {
@@ -3548,23 +3575,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
+    "C:\\Users\\PC\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
+      "projectUniqueName": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
       "projectName": "QuanLyHopDongVaKySo_CLIENT",
-      "projectPath": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\",
+      "projectPath": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
+      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+      "outputPath": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3580,8 +3607,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj": {
-              "projectPath": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj"
+            "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj": {
+              "projectPath": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj"
             }
           }
         }
@@ -3625,6 +3652,16 @@
       "warningLevel": 1,
       "message": "Package 'BouncyCastle 1.8.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
       "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Ghostscript.NET 1.2.3.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Ghostscript.NET",
       "targetGraphs": [
         "net7.0"
       ]

@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="BouncyCastle" Version="1.8.9" />
+    <PackageReference Include="Ghostscript.NET" Version="1.2.3.1" />
     <PackageReference Include="iTextSharp" Version="5.5.13.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.12" />
@@ -52,6 +53,7 @@
     <Folder Include="AppData/PFXCertificates/" />
     <Folder Include="AppData/TContracts/" />
     <Folder Include="AppData\Avatars\" />
+    <Folder Include="AppData\ContractImage\" />
     <Folder Include="AppData\SignatureImages\" />
   </ItemGroup>
 

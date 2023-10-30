@@ -13,8 +13,10 @@ using QuanLyHopDongVaKySo_API.Services.PositionService;
 using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Text;
+using System.IO;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
@@ -51,6 +53,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         public async Task<ActionResult<string>> ContractingDirector(string serial, int idContract, string imagePath)
         {
             var certi = await _pfxCertificate.GetById(serial);
+            if (certi == null)
+            {
+                return BadRequest("Không có chứng chỉ hợp lệ !");
+            }
             Employee director = null;
 
             if (certi.IsEmployee)
@@ -100,6 +106,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 TOS_ID = pContract.TOS_ID,
                 TContractId = pContract.TContractId
             };
+            await _pendingContract.updateAsnyc(pendingContract);
             return Ok(signedContractPath);
         }
 
@@ -146,9 +153,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             string outputContract = pContract.PContractFile.Replace("PContracts", "DContracts");
 
-            if (!Directory.Exists("AppData/DContracts/"))
+            if (!Directory.Exists($"AppData/DContracts/{pContract.PContractID}"))
             {
-                Directory.CreateDirectory("AppData/DContracts/");
+                Directory.CreateDirectory($"AppData/DContracts/{pContract.PContractID}");
             }
 
             var signedContractPath = await _pfxCertificate.SignContract(imagePath, pContract.PContractFile, outputContract, certi.Serial, customerZone.X, customerZone.Y);
@@ -156,6 +163,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             FileStream fs = new FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
             fs.Close();
             System.IO.File.Delete(pContract.PContractFile);
+            Directory.Delete($"AppData/PContracts/{pContract.PContractID}");
 
             PutPendingContract pendingContract = new PutPendingContract
             {
@@ -185,9 +193,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 MinuteFile = "",
                 TMinuteId = 1
             };
-            await _requirementSvc.CreateIRequirement(requirement);
+            var result = await _requirementSvc.CreateIRequirement(requirement);
 
-            return Ok(signedContractPath);
+            return Ok(signedContractPath + result);
         }
 
         //function test

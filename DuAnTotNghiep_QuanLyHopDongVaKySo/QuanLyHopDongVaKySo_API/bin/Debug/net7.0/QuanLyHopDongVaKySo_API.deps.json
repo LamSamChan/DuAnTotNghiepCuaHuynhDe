@@ -9,6 +9,7 @@
       "QuanLyHopDongVaKySo_API/1.0.0": {
         "dependencies": {
           "BouncyCastle": "1.8.9",
+          "Ghostscript.NET": "1.2.3.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.13",
           "Microsoft.EntityFrameworkCore": "7.0.12",
           "Microsoft.EntityFrameworkCore.Design": "7.0.12",
@@ -68,6 +69,14 @@
           "lib/BouncyCastle.Crypto.dll": {
             "assemblyVersion": "1.8.9.0",
             "fileVersion": "1.8.20343.1"
+          }
+        }
+      },
+      "Ghostscript.NET/1.2.3.1": {
+        "runtime": {
+          "lib/net40/Ghostscript.NET.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
           }
         }
       },
@@ -762,6 +771,13 @@
       "sha512": "sha512-axnBgvdD5n+FnEG6efk/tfKuMFru7R/EoISH9zjh319yb3HD24TEHSAbNN/lTRT2ulOGRxDgOsCjkuk08iwWPg==",
       "path": "bouncycastle/1.8.9",
       "hashPath": "bouncycastle.1.8.9.nupkg.sha512"
+    },
+    "Ghostscript.NET/1.2.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m93pfry6YefiEIBlma/P7MSmVmpcPay1w4XoqG9rbV02kMcqPXEWkYuCiGAN3jh40E+PqpIqy5Rec0EHentDPw==",
+      "path": "ghostscript.net/1.2.3.1",
+      "hashPath": "ghostscript.net.1.2.3.1.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
