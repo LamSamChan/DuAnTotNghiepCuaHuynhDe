@@ -1,51 +1,43 @@
 ﻿<Properties StartupConfiguration="{47D9E99C-11EE-41A9-BD73-C2554CE3124D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Services/PendingMinuteService/PendingMinuteSvc.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="QuanLyHopDongVaKySo_API.csproj">
     <Files>
-      <File FileName="Controllers/PFXCertificatesController.cs" Line="339" Column="1" />
+      <File FileName="Controllers/PFXCertificatesController.cs" />
       <File FileName="Program.cs" />
       <File FileName="Database/ProjectDbContext.cs" />
       <File FileName="Services/PFXCertificateService/PFXCertificateSvc.cs" />
       <File FileName="Services/DoneContractService/DoneContractSvc.cs" />
       <File FileName="Services/TypeOfCustomerService/TypeOfCustomerSvc.cs" />
-      <File FileName="Services/CustomerService/CustomerSvc.cs" Line="26" Column="1" />
-      <File FileName="Services/PendingContractService/PendingContractSvc.cs" Line="64" Column="1" />
+      <File FileName="Services/CustomerService/CustomerSvc.cs" />
+      <File FileName="Services/PendingContractService/PendingContractSvc.cs" />
       <File FileName="Services/TemplateContractService/TemplateContractSvc.cs" />
       <File FileName="Services/RoleService/RoleSvc.cs" />
       <File FileName="Services/PositionService/PositionSvc.cs" />
       <File FileName="Services/EmployeeService/EmployeeSvc.cs" />
-      <File FileName="Services/CustomerService/ICustomerSvc.cs" Line="1" Column="1" />
-      <File FileName="Services/PendingContractService/IPendingContractSvc.cs" Line="15" Column="74" />
-      <File FileName="Services/PendingMinuteService/IPendingMinuteSvc.cs" Line="16" Column="1" />
+      <File FileName="Services/CustomerService/ICustomerSvc.cs" />
+      <File FileName="Services/PendingContractService/IPendingContractSvc.cs" />
+      <File FileName="Services/PendingMinuteService/IPendingMinuteSvc.cs" />
       <File FileName="Services/PendingMinuteService/PendingMinuteSvc.cs" Line="26" Column="40" />
-      <File FileName="Services/MinuteCoordinateService/IMinuteCoordinateSvc.cs" Line="1" Column="1" />
-      <File FileName="Services/ContractCoordinateService/ContractCoordinateSvc.cs" Line="1" Column="1" />
-      <File FileName="Models/InstallationRequirement.cs" Line="1" Column="1" />
-      <File FileName="Controllers/AuthController.cs" Line="1" Column="1" />
-      <File FileName="Controllers/CustomersController.cs" Line="1" Column="1" />
-      <File FileName="Services/InstallationRequirementService/InstallationRequirementSvc.cs" Line="1" Column="1" />
-      <File FileName="Models/MinuteInfo/MinuteInfo.cs" Line="26" Column="1" />
-      <File FileName="Services/TypeOfServiceService/ITypeOfServiceSvc.cs" Line="3" Column="64" />
-      <File FileName="Models/InstallationDevice.cs" Line="1" Column="1" />
-      <File FileName="Services/InstallationDeviceService/IInstallationDeviceSvc.cs" Line="1" Column="1" />
-      <File FileName="Services/InstallationDeviceService/InstallationDeviceSvc.cs" Line="1" Column="1" />
+      <File FileName="Services/MinuteCoordinateService/IMinuteCoordinateSvc.cs" />
+      <File FileName="Services/ContractCoordinateService/ContractCoordinateSvc.cs" />
+      <File FileName="Models/InstallationRequirement.cs" />
+      <File FileName="Controllers/AuthController.cs" />
+      <File FileName="Controllers/CustomersController.cs" />
+      <File FileName="Services/InstallationRequirementService/InstallationRequirementSvc.cs" />
+      <File FileName="Models/MinuteInfo/MinuteInfo.cs" />
+      <File FileName="Services/TypeOfServiceService/ITypeOfServiceSvc.cs" />
+      <File FileName="Models/InstallationDevice.cs" />
+      <File FileName="Services/InstallationDeviceService/IInstallationDeviceSvc.cs" />
+      <File FileName="Services/InstallationDeviceService/InstallationDeviceSvc.cs" />
+      <File FileName="Helpers/PDFToImage.cs" Line="1" Column="1" />
+      <File FileName="QuanLyHopDongVaKySo_API.csproj" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="QuanLyHopDongVaKySo_API" expanded="True">
             <Node name="QuanLyHopDongVaKySo_API" expanded="True">
-              <Node name="Models" expanded="True">
-                <Node name="MinuteInfo" expanded="True" />
-              </Node>
-              <Node name="Services" expanded="True">
-                <Node name="CustomerService" expanded="True" />
-                <Node name="InstallationDeviceService" expanded="True" />
-                <Node name="InstallationRequirementService" expanded="True" />
-                <Node name="PendingContractService" expanded="True" />
-                <Node name="PendingMinuteService" expanded="True">
-                  <Node name="PendingMinuteSvc.cs" selected="True" />
-                </Node>
-                <Node name="TypeOfServiceService" expanded="True" />
+              <Node name="Helpers" expanded="True">
+                <Node name="PDFToImage.cs" selected="True" />
               </Node>
             </Node>
           </Node>
