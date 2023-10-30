@@ -55,19 +55,6 @@
           "lib/BouncyCastle.Crypto.dll": {}
         }
       },
-      "Ghostscript.NET/1.2.3.1": {
-        "type": "package",
-        "compile": {
-          "lib/net40/Ghostscript.NET.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net40/Ghostscript.NET.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "iTextSharp/5.5.13.3": {
         "type": "package",
         "dependencies": {
@@ -694,18 +681,6 @@
           }
         }
       },
-      "QRCoder/1.4.1": {
-        "type": "package",
-        "dependencies": {
-          "System.Drawing.Common": "4.7.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/QRCoder.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/QRCoder.dll": {}
-        }
-      },
       "RestSharp/110.2.0": {
         "type": "package",
         "dependencies": {
@@ -1249,14 +1224,12 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "BouncyCastle": "1.8.9",
-          "Ghostscript.NET": "1.2.3.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.13",
           "Microsoft.EntityFrameworkCore": "7.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.12",
           "NSwag.Annotations": "13.20.0",
           "Newtonsoft.Json": "13.0.3",
           "PdfiumViewer": "2.13.0",
-          "QRCoder": "1.4.1",
           "RestSharp": "110.2.0",
           "Swashbuckle.AspNetCore": "6.5.0",
           "Swashbuckle.AspNetCore.Annotations": "6.5.0",
@@ -1326,19 +1299,6 @@
         "bouncycastle.1.8.9.nupkg.sha512",
         "bouncycastle.nuspec",
         "lib/BouncyCastle.Crypto.dll"
-      ]
-    },
-    "Ghostscript.NET/1.2.3.1": {
-      "sha512": "m93pfry6YefiEIBlma/P7MSmVmpcPay1w4XoqG9rbV02kMcqPXEWkYuCiGAN3jh40E+PqpIqy5Rec0EHentDPw==",
-      "type": "package",
-      "path": "ghostscript.net/1.2.3.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "ghostscript.net.1.2.3.1.nupkg.sha512",
-        "ghostscript.net.nuspec",
-        "lib/net40/Ghostscript.NET.dll",
-        "lib/net40/Ghostscript.NET.xml"
       ]
     },
     "iTextSharp/5.5.13.3": {
@@ -2496,21 +2456,6 @@
         "pdfiumviewer.nuspec"
       ]
     },
-    "QRCoder/1.4.1": {
-      "sha512": "W8KwCwsOJe9SI7Cm7XeIMawd08F/US6xNw34lg2Qnx6m7GYYakxbyBQaNoW1Q75oJOmX/32sJUZr6Cix2B6GUQ==",
-      "type": "package",
-      "path": "qrcoder/1.4.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net35/QRCoder.dll",
-        "lib/net40/QRCoder.dll",
-        "lib/netstandard1.1/QRCoder.dll",
-        "lib/netstandard2.0/QRCoder.dll",
-        "qrcoder.1.4.1.nupkg.sha512",
-        "qrcoder.nuspec"
-      ]
-    },
     "RestSharp/110.2.0": {
       "sha512": "FXGw0IMcqY7yO/hzS9QrD3iNswNgb9UxJnxWmfOxmGs4kRlZWqdtBoGPLuhlbgsDzX1RFo4WKui8TGGKXWKalw==",
       "type": "package",
@@ -3575,23 +3520,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC\\.nuget\\packages\\": {},
+    "C:\\Users\\do272\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
+      "projectUniqueName": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
       "projectName": "QuanLyHopDongVaKySo_CLIENT",
-      "projectPath": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\",
+      "projectPath": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
+      "packagesPath": "C:\\Users\\do272\\.nuget\\packages\\",
+      "outputPath": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\do272\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3600,15 +3545,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj": {
-              "projectPath": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj"
+            "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj": {
+              "projectPath": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj"
             }
           }
         }
@@ -3641,7 +3585,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -3652,16 +3596,6 @@
       "warningLevel": 1,
       "message": "Package 'BouncyCastle 1.8.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
       "libraryId": "BouncyCastle",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Ghostscript.NET 1.2.3.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Ghostscript.NET",
       "targetGraphs": [
         "net7.0"
       ]
