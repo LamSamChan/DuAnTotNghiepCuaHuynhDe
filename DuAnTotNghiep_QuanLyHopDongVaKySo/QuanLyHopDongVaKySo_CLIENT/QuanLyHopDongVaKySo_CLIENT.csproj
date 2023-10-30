@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
-  <ItemGroup>
-    <Compile Remove="Services\**" />
-    <Content Remove="Services\**" />
-    <EmbeddedResource Remove="Services\**" />
-    <None Remove="Services\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Pages\BusinessStaff\DetailsContractListWaitSig.cshtml" />
