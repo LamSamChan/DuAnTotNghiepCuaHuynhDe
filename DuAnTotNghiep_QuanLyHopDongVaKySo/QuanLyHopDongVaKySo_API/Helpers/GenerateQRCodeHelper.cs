@@ -42,7 +42,7 @@ namespace QuanLyHopDongVaKySo_API.Helpers
             using (MemoryStream ms = new MemoryStream(bytes))
             {
                 // Tạo một IFormFile từ MemoryStream
-                return new FormFile(ms, 0, ms.Length, "file", fileName);
+                return new FormFile(ms, 0, ms.Length, "file", fileName+".png");
             }
         }
     }

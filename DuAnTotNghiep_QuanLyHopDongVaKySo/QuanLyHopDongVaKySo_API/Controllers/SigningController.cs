@@ -34,9 +34,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IConfiguration _configuration;
         private readonly IGenerateQRCodeHelper _generateQRCodeHelper;
         private readonly IPdfToImageHelper _pdfToImageHelper;
+        private readonly IUploadFileHelper _uploadFileHelper;
         public SigningController(IPFXCertificateSvc pfxCertificate, IInstallationRequirementSvc requirementSvc, IDoneContractSvc dContractSvc,
             IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc, 
-            IGenerateQRCodeHelper generateQRCodeHelper, IConfiguration configuration, IPdfToImageHelper pdfToImageHelper)
+            IGenerateQRCodeHelper generateQRCodeHelper, IConfiguration configuration, IPdfToImageHelper pdfToImageHelper, IUploadFileHelper uploadFileHelper)
         {
             _pfxCertificate = pfxCertificate;
             _pendingContract = pendingContract;
@@ -48,7 +49,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _configuration = configuration;
             _generateQRCodeHelper = generateQRCodeHelper;
             _pdfToImageHelper = pdfToImageHelper;
-
+            _uploadFileHelper = uploadFileHelper;
         }
 
         //chưa test khi dùng chữ ký hết hạn
@@ -208,7 +209,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpGet("GetByToken/{token}")]
         public async Task<ActionResult<string>> GetByToken(string token)
         {
-            // Giải mã token để lấy id khách hàng và id hợp đồng
+            var base64string = _generateQRCodeHelper.GenerateQRCode(token);
+            IFormFile formFile = _generateQRCodeHelper.ConvertBase64ToIFormFile(base64string, "aloalo");
+            _uploadFileHelper.UploadFile(formFile,"AppData", "Hahaha");
+            return Ok("oke");
+            /*// Giải mã token để lấy id khách hàng và id hợp đồng
             var contractID = DecodeToken(token);
 
             // Lấy thông tin hợp đồng dựa trên customerId và contractId
@@ -220,7 +225,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
 
             // Hiển thị hợp đồng cho khách hàng
-            return Ok(await contract);
+            return Ok(await contract);*/
         }
 
         private string GenerateToken(int contractID)
