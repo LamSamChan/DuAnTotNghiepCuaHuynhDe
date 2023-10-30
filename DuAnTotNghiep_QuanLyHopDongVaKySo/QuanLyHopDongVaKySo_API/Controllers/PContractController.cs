@@ -107,7 +107,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(new{
                 retText = "Lấy hợp đồng thành công",
-                data = await _PContractSvc.getPContractAsnyc(id)
+                data = await _PContractSvc.getByIdAsnyc(id)
             });
         }
         

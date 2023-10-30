@@ -186,39 +186,93 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(signedContractPath);
         }
 
-        // private string GenerateToken(int contractID, string customerID)
-        // {
-        //     List<Claim> claims = new List<Claim>() {
-        //         new Claim("ContractID", contractID.ToString()),
-        //         new Claim("CustomerID", customerID),
-        //     };
+        [HttpGet("viewcontract/{token}")]
+        public async Task<ActionResult<string>> ViewContract(string token)
+        {
+            // Giải mã token để lấy id khách hàng và id hợp đồng
+            var (customerId, contractId) = DecodeToken(token);
 
-        //     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-        //         _configuration["AppSettings:Token"]!));
+            // Lấy thông tin hợp đồng dựa trên customerId và contractId
+            var contract = GetContract(customerId, contractId);
 
-        //     var creads = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+            if (contract == null)
+            {
+                return NotFound("Không tìm thấy hợp đồng.");
+            }
 
-        //     var token = new JwtSecurityToken(
-        //             claims: claims,
-        //             expires: DateTime.Now.AddDays(1),
-        //             signingCredentials: creads
-        //         );
+            // Hiển thị hợp đồng cho khách hàng
+            return Ok(contract);
+        }
 
-        //     var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+        private string GenerateToken(int contractID, string customerID)
+         {
+             List<Claim> claims = new List<Claim>() {
+                 new Claim("ContractID", contractID.ToString()),
+                 new Claim("CustomerID", customerID),
+             };
 
-        //     return jwt;
-        // }
+             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+               _configuration["AppSettings:Token"]!));
 
-        // public string GenerateUrl(string customerId, int contractId)
-        // {
-        //     // Tạo token với id khách hàng và id hợp đồng
-        //     var token = GenerateToken(contractId, customerId);
+           var creads = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
-        //     // Tạo đường link có chứa token
-        //     var url = $"/api/contracts/viewcontract?token={token}";
+             var token = new JwtSecurityToken(
+                     claims: claims,
+                     expires: DateTime.Now.AddDays(1),
+                     signingCredentials: creads
+                 );
 
-        //     // Gửi URL cho khách hàng
-        //     return url;
-        // }
+             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
+             return jwt;
+         }
+
+         public string GenerateUrl(string customerId, int contractId)
+         {
+              //Tạo token với id khách hàng và id hợp đồng
+             var token = GenerateToken(contractId, customerId);
+
+             // Tạo đường link có chứa token
+             var url = $"/api/contracts/viewcontract?token={token}";
+
+             // Gửi URL cho khách hàng
+             return url;
+         }
+
+        private (string, int) DecodeToken(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+               _configuration["AppSettings:Token"]!));
+           
+            SecurityToken securityToken;
+            var claims = tokenHandler.ValidateToken(token, new TokenValidationParameters
+            {
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                IssuerSigningKey = key,
+                ClockSkew = TimeSpan.Zero
+            }, out securityToken);
+
+            var customerId = claims.FindFirst("CustomerID").Value;
+            var contractId = int.Parse(claims.FindFirst("ContractID").Value);
+
+            return (customerId, contractId);
+        }
+
+
+        
+        private object GetContract(string customerId, int contractId)
+        {
+            // Lấy thông tin hợp đồng từ database hoặc nơi lưu trữ khác
+            // Thay bằng logic thực tế của bạn
+            return new
+            {
+                CustomerId = customerId,
+                ContractId = contractId,
+                // Thêm các thông tin khác tại đây
+            };
+        }
+
     }
 }

@@ -18,7 +18,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         public TMinuteController(ITemplateMinuteSvc TMinuteSvc,IUploadFileHelper helpers)
         {
             _TMinuteSvc = TMinuteSvc;
-            _helpers = helpers
+            _helpers = helpers;
         }
 
         /// <summary>
