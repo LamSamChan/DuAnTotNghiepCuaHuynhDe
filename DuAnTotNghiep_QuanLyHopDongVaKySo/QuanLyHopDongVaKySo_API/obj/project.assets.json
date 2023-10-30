@@ -55,6 +55,19 @@
           "lib/BouncyCastle.Crypto.dll": {}
         }
       },
+      "Ghostscript.NET/1.2.3.1": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Ghostscript.NET.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/Ghostscript.NET.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -746,6 +759,18 @@
           }
         }
       },
+      "QRCoder/1.4.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/QRCoder.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/QRCoder.dll": {}
+        }
+      },
       "RestSharp/110.2.0": {
         "type": "package",
         "dependencies": {
@@ -1347,6 +1372,19 @@
         "bouncycastle.1.8.9.nupkg.sha512",
         "bouncycastle.nuspec",
         "lib/BouncyCastle.Crypto.dll"
+      ]
+    },
+    "Ghostscript.NET/1.2.3.1": {
+      "sha512": "m93pfry6YefiEIBlma/P7MSmVmpcPay1w4XoqG9rbV02kMcqPXEWkYuCiGAN3jh40E+PqpIqy5Rec0EHentDPw==",
+      "type": "package",
+      "path": "ghostscript.net/1.2.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ghostscript.net.1.2.3.1.nupkg.sha512",
+        "ghostscript.net.nuspec",
+        "lib/net40/Ghostscript.NET.dll",
+        "lib/net40/Ghostscript.NET.xml"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -2581,6 +2619,21 @@
         "pdfiumviewer.nuspec"
       ]
     },
+    "QRCoder/1.4.1": {
+      "sha512": "W8KwCwsOJe9SI7Cm7XeIMawd08F/US6xNw34lg2Qnx6m7GYYakxbyBQaNoW1Q75oJOmX/32sJUZr6Cix2B6GUQ==",
+      "type": "package",
+      "path": "qrcoder/1.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/QRCoder.dll",
+        "lib/net40/QRCoder.dll",
+        "lib/netstandard1.1/QRCoder.dll",
+        "lib/netstandard2.0/QRCoder.dll",
+        "qrcoder.1.4.1.nupkg.sha512",
+        "qrcoder.nuspec"
+      ]
+    },
     "RestSharp/110.2.0": {
       "sha512": "FXGw0IMcqY7yO/hzS9QrD3iNswNgb9UxJnxWmfOxmGs4kRlZWqdtBoGPLuhlbgsDzX1RFo4WKui8TGGKXWKalw==",
       "type": "package",
@@ -3658,6 +3711,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "BouncyCastle >= 1.8.9",
+      "Ghostscript.NET >= 1.2.3.1",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 7.0.13",
       "Microsoft.EntityFrameworkCore >= 7.0.12",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.12",
@@ -3666,6 +3720,7 @@
       "NSwag.Annotations >= 13.20.0",
       "Newtonsoft.Json >= 13.0.3",
       "PdfiumViewer >= 2.13.0",
+      "QRCoder >= 1.4.1",
       "RestSharp >= 110.2.0",
       "Swashbuckle.AspNetCore >= 6.5.0",
       "Swashbuckle.AspNetCore.Annotations >= 6.5.0",
@@ -3722,6 +3777,10 @@
             "target": "Package",
             "version": "[1.8.9, )"
           },
+          "Ghostscript.NET": {
+            "target": "Package",
+            "version": "[1.2.3.1, )"
+          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[7.0.13, )"
@@ -3757,6 +3816,10 @@
           "PdfiumViewer": {
             "target": "Package",
             "version": "[2.13.0, )"
+          },
+          "QRCoder": {
+            "target": "Package",
+            "version": "[1.4.1, )"
           },
           "RestSharp": {
             "target": "Package",
@@ -3808,11 +3871,27 @@
   },
   "logs": [
     {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
+    {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
       "message": "Package 'BouncyCastle 1.8.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
       "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Ghostscript.NET 1.2.3.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Ghostscript.NET",
       "targetGraphs": [
         "net7.0"
       ]

@@ -53,12 +53,14 @@ builder.Services.AddScoped<ITemplateMinuteSvc, TemplateMinuteSvc>();
 builder.Services.AddScoped<ITypeOfCustomerSvc, TypeOfCustomerSvc>();
 builder.Services.AddScoped<ITypeOfServiceSvc, TypeOfServiceSvc>();
 builder.Services.AddScoped<IUploadFileHelper, UploadFileHelper>();
+builder.Services.AddScoped<IGenerateQRCodeHelper, GenerateQRCodeHelper>();
 builder.Services.AddScoped<IEncodeHelper, EncodeHelper>();
 builder.Services.AddScoped<ISendMailHelper, SendMailHelper>();
 builder.Services.AddScoped<IRandomPasswordHelper, RandomPasswordHelper>();
 builder.Services.AddScoped<IOTPGeneratorHelper, OTPGeneratorHelper>();
 builder.Services.AddScoped<IContractCoordinateSvc, ContractCoordinateSvc>();
 builder.Services.AddScoped<IMinuteCoordinateSvc, MinuteCoordinateSvc>();
+builder.Services.AddScoped<IPdfToImageHelper, PdfToImageHelper>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>

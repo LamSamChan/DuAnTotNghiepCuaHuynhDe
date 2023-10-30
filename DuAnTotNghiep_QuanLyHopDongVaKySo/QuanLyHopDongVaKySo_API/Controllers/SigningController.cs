@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.DoneContractService;
@@ -8,11 +9,14 @@ using QuanLyHopDongVaKySo_API.Services.EmployeeService;
 using QuanLyHopDongVaKySo_API.Services.InstallationRequirementService;
 using QuanLyHopDongVaKySo_API.Services.PendingContractService;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
+using QuanLyHopDongVaKySo_API.Services.PositionService;
 using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Text;
+using System.IO;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
@@ -28,9 +32,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IDoneContractSvc _dContractSvc;
         private readonly IInstallationRequirementSvc _requirementSvc;
         private readonly IConfiguration _configuration;
-
+        private readonly IGenerateQRCodeHelper _generateQRCodeHelper;
         public SigningController(IPFXCertificateSvc pfxCertificate, IInstallationRequirementSvc requirementSvc, IDoneContractSvc dContractSvc,
-            IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc, IConfiguration configuration)
+            IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc, 
+            IGenerateQRCodeHelper generateQRCodeHelper,IConfiguration configuration)
         {
             _pfxCertificate = pfxCertificate;
             _pendingContract = pendingContract;
@@ -40,6 +45,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _dContractSvc = dContractSvc;
             _requirementSvc = requirementSvc;
             _configuration = configuration;
+            _generateQRCodeHelper = generateQRCodeHelper;
         }
 
         //chưa test khi dùng chữ ký hết hạn
@@ -47,6 +53,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         public async Task<ActionResult<string>> ContractingDirector(string serial, int idContract, string imagePath)
         {
             var certi = await _pfxCertificate.GetById(serial);
+            if (certi == null)
+            {
+                return BadRequest("Không có chứng chỉ hợp lệ !");
+            }
             Employee director = null;
 
             if (certi.IsEmployee)
@@ -96,6 +106,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 TOS_ID = pContract.TOS_ID,
                 TContractId = pContract.TContractId
             };
+            await _pendingContract.updateAsnyc(pendingContract);
             return Ok(signedContractPath);
         }
 
@@ -142,9 +153,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             string outputContract = pContract.PContractFile.Replace("PContracts", "DContracts");
 
-            if (!Directory.Exists("AppData/DContracts/"))
+            if (!Directory.Exists($"AppData/DContracts/{pContract.PContractID}"))
             {
-                Directory.CreateDirectory("AppData/DContracts/");
+                Directory.CreateDirectory($"AppData/DContracts/{pContract.PContractID}");
             }
 
             var signedContractPath = await _pfxCertificate.SignContract(imagePath, pContract.PContractFile, outputContract, certi.Serial, customerZone.X, customerZone.Y);
@@ -152,6 +163,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             FileStream fs = new FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
             fs.Close();
             System.IO.File.Delete(pContract.PContractFile);
+            Directory.Delete($"AppData/PContracts/{pContract.PContractID}");
 
             PutPendingContract pendingContract = new PutPendingContract
             {
@@ -181,19 +193,20 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 MinuteFile = "",
                 TMinuteId = 1
             };
-            await _requirementSvc.CreateIRequirement(requirement);
+            var result = await _requirementSvc.CreateIRequirement(requirement);
 
-            return Ok(signedContractPath);
+            return Ok(signedContractPath + result);
         }
 
-        [HttpGet("viewcontract/{token}")]
-        public async Task<ActionResult<string>> ViewContract(string token)
+        //function test
+        [HttpGet("GetByToken/{token}")]
+        public async Task<ActionResult<string>> GetByToken(string token)
         {
             // Giải mã token để lấy id khách hàng và id hợp đồng
-            var (customerId, contractId) = DecodeToken(token);
+            var contractID = DecodeToken(token);
 
             // Lấy thông tin hợp đồng dựa trên customerId và contractId
-            var contract = GetContract(customerId, contractId);
+            var contract = GetContract(contractID);
 
             if (contract == null)
             {
@@ -201,78 +214,64 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
 
             // Hiển thị hợp đồng cho khách hàng
-            return Ok(contract);
+            return Ok(await contract);
         }
 
-        private string GenerateToken(int contractID, string customerID)
-         {
-             List<Claim> claims = new List<Claim>() {
-                 new Claim("ContractID", contractID.ToString()),
-                 new Claim("CustomerID", customerID),
+        private string GenerateToken(int contractID)
+        {
+            List<Claim> claims = new List<Claim>() {
+                 new Claim("ContractID", contractID.ToString())
              };
 
-             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-               _configuration["AppSettings:Token"]!));
-
-           var creads = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
-
-             var token = new JwtSecurityToken(
-                     claims: claims,
-                     expires: DateTime.Now.AddDays(1),
-                     signingCredentials: creads
-                 );
-
-             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
-
-             return jwt;
-         }
-
-         public string GenerateUrl(string customerId, int contractId)
-         {
-              //Tạo token với id khách hàng và id hợp đồng
-             var token = GenerateToken(contractId, customerId);
-
-             // Tạo đường link có chứa token
-             var url = $"/api/contracts/viewcontract?token={token}";
-
-             // Gửi URL cho khách hàng
-             return url;
-         }
-
-        private (string, int) DecodeToken(string token)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-               _configuration["AppSettings:Token"]!));
-           
-            SecurityToken securityToken;
-            var claims = tokenHandler.ValidateToken(token, new TokenValidationParameters
-            {
-                ValidateIssuer = false,
-                ValidateAudience = false,
-                IssuerSigningKey = key,
-                ClockSkew = TimeSpan.Zero
-            }, out securityToken);
+              _configuration["AppSettings:Token"]!));
 
-            var customerId = claims.FindFirst("CustomerID").Value;
-            var contractId = int.Parse(claims.FindFirst("ContractID").Value);
+            var creads = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
-            return (customerId, contractId);
+            var token = new JwtSecurityToken(
+                    claims: claims,
+                    expires: DateTime.Now.AddDays(1),
+                    signingCredentials: creads
+                );
+
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return jwt;
         }
 
+       private string GenerateUrl(int contractID)
+       {
+            //Tạo token với id khách hàng và id hợp đồng
+            var token = GenerateToken(contractID);
 
-        
-        private object GetContract(string customerId, int contractId)
+            // Tạo đường link có chứa token
+            // Đường dẫn đến nơi hiển thị hợp đồng (Client)
+            var url = $"https://localhost:7286/api/Signing/GetByToken/{token}";
+
+            // Gửi URL cho khách hàng
+            return url;
+       }
+
+        private int DecodeToken(string token)
         {
-            // Lấy thông tin hợp đồng từ database hoặc nơi lưu trữ khác
-            // Thay bằng logic thực tế của bạn
-            return new
-            {
-                CustomerId = customerId,
-                ContractId = contractId,
-                // Thêm các thông tin khác tại đây
-            };
+            var handler = new JwtSecurityTokenHandler();
+            var jsonToken = handler.ReadToken(token);
+            var tokenS = jsonToken as JwtSecurityToken;
+
+            var pcontractID = int.Parse(tokenS.Claims.First(claim => claim.Type == "cCntractID").Value);
+            return pcontractID;
         }
+
+
+        private async Task<PendingContract> GetContract(int contractID)
+        {
+            return await _pendingContract.getByIdAsnyc(contractID);
+        }
+
+      /*  private void SendMailToCustomer()
+        {
+
+        }*/
 
     }
 }
