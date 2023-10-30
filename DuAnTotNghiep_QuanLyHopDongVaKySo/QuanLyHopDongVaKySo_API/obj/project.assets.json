@@ -746,13 +746,16 @@
           }
         }
       },
-      "QRCoder/1.4.3": {
+      "QRCoder/1.4.1": {
         "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "4.7.0"
+        },
         "compile": {
-          "lib/net6.0/QRCoder.dll": {}
+          "lib/netstandard2.0/QRCoder.dll": {}
         },
         "runtime": {
-          "lib/net6.0/QRCoder.dll": {}
+          "lib/netstandard2.0/QRCoder.dll": {}
         }
       },
       "RestSharp/110.2.0": {
@@ -2590,24 +2593,18 @@
         "pdfiumviewer.nuspec"
       ]
     },
-    "QRCoder/1.4.3": {
-      "sha512": "fWuFqjm8GTlEb2GqBl3Hi8HZZeZQwBSHxvRPtPjyNbT82H0ff0JwavKRBmMaXCno1Av6McPC8aJzri0Mj2w9Jw==",
+    "QRCoder/1.4.1": {
+      "sha512": "W8KwCwsOJe9SI7Cm7XeIMawd08F/US6xNw34lg2Qnx6m7GYYakxbyBQaNoW1Q75oJOmX/32sJUZr6Cix2B6GUQ==",
       "type": "package",
-      "path": "qrcoder/1.4.3",
+      "path": "qrcoder/1.4.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net35/QRCoder.dll",
         "lib/net40/QRCoder.dll",
-        "lib/net5.0-windows7.0/QRCoder.dll",
-        "lib/net5.0/QRCoder.dll",
-        "lib/net6.0-windows7.0/QRCoder.dll",
-        "lib/net6.0/QRCoder.dll",
-        "lib/netstandard1.3/QRCoder.dll",
+        "lib/netstandard1.1/QRCoder.dll",
         "lib/netstandard2.0/QRCoder.dll",
-        "nuget-icon.png",
-        "nuget-readme.md",
-        "qrcoder.1.4.3.nupkg.sha512",
+        "qrcoder.1.4.1.nupkg.sha512",
         "qrcoder.nuspec"
       ]
     },
@@ -3696,7 +3693,7 @@
       "NSwag.Annotations >= 13.20.0",
       "Newtonsoft.Json >= 13.0.3",
       "PdfiumViewer >= 2.13.0",
-      "QRCoder >= 1.4.3",
+      "QRCoder >= 1.4.1",
       "RestSharp >= 110.2.0",
       "Swashbuckle.AspNetCore >= 6.5.0",
       "Swashbuckle.AspNetCore.Annotations >= 6.5.0",
@@ -3792,7 +3789,7 @@
           },
           "QRCoder": {
             "target": "Package",
-            "version": "[1.4.3, )"
+            "version": "[1.4.1, )"
           },
           "RestSharp": {
             "target": "Package",

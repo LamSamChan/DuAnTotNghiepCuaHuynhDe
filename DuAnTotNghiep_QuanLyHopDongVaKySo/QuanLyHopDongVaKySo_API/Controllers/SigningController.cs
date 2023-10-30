@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.DoneContractService;
@@ -29,8 +30,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IDoneContractSvc _dContractSvc;
         private readonly IInstallationRequirementSvc _requirementSvc;
         private readonly IConfiguration _configuration;
+        private readonly IGenerateQRCodeHelper _generateQRCodeHelper;
         public SigningController(IPFXCertificateSvc pfxCertificate, IInstallationRequirementSvc requirementSvc, IDoneContractSvc dContractSvc,
-            IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc, IConfiguration configuration)
+            IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc, 
+            IGenerateQRCodeHelper generateQRCodeHelper,IConfiguration configuration)
         {
             _pfxCertificate = pfxCertificate;
             _pendingContract = pendingContract;
@@ -40,6 +43,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _dContractSvc = dContractSvc;
             _requirementSvc = requirementSvc;
             _configuration = configuration;
+            _generateQRCodeHelper = generateQRCodeHelper;
         }
 
         //chưa test khi dùng chữ ký hết hạn
@@ -227,8 +231,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return jwt;
         }
 
-        public string GenerateUrl( int contractID)
-        {
+       private string GenerateUrl(int contractID)
+       {
             //Tạo token với id khách hàng và id hợp đồng
             var token = GenerateToken(contractID);
 
@@ -238,7 +242,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             // Gửi URL cho khách hàng
             return url;
-        }
+       }
 
         private int DecodeToken(string token)
         {
