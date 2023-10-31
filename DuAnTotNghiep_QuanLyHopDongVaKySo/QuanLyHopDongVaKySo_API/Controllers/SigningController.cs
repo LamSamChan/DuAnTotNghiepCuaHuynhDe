@@ -106,6 +106,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Reason = pContract.Reason,
                 EmployeeCreatedId = pContract.EmployeeCreatedId,
                 DirectorSignedId = director.EmployeeId,
+                InstallationAddress = pContract.InstallationAddress,
                 CustomerId = pContract.CustomerId,
                 TOS_ID = pContract.TOS_ID,
                 TContractId = pContract.TContractId
@@ -191,6 +192,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 EmployeeCreatedId = pContract.EmployeeCreatedId,
                 DirectorSignedId = pContract.DirectorSignedId,
                 CustomerId = pContract.CustomerId,
+                InstallationAddress = pContract.InstallationAddress,
                 TOS_ID = pContract.TOS_ID,
                 TContractId = pContract.TContractId
             };
@@ -283,16 +285,16 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         private async Task<string> SendMailToCustomer(string qrPath, string url, Customer customer)
         {
-            string content = $"<body style=\"text-align: center;\">" +
+            string content = $"<body>" +
                                  $"<div style=\"font-family: Arial, sans-serif; background-color: #f2f2f2; margin: 0; padding: 0;\"" +
                                     $"<div style=\"background-color: #fff; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1;\"" +
-                                        $"<h1 style=\"color: #653AFE;\">Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h1>" +
-                                            $"<p style=\"color: #333;\">Dưới đây là đường dẫn để ký hợp đồng:</p>" +
+                                        $"<h1 style=\"color: #653AFE;\">Chào {customer.FullName}, cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h1>" +
+                                            $"<p style=\"color: #333;\">Dưới đây là đường dẫn để xem và ký hợp đồng:</p>" +
                                                 $"<div style=\"text-align: center;\">" +
                                                       $"<p><a style=\"display: inline-block; padding: 10px 20px; background-color: #33BDFE; color: #fff; text-decoration: none; border: none; border-radius: 5px;\" href=\"{url}\">Ký Hợp Đồng</a></p>" +
                                                 $"</div>" +
                                                 $"<div style=\"text-align: center;\">" +
-                                                    $"<img style=\"max-width: 100%; height: auto;\" src=\"{qrPath}\" alt=\"QRCode\">" +
+                                                    $"<img style=\"max-width: 200px; height: auto;\" src=\"{qrPath}\" alt=\"QRCode\">" +
                                                 $"</div>" +
                                       $"</div>" +
                                  $"</div>"+

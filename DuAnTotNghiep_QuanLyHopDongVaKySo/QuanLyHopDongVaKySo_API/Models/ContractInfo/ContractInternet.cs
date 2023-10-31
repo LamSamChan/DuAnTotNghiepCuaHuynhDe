@@ -104,7 +104,7 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
         public string ChargeNoticeAddress { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập địa gửi giấy báo cước !")]
-        [Display(Name = "Địa chỉ gửi giấy báo cước")]
+        [Display(Name = "Địa chỉ thanh toán")]
         public string BillingAddress { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập trên truy nhập !")]

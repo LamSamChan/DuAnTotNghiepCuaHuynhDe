@@ -82,7 +82,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
                     pdfStamper.Close();
                     pdfReader.Close();
-                    outputPathContracts = _pdfToImageHelper.PdfToPng(outputPdfFile, int.Parse(id_Pcontract));
+                    //outputPathContracts = _pdfToImageHelper.PdfToPng(outputPdfFile, int.Parse(id_Pcontract));
                     await _PContractSvc.updatePContractFile(int.Parse(id_Pcontract), outputPdfFile);
                 }
                 if (id_Pcontract != null)
