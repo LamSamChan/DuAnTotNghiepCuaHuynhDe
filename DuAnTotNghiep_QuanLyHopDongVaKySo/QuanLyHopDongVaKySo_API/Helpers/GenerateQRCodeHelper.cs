@@ -34,7 +34,7 @@ namespace QuanLyHopDongVaKySo_API.Helpers
             QRCodeData qrCodeData1 = new QRCodeData(qrrPath, QRCodeData.Compression.Uncompressed);
 
             QRCoder.QRCode qrCode = new QRCoder.QRCode(qrCodeData1);
-            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+            Bitmap qrCodeImage = qrCode.GetGraphic(10);
 
             string pngPath = null;
             using (MemoryStream memoryStream = new MemoryStream(BitmapToByteArray(qrCodeImage)))
@@ -47,10 +47,10 @@ namespace QuanLyHopDongVaKySo_API.Helpers
             fs.Close();
             System.IO.File.Delete(qrrPath);
 
-            byte[] imageBytes = File.ReadAllBytes(pngPath);
+           /* byte[] imageBytes = File.ReadAllBytes(pngPath);
             string base64Image = Convert.ToBase64String(imageBytes);
-            string imageSrc = "data:image/png;base64," + base64Image;
-            return imageSrc;
+            string imageSrc = "data:image/png;base64," + base64Image;*/
+            return pngPath;
         }
     }
 }

@@ -116,6 +116,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
         {
             Customer cus = await _customerSvc.GetByIdAsync(PContract.CustomerId.ToString());
             TypeOfService tos = await _typeOfServiceSvc.GetById(PContract.TOS_ID);
+            var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
             ContractInternet contract = new ContractInternet();
             if(cus != null)
             {
@@ -145,7 +146,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 contract.BillingAddress = cus.BillingAddress;
                 contract.Username = cus.FullName.Trim();
                 contract.TariffPackage = tos.ServiceName;
-                contract.ServiceRate = tos.Price + "/" + tos.PerTime;
+                contract.ServiceRate = String.Format(info, "{0:c}", tos.Price) + " / " + tos.PerTime;
                 contract.InstallationAddress = PContract.InstallationAddress;
             }
             return contract;

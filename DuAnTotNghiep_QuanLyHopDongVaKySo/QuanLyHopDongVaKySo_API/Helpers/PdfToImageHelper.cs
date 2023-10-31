@@ -13,6 +13,8 @@ namespace QuanLyHopDongVaKySo_API.Helpers
     {
         public List<string> PdfToPng(string inputFile, int idContract)
         {
+            FileStream fs1 = new FileStream(inputFile, FileMode.Open, FileAccess.Read);
+            fs1.Close();
             int totalPage;
 
             PdfReader pdfReader = new PdfReader(inputFile);
