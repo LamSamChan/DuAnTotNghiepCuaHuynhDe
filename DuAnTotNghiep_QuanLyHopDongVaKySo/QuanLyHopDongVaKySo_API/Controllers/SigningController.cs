@@ -9,14 +9,10 @@ using QuanLyHopDongVaKySo_API.Services.EmployeeService;
 using QuanLyHopDongVaKySo_API.Services.InstallationRequirementService;
 using QuanLyHopDongVaKySo_API.Services.PendingContractService;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
-using QuanLyHopDongVaKySo_API.Services.PositionService;
 using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
-using QuanLyHopDongVaKySo_API.ViewModels;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Text;
-using System.IO;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
@@ -35,9 +31,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IGenerateQRCodeHelper _generateQRCodeHelper;
         private readonly IPdfToImageHelper _pdfToImageHelper;
         private readonly IUploadFileHelper _uploadFileHelper;
+        private readonly ISendMailHelper _sendMailHelper;
+
         public SigningController(IPFXCertificateSvc pfxCertificate, IInstallationRequirementSvc requirementSvc, IDoneContractSvc dContractSvc,
-            IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc, 
-            IGenerateQRCodeHelper generateQRCodeHelper, IConfiguration configuration, IPdfToImageHelper pdfToImageHelper, IUploadFileHelper uploadFileHelper)
+            IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc,
+            IGenerateQRCodeHelper generateQRCodeHelper, IConfiguration configuration, IPdfToImageHelper pdfToImageHelper, IUploadFileHelper uploadFileHelper, ISendMailHelper sendMailHelper)
         {
             _pfxCertificate = pfxCertificate;
             _pendingContract = pendingContract;
@@ -50,6 +48,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _generateQRCodeHelper = generateQRCodeHelper;
             _pdfToImageHelper = pdfToImageHelper;
             _uploadFileHelper = uploadFileHelper;
+            _sendMailHelper = sendMailHelper;
+
         }
 
         //chưa test khi dùng chữ ký hết hạn
@@ -110,7 +110,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 TOS_ID = pContract.TOS_ID,
                 TContractId = pContract.TContractId
             };
-
+            var customer = await _customerSvc.GetByIdAsync(pContract.CustomerId.ToString());
+            var url = GenerateUrl(pContract.PContractID);
+            var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
+            var sendMail = SendMailToCustomer(qrPath, url, customer);
             _pdfToImageHelper.PdfToPng(pContract.PContractFile, pendingContract.PContractId);
             await _pendingContract.updateAsnyc(pendingContract);
             return Ok(signedContractPath);
@@ -169,6 +172,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             FileStream fs = new FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
             fs.Close();
             System.IO.File.Delete(pContract.PContractFile);
+            string qrCodePath = pContract.PContractFile.Replace(".pdf", ".png");
+            FileStream fs1 = new FileStream(qrCodePath, FileMode.Open, FileAccess.Read);
+            fs1.Close();
+            System.IO.File.Delete(qrCodePath);
             Directory.Delete($"AppData/PContracts/{pContract.PContractID}");
 
             PutPendingContract pendingContract = new PutPendingContract
@@ -209,11 +216,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpGet("GetByToken/{token}")]
         public async Task<ActionResult<string>> GetByToken(string token)
         {
-            var base64string = _generateQRCodeHelper.GenerateQRCode(token);
-            IFormFile formFile = _generateQRCodeHelper.ConvertBase64ToIFormFile(base64string, "aloalo");
-            _uploadFileHelper.UploadFile(formFile,"AppData", "Hahaha");
-            return Ok("oke");
-            /*// Giải mã token để lấy id khách hàng và id hợp đồng
+            // Giải mã token để lấy id khách hàng và id hợp đồng
             var contractID = DecodeToken(token);
 
             // Lấy thông tin hợp đồng dựa trên customerId và contractId
@@ -225,7 +228,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
 
             // Hiển thị hợp đồng cho khách hàng
-            return Ok(await contract);*/
+            return Ok(await contract);
         }
 
         private string GenerateToken(int contractID)
@@ -250,8 +253,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return jwt;
         }
 
-       private string GenerateUrl(int contractID)
-       {
+        private string GenerateUrl(int contractID)
+        {
             //Tạo token với id khách hàng và id hợp đồng
             var token = GenerateToken(contractID);
 
@@ -261,7 +264,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             // Gửi URL cho khách hàng
             return url;
-       }
+        }
 
         private int DecodeToken(string token)
         {
@@ -269,20 +272,46 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             var jsonToken = handler.ReadToken(token);
             var tokenS = jsonToken as JwtSecurityToken;
 
-            var pcontractID = int.Parse(tokenS.Claims.First(claim => claim.Type == "cCntractID").Value);
+            var pcontractID = int.Parse(tokenS.Claims.First(claim => claim.Type == "ContractID").Value);
             return pcontractID;
         }
-
 
         private async Task<PendingContract> GetContract(int contractID)
         {
             return await _pendingContract.getByIdAsnyc(contractID);
         }
 
-      /*  private void SendMailToCustomer()
+        private async Task<string> SendMailToCustomer(string qrPath, string url, Customer customer)
         {
+            string content = $"<body style=\"text-align: center;\">" +
+                                 $"<div style=\"font-family: Arial, sans-serif; background-color: #f2f2f2; margin: 0; padding: 0;\"" +
+                                    $"<div style=\"background-color: #fff; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1;\"" +
+                                        $"<h1 style=\"color: #653AFE;\">Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h1>" +
+                                            $"<p style=\"color: #333;\">Dưới đây là đường dẫn để ký hợp đồng:</p>" +
+                                                $"<div style=\"text-align: center;\">" +
+                                                      $"<p><a style=\"display: inline-block; padding: 10px 20px; background-color: #33BDFE; color: #fff; text-decoration: none; border: none; border-radius: 5px;\" href=\"{url}\">Ký Hợp Đồng</a></p>" +
+                                                $"</div>" +
+                                                $"<div style=\"text-align: center;\">" +
+                                                    $"<img style=\"max-width: 100%; height: auto;\" src=\"{qrPath}\" alt=\"QRCode\">" +
+                                                $"</div>" +
+                                      $"</div>" +
+                                 $"</div>"+
+                             $"</body>";
 
-        }*/
-
+            SendMail mail = new SendMail();
+            mail.Subject = "Hợp đồng Từ TechSeal";
+            mail.ReceiverName = customer.FullName;
+            mail.ToMail = customer.Email;
+            mail.HtmlContent = content;
+            string isSuccess = await _sendMailHelper.SendMail(mail);
+            if (isSuccess != null)
+            {
+                return "Đã cấp mật khẩu mới";
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

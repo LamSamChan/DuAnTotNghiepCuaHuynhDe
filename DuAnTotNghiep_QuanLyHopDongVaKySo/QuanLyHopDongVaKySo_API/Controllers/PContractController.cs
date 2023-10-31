@@ -40,6 +40,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             var tContract = await _TContractSvc.getByIdAsnyc(pContract.TContractId);
             //lây thông tin toạ động mẫu hợp đòng
             var Coordinates = await _CCoordinateSvc.getByTContract(pContract.TContractId);
+            List<string> outputPathContracts = new List<string>();
             if (ModelState.IsValid)
             {
                 //thêm hợp đồng
@@ -81,6 +82,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
                     pdfStamper.Close();
                     pdfReader.Close();
+                    outputPathContracts = _pdfToImageHelper.PdfToPng(outputPdfFile, int.Parse(id_Pcontract));
                     await _PContractSvc.updatePContractFile(int.Parse(id_Pcontract), outputPdfFile);
                 }
                 if (id_Pcontract != null)
@@ -88,8 +90,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     return Ok(new
                     {
                         retText = "Thêm hợp đồng thành công",
-                        data = await _PContractSvc.getByIdAsnyc(int.Parse(id_Pcontract))
-                    });
+                        data = await _PContractSvc.getByIdAsnyc(int.Parse(id_Pcontract)),
+                        imgae = outputPathContracts
+                    });;
                 }
             }
             return Ok(new

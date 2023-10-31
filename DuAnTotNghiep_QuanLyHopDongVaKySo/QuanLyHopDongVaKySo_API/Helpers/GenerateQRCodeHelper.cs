@@ -1,4 +1,5 @@
-﻿using QRCoder;
+﻿using iTextSharp.text.pdf.qrcode;
+using QRCoder;
 using QuanLyHopDongVaKySo_API.Models;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -7,43 +8,46 @@ namespace QuanLyHopDongVaKySo_API.Helpers
 {
     public interface IGenerateQRCodeHelper
     {
-        string GenerateQRCode(string text);
+        string GenerateQRCode(string text, int pContractID);
         byte[] BitmapToByteArray(Bitmap bitmap);
-        IFormFile ConvertBase64ToIFormFile(string base64String, string fileName);
     }
     public class GenerateQRCodeHelper : IGenerateQRCodeHelper
     {
         public byte[] BitmapToByteArray(Bitmap bitmap)
         {
-            using (MemoryStream ms = new MemoryStream())
+            using (MemoryStream stream = new MemoryStream())
             {
-                bitmap.Save(ms, ImageFormat.Png);
-                return ms.ToArray();
+                bitmap.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                return stream.ToArray();
             }
         }
 
-        public string GenerateQRCode(string text)
+        public string GenerateQRCode(string text, int pContractID)
         {
-            QRCodeGenerator QrGenerator = new QRCodeGenerator();
-            QRCodeData QrCodeInfo = QrGenerator.CreateQrCode(text, QRCodeGenerator.ECCLevel.Q);
-            QRCode QrCode = new QRCode(QrCodeInfo);
-            Bitmap QrBitmap = QrCode.GetGraphic(60);
-            byte[] BitmapArray = BitmapToByteArray(QrBitmap);
-            string QrUri = Convert.ToBase64String(BitmapArray);
-            return QrUri;
-        }
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(text,
+            QRCodeGenerator.ECCLevel.Q);
 
-        public IFormFile ConvertBase64ToIFormFile(string base64String, string fileName)
-        {
-            // Chuyển chuỗi Base64 thành byte[]
-            byte[] bytes = Convert.FromBase64String(base64String);
+            string qrrPath = $"AppData/PContracts/{pContractID}/" + pContractID + ".qrr";
+            qrCodeData.SaveRawData(qrrPath, QRCodeData.Compression.Uncompressed);
 
-            // Tạo một MemoryStream từ byte[]
-            using (MemoryStream ms = new MemoryStream(bytes))
+            QRCodeData qrCodeData1 = new QRCodeData(qrrPath, QRCodeData.Compression.Uncompressed);
+
+            QRCoder.QRCode qrCode = new QRCoder.QRCode(qrCodeData1);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+
+            string pngPath = null;
+            using (MemoryStream memoryStream = new MemoryStream(BitmapToByteArray(qrCodeImage)))
             {
-                // Tạo một IFormFile từ MemoryStream
-                return new FormFile(ms, 0, ms.Length, "file", fileName+".png");
+                pngPath = $"AppData/PContracts/{pContractID}/" + pContractID + ".png";
+                Image.FromStream(memoryStream).Save(pngPath);
             }
+
+            FileStream fs = new FileStream(qrrPath, FileMode.Open, FileAccess.Read);
+            fs.Close();
+            System.IO.File.Delete(qrrPath);
+
+            return pngPath;
         }
     }
 }
