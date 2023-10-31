@@ -27,19 +27,21 @@
     div[class="box_avatar"] > img {
         width: 257px;
         height: 210px;
-        border: 10px solid #FFF;
-        border-radius: 10px;
+        border: 7px solid #FFF;
+      
     }
 
-    div[id="box_load"] {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #FAFCFE;
-        border-radius: 16px;
-        border: 1px dotted #000;
-    }
+div[id="box_load"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    border: 1px dashed #E0E5F2;
+    background: #FAFCFE;
+    height: 310px;
+
+}
 
     .body .row .col-5 {
         background-color: #FFF;
@@ -47,7 +49,7 @@
     }
 
         .body .row .col-5 .row {
-            margin: 50px 0;
+            margin: auto;
         }
 
     button[class="upload"] {
@@ -67,15 +69,37 @@
         color: #4318FF;
     }
 
-    .body .row form .col-md-5 {
-        border-radius: 30px;
-        box-shadow: 0px 18px 40px 0px rgba(112, 144, 176, 0.12);
-        padding: 10px;
-        margin: 10px;
-        background-color: #FFFFFF;
-        display: flex;
-        flex-direction: column;
-    }
+div[class="infor col-5"] {
+    margin: 10px;
+    opacity: 0.9;
+    width: 610px;
+   height: 480px;
+}
+div[class="infor col-5"] > .row > .col-md-5 input {
+    border: none;
+    color: #2B3674;
+}
+div[class="infor col-5"] > .row > .col-md-5 label {
+    color: var(--secondary-grey-600, #A3AED0);
+    font-family: DM Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; 
+    letter-spacing: -0.28px;
+}
+div[class="infor col-5"]  .col{
+    margin: 20px 0;
+}
+.body .row form .col-md-5 {
+    border-radius: 30px;
+    box-shadow: 0px 18px 40px 0px rgba(112, 144, 176, 0.12);
+    padding: 10px;
+    margin: 10px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
 
     .form-input {
         border: none;
@@ -112,40 +136,3 @@
         margin-top: 100px;
     }
 
-@media screen and (min-width: 1366px) and (max-width: 1919px) {
-    .body div[class="box_avatar"] {
-        position: relative;
-        width: 257px;
-        bottom: 30px;
-        left: 300px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media screen and (max-width: 1365px) {
-    .body div[class="box_avatar"] {
-        position: relative;
-        width: 257px;
-        bottom: 30px;
-        left: 300px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-
-/* Media Query cho màn hình nhỏ */
-/*@media screen and (max-width: 768px) {
-    .body .row .col-6 {
-        background-size: contain;
-    }
-
-    .body div[class="box_avatar"] {*/
-        /* Điều chỉnh các thuộc tính khác cho màn hình nhỏ */
-    /*}*/
-
-    /* Thêm các quy tắc khác cần thiết cho màn hình nhỏ */
-/*}*/

@@ -591,3 +591,5 @@ E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanL
 E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
 E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.genruntimeconfig.cache
 E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_API.dll
+D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Ghostscript.NET.dll
+D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QRCoder.dll
