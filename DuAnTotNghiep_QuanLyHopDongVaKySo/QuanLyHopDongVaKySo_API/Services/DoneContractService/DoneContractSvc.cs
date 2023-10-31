@@ -20,6 +20,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     DateDone = DateTime.Now,
                     DConTractName = pContract.PContractName,
                     DContractFile = pContract.PContractFile,
+                    InstallationAddress = pContract.InstallationAddress,
                     IsInEffect = true,
                     EmployeeCreatedId = pContract.EmployeeCreatedId,
                     DirectorSignedId = (Guid)pContract.DirectorSignedId,

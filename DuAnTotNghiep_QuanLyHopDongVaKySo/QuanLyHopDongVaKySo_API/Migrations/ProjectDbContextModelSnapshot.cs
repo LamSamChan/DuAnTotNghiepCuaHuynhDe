@@ -73,16 +73,30 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
+                    b.Property<string>("BillingAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(255)");
+
                     b.Property<string>("BuisinessName")
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("ChargeNoticeAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(255)");
+
                     b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DatePOA")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(100)");
+
+                    b.Property<string>("FAX")
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("FullName")
                         .IsRequired()
@@ -121,6 +135,10 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<string>("Position")
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("PowerOfAttorneyNum")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
                     b.Property<string>("SerialPFX")
                         .HasColumnType("nvarchar(450)");
 
@@ -128,6 +146,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("TaxIDNumber")
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("WhoPOA")
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("CustomerId");
@@ -170,6 +191,10 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.Property<Guid>("EmployeeCreatedId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("InstallationAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsInEffect")
                         .HasColumnType("bit");
@@ -521,6 +546,10 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.Property<Guid>("EmployeeCreatedId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("InstallationAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsCustomer")
                         .HasColumnType("bit");

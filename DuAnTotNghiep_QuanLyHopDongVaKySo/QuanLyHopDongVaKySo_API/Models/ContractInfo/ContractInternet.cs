@@ -31,7 +31,7 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Required(ErrorMessage = "Hãy chọn ngày,tháng,năm sinh !")]
         [Display(Name = "Năm sinh")]
-        public DateTime DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
 
         // [Required(ErrorMessage = "Hãy chọn giới tính !"),
         //     Range(1, 2, ErrorMessage = "Giới tính không hợp lệ !")]
@@ -55,17 +55,6 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
         [MaxLength(50)]
         public string? FAX { get; set; }
 
-        [Display(Name = "CMND/CCCD")]
-        [MaxLength(20)]
-        public string? LicenseNumber { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        [Display(Name = "Ngày cấp")]
-        public DateTime IssuedLicenseDate { get; set; }
-
-        [Display(Name = "Nơi cấp")]
-        public string IssuedLicensePlace { get; set; }
-
         [Required(ErrorMessage = "Hãy số chứng minh nhân dân / căn cước công dân !")]
         [Display(Name = "CMND/CCCD")]
         [MaxLength(20)]
@@ -74,7 +63,7 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Required(ErrorMessage = "Hãy chọn ngày,tháng,năm cấp CMND/CCCD!")]
         [Display(Name = "Ngày cấp")]
-        public DateTime IssuedDate { get; set; }
+        public string IssuedDate { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập nơi cấp CMND/CCCD!")]
         [Display(Name = "Nơi cấp")]
@@ -90,10 +79,10 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Ngày")]
-        public DateTime DatePOA { get; set; }
+        public string? DatePOA { get; set; }
 
         [Display(Name = "Của")]
-        public string WhoPOA { get; set; }
+        public string? WhoPOA { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập số tài khoản ngân hàng!")]
         [Display(Name = "Số tài khoản ngân hàng")]
@@ -114,9 +103,9 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
         [Display(Name = "Địa chỉ gửi giấy báo cước")]
         public string ChargeNoticeAddress { get; set; }
 
-        [Required(ErrorMessage = "Hãy nhập địa xuất hoá đơn !")]
-        [Display(Name = "Địa chỉ xuất hoá đơn")]
-        public string InvoiceIssuingAddress { get; set; }
+        [Required(ErrorMessage = "Hãy nhập địa gửi giấy báo cước !")]
+        [Display(Name = "Địa chỉ gửi giấy báo cước")]
+        public string BillingAddress { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập trên truy nhập !")]
         [Display(Name = "Tên truy nhập")]

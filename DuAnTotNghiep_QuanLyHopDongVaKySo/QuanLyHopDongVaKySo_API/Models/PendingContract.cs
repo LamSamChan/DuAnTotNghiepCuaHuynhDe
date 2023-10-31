@@ -35,6 +35,9 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Lý do"),AllowNull]
         public string? Reason { get; set; }
 
+        [Display(Name = "Địa chỉ lắp đặt")]
+        public string InstallationAddress { get; set; }
+
         //tạo liên kết
         [ForeignKey("Employee")]
         public Guid EmployeeCreatedId { get; set; }

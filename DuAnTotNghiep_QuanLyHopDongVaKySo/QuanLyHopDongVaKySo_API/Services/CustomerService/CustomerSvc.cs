@@ -187,6 +187,8 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
                 existingCus.BankName = customer.BankName;
                 existingCus.TaxIDNumber = customer.TaxIDNumber;
                 existingCus.Address = customer.Address;
+                existingCus.ChargeNoticeAddress = customer.ChargeNoticeAddress;
+                existingCus.BillingAddress = customer.BillingAddress;
                 existingCus.IsLocked = customer.IsLocked;
                 existingCus.Note = customer.Note;
                 existingCus.SerialPFX = existingCus.SerialPFX;

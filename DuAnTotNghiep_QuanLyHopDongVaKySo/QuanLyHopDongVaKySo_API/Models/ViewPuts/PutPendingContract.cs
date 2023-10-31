@@ -19,6 +19,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         public bool IsCustomer { get; set; }
 
         public bool IsRefuse { get; set; }
+        public string InstallationAddress { get; set; }
 
         public string? Reason { get; set; }
 

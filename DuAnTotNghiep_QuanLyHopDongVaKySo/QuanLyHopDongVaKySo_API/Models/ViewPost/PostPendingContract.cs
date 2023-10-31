@@ -15,10 +15,11 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         public Guid EmployeeCreatedId { get; set; }
         public Guid CustomerId { get; set; }
-
+        public string InstallationAddress { get; set; }
         public int TOS_ID { get; set; }
 
         public int TContractId { get; set; }
+        
 
     }
 

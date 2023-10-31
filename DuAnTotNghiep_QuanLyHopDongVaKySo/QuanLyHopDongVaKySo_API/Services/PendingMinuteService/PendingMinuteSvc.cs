@@ -135,10 +135,10 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
             MinuteInfo minuteInfo = new MinuteInfo();
             if (cus != null && emp != null)
             {
-                minuteInfo.MinuteContent = "Bien ban lap dat dich vu " + tOS.ServiceName + "hop dong" + dContract.DConTractName;
+                minuteInfo.MinuteContent = "Biên bản lắp đặt dịch vụ " + tOS.ServiceName;
                 minuteInfo.MinuteId = pMinute.PendingMinuteId.ToString();
                 minuteInfo.ContractId = dContract.DContractID.ToString();
-                minuteInfo.InstallationCompany = "Tech steal";
+                minuteInfo.InstallationCompany = "Tech Seal";
                 minuteInfo.InstallationCustomer = emp.FullName;
                 minuteInfo.InstallationPosition = emp.Position == null? " " : emp.Position.ToString();
                 minuteInfo.InstallationPosition = emp.PhoneNumber;
@@ -147,19 +147,43 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
                 minuteInfo.CustomerPosition = cus.Position == null? " " : cus.Position.ToString();
                 minuteInfo.CustomerPhone = cus.PhoneNumber;
                 minuteInfo.InstallationDate = DateTime.Now.AddDays(2);
-                minuteInfo.Number1 = 1;
-                minuteInfo.FirstDevice = deviceNames[0];
-                minuteInfo.Quantity1 = 1;
-                minuteInfo.Number1 = 2;
-                minuteInfo.SecondDevice = " ";
-                minuteInfo.Quantity1 = 1;
-                minuteInfo.Number1 = 3;
-                minuteInfo.ThirdDevice = " ";
-                minuteInfo.Quantity1 = 1;
-                minuteInfo.Number1 = 4;
-                minuteInfo.FourthDevice = " ";
-                minuteInfo.Quantity1 = 1;
 
+                int count = 0;
+                for (int i = 0; i < deviceNames.Count; i++)
+                {
+                    count ++;
+                    if (count == 1)
+                    {
+                        minuteInfo.Number1 = 1;
+                        minuteInfo.FirstDevice = deviceNames[i];
+                        minuteInfo.Quantity1 = 1;
+                        continue;
+                    }
+
+                    if (count == 2)
+                    {
+                        minuteInfo.Number2 = 2;
+                        minuteInfo.SecondDevice = deviceNames[i];
+                        minuteInfo.Quantity2 = 1;
+                        continue;
+                    }
+
+                    if (count == 3)
+                    {
+                        minuteInfo.Number3 = 3;
+                        minuteInfo.ThirdDevice = deviceNames[i];
+                        minuteInfo.Quantity3 = 1;
+                        continue;
+                    }
+
+                    if (count == 4)
+                    {
+                        minuteInfo.Number4 = 4;
+                        minuteInfo.FourthDevice = deviceNames[i];
+                        minuteInfo.Quantity4 = 1;
+                        continue;
+                    }
+                }
             }
             return minuteInfo;
         }

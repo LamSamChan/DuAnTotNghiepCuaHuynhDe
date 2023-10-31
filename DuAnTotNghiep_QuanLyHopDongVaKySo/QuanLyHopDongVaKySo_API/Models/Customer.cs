@@ -64,6 +64,20 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Nơi cấp")]
         public string IssuedPlace { get; set; }
 
+        [Column(TypeName = "nvarchar(30)"), AllowNull]
+        [Display(Name = "Giấy uỷ quyền")]
+        [MaxLength(30)]
+        public string? PowerOfAttorneyNum { get; set; }
+
+
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}"),AllowNull]
+        [Display(Name = "Ngày")]
+        public DateTime? DatePOA { get; set; }
+
+        [Column(TypeName = "varchar(50)"), AllowNull]
+        [Display(Name = "Của")]
+        public string? WhoPOA { get; set; }
+
         [Column(TypeName = "nvarchar(50)")]
         [Required(ErrorMessage = "Hãy nhập Quốc Tịch!")]
         [Display(Name = "Quốc tịch")]
@@ -84,9 +98,23 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string? TaxIDNumber { get; set; }
 
         [Column(TypeName = "nvarchar(255)")]
-        [Required(ErrorMessage = "Hãy nhập địa chỉ thường chú / giao dịch!")]
-        [Display(Name = "Địa chỉ thường chú / giao dịch")]
+        [Required(ErrorMessage = "Hãy nhập địa chỉ thường chú !")]
+        [Display(Name = "Địa chỉ thường chú ")]
         public string Address { get; set; }
+
+        [Column(TypeName = "varchar(50)"), AllowNull]
+        [Display(Name = "FAX")]
+        public string? FAX { get; set; }
+
+        [Column(TypeName = "nvarchar(255)")]
+        [Required(ErrorMessage = "Hãy nhập địa gửi giấy báo cước !")]
+        [Display(Name = "Địa chỉ gửi giấy báo cước")]
+        public string ChargeNoticeAddress { get; set; }
+
+        [Column(TypeName = "nvarchar(255)")]
+        [Required(ErrorMessage = "Hãy nhập địa chỉ xuất hóa đơn!")]
+        [Display(Name = "Địa chỉ xuất hóa đơn")]
+        public string BillingAddress { get; set; }
 
         [Display(Name = "Trạng thái hoạt động")]
         public bool IsLocked { get; set; }
