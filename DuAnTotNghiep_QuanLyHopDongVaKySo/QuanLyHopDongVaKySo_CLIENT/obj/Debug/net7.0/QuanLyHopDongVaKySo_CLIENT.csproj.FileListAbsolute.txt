@@ -554,3 +554,5 @@ E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanL
 E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo_CLIENT.pdb
 E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo_CLIENT.genruntimeconfig.cache
 E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_CLIENT.dll
+D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\bin\Debug\net7.0\Ghostscript.NET.dll
+D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\bin\Debug\net7.0\QRCoder.dll

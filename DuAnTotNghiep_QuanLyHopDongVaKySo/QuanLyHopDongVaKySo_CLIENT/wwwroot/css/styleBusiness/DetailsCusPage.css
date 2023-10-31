@@ -1,4 +1,4 @@
-﻿@media screen and (min-width: 1366px) and (max-width: 1920px) {
+﻿
     div[class="box1"] div[class="avatar"] > img {
         width: 248px;
         height: 215px;
@@ -34,7 +34,34 @@
         width: 200px;
         background: #2CA8DD;
         border: none;
-        color: white;
         font-weight: bold;
     }
-}
+
+    button[class="create_Record"] a {
+        color: white;
+        text-decoration:none;
+    }
+
+
+    div[class="box2"] form .col-md-6,
+    div[class="box1"] form .col-md-6 {
+        padding: 10px;
+    }
+
+    div[class="box2"] form .col-md-6 label,
+    div[class="box1"] form .col-md-6 label {
+        color: #525252;
+        font-size: 18px;
+        font-family: Joxt;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    div[class="box2"] form .col-md-6 input,
+    div[class="box1"] form .col-md-6 input {
+        border-radius: 8px;
+        background: #EDEDED;
+        border: none;
+    }
+

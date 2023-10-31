@@ -8,12 +8,15 @@
         width: 300px;
         border-radius: 12px;
         background: #2CA8DD;
-        color: white;
         padding: 0px 8px;
         justify-content: center;
         align-items: center;
+        height:30px;
     }
-
+    button[class="addCus"] a {
+        color: white;
+        text-decoration: none;
+    }
     button[class="addCus"] > i {
         margin-left: 10px;
         font-size: 20px;
@@ -27,5 +30,13 @@
         fill: var(--secondary-primary-white, #FFF);
         background-color: #FFFFFF;
         border-radius: 10px;
+    }
+    div[class="row action"]{
+        display:contents;
+        font-size: 20px;
+    }
+    div[class="row action"] a {
+        text-decoration: none;
+        color: #8B909A;
     }
 }
