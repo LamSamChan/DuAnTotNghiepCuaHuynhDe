@@ -29,7 +29,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 PendingContract add = new PendingContract()
                 {
                     DateCreated = DateTime.Now,
-                    PContractName = "Hợp đồng sử dụng" + (PContract.TOS_ID == 1? "internet": "Dien thoai").ToString(),
+                    PContractName = "Hợp đồng sử dụng " + (PContract.TOS_ID == 1? "internet": "Dien thoai").ToString(),
                     PContractFile = "",
                     InstallationAddress = PContract.InstallationAddress,
                     IsDirector = false,
@@ -144,7 +144,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 contract.FAX = cus.FAX;
                 contract.ChargeNoticeAddress = cus.ChargeNoticeAddress;
                 contract.BillingAddress = cus.BillingAddress;
-                contract.Username = cus.FullName.Trim();
+                contract.Username = cus.FullName;
                 contract.TariffPackage = tos.ServiceName;
                 contract.ServiceRate = String.Format(info, "{0:c}", tos.Price) + " / " + tos.PerTime;
                 contract.InstallationAddress = PContract.InstallationAddress;
