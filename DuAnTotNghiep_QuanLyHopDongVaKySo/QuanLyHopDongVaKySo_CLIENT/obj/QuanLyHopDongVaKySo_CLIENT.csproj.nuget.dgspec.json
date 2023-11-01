@@ -97,6 +97,10 @@
               "target": "Package",
               "version": "[110.2.0, )"
             },
+            "Spire.PDF": {
+              "target": "Package",
+              "version": "[9.10.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
