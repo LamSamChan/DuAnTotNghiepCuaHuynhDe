@@ -121,8 +121,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             if(cus != null)
             {
                 //contract.CustomerId = cus.CustomerId.ToString();
-                contract.CustomerId = cus.CustomerId.ToString().Substring(0,8);
-                contract.ContractId = PContract.PContractID.ToString();
+                contract.CustomerId ="KH"+ cus.CustomerId.ToString().Substring(0,8);
+                contract.ContractId ="HD"+ PContract.PContractID.ToString();
                 contract.Date = PContract.DateCreated.ToString("dd/MM/yyyy");
                 contract.BuisinessName = cus.BuisinessName;
                 contract.FullName = cus.FullName;
