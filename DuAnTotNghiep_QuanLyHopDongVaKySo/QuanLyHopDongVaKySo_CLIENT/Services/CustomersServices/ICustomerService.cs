@@ -6,8 +6,8 @@ namespace QuanLyHopDongVaKySo_CLIENT.Services.CustomerServices
     {
         Task<List<Customer>> GetAllCustomers();
         Task<Customer> GetCustomerById(string id);
-        Task<string> AddNewCustomer(Customer postCustomer);
-        Task<string> UpdateCustomer(Customer putCustomer);
+        Task<string> AddNewCustomer(PostCustomer postCustomer);
+        Task<string> UpdateCustomer(PutCustomer putCustomer);
        
     }
 }

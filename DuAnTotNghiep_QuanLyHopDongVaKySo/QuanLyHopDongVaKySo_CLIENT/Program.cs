@@ -1,22 +1,15 @@
 using QuanLyHopDongVaKySo_CLIENT.Services.CustomerServices;
+using Microsoft.Extensions.DependencyInjection;
+using System.Net.Http;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7286/") });
+
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
-
-//Configure api calling address
-/*builder.Services.AddHttpClient<ContractCoordinateService>(client =>
-{
-    client.BaseAddress = new Uri("https://localhost:7286/swagger/index.html");
-});*/
-builder.Services.AddHttpClient<CustomerService>(client =>
-{
-    client.BaseAddress = new Uri("https://localhost:7286/swagger/index.html");
-});
-
-
 
 var app = builder.Build();
 
@@ -27,9 +20,7 @@ if (!app.Environment.IsDevelopment())
 }
 app.UseStaticFiles();
 
-
 app.UseRouting();
-
 
 app.UseAuthorization();
 
