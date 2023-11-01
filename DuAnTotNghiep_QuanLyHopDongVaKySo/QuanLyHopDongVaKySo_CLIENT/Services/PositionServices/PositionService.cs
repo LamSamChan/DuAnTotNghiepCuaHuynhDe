@@ -19,8 +19,7 @@ namespace QuanLyHopDongVaKySo_CLIENT.Services.PositionServices
                 var reponse = await _httpClient.PostAsync("api/Position/AddNew",content);
                 if(reponse.IsSuccessStatusCode)
                 {
-                    var ps = await reponse.Content.ReadAsStringAsync();
-                    return int.Parse(ps);
+                    return 1;
                 }
                 else
                 {
@@ -34,15 +33,21 @@ namespace QuanLyHopDongVaKySo_CLIENT.Services.PositionServices
             }
         }
 
-        public async Task<IEnumerable<Position>> GetAllPositionsAsync()
+        public async Task<List<Position>> GetAllNotHidden()
         {
-            var reponse = await _httpClient.GetFromJsonAsync<IEnumerable<Position>>("api/Position");
+            var reponse = await _httpClient.GetFromJsonAsync<List<Position>>("api/Positions/NotHidden");
+            return reponse;
+        }
+
+        public async Task<List<Position>> GetAllPositionsAsync()
+        {
+            var reponse = await _httpClient.GetFromJsonAsync<List<Position>>("api/Positions");
             return reponse;
         }
 
         public async Task<Position> GetPositionByIdAsync(int id)
         {
-            var reponse = await _httpClient.GetFromJsonAsync<Position>($"api/Position/{id}");
+            var reponse = await _httpClient.GetFromJsonAsync<Position>($"api/Positions/{id}");
             return reponse;
         }
 
@@ -51,11 +56,10 @@ namespace QuanLyHopDongVaKySo_CLIENT.Services.PositionServices
             var content = new StringContent(JsonConvert.SerializeObject(position), Encoding.UTF8, "application/json");
             try
             {
-                var reponse = await _httpClient.PutAsync("api/Position/Update", content);
+                var reponse = await _httpClient.PutAsJsonAsync("api/Positions/Update", content);
                 if (reponse.IsSuccessStatusCode)
                 {
-                    var ps = await reponse.Content.ReadAsStringAsync();
-                    return int.Parse(ps);
+                    return 1;
                 }
                 else
                 {
