@@ -40,7 +40,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                  //
                  string id_Pminute = await _pMinuteSvc.addAsnyc(pMinute);
                  var minuteById = await _pMinuteSvc.GetById(int.Parse(id_Pminute));
-                var minute = await _pMinuteSvc.ExportContract(minuteById, pMinute.EmployeeId.ToString());
+                 var minute = await _pMinuteSvc.ExportContract(minuteById, pMinute.EmployeeId.ToString());
                     if (minute != null)
                 {
                     if (!Directory.Exists("AppData/PMinutes/"))
@@ -61,7 +61,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
                         float x = coordinate.X+20; // Lấy tọa độ X từ bảng toạ độ
                         float y = 792-coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
-                        PropertyInfo property = typeof(MinuteInfo).GetProperty(fieldName);
+                        var mappingName = MinuteInfo.MinuteFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
+                        if (mappingName == null)
+                        {
+                            continue;
+                        }
+                        PropertyInfo property = typeof(MinuteInfo).GetProperty(mappingName);
                         if (property != null)
                         {
                             object value = property.GetValue(minute);

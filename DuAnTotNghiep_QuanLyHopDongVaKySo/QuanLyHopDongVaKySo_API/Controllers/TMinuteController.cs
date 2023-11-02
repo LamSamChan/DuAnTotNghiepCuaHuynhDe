@@ -6,6 +6,9 @@ using QuanLyHopDongVaKySo_API.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo_API.Services.TemplateMinuteService;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Spire.Pdf.General.Find;
+using Spire.Pdf;
+using System.Drawing;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
@@ -15,10 +18,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     {
         private readonly ITemplateMinuteSvc _TMinuteSvc;
         private readonly IUploadFileHelper _helpers;
-        public TMinuteController(ITemplateMinuteSvc TMinuteSvc,IUploadFileHelper helpers)
+        private readonly IMinuteCoordinateSvc _mCoordinateSvc;
+        public TMinuteController(ITemplateMinuteSvc TMinuteSvc,IUploadFileHelper helpers, IMinuteCoordinateSvc mCoordinateSvc)
         {
             _TMinuteSvc = TMinuteSvc;
             _helpers = helpers;
+            _mCoordinateSvc = mCoordinateSvc;
         }
 
         /// <summary>
@@ -57,15 +62,60 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddTMinuteAsnyc([FromForm] PostTMinute tMinute)
         {
-            if(ModelState.IsValid)
+            Spire.Pdf.PdfDocument doc = new Spire.Pdf.PdfDocument();
+            if (ModelState.IsValid)
             {
                 int id_Tminute = await _TMinuteSvc.addAsnyc(tMinute);
-
-                if(id_Tminute >0)
+                string filePath = null;
+                float X = 0; float Y = 0;
+                if (id_Tminute >0)
                 {
                     if(tMinute.File != null)
                     {
-                        _helpers.UploadFile(tMinute.File,"AppData","TMinutes");
+                        filePath = _helpers.UploadFile(tMinute.File,"AppData","TMinutes");
+                        int pageNum = 0;
+                        doc.LoadFromFile(filePath);
+
+                        int i = 1;
+                        bool bearkForeach = false;
+                        foreach (PdfPageBase page in doc.Pages)
+                        {
+                            pageNum++;
+                            for (; i <= 50; i++)
+                            {
+                                PdfTextFind[] results = null;
+                                results = page.FindText($"({i})", TextFindParameter.IgnoreCase).Finds;
+
+                                if (results.Length == 0)
+                                {
+                                    if (pageNum == doc.Pages.Count)
+                                    {
+                                        bearkForeach = true;
+                                    }
+                                    break;
+                                }
+                                foreach (PdfTextFind text in results)
+                                {
+                                    PointF p = text.Position;
+                                    X = p.X;
+                                    Y = p.Y;
+                                    break;
+                                }
+                                PostMinuteCoordinate coordinate = new PostMinuteCoordinate()
+                                {
+                                    FieldName = $"{i}",
+                                    X = X,
+                                    Y = Y,
+                                    SignaturePage = pageNum,
+                                    TMinutetID = id_Tminute,
+                                };
+                                await _mCoordinateSvc.add(coordinate);
+                            }
+                            if (bearkForeach)
+                            {
+                                break;
+                            }
+                        }
                         return Ok(new {
                         retText = "Thêm mẫu biên bản thành công",
                         data = await _TMinuteSvc.getByIdAsnyc(id_Tminute)
