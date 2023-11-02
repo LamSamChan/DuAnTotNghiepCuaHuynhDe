@@ -16,8 +16,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Admin/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
+[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Admin/DetailsAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGV0YWlsc0FjY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Admin/ListAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTGlzdEFjY291bnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Boss/ContractsAwaiting.cshtml]
@@ -82,6 +86,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/DetailsContractListRefuse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxEZXRhaWxzQ29udHJhY3RMaXN0UmVmdXNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/DetailsContractListWaitSig.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NTdGFmZlxEZXRhaWxzQ29udHJhY3RMaXN0V2FpdFNpZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/BusinessStaff/DetailsCus.cshtml]

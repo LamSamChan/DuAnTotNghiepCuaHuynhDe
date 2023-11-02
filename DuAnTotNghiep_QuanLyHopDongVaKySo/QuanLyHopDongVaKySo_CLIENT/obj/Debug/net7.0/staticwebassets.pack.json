@@ -4005,6 +4005,10 @@
       "PackagePath": "staticwebassets\\Admin_Resource\\css\\style.min.css.map"
     },
     {
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\css\\vendors\\Css_Index.css",
+      "PackagePath": "staticwebassets\\Admin_Resource\\css\\vendors\\Css_Index.css"
+    },
+    {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\css\\vendors\\simplebar.css",
       "PackagePath": "staticwebassets\\Admin_Resource\\css\\vendors\\simplebar.css"
     },
@@ -4069,896 +4073,896 @@
       "PackagePath": "staticwebassets\\Admin_Resource\\js\\widgets.js.map"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\chartjs\\css\\coreui-chartjs.css",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\chartjs\\css\\coreui-chartjs.css"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\chartjs\\css\\coreui-chartjs.css",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\chartjs\\css\\coreui-chartjs.css"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\chartjs\\css\\coreui-chartjs.css.map",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\chartjs\\css\\coreui-chartjs.css.map"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\chartjs\\css\\coreui-chartjs.css.map",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\chartjs\\css\\coreui-chartjs.css.map"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\chartjs\\js\\coreui-chartjs.js",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\chartjs\\js\\coreui-chartjs.js"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\chartjs\\js\\coreui-chartjs.js",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\chartjs\\js\\coreui-chartjs.js"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\chartjs\\js\\coreui-chartjs.js.map",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\chartjs\\js\\coreui-chartjs.js.map"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\chartjs\\js\\coreui-chartjs.js.map",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\chartjs\\js\\coreui-chartjs.js.map"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\coreui\\js\\coreui.bundle.min.js",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\coreui\\js\\coreui.bundle.min.js"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\coreui\\js\\coreui.bundle.min.js",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\coreui\\js\\coreui.bundle.min.js"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\coreui\\js\\coreui.bundle.min.js.map",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\coreui\\js\\coreui.bundle.min.js.map"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\coreui\\js\\coreui.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\coreui\\js\\coreui.bundle.min.js.map"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\css\\brand.min.css",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\css\\brand.min.css"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\css\\brand.min.css",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\css\\brand.min.css"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\css\\brand.min.css.map",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\css\\brand.min.css.map"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\css\\brand.min.css.map",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\css\\brand.min.css.map"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\css\\flag.min.css",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\css\\flag.min.css"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\css\\flag.min.css",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\css\\flag.min.css"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\css\\flag.min.css.map",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\css\\flag.min.css.map"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\css\\flag.min.css.map",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\css\\flag.min.css.map"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\css\\free.min.css",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\css\\free.min.css"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\css\\free.min.css",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\css\\free.min.css"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\css\\free.min.css.map",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\css\\free.min.css.map"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\css\\free.min.css.map",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\css\\free.min.css.map"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Brand.eot",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Brand.eot"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Brand.eot",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Brand.eot"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Brand.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Brand.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Brand.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Brand.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Brand.ttf",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Brand.ttf"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Brand.ttf",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Brand.ttf"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Brand.woff",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Brand.woff"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Brand.woff",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Brand.woff"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Free.eot",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Free.eot"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Free.eot",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Free.eot"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Free.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Free.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Free.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Free.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Free.ttf",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Free.ttf"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Free.ttf",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Free.ttf"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Free.woff",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\fonts\\CoreUI-Icons-Free.woff"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Free.woff",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\fonts\\CoreUI-Icons-Free.woff"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\brand.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\brand.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\brand.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\brand.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ad.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ad.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ad.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ad.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ae.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ae.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ae.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ae.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-af.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-af.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-af.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-af.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ag.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ag.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ag.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ag.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-al.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-al.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-al.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-al.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-am.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-am.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-am.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-am.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ao.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ao.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ao.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ao.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ar.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ar.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ar.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ar.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-at.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-at.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-at.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-at.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-au.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-au.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-au.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-au.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-az.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-az.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-az.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-az.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ba.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ba.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ba.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ba.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bb.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bb.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bb.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bb.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bd.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bd.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bd.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bd.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-be.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-be.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-be.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-be.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bf.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bf.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bf.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bf.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bg.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bg.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bg.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bg.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bh.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bh.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bh.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bh.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bi.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bi.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bi.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bi.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bj.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bj.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bj.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bj.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bn.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bn.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bn.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bn.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bo.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bo.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bo.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bo.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-br.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-br.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-br.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-br.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bs.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bs.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bs.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bs.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bt.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bt.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bt.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bt.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bw.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bw.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bw.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bw.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-by.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-by.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-by.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-by.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bz.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-bz.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bz.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-bz.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ca.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ca.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ca.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ca.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cd.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cd.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cd.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cd.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cf.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cf.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cf.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cf.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cg.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cg.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cg.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cg.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ch.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ch.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ch.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ch.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ci.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ci.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ci.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ci.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ck.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ck.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ck.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ck.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cl.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cl.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cl.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cl.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cm.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cm.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cm.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cm.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cn.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cn.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cn.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cn.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-co.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-co.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-co.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-co.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cr.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cr.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cr.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cr.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cu.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cu.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cu.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cu.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cv.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cv.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cv.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cv.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cy.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cy.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cy.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cy.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cz.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-cz.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cz.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-cz.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-de.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-de.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-de.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-de.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-dj.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-dj.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-dj.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-dj.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-dk.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-dk.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-dk.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-dk.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-dm.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-dm.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-dm.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-dm.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-do.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-do.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-do.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-do.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-dz.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-dz.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-dz.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-dz.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ec.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ec.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ec.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ec.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ee.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ee.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ee.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ee.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-eg.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-eg.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-eg.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-eg.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-er.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-er.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-er.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-er.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-es.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-es.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-es.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-es.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-et.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-et.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-et.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-et.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-fi.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-fi.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-fi.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-fi.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-fj.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-fj.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-fj.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-fj.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-fm.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-fm.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-fm.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-fm.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-fr.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-fr.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-fr.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-fr.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ga.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ga.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ga.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ga.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gb.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gb.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gb.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gb.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gd.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gd.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gd.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gd.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ge.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ge.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ge.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ge.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gh.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gh.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gh.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gh.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gm.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gm.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gm.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gm.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gn.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gn.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gn.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gn.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gq.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gq.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gq.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gq.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gr.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gr.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gr.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gr.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gt.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gt.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gt.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gt.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gw.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gw.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gw.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gw.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gy.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-gy.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gy.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-gy.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-hk.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-hk.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-hk.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-hk.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-hn.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-hn.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-hn.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-hn.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-hr.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-hr.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-hr.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-hr.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ht.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ht.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ht.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ht.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-hu.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-hu.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-hu.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-hu.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-id.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-id.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-id.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-id.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ie.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ie.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ie.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ie.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-il.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-il.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-il.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-il.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-in.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-in.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-in.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-in.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-iq.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-iq.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-iq.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-iq.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ir.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ir.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ir.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ir.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-is.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-is.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-is.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-is.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-it.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-it.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-it.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-it.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-jm.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-jm.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-jm.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-jm.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-jo.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-jo.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-jo.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-jo.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-jp.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-jp.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-jp.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-jp.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ke.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ke.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ke.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ke.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kg.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kg.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kg.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kg.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kh.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kh.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kh.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kh.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ki.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ki.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ki.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ki.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-km.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-km.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-km.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-km.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kn.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kn.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kn.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kn.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kp.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kp.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kp.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kp.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kr.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kr.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kr.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kr.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kw.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kw.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kw.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kw.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kz.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-kz.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kz.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-kz.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-la.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-la.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-la.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-la.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lb.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lb.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lb.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lb.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lc.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lc.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lc.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lc.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-li.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-li.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-li.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-li.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lk.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lk.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lk.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lk.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lr.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lr.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lr.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lr.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ls.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ls.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ls.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ls.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lt.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lt.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lt.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lt.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lu.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lu.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lu.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lu.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lv.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-lv.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lv.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-lv.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ly.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ly.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ly.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ly.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ma.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ma.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ma.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ma.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mc.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mc.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mc.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mc.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-md.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-md.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-md.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-md.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-me.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-me.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-me.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-me.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mg.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mg.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mg.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mg.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mh.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mh.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mh.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mh.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mk.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mk.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mk.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mk.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ml.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ml.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ml.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ml.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mm.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mm.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mm.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mm.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mn.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mn.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mn.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mn.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mr.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mr.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mr.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mr.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mt.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mt.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mt.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mt.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mu.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mu.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mu.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mu.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mv.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mv.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mv.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mv.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mw.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mw.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mw.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mw.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mx.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mx.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mx.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mx.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-my.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-my.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-my.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-my.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mz.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-mz.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mz.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-mz.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-na.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-na.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-na.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-na.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ne.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ne.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ne.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ne.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ng.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ng.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ng.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ng.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ni.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ni.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ni.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ni.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-nl.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-nl.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-nl.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-nl.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-no.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-no.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-no.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-no.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-np.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-np.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-np.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-np.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-nr.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-nr.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-nr.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-nr.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-nu.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-nu.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-nu.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-nu.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-nz.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-nz.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-nz.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-nz.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-om.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-om.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-om.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-om.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pa.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pa.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pa.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pa.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pe.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pe.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pe.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pe.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pg.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pg.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pg.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pg.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ph.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ph.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ph.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ph.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pk.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pk.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pk.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pk.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pl.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pl.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pl.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pl.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pt.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pt.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pt.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pt.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pw.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-pw.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pw.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-pw.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-py.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-py.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-py.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-py.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-qa.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-qa.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-qa.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-qa.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ro.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ro.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ro.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ro.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-rs.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-rs.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-rs.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-rs.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ru.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ru.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ru.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ru.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-rw.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-rw.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-rw.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-rw.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sa.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sa.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sa.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sa.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sb.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sb.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sb.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sb.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sc.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sc.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sc.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sc.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sd.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sd.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sd.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sd.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-se.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-se.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-se.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-se.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sg.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sg.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sg.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sg.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-si.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-si.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-si.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-si.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sk.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sk.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sk.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sk.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sl.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sl.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sl.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sl.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sm.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sm.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sm.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sm.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sn.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sn.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sn.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sn.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-so.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-so.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-so.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-so.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sr.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sr.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sr.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sr.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ss.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ss.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ss.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ss.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-st.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-st.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-st.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-st.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sv.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sv.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sv.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sv.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sy.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sy.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sy.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sy.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sz.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-sz.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sz.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-sz.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-td.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-td.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-td.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-td.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tg.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tg.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tg.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tg.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-th.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-th.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-th.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-th.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tj.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tj.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tj.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tj.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tl.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tl.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tl.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tl.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tm.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tm.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tm.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tm.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tn.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tn.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tn.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tn.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-to.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-to.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-to.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-to.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tr.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tr.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tr.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tr.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tt.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tt.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tt.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tt.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tv.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tv.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tv.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tv.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tw.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tw.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tw.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tw.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tz.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-tz.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tz.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-tz.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ua.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ua.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ua.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ua.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ug.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ug.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ug.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ug.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-us.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-us.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-us.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-us.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-uy.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-uy.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-uy.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-uy.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-uz.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-uz.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-uz.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-uz.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-va.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-va.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-va.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-va.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-vc.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-vc.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-vc.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-vc.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ve.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ve.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ve.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ve.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-vg.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-vg.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-vg.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-vg.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-vn.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-vn.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-vn.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-vn.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ws.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ws.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ws.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ws.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-xk.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-xk.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-xk.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-xk.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ye.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-ye.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ye.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-ye.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-za.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-za.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-za.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-za.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-zm.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-zm.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-zm.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-zm.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-zw.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\flag\\cif-zw.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-zw.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\flag\\cif-zw.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\free.svg",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\icons\\svg\\free.svg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\free.svg",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\icons\\svg\\free.svg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\@coreui\\utils\\js\\coreui-utils.js",
-      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\@coreui\\utils\\js\\coreui-utils.js"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\_coreui\\utils\\js\\coreui-utils.js",
+      "PackagePath": "staticwebassets\\Admin_Resource\\vendors\\_coreui\\utils\\js\\coreui-utils.js"
     },
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\wwwroot\\Admin_Resource\\vendors\\chart.js\\js\\chart.min.js",

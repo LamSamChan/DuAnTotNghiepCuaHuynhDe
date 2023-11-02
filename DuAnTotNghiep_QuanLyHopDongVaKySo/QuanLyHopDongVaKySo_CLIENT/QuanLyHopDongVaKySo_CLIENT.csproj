@@ -9,27 +9,7 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
 
   <ItemGroup>
-    <Content Remove="Pages\BusinessStaff\DetailsContractListWaitSig.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\BusinessStaff\DetailsContractListWaitSig.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\BusinessStaff\DetailsContractListWaitSig.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Pages\BusinessStaff\DetailsContractListWaitSig.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\QuanLyHopDongVaKySo_API\QuanLyHopDongVaKySo_API.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\Admin_Resource\" />
   </ItemGroup>
 
 </Project>
