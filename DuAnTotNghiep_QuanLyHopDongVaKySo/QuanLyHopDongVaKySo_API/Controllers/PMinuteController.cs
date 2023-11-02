@@ -60,7 +60,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     {
                         string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
                         float x = coordinate.X+20; // Lấy tọa độ X từ bảng toạ độ
-                        float y = 792-coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                        float y = 794-coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                         var mappingName = MinuteInfo.MinuteFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
                         if (mappingName == null)
                         {
