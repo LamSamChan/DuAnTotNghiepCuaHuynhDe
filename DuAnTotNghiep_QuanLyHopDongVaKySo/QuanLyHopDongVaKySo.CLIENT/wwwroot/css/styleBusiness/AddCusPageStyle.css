@@ -27,17 +27,17 @@
     }
 
     .content {
-        opacity: 0.5;
-        pointer-events: none;
-        border-radius: 58px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 5px;
         border: 1px solid #000;
         height: 100px;
     }
 
-        .content.disabled {
-            opacity: 1;
-            transition: opacity 0.3s ease;
-        }
+    .content.disabled {
+        opacity: 1;
+        pointer-events: none;
+    }
 
     button[class="return"] {
         border: none;
