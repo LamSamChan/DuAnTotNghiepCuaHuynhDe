@@ -24,6 +24,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTGlzdEFjY291bnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Auth/AddPosition.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxBZGRQb3NpdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Auth/AddRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxBZGRSb2xlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Auth/ListPosition.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMaXN0UG9zaXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Auth/ListRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMaXN0Um9sZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Boss/ContractsAwaiting.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9zc1xDb250cmFjdHNBd2FpdGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -154,14 +170,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Login/LoginForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cTG9naW5Gb3JtLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/POSITION/AddRoles.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUE9TSVRJT05cQWRkUm9sZXMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/POSITION/ListRoles.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUE9TSVRJT05cTGlzdFJvbGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Privacy.cshtml]
