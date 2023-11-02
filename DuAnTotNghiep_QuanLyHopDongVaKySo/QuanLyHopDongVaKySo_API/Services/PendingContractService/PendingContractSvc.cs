@@ -118,11 +118,12 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
 
         public async Task<ContractInternet> ExportContract(PendingContract PContract, Employee? employee)
         {
-            string postion = null;
+            string? postion = null;
             if (employee != null)
             {
-                postion = _positionSvc.GetById(employee.PositionID).Result.PositionName;
+                postion = _positionSvc.GetById(employee.PositionID)?.Result.PositionName;
             }
+
             Customer cus = await _customerSvc.GetByIdAsync(PContract.CustomerId.ToString());
             TypeOfService tos = await _typeOfServiceSvc.GetById(PContract.TOS_ID);
             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
@@ -163,8 +164,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 contract.InstallationAddress = PContract.InstallationAddress;
                 contract.RepresentativePerson1 = employee.FullName;
                 contract.RepresentativePerson2 = employee.FullName;
-                contract.RepresentativePosition1 = postion;
-                contract.RepresentativePosition2 = postion;
+                contract.RepresentativePosition1 = postion == null ? "" : postion;
+                contract.RepresentativePosition2 = postion == null ? "" : postion;
             }
             return contract;
         }

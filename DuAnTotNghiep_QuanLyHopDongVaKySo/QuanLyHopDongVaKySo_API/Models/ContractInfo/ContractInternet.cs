@@ -51,6 +51,7 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
             { "33", "RepresentativePerson2" },
 
         };
+
         [Required(ErrorMessage = "Hãy điền mã khách hàng !")]
         [Display(Name = "Mã khách hàng")]
         public string CustomerId { get; set; }

@@ -79,7 +79,16 @@ namespace QuanLyHopDongVaKySo_API.Services.PositionService
         {
             try
             {
-                return _context.Positions.FirstOrDefault(p => p.PositionID == positionId);
+                var position = new Position();
+                position = _context.Positions.FirstOrDefault(p => p.PositionID == positionId);
+                if (position != null)
+                {
+                    return position;
+                }
+                else
+                {
+                    return new Position();
+                }
             }
             catch (Exception ex)
             {

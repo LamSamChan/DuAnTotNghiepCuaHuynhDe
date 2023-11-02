@@ -11,10 +11,10 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
         {
             _context = context;
         }
-        public async Task<string> addAsnyc(PutPendingContract pContract)
+        public async Task<DoneContract> addAsnyc(PutPendingContract pContract)
         {
-            string ret = null;
             try{
+
                 DoneContract add = new DoneContract()
                 {
                     DateDone = DateTime.Now,
@@ -29,10 +29,10 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                 };
                 await _context.DoneContracts.AddAsync(add);
                 await _context.SaveChangesAsync();
-                return add.DContractID.ToString();
+                return add;
             }catch
             {
-                return ret;
+                return new DoneContract();
             }
         }
 

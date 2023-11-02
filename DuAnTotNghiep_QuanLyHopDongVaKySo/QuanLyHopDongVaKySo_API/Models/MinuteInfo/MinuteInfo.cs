@@ -4,6 +4,47 @@ namespace QuanLyHopDongVaKySo_API.Models
 {
     public class MinuteInfo
     {
+        static public Dictionary<string, string> MinuteFieldName = new Dictionary<string, string>
+        {
+            { "1", "MinuteCreatedDate" },
+            { "2", "MinuteContent" },
+            { "3", "MinuteId" },
+            { "4", "ContractId" },
+            { "5", "InstallationCustomer" },
+            { "6", "CustomerName" },
+            { "7", "CustomerPosition" },
+            { "8", "CustomerPhone" },
+            { "9", "InstallationCompany" },
+            { "10", "InstallationPerson" },
+            { "11", "InstallationPosition" },
+            { "12", "InstallationPhone" },
+            { "14", "InstallationAddress" },
+            { "15", "Number1" },
+            { "16", "FirstDevice" },
+            { "17", "StatusDevice1" },
+            { "18", "Quantity1" },
+            { "19", "Number2" },
+            { "20", "SecondDevice" },
+            { "21", "StatusDevice2" },
+            { "22", "Quantity2" },
+            { "23", "Number3" },
+            { "24", "ThirdDevice" },
+            { "25", "StatusDevice3" },
+            { "26", "Quantity3" },
+            { "27", "Number4" },
+            { "28", "FourthDevice" },
+            { "29", "StatusDevice3" },
+            { "30", "Quantity3" },
+
+        };
+
+        static public Dictionary<string, string> Installation = new Dictionary<string, string>
+        {
+            { "13", "InstallationDate" },
+        };
+
+        public string MinuteCreatedDate { get; set; }
+
         [Required(ErrorMessage = "Hãy nhập nội dung của biên bản !")]
         [Display(Name = "Nội dung biên bản lắp đặt")]
         public string MinuteContent { get; set; }
@@ -17,7 +58,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string ContractId { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập tên công ty lắp đặt !")]
-        [Display(Name = "Bên A")]
+        [Display(Name = "Bên B")]
         public string InstallationCompany { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập họ tên người lắp đặt !")]
@@ -33,7 +74,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string InstallationPhone { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập nơi được lắp đặt !")]
-        [Display(Name = "Bên B")]
+        [Display(Name = "Bên A")]
         public string InstallationCustomer { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập họ tên người đại diện nơi lắp đặt !")]
@@ -50,7 +91,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [Required(ErrorMessage = "Hãy nhập ngày lắp đặt !")]
         [Display(Name = "Ngày")]
-        public DateTime InstallationDate { get; set; }
+        public string? InstallationDate { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập địa chỉ lắp đặt !")]
         [Display(Name = "Địa chỉ lắp đặt")]
@@ -61,7 +102,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [Display(Name = "Thiết bị thứ nhất")]
         public string? FirstDevice { get; set; }
-
+        public string? DeviceStatus1 { get; set; }
         [Display(Name = "Số lượng thiết bị thứ nhất")]
         public int? Quantity1 { get; set; }
 
@@ -69,6 +110,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         public int? Number2 { get; set; }
         [Display(Name = "Thiết bị thứ hai")]
         public string? SecondDevice { get; set; }
+        public string? DeviceStatus2 { get; set; }
         [Display(Name = "Số lượng thiết bị thứ hai")]
         public int? Quantity2 { get; set; }
 
@@ -76,6 +118,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         public int? Number3 { get; set; }
         [Display(Name = "Thiết bị thứ ba")]
         public string? ThirdDevice { get; set; }
+        public string? DeviceStatus3 { get; set; }
 
         [Display(Name = "Số lượng thiết bị thứ ba")]
         public int? Quantity3 { get; set; }
@@ -84,6 +127,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         public int? Number4 { get; set; }
         [Display(Name = "Thiết bị thứ tư")]
         public string? FourthDevice { get; set; }
+        public string? DeviceStatus4 { get; set; }
         [Display(Name = "Số lượng thiết bị thứ tư")]
         public int? Quantity4 { get; set; }
     }
