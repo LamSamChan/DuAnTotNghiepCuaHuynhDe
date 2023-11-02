@@ -29,7 +29,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost]
-         public async Task<IActionResult> AddPMinuteAsnyc([FromForm] PostPMinute pMinute, string empId)
+         public async Task<IActionResult> AddPMinuteAsnyc([FromForm] PostPMinute pMinute)
          {
              // lấy thông tin biên bản mẫu
              var tMinute = await _tMinuteSvc.getByIdAsnyc(pMinute.TMinuteId);
@@ -40,27 +40,27 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                  //
                  string id_Pminute = await _pMinuteSvc.addAsnyc(pMinute);
                  var minuteById = await _pMinuteSvc.GetById(int.Parse(id_Pminute));
-                var minute = await _pMinuteSvc.ExportContract(minuteById, empId);
+                var minute = await _pMinuteSvc.ExportContract(minuteById, pMinute.EmployeeId.ToString());
                     if (minute != null)
                 {
-                    if (!Directory.Exists("AppData/PMinutess/"))
+                    if (!Directory.Exists("AppData/PMinutes/"))
                     {
-                        Directory.CreateDirectory("AppData/PMinutess/");
+                        Directory.CreateDirectory("AppData/PMinutes/");
                     }
                     string pdfFilePath = tMinute.TMinuteFile;
-                    string outputPdfFile = "AppData/PMinutess/" + id_Pminute + ".pdf";
+                    string outputPdfFile = "AppData/PMinutes/" + id_Pminute + ".pdf";
                     PdfReader pdfReader = new PdfReader(pdfFilePath);
                     PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(outputPdfFile, FileMode.Create));
                     // Tạo một font cho trường văn bản
-                    BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
+                    BaseFont bf = BaseFont.CreateFont(@"AppData/texgyretermes-regular.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
                     // Thiết lập font và kích thước cho trường văn bản
                     Font font = new Font(bf, 12);
 
                     foreach (var coordinate in Coordinates)
                     {
                         string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
-                        float x = coordinate.X; // Lấy tọa độ X từ bảng toạ độ
-                        float y = coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                        float x = coordinate.X+20; // Lấy tọa độ X từ bảng toạ độ
+                        float y = 792-coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                         PropertyInfo property = typeof(MinuteInfo).GetProperty(fieldName);
                         if (property != null)
                         {
@@ -69,7 +69,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                             {
                                 string contractValue = value.ToString();
                                 ColumnText.ShowTextAligned(pdfStamper.GetOverContent(coordinate.SignaturePage),
-                                Element.ALIGN_BASELINE, new Phrase(contractValue, font), (float)coordinate.X, (float)coordinate.Y, 0);
+                                Element.ALIGN_BASELINE, new Phrase(contractValue, font), x, y, 0);
                             }
                         }
 

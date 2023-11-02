@@ -146,7 +146,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
                 minuteInfo.CustomerName = cus.FullName;
                 minuteInfo.CustomerPosition = cus.Position == null? " " : cus.Position.ToString();
                 minuteInfo.CustomerPhone = cus.PhoneNumber;
-                minuteInfo.InstallationDate = DateTime.Now.AddDays(2);
+                minuteInfo.MinuteCreatedDate = DateTime.Now.ToString("dd/MM/yyyy");
 
                 int count = 0;
                 for (int i = 0; i < deviceNames.Count; i++)

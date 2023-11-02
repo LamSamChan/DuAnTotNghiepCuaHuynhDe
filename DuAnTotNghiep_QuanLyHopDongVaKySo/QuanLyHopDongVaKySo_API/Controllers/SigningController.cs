@@ -19,6 +19,7 @@ using System.Reflection;
 using System.Security.Claims;
 using System.Text;
 using QuanLyHopDongVaKySo_API.Services;
+using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
@@ -39,11 +40,13 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IPdfToImageHelper _pdfToImageHelper;
         private readonly IUploadFileHelper _uploadFileHelper;
         private readonly ISendMailHelper _sendMailHelper;
+        private readonly ITypeOfServiceSvc _typeOfServiceSvc;
+
 
         public SigningController(IPFXCertificateSvc pfxCertificate, IInstallationRequirementSvc requirementSvc, IDoneContractSvc dContractSvc,
             IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc,
             IGenerateQRCodeHelper generateQRCodeHelper, IConfiguration configuration, IPdfToImageHelper pdfToImageHelper, IUploadFileHelper uploadFileHelper,
-            ISendMailHelper sendMailHelper, IContractCoordinateSvc contractCoordinateSvc)
+            ISendMailHelper sendMailHelper, IContractCoordinateSvc contractCoordinateSvc, ITypeOfServiceSvc typeOfServiceSvc)
         {
             _pfxCertificate = pfxCertificate;
             _pendingContract = pendingContract;
@@ -58,6 +61,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _uploadFileHelper = uploadFileHelper;
             _sendMailHelper = sendMailHelper;
             _contractCoordinateSvc = contractCoordinateSvc;
+            _typeOfServiceSvc = typeOfServiceSvc;
         }
 
         //chưa test khi dùng chữ ký hết hạn
@@ -145,7 +149,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
                 float x = coordinate.X + 30; // Lấy tọa độ X từ bảng toạ độ
-                float y = 835 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                float y = 834 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                 var mappingName = ContractInternet.RepresentativeContract.FirstOrDefault(id => id.Key == fieldName).Value;
                 if (mappingName == null)
                 {
@@ -279,17 +283,27 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             var dContract = await _dContractSvc.addAsnyc(pendingContract);
             await _pendingContract.deleteAsnyc(pendingContract.PContractId);
 
+            string serviceName = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.ServiceName;
             InstallationRequirement requirement = new InstallationRequirement()
             {
                 DateCreated = DateTime.Now,
-                MinuteName = "Biên bản lắp đặt hợp đồng" + dContract,
-                DoneContractId = int.Parse(dContract),
+                MinuteName = "Biên bản lắp đặt hợp đồng " + serviceName,
+                DoneContractId = dContract.DContractID,
                 MinuteFile = "",
+                //sửa lại là lấy id tminute tương ứng với dịch vụ đó
                 TMinuteId = 1
             };
-            var result = await _requirementSvc.CreateIRequirement(requirement);
+            int result = await _requirementSvc.CreateIRequirement(requirement);
 
-            return Ok(signedContractPath);
+            if (result != 0)
+            {
+                return Ok(signedContractPath);
+            }
+            else
+            {
+                return BadRequest();
+            }
+            
         }
 
         //function test

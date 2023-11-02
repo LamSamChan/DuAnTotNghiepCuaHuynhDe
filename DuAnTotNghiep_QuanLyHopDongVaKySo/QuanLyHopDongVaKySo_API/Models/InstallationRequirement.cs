@@ -20,7 +20,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Tên biên bản")]
         public string MinuteName { get; set; }
 
-        [Column(TypeName = "nvarchar(250)")]
+        [Column(TypeName = "nvarchar(250)"),AllowNull]
         [Display(Name = "Tệp biên bản")]
         public string MinuteFile { get; set; }
 
