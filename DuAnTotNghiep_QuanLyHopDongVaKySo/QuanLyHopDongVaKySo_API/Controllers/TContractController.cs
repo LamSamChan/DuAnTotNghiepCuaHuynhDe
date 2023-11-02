@@ -4,6 +4,10 @@ using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services;
 using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
 using QuanLyHopDongVaKySo_API.Helpers;
+using Spire.Pdf.General.Find;
+using Spire.Pdf;
+using System.Drawing;
+
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
@@ -11,11 +15,13 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     public class TContractController:ControllerBase
     {
         private readonly ITemplateContractSvc _TContractSvc;
+        private readonly IContractCoordinateSvc _contractCoordinateSvc;
          private readonly IUploadFileHelper _helpers;
-        public TContractController(ITemplateContractSvc TContractSvc,IUploadFileHelper helpers)
+        public TContractController(ITemplateContractSvc TContractSvc,IUploadFileHelper helpers, IContractCoordinateSvc contractCoordinateSvc)
         {
             _TContractSvc = TContractSvc;
             _helpers = helpers;
+            _contractCoordinateSvc = contractCoordinateSvc;
         }
 
         /// <summary>
@@ -55,14 +61,61 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddTContractAsnyc([FromForm] PostTContract tContract)
         {
-             if(ModelState.IsValid)
+            Spire.Pdf.PdfDocument doc = new Spire.Pdf.PdfDocument();
+            if (ModelState.IsValid)
              {
                 int id_Tcontract = await _TContractSvc.addAsnyc(tContract);
+                string filePath = null;
+                float X = 0; float Y = 0;
                 if(id_Tcontract > 0)
                 {
                     if(tContract.File != null)
                     {
-                        _helpers.UploadFile(tContract.File,"AppData","TContracts");
+                        filePath = _helpers.UploadFile(tContract.File,"AppData","TContracts");
+                        int pageNum = 0;
+                        doc.LoadFromFile(filePath);
+
+                        int i = 1;
+                        bool bearkForeach = false;
+                        foreach (PdfPageBase page in doc.Pages)
+                        {
+                            pageNum++;
+                            for (; i <= 50; i++)
+                            {
+                                PdfTextFind[] results = null;
+                                results = page.FindText($"({i})", TextFindParameter.IgnoreCase).Finds;
+
+                                if (results.Length == 0)
+                                {
+                                    if (pageNum == doc.Pages.Count)
+                                    {
+                                        bearkForeach = true;
+                                    }
+                                    break;
+                                }
+                                foreach (PdfTextFind text in results)
+                                {
+                                    PointF p = text.Position;
+                                    X = p.X;
+                                    Y = p.Y;
+                                    break;
+                                }
+                                PostContractCoordinate coordinate = new PostContractCoordinate() {
+                                    FieldName = $"{i}",
+                                    X = X,
+                                    Y = Y,
+                                    SignaturePage = pageNum,
+                                    TContractID = id_Tcontract,
+                                };
+                                await _contractCoordinateSvc.add(coordinate);
+                            }
+                            if (bearkForeach)
+                            {
+                                break;
+                            }
+                        }
+
+
                         return Ok (new{
                         retText = "Thêm mẫu hợp đồng thành công",
                         data = await _TContractSvc.getByIdAsnyc(id_Tcontract)

@@ -47,9 +47,9 @@ namespace QuanLyHopDongVaKySo_API.Helpers
             fs.Close();
             System.IO.File.Delete(qrrPath);
 
-           /* byte[] imageBytes = File.ReadAllBytes(pngPath);
+            byte[] imageBytes = File.ReadAllBytes(pngPath);
             string base64Image = Convert.ToBase64String(imageBytes);
-            string imageSrc = "data:image/png;base64," + base64Image;*/
+            string imageSrc = "data:image/png;base64," + base64Image;
             return pngPath;
         }
     }

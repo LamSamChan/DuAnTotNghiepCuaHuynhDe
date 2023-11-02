@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VeCA3H8ok+RxGGmGrpcHdoI1/iNi+V1MRn0TZYi76yXkOkU/zpCo0lJpSu0YN+q5UqqI6Y2IH2Do0A6AcmgNBQ==",
+  "dgSpecHash": "H1CzPuPagC901bBaCVeJDoPWgk5sYc7lVGyUoW82UFsTADtV7L+seWzvUpS9LHy6Z0YDpGMlm7Q28vDUwg4aZQ==",
   "success": true,
   "projectFilePath": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_CLIENT\\QuanLyHopDongVaKySo_CLIENT.csproj",
   "expectedPackageFiles": [
@@ -49,6 +49,7 @@
     "C:\\Users\\do272\\.nuget\\packages\\qrcoder\\1.4.1\\qrcoder.1.4.1.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\scrutor\\3.3.0\\scrutor.3.3.0.nupkg.sha512",
+    "C:\\Users\\do272\\.nuget\\packages\\spire.pdf\\9.10.2\\spire.pdf.9.10.2.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\6.5.0\\swashbuckle.aspnetcore.annotations.6.5.0.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\swashbuckle.aspnetcore.filters\\7.0.12\\swashbuckle.aspnetcore.filters.7.0.12.nupkg.sha512",

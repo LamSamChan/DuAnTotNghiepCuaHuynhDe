@@ -6,8 +6,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 {
     public class PutPendingContract
     {
-
-        public int PContractId {get;set;}
+        public int PContractId { get; set; }
         public DateTime DateCreated { get; set; }
 
         public string PContractName { get; set; }
@@ -32,8 +31,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         public int TContractId { get; set; }
 
-        public IFormFile File {get;set;}
-
+        public IFormFile File { get; set; }
     }
 
 }

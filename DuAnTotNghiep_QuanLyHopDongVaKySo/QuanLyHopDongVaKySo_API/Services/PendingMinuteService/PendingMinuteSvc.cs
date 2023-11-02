@@ -136,12 +136,12 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
             if (cus != null && emp != null)
             {
                 minuteInfo.MinuteContent = "Biên bản lắp đặt dịch vụ " + tOS.ServiceName;
-                minuteInfo.MinuteId = pMinute.PendingMinuteId.ToString();
-                minuteInfo.ContractId = dContract.DContractID.ToString();
+                minuteInfo.MinuteId = "BB"+ pMinute.PendingMinuteId.ToString();
+                minuteInfo.ContractId ="HD"+ dContract.DContractID.ToString();
                 minuteInfo.InstallationCompany = "Tech Seal";
                 minuteInfo.InstallationCustomer = emp.FullName;
                 minuteInfo.InstallationPosition = emp.Position == null? " " : emp.Position.ToString();
-                minuteInfo.InstallationPosition = emp.PhoneNumber;
+                minuteInfo.InstallationPhone = emp.PhoneNumber;
                 minuteInfo.InstallationAddress = cus.Address;
                 minuteInfo.CustomerName = cus.FullName;
                 minuteInfo.CustomerPosition = cus.Position == null? " " : cus.Position.ToString();

@@ -8,7 +8,8 @@ namespace QuanLyHopDongVaKySo_CLIENT.Services.CustomerServices
         {
             _httpClient = httpClient;
         }
-        public async Task<string> AddNewCustomer(Customer customer)
+
+        public async Task<string> AddNewCustomer(PostCustomer customer)
         {
             var reponse = await _httpClient.PostAsJsonAsync("api/Customers/AddNew", customer);
             reponse.EnsureSuccessStatusCode();
@@ -27,7 +28,7 @@ namespace QuanLyHopDongVaKySo_CLIENT.Services.CustomerServices
             return response;
         }
 
-        public async Task<string> UpdateCustomer(Customer customer)
+        public async Task<string> UpdateCustomer(PutCustomer customer)
         {
             var reponse = await _httpClient.PutAsJsonAsync("api/Customers/Update", customer);
             reponse.EnsureSuccessStatusCode();

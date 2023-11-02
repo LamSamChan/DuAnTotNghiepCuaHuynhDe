@@ -1,7 +1,6 @@
 ﻿@page
 @model QuanLyHopDongVaKySo_CLIENT.Pages.BusinessStaff.ListCusModel
-@{
-}
+
 <div class="container-fluid">
     <div class="header">
         <div class="SearchBox">
@@ -36,108 +35,48 @@
         </a>
             
     </button>
+        <div class="listTable_Cus">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">SĐT</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">ĐỊA CHỈ</th>
+                        <th scope="col">TRẠNG THÁI HOẠT ĐỘNG</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                @foreach (var cus in Model.Customers)
+                {
+                        <tr>
+                            <th scope="row">@cus.CustomerId.ToString().Substring(0,8)</th>
+                            <td>@cus.FullName</td>
+                            <td>@cus.PhoneNumber</td>
+                            <td>@cus.Email</td>
+                            <td>@cus.Address</td>
+                            @if (@cus.IsLocked)
+                            {
+                            <td>Khoá</td>
+                            }
+                            else
+                            {
+                                <td>Bình thường</td>
+                            }
 
-    <div class="listTable_Cus">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">EMAIL</th>
-                    <th scope="col">SDT</th>
-                    <th scope="col">ĐỊA CHỈ</th>
-                    <th scope="col">HỌ VÀ TÊN</th>
-                    <th scope="col">DỊCH VỤ ĐÃ ĐĂNG KÝ</th>
-                    <th scope="col">HOẠT ĐỘNG</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>abc@123.com</td>
-                    <td>1231313</td>
-                    <td>12 long thanh</td>
-                    <td>abc</td>
-                    <td>Lắp Wifi</td>
-                    <td>
-                        <div class="row action">
-                            <a asp-area="" asp-page="./DetailsCus"><i class="ph-bold ph-note-pencil"></i></a>
-                            <a><i class="ph-bold ph-trash"></i></a>
-                        </div>
-                    </td>
-                    <td>
-                        <a asp-area="" asp-page="./DetailsCus">Chi tiết</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>abc@123.com</td>
-                    <td>1231313</td>
-                    <td>12 long thanh</td>
-                    <td>abc</td>
-                    <td>Lắp Wifi</td>
-                    <td>
-                        <div class="row action">
-                            <a><i class="ph-bold ph-note-pencil"></i></a>
-                            <a><i class="ph-bold ph-trash"></i></a>
-                        </div>
-                    </td>
-                    <td>
-                        <a href="#">Chi tiết</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>abc@123.com</td>
-                    <td>1231313</td>
-                    <td>12 long thanh</td>
-                    <td>abc</td>
-                    <td>Lắp Wifi</td>
-                    <td>
-                        <div class="row action">
-                            <a><i class="ph-bold ph-note-pencil"></i></a>
-                            <a><i class="ph-bold ph-trash"></i></a>
-                        </div>
-                    </td>
-                    <td>
-                        <a href="#">Chi tiết</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>abc@123.com</td>
-                    <td>1231313</td>
-                    <td>12 long thanh</td>
-                    <td>abc</td>
-                    <td>Lắp Wifi</td>
-                    <td>
-                        <div class="row action">
-                            <a><i class="ph-bold ph-note-pencil"></i></a>
-                            <a><i class="ph-bold ph-trash"></i></a>
-                        </div>
-                    </td>
-                    <td>
-                        <a href="#">Chi tiết</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>abc@123.com</td>
-                    <td>1231313</td>
-                    <td>12 long thanh</td>
-                    <td>abc</td>
-                    <td>Lắp Wifi</td>
-                    <td>
-                        <div class="row action">
-                            <a><i class="ph-bold ph-note-pencil"></i></a>
-                            <a><i class="ph-bold ph-trash"></i></a>
-                        </div>
-                    </td>
-                    <td>
-                        <a href="#">Chi tiết</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                            <td>
+                                <div class="row action">
+                                    <a asp-page="./DetailsCus"><i class="ph-bold ph-note-pencil"></i></a>
+                                </div>
+                            </td>
+                            <td>
+                            <a asp-page="./DetailsCus">Chi tiết</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
 </div>

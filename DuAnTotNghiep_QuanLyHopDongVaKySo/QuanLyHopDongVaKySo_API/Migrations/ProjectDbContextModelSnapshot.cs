@@ -65,6 +65,12 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<DateTime?>("BNDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("BNPlace")
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("BankAccount")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
@@ -79,6 +85,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.Property<string>("BuisinessName")
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("BuisinessNumber")
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("ChargeNoticeAddress")
                         .IsRequired()
@@ -149,7 +158,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("WhoPOA")
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("CustomerId");
 

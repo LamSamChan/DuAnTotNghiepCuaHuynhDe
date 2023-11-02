@@ -74,6 +74,18 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Của")]
         public string? WhoPOA { get; set; }
 
+        [Column(TypeName = "nvarchar(50)"), AllowNull]
+        [Display(Name = "Số chứng chỉ đăng ký doanh nghiệp")]
+        public string? BuisinessNumber { get; set; }
+
+        [AllowNull]
+        [Display(Name = "Ngày cấp chứng chỉ")]
+        public DateTime? BNDate { get; set; }
+
+        [Column(TypeName = "nvarchar(50)"), AllowNull]
+        [Display(Name = "Nơi cấp chứng chỉ")]
+        public string? BNPlace { get; set; }
+
         [Column(TypeName = "nvarchar(50)")]
         [Required(ErrorMessage = "Hãy nhập Quốc Tịch!")]
         [Display(Name = "Quốc tịch")]

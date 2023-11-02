@@ -35,7 +35,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     IsDirector = false,
                     IsCustomer = false,
                     IsRefuse = false,
-                    Reason = PContract.Reason,
+                    Reason = "",
                     EmployeeCreatedId = PContract.EmployeeCreatedId,
                     DirectorSignedId = null,
                     CustomerId = PContract.CustomerId,
@@ -121,8 +121,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             if(cus != null)
             {
                 //contract.CustomerId = cus.CustomerId.ToString();
-                contract.CustomerId = cus.CustomerId.ToString().Substring(0,8);
-                contract.ContractId = PContract.PContractID.ToString();
+                contract.CustomerId ="KH"+ cus.CustomerId.ToString().Substring(0,8);
+                contract.ContractId ="HD"+ PContract.PContractID.ToString();
                 contract.Date = PContract.DateCreated.ToString("dd/MM/yyyy");
                 contract.BuisinessName = cus.BuisinessName;
                 contract.FullName = cus.FullName;
@@ -132,6 +132,10 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 contract.Email = cus.Email;
                 contract.PowerOfAttorneyNum = cus.PowerOfAttorneyNum;
                 contract.WhoPOA = cus.WhoPOA;
+                contract.DatePOA = cus.DatePOA?.ToString("dd/MM/yyyy");
+                contract.BuisinessNumber = cus.BuisinessNumber;
+                contract.BNDate = cus.BNDate?.ToString("dd/MM/yyyy");
+                contract.BNPlace = cus.BNPlace;
                 contract.DatePOA = cus.DatePOA?.ToString("dd/MM/yyyy");
                 contract.Identification = cus.Identification;
                 contract.IssuedDate = cus.IssuedDate.ToString("dd/MM/yyyy");
@@ -144,9 +148,9 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 contract.FAX = cus.FAX;
                 contract.ChargeNoticeAddress = cus.ChargeNoticeAddress;
                 contract.BillingAddress = cus.BillingAddress;
-                contract.Username = cus.FullName;
+                contract.Username = cus.FullName.Trim();
                 contract.TariffPackage = tos.ServiceName;
-                contract.ServiceRate = String.Format(info, "{0:c}", tos.Price) + " / " + tos.PerTime;
+                contract.ServiceRate = String.Format(info, "{0:c}", tos.Price)+"đ" + " / " + tos.PerTime;
                 contract.InstallationAddress = PContract.InstallationAddress;
             }
             return contract;

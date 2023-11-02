@@ -1,11 +1,47 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
 namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
 {
+    
     public class ContractInternet
     {
+        static public Dictionary<string, string> ContractFieldName = new Dictionary<string, string>
+        {
+            { "1", "CustomerId" },
+            { "2", "ContractId" },
+            { "3", "Date" },
+            { "4", "BuisinessName" },
+            { "5", "FullName" },
+            { "6", "Position" },
+            { "7", "DateOfBirth" },
+            { "8", "BuisinessNumber" },
+            { "9", "BNDate" },
+            { "10", "BNPlace" },
+            { "11", "Identification" },
+            { "12", "IssuedDate" },
+            { "13", "IssuedPlace" },
+            { "14", "PowerOfAttorneyNum" },
+            { "15", "DatePOA" },
+            { "16", "WhoPOA" },
+            { "17", "BankAccount" },
+            { "18", "BankName" },
+            { "19", "TaxIDNumber" },
+            { "20", "Address" },
+            { "21", "ChargeNoticeAddress" },
+            { "22", "BillingAddress" },
+            { "23", "PhoneNumber" },
+            { "24", "FAX" },
+            { "25", "Email" },
+            { "28", "Username" },
+            { "29", "TariffPackage" },
+            { "30", "InstallationAddress" },
+            { "31", "ServiceRate" }
+
+        };
         [Required(ErrorMessage = "Hãy điền mã khách hàng !")]
         [Display(Name = "Mã khách hàng")]
         public string CustomerId { get; set; }
@@ -32,6 +68,10 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
         [Required(ErrorMessage = "Hãy chọn ngày,tháng,năm sinh !")]
         [Display(Name = "Năm sinh")]
         public string DateOfBirth { get; set; }
+
+        public string? BuisinessNumber { get; set; }
+        public string? BNDate { get; set; }
+        public string? BNPlace { get; set; }
 
         // [Required(ErrorMessage = "Hãy chọn giới tính !"),
         //     Range(1, 2, ErrorMessage = "Giới tính không hợp lệ !")]

@@ -21,6 +21,7 @@ namespace QuanLyHopDongVaKySo_API.Services
                     FieldName = CCoordinate.FieldName,
                     X = CCoordinate.X,
                     Y = CCoordinate.Y,
+                    SignaturePage = CCoordinate.SignaturePage,
                     TContractID = CCoordinate.TContractID
                 };
                 await _context.ContractCoordinates.AddAsync(add);

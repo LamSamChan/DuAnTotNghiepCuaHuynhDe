@@ -179,6 +179,12 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
                 existingCus.Gender = customer.Gender;
                 existingCus.PhoneNumber = customer.PhoneNumber;
                 existingCus.Email = customer.Email;
+                existingCus.BuisinessNumber = customer.BuisinessNumber;
+                existingCus.BNDate = customer.BNDate;
+                existingCus.BNPlace = customer.BNPlace;
+                existingCus.PowerOfAttorneyNum = customer.PowerOfAttorneyNum;
+                existingCus.DatePOA = customer.DatePOA;
+                existingCus.WhoPOA = customer.WhoPOA;
                 existingCus.Identification = customer.Identification;
                 existingCus.IssuedDate = customer.IssuedDate;
                 existingCus.IssuedPlace = customer.IssuedPlace;
