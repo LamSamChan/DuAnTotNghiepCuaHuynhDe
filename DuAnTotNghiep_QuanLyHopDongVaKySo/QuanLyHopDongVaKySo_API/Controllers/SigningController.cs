@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using iTextSharp.text.pdf;
+using iTextSharp.text;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Models.ContractInfo;
 using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 using QuanLyHopDongVaKySo_API.Services.EmployeeService;
@@ -10,9 +13,12 @@ using QuanLyHopDongVaKySo_API.Services.InstallationRequirementService;
 using QuanLyHopDongVaKySo_API.Services.PendingContractService;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
+using System.Diagnostics.Contracts;
 using System.IdentityModel.Tokens.Jwt;
+using System.Reflection;
 using System.Security.Claims;
 using System.Text;
+using QuanLyHopDongVaKySo_API.Services;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
@@ -22,6 +28,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     {
         private readonly IPFXCertificateSvc _pfxCertificate;
         private readonly IPendingContractSvc _pendingContract;
+        private readonly IContractCoordinateSvc _contractCoordinateSvc;
         private readonly ITemplateContractSvc _templateContractSvc;
         private readonly IEmployeeSvc _employeeSvc;
         private readonly ICustomerSvc _customerSvc;
@@ -35,7 +42,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         public SigningController(IPFXCertificateSvc pfxCertificate, IInstallationRequirementSvc requirementSvc, IDoneContractSvc dContractSvc,
             IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc,
-            IGenerateQRCodeHelper generateQRCodeHelper, IConfiguration configuration, IPdfToImageHelper pdfToImageHelper, IUploadFileHelper uploadFileHelper, ISendMailHelper sendMailHelper)
+            IGenerateQRCodeHelper generateQRCodeHelper, IConfiguration configuration, IPdfToImageHelper pdfToImageHelper, IUploadFileHelper uploadFileHelper,
+            ISendMailHelper sendMailHelper, IContractCoordinateSvc contractCoordinateSvc)
         {
             _pfxCertificate = pfxCertificate;
             _pendingContract = pendingContract;
@@ -49,7 +57,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _pdfToImageHelper = pdfToImageHelper;
             _uploadFileHelper = uploadFileHelper;
             _sendMailHelper = sendMailHelper;
-
+            _contractCoordinateSvc = contractCoordinateSvc;
         }
 
         //chưa test khi dùng chữ ký hết hạn
@@ -91,6 +99,76 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(pContract.TContractId);
             DirectorZone directorZone = JsonConvert.DeserializeObject<DirectorZone>(tContract.jsonDirectorZone);
+
+            var Coordinates = await _contractCoordinateSvc.getByTContract(pContract.TContractId);
+
+            FileStream fsPContract = new FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
+            fsPContract.Close();
+            System.IO.File.Delete(pContract.PContractFile);
+
+            PdfReader pdfReader = new PdfReader(tContract.TContractFile);
+            PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(pContract.PContractFile, FileMode.Create));
+            // Tạo một font cho trường văn bản
+            BaseFont bf1 = BaseFont.CreateFont(@"AppData/texgyretermes-regular.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            // Thiết lập font và kích thước cho trường văn bản
+            Font font1 = new Font(bf1, 10);
+            var contract = await _pendingContract.ExportContract(pContract, director);
+            foreach (var coordinate in Coordinates)
+            {
+                string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
+                float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
+                float y = 837 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                var mappingName = ContractInternet.ContractFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
+                if (mappingName == null)
+                {
+                    continue;
+                }
+                PropertyInfo property = typeof(ContractInternet).GetProperty(mappingName);
+                if (property != null)
+                {
+                    object value = property.GetValue(contract);
+                    if (value != null)
+                    {
+                        string contractValue = value.ToString();
+                        ColumnText.ShowTextAligned(pdfStamper.GetOverContent(coordinate.SignaturePage),
+                        Element.ALIGN_BASELINE, new Phrase(contractValue, font1), x, y, 0);
+                    }
+                }
+            }
+
+            BaseFont bf2 = BaseFont.CreateFont(@"AppData/texgyretermes-bold.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            // Thiết lập font và kích thước cho trường văn bản
+            Font font2 = new Font(bf2, 15);
+
+
+            foreach (var coordinate in Coordinates)
+            {
+                string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
+                float x = coordinate.X + 30; // Lấy tọa độ X từ bảng toạ độ
+                float y = 835 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                var mappingName = ContractInternet.RepresentativeContract.FirstOrDefault(id => id.Key == fieldName).Value;
+                if (mappingName == null)
+                {
+                    continue;
+                }
+                PropertyInfo property = typeof(ContractInternet).GetProperty(mappingName);
+                if (property != null)
+                {
+                    object value = property.GetValue(contract);
+                    if (value != null)
+                    {
+                        string contractValue = value.ToString().ToUpper();
+                        ColumnText.ShowTextAligned(pdfStamper.GetOverContent(coordinate.SignaturePage),
+                        Element.ALIGN_BASELINE, new Phrase(contractValue, font2), x, y, 0);
+                    }
+                }
+            }
+
+            pdfStamper.Close();
+            pdfReader.Close();
+
+            FileStream fsPContract1 = new System.IO.FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
+            fsPContract1.Close();
 
             var signedContractPath = await _pfxCertificate.SignContract(imagePath, pContract.PContractFile, pContract.PContractFile, certi.Serial, directorZone.X, directorZone.Y);
 

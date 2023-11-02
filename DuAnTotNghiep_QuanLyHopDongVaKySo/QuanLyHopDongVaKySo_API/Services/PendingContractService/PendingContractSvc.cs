@@ -6,6 +6,7 @@ using System;
 using QuanLyHopDongVaKySo_API.Models.ContractInfo;
 using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
+using QuanLyHopDongVaKySo_API.Services.PositionService;
 
 namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
 {
@@ -13,14 +14,17 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
     {
         private readonly ProjectDbContext _context;
         private readonly IUploadFileHelper _imageHelper;
+        private readonly IPositionSvc _positionSvc;
         private readonly ICustomerSvc _customerSvc;
         private readonly ITypeOfServiceSvc _typeOfServiceSvc;
-        public PendingContractSvc(ProjectDbContext context, IUploadFileHelper imageHelper, ICustomerSvc customerSvc, ITypeOfServiceSvc typeOfServiceSvc)
+        public PendingContractSvc(ProjectDbContext context, IUploadFileHelper imageHelper, 
+            ICustomerSvc customerSvc, ITypeOfServiceSvc typeOfServiceSvc, IPositionSvc positionSvc)
         {
             _context = context;
             _imageHelper = imageHelper;
             _customerSvc = customerSvc;
             _typeOfServiceSvc = typeOfServiceSvc;
+            _positionSvc = positionSvc;
         }
         public async Task<string> addAsnyc(PostPendingContract PContract)
         {
@@ -112,8 +116,13 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             }
         }
 
-        public async Task<ContractInternet> ExportContract(PendingContract PContract)
+        public async Task<ContractInternet> ExportContract(PendingContract PContract, Employee? employee)
         {
+            string postion = null;
+            if (employee != null)
+            {
+                postion = _positionSvc.GetById(employee.PositionID).Result.PositionName;
+            }
             Customer cus = await _customerSvc.GetByIdAsync(PContract.CustomerId.ToString());
             TypeOfService tos = await _typeOfServiceSvc.GetById(PContract.TOS_ID);
             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
@@ -124,7 +133,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 contract.CustomerId ="KH"+ cus.CustomerId.ToString().Substring(0,8);
                 contract.ContractId ="HD"+ PContract.PContractID.ToString();
                 contract.Date = PContract.DateCreated.ToString("dd/MM/yyyy");
-                contract.BuisinessName = cus.BuisinessName;
+                contract.BuisinessName = cus.BuisinessName != null ? cus.BuisinessName : cus.FullName;
                 contract.FullName = cus.FullName;
                 contract.Position = cus.Position;
                 contract.DateOfBirth = cus.DateOfBirth.ToString("dd/MM/yyyy");
@@ -148,10 +157,14 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 contract.FAX = cus.FAX;
                 contract.ChargeNoticeAddress = cus.ChargeNoticeAddress;
                 contract.BillingAddress = cus.BillingAddress;
-                contract.Username = cus.FullName.Trim();
+                contract.Username = cus.FullName.Replace(" ", "").Trim();
                 contract.TariffPackage = tos.ServiceName;
-                contract.ServiceRate = String.Format(info, "{0:c}", tos.Price)+"đ" + " / " + tos.PerTime;
+                contract.ServiceRate = String.Format(info, "{0:c}", tos.Price)+ " / " + tos.PerTime;
                 contract.InstallationAddress = PContract.InstallationAddress;
+                contract.RepresentativePerson1 = employee.FullName;
+                contract.RepresentativePerson2 = employee.FullName;
+                contract.RepresentativePosition1 = postion;
+                contract.RepresentativePosition2 = postion;
             }
             return contract;
         }

@@ -43,12 +43,13 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             List<string> outputPathContracts = new List<string>();
             if (ModelState.IsValid)
             {
+                Employee emp = new Employee();
                 //thêm hợp đồng
                 string id_Pcontract = await _PContractSvc.addAsnyc(pContract);
 
                 var contractById = await _PContractSvc.getByIdAsnyc(int.Parse(id_Pcontract));
 
-                var contract = await _PContractSvc.ExportContract(contractById);
+                var contract = await _PContractSvc.ExportContract(contractById, emp);
                 if (contract != null)
                 {
                     if (!Directory.Exists($"AppData/PContracts/{id_Pcontract}"))
@@ -61,7 +62,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     PdfReader pdfReader = new PdfReader(pdfFilePath);
                     PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(outputPdfFile, FileMode.Create));
                     // Tạo một font cho trường văn bản
-                    BaseFont bf = BaseFont.CreateFont(@"AppData/vps-tuyen-duc.TTF", BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
+                    BaseFont bf = BaseFont.CreateFont(@"AppData/texgyretermes-regular.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
                     // Thiết lập font và kích thước cho trường văn bản
                     Font font = new Font(bf, 10);
 
@@ -69,7 +70,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     {
                         string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
                         float x = coordinate.X+22; // Lấy tọa độ X từ bảng toạ độ
-                        float y = 834-coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                        float y = 837-coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                         var mappingName = ContractInternet.ContractFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
                         if (mappingName == null)
                         {
@@ -90,7 +91,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
                     pdfStamper.Close();
                     pdfReader.Close();
-                    //outputPathContracts = _pdfToImageHelper.PdfToPng(outputPdfFile, int.Parse(id_Pcontract));
+                    outputPathContracts = _pdfToImageHelper.PdfToPng(outputPdfFile, int.Parse(id_Pcontract));
+
+                    FileStream fsPContract = new System.IO.FileStream(outputPdfFile, FileMode.Open, FileAccess.Read);
+                    fsPContract.Close();
                     await _PContractSvc.updatePContractFile(int.Parse(id_Pcontract), outputPdfFile);
                 }
                 if (id_Pcontract != null)

@@ -732,3 +732,4 @@ C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDong
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo_CLIENT.pdb
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo_CLIENT.genruntimeconfig.cache
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_CLIENT.dll
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_CLIENT\bin\Debug\net7.0\Spire.Pdf.dll

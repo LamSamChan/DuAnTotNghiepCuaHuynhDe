@@ -42,6 +42,15 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
             { "31", "ServiceRate" }
 
         };
+
+        static public Dictionary<string, string> RepresentativeContract = new Dictionary<string, string>
+        {
+            { "26", "RepresentativePerson1" },
+            { "27", "RepresentativePosition1" },
+            { "32", "RepresentativePosition2" },
+            { "33", "RepresentativePerson2" },
+
+        };
         [Required(ErrorMessage = "Hãy điền mã khách hàng !")]
         [Display(Name = "Mã khách hàng")]
         public string CustomerId { get; set; }
@@ -162,6 +171,13 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
         [Required(ErrorMessage = "Hãy nhập địa xuất lắp đặt !")]
         [Display(Name = "Địa chỉ lắp đặt")]
         public string InstallationAddress { get; set; }
+
+        [Display(Name = "Người đại diện")]
+        public string? RepresentativePerson1 { get; set; }
+        public string? RepresentativePerson2 { get; set; }
+        [Display(Name = "Chức vụ người đại diện")]
+        public string? RepresentativePosition1 { get; set; }
+        public string? RepresentativePosition2 { get; set; }
     }
 }
 
