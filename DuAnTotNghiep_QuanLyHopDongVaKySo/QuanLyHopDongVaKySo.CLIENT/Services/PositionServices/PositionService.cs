@@ -2,7 +2,7 @@
 using QuanLyHopDongVaKySo_API.Models;
 using System.Text;
 
-namespace QuanLyHopDongVaKySo_CLIENT.Services.PositionServices
+namespace QuanLyHopDongVaKySo.CLIENT.Services.PositionServices
 {
     public class PositionService : IPositionService
     {

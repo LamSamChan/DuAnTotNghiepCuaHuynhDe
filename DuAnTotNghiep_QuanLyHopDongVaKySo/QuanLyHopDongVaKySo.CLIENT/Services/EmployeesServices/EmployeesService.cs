@@ -1,6 +1,6 @@
 ﻿using QuanLyHopDongVaKySo_API.Models;
 
-namespace QuanLyHopDongVaKySo_CLIENT.Services.EmployeesServices
+namespace QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices
 {
     public class EmployeesService : IEmployeeService
     {

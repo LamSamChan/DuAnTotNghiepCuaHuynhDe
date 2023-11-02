@@ -2,7 +2,7 @@
 using QuanLyHopDongVaKySo_API.Models;
 using System.Text;
 
-namespace QuanLyHopDongVaKySo_CLIENT.Services.TContractServices
+namespace QuanLyHopDongVaKySo.CLIENT.Services.TContractServices
 {
     public class TContractService : ITContractService
     {

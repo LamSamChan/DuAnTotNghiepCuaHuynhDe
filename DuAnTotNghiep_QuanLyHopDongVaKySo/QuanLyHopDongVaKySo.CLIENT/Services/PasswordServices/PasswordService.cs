@@ -2,7 +2,7 @@
 using QuanLyHopDongVaKySo_API.ViewModels;
 using System.Text;
 
-namespace QuanLyHopDongVaKySo_CLIENT.Services.PasswordServices
+namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices
 {
     public class PasswordService : IPasswordService
     {

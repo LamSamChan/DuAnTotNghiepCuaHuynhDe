@@ -1,6 +1,5 @@
 ﻿using QuanLyHopDongVaKySo_API.Models;
-
-namespace QuanLyHopDongVaKySo_CLIENT.Services.CustomerServices
+namespace QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices
 {
     public interface ICustomerService
     {

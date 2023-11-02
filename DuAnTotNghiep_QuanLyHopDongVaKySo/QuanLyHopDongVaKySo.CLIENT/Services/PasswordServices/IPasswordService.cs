@@ -1,6 +1,6 @@
 ﻿using QuanLyHopDongVaKySo_API.ViewModels;
 
-namespace QuanLyHopDongVaKySo_CLIENT.Services.PasswordServices
+namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices
 {
     public interface IPasswordService
     {
