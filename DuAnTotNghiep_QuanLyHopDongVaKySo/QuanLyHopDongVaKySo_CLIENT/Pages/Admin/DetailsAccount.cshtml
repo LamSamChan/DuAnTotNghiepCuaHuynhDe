@@ -1,0 +1,131 @@
+﻿@page
+@model QuanLyHopDongVaKySo_CLIENT.Pages.Admin.DetailsAccountModel
+@{
+    Layout = "_AdminLayout";
+}
+<div class="container-fluid">
+    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+   <div class="row justify-content-around" style="margin-top: 20px;">
+        <div class="col-md-5">
+            <div class="box1">
+                <form class="row g-3" style="width:500px; margin: 0 auto;">
+                    <div class="col-md-6">
+                        <label  class="form-label">Trạng thái tài khoản</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label  class="label_status">KÍCH HOẠT</label>
+                    </div>
+                    <div class="col-12">
+                        <label for="inputName" class="form-label">Họ và tên</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="Họ và tên">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="abc@gmail.com">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputCCCD" class="form-label">CCCD/CMND</label>
+                        <input type="text" class="form-control" id="inputCCCD" placeholder="1231455">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputCCCD" class="form-label">CCCD/CMND</label>
+                        <input type="text" class="form-control" id="inputCCCD" placeholder="1231455">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputCCCD" class="form-label">CCCD/CMND</label>
+                        <input type="text" class="form-control" id="inputCCCD" placeholder="1231455">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateStart" class="form-label">Ngày cấp</label>
+                        <input type="date" class="form-control" id="inputDateStart">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateEnd" class="form-label">Ngày hết hạn</label>
+                        <input type="date" class="form-control" id="inputDateEnd">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="box2">
+                <form class="row g-3" style="width:500px; margin: 0 auto;">
+                    <div class="col-12">
+                        <label for="inputTaxCode" class="form-label">Mã thuế</label>
+                        <input type="text" class="form-control" id="inputTaxCode" placeholder="1123434">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Địa chỉ thường trú</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputPass" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="inputPass" placeholder="******">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputNational" class="form-label">Vai trò</label>
+                        <input type="text" class="form-control" id="inputAddress2" />
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputGender" class="form-label">Quyền truy cập</label>
+                        <input type="text" class="form-control" id="inputAddress2"/>
+                    </div>
+                    <div class="col-12">
+                        <label for="inputSerri" class="form-label">Số seri chứng chỉ</label>
+                        <input type="text" class="form-control" id="inputSerri" placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="col-12">
+                        <input type="checkbox" id="disable-checkbox"> khách hàng doanh nghiệp
+                        <div class="content row " style="margin-top:10px;">
+                            <div class="col-md-5" style="margin:0 auto;">
+                                <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
+                                <input type="text" class="form-control" id="inputNameBuss">
+                            </div>
+                            <div class="col-md-5" style="margin:0 auto;">
+                                <label for="inputPosition" class="form-label">Chức vụ</label>
+                                <input type="text" class="form-control" id="inputPosition">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-around " style="margin-top:30px;">
+                        <div class="col-md-5">
+                            <button class="save_Changes">
+                                LƯU THAY ĐỔI
+                            </button>
+                        </div>
+                        <div class="col-md-5">
+                            <button class="create_Record">
+                                VÔ HIỆU HÓA
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

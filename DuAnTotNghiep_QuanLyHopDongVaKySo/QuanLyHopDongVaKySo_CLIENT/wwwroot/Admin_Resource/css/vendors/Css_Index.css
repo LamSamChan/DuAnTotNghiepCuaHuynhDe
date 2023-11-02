@@ -1,0 +1,74 @@
+﻿.SearchBox {
+    height: 61px;
+    width: 400px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #FFF;
+    box-shadow: 14px 17px 40px 4px rgba(112, 144, 176, 0.08);
+    align-items: center;
+}
+
+.horizontal-list li {
+    margin-right: 20px;
+}
+
+.horizontal-list li i {
+    font-size: 20px;
+}
+
+.horizontal-list li a {
+    display: flex;
+    cursor: pointer;
+}
+
+.horizontal-list li a i {
+    margin: 10px 0;
+}
+
+.horizontal-list li .Search {
+    width: 250px;
+    height: 41px;
+    border-radius: 30px;
+    background-color: #F4F7FE;
+    display: flex;
+}
+
+.Search i {
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+.Search i, .Search input {
+    padding-right: 20px;
+    margin: 10px 0;
+}
+
+.Search input {
+    border: none;
+    background-color: #F4F7FE;
+    width: 150px;
+}
+
+.Search input:focus {
+    background-color: none;
+    outline: none;
+}
+ div[class="row action"]{
+        display:contents;
+        font-size: 20px;
+    }
+div[class="row action"] a {
+    text-decoration: none;
+    color: #8B909A;
+}
+
+
+/*css -detailsACc*/
+div[class="box1"],
+div[class="box2"] {
+    width: 650px;
+    height: 750px;
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 6px 4px 13px 0px rgba(0, 0, 0, 0.25);
+}
