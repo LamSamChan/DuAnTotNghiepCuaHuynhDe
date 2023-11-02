@@ -1,0 +1,84 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container-fluid">
+    <div class="row" style="background-color:#FFFFFF; margin: 40px auto; height:100%; border-radius:16px;">
+        <div class="col-6" style="margin: 20px; border-radius:10px;">
+            <div class="showFile">
+                <h4 style="color: #4318FF; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng còn thiếu chữ ký</h4>
+                <embed src="path_to_your_pdf.pdf" type="application/pdf" style="margin: 70px 50px 20px 50px; width: 485px;height: 684px; background-color:#FFFF;">
+            </div>
+        </div>
+    </div>
+    <div class="inforCus" style="position: absolute;top: 120px;left: 900px;">
+        <button class="apro">
+            XÁC NHẬN DUYỆT
+        </button>
+        <h4 style="color: #4318FF;">
+            Thông tin khách hàng
+        </h4>
+        <form class="row g-3" style="max-width:100%;">
+            <div class="col-md-6">
+                <label for="inputName" class="form-label">Họ và tên</label>
+                <input type="text" class="form-input" id="inputName" placeholder="Họ và tên">
+            </div>
+            <div class="col-md-3">
+                <label for="inputState" class="form-label">Giới tính</label>
+                <select id="inputState" class="form-select">
+                    <option selected>Nam</option>
+                    <option>Nữ</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputCCCD" class="form-label">CCCD/CMND</label>
+                <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
+                <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPhone" class="form-label">Số điện thoại</label>
+                <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại">
+            </div>
+            <div class="col-md-6">
+                <label for="inputAddress" class="form-label">Nơi ở</label>
+                <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở">
+            </div>
+            <div class="col-md-6">
+                <label for="inputName" class="form-label">Mã số thuế</label>
+                <input type="text" class="form-input" id="inputName" placeholder="Họ và tên">
+            </div>
+            <div class="col-md-6">
+                <label for="inputName" class="form-label">Số tài khoản</label>
+                <input type="text" class="form-input" id="inputName" placeholder="Họ và tên">
+            </div>
+            <div class="col-md-6">
+                <label for="inputCCCD" class="form-label">Tên ngân hàng</label>
+                <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND">
+            </div>
+            <div class="col-md-5">
+                <label for="inputPhone" class="form-label">Địa chỉ hoạt động</label>
+                <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Ngày cấp CCCD</label>
+                <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email">
+            </div>
+            <div class="col-md-6">
+                <label for="inputAddress" class="form-label">Nơi cấp CCCD</label>
+                <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở">
+            </div>
+            <div class="col-md-10 noted">
+                <label for="inputAddress" class="form-label">Ghi chú</label>
+                <input type="text" id="inputAddress" placeholder="Địa chỉ nơi ở">
+            </div>
+            <div class="col-md-2">
+                <img src="~/Resource/Image/LOGO_WITHOUT_BG/2.png" class="img" style="width:100%;" />
+            </div>
+        </form>
+
+    </div>
+</div>

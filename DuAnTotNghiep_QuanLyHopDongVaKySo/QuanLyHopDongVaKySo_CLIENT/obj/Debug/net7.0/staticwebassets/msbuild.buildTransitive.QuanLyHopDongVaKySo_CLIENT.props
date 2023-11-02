@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\QuanLyHopDongVaKySo_CLIENT.props" />
-</Project>
