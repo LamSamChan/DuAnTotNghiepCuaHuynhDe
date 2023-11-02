@@ -1,7 +1,7 @@
 ﻿using QuanLyHopDongVaKySo_API.Models.ContractInfo;
 using QuanLyHopDongVaKySo_API.Models;
 
-namespace QuanLyHopDongVaKySo_CLIENT.Services.PContractServices
+namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
 {
     public interface IPContractService
     {

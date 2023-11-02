@@ -1,4 +1,4 @@
-﻿namespace QuanLyHopDongVaKySo_CLIENT.Services.PContractServices
+﻿namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
 {
     public class PContractService
     {

@@ -1,6 +1,6 @@
 ﻿using QuanLyHopDongVaKySo_API.Models;
 
-namespace QuanLyHopDongVaKySo_CLIENT.Services.RoleServices
+namespace QuanLyHopDongVaKySo.CLIENT.Services.RoleServices
 {
     public interface IRoleService
     {

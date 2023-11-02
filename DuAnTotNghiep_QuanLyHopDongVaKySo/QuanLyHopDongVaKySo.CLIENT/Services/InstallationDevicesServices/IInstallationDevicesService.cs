@@ -1,6 +1,6 @@
 ﻿using QuanLyHopDongVaKySo_API.Models;
 
-namespace QuanLyHopDongVaKySo_CLIENT.Services.InstallationDevicesServices
+namespace QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices
 {
     public interface IInstallationDevicesService
     {

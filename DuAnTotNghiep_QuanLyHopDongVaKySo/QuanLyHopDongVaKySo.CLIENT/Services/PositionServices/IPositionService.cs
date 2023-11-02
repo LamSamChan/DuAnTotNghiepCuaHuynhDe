@@ -1,6 +1,6 @@
 ﻿using QuanLyHopDongVaKySo_API.Models;
 
-namespace QuanLyHopDongVaKySo_CLIENT.Services.PositionServices
+namespace QuanLyHopDongVaKySo.CLIENT.Services.PositionServices
 {
     public interface IPositionService
     {

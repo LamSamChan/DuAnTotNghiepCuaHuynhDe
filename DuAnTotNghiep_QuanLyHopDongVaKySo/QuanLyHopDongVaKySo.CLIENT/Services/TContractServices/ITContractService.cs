@@ -1,6 +1,6 @@
 ﻿using QuanLyHopDongVaKySo_API.Models;
 
-namespace QuanLyHopDongVaKySo_CLIENT.Services.TContractServices
+namespace QuanLyHopDongVaKySo.CLIENT.Services.TContractServices
 {
     public interface ITContractService
     {
