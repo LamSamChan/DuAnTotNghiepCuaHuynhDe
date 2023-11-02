@@ -50,10 +50,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputGender" class="form-label">Giới tính</label>
-                        <select id="inputGender" class="form-select">
-                            <option selected>Nam</option>
-                            <option>Nữ</option>
-                        </select>
+                        <input type="text" class="form-control" id="inputName" >
                     </div>
                     <div class="col-md-6">
                         <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
@@ -65,7 +62,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputDateStart" class="form-label">Ngày ủy quyền</label>
-                        <input type="date" class="form-control" id="inputDateStart">
+                        <input type="datetime" class="form-control" id="inputDateStart">
                     </div>
                     <div class="col-md-6">
                         <label for="inputDateEnd" class="form-label">Người ủy quyền</label>
@@ -81,7 +78,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputDateStart" class="form-label">CCCD/CMND</label>
-                        <input type="date" class="form-control" id="inputDateStart">
+                        <input type="date" class="form-control " id="inputDateStart">
                     </div>
                     <div class="col-md-6">
                         <label for="inputDateEnd" class="form-label">Ngày cấp</label>
@@ -102,11 +99,11 @@
             </div>
         </div>
         <div class="col-md-5">
-            <div class="box2">
+            <div class="box2" style=" max-height: 800px;overflow-y: scroll;">
                 <form class="row justify-content-between g-3" style=" margin: 0 auto;">
                     <div class="col-md-6">
                         <label for="inputTaxCode" class="form-label">Số tài khoản</label>
-                        <input type="text" class="form-control" id="inputTaxCode" placeholder="123145xxx2132">
+                        <input type="password" class="form-control" id="inputTaxCode" placeholder="123145xxx2132">
                     </div>
                     <div class="col-md-6">
                         <label for="inputAddress2" class="form-label">Ngân hàng</label>
@@ -117,41 +114,65 @@
                         <input type="password" class="form-control" id="inputPass" placeholder="******">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputPass" class="form-label">Địa chỉ báo cước</label>
-                        <input type="password" class="form-control" id="inputPass" placeholder="******">
+                        <label for="adReport" class="form-label">Địa chỉ báo cước</label>
+                        <input type="text" class="form-control" id="adReport">
                     </div>
                     <div class="col-12">
-                        <label for="inputCertificate" class="form-label">Địa chỉ xuất hóa đơn</label>
-                        <input type="text" class="form-control" id="inputCertificate" placeholder="12313">
+                        <label for="adInvoice" class="form-label" style="color: #525252;
+        font-size: 18px;
+        font-family: Joxt;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+">Địa chỉ xuất hóa đơn</label>
+                        <input type="text" class="form-control" id="adInvoice" style="border-radius: 8px;
+        background: #EDEDED;
+        border: none; height: 60px;">
                     </div>
                     <div class="col-12">
-                        <input type="checkbox" id="disable-checkbox"> khách hàng doanh nghiệp
-                        <div class="content row " style="margin-top:10px;">
+                        <input type="checkbox" id="disable-checkbox"> Khách hàng doanh nghiệp
+                        <div class="content row " style="height: 300px;width: 95%;margin: 10px auto; ">
                             <div class="col-md-5" style="margin:0 auto;">
                                 <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
-                                <input type="text" class="form-control" id="inputNameBuss">
+                                <input type="text" class="form-control" id="inputNameBuss" >
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
                                 <label for="inputPosition" class="form-label">Chức vụ</label>
-                                <input type="text" class="form-control" id="inputPosition">
+                                <input type="text" class="form-control" id="inputPosition" >
+                            </div>
+                            <div class="col-md-5" style="margin:0 auto;">
+                                <label for="certi" class="form-label">Chứng nhận doanh nghiệp</label>
+                                <input type="text" class="form-control" id="certi" >
+                            </div>
+                            <div class="col-md-5" style="margin:0 auto;">
+                                <label for="coreSDN" class="form-label">Số doanh nghiệp(SDN)</label>
+                                <input type="text" class="form-control" id="coreSDN" >
+                            </div>
+                            <div class="col-md-5" style="margin:0 auto;">
+                                <label for="dateSDN" class="form-label">Ngày cấp SDN</label>
+                                <input type="datetime" class="form-control" id="dateSDN" >
+                            </div>
+                            <div class="col-md-5" style="margin:0 auto;">
+                                <label for="adSDN" class="form-label">Nơi cấp SDN</label>
+                                <input type="text" class="form-control" id="adSDN" >
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Hoạt động</label>
-                        <input type="date" class="form-control" id="inputDateStart">
+                        <label for="action" class="form-label">Hoạt động</label>
+                        <input type="text" class="form-control" id="action">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">Ghi chú</label>
-                        <input type="date" class="form-control" id="inputDateEnd">
+                        <label for="note" class="form-label">Ghi chú</label>
+                        <input type="text" class="form-control" id="note">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Số chứng chỉ Seri</label>
-                        <input type="date" class="form-control" id="inputDateStart">
+                        <label for="seri" class="form-label">Số chứng chỉ Seri</label>
+                        <input type="text" class="form-control" id="seri">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">Mã loại khách hàng</label>
-                        <input type="date" class="form-control" id="inputDateEnd">
+                        <label for="IDs" class="form-label">Mã loại khách hàng</label>
+                        <input type="text" class="form-control" id="IDs">
                     </div>
                     <div class="col-md-5" style="margin: 40px auto;">
                         <button class="add_cus" type="submit">

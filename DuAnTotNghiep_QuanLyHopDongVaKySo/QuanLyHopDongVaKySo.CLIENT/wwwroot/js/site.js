@@ -31,19 +31,20 @@ $(".menu .sub-menu li").click(function (e) {
 // Tạo vùng checkbox
 const checkbox = document.getElementById('disable-checkbox');
 const content = document.querySelector('.content');
+const inputs = content.querySelectorAll('input');
 
 checkbox.addEventListener('change', function () {
+    inputs.forEach(input => {
+        input.disabled = checkbox.checked;
+    });
+
     if (checkbox.checked) {
         content.classList.add('disabled');
-    }else {
+    } else {
         content.classList.remove('disabled');
     }
 });
 
-
-
-
-// Phân vùng toạ độ
 
 
 
