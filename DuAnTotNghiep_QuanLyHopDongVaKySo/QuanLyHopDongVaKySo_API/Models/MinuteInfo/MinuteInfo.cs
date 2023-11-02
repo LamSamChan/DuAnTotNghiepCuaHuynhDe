@@ -42,6 +42,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         {
             { "13", "InstallationDate" },
         };
+
         public string MinuteCreatedDate { get; set; }
 
         [Required(ErrorMessage = "Hãy nhập nội dung của biên bản !")]

@@ -20,6 +20,11 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Trạng thái thiết bị")]
         public string DeviceStatus { get; set; }
 
+        [Required(ErrorMessage = "Hãy điền số lượng thiết bị !")]
+        [Column(TypeName = "nvarchar(50)")]
+        [Display(Name = "Số lượng thiết bị")]
+        public int DeviceQuantity { get; set; }
+
         //tạo liên kết
         [ForeignKey("TypeOfService")]
         [Required(ErrorMessage = "Hãy điền mã loại dịch vụ !")]

@@ -340,6 +340,10 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("DeviceQuantity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("DeviceStatus")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");

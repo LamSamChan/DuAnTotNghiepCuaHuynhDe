@@ -91,6 +91,7 @@ namespace QuanLyHopDongVaKySo_API.Services.InstallationDeviceService
                 existingDevice.Device_ID = device.Device_ID;
                 existingDevice.DeviceName = device.DeviceName;
                 existingDevice.DeviceStatus = device.DeviceStatus;
+                existingDevice.DeviceQuantity = device.DeviceQuantity;
                 existingDevice.TOS_ID = device.TOS_ID;
 
                 // Lưu thay đổi vào database
