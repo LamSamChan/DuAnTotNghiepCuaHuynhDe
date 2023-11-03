@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v7.0": {
       "QuanLyHopDongVaKySo.CLIENT/1.0.0": {
         "dependencies": {
-          "QuanLyHopDongVaKySo_API": "1.0.0"
+          "QuanLyHopDongVaKySo_API": "1.0.0",
+          "System.Drawing.Common": "7.0.0",
+          "SuperSignature.Net.Standard": "1.5.0.3"
         },
         "runtime": {
           "QuanLyHopDongVaKySo.CLIENT.dll": {}
@@ -670,12 +672,6 @@
       "System.Text.Json/7.0.2": {
         "dependencies": {
           "System.Text.Encodings.Web": "7.0.0"
-        },
-        "runtime": {
-          "lib/net7.0/System.Text.Json.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.323.6910"
-          }
         }
       },
       "System.Threading.Tasks.Extensions/4.5.4": {},
@@ -719,6 +715,14 @@
         },
         "runtime": {
           "QuanLyHopDongVaKySo_API.dll": {}
+        }
+      },
+      "SuperSignature.Net.Standard/1.5.0.3": {
+        "runtime": {
+          "SuperSignature.Net.Standard.dll": {
+            "assemblyVersion": "1.5.0.3",
+            "fileVersion": "1.5.0.3"
+          }
         }
       }
     }
@@ -1256,6 +1260,11 @@
     },
     "QuanLyHopDongVaKySo_API/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SuperSignature.Net.Standard/1.5.0.3": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }
