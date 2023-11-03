@@ -1,6 +1,7 @@
 ﻿using Azure;
 using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
+using QuanLyHopDongVaKySo_API.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -12,15 +13,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public async Task<IActionResult> Index()
         {
+            List<Customer> customersList = new List<Customer>();
             try
             {
-                var customersList = await _customerService.GetAllCustomers();
+                customersList = await _customerService.GetAllCustomers();
                 return View(customersList);
             }
             catch (Exception  ex)
             {
 
-                return View(ex);
+                return View(customersList);
             }
         }
         public IActionResult AddCus()

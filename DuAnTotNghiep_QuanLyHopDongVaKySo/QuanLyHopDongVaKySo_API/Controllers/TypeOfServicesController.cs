@@ -45,6 +45,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
         }
 
+        //bắt lỗi mỗi dịch vụ chỉ có 1 hợp đồng và 1 biên bản
         [HttpPost("AddNew")]
         public async Task<ActionResult<int>> AddNew([FromForm] PostTOS typeOfService)
         {
