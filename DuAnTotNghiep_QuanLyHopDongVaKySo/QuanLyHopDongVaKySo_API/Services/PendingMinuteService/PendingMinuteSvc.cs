@@ -33,29 +33,17 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
             _positionSvc = positionSvc;
         }
 
-        public async Task<string> addAsnyc(PostPMinute pMinute)
+        public async Task<int> addAsnyc(PendingMinute pMinute)
         {
-            string ret = null;
             try{
-                PendingMinute add = new PendingMinute()
-                {
-                    DateCreated = DateTime.Now,
-                    MinuteName = pMinute.MinuteName,
-                    IsIntallation = false,
-                    IsCustomer = false,
-                    MinuteFile = "",
-                    EmployeeId = pMinute.EmployeeId,
-                    DoneContractId = pMinute.DoneContractId,
-                    TMinuteId = pMinute.TMinuteId,
-                };
-                await _context.PendingMinutes.AddAsync(add);
+                await _context.PendingMinutes.AddAsync(pMinute);
                 await _context.SaveChangesAsync();
-                return add.PendingMinuteId.ToString();
+                return pMinute.PendingMinuteId;
             }catch
             {
-                return ret;
+                return 0;
             }
-            return ret;
+            return 0;
         }
 
         public async Task<int> DeletePMinute(int pMinuteId)
@@ -97,22 +85,6 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
             catch (Exception ex)
             {
                 return new PendingMinute();
-            }
-        }
-
-        public async Task<int> GetJobFormIRequirement(PendingMinute pendingMinute)
-        {
-            try
-            {
-                int isSuccess = 0;
-                _context.PendingMinutes.Add(pendingMinute);
-                await _context.SaveChangesAsync();
-                isSuccess = pendingMinute.PendingMinuteId;
-                return isSuccess;
-            }
-            catch (Exception ex)
-            {
-                return 0;
             }
         }
 

@@ -2,6 +2,7 @@
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
@@ -10,10 +11,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
     {
         private readonly IPositionService _positionService;
         private readonly IEmployeeService _employeeService;
+        private readonly IRoleService _roleService;
 
-        public AdminController(IPositionService positionService, IEmployeeService employeeService) { 
+
+        public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService) { 
             _positionService = positionService;
             _employeeService = employeeService;
+            _roleService = roleService;
         }
         public IActionResult Index()
         {
@@ -50,9 +54,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return View(ex);
             }
         }
-        public IActionResult ListRole()
+        public async Task<IActionResult> ListRole()
         {
-            return View();
+            VMListRole vm = new VMListRole();
+            try
+            {
+                vm.Roles = await _roleService.GetAllRolesAsync();
+                vm.Employees = await _employeeService.GetAllEmployees();
+                return View(vm);
+            }
+            catch (Exception ex)
+            {
+
+                return View(ex);
+            }
         }
     }
 }

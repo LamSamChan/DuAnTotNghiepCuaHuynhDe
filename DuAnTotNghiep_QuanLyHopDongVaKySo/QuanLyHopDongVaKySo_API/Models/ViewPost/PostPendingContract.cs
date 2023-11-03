@@ -12,8 +12,6 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string InstallationAddress { get; set; }
         public int TOS_ID { get; set; }
 
-        public int TContractId { get; set; }
-        
 
     }
 

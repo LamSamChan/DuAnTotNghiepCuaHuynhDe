@@ -8,8 +8,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
         Task<List<PendingMinute>> GetListByEmpId(string EmployeeId);
         Task<PendingMinute> GetById(int pMinuteId);
         Task<int> DeletePMinute(int pMinuteId);
-        Task<int> GetJobFormIRequirement(PendingMinute pendingMinute);
-        Task<string> addAsnyc(PostPMinute pMinute);
+        Task<int> addAsnyc(PendingMinute pMinute);
         Task<MinuteInfo> ExportContract(PendingMinute pMinute,string empId);
         Task<int> updatePMinuteFile(int id, string File);
     }

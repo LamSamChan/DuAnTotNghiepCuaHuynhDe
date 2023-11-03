@@ -100,11 +100,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 return BadRequest("Hợp đồng này đã được khách hàng ký !");
             }
-
-            TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(pContract.TContractId);
+            var tContractID = _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.TContractID;
+            TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(tContractID);
             DirectorZone directorZone = JsonConvert.DeserializeObject<DirectorZone>(tContract.jsonDirectorZone);
 
-            var Coordinates = await _contractCoordinateSvc.getByTContract(pContract.TContractId);
+            var Coordinates = await _contractCoordinateSvc.getByTContract(tContractID);
 
             FileStream fsPContract = new FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
             fsPContract.Close();
@@ -191,7 +191,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 InstallationAddress = pContract.InstallationAddress,
                 CustomerId = pContract.CustomerId,
                 TOS_ID = pContract.TOS_ID,
-                TContractId = pContract.TContractId
             };
             var customer = await _customerSvc.GetByIdAsync(pContract.CustomerId.ToString());
             var url = GenerateUrl(pContract.PContractID);
@@ -239,8 +238,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 return BadRequest("Hợp đồng này đã được khách hàng ký !");
             }
-
-            TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(pContract.TContractId);
+            var tContractID =  _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.TContractID;
+            TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(tContractID);
             CustomerZone customerZone = JsonConvert.DeserializeObject<CustomerZone>(tContract.jsonCustomerZone);
 
             string outputContract = pContract.PContractFile.Replace("PContracts", "DContracts");
@@ -276,7 +275,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 CustomerId = pContract.CustomerId,
                 InstallationAddress = pContract.InstallationAddress,
                 TOS_ID = pContract.TOS_ID,
-                TContractId = pContract.TContractId
             };
 
             _pdfToImageHelper.PdfToPng(outputContract, pendingContract.PContractId);
@@ -289,9 +287,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 DateCreated = DateTime.Now,
                 MinuteName = "Biên bản lắp đặt hợp đồng " + serviceName,
                 DoneContractId = dContract.DContractID,
-                MinuteFile = "",
-                //sửa lại là lấy id tminute tương ứng với dịch vụ đó
-                TMinuteId = 1
             };
             int result = await _requirementSvc.CreateIRequirement(requirement);
 

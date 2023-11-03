@@ -20,21 +20,13 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Tên biên bản")]
         public string MinuteName { get; set; }
 
-        [Column(TypeName = "nvarchar(250)"),AllowNull]
-        [Display(Name = "Tệp biên bản")]
-        public string MinuteFile { get; set; }
-
         //tạo liên kết
         [ForeignKey("DoneContract")]
         public int DoneContractId { get; set; }
 
-        [ForeignKey("TemplateMinute")]
-        public int TMinuteId { get; set; }
-
         [JsonIgnore]
         public DoneContract? DoneContract { get; set; }
-        [JsonIgnore]
-        public TemplateMinute? TemplateMinute { get; set; }
+
 
     }
 }

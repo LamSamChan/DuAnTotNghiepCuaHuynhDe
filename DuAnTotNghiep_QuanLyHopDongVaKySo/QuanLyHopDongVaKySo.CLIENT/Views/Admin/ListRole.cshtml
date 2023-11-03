@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListRole
 @{
     Layout = "_AdminLayout";
 }
@@ -50,55 +48,72 @@
                                             <th></th>
                                             <th>HÀNHĐỘNG</th>
                                             <th>ID</th>
-                                            <th>HỌ VÀ TÊN</th>
-                                            <th>TÊN CHỨC DANH</th>
                                             <th>VAI TRÒ</th>
-                                            <th>MÔ TẢ CHI TIẾT</th>
+                                            <th>HỌ VÀ TÊN</th>
+                                            <th>EMAIL</th>
+                                            <th>SỐ ĐIỆN THOẠI</th>
                                             <th>TRẠNG THÁI</th>
-                                            <th>NGÀY TẠO</th>
-                                            <th>NGÀY SỬA ĐỔI</th>
-                                            <th>CHỨC NĂNG LIÊN QUAN</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        @foreach (var emp in Model.Employees)
+                                        {
+                                            <tr>
 
-                                            <td>
-                                                <div class="checkbox">
-                                                    <input id="check-item-1" type="checkbox">
-                                                    <label for="check-item-1" class="m-b-0"></label>
-                                                </div>
-                                            </td>
-                                            <td class="text-left">
-                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
-                                                    <i class="anticon anticon-edit"></i>
-                                                </button>
-                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                                    <i class="anticon anticon-delete"></i>
-                                                </button>
-                                            </td>
-                                            <td>
-                                                #5331
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-
-                                                    <h6 class="m-b-0">abc</h6>
-                                                </div>
-                                            </td>
-                                            <td>Giám đốc hệ thống</td>
-                                            <td>Admin</td>
-                                            <td>Quản lý các thông tin của ký số</td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="badge badge-danger badge-dot m-r-10"></div>
-                                                    <div>Khóa</div>
-                                                </div>
-                                            </td>
-                                            <td>22/10/2023</td>
-                                            <td>18/10/2023</td>
-                                            <td>Ký các hợp đồng lớn</td>
-                                        </tr>
+                                                <td>
+                                                    <div class="checkbox">
+                                                        <input id="check-item-1" type="checkbox">
+                                                        <label for="check-item-1" class="m-b-0"></label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-left">
+                                                    <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                                        <i class="anticon anticon-edit"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    @emp.EmployeeId.ToString().Substring(0,8)
+                                                </td>
+                                                @foreach (var role in Model.Roles)
+                                                {
+                                                    if (emp.PositionID == role.RoleID)
+                                                    {
+                                                        <td>@role.RoleName</td>
+                                                    }
+                                                }
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <h6 class="m-b-0">@emp.FullName</h6>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <h6 class="m-b-0">@emp.Email</h6>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <h6 class="m-b-0">@emp.PhoneNumber</h6>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    @if (emp.IsLocked)
+                                                    {
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="badge badge-danger badge-dot m-r-10"></div>
+                                                            <div>Đã bị khoá</div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                                            <div>Đang hiển thị</div>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>
+                                        }
                                     </tbody>
                                 </table>
                             </div>
@@ -119,44 +134,48 @@
                                 <table class="table table-hover e-commerce-table">
                                     <thead>
                                         <tr>
-                                            <th></th>
                                             <th>HÀNH ĐỘNG</th>
                                             <th>ID</th>
-                                            <th>VAI TRÒ</th>
-                                            <th>MÔ TẢ CHI TIẾT</th>
-                                            <th>SỐ LƯỢNG NGƯỜI DÙNG</th>
-                                            <th>NGÀY TẠO</th>
-                                            <th>NGƯỜI TẠO</th>
-                                            <th>NGÀY SỬA</th>
+                                            <th>TÊN VAI TRÒ</th>
+                                            <th>TRẠNG THÁI</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="checkbox">
-                                                    <input id="checkAll" type="checkbox">
-                                                    <label for="checkAll" class="m-b-0"></label>
-                                                </div>
-                                            </td>
-                                            <td class="text-left">
-                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
-                                                    <i class="anticon anticon-edit"></i>
-                                                </button>
-                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                                    <i class="anticon anticon-delete"></i>
-                                                </button>
-                                            </td>
+                                        @foreach (var role in Model.Roles)
+                                        {
+                                            <tr>
+                                                <td class="text-left">
+                                                    <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                                        <i class="anticon anticon-edit"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    @role.RoleID
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
 
-                                            <td>
-                                                #5331
-                                            </td>
-                                            <td>Admin</td>
-                                            <td>Quản lý toàn bộ hệ thống</td>
-                                            <td>6</td>
-                                            <td>22/10/2023</td>
-                                            <td>TRUNG</td>
-                                            <td>18/10/2023</td>
-                                        </tr>
+                                                        <h6 class="m-b-0">@role.RoleName</h6>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    @if (role.isHidden)
+                                                    {
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="badge badge-danger badge-dot m-r-10"></div>
+                                                            <div>Đã ẩn</div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                                            <div>Đang hiển thị</div>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>
+                                        }
                                     </tbody>
                                 </table>
                             </div>

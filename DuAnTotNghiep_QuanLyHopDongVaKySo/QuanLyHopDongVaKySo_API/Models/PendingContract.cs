@@ -50,17 +50,12 @@ namespace QuanLyHopDongVaKySo_API.Models
         [ForeignKey("TypeOfService")]
         public int TOS_ID { get; set; }
 
-        [ForeignKey("TemplateContract")]
-        public int TContractId { get; set; }
-
         [JsonIgnore]
         public Employee? Employee { get; set; }
         [JsonIgnore]
         public Customer? Customer { get; set; }
         [JsonIgnore]
         public TypeOfService? TypeOfService { get; set; }
-        [JsonIgnore]
-        public TemplateContract? TemplateContract { get; set; }
     }
 
 }

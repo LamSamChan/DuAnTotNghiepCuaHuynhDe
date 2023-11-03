@@ -9,6 +9,7 @@ using QuanLyHopDongVaKySo_API.Services;
 using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.PendingContractService;
 using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
+using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
 using System.Reflection;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
@@ -22,24 +23,28 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly ITemplateContractSvc _TContractSvc;
         private readonly IContractCoordinateSvc _CCoordinateSvc;
         private readonly IPdfToImageHelper _pdfToImageHelper;
-
+        private readonly ITypeOfServiceSvc _typeOfServiceSvc;
         public PContractController(IPendingContractSvc PContractSvc, ICustomerSvc CustomerSvc,
-         ITemplateContractSvc TContractSvc, IContractCoordinateSvc CCoordinateSvc, ProjectDbContext context, IPdfToImageHelper pdfToImageHelper)
+         ITemplateContractSvc TContractSvc, IContractCoordinateSvc CCoordinateSvc, IPdfToImageHelper pdfToImageHelper,
+         ITypeOfServiceSvc typeOfServiceSvc
+            )
         {
             _PContractSvc = PContractSvc;
             _CustomerSvc = CustomerSvc;
             _TContractSvc = TContractSvc;
             _CCoordinateSvc = CCoordinateSvc;
             _pdfToImageHelper = pdfToImageHelper;
+            _typeOfServiceSvc = typeOfServiceSvc;
         }
 
         [HttpPost]
         public async Task<IActionResult> AddPContractAsnyc([FromForm] PostPendingContract pContract)
         {
+            var tContractID = _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.TContractID;
             //lây thông tin mẫu hợp đồng
-            var tContract = await _TContractSvc.getByIdAsnyc(pContract.TContractId);
+            var tContract = await _TContractSvc.getByIdAsnyc(tContractID);
             //lây thông tin toạ động mẫu hợp đòng
-            var Coordinates = await _CCoordinateSvc.getByTContract(pContract.TContractId);
+            var Coordinates = await _CCoordinateSvc.getByTContract(tContractID);
             List<string> outputPathContracts = new List<string>();
             if (ModelState.IsValid)
             {

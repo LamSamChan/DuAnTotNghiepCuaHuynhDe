@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Models.ViewPost;
+using QuanLyHopDongVaKySo_API.Models.ViewPuts;
 using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.TypeOfCustomerService;
 using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
@@ -44,9 +46,20 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost("AddNew")]
-        public async Task<ActionResult<int>> AddNew(TypeOfService typeOfService)
+        public async Task<ActionResult<int>> AddNew([FromForm] PostTOS typeOfService)
         {
-            int isError = await _typeOfServiceSvc.AddNew(typeOfService);
+            TypeOfService tos = new TypeOfService() { 
+                DateAdded = DateTime.UtcNow,
+                DateUpdated = DateTime.UtcNow,
+                ServiceName = typeOfService.ServiceName,
+                Price = typeOfService.Price,
+                PerTime = typeOfService.PerTime,
+                TContractID = typeOfService.TContractID,
+                isHidden = false,
+                TMinuteID = typeOfService.TMinuteID
+
+            };
+            int isError = await _typeOfServiceSvc.AddNew(tos);
             if (isError != 0)
             {
                 return Ok(isError);
@@ -55,9 +68,23 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPut("Update/{id}")]
-        public async Task<ActionResult<int>> Update(TypeOfService typeOfService)
+        public async Task<ActionResult<int>> Update(PutTOS typeOfService)
         {
-            int isError = await _typeOfServiceSvc.Update(typeOfService);
+
+            TypeOfService tos = new TypeOfService()
+            {
+                TOS_ID = typeOfService.TOS_ID,
+                DateAdded = typeOfService.DateAdded,
+                DateUpdated = DateTime.UtcNow,
+                ServiceName = typeOfService.ServiceName,
+                Price = typeOfService.Price,
+                PerTime = typeOfService.PerTime,
+                TContractID = typeOfService.TContractID,
+                isHidden = typeOfService.isHidden,
+                TMinuteID = typeOfService.TMinuteID
+            };
+
+            int isError = await _typeOfServiceSvc.Update(tos);
             if (isError != 0)
             {
                 return Ok(isError);

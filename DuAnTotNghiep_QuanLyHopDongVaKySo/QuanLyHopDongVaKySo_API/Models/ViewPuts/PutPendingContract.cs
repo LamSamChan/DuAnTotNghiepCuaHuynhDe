@@ -29,8 +29,6 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         public int TOS_ID { get; set; }
 
-        public int TContractId { get; set; }
-
         public IFormFile File { get; set; }
     }
 

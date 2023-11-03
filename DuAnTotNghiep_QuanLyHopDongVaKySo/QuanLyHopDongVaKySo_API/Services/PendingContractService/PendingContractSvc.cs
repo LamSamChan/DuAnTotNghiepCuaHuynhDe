@@ -44,7 +44,6 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     DirectorSignedId = null,
                     CustomerId = PContract.CustomerId,
                     TOS_ID = PContract.TOS_ID,
-                    TContractId = PContract.TContractId
                 };
                 await _context.PendingContracts.AddAsync(add);
                 await _context.SaveChangesAsync();
@@ -105,7 +104,6 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     update.DirectorSignedId = PContract.DirectorSignedId;
                     update.CustomerId = PContract.CustomerId;
                     update.TOS_ID = PContract.TOS_ID;
-                    update.TContractId = PContract.TContractId;
                 }
                 _context.PendingContracts.Update(update);
                 await _context.SaveChangesAsync();

@@ -39,6 +39,12 @@ namespace QuanLyHopDongVaKySo_API.Models
         [JsonIgnore]
         public ICollection<InstallationDevice>? InstallationDevice { get; set; }
 
+        [ForeignKey("TemplateContract")]
+        public int TContractID { get; set; }
+        [ForeignKey("TemplateMinute")]
+        public int TMinuteID { get; set; }
 
+        public TemplateContract? TemplateContact { get; set; }
+        public TemplateMinute? TemplateMinute { get; set; }
     }
 }

@@ -373,22 +373,13 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<int>("DoneContractId")
                         .HasColumnType("int");
 
-                    b.Property<string>("MinuteFile")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(250)");
-
                     b.Property<string>("MinuteName")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("TMinuteId")
-                        .HasColumnType("int");
-
                     b.HasKey("InstallRequireID");
 
                     b.HasIndex("DoneContractId");
-
-                    b.HasIndex("TMinuteId");
 
                     b.ToTable("InstallationRequirement", (string)null);
                 });
@@ -584,9 +575,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<string>("Reason")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TContractId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TOS_ID")
                         .HasColumnType("int");
 
@@ -595,8 +583,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.HasIndex("CustomerId");
 
                     b.HasIndex("EmployeeCreatedId");
-
-                    b.HasIndex("TContractId");
 
                     b.HasIndex("TOS_ID");
 
@@ -635,16 +621,11 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("TMinuteId")
-                        .HasColumnType("int");
-
                     b.HasKey("PendingMinuteId");
 
                     b.HasIndex("DoneContractId");
 
                     b.HasIndex("EmployeeId");
-
-                    b.HasIndex("TMinuteId");
 
                     b.ToTable("PendingMinute", (string)null);
                 });
@@ -804,10 +785,23 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int>("TContractID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TMinuteID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TemplateContactTContactID")
+                        .HasColumnType("int");
+
                     b.Property<bool>("isHidden")
                         .HasColumnType("bit");
 
                     b.HasKey("TOS_ID");
+
+                    b.HasIndex("TMinuteID");
+
+                    b.HasIndex("TemplateContactTContactID");
 
                     b.ToTable("TypeOfService", (string)null);
                 });
@@ -926,15 +920,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("QuanLyHopDongVaKySo_API.Models.TemplateMinute", "TemplateMinute")
-                        .WithMany()
-                        .HasForeignKey("TMinuteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("DoneContract");
-
-                    b.Navigation("TemplateMinute");
                 });
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.MinuteCoordinate", b =>
@@ -984,12 +970,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("QuanLyHopDongVaKySo_API.Models.TemplateContract", "TemplateContract")
-                        .WithMany()
-                        .HasForeignKey("TContractId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.TypeOfService", "TypeOfService")
                         .WithMany()
                         .HasForeignKey("TOS_ID")
@@ -999,8 +979,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Navigation("Customer");
 
                     b.Navigation("Employee");
-
-                    b.Navigation("TemplateContract");
 
                     b.Navigation("TypeOfService");
                 });
@@ -1019,15 +997,24 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("QuanLyHopDongVaKySo_API.Models.TemplateMinute", "TemplateMinute")
-                        .WithMany()
-                        .HasForeignKey("TMinuteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("DoneContract");
 
                     b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.TypeOfService", b =>
+                {
+                    b.HasOne("QuanLyHopDongVaKySo_API.Models.TemplateMinute", "TemplateMinute")
+                        .WithMany()
+                        .HasForeignKey("TMinuteID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("QuanLyHopDongVaKySo_API.Models.TemplateContract", "TemplateContact")
+                        .WithMany()
+                        .HasForeignKey("TemplateContactTContactID");
+
+                    b.Navigation("TemplateContact");
 
                     b.Navigation("TemplateMinute");
                 });
