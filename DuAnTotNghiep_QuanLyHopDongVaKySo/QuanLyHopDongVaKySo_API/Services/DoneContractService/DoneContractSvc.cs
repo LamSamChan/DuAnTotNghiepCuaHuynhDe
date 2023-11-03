@@ -47,9 +47,34 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
             return await _context.DoneContracts.Where(D => D.DContractID == id).FirstOrDefaultAsync();
         }
 
-        public Task<string> updateAsnyc(PutDContract dContract)
+        public async Task<string> updateAsnyc(PutDContract dContract)
         {
-            throw new NotImplementedException();
+            string ret = null;
+            var update = await getByIdAsnyc(dContract.DContractID);
+            try
+            {
+                if (update != null)
+                {
+                    update.DContractID = dContract.DContractID;
+                    update.DateDone = dContract.DateDone;
+                    update.DConTractName = dContract.DContractName;
+                    update.DContractFile = dContract.DContractFile;
+                    update.IsInEffect = dContract.IsInEffect;
+                    update.InstallationAddress = dContract.InstallationAddress;
+                    update.EmployeeCreatedId = dContract.EmployeeCreatedId;
+                    update.DirectorSignedId = dContract.DirectorSignedId;
+                    update.CustomerId = dContract.CustomerId;
+                    update.TOS_ID = dContract.TOS_ID;
+                    update.DoneMinuteId = dContract.DoneMinuteId;
+                }
+                _context.DoneContracts.Update(update);
+                await _context.SaveChangesAsync();
+                return update.DContractID.ToString();
+            }
+            catch
+            {
+                return ret;
+            }
         }
     }
 }

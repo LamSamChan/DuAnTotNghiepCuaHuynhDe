@@ -96,7 +96,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
                     pdfStamper.Close();
                     pdfReader.Close();
-                    outputPathContracts = _pdfToImageHelper.PdfToPng(outputPdfFile, int.Parse(id_Pcontract));
+                    outputPathContracts = _pdfToImageHelper.PdfToPng(outputPdfFile, int.Parse(id_Pcontract),"contract");
 
                     FileStream fsPContract = new System.IO.FileStream(outputPdfFile, FileMode.Open, FileAccess.Read);
                     fsPContract.Close();
@@ -129,7 +129,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
 
             var pdfPath = _PContractSvc.getByIdAsnyc(id).Result.PContractFile;
-            List<string> outputPathContracts = _pdfToImageHelper.PdfToPng(pdfPath, id);
+            List<string> outputPathContracts = _pdfToImageHelper.PdfToPng(pdfPath, id, "contract");
 
             return Ok(new
             {

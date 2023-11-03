@@ -6,10 +6,6 @@ namespace QuanLyHopDongVaKySo_API.Models.ViewPost
 {
     public class PostTOS
     {
-        [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
-        [Display(Name = "Ngày cập nhật")]
-        public DateTime? DateUpdated { get; set; }
-
         [Required(ErrorMessage = "Hãy điền tên loại dịch vụ !")]
         [Column(TypeName = "nvarchar(100)")]
         [Display(Name = "Tên loại dịch vụ")]

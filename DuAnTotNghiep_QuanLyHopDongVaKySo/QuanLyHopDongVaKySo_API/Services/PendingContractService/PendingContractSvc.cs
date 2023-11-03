@@ -28,12 +28,13 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
         }
         public async Task<string> addAsnyc(PostPendingContract PContract)
         {
+            string serviceName = _typeOfServiceSvc.GetById(PContract.TOS_ID).Result.ServiceName;
             string ret = null;
             try{
                 PendingContract add = new PendingContract()
                 {
                     DateCreated = DateTime.Now,
-                    PContractName = "Hợp đồng sử dụng " + (PContract.TOS_ID == 1? "internet": "Dien thoai").ToString(),
+                    PContractName = "Hợp đồng sử dụng " + serviceName,
                     PContractFile = "",
                     InstallationAddress = PContract.InstallationAddress,
                     IsDirector = false,
@@ -130,7 +131,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             {
                 //contract.CustomerId = cus.CustomerId.ToString();
                 contract.CustomerId ="KH"+ cus.CustomerId.ToString().Substring(0,8);
-                contract.ContractId ="HD"+ PContract.PContractID.ToString();
+                contract.ContractId ="HĐ"+ PContract.PContractID.ToString();
                 contract.Date = PContract.DateCreated.ToString("dd/MM/yyyy");
                 contract.BuisinessName = cus.BuisinessName != null ? cus.BuisinessName : cus.FullName;
                 contract.FullName = cus.FullName;

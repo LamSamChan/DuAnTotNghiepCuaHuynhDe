@@ -7,11 +7,11 @@ namespace QuanLyHopDongVaKySo_API.Helpers
 {
     public interface IPdfToImageHelper
     {
-        List<string> PdfToPng(string inputFile, int idPContract);
+        List<string> PdfToPng(string inputFile, int idPContract,string typeDoc);
     }
     public class PdfToImageHelper : IPdfToImageHelper
     {
-        public List<string> PdfToPng(string inputFile, int idContract)
+        public List<string> PdfToPng(string inputFile, int idContract,string typeDoc)
         {
             FileStream fs1 = new FileStream(inputFile, FileMode.Open, FileAccess.Read);
             fs1.Close();
@@ -26,7 +26,15 @@ namespace QuanLyHopDongVaKySo_API.Helpers
             using (var rasterizer = new GhostscriptRasterizer()) //create an instance for GhostscriptRasterizer
             {
                 rasterizer.Open(inputFile); //opens the PDF file for rasterizing
-                outputDirectoryPath = $"AppData/ContractImage/{idContract}";
+                if (typeDoc == "minute")
+                {
+                    outputDirectoryPath = $"AppData/MinuteImage/{idContract}";
+                }
+                else
+                {
+                    outputDirectoryPath = $"AppData/ContractImage/{idContract}";
+                }
+                
                 if(!Directory.Exists(outputDirectoryPath))
                 {
                     Directory.CreateDirectory(outputDirectoryPath);

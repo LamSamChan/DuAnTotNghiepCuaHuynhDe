@@ -99,8 +99,35 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
 
                 return new List<PendingMinute>();
             }
-        } 
-        public async Task<MinuteInfo> ExportContract(PendingMinute pMinute, string empId)
+        }
+
+        public async Task<string> updateAsnyc(PutPMinute pMinute)
+        {
+            string ret = null;
+            var update = await GetById(pMinute.PendingMinuteId);
+            try
+            {
+                if (update != null)
+                {
+                    update.PendingMinuteId = pMinute.PendingMinuteId;
+                    update.DateCreated = pMinute.DateCreated;
+                    update.MinuteName = pMinute.MinuteName;
+                    update.IsIntallation = pMinute.IsIntallation;
+                    update.IsCustomer = pMinute.IsCustomer;
+                    update.EmployeeId = pMinute.EmployeeId;
+                    update.DoneContractId = pMinute.DoneContractId;
+                    update.MinuteFile = pMinute.MinuteFile;
+                }
+                _context.PendingMinutes.Update(update);
+                await _context.SaveChangesAsync();
+                return update.PendingMinuteId.ToString();
+            }
+            catch
+            {
+                return ret;
+            }
+        }
+        public async Task<MinuteInfo> ExportMinute(PendingMinute pMinute, string empId)
         {
             var dContract = await _doneContractSvc.getByIdAsnyc(pMinute.DoneContractId);
             var cus = await _customerSvc.GetByIdAsync(dContract.CustomerId.ToString());
@@ -114,17 +141,17 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
                 minuteInfo.MinuteCreatedDate = DateTime.Now.ToString("dd/MM/yyyy");
                 minuteInfo.MinuteContent = "Biên bản lắp đặt dịch vụ " + tOS.ServiceName;
                 minuteInfo.MinuteId = "BB"+ pMinute.PendingMinuteId.ToString();
-                minuteInfo.ContractId ="HD"+ dContract.DContractID.ToString();
+                minuteInfo.ContractId ="HĐ"+ dContract.DContractID.ToString();
                 minuteInfo.InstallationCustomer = cus.BuisinessName == null ? cus.FullName : cus.BuisinessName;
                 minuteInfo.CustomerName = cus.FullName;
                 minuteInfo.CustomerPosition = cus.Position == null ? " " : cus.Position.ToString();
                 minuteInfo.CustomerPhone = cus.PhoneNumber;
                 minuteInfo.InstallationCompany = "Tech Seal";
                 minuteInfo.InstallationPerson = emp.FullName;
-                minuteInfo.InstallationPosition = emp.Position == null? " " : EmpPostion;
+                minuteInfo.InstallationPosition = EmpPostion;
                 minuteInfo.InstallationPhone = emp.PhoneNumber;
                 minuteInfo.InstallationAddress = cus.Address;
-                
+                minuteInfo.InstallationDate = DateTime.Now.ToString("dd/MM/yyyy");
                 int count = 0;
                 for (int i = 0; i < device.Count; i++)
                 {

@@ -59,10 +59,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             var tMinute = await _tMinuteSvc.getByIdAsnyc(tMinuteId);
             //lây thông tin toạ động mẫu biên bản
             var Coordinates = await _mCoordinateSvc.getByTMinute(tMinuteId);
-            if (ModelState.IsValid)
-            {
+            
                 var minuteById = await _pMinuteSvc.GetById(pMinute);
-                var minute = await _pMinuteSvc.ExportContract(minuteById, employeeID);
+                var minute = await _pMinuteSvc.ExportMinute(minuteById, employeeID);
                 if (minute != null)
                 {
                     if (!Directory.Exists("AppData/PMinutes/"))
@@ -70,7 +69,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         Directory.CreateDirectory("AppData/PMinutes/");
                     }
                     string pdfFilePath = tMinute.TMinuteFile;
-                    string outputPdfFile = "AppData/PMinutes/" + pMinute + ".pdf";
+                    string outputPdfFile = "AppData/PMinutes/" + $"bb{pMinute}" + ".pdf";
                     PdfReader pdfReader = new PdfReader(pdfFilePath);
                     PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(outputPdfFile, FileMode.Create));
                     // Tạo một font cho trường văn bản
@@ -108,7 +107,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
                    
                 }
-            }
+            
             return Ok();
         }
     }

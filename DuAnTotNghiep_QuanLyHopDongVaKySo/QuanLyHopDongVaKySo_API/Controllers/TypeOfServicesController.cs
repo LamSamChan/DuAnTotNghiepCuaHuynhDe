@@ -67,8 +67,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             else { return BadRequest(isError); }
         }
 
-        [HttpPut("Update/{id}")]
-        public async Task<ActionResult<int>> Update(PutTOS typeOfService)
+        [HttpPut("Update")]
+        public async Task<ActionResult<int>> Update([FromForm] PutTOS typeOfService)
         {
 
             TypeOfService tos = new TypeOfService()

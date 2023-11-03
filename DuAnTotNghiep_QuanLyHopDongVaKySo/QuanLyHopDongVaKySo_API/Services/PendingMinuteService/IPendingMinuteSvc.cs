@@ -9,7 +9,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
         Task<PendingMinute> GetById(int pMinuteId);
         Task<int> DeletePMinute(int pMinuteId);
         Task<int> addAsnyc(PendingMinute pMinute);
-        Task<MinuteInfo> ExportContract(PendingMinute pMinute,string empId);
+        Task<MinuteInfo> ExportMinute(PendingMinute pMinute,string empId);
         Task<int> updatePMinuteFile(int id, string File);
+        Task<string> updateAsnyc(PutPMinute pMinute);
     }
 }

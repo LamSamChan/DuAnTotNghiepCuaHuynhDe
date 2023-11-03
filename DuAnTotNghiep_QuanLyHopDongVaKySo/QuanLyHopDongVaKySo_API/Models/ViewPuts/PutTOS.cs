@@ -12,10 +12,6 @@ namespace QuanLyHopDongVaKySo_API.Models.ViewPuts
         [Display(Name = "Ngày tạo")]
         public DateTime? DateAdded { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
-        [Display(Name = "Ngày cập nhật")]
-        public DateTime? DateUpdated { get; set; }
-
         [Required(ErrorMessage = "Hãy điền tên loại dịch vụ !")]
         [Column(TypeName = "nvarchar(100)")]
         [Display(Name = "Tên loại dịch vụ")]

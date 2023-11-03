@@ -20,6 +20,9 @@ using System.Security.Claims;
 using System.Text;
 using QuanLyHopDongVaKySo_API.Services;
 using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
+using QuanLyHopDongVaKySo_API.Services.PendingMinuteService;
+using QuanLyHopDongVaKySo_API.Services.TemplateMinuteService;
+using QuanLyHopDongVaKySo_API.Services.DoneMinuteService;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
@@ -29,7 +32,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     {
         private readonly IPFXCertificateSvc _pfxCertificate;
         private readonly IPendingContractSvc _pendingContract;
+        private readonly IPendingMinuteSvc _pendingMinuteSvc;
         private readonly IContractCoordinateSvc _contractCoordinateSvc;
+        private readonly IMinuteCoordinateSvc _minuteCoordinateSvc;
         private readonly ITemplateContractSvc _templateContractSvc;
         private readonly IEmployeeSvc _employeeSvc;
         private readonly ICustomerSvc _customerSvc;
@@ -41,12 +46,15 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IUploadFileHelper _uploadFileHelper;
         private readonly ISendMailHelper _sendMailHelper;
         private readonly ITypeOfServiceSvc _typeOfServiceSvc;
+        private readonly ITemplateMinuteSvc _templateMinuteSvc;
+        private readonly IDoneMinuteSvc _doneMinuteSvc;
 
 
         public SigningController(IPFXCertificateSvc pfxCertificate, IInstallationRequirementSvc requirementSvc, IDoneContractSvc dContractSvc,
             IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc,
             IGenerateQRCodeHelper generateQRCodeHelper, IConfiguration configuration, IPdfToImageHelper pdfToImageHelper, IUploadFileHelper uploadFileHelper,
-            ISendMailHelper sendMailHelper, IContractCoordinateSvc contractCoordinateSvc, ITypeOfServiceSvc typeOfServiceSvc)
+            ISendMailHelper sendMailHelper, IContractCoordinateSvc contractCoordinateSvc, ITypeOfServiceSvc typeOfServiceSvc, 
+            IPendingMinuteSvc pendingMinuteSvc, ITemplateMinuteSvc templateMinuteSvc, IMinuteCoordinateSvc minuteCoordinateSvc, IDoneMinuteSvc doneMinuteSvc)
         {
             _pfxCertificate = pfxCertificate;
             _pendingContract = pendingContract;
@@ -62,13 +70,29 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _sendMailHelper = sendMailHelper;
             _contractCoordinateSvc = contractCoordinateSvc;
             _typeOfServiceSvc = typeOfServiceSvc;
+            _pendingMinuteSvc = pendingMinuteSvc;
+            _templateMinuteSvc = templateMinuteSvc;
+            _minuteCoordinateSvc = minuteCoordinateSvc;
+            _doneMinuteSvc = doneMinuteSvc;
         }
 
-        //chưa test khi dùng chữ ký hết hạn
-        [HttpPost("SignDirector")]
-        public async Task<ActionResult<string>> ContractingDirector(string serial, int idContract, string imagePath)
+        [HttpPost("DirectorSignContract/{serial}/{idContract}/{imagePath}")]
+        public async Task<ActionResult<string>> SignContractByDirector(string serial, int idContract, string imagePath)
         {
             var certi = await _pfxCertificate.GetById(serial);
+            var expireCerti = await _pfxCertificate.GetAllExpire();
+
+            if (expireCerti != null)
+            {
+                foreach (var pfx in expireCerti)
+                {
+                    if (certi.Serial == pfx.Serial)
+                    {
+                        return BadRequest("Chứng chỉ đã hết hạn, vui lòng gia hạn !");
+                    }
+                }
+            }
+            
             if (certi == null)
             {
                 return BadRequest("Không có chứng chỉ hợp lệ !");
@@ -102,7 +126,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
             var tContractID = _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.TContractID;
             TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(tContractID);
-            DirectorZone directorZone = JsonConvert.DeserializeObject<DirectorZone>(tContract.jsonDirectorZone);
+            SignatureZone directorZone = JsonConvert.DeserializeObject<SignatureZone>(tContract.jsonDirectorZone);
 
             var Coordinates = await _contractCoordinateSvc.getByTContract(tContractID);
 
@@ -196,16 +220,163 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             var url = GenerateUrl(pContract.PContractID);
             var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
             var sendMail = SendMailToCustomer(qrPath, url, customer);
-            _pdfToImageHelper.PdfToPng(pContract.PContractFile, pendingContract.PContractId);
+            _pdfToImageHelper.PdfToPng(pContract.PContractFile, pendingContract.PContractId,"contract");
             await _pendingContract.updateAsnyc(pendingContract);
             return Ok(signedContractPath);
         }
 
-        //chưa test khi dùng chữ ký hết hạn
-        [HttpPost("SignCustomer")]
-        public async Task<ActionResult<string>> ContractingCustomer(string serial, int idContract, string imagePath)
+        [HttpPost("InstallerSignMinute/{serial}/{idMinute}/{imagePath}")]
+        public async Task<ActionResult<string>> SignMinuteByInstaller(string serial, int idMinute, string imagePath)
         {
             var certi = await _pfxCertificate.GetById(serial);
+            var expireCerti = await _pfxCertificate.GetAllExpire();
+
+            if (expireCerti != null)
+            {
+                foreach (var pfx in expireCerti)
+                {
+                    if (certi.Serial == pfx.Serial)
+                    {
+                        return BadRequest("Chứng chỉ đã hết hạn, vui lòng gia hạn !");
+                    }
+                }
+            }
+
+            if (certi == null)
+            {
+                return BadRequest("Không có chứng chỉ hợp lệ !");
+            }
+            Employee installer = null;
+
+            if (certi.IsEmployee)
+            {
+                installer = await _employeeSvc.GetBySerialPFX(serial);
+            }
+            else
+            {
+                return BadRequest("Chữ ký không hợp lệ");
+            }
+
+            var pMinute = await _pendingMinuteSvc.GetById(idMinute);
+
+            if (pMinute.IsIntallation)
+            {
+                return BadRequest("Biên bản này đã được nhân viên lắp đặt ký !");
+            }
+
+            if (pMinute.IsCustomer)
+            {
+                return BadRequest("Biên bản này đã được khách hàng ký !");
+            }
+            var dContract = await _dContractSvc.getByIdAsnyc(pMinute.DoneContractId);
+            var tMinuteID = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.TMinuteID;
+            TemplateMinute tMinute = await _templateMinuteSvc.getByIdAsnyc(tMinuteID);
+            SignatureZone signatureZone = JsonConvert.DeserializeObject<SignatureZone>(tMinute.jsonIntallationZone);
+
+            var Coordinates = await _minuteCoordinateSvc.getByTMinute(tMinuteID);
+
+            FileStream fsPMinute = new FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
+            fsPMinute.Close();
+            System.IO.File.Delete(pMinute.MinuteFile);
+
+            PdfReader pdfReader = new PdfReader(tMinute.TMinuteFile);
+            PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(pMinute.MinuteFile, FileMode.Create));
+            // Tạo một font cho trường văn bản
+            BaseFont bf1 = BaseFont.CreateFont(@"AppData/texgyretermes-regular.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            // Thiết lập font và kích thước cho trường văn bản
+            Font font1 = new Font(bf1, 10);
+            var minute = await _pendingMinuteSvc.ExportMinute(pMinute, installer.EmployeeId.ToString());
+            minute.MinuteCreatedDate = dContract.DateDone.ToString("dd/MM/yyyy");
+
+            foreach (var coordinate in Coordinates)
+            {
+                string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
+                float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
+                float y = 837 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                var mappingName = MinuteInfo.MinuteFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
+                if (mappingName == null)
+                {
+                    continue;
+                }
+                PropertyInfo property = typeof(MinuteInfo).GetProperty(mappingName);
+                if (property != null)
+                {
+                    object value = property.GetValue(minute);
+                    if (value != null)
+                    {
+                        string minuteValue = value.ToString();
+                        ColumnText.ShowTextAligned(pdfStamper.GetOverContent(coordinate.SignaturePage),
+                        Element.ALIGN_BASELINE, new Phrase(minuteValue, font1), x, y, 0);
+                    }
+                }
+            }
+
+            foreach (var coordinate in Coordinates)
+            {
+                string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
+                float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
+                float y = 837 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                var mappingName = MinuteInfo.Installation.FirstOrDefault(id => id.Key == fieldName).Value;
+                if (mappingName == null)
+                {
+                    continue;
+                }
+                PropertyInfo property = typeof(MinuteInfo).GetProperty(mappingName);
+                if (property != null)
+                {
+                    object value = property.GetValue(minute);
+                    if (value != null)
+                    {
+                        string minuteValue = value.ToString().ToUpper();
+                        ColumnText.ShowTextAligned(pdfStamper.GetOverContent(coordinate.SignaturePage),
+                        Element.ALIGN_BASELINE, new Phrase(minuteValue, font1), x, y, 0);
+                    }
+                }
+            }
+
+            pdfStamper.Close();
+            pdfReader.Close();
+
+            FileStream fsPContract1 = new System.IO.FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
+            fsPContract1.Close();
+
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, pMinute.MinuteFile, pMinute.MinuteFile, certi.Serial, signatureZone.X, signatureZone.Y);
+
+            PutPMinute pendingMinute = new PutPMinute
+            {
+                PendingMinuteId = pMinute.PendingMinuteId,
+                DateCreated = pMinute.DateCreated,
+                MinuteName = pMinute.MinuteName,
+                IsIntallation = true,
+                IsCustomer = false,
+                EmployeeId = pMinute.EmployeeId,
+                DoneContractId = pMinute.DoneContractId,
+                MinuteFile = pMinute.MinuteFile,
+            };
+            _pdfToImageHelper.PdfToPng(pMinute.MinuteFile, pMinute.PendingMinuteId,"minute");
+            await _pendingMinuteSvc.updateAsnyc(pendingMinute);
+            return Ok(signedMinutePath);
+
+        }
+
+        [HttpPost("CustomerSignContract/{serial}/{idContract}/{imagePath}")]
+        public async Task<ActionResult<string>> SignContractByCustomer(string serial, int idContract, string imagePath)
+        {
+            var certi = await _pfxCertificate.GetById(serial);
+
+            var expireCerti = await _pfxCertificate.GetAllExpire();
+
+            if (expireCerti != null)
+            {
+                foreach (var pfx in expireCerti)
+                {
+                    if (certi.Serial == pfx.Serial)
+                    {
+                        return BadRequest("Chứng chỉ đã hết hạn, vui lòng gia hạn !");
+                    }
+                }
+            }
+
             Customer customer = null;
 
             if (certi.IsEmployee)
@@ -240,7 +411,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
             var tContractID =  _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.TContractID;
             TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(tContractID);
-            CustomerZone customerZone = JsonConvert.DeserializeObject<CustomerZone>(tContract.jsonCustomerZone);
+            SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tContract.jsonCustomerZone);
 
             string outputContract = pContract.PContractFile.Replace("PContracts", "DContracts");
 
@@ -277,7 +448,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 TOS_ID = pContract.TOS_ID,
             };
 
-            _pdfToImageHelper.PdfToPng(outputContract, pendingContract.PContractId);
+            _pdfToImageHelper.PdfToPng(outputContract, pendingContract.PContractId,"contract");
             var dContract = await _dContractSvc.addAsnyc(pendingContract);
             await _pendingContract.deleteAsnyc(pendingContract.PContractId);
 
@@ -299,6 +470,111 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 return BadRequest();
             }
             
+        }
+
+        [HttpPost("CustomerSignMinute/{serial}/{idContract}/{imagePath}")]
+        public async Task<ActionResult<string>> SignMinuteByCustomer(string serial, int idMinute, string imagePath)
+        {
+            var certi = await _pfxCertificate.GetById(serial);
+
+            var expireCerti = await _pfxCertificate.GetAllExpire();
+
+            if (expireCerti != null)
+            {
+                foreach (var pfx in expireCerti)
+                {
+                    if (certi.Serial == pfx.Serial)
+                    {
+                        return BadRequest("Chứng chỉ đã hết hạn, vui lòng gia hạn !");
+                    }
+                }
+            }
+
+            Customer customer = null;
+
+            if (certi.IsEmployee)
+            {
+                return BadRequest("Chữ ký không hợp lệ");
+            }
+            else
+            {
+                customer = await _customerSvc.GetBySerialPFXAsync(serial);
+            }
+
+            var pMinute = await _pendingMinuteSvc.GetById(idMinute);
+
+            if (serial != customer.SerialPFX)
+            {
+                return BadRequest("Chữ ký không đúng với khách hàng của hợp đồng này");
+            }
+
+            if (!pMinute.IsIntallation)
+            {
+                return BadRequest("Hợp đồng này chưa được giám đốc ký !");
+            }
+
+            if (pMinute.IsCustomer)
+            {
+                return BadRequest("Hợp đồng này đã được khách hàng ký !");
+            }
+
+            var dContract = await _dContractSvc.getByIdAsnyc(pMinute.DoneContractId);
+            var tMinuteID = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.TMinuteID;
+            TemplateMinute tMinute = await _templateMinuteSvc.getByIdAsnyc(tMinuteID);
+            SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tMinute.jsonCustomerZone);
+
+            string outputMinute = pMinute.MinuteFile.Replace("PMinutes", "DContracts");
+
+            if (!Directory.Exists($"AppData/DContracts/{dContract.DContractID}"))
+            {
+                Directory.CreateDirectory($"AppData/DContracts/{dContract.DContractID}");
+            }
+
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, pMinute.MinuteFile, outputMinute, certi.Serial, customerZone.X, customerZone.Y);
+
+            FileStream fs = new FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
+            fs.Close();
+            System.IO.File.Delete(pMinute.MinuteFile);
+
+            DoneMinute doneMinute = new DoneMinute()
+            {
+                DateDone = DateTime.Now,
+                MinuteName = pMinute.MinuteName,
+                MinuteFile = pMinute.MinuteFile,
+                EmployeeId = pMinute.EmployeeId
+            };
+
+            _pdfToImageHelper.PdfToPng(outputMinute, pMinute.PendingMinuteId, "contract");
+            var dMinute = await _doneMinuteSvc.AddNew(doneMinute);
+            dContract.DoneMinuteId = dMinute;
+
+            PutDContract putDContract = new PutDContract()
+            {
+                DContractID = dContract.DContractID,
+                DateDone = dContract.DateDone,
+                DContractName = dContract.DConTractName,
+                DContractFile = dContract.DContractFile,
+                IsInEffect = dContract.IsInEffect,
+                InstallationAddress = dContract.InstallationAddress,
+                EmployeeCreatedId = dContract.EmployeeCreatedId,
+                DirectorSignedId = dContract.DirectorSignedId,
+                CustomerId = dContract.CustomerId,
+                TOS_ID = dContract.TOS_ID,
+                DoneMinuteId = dContract.DoneMinuteId,
+
+            };
+            var updatedContract = await _dContractSvc.updateAsnyc(putDContract);
+            int resutl = await _pendingMinuteSvc.DeletePMinute(pMinute.PendingMinuteId);
+
+            if (resutl != 0)
+            {
+                return Ok(signedMinutePath);
+            }
+            else
+            {
+                return BadRequest();
+            }
+
         }
 
         //function test
