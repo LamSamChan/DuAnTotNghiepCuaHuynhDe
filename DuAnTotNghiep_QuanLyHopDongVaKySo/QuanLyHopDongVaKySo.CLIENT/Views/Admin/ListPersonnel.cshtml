@@ -17,169 +17,97 @@
     <div class="page-content">
         <div class="page-header no-gutters has-tab">
             <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+                <div class="media align-items-center m-b-15">
+                    <div class="m-l-15">
+                        <h4 class="m-b-0"
+                            style="width: 512px; height: 52px; color: #2B3674; font-size: 34px; font-family: DM Sans; font-weight: 700; line-height: 42px; word-wrap: break-word">
+                            Danh sách nhân viên ủy quyền
+                        </h4>
+                    </div>
+                </div>
             </div>
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#people-overview">
-                        Danh sách nhân sự
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#people-roles">Danh sách khách hàng</a>
-                </li>
-            </ul>
         </div>
         <div class="container-fluid">
-            <div class="tab-content m-t-15">
-                <div class="tab-pane fade show active" id="people-overview">
-                    <div class="card" style="border-radius: 46px;">
-                        <div class="card-body">
-                            <div class="row m-b-30">
-                                <div class="col-lg-8">
-                                    <div class="d-md-flex">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-hover e-commerce-table">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>ID</th>
-                                            <th>EMAIL</th>
-                                            <th>NGÀY TẠO TÀI KHOẢN</th>
-                                            <th>TÊN CHỨC DANH</th>
-                                            <th>HỌ VÀ TÊN</th>
-                                            <th>TRẠNG THÁI TÀI KHOẢN</th>
-                                            <th>VAI TRÒ</th>
-                                          
-                                            <th>HÀNHĐỘNG</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-
-                                            <td>
-                                                <div class="checkbox">
-                                                    <input id="check-item-1" type="checkbox">
-                                                    <label for="check-item-1" class="m-b-0"></label>
-                                                </div>
-                                            </td>
-                                             <td>
-                                                #5331
-                                            </td>
-                                           
-                                           
-                                            <td>
-                                                <div class="d-flex align-items-center">
-
-                                                    <h6 class="m-b-0">abc@gmail.com</h6>
-                                                </div>
-                                            </td>
-                                            <td>03/11/2023</td>
-                                            <td>Admin</td>
-                                            <td>abc</td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="badge badge-danger badge-dot m-r-10"></div>
-                                                    <div>Khóa</div>
-                                                </div>
-                                            </td>
-                                            <td>Khách hàng</td>
-                                           
-                                            <td class="text-left">
-                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
-                                                    <i class="anticon anticon-edit"></i>
-                                                </button>
-                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                                    <i class="anticon anticon-delete"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+            <br>
+            <br>
+            <div class="card" style="border-radius: 46px;">
+                <div class="card-body">
+                    <div class="row m-b-30">
+                        <div class="col-lg-8">
+                            <div class="d-md-flex">
                             </div>
                         </div>
                     </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover e-commerce-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="checkbox">
+                                            <input id="checkAll" type="checkbox">
+                                            <label for="checkAll" class="m-b-0"></label>
+                                        </div>
+                                    </th>
+                                    <th>ID</th>
+                                    <th>EMAIL</th>
+                                    <th>NGÀY CẤP QUYỀN</th>
+                                    <th>HỌ VÀ TÊN</th>
+                                    <th>TRẠNG THÁI TÀI KHOẢN</th>
+                                    <th>VAI TRÒ</th>
+                                    <th>HOẠT ĐỘNG</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="checkbox">
+                                            <input id="check-item-1" type="checkbox">
+                                            <label for="check-item-1" class="m-b-0"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        #5331
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
 
-                </div>
-                <div class="tab-pane fade" id="people-roles">
-                    <div class="card" style="border-radius: 46px;">
-                        <div class="card-body">
-                            <div class="row m-b-30">
-                                <div class="col-lg-8">
-                                    <div class="d-md-flex">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-hover e-commerce-table">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>HÀNHĐỘNG</th>
-                                            <th>ID</th>
-                                            <th>HỌ VÀ TÊN</th>
-                                            <th>TÊN CHỨC DANH</th>
-                                            <th>VAI TRÒ</th>
-                                            <th>MÔ TẢ CHI TIẾT</th>
-                                            <th>TRẠNG THÁI</th>
-                                            <th>NGÀY TẠO</th>
-                                            <th>NGÀY SỬA ĐỔI</th>
-                                            <th>CHỨC NĂNG LIÊN QUAN</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
+                                            <h6 class="m-b-0">sds@gmail.com</h6>
+                                        </div>
+                                    </td>
+                                    <td>18/10/2023</td>
+                                    <td>abc</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-danger badge-dot m-r-10"></div>
+                                            <div>Khóa</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
 
-                                            <td>
-                                                <div class="checkbox">
-                                                    <input id="check-item-1" type="checkbox">
-                                                    <label for="check-item-1" class="m-b-0"></label>
-                                                </div>
-                                            </td>
-                                            <td class="text-left">
-                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
-                                                    <i class="anticon anticon-edit"></i>
-                                                </button>
-                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                                    <i class="anticon anticon-delete"></i>
-                                                </button>
-                                            </td>
-                                            <td>
-                                                #5331
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
+                                            <h6 class="m-b-0">Quản lý chữ ký</h6>
+                                        </div>
+                                    </td>
 
-                                                    <h6 class="m-b-0">abc</h6>
-                                                </div>
-                                            </td>
-                                            <td>Giám đốc hệ thống</td>
-                                            <td>Admin</td>
-                                            <td>Quản lý các thông tin của ký số</td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="badge badge-danger badge-dot m-r-10"></div>
-                                                    <div>Khóa</div>
-                                                </div>
-                                            </td>
-                                            <td>22/10/2023</td>
-                                            <td>18/10/2023</td>
-                                            <td>Ký các hợp đồng lớn</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                    <td class="text-left">
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                            <i class="anticon anticon-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded">
+                                            <i class="anticon anticon-delete"></i>
+                                        </button>
+                                    </td>
+                                    <td>Ủy quyền</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-
                 </div>
             </div>
-        </div>
-       
-        <!-- container-fluid -->
+        </div> <!-- container-fluid -->
     </div>
+
     <!-- End Page-content -->
 </div>
 
