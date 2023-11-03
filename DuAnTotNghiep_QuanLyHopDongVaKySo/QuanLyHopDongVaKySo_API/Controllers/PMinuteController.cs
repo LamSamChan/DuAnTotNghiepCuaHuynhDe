@@ -110,7 +110,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 _pdfToImageHelper.PdfToPng(outputPdfFile, pMinute, "minute");
                    
                 }
-            return Ok();
+            return Ok(pMinute);
         }
     }
 }

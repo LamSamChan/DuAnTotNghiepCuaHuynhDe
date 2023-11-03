@@ -219,7 +219,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             var customer = await _customerSvc.GetByIdAsync(pContract.CustomerId.ToString());
             var url = GenerateUrl(pContract.PContractID);
             var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
-            var sendMail = SendMailToCustomer(qrPath, url, customer);
+            var sendMail = SendMailToCustomerWithImage(qrPath, url, customer);
             _pdfToImageHelper.PdfToPng(pContract.PContractFile, pendingContract.PContractId,"contract");
             await _pendingContract.updateAsnyc(pendingContract);
             return Ok(signedContractPath);
@@ -353,8 +353,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 DoneContractId = pMinute.DoneContractId,
                 MinuteFile = pMinute.MinuteFile,
             };
+
             _pdfToImageHelper.PdfToPng(pMinute.MinuteFile, pMinute.PendingMinuteId,"minute");
             await _pendingMinuteSvc.updateAsnyc(pendingMinute);
+            FileStream fsPContract2 = new System.IO.FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
+            fsPContract2.Close();
             return Ok(signedMinutePath);
 
         }
@@ -565,7 +568,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             };
             var updatedContract = await _dContractSvc.updateAsnyc(putDContract);
             int resutl = await _pendingMinuteSvc.DeletePMinute(pMinute.PendingMinuteId);
+            var sendMail = SendMailToCustomerWithFile(System.IO.File.ReadAllBytes(dContract.DContractFile), System.IO.File.ReadAllBytes(outputMinute),customer);
 
+            FileStream fsMinute = new System.IO.FileStream(outputMinute, FileMode.Open, FileAccess.Read);
+            fsMinute.Close();
             if (resutl != 0)
             {
                 return Ok(signedMinutePath);
@@ -646,8 +652,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return await _pendingContract.getByIdAsnyc(contractID);
         }
 
-        private async Task<string> SendMailToCustomer(string qrPath, string url, Customer customer)
+        private async Task<string> SendMailToCustomerWithImage(byte[] qrPath, string url, Customer customer)
         {
+            string imageBase64 = Convert.ToBase64String(qrPath);
             string content = $"<body>" +
                                  $"<div style=\"font-family: Arial, sans-serif; background-color: #f2f2f2; margin: 0; padding: 0;\"" +
                                     $"<div style=\"background-color: #fff; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1;\"" +
@@ -655,9 +662,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                                             $"<p style=\"color: #333;\">Dưới đây là đường dẫn để xem và ký hợp đồng:</p>" +
                                                 $"<div style=\"text-align: center;\">" +
                                                       $"<p><a style=\"display: inline-block; padding: 10px 20px; background-color: #33BDFE; color: #fff; text-decoration: none; border: none; border-radius: 5px;\" href=\"{url}\">Ký Hợp Đồng</a></p>" +
-                                                $"</div>" +
-                                                $"<div style=\"text-align: center;\">" +
-                                                    $"<img style=\"max-width: 200px; height: auto;\" src=\"{qrPath}\" alt=\"QRCode\">" +
                                                 $"</div>" +
                                       $"</div>" +
                                  $"</div>"+
@@ -668,10 +672,40 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             mail.ReceiverName = customer.FullName;
             mail.ToMail = customer.Email;
             mail.HtmlContent = content;
-            string isSuccess = await _sendMailHelper.SendMail(mail);
+            string isSuccess = await _sendMailHelper.SendMailWithImage(mail, qrPath);
             if (isSuccess != null)
             {
-                return "Đã cấp mật khẩu mới";
+                return "Đã gửi thành công";
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private async Task<string> SendMailToCustomerWithFile(byte[] bytesContract, byte[] bytesMinute, Customer customer)
+        {
+
+            string content = $"<body>" +
+                $"<div class=\"container\" style=\"max-width: 600px; margin: 0 auto; padding: 20px; text-align: center; background-color: #f7f7f7;\">" +
+                $"<p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Kính gửi khách hàng {customer.FullName},</p>" +
+                $"<p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Xin mời tải hợp đồng của bạn</p>" +
+                $" <p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Nếu bạn có bất kỳ câu hỏi hoặc cần thêm thông tin, xin vui lòng liên hệ với chúng tôi.</p>" +
+                $" <p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Xin cảm ơn!</p>" +
+                $" <p style=\"font-size: 16px; line-height: 1.6; color: #333;\">TechSeal</p>" +
+                $"</div>" +
+                $"<body>";
+
+
+            SendMail mail = new SendMail();
+            mail.Subject = "Hợp đồng Từ TechSeal";
+            mail.ReceiverName = customer.FullName;
+            mail.ToMail = customer.Email;
+            mail.HtmlContent = content;
+            string isSuccess = await _sendMailHelper.SendMailWithFile(mail, bytesContract, bytesMinute);
+            if (isSuccess != null)
+            {
+                return "Đã gửi thành công";
             }
             else
             {

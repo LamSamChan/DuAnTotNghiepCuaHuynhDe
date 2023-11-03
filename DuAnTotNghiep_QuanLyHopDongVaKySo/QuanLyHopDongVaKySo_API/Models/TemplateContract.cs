@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace QuanLyHopDongVaKySo_API.Models
 {
@@ -26,6 +27,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string jsonCustomerZone { get; set; }
 
         //tạo liên kết
+        [JsonIgnore]
         public ICollection<ContractCoordinate>? ContractCoordinates { get; set; }
 
     }

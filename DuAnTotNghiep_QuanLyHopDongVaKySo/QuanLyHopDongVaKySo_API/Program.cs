@@ -25,13 +25,18 @@ using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
 using QuanLyHopDongVaKySo_API.Services.InstallationDeviceService;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text;
+using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddControllersWithViews().AddDataAnnotationsLocalization();
-
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+});
 var connectionString = builder.Configuration.GetConnectionString("connection");
 builder.Services.AddDbContext<ProjectDbContext>(options => options.UseSqlServer(connectionString));
 
