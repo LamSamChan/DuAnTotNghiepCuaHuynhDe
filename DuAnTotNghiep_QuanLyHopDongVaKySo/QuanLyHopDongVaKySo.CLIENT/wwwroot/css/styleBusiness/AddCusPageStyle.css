@@ -27,13 +27,12 @@
     }
 
     .content {
-        opacity: 0;
+        opacity: 1;
         transition: opacity 0.3s ease;
         border-radius: 5px;
         border: 1px solid #000;
         height: 100px;
     }
-
     .content.disabled {
         opacity: 1;
         pointer-events: none;

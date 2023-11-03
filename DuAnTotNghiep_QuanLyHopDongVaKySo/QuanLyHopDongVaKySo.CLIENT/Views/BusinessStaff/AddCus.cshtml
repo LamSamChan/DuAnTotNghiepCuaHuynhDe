@@ -130,31 +130,34 @@
         border: none; height: 60px;">
                     </div>
                     <div class="col-12">
-                        <input type="checkbox" id="disable-checkbox"> Khách hàng doanh nghiệp
-                        <div class="content row " style="height: 300px;width: 95%;margin: 10px auto; ">
+                        <div>
+                            <input type="checkbox" id="enable-input">
+                            <label for="enable-input">Khách hàng doanh nghiệp</label>
+                        </div>
+                        <div class="content row" style="height: 300px;width: 95%;margin: 10px auto; ">
                             <div class="col-md-5" style="margin:0 auto;">
                                 <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
-                                <input type="text" class="form-control" id="inputNameBuss" >
+                                <input type="text" class="form-control" id="inputNameBuss"  disabled>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
                                 <label for="inputPosition" class="form-label">Chức vụ</label>
-                                <input type="text" class="form-control" id="inputPosition" >
+                                <input type="text" class="form-control" id="inputPosition" disabled>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
                                 <label for="certi" class="form-label">Chứng nhận doanh nghiệp</label>
-                                <input type="text" class="form-control" id="certi" >
+                                <input type="text" class="form-control" id="certi" disabled>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
                                 <label for="coreSDN" class="form-label">Số doanh nghiệp(SDN)</label>
-                                <input type="text" class="form-control" id="coreSDN" >
+                                <input type="text" class="form-control" id="coreSDN" disabled>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
                                 <label for="dateSDN" class="form-label">Ngày cấp SDN</label>
-                                <input type="datetime" class="form-control" id="dateSDN" >
+                                <input type="datetime" class="form-control" id="dateSDN" disabled>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
                                 <label for="adSDN" class="form-label">Nơi cấp SDN</label>
-                                <input type="text" class="form-control" id="adSDN" >
+                                <input type="text" class="form-control" id="adSDN" disabled>
                             </div>
                         </div>
                     </div>
@@ -184,3 +187,4 @@
         </div>
     </div>
 </div>
+<script src="~/js/AddCus.js" type="text/javascript"></script>
