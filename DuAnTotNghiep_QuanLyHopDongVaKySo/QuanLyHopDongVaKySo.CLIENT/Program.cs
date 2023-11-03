@@ -15,6 +15,12 @@ builder.Services.AddScoped<IEmployeeService, EmployeesService>();
 builder.Services.AddScoped<IPositionService, PositionService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 
+builder.Services.AddMvc(options =>
+{
+    options.EnableEndpointRouting = false;
+});
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 

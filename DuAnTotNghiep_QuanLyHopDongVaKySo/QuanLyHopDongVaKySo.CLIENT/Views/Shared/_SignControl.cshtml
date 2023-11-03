@@ -1,0 +1,91 @@
+﻿@model QuanLyHopDongVaKySo.CLIENT.Models.SignatureModel
+
+<style>
+
+     #@(Model.SignObject)_Container
+     {
+         margin: 10px;
+         position: relative;
+         cursor: pointer;
+         width: @(Model.SignWidth)px;
+         height: @(Model.SignHeight)px;
+     }
+
+    #@(Model.SignObject) {
+        left: 0;
+        top: 0;
+        position: absolute;
+    }
+
+    #@(Model.SignObject)_toolbar {
+        display: block;
+        left: 10px;
+        height: 20px;
+        width: @(Model.SignWidth)px;
+        position: relative;
+        background-color: transparent;
+    }
+
+    #@(Model.SignObject)_resetbutton {
+        float: right;
+        cursor: pointer;
+    }
+
+    #@(Model.SignObject)_status {
+        color: black;
+        font-family: verdana;
+        font-size: 12px;
+        float: right;
+        margin-right: 5px;
+    }
+</style>
+
+<div id="@(Model.SignObject)_Container">
+    <canvas id="@Model.SignObject" width="@Model.SignWidth" height="@Model.SignHeight"></canvas>
+</div>
+<div id="@(Model.SignObject)_toolbar">
+    <img src="@Model.SignRefreshImage" id="@(Model.SignObject)_resetbutton" title="Reset" />
+    <div id="@(Model.SignObject)_status"></div>
+</div>
+<!-- START: Required for Super Signature Data  -->
+<input type="hidden" id="@(Model.SignObject)_data" name="@(Model.SignObject)_data" value="" />
+<input type="hidden" id="@(Model.SignObject)_data_smooth" name="@(Model.SignObject)_data_smooth" value="" />
+<!-- Required for Super Signature Data :END -->
+
+<script type="text/javascript">
+
+    var obj@(Model.SignObject);
+
+    $(document).ready(function () {
+
+        obj@(Model.SignObject) = new SuperSignature(
+            {
+                SignObject: "@Model.SignObject",
+                SignWidth: "@Model.SignWidth",
+                SignHeight: "@Model.SignHeight",
+                RequiredPoints: @Model.SignRequiredPoints,
+                SuccessMessage: "@Model.SignSuccessMessage",
+                StartMessage: "@Model.SignStartMessage",
+                ErrorMessage: "@Model.SignErrorMessage",
+                BackImageUrl: "@Model.SignBackGroundImage",
+                BackColor: "@Model.SignBackColor",
+                BorderColor: "@Model.SignBorderColor",
+                BorderStyle: "@Model.SignBorderStyle",
+                BorderWidth: "@(Model.SignBorderWidth)px",
+                PenColor: "@Model.SignPenColor",
+                PenSize: @Model.SignPenSize,
+                PenCursor: "@Model.SignPenCursor",
+                ImageScaleFactor: "@Model.SignImageScaleFactor",
+                TransparentSign: "@Convert.ToString(Model.SignTransparent).ToLower()",
+                SmoothSign: @Convert.ToString(Model.SignSmooth).ToLower(),
+                Enabled: "true"
+            });
+
+        try {
+            obj@(Model.SignObject).Init();
+        } catch (ex) {
+            alert(ex.description);
+        }
+    });
+
+</script>

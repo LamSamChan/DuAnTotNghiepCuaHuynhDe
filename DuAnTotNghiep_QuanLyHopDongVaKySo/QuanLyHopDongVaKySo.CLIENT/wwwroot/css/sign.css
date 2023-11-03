@@ -1,0 +1,32 @@
+﻿.signContainer {
+    margin: 10px;
+    position: relative;
+    cursor: pointer
+}
+
+.signCanvas {
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+
+.signToolbar {
+    display: block;
+    height: 20px;
+    left: 10px;
+    position: relative;
+    background-color: transparent;
+}
+
+.signStatus {
+    color: blue;
+    font-family: verdana;
+    font-size: 12px;
+    float: right;
+    margin-right: 5px;
+}
+
+.signReset {
+    float: right;
+    cursor: pointer;
+}
