@@ -8,7 +8,7 @@ namespace QuanLyHopDongVaKySo_API.Helpers
 {
     public interface IGenerateQRCodeHelper
     {
-        string GenerateQRCode(string text, int pContractID);
+        byte[] GenerateQRCode(string text, int pContractID);
         byte[] BitmapToByteArray(Bitmap bitmap);
     }
     public class GenerateQRCodeHelper : IGenerateQRCodeHelper
@@ -22,7 +22,7 @@ namespace QuanLyHopDongVaKySo_API.Helpers
             }
         }
 
-        public string GenerateQRCode(string text, int pContractID)
+        public byte[] GenerateQRCode(string text, int pContractID)
         {
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(text,
@@ -48,9 +48,7 @@ namespace QuanLyHopDongVaKySo_API.Helpers
             System.IO.File.Delete(qrrPath);
 
             byte[] imageBytes = File.ReadAllBytes(pngPath);
-            string base64Image = Convert.ToBase64String(imageBytes);
-            string imageSrc = "data:image/png;base64," + base64Image;
-            return pngPath;
+            return imageBytes;
         }
     }
 }

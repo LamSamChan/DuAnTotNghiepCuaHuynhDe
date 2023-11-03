@@ -59,11 +59,17 @@
                         <td>@cus.Address</td>
                         @if (@cus.IsLocked)
                         {
-                            <td style="padding: 2px; background-color: red; color:white; border-radius:20px; text-align:center;">Khoá</td>
+                            <div class="d-flex align-items-center">
+                                <div class="badge badge-danger badge-dot m-r-10"></div>
+                                <div>Khóa</div>
+                            </div>
                         }
                         else
                         {
-                            <td style="padding: 2px; background-color: green; color:white; border-radius:20px;text-align:center;">Bình thường</td>
+                            <div class="d-flex align-items-center">
+                                <div class="badge badge-success badge-dot m-r-10"></div>
+                                <div>Bình thường</div>
+                            </div>
                         }
 
                         <td>

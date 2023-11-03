@@ -40,7 +40,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPContractAsnyc([FromForm] PostPendingContract pContract)
         {
-            var tContractID = _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.TContractID;
+            var tContractID = _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.templateContractID;
             //lây thông tin mẫu hợp đồng
             var tContract = await _TContractSvc.getByIdAsnyc(tContractID);
             //lây thông tin toạ động mẫu hợp đòng

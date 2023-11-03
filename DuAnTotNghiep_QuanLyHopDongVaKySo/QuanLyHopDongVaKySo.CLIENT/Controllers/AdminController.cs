@@ -51,7 +51,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             catch (Exception ex)
             {
 
-                return View(ex);
+                return View(new VMListPostion());
             }
         }
         public async Task<IActionResult> ListRole()
@@ -66,7 +66,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             catch (Exception ex)
             {
 
-                return View(ex);
+                return View(new VMListRole());
             }
         }
     }
