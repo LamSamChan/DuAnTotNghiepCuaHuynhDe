@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTGlzdEFjY291bnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Admin/ListPersonnel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTGlzdFBlcnNvbm5lbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Auth/AddPosition.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxBZGRQb3NpdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -32,12 +36,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxBZGRQb3NpdGlvbl8yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Auth/AddPosition_3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxBZGRQb3NpdGlvbl8zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Auth/AddRoles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxBZGRSb2xlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Auth/AddRoles_2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxBZGRSb2xlc18yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Auth/AddRoles_3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxBZGRSb2xlc18zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_CLIENT/Pages/Auth/ListPosition.cshtml]
