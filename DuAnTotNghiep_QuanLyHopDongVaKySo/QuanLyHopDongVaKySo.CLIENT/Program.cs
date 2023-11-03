@@ -1,9 +1,18 @@
+using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
+using QuanLyHopDongVaKySo_API.Services.CustomerService;
+using System.Net.Http;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddDataAnnotationsLocalization();
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7286/") });
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

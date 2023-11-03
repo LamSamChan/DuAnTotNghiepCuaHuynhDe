@@ -9,7 +9,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices
         {
             _httpClient = httpClient;
         }
-
         public async Task<string> AddNewCustomer(PostCustomer customer)
         {
             var reponse = await _httpClient.PostAsJsonAsync("api/Customers/AddNew", customer);

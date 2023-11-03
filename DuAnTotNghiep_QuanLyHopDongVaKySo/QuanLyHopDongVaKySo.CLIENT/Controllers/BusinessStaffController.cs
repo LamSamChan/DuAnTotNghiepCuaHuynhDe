@@ -1,12 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
+using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
     public class BusinessStaffController : Controller
     {
-        public IActionResult Index()
+        private readonly ICustomerService _customerService;
+        public BusinessStaffController(ICustomerService customerService) { 
+            _customerService = customerService;
+        }
+        public async Task<IActionResult> Index()
         {
-            return View();
+            try
+            {
+                var customersList = await _customerService.GetAllCustomers();
+                return View(customersList);
+            }
+            catch (Exception  ex)
+            {
+
+                return View(ex);
+            }
         }
         public IActionResult AddCus()
         {
@@ -57,10 +72,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
         public IActionResult HistoryOperation()
-        {
-            return View();
-        }
-        public IActionResult ListCus()
         {
             return View();
         }
