@@ -236,7 +236,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<DateTime>("DateDone")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("EmployeeId")
+                    b.Property<Guid>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MinuteFile")
@@ -785,23 +785,20 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("TContractID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TMinuteID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TemplateContactTContactID")
-                        .HasColumnType("int");
-
                     b.Property<bool>("isHidden")
                         .HasColumnType("bit");
 
+                    b.Property<int>("templateContractID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("templateMinuteID")
+                        .HasColumnType("int");
+
                     b.HasKey("TOS_ID");
 
-                    b.HasIndex("TMinuteID");
+                    b.HasIndex("templateContractID");
 
-                    b.HasIndex("TemplateContactTContactID");
+                    b.HasIndex("templateMinuteID");
 
                     b.ToTable("TypeOfService", (string)null);
                 });
@@ -871,7 +868,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 {
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.Employee", "Employee")
                         .WithMany("DoneMinute")
-                        .HasForeignKey("EmployeeId");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Employee");
                 });
@@ -1004,15 +1003,17 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.TypeOfService", b =>
                 {
-                    b.HasOne("QuanLyHopDongVaKySo_API.Models.TemplateMinute", "TemplateMinute")
+                    b.HasOne("QuanLyHopDongVaKySo_API.Models.TemplateContract", "TemplateContact")
                         .WithMany()
-                        .HasForeignKey("TMinuteID")
+                        .HasForeignKey("templateContractID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("QuanLyHopDongVaKySo_API.Models.TemplateContract", "TemplateContact")
+                    b.HasOne("QuanLyHopDongVaKySo_API.Models.TemplateMinute", "TemplateMinute")
                         .WithMany()
-                        .HasForeignKey("TemplateContactTContactID");
+                        .HasForeignKey("templateMinuteID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TemplateContact");
 

@@ -1,6 +1,7 @@
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.AspNetCore.Mvc;
+using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services;
 using QuanLyHopDongVaKySo_API.Services.DoneContractService;
@@ -22,9 +23,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly ITypeOfServiceSvc _typeOfServiceSvc;
         private readonly IDoneContractSvc _doneContractSvc;
         private readonly IInstallationRequirementSvc _installationRequirementSvc;
+        private readonly IPdfToImageHelper _pdfToImageHelper;
 
         public PMinuteController(IPendingMinuteSvc pMinuteSvc, ITemplateMinuteSvc tMinuteSvc, IMinuteCoordinateSvc mCoordinateSvc,
-            ITypeOfServiceSvc typeOfServiceSvc, IDoneContractSvc doneContractSvc, IInstallationRequirementSvc installationRequirementSvc)
+            ITypeOfServiceSvc typeOfServiceSvc, IDoneContractSvc doneContractSvc, IInstallationRequirementSvc installationRequirementSvc, IPdfToImageHelper pdfToImageHelper)
         {
             _pMinuteSvc = pMinuteSvc;
             _tMinuteSvc = tMinuteSvc;
@@ -32,6 +34,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _typeOfServiceSvc = typeOfServiceSvc;
             _doneContractSvc = doneContractSvc;
             _installationRequirementSvc = installationRequirementSvc;
+            _pdfToImageHelper = pdfToImageHelper;
         }
 
         [HttpPost]
@@ -46,7 +49,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 IsIntallation = false,
                 IsCustomer = false,
                 MinuteFile = "",
-                DoneContract = ir.DoneContract,
+                DoneContractId = ir.DoneContractId,
                 EmployeeId = Guid.Parse(employeeID)
             };
 
@@ -54,7 +57,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var tos = _doneContractSvc.getByIdAsnyc(ir.DoneContractId).Result.TOS_ID;
 
-            var tMinuteId = _typeOfServiceSvc.GetById(tos).Result.TMinuteID;
+            var tMinuteId = _typeOfServiceSvc.GetById(tos).Result.templateMinuteID;
             // lấy thông tin biên bản mẫu
             var tMinute = await _tMinuteSvc.getByIdAsnyc(tMinuteId);
             //lây thông tin toạ động mẫu biên bản
@@ -81,7 +84,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     {
                         string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
                         float x = coordinate.X + 20; // Lấy tọa độ X từ bảng toạ độ
-                        float y = 794 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                        float y = 790 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                         var mappingName = MinuteInfo.MinuteFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
                         if (mappingName == null)
                         {
@@ -104,10 +107,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     pdfReader.Close();
                     await _pMinuteSvc.updatePMinuteFile(pMinute, outputPdfFile);
                     await _installationRequirementSvc.DeleteIRequirement(iRequirementId);
-
+                _pdfToImageHelper.PdfToPng(outputPdfFile, pMinute, "minute");
                    
                 }
-            
             return Ok();
         }
     }

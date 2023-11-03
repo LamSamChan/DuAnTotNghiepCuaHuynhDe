@@ -54,9 +54,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 ServiceName = typeOfService.ServiceName,
                 Price = typeOfService.Price,
                 PerTime = typeOfService.PerTime,
-                TContractID = typeOfService.TContractID,
+                templateContractID = typeOfService.TContractID,
                 isHidden = false,
-                TMinuteID = typeOfService.TMinuteID
+                templateMinuteID = typeOfService.TMinuteID
 
             };
             int isError = await _typeOfServiceSvc.AddNew(tos);
@@ -79,9 +79,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 ServiceName = typeOfService.ServiceName,
                 Price = typeOfService.Price,
                 PerTime = typeOfService.PerTime,
-                TContractID = typeOfService.TContractID,
+                templateContractID = typeOfService.TContractID,
                 isHidden = typeOfService.isHidden,
-                TMinuteID = typeOfService.TMinuteID
+                templateMinuteID = typeOfService.TMinuteID
             };
 
             int isError = await _typeOfServiceSvc.Update(tos);

@@ -36,19 +36,20 @@ namespace QuanLyHopDongVaKySo_API.Models
         public bool isHidden { get; set; }
 
         //tạo liên kết
-
-
+        [Required(ErrorMessage = "Hãy ID hợp đồng mẫu !")]
         [ForeignKey("TemplateContract")]
-        public int TContractID { get; set; }
+        public int templateContractID { get; set; }
+
+        [Required(ErrorMessage = "Hãy ID biên bản lắp đặt mẫu !")]
         [ForeignKey("TemplateMinute")]
-        public int TMinuteID { get; set; }
+        public int templateMinuteID { get; set; }
 
 
-        [JsonIgnore]
-        public ICollection<InstallationDevice>? InstallationDevice { get; set; }
         [JsonIgnore]
         public TemplateContract? TemplateContact { get; set; }
         [JsonIgnore]
         public TemplateMinute? TemplateMinute { get; set; }
+        [JsonIgnore]
+        public ICollection<InstallationDevice>? InstallationDevice { get; set; }
     }
 }

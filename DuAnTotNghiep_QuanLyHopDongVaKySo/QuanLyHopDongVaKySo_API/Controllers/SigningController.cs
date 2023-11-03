@@ -124,7 +124,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 return BadRequest("Hợp đồng này đã được khách hàng ký !");
             }
-            var tContractID = _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.TContractID;
+            var tContractID = _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.templateContractID;
             TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(tContractID);
             SignatureZone directorZone = JsonConvert.DeserializeObject<SignatureZone>(tContract.jsonDirectorZone);
 
@@ -269,7 +269,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 return BadRequest("Biên bản này đã được khách hàng ký !");
             }
             var dContract = await _dContractSvc.getByIdAsnyc(pMinute.DoneContractId);
-            var tMinuteID = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.TMinuteID;
+            var tMinuteID = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.templateMinuteID;
             TemplateMinute tMinute = await _templateMinuteSvc.getByIdAsnyc(tMinuteID);
             SignatureZone signatureZone = JsonConvert.DeserializeObject<SignatureZone>(tMinute.jsonIntallationZone);
 
@@ -286,13 +286,13 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             // Thiết lập font và kích thước cho trường văn bản
             Font font1 = new Font(bf1, 10);
             var minute = await _pendingMinuteSvc.ExportMinute(pMinute, installer.EmployeeId.ToString());
-            minute.MinuteCreatedDate = dContract.DateDone.ToString("dd/MM/yyyy");
+            minute.InstallationDate = dContract.DateDone.ToString("dd/MM/yyyy");
 
             foreach (var coordinate in Coordinates)
             {
                 string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
-                float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
-                float y = 837 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                float x = coordinate.X + 20; // Lấy tọa độ X từ bảng toạ độ
+                float y = 790 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                 var mappingName = MinuteInfo.MinuteFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
                 if (mappingName == null)
                 {
@@ -314,8 +314,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             foreach (var coordinate in Coordinates)
             {
                 string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
-                float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
-                float y = 837 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                float x = coordinate.X + 20; // Lấy tọa độ X từ bảng toạ độ
+                float y = 790 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                 var mappingName = MinuteInfo.Installation.FirstOrDefault(id => id.Key == fieldName).Value;
                 if (mappingName == null)
                 {
@@ -409,7 +409,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 return BadRequest("Hợp đồng này đã được khách hàng ký !");
             }
-            var tContractID =  _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.TContractID;
+            var tContractID =  _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.templateContractID;
             TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(tContractID);
             SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tContract.jsonCustomerZone);
 
@@ -472,7 +472,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             
         }
 
-        [HttpPost("CustomerSignMinute/{serial}/{idContract}/{imagePath}")]
+        [HttpPost("CustomerSignMinute/{serial}/{idMinute}/{imagePath}")]
         public async Task<ActionResult<string>> SignMinuteByCustomer(string serial, int idMinute, string imagePath)
         {
             var certi = await _pfxCertificate.GetById(serial);
@@ -510,7 +510,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             if (!pMinute.IsIntallation)
             {
-                return BadRequest("Hợp đồng này chưa được giám đốc ký !");
+                return BadRequest("Hợp đồng này chưa được nhân viên lắp đặt ký !");
             }
 
             if (pMinute.IsCustomer)
@@ -519,11 +519,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
 
             var dContract = await _dContractSvc.getByIdAsnyc(pMinute.DoneContractId);
-            var tMinuteID = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.TMinuteID;
+            var tMinuteID = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.templateMinuteID;
             TemplateMinute tMinute = await _templateMinuteSvc.getByIdAsnyc(tMinuteID);
             SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tMinute.jsonCustomerZone);
 
-            string outputMinute = pMinute.MinuteFile.Replace("PMinutes", "DContracts");
+            string outputMinute = pMinute.MinuteFile.Replace("AppData/PMinutes", $"AppData/DContracts/{dContract.DContractID}");
 
             if (!Directory.Exists($"AppData/DContracts/{dContract.DContractID}"))
             {
@@ -540,11 +540,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 DateDone = DateTime.Now,
                 MinuteName = pMinute.MinuteName,
-                MinuteFile = pMinute.MinuteFile,
+                MinuteFile = outputMinute,
                 EmployeeId = pMinute.EmployeeId
             };
 
-            _pdfToImageHelper.PdfToPng(outputMinute, pMinute.PendingMinuteId, "contract");
+            _pdfToImageHelper.PdfToPng(outputMinute, pMinute.PendingMinuteId, "minute");
             var dMinute = await _doneMinuteSvc.AddNew(doneMinute);
             dContract.DoneMinuteId = dMinute;
 

@@ -39,6 +39,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
                 await _context.PendingMinutes.AddAsync(pMinute);
                 await _context.SaveChangesAsync();
                 return pMinute.PendingMinuteId;
+
             }catch
             {
                 return 0;
@@ -170,7 +171,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
                         minuteInfo.Number2 = 2;
                         minuteInfo.SecondDevice = device[i].DeviceName;
                         minuteInfo.DeviceStatus2 = device[i].DeviceStatus;
-                        minuteInfo.Quantity1 = device[i].DeviceQuantity;
+                        minuteInfo.Quantity2 = device[i].DeviceQuantity;
                         continue;
                     }
 
