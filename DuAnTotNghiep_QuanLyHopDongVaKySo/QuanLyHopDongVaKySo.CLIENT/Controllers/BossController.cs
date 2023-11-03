@@ -32,5 +32,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult ListContractEffect()
+        {
+            return View();
+        }
     }
 }

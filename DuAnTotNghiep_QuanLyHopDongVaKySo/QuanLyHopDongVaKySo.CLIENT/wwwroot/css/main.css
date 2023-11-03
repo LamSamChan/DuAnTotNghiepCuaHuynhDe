@@ -21,7 +21,7 @@
 @import url("StyleBoss/DetalisAprovedContract.css");
 @import url("StyleBoss/DetailsContractAwait.css");
 @import url("StyleBoss/InforSign.css");
-
+@import url("StyleBoss//ListContractEffect.css");
 @media screen and (min-width: 1366px) and (max-width: 1920px) {
     * {
         box-sizing: border-box;
