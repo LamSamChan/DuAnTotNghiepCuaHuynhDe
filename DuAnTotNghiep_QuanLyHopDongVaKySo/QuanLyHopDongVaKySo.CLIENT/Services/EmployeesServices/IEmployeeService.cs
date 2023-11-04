@@ -1,12 +1,13 @@
-﻿using QuanLyHopDongVaKySo_API.Models;
-
+﻿using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
+using QuanLyHopDongVaKySo.CLIENT.Models;
 namespace QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices
 {
     public interface IEmployeeService
     {
         Task<List<Employee>> GetAllEmployees();
-        Task<Employee> GetEmployeeById(string id);
-        Task<string> AddNewEmployee(Employee postEmployee);
-        Task<string> UpdateEmployee(Employee putEmployee);
+        Task<PutEmployee> GetEmployeeById(string id);
+        Task<int> AddNewEmployee(PostEmployee postEmployee);
+        Task<string> UpdateEmployee(PutEmployee putEmployee);
     }
 }

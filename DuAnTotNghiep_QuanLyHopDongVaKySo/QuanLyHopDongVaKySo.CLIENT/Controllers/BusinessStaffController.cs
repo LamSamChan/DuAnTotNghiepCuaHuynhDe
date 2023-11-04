@@ -97,7 +97,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> DetailsCus(string customerID)
+        public async Task<IActionResult> EditCus(string customerID)
         {
             var customer = await _customerService.GetCustomerById(customerID);
             if (customer != null)
@@ -126,7 +126,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var customer = await _customerService.GetCustomerById(respone);
             if (customer != null)
             {
-                return View("DetailsCus", customer);
+                return View("EditCus", customer);
             }
             else
             {
