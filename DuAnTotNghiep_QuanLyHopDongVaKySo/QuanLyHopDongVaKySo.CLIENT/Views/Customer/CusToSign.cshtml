@@ -1,8 +1,15 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@using Microsoft.AspNetCore.Hosting
+@inject IWebHostEnvironment _hostingEnvironment
+
 @{
     Layout = "";
+    // Lấy link trực ảnh từ file tỉnh 
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+
+    string[] imageFiles = Directory.GetFiles(folderPath);
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +19,19 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <!-- ICONS -->
     <script src="https://unpkg.com/@@phosphor-icons/web"></script>
+
+    <!-- ssss-->
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+
+    <!-- SuperSignature : Script (required) -->
+    <script language="javascript" type="text/javascript" src="~/Scripts/ss.js"></script>
+    <!-- [[[ ***********  IMPORTANT: DONOT USE THIS SS.JS ON PRODUCTION;
+         USE THE ONE AVAILABLE TO DOWNLOAD FROM YOUR DASHBOARD (POST PURCHASE) ************* ]]] -->
+    <!-- BOOTSTRAP 4 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
     <style>
         body {
             background: linear-gradient(106deg, rgba(44, 168, 221, 0.88) 1.91%, rgba(7, 119, 207, 0.88) 97.8%);
@@ -47,7 +67,7 @@
         }
 
         .signing-Zone {
-            width: 90%;
+            width: 560px;
             height: 300px;
             background-color: #FFF;
             stroke-width: 0.555px;
@@ -99,6 +119,13 @@
             font-weight: bold;
             font-weight: bold;
         }
+
+        div[class="form-inline"]{
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
@@ -118,33 +145,54 @@
             <div class="row justify-content-around text-center form_SignedCus">
                 <div class="col-4">
                     <div class="img_Sig">
-                        <img src="/Resource/Image/LOGO_WITHOUT_BG/1.png" style="width:100%;" />
+                        <img src="" style="width:100%;" />
                     </div>
                     <h5 style="color: #4318FF; text-align:start; margin-top:40px;">Vùng ký cho khách hàng</h5>
                     <div class="signing-Zone">
+                        @await Component.InvokeAsync("SignControl")
                     </div>
-                    <div class="row justify-content-around" style="padding:35px 0; width:100%;">
-                        <div class="col-3">
-                            <button class="del">
-                                XOÁ
-                            </button>
-                        </div>
-                        <div class="col-3">
-                            <button class="Sign">
-                                KHÁCH KÝ
-                            </button>
+                    <div class="row justify-content-around" style="padding:35px 0;">
+                        <div class="form-inline">
+                            <input type="button" id="btnUndo" class="btn btn-primary" onclick="UndoSignature('ctlSignature');" value="Trở lại" />&nbsp;
+                            <input type="button" id="btnClear" class="btn btn-danger" onclick="ClearSignature('ctlSignature');" value="Xóa" />&nbsp;
+                            @* <input type="button" id="btnSave" class="btn btn-success" onclick="ValidateSign();" value="Save" />&nbsp; *@
                         </div>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-12" style="display:contents;">
-                            <button class="access">
+                            <button class="access" id="btnSave" onclick="ValidateSign();">
                                 XÁC NHẬN KÝ
                             </button>
                         </div>
                     </div>
                 </div>
                 <div class="col-8">
-                    <embed id="drawArea" src="path_to_your_pdf.pdf" type="application/pdf" style="width: 100%; height:100%;">
+                    <div id="myCarousel" class="carousel slide" style="width: 100%; height:100%;">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/Resource/Image/Avatar.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="..." class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="..." class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -153,3 +201,63 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </html>
+<script type="text/javascript">
+
+    var statV = false;
+
+    function StatusBar() {
+        SignatureStatusBar('ctlSignature', statV);
+        statV = !statV; // toggle
+
+        // change status bar look dynamically
+        $('#ctlSignature_status').css({ "color": "orangered", "font-size": "12px", "font-weight": "bold", "float": "left" });
+    }
+
+    function ValidateSign() {
+        var isValid = ValidateSignature('ctlSignature');
+
+        if (!isValid) {
+            $('#ctlSignature').css("border", "2px dashed red");
+        }
+        else {
+            $('#ctlSignature').css("border", "2px dashed green");
+        }
+
+        if (isValid === true) {
+            SaveSign();
+        }
+    }
+
+    function SaveSign() {
+
+        var btnSave = $("#btnSave");
+
+        btnSave.prop('disabled', true);
+
+        var ctlSignature = { Data: $("#ctlSignature_data").val(), Smooth: $("#ctlSignature_data_smooth").val() };
+
+        $.ajax({
+            url: "/Customer/SaveSignature/",
+            data: JSON.stringify(ctlSignature),
+            contentType: "application/json",
+            type: 'POST',
+            cache: false,
+            success: function (data) {
+                $("#imgSign").attr("src", "/Signs/" + data);
+            },
+            error: function (textStatus, errorThrown) {
+                alert("Unable to save signatures : " + JSON.stringify(textStatus) + " : " + errorThrown);
+            }
+        });
+
+        btnSave.prop('disabled', false);
+
+    }
+
+    function objctlSignature_status(success, points) {
+        $("#liStatus").html("<strong>Signature done? : " + success + ", with " + points + " points.</strong>");
+    }
+
+    $(document).ready(function () { StatusBar(); });
+
+</script>

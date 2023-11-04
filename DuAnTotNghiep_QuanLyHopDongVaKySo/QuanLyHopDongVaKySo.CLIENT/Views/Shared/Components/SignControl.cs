@@ -15,7 +15,7 @@ namespace SuperSignature.MVC.Core.Components
             var signModel = new SignatureModel
             {
                 SignObject = "ctlSignature",
-                SignWidth = 500,
+                SignWidth = 540,
                 SignHeight = 300,
                 SignBackGroundImage = "/images/background.png",
                 SignBorderStyle = "dashed",
