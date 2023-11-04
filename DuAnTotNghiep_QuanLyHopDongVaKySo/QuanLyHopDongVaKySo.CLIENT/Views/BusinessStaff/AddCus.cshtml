@@ -28,13 +28,13 @@
             </ul>
         </div>
     </div>
-    <div class="row justify-content-around" style="margin-top: 100px;">
-        <div class="col-md-5">
-            <div class="box1">
-                <form class="row justify-content-between g-3 " style=" margin: 0 auto;" method="post" asp-action="AddCusAction" asp-controller="BusinessStaff">
+    <div style="margin-top: 100px;">
+        <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="AddCusAction" asp-controller="BusinessStaff">
+            <div class="col-md-5">
+                <div class="box1 row justify-content-between g-3 ">
                     <div class="col-md-6">
                         <label class="form-label">Họ và tên</label>
-                        <input class="form-control" id="inputName" asp-for="FullName"  placeholder="Họ và tên" required>
+                        <input class="form-control" id="inputName" asp-for="FullName" placeholder="Họ và tên" required>
                         <span class="text-danger" asp-validation-for="FullName"></span>
                     </div>
                     <div class="col-md-6">
@@ -104,6 +104,11 @@
                         <input class="form-control" asp-for="Nationality" required>
                         <span class="text-danger" asp-validation-for="Nationality"></span>
                     </div>
+                </div>
+            </div>
+            @**@
+            <div class="col-md-5">
+                <div class="box2 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
                     <div class="col-md-6">
                         <label for="inputTaxCode" class="form-label">Số tài khoản</label>
                         <input class="form-control" asp-for="BankAccount" required>
@@ -143,7 +148,7 @@
                         <div class="content row" style="height: 300px;width: 95%;margin: 10px auto; ">
                             <div class="col-md-5" style="margin:0 auto;">
                                 <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
-                                <input class="form-control"  id="inputNameBuss" asp-for="BuisinessName" disabled>
+                                <input class="form-control" id="inputNameBuss" asp-for="BuisinessName" disabled>
                                 <span class="text-danger" asp-validation-for="BuisinessName"></span>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
@@ -170,7 +175,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="note" class="form-label">Ghi chú</label>
-                        <textarea style ="background-color: #F3F3F3;" class="form-control" asp-for="Note"></textarea>
+                        <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Note"></textarea>
                         <span class="text-danger" asp-validation-for="Note"></span>
                     </div>
                     <div class="col-md-5" style="margin: 40px auto;">
@@ -178,9 +183,11 @@
                             THÊM KHÁCH HÀNG
                         </button>
                     </div>
-                </form>
+                </div>
+
             </div>
-        </div>
+        </form>
+            
     </div>
 </div>
 <script src="~/js/AddCus.js" type="text/javascript"></script>
