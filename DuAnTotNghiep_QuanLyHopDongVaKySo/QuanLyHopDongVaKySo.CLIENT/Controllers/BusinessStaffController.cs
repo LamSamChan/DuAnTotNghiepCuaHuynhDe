@@ -29,6 +29,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+
+        public IActionResult AddCusAction()
+        {
+            return View();
+        }
+
         public IActionResult ContractFormPage()
         {
             return View();

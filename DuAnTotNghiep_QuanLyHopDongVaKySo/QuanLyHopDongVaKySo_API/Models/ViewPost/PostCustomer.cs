@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
-namespace QuanLyHopDongVaKySo_API.Models
+namespace QuanLyHopDongVaKySo_API.Models.ViewPost
 {
     public class PostCustomer
     {

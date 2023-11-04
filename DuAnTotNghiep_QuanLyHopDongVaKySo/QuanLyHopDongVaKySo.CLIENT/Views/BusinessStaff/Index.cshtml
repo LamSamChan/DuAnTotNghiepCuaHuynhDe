@@ -1,6 +1,10 @@
 ﻿@model List<QuanLyHopDongVaKySo_API.Models.Customer>
 @{
 }
+
+
+<link href="~/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
 <div class="container-fluid">
     <div class="header">
         <div class="SearchBox">
@@ -29,7 +33,7 @@
         </div>
     </div>
     <button class="addCus">
-        <a asp-controller="" asp-action="">
+        <a asp-action="">
             THÊM KHÁCH HÀNG MỚI
             <i class="ph-bold ph-user-plus"></i>
         </a>
@@ -39,6 +43,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th></th>
                     <th scope="col">ID</th>
                     <th scope="col">HỌ VÀ TÊN</th>
                     <th scope="col">SĐT</th>
@@ -52,6 +57,11 @@
                  @foreach (var cus in Model)
                 {
                     <tr>
+                        <td>
+                            <div class="row action">
+                                <a asp-action="DetailsCus"><i class="ph-bold ph-note-pencil"></i></a>
+                            </div>
+                        </td>
                         <th scope="row">@cus.CustomerId.ToString().Substring(0,8)</th>
                         <td>@cus.FullName</td>
                         <td>@cus.PhoneNumber</td>
@@ -59,24 +69,24 @@
                         <td>@cus.Address</td>
                         @if (@cus.IsLocked)
                         {
-                            <div class="d-flex align-items-center">
-                                <div class="badge badge-danger badge-dot m-r-10"></div>
-                                <div>Khóa</div>
-                            </div>
+                           <td>
+                                <div class="d-flex align-items-center">
+                                    <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                    <div>Khóa</div>
+                                </div>
+                            </td>
+                            
                         }
                         else
                         {
-                            <div class="d-flex align-items-center">
-                                <div class="badge badge-success badge-dot m-r-10"></div>
-                                <div>Bình thường</div>
-                            </div>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                    <div>Bình thường</div>
+                                </div>
+                            </td>
+                           
                         }
-
-                        <td>
-                            <div class="row action">
-                                <a asp-action="DetailsCus"><i class="ph-bold ph-note-pencil"></i></a>
-                            </div>
-                        </td>
                         <td>
                             <a asp-action="DetailsCus">Chi tiết</a>
                         </td>

@@ -380,3 +380,4 @@ C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDong
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.genruntimeconfig.cache
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo.CLIENT.dll
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\bin\Debug\net7.0\SuperSignature.Net.Standard.dll
+D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\bin\Debug\net7.0\SuperSignature.Net.Standard.dll

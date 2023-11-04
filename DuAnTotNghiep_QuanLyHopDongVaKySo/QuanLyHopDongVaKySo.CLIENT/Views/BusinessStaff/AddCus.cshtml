@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model QuanLyHopDongVaKySo_API.Models.ViewPost.PostCustomer;
 @{
 }
 <div class="container-fluid">
@@ -33,67 +31,80 @@
     <div class="row justify-content-around" style="margin-top: 100px;">
         <div class="col-md-5">
             <div class="box1">
-                <form class="row justify-content-between g-3 " style=" margin: 0 auto;" method="post">
+                <form class="row justify-content-between g-3 " style=" margin: 0 auto;" method="post" asp-action="AddCusAction" asp-controller="BusinessStaff" enctype="multipart/form-data">
                     <div class="col-md-6">
                         <label class="form-label">Họ và tên</label>
-                        <input  type="text" class="form-control" id="inputName" placeholder="Họ và tên">
-                        <span class="text-danger" ></span>
+                        <input class="form-control" id="inputName" asp-for="FullName"  placeholder="Họ và tên" required>
+                        <span class="text-danger" asp-validation-for="FullName"></span>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Năm sinh</label>
-                        <input type="date" class="form-control" id="inputName">
+                        <input type="date" class="form-control" asp-for="DateOfBirth" required>
+                        <span class="text-danger" asp-validation-for="DateOfBirth"></span>
                     </div>
 
                     <div class="col-md-6">
                         <label for="inputName" class="form-label">Số điện thoại</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="Họ và tên">
+                        <input class="form-control" asp-for="PhoneNumber" maxlength="12" required>
+                        <span class="text-danger" asp-validation-for="PhoneNumber"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputGender" class="form-label">Giới tính</label>
-                        <input type="text" class="form-control" id="inputName" >
+                        <select style="background-color: #F3F3F3;" required asp-for="Gender" class="form-control">
+                            <option value="" disabled selected>...chọn giới tính</option>
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>
+                        </select>
                     </div>
                     <div class="col-md-6">
                         <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="abc@gmail.com">
+                        <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Address" required></textarea>
+                        <span class="text-danger" asp-validation-for="Address"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputCCCD" class="form-label">Giấy ủy quyền</label>
-                        <input type="text" class="form-control" id="inputCCCD" placeholder="CCCD/CMND">
+                        <input class="form-control" asp-for="PowerOfAttorneyNum" maxlength="12">
+                        <span class="text-danger" asp-validation-for="PowerOfAttorneyNum"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputDateStart" class="form-label">Ngày ủy quyền</label>
-                        <input type="datetime" class="form-control" id="inputDateStart">
+                        <input type="date" class="form-control" asp-for="DatePOA">
+                        <span class="text-danger" asp-validation-for="DatePOA"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputDateEnd" class="form-label">Người ủy quyền</label>
-                        <input type="date" class="form-control" id="inputDateEnd">
+                        <input class="form-control" asp-for="WhoPOA">
+                        <span class="text-danger" asp-validation-for="WhoPOA"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputDateStart" class="form-label">Email</label>
-                        <input type="date" class="form-control" id="inputDateStart">
+                        <input class="form-control" type="email" asp-for="Email" placeholder="abc123@gmail.com" required>
+                        <span class="text-danger" asp-validation-for="Email"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputDateEnd" class="form-label">FAX</label>
-                        <input type="date" class="form-control" id="inputDateEnd">
+                        <input class="form-control" asp-for="FAX">
+                        <span class="text-danger" asp-validation-for="FAX"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputDateStart" class="form-label">CCCD/CMND</label>
-                        <input type="date" class="form-control " id="inputDateStart">
+                        <input class="form-control" asp-for="Identification" required>
+                        <span class="text-danger" asp-validation-for="Identification"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputDateEnd" class="form-label">Ngày cấp</label>
-                        <input type="date" class="form-control" id="inputDateEnd">
+                        <input type="date" class="form-control" asp-for="IssuedDate" required>
+                        <span class="text-danger" asp-validation-for="IssuedDate"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputDateStart" class="form-label">Nơi cấp</label>
-                        <input type="date" class="form-control" id="inputDateStart">
+                        <input class="form-control" asp-for="IssuedPlace" required>
+                        <span class="text-danger" asp-validation-for="IssuedPlace"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputNational" class="form-label">Quốc tịch</label>
-                        <select id="inputNational" class="form-select">
-                            <option selected>Việt Nam</option>
-                            <option>...</option>
-                        </select>
+                        <input class="form-control" asp-for="Nationality" required>
+                        <span class="text-danger" asp-validation-for="Nationality"></span>
                     </div>
                 </form>
             </div>
@@ -103,19 +114,23 @@
                 <form class="row justify-content-between g-3" style=" margin: 0 auto;">
                     <div class="col-md-6">
                         <label for="inputTaxCode" class="form-label">Số tài khoản</label>
-                        <input type="password" class="form-control" id="inputTaxCode" placeholder="123145xxx2132">
+                        <input class="form-control" asp-for="BankAccount" required>
+                        <span class="text-danger" asp-validation-for="BankAccount"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputAddress2" class="form-label">Ngân hàng</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                        <input class="form-control" asp-for="BankName" required>
+                        <span class="text-danger" asp-validation-for="BankName"></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="inputPass" class="form-label">Mã số thuế</label>
-                        <input type="password" class="form-control" id="inputPass" placeholder="******">
+                        <input style="background-color: #F3F3F3;" class="form-control" asp-for="TaxIDNumber">
+                        <span class="text-danger" asp-validation-for="TaxIDNumber"></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="adReport" class="form-label">Địa chỉ báo cước</label>
-                        <input type="text" class="form-control" id="adReport">
+                        <input style="background-color: #F3F3F3;" class="form-control" asp-for="ChargeNoticeAddress" required>
+                        <span class="text-danger" asp-validation-for="ChargeNoticeAddress"></span>
                     </div>
                     <div class="col-12">
                         <label for="adInvoice" class="form-label" style="color: #525252;
@@ -125,9 +140,8 @@
         font-weight: 400;
         line-height: normal;
 ">Địa chỉ xuất hóa đơn</label>
-                        <input type="text" class="form-control" id="adInvoice" style="border-radius: 8px;
-        background: #EDEDED;
-        border: none; height: 60px;">
+                        <input style="background-color: #F3F3F3;" class="form-control" asp-for="BillingAddress" required>
+                        <span class="text-danger" asp-validation-for="BillingAddress"></span>
                     </div>
                     <div class="col-12">
                         <div>
@@ -137,45 +151,35 @@
                         <div class="content row" style="height: 300px;width: 95%;margin: 10px auto; ">
                             <div class="col-md-5" style="margin:0 auto;">
                                 <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
-                                <input type="text" class="form-control" id="inputNameBuss"  disabled>
+                                <input class="form-control"  id="inputNameBuss" asp-for="BuisinessName" disabled>
+                                <span class="text-danger" asp-validation-for="BuisinessName"></span>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
                                 <label for="inputPosition" class="form-label">Chức vụ</label>
-                                <input type="text" class="form-control" id="inputPosition" disabled>
+                                <input class="form-control" id="inputPosition" asp-for="Position" disabled>
+                                <span class="text-danger" asp-validation-for="Position"></span>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
-                                <label for="certi" class="form-label">Chứng nhận doanh nghiệp</label>
-                                <input type="text" class="form-control" id="certi" disabled>
-                            </div>
-                            <div class="col-md-5" style="margin:0 auto;">
-                                <label for="coreSDN" class="form-label">Số doanh nghiệp(SDN)</label>
-                                <input type="text" class="form-control" id="coreSDN" disabled>
+                                <label for="certi" class="form-label">Số chứng nhận doanh nghiệp</label>
+                                <input class="form-control" id="certi" asp-for="BuisinessNumber" disabled>
+                                <span class="text-danger" asp-validation-for="BuisinessNumber"></span>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
                                 <label for="dateSDN" class="form-label">Ngày cấp SDN</label>
-                                <input type="datetime" class="form-control" id="dateSDN" disabled>
+                                <input type="date" class="form-control" id="dateSDN" asp-for="BNDate" disabled>
+                                <span class="text-danger" asp-validation-for="BNDate"></span>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
                                 <label for="adSDN" class="form-label">Nơi cấp SDN</label>
-                                <input type="text" class="form-control" id="adSDN" disabled>
+                                <input class="form-control" id="adSDN" asp-for="BNPlace" disabled>
+                                <span class="text-danger" asp-validation-for="BNPlace"></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="action" class="form-label">Hoạt động</label>
-                        <input type="text" class="form-control" id="action">
-                    </div>
-                    <div class="col-md-6">
                         <label for="note" class="form-label">Ghi chú</label>
-                        <input type="text" class="form-control" id="note">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="seri" class="form-label">Số chứng chỉ Seri</label>
-                        <input type="text" class="form-control" id="seri">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="IDs" class="form-label">Mã loại khách hàng</label>
-                        <input type="text" class="form-control" id="IDs">
+                        <textarea style ="background-color: #F3F3F3;" class="form-control" asp-for="Note"></textarea>
+                        <span class="text-danger" asp-validation-for="Note"></span>
                     </div>
                     <div class="col-md-5" style="margin: 40px auto;">
                         <button class="add_cus" type="submit">

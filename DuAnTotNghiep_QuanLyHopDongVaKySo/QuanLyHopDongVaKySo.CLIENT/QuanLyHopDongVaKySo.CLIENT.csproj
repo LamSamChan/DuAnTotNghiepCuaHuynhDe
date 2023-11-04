@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <Reference Include="SuperSignature.Net.Standard">
-      <HintPath>C:\Users\do272\OneDrive - Đại học FPT- FPT University\Desktop\Resoucre_DATN\test\bin\SuperSignature.Net.Standard.dll</HintPath>
+      <HintPath>bin\SuperSignature.Net.Standard.dll</HintPath> 
     </Reference>
   </ItemGroup>
 

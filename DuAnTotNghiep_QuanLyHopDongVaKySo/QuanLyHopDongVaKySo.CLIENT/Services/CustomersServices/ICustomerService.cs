@@ -1,4 +1,6 @@
 ﻿using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Models.ViewPuts;
+using QuanLyHopDongVaKySo_API.Models.ViewPost;
 namespace QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices
 {
     public interface ICustomerService
