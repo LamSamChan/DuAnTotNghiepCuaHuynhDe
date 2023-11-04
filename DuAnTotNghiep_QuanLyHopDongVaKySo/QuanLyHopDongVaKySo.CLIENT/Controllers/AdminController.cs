@@ -14,7 +14,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IRoleService _roleService;
 
 
-        public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService) { 
+        public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService)
+        {
             _positionService = positionService;
             _employeeService = employeeService;
             _roleService = roleService;
@@ -27,7 +28,39 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult AddPosition_2()
+        {
+            return View();
+        }
+        public IActionResult AddPosition_3()
+        {
+            return View();
+        }
+        public IActionResult AddPosition_4()
+        {
+            return View();
+        }
         public IActionResult AddRole()
+        {
+            return View();
+        }
+        public IActionResult AddRole_2()
+        {
+            return View();
+        }
+        public IActionResult AddRole_3()
+        {
+            return View();
+        }
+        public IActionResult AddRole_4()
+        {
+            return View();
+        }
+        public IActionResult ListPrivate()
+        {
+            return View();
+        }
+        public IActionResult ListPersonnel()
         {
             return View();
         }
@@ -39,6 +72,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+
         public async Task<IActionResult> ListPosition()
         {
             VMListPostion vm = new VMListPostion();
