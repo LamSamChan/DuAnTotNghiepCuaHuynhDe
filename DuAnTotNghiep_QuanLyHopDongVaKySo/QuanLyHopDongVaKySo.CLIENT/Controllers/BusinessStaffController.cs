@@ -1,9 +1,11 @@
 ﻿using Azure;
 using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Models;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
+using QuanLyHopDongVaKySo_API.ViewModels;
 using Newtonsoft.Json;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
@@ -11,8 +13,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
     public class BusinessStaffController : Controller
     {
         private readonly ICustomerService _customerService;
-        public BusinessStaffController(ICustomerService customerService) { 
+        private readonly IPContractService _pContractService;
+        public BusinessStaffController(ICustomerService customerService, IPContractService pContractService) { 
             _customerService = customerService;
+            _pContractService = pContractService;
         }
         public async Task<IActionResult> Index()
         {
@@ -61,9 +65,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult ContractListEffect()
+        public async Task<IActionResult> ContractListEffect()
         {
-            return View();
+            List<DContractViewModel> contractList = new List<DContractViewModel>();
+            try
+            {
+                contractList = await _pContractService.getListEffect();
+                return View(contractList);
+            }
+            catch (Exception ex)
+            {
+
+                return View(contractList);
+            }
         }
         public IActionResult ContractListPending()
         {

@@ -10,6 +10,7 @@ using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.PendingContractService;
 using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
 using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
+using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 using System.Reflection;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
@@ -24,9 +25,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IContractCoordinateSvc _CCoordinateSvc;
         private readonly IPdfToImageHelper _pdfToImageHelper;
         private readonly ITypeOfServiceSvc _typeOfServiceSvc;
+        private readonly IDoneContractSvc _doneContractSvc;
         public PContractController(IPendingContractSvc PContractSvc, ICustomerSvc CustomerSvc,
          ITemplateContractSvc TContractSvc, IContractCoordinateSvc CCoordinateSvc, IPdfToImageHelper pdfToImageHelper,
-         ITypeOfServiceSvc typeOfServiceSvc
+         ITypeOfServiceSvc typeOfServiceSvc, IDoneContractSvc doneContractSvc
             )
         {
             _PContractSvc = PContractSvc;
@@ -35,6 +37,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _CCoordinateSvc = CCoordinateSvc;
             _pdfToImageHelper = pdfToImageHelper;
             _typeOfServiceSvc = typeOfServiceSvc;
+            _doneContractSvc = doneContractSvc;
         }
 
         [HttpPost]
@@ -74,8 +77,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     foreach (var coordinate in Coordinates)
                     {
                         string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
-                        float x = coordinate.X+22; // Lấy tọa độ X từ bảng toạ độ
-                        float y = 837-coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                        float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
+                        float y = 837 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                         var mappingName = ContractInternet.ContractFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
                         if (mappingName == null)
                         {
@@ -96,7 +99,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
                     pdfStamper.Close();
                     pdfReader.Close();
-                    outputPathContracts = _pdfToImageHelper.PdfToPng(outputPdfFile, int.Parse(id_Pcontract),"contract");
+                    outputPathContracts = _pdfToImageHelper.PdfToPng(outputPdfFile, int.Parse(id_Pcontract), "contract");
 
                     FileStream fsPContract = new System.IO.FileStream(outputPdfFile, FileMode.Open, FileAccess.Read);
                     fsPContract.Close();
@@ -109,7 +112,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         retText = "Thêm hợp đồng thành công",
                         data = await _PContractSvc.getByIdAsnyc(int.Parse(id_Pcontract)),
                         imgae = outputPathContracts
-                    });;
+                    }); ;
                 }
             }
             return Ok(new
@@ -136,7 +139,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 retText = "Lấy hợp đồng thành công",
                 data = await _PContractSvc.getByIdAsnyc(id),
                 Path = outputPathContracts
-            }) ;
+            });
         }
 
         /// <summary>
@@ -153,8 +156,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             });
         }
 
-        // public async Task<IActionResult> UpdatePContractAsync()
-        // {
-        // }
+        [HttpGet("getAllEffect")]
+        public async Task<IActionResult> getAllEffect()
+        {
+            return Ok (await _doneContractSvc.getListIsEffect());
+        }
     }
 }

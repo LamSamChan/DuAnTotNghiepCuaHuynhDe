@@ -1,4 +1,5 @@
-﻿@*
+﻿@model List<QuanLyHopDongVaKySo_API.ViewModels.DContractViewModel>
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -44,22 +45,26 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>abc@gmail.com</td>
-                    <td>23/3/2023</td>
-                    <td>abc</td>
-                    <td>Lắp đặt WIFI</td>
-                    <td>
-                        <div style="background: rgba(40, 199, 111, 0.16); color:#28C76F;display: flex;align-items: center;justify-content: center;">
-                            CHỜ DUYỆT
-                        </div>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.id.Substring(8) </th>
+                        <td>@item.enail</td>
+                        <td>@item.dateDone</td>
+                        <td>@item.fullName</td>
+                        <td>@item.typeOfService</td>
+                        <td>
+                            <div style="background: rgba(40, 199, 111, 0.16); color:#28C76F;display: flex;align-items: center;justify-content: center;">
+                                @item.status
+                            </div>
 
-                    </td>
-                    <td>
-                        <a asp-controller="BusinessStaff" asp-action="DetailsContractEffect">Chi tiết</a>
-                    </td>
-                </tr>
+                        </td>
+                        <td>
+                            <a asp-controller="BusinessStaff" asp-action="DetailsContractEffect">Chi tiết</a>
+                        </td>
+                    </tr>
+                }
+                
                 <tr>
                     <th scope="row">1</th>
                     <td>abc@gmail.com</td>

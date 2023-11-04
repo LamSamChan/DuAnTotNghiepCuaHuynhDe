@@ -1,5 +1,6 @@
 ﻿using QuanLyHopDongVaKySo_API.Models.ContractInfo;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.ViewModels;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
 {
@@ -12,5 +13,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
         Task<bool> deleteAsnyc(int id);
         Task<int> updatePContractFile(int id, string File);
         Task<ContractInternet> ExportContract(PendingContract PContract);
+        Task<List<DContractViewModel>> getListEffect();
     }
 }

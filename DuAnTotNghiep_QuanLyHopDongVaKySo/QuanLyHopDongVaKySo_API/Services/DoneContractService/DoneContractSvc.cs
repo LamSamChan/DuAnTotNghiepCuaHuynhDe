@@ -1,6 +1,9 @@
 ﻿using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Database;
 using Microsoft.EntityFrameworkCore;
+using QuanLyHopDongVaKySo_API.ViewModels;
+using Microsoft.EntityFrameworkCore.Metadata;
+
 namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
 {
     public class DoneContractSvc : IDoneContractSvc
@@ -45,6 +48,23 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
         public async Task<DoneContract> getByIdAsnyc(int id)
         {
             return await _context.DoneContracts.Where(D => D.DContractID == id).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<DContractViewModel>> getListIsEffect()
+        {
+            List<DContractViewModel> viewModel = new List<DContractViewModel>();
+
+            viewModel = await _context.DoneContracts
+                .Select(dc => new DContractViewModel
+                {
+                    id = dc.DContractID.ToString(),
+                    fullName = dc.Customer.FullName,
+                    enail = dc.Customer.Email,
+                    dateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    typeOfService = dc.TypeOfService.ServiceName,
+                    status = dc.IsInEffect ? "Hoat dong" : ""
+                }).ToListAsync();
+            return viewModel;
         }
 
         public async Task<string> updateAsnyc(PutDContract dContract)

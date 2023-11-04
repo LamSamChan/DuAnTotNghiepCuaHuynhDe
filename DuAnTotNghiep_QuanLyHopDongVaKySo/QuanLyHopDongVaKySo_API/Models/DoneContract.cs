@@ -39,7 +39,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [ForeignKey("TypeOfService")]
         public int TOS_ID { get; set; }
 
-        [ForeignKey("DoneMinute"),AllowNull]
+        [ForeignKey("DoneMinute"), AllowNull]
         public int? DoneMinuteId { get; set; }
 
         [JsonIgnore]
