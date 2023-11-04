@@ -118,7 +118,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         }
                         return Ok(new {
                         retText = "Thêm mẫu biên bản thành công",
-                        data = await _TMinuteSvc.getByIdAsnyc(id_Tminute)
+                        data = _TMinuteSvc.getByIdAsnyc(id_Tminute).Result.TMinuteID.ToString()
                         });
                     }
                 }

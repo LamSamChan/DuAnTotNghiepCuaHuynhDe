@@ -139,13 +139,10 @@ namespace QuanLyHopDongVaKySo_API.Models
         [ForeignKey("PFXCertificate")]
         public string? SerialPFX { get; set; }
 
-        [ForeignKey("TypeOfCustomer")]
-        public int TOC_ID { get; set; }
+        public string typeofCustomer { get; set; }
 
         [JsonIgnore]
         public PFXCertificate? PFXCertificate { get; set; }
-        [JsonIgnore]
-        public TypeOfCustomer? TypeOfCustomer { get; set; }
         [JsonIgnore]
         public ICollection<DoneContract>? DoneContract { get; set; }
         [JsonIgnore]

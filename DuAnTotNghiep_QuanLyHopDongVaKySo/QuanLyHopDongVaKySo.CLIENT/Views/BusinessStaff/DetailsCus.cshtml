@@ -1,4 +1,4 @@
-﻿@model QuanLyHopDongVaKySo_API.Models.ViewPost.PostCustomer;
+﻿@model QuanLyHopDongVaKySo.CLIENT.Models.ModelPut.PutCustomer;
 <div class="container-fluid">
     <div class="header">
         <div class="SearchBox">
@@ -26,10 +26,15 @@
             </ul>
         </div>
     </div>
+
     <div style="margin-top: 100px;">
-        <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="AddCusAction" asp-controller="BusinessStaff">
+        <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="UpdateInfoCustomer" asp-controller="BusinessStaff">
             <div class="col-md-5">
-                <div class="box1 row justify-content-between g-3 ">
+                <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
+                    <div class="col-md-6">
+                        <label class="form-label">ID khách hàng</label>
+                        <input class="form-control" id="inputName" asp-for="CustomerId" placeholder="Họ và tên" readonly>
+                    </div>
                     <div class="col-md-6">
                         <label class="form-label">Họ và tên</label>
                         <input class="form-control" id="inputName" asp-for="FullName" placeholder="Họ và tên" required>
@@ -48,14 +53,11 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputGender" class="form-label">Giới tính</label>
-                        <select style="background-color: #F3F3F3;" required asp-for="Gender" asp-items="Html.GetEnumSelectList<QuanLyHopDongVaKySo_API.Models.Gender>()" class="form-control">
+                        <select style="background-color: #F3F3F3;" required asp-for="Gender" class="form-control">
                             <option value="" disabled selected>...chọn giới tính</option>
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>
                         </select>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
-                        <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Address" required></textarea>
-                        <span class="text-danger" asp-validation-for="Address"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputCCCD" class="form-label">Giấy ủy quyền</label>
@@ -102,6 +104,11 @@
                         <input class="form-control" asp-for="Nationality" required>
                         <span class="text-danger" asp-validation-for="Nationality"></span>
                     </div>
+                    <div class="col-md-12">
+                        <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
+                        <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Address" required></textarea>
+                        <span class="text-danger" asp-validation-for="Address"></span>
+                    </div>
                 </div>
             </div>
             @**@
@@ -138,37 +145,49 @@
                         <input style="background-color: #F3F3F3;" class="form-control" asp-for="BillingAddress" required>
                         <span class="text-danger" asp-validation-for="BillingAddress"></span>
                     </div>
-                    <div class="col-12">
-                        <div>
-                            <input type="checkbox" id="enable-input">
-                            <label for="enable-input">Khách hàng doanh nghiệp</label>
+                    @if (Model.typeofCustomer == "Doanh nghiệp")
+                    {
+                        <div class="col-12">
+                            <div>
+                                <label for="enable-input">Khách hàng doanh nghiệp</label>
+                            </div>
+                            <div class="content row" style="height: 300px;width: 95%;margin: 10px auto; ">
+                                <div class="col-md-5" style="margin:0 auto;">
+                                    <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
+                                    <input class="form-control" id="inputNameBuss" asp-for="BuisinessName" disabled>
+                                    <span class="text-danger" asp-validation-for="BuisinessName"></span>
+                                </div>
+                                <div class="col-md-5" style="margin:0 auto;">
+                                    <label for="inputPosition" class="form-label">Chức vụ</label>
+                                    <input class="form-control" id="inputPosition" asp-for="Position">
+                                    <span class="text-danger" asp-validation-for="Position"></span>
+                                </div>
+                                <div class="col-md-5" style="margin:0 auto;">
+                                    <label for="certi" class="form-label">Số chứng nhận doanh nghiệp</label>
+                                    <input class="form-control" id="certi" asp-for="BuisinessNumber">
+                                    <span class="text-danger" asp-validation-for="BuisinessNumber"></span>
+                                </div>
+                                <div class="col-md-5" style="margin:0 auto;">
+                                    <label for="dateSDN" class="form-label">Ngày cấp SDN</label>
+                                    <input type="date" class="form-control" id="dateSDN" asp-for="BNDate">
+                                    <span class="text-danger" asp-validation-for="BNDate"></span>
+                                </div>
+                                <div class="col-md-10" style="margin:0 auto;">
+                                    <label for="adSDN" class="form-label">Nơi cấp SDN</label>
+                                    <input class="form-control" id="adSDN" asp-for="BNPlace">
+                                    <span class="text-danger" asp-validation-for="BNPlace"></span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="content row" style="height: 300px;width: 95%;margin: 10px auto; ">
-                            <div class="col-md-5" style="margin:0 auto;">
-                                <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
-                                <input class="form-control" id="inputNameBuss" asp-for="BuisinessName" disabled>
-                                <span class="text-danger" asp-validation-for="BuisinessName"></span>
-                            </div>
-                            <div class="col-md-5" style="margin:0 auto;">
-                                <label for="inputPosition" class="form-label">Chức vụ</label>
-                                <input class="form-control" id="inputPosition" asp-for="Position" disabled>
-                                <span class="text-danger" asp-validation-for="Position"></span>
-                            </div>
-                            <div class="col-md-5" style="margin:0 auto;">
-                                <label for="certi" class="form-label">Số chứng nhận doanh nghiệp</label>
-                                <input class="form-control" id="certi" asp-for="BuisinessNumber" disabled>
-                                <span class="text-danger" asp-validation-for="BuisinessNumber"></span>
-                            </div>
-                            <div class="col-md-5" style="margin:0 auto;">
-                                <label for="dateSDN" class="form-label">Ngày cấp SDN</label>
-                                <input type="date" class="form-control" id="dateSDN" asp-for="BNDate" disabled>
-                                <span class="text-danger" asp-validation-for="BNDate"></span>
-                            </div>
-                            <div class="col-md-5" style="margin:0 auto;">
-                                <label for="adSDN" class="form-label">Nơi cấp SDN</label>
-                                <input class="form-control" id="adSDN" asp-for="BNPlace" disabled>
-                                <span class="text-danger" asp-validation-for="BNPlace"></span>
-                            </div>
+                    }
+                    <div class="col-md-6 mt-3">
+                        <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
+                        <div>
+                            <input type="radio" class="btn-check " asp-for="IsLocked" id="false" value="false" autocomplete="off" required>
+                            <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
+
+                            <input type="radio" class="btn-check " asp-for="IsLocked" id="true" value="true" autocomplete="off" required>
+                            <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -178,7 +197,7 @@
                     </div>
                     <div class="col-md-5" style="margin: 40px auto;">
                         <button class="add_cus" type="submit">
-                            THÊM KHÁCH HÀNG
+                            Cập nhật thông tin
                         </button>
                     </div>
                 </div>
@@ -188,4 +207,3 @@
 
     </div>
 </div>
-<script src="~/js/AddCus.js" type="text/javascript"></script>

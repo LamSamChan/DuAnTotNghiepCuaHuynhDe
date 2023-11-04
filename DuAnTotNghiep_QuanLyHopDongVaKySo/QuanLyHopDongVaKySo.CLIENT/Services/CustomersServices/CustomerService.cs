@@ -1,6 +1,9 @@
-﻿using QuanLyHopDongVaKySo_API.Models;
-using QuanLyHopDongVaKySo_API.Models.ViewPuts;
-using QuanLyHopDongVaKySo_API.Models.ViewPost;
+﻿using Newtonsoft.Json;
+using QuanLyHopDongVaKySo.CLIENT.Models;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
+using System.Text;
+
 namespace QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices
 {
     public class CustomerService : ICustomerService
@@ -12,14 +15,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices
         }
         public async Task<int> AddNewCustomer(PostCustomer customer)
         {
-            var cus = customer;
-            int temp = 0;
-            var reponse = await _httpClient.PostAsJsonAsync<PostCustomer>("api/Customers/AddNew", customer);
-            if (reponse.IsSuccessStatusCode)
+            string json = JsonConvert.SerializeObject(customer);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            using (var response = await _httpClient.PostAsync("api/Customers/AddNew", content))
             {
-                return 1;
+                if (response.IsSuccessStatusCode)
+                {
+                    return 1;
+                }
+                return 0;
             }
-            return 0;
         }
 
         public async Task<List<Customer>> GetAllCustomers()
@@ -28,17 +33,24 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices
             return response;
         }
 
-        public async Task<Customer> GetCustomerById(string id)
+        public async Task<PutCustomer> GetCustomerById(string id)
         {
-            var response = await _httpClient.GetFromJsonAsync<Customer>($"api/Customers/{id}");
+            var response = await _httpClient.GetFromJsonAsync<PutCustomer>($"api/Customers/{id}");
             return response;
         }
 
         public async Task<string> UpdateCustomer(PutCustomer customer)
         {
-            var reponse = await _httpClient.PutAsJsonAsync("api/Customers/Update", customer);
-            reponse.EnsureSuccessStatusCode();
-            return await reponse.Content.ReadAsStringAsync();
+            string json = JsonConvert.SerializeObject(customer);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            using (var response = await _httpClient.PutAsync("api/Customers/Update", content))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return customer.CustomerId.ToString();
+                }
+                return null;
+            }
         }
     }
 }

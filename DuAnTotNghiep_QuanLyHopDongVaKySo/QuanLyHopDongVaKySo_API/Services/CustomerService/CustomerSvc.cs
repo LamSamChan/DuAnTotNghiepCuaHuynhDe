@@ -4,7 +4,6 @@ using QuanLyHopDongVaKySo_API.Helpers;
 using Microsoft.EntityFrameworkCore;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 using Org.BouncyCastle.Ocsp;
-using QuanLyHopDongVaKySo_API.Services.TypeOfCustomerService;
 using iTextSharp.text;
 
 namespace QuanLyHopDongVaKySo_API.Services.CustomerService
@@ -15,14 +14,12 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
         private readonly IUploadFileHelper _imageHelpers;
         private readonly IEncodeHelper _encodeHelper;
         private readonly IPFXCertificateSvc _pfxCertificate;
-        private readonly ITypeOfCustomerSvc _typeOfCustomerSvc;
-        public CustomerSvc(ProjectDbContext context, IUploadFileHelper imageHelpers, IEncodeHelper encodeHelper, IPFXCertificateSvc pFXCertificate, ITypeOfCustomerSvc typeOfCustomerSvc)
+        public CustomerSvc(ProjectDbContext context, IUploadFileHelper imageHelpers, IEncodeHelper encodeHelper, IPFXCertificateSvc pFXCertificate)
         {
             _context = context;
-            _imageHelpers = _imageHelpers;
+            _imageHelpers = imageHelpers;
             _encodeHelper = encodeHelper;
             _pfxCertificate = pFXCertificate;
-            _typeOfCustomerSvc = typeOfCustomerSvc;
         }
         public async Task<string> AddNewAsync(Customer customer)
         {
@@ -89,17 +86,21 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
             }
         }
 
-        //return -1: trung mail, -2: trung sđth,-3: trung cccd, -4 trung bank account, -5 trung ma so thue, 0: oke, 1: type đã bị ẩn hoặc không tồn tại
+        //return -1: trung mail, -2: trung sđth,-3: trung cccd, -4 trung bank account, -5 trung ma so thue, 0: oke
         public async Task<string> IsFieldExist(Customer customer)
         {
-            List<TypeOfCustomer> getListNotHidden = await _typeOfCustomerSvc.GetAllNotHidden();
+            List<string> toc = new List<string>()
+            {
+                new string("Cá nhân"),
+                new string("Doanh nghiệp")
+            };
             string isFoundTOC = "1";
 
-            foreach (TypeOfCustomer item in getListNotHidden)
+            foreach (var item in toc)
             {
-                if (customer.TOC_ID == item.TOC_ID)
+                if (customer.typeofCustomer == item)
                 {
-                    var customerWithTOC_ID = await _context.Customers.Where(e => e.TOC_ID == item.TOC_ID).ToListAsync();
+                    var customerWithTOC_ID = await _context.Customers.Where(e => e.typeofCustomer == item).ToListAsync();
                     
                     isFoundTOC = "0";
                     string phoneNumber = null;
@@ -198,7 +199,7 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
                 existingCus.IsLocked = customer.IsLocked;
                 existingCus.Note = customer.Note;
                 existingCus.SerialPFX = existingCus.SerialPFX;
-                existingCus.TOC_ID = customer.TOC_ID;
+                existingCus.typeofCustomer = customer.typeofCustomer;
 
                 status = await IsFieldExist(existingCus);
                 if (String.Compare(status, "0") != 0)

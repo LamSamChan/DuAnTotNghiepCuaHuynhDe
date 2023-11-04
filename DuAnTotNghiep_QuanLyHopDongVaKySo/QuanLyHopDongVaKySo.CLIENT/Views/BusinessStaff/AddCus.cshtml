@@ -1,4 +1,4 @@
-﻿@model QuanLyHopDongVaKySo_API.Models.ViewPost.PostCustomer;
+﻿@model QuanLyHopDongVaKySo.CLIENT.Models.ModelPost.PostCustomer
 @{
 }
 <div class="container-fluid">
@@ -50,8 +50,10 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputGender" class="form-label">Giới tính</label>
-                        <select style="background-color: #F3F3F3;" required asp-for="Gender" asp-items="Html.GetEnumSelectList<QuanLyHopDongVaKySo_API.Models.Gender>()" class="form-control">
+                        <select style="background-color: #F3F3F3;" required asp-for="Gender" class="form-control">
                             <option value="" disabled selected>...chọn giới tính</option>
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>
                         </select>
                     </div>
                     <div class="col-md-6">
@@ -166,7 +168,7 @@
                                 <input type="date" class="form-control" id="dateSDN" asp-for="BNDate" disabled>
                                 <span class="text-danger" asp-validation-for="BNDate"></span>
                             </div>
-                            <div class="col-md-5" style="margin:0 auto;">
+                            <div class="col-md-10" style="margin:0 auto;">
                                 <label for="adSDN" class="form-label">Nơi cấp SDN</label>
                                 <input class="form-control" id="adSDN" asp-for="BNPlace" disabled>
                                 <span class="text-danger" asp-validation-for="BNPlace"></span>

@@ -4,7 +4,6 @@ using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Models.ViewPost;
 using QuanLyHopDongVaKySo_API.Models.ViewPuts;
 using QuanLyHopDongVaKySo_API.Services.CustomerService;
-using QuanLyHopDongVaKySo_API.Services.TypeOfCustomerService;
 using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
 
 namespace QuanLyHopDongVaKySo_API.Controllers

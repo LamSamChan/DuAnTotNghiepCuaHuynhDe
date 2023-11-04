@@ -132,8 +132,8 @@ namespace QuanLyHopDongVaKySo_API.Models.ViewPuts
         public string? Note { get; set; }
 
         //tạo liên kết
-        [Required(ErrorMessage = "Hãy ID loại khách hàng")]
-        public int TOC_ID { get; set; }
+        [Required(ErrorMessage = "Hãy điền tên loại khách hàng")]
+        public string typeofCustomer { get; set; }
 
     }
 }

@@ -151,20 +151,19 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<string>("SerialPFX")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("TOC_ID")
-                        .HasColumnType("int");
-
                     b.Property<string>("TaxIDNumber")
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("WhoPOA")
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("typeofCustomer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("CustomerId");
 
                     b.HasIndex("SerialPFX");
-
-                    b.HasIndex("TOC_ID");
 
                     b.ToTable("Customer", (string)null);
                 });
@@ -738,27 +737,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.ToTable("TemplateMinute", (string)null);
                 });
 
-            modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.TypeOfCustomer", b =>
-                {
-                    b.Property<int>("TOC_ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TOC_ID"));
-
-                    b.Property<string>("TypeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("isHidden")
-                        .HasColumnType("bit");
-
-                    b.HasKey("TOC_ID");
-
-                    b.ToTable("TypeOfCustomer", (string)null);
-                });
-
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.TypeOfService", b =>
                 {
                     b.Property<int>("TOS_ID")
@@ -820,15 +798,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .WithMany()
                         .HasForeignKey("SerialPFX");
 
-                    b.HasOne("QuanLyHopDongVaKySo_API.Models.TypeOfCustomer", "TypeOfCustomer")
-                        .WithMany()
-                        .HasForeignKey("TOC_ID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("PFXCertificate");
-
-                    b.Navigation("TypeOfCustomer");
                 });
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.DoneContract", b =>

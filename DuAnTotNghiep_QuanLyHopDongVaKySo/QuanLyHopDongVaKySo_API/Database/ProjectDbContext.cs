@@ -25,7 +25,6 @@ namespace QuanLyHopDongVaKySo_API.Database
         public DbSet<Role> Roles { get; set; }
         public DbSet<TemplateContract> TemplateContracts { get; set; }
         public DbSet<TemplateMinute> TemplateMinutes { get; set; }
-        public DbSet<TypeOfCustomer> TypeOfCustomers { get; set; }
         public DbSet<TypeOfService> TypeOfServices { get; set; }
         public DbSet<ContractCoordinate> ContractCoordinates { get; set; }
         public DbSet<MinuteCoordinate> MinuteCoordinates { get; set; }
@@ -47,7 +46,6 @@ namespace QuanLyHopDongVaKySo_API.Database
             modelBuilder.Entity<Role>().ToTable("Role");
             modelBuilder.Entity<TemplateContract>().ToTable("TemplateContract");
             modelBuilder.Entity<TemplateMinute>().ToTable("TemplateMinute");
-            modelBuilder.Entity<TypeOfCustomer>().ToTable("TypeOfCustomer");
             modelBuilder.Entity<TypeOfService>().ToTable("TypeOfService");
             modelBuilder.Entity<ContractCoordinate>().ToTable("ContractCoordinate");
             modelBuilder.Entity<MinuteCoordinate>().ToTable("MinuteCoordinate");
