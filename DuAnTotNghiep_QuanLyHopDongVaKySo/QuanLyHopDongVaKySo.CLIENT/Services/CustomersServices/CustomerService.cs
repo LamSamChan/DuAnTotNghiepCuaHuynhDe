@@ -10,11 +10,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices
         {
             _httpClient = httpClient;
         }
-        public async Task<string> AddNewCustomer(PostCustomer customer)
+        public async Task<int> AddNewCustomer(PostCustomer customer)
         {
-            var reponse = await _httpClient.PostAsJsonAsync("api/Customers/AddNew", customer);
-            reponse.EnsureSuccessStatusCode();
-            return await reponse.Content.ReadAsStringAsync();
+            var cus = customer;
+            int temp = 0;
+            var reponse = await _httpClient.PostAsJsonAsync<PostCustomer>("api/Customers/AddNew", customer);
+            if (reponse.IsSuccessStatusCode)
+            {
+                return 1;
+            }
+            return 0;
         }
 
         public async Task<List<Customer>> GetAllCustomers()

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Models.ViewPost;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -30,9 +31,22 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
 
-        public IActionResult AddCusAction()
+        [HttpPost]
+        public async Task<IActionResult> AddCusAction(PostCustomer postCustomer)
         {
-            return View();
+            postCustomer.TOC_ID = 1;
+            var gender = postCustomer.Gender;
+            int temp = 0;
+            int reponse = await _customerService.AddNewCustomer(postCustomer);
+            if (reponse != 0)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            
         }
 
         public IActionResult ContractFormPage()

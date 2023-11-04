@@ -31,7 +31,7 @@
     <div class="row justify-content-around" style="margin-top: 100px;">
         <div class="col-md-5">
             <div class="box1">
-                <form class="row justify-content-between g-3 " style=" margin: 0 auto;" method="post" asp-action="AddCusAction" asp-controller="BusinessStaff" enctype="multipart/form-data">
+                <form class="row justify-content-between g-3 " style=" margin: 0 auto;" method="post" asp-action="AddCusAction" asp-controller="BusinessStaff">
                     <div class="col-md-6">
                         <label class="form-label">Họ và tên</label>
                         <input class="form-control" id="inputName" asp-for="FullName"  placeholder="Họ và tên" required>
@@ -50,10 +50,8 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputGender" class="form-label">Giới tính</label>
-                        <select style="background-color: #F3F3F3;" required asp-for="Gender" class="form-control">
+                        <select style="background-color: #F3F3F3;" required asp-for="Gender" asp-items="Html.GetEnumSelectList<QuanLyHopDongVaKySo_API.Models.Gender>()" class="form-control">
                             <option value="" disabled selected>...chọn giới tính</option>
-                            <option value="1">Nam</option>
-                            <option value="2">Nữ</option>
                         </select>
                     </div>
                     <div class="col-md-6">
@@ -106,12 +104,6 @@
                         <input class="form-control" asp-for="Nationality" required>
                         <span class="text-danger" asp-validation-for="Nationality"></span>
                     </div>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-5">
-            <div class="box2" style=" max-height: 800px;overflow-y: scroll;">
-                <form class="row justify-content-between g-3" style=" margin: 0 auto;">
                     <div class="col-md-6">
                         <label for="inputTaxCode" class="form-label">Số tài khoản</label>
                         <input class="form-control" asp-for="BankAccount" required>
