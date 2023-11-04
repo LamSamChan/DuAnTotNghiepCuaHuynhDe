@@ -116,10 +116,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         }
 
 
-                        return Ok (new{
-                        retText = "Thêm mẫu hợp đồng thành công",
-                        data = await _TContractSvc.getByIdAsnyc(id_Tcontract)
-                        });
+                        return Ok(new
+                        {
+                            retText = "Thêm mẫu hợp đồng thành công",
+                            data = _TContractSvc.getByIdAsnyc(id_Tcontract).Result.TContactID.ToString()
+                        }); 
                     }
                 }
              }

@@ -40,7 +40,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost("AddNew")]
-        public async Task<ActionResult<string>> AddNew([FromForm] PostCustomer postCustomer)
+        public async Task<ActionResult<string>> AddNew(PostCustomer postCustomer)
         {
             Customer customer = new Customer
             {
@@ -71,7 +71,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 BillingAddress = postCustomer.BillingAddress,
                 IsLocked = postCustomer.IsLocked,
                 Note = postCustomer.Note,
-                TOC_ID = postCustomer.TOC_ID
+                typeofCustomer = postCustomer.typeofCustomer
             };
             
             string isError = await _customerSvc.AddNewAsync(customer);
@@ -107,7 +107,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPut("Update")]
-        public async Task<ActionResult<string>> Update([FromForm] PutCustomer putCustomer)
+        public async Task<ActionResult<string>> Update(PutCustomer putCustomer)
         {
             Customer customer = new Customer {
                 CustomerId = putCustomer.CustomerId,
@@ -130,7 +130,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 BillingAddress = putCustomer.BillingAddress,
                 IsLocked = putCustomer.IsLocked,
                 Note = putCustomer.Note,
-                TOC_ID = putCustomer.TOC_ID
+                typeofCustomer = putCustomer.typeofCustomer
             };
             string isError = await _customerSvc.UpdateAsync(customer);
 

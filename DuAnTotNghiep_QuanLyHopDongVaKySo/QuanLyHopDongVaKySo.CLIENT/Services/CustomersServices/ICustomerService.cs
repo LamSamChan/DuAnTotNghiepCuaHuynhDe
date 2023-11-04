@@ -1,12 +1,12 @@
-﻿using QuanLyHopDongVaKySo_API.Models;
-using QuanLyHopDongVaKySo_API.Models.ViewPuts;
-using QuanLyHopDongVaKySo_API.Models.ViewPost;
+﻿using QuanLyHopDongVaKySo.CLIENT.Models;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 namespace QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices
 {
     public interface ICustomerService
     {
         Task<List<Customer>> GetAllCustomers();
-        Task<Customer> GetCustomerById(string id);
+        Task<PutCustomer> GetCustomerById(string id);
         Task<int> AddNewCustomer(PostCustomer postCustomer);
         Task<string> UpdateCustomer(PutCustomer putCustomer);
        

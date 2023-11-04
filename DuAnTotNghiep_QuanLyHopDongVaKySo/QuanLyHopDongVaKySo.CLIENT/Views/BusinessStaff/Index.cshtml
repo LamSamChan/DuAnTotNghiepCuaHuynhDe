@@ -1,4 +1,4 @@
-﻿@model List<QuanLyHopDongVaKySo_API.Models.Customer>
+﻿@model List<QuanLyHopDongVaKySo.CLIENT.Models.Customer>
 @{
 }
 
@@ -42,7 +42,7 @@
     <div class="listTable_Cus">
         <table class="table">
             <thead>
-                <tr>
+                <tr style="color: #8B909A;">
                     <th></th>
                     <th scope="col">ID</th>
                     <th scope="col">HỌ VÀ TÊN</th>
@@ -59,7 +59,7 @@
                     <tr>
                         <td>
                             <div class="row action">
-                                <a asp-action="DetailsCus"><i class="ph-bold ph-note-pencil"></i></a>
+                                <a asp-action="EditCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId"><i class="ph-bold ph-note-pencil"></i></a>
                             </div>
                         </td>
                         <th scope="row">@cus.CustomerId.ToString().Substring(0,8)</th>

@@ -67,16 +67,16 @@
                                                     </div>
                                                 </td>
                                                 <td class="text-left">
-                                                    <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                                    <a class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
                                                         <i class="anticon anticon-edit"></i>
-                                                    </button>
+                                                    </a>
                                                 </td>
                                                 <td>
                                                     @emp.EmployeeId.ToString().Substring(0,8)
                                                 </td>
                                                 @foreach (var role in Model.Roles)
                                                 {
-                                                    if (emp.PositionID == role.RoleID)
+                                                    if (emp.RoleID == role.RoleID)
                                                     {
                                                         <td>@role.RoleName</td>
                                                     }
@@ -136,7 +136,7 @@
                                         <tr>
                                             <th>HÀNH ĐỘNG</th>
                                             <th>ID</th>
-                                            <th>TÊN VAI TRÒ</th>
+                                            <th>VAI TRÒ</th>
                                             <th>TRẠNG THÁI</th>
                                         </tr>
                                     </thead>

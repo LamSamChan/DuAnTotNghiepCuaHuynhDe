@@ -28,11 +28,11 @@ namespace QuanLyHopDongVaKySo_API.Helpers
                 rasterizer.Open(inputFile); //opens the PDF file for rasterizing
                 if (typeDoc == "minute")
                 {
-                    outputDirectoryPath = $"AppData/MinuteImage/{idContract}";
+                    outputDirectoryPath = $"../QuanLyHopDongVaKySo.CLIENT/wwwroot/MinuteImage/{idContract}";
                 }
                 else
                 {
-                    outputDirectoryPath = $"AppData/ContractImage/{idContract}";
+                    outputDirectoryPath = $"../QuanLyHopDongVaKySo.CLIENT/wwwroot/ContractImage/{idContract}";
                 }
                 
                 if(!Directory.Exists(outputDirectoryPath))

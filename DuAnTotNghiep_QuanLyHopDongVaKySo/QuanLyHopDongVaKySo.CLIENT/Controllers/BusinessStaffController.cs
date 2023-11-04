@@ -1,8 +1,10 @@
 ﻿using Azure;
 using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
-using QuanLyHopDongVaKySo_API.Models;
-using QuanLyHopDongVaKySo_API.Models.ViewPost;
+using QuanLyHopDongVaKySo.CLIENT.Models;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
+using Newtonsoft.Json;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -31,13 +33,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddCusAction(PostCustomer postCustomer)
+
+        public async Task<IActionResult> AddCusAction(PostCustomer customer)
         {
-            postCustomer.TOC_ID = 1;
-            var gender = postCustomer.Gender;
-            int temp = 0;
-            int reponse = await _customerService.AddNewCustomer(postCustomer);
+            customer.IsLocked = false;
+            if (customer.BuisinessName != null)
+            {
+                customer.typeofCustomer = "Doanh nghiệp";
+            }
+            else
+            {
+                customer.typeofCustomer = "Cá nhân";
+            }
+            int reponse = await _customerService.AddNewCustomer(customer);
             if (reponse != 0)
             {
                 return RedirectToAction("Index");
@@ -89,10 +97,43 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult DetailsCus()
+        public async Task<IActionResult> EditCus(string customerID)
         {
-            return View();
+            var customer = await _customerService.GetCustomerById(customerID);
+            if (customer != null)
+            {
+                return View(customer);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
+
+        public async Task<IActionResult> UpdateInfoCustomer(PutCustomer putCustomer)
+        {
+
+            if (putCustomer.BuisinessName != null)
+            {
+                putCustomer.typeofCustomer = "Doanh nghiệp";
+            }
+            else
+            {
+                putCustomer.typeofCustomer = "Cá nhân";
+            }
+
+            string respone = await _customerService.UpdateCustomer(putCustomer);
+            var customer = await _customerService.GetCustomerById(respone);
+            if (customer != null)
+            {
+                return View("EditCus", customer);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
         public IActionResult HistoryOperation()
         {
             return View();
