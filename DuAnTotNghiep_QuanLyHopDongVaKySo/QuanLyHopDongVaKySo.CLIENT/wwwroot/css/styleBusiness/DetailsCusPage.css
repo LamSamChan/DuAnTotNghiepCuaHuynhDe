@@ -43,26 +43,28 @@
     }
 
 
-    div[class="box2"] form .col-md-6,
-    div[class="box1"] form .col-md-6 {
-        padding: 10px;
-    }
+form .col-md-5 div[class="box2 row justify-content-between g-3 "] .col-md-6,
+form .col-md-5 div[class="box1 row justify-content-between g-3 "] .col-md-6 {
+    padding: 10px;
+}
 
-    div[class="box2"] form .col-md-6 label,
-    div[class="box1"] form .col-md-6 label {
-        color: #525252;
-        font-size: 18px;
-        font-family: Joxt;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-    }
+form .col-md-5 div[class="box2 row justify-content-between g-3 "] .col-md-12 label,
+form .col-md-5 div[class="box1 row justify-content-between g-3 "] .col-md-12 label,
+form .col-md-5 div[class="box2 row justify-content-between g-3 "] .col-md-6 label,
+form .col-md-5 div[class="box1 row justify-content-between g-3 "] .col-md-6 label {
+    color: #525252;
+    font-size: 18px;
+    font-family: Joxt;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
 
 
-    div[class="box2"] form .col-md-6 input,
-    div[class="box1"] form .col-md-6 input {
-        border-radius: 8px;
-        background: #EDEDED;
-        border: none;
-    }
+form .col-md-5 div[class="box2 row justify-content-between g-3 "] .col-md-6 input,
+form .col-md-5 div[class="box1 row justify-content-between g-3 "] .col-md-6 input {
+    border-radius: 8px;
+    background: #EDEDED;
+    border: none;
+}
 
