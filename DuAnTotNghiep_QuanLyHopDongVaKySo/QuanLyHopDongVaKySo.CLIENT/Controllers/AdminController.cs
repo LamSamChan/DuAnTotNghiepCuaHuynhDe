@@ -27,7 +27,39 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult AddPosition_2()
+        {
+            return View();
+        }
+        public IActionResult AddPosition_3()
+        {
+            return View();
+        }
+        public IActionResult AddPosition_4()
+        {
+            return View();
+        }
         public IActionResult AddRole()
+        {
+            return View();
+        }
+        public IActionResult AddRole_2()
+        {
+            return View();
+        }
+        public IActionResult AddRole_3()
+        {
+            return View();
+        }
+        public IActionResult AddRole_4()
+        {
+            return View();
+        }
+        public IActionResult ListPrivate()
+        {
+            return View();
+        }
+        public IActionResult ListPersonnel()
         {
             return View();
         }
@@ -39,6 +71,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+
         public async Task<IActionResult> ListPosition()
         {
             VMListPostion vm = new VMListPostion();
