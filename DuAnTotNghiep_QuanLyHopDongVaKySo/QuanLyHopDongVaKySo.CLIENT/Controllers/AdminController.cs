@@ -24,7 +24,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-
+        public IActionResult AddRole()
+        {
+            return View();
+        }
+        public IActionResult AddPosition()
+        {
+            return View();
+        }
         public IActionResult DetailsUsers()
         {
             return View();
