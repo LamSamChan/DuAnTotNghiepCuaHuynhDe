@@ -56,9 +56,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public IActionResult EditPosition()
         {
             return View();
-        } 
+        }
 
-        public IActionResult ListUsers()
+        public IActionResult ListUsersAccount()
         {
             return View();
         }

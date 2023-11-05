@@ -1,20 +1,10 @@
-﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListRole
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
 @{
     Layout = "_AdminLayout";
 }
-<link rel="shortcut icon" href="~/assets/images/favicon.ico">
-
-<!-- Bootstrap Css -->
-<link href="~/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-<!-- Icons Css -->
-<link href="~/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-<!-- App Css-->
-<link href="~/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-
-<link href="~/assets2/css/app.min.css" rel="stylesheet">
-
-
-    <div class="page-content">
+<div class="container-fluid">
     <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
         <div class="SearchBox">
             <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
@@ -36,203 +26,151 @@
                     </a>
                 </li>
                 <li>
-                    <div class="avatar avatar-md"><img class="avatar-img" src="~/Resource/Image/Avatar.jpg" alt="user@email.com"></div>
+                    <img src="o.jpg" />
                 </li>
             </ul>
         </div>
     </div>
-        <div class="page-header no-gutters has-tab">
-            <div class="d-md-flex m-b-15 align-items-center justify-content-between">
-            </div>
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#people-overview">
-                        Danh sách người
-                        dùng
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#people-roles">Danh sách vai trò</a>
-                </li>
-            </ul>
-        </div>
-        <div class="container-fluid">
-            <div class="tab-content m-t-15">
-                <div class="tab-pane fade show active" id="people-overview">
-                    <div class="card" style="border-radius: 46px;">
-                        <div class="card-body">
-                            <div class="row m-b-30">
-                                <div class="col-lg-8">
-                                    <div class="d-md-flex">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-hover e-commerce-table">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>HÀNHĐỘNG</th>
-                                            <th>ID</th>
-                                            <th>VAI TRÒ</th>
-                                            <th>HỌ VÀ TÊN</th>
-                                            <th>EMAIL</th>
-                                            <th>SỐ ĐIỆN THOẠI</th>
-                                            <th>TRẠNG THÁI</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var emp in Model.Employees)
-                                        {
-                                            <tr>
-
-                                                <td>
-                                                    <div class="checkbox">
-                                                        <input id="check-item-1" type="checkbox">
-                                                        <label for="check-item-1" class="m-b-0"></label>
-                                                    </div>
-                                                </td>
-                                                <td class="text-left">
-                                                    <a class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
-                                                        <i class="anticon anticon-edit"></i>
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    @emp.EmployeeId.ToString().Substring(0,8)
-                                                </td>
-                                                @foreach (var role in Model.Roles)
-                                                {
-                                                    if (emp.RoleID == role.RoleID)
-                                                    {
-                                                        <td>@role.RoleName</td>
-                                                    }
-                                                }
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <h6 class="m-b-0">@emp.FullName</h6>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <h6 class="m-b-0">@emp.Email</h6>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <h6 class="m-b-0">@emp.PhoneNumber</h6>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    @if (emp.IsLocked)
-                                                    {
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="badge badge-danger badge-dot m-r-10"></div>
-                                                            <div>Đã bị khoá</div>
-                                                        </div>
-                                                    }
-                                                    else
-                                                    {
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="badge badge-success badge-dot m-r-10"></div>
-                                                            <div>Đang hiển thị</div>
-                                                        </div>
-                                                    }
-                                                </td>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="tab-pane fade" id="people-roles">
-                    <div class="card" style="border-radius: 46px;">
-                        <div class="card-body">
-                            <div class="row m-b-30">
-                                <div class="col-lg-8">
-                                    <div class="d-md-flex">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-hover e-commerce-table">
-                                    <thead>
-                                        <tr>
-                                            <th>HÀNH ĐỘNG</th>
-                                            <th>ID</th>
-                                            <th>VAI TRÒ</th>
-                                            <th>TRẠNG THÁI</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var role in Model.Roles)
-                                        {
-                                            <tr>
-                                                <td class="text-left">
-                                                    <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
-                                                        <i class="anticon anticon-edit"></i>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    @role.RoleID
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-
-                                                        <h6 class="m-b-0">@role.RoleName</h6>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    @if (role.isHidden)
-                                                    {
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="badge badge-danger badge-dot m-r-10"></div>
-                                                            <div>Đã ẩn</div>
-                                                        </div>
-                                                    }
-                                                    else
-                                                    {
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="badge badge-success badge-dot m-r-10"></div>
-                                                            <div>Đang hiển thị</div>
-                                                        </div>
-                                                    }
-                                                </td>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 text-left">
-            <a href="ganthemvaitro.html">
-                <button class="btn btn-primary">
-                    <i class="anticon anticon-plus-circle m-r-5"></i>
-                    <span>Thêm vai trò mới</span>
-                </button>
-            </a>
-        </div>
-        <!-- container-fluid -->
+    <div class="tab-container">
+        <div class="tab-button active" onclick="showTab('tab1')">Danh sách người dùng</div>
+        <div class="tab-button" onclick="showTab('tab2')">Danh sách vai trò</div>
     </div>
-    <!-- End Page-content -->
+    <div class="tab-content active" id="tab1">
+        <div class="listTable">
+            <table class="table">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th></th>
+                        <th scope="col">ID</th>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">SỐ ĐIỆN THOẠI</th>
+                        <th scope="col">VAI TRÒ</th>
+                        <th scope="col">TRẠNG THÁI</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
 
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>abc</td>
+                        <td>abc@gmail.com</td>
+                        <td>3233222</td>
+                        <td>abc</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Bình thường</div>
+                            </div>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="tab-content" id="tab2">
+        <div class="listTable" style="width:50%; height:300px;" >
+            <table class="table">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th></th>
+                        <th scope="col">ID</th>
+                        <th scope="col">VAI TRÒ</th>
+                        <th scope="col">TRẠNG THÁI</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
 
-<!-- JAVASCRIPT -->
-<script src="~/assets/libs/jquery/jquery.min.js"></script>
-<script src="~/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="~/assets/libs/metismenu/metisMenu.min.js"></script>
-<script src="~/assets/libs/simplebar/simplebar.min.js"></script>
-<script src="~/assets/libs/node-waves/waves.min.js"></script>
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>NVKD</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Khóa</div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="btn-addRole" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            THÊM VAI TRÒ
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm vai trò mới</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row justify-content-around" style=" margin: 0 auto;">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <label for="inputName" class="form-label">Vai trò</label>
+                                    <input class="form-control"  required>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-3">
+                                <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
+                                <div>
+                                    <input type="radio" class="btn-check " id="false" value="false" autocomplete="off" required>
+                                    <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
 
-<script src="~/assets/js/app.js"></script>
-<script src="~/assets2/js/vendors.min.js"></script>
+                                    <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" required>
+                                    <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
+                                </div>
+                            </div>
+                            <div class="col-md-5" style="margin:auto;">
+                                <button class="btn-addRole" type="submit" style="width: 100%;">
+                                    THÊM
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showTab(tabId) {
+        // Ẩn tất cả các nội dung tab
+        var tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(function (content) {
+            content.classList.remove('active');
+        });
 
-<!-- page js -->
-<!-- Core JS -->
-<script src="~/assets2/js/app.min.js"></script>
+        // Ẩn tất cả các tab-button
+        var tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(function (button) {
+            button.classList.remove('active');
+        });
+
+        // Hiển thị nội dung của tab được chọn và làm cho tab-button trở nên active
+        var selectedTab = document.getElementById(tabId);
+        selectedTab.classList.add('active');
+
+        var selectedButton = document.querySelector('[onclick="showTab(\'' + tabId + '\')"]');
+        selectedButton.classList.add('active');
+    }
+</script>

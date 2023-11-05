@@ -12,8 +12,14 @@
     <!-- We use those styles to show code examples, you should remove them in your application.-->
     <link href="~/Admin_Resource/css/examples.css" rel="stylesheet">
     <link href="~/Admin_Resource/vendors/_coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+
+    @* css - cho từng page *@
     <link href="~/Admin_Resource/css/vendors/Css_Index.css" rel="stylesheet" />
-    @* <link href="~/Admin_Resource/css/vendors/DetailsACc.css" rel="stylesheet" /> *@
+    <link href="~/Admin_Resource/css/vendors/ListUser.css" rel="stylesheet" />
+    <link href="~/Admin_Resource/css/vendors/ListRole.css" rel="stylesheet" />
+    <link href="~/Admin_Resource/css/vendors/DetailsAcc.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
     <script src="https://unpkg.com/@@phosphor-icons/web"></script>
 </head>
@@ -212,7 +218,7 @@
         <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
     </div>
     <div class="wrapper d-flex flex-column min-vh-100 bg-light">
-        <div class="body flex-grow-1 px-3" style="margin-top:100px;">
+        <div class="body flex-grow-1 px-3" style="margin-top:70px;">
             <div class="container-fluid">
                 <main role="main" class="pb-3">
                     @RenderBody()
@@ -220,6 +226,9 @@
             </div>
         </div>
     </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- CoreUI and necessary plugins-->
     <script src="~/Admin_Resource/vendors/_coreui/coreui/js/coreui.bundle.min.js"></script>
     <script src="~/Admin_Resource/vendors/simplebar/js/simplebar.min.js"></script>
@@ -228,6 +237,9 @@
     <script src="~/Admin_Resource/vendors/_coreui/chartjs/js/coreui-chartjs.js"></script>
     <script src="~/Admin_Resource/vendors/_coreui/utils/js/coreui-utils.js"></script>
     <script src="~/Admin_Resource/js/main.js"></script>
+
+    
+  
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
