@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿// Ignore Spelling: Auth
+
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using QuanLyHopDongVaKySo_API.Models;
@@ -16,12 +18,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IAuthServices _authSerivces;
+        private readonly IAuthServices _authServices;
         private readonly IRoleSvc _roleSvc;
         private readonly IConfiguration _configuration;
-        public AuthController(IAuthServices authSerivces, IConfiguration configuration, IRoleSvc roleSvc)
+        public AuthController(IAuthServices authServices, IConfiguration configuration, IRoleSvc roleSvc)
         {
-            _authSerivces = authSerivces;
+            _authServices = authServices;
             _configuration = configuration;
             _roleSvc = roleSvc;
         }
@@ -30,7 +32,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         public async Task<ActionResult> Login(ViewLogin viewLogin)
         {
             string token = null;
-            var login = await _authSerivces.Login(viewLogin);
+            var login = await _authServices.Login(viewLogin);
             if (login == null)
             {
                 return BadRequest("Sai mật khẩu hoặc tài khoản, hãy kiểm tra lại !");

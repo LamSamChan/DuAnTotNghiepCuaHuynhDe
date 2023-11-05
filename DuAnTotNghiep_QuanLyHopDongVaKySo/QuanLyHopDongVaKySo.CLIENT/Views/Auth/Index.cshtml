@@ -127,7 +127,7 @@
             <div class="top">
                 <img src="~/Resource/Image/LOGO_WITHOUT_BG/2.png" />
             </div>
-            <form asp-action="Login" asp-controller="Auth" method="post"> 
+            <form asp-controller="Auth" asp-action="Login" method="post">
                 <div class="form">
                     <h3>ĐĂNG NHẬP</h3>
                     <div class="mb-3">
@@ -137,7 +137,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput2" class="form-label">MẬT KHẨU</label>
-                        <input type="password" class="form-control" asp-for="Password" id="formGroupExampleInput2" placeholder="*********" required>
+                        <input type="password" class="form-control" asp-for="Password" id="formGroupExampleInput2" placeholder="***********" required>
                         <span class="text-danger" asp-validation-for="Password"></span>
                     </div>
                     <div class="row justify-content-between">
