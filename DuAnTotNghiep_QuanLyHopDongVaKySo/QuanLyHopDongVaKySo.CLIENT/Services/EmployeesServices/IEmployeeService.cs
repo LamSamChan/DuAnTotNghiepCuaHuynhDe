@@ -7,6 +7,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices
     {
         Task<List<Employee>> GetAllEmployees();
         Task<PutEmployee> GetEmployeeById(string id);
+        Task<Employee> GetEmployeeByEmail(string email);
         Task<int> AddNewEmployee(PostEmployee postEmployee);
         Task<string> UpdateEmployee(PutEmployee putEmployee);
     }
