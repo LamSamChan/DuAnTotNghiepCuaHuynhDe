@@ -64,6 +64,8 @@ builder.Services.AddScoped<IOTPGeneratorHelper, OTPGeneratorHelper>();
 builder.Services.AddScoped<IContractCoordinateSvc, ContractCoordinateSvc>();
 builder.Services.AddScoped<IMinuteCoordinateSvc, MinuteCoordinateSvc>();
 builder.Services.AddScoped<IPdfToImageHelper, PdfToImageHelper>();
+builder.Services.AddScoped<IAuthSerivces, AuthSerivces>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>

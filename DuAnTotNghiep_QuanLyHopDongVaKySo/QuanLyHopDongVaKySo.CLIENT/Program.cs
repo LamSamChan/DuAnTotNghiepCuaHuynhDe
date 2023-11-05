@@ -1,3 +1,4 @@
+using QuanLyHopDongVaKySo.CLIENT.Services;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
@@ -16,7 +17,7 @@ builder.Services.AddScoped<IEmployeeService, EmployeesService>();
 builder.Services.AddScoped<IPositionService, PositionService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IPContractService, PContractService>();
-
+builder.Services.AddScoped<IAuthServices, AuthServices>();
 
 builder.Services.AddMvc(options =>
 {
