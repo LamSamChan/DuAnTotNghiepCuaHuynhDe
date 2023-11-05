@@ -8,19 +8,6 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
-  <ItemGroup>
-    <None Include="Views\Admin\AddPosition.cshtml" />
-    <None Include="Views\Admin\EditPosition.cshtml" />
-    <None Include="Views\Admin\AddPosition_3.cshtml" />
-    <None Include="Views\Admin\AddRole.cshtml" />
-    <None Include="Views\Admin\EditRole.cshtml" />
-    <None Include="Views\Admin\AddRole_3.cshtml" />
-    <None Include="Views\Admin\DetailsAccount.cshtml" />
-    <None Include="Views\Admin\ListPersonnel.cshtml" />
-    <None Include="Views\Admin\ListPosition.cshtml" />
-    <None Include="Views\Admin\ListPrivate.cshtml" />
-    <None Include="Views\Admin\ListRole.cshtml" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
