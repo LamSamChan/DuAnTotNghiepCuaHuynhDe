@@ -31,133 +31,96 @@
             </ul>
         </div>
     </div>
-    <div class="row justify-content-around" style="margin-top: 20px;">
-        <div class="col-md-5">
-            <div class="box1">
-                <form class="row g-3" style="width:500px; margin: 0 auto;">
-                    <br />
+    <div style="margin-top: 40px;">
+        <form class="row justify-content-around" style=" margin: 0 auto;">
+            <div class="col-md-5">
+                <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
                     <div class="col-md-6">
-                        <label class="form-label" style="color: #525252; margin-left: 4px ;font-size: 18px;
-                                                        font-family: Jost; font-weight: 700; word-wrap: break-word; margin-top:5px">Trạng thái tài khoản</label>
+                        <div class="avt">
+                            <img src="~/Resource/Image/Avatar.jpg" alt="" style="width:200px; height:200px;"/>
+                        </div>
                     </div>
-                    <div class="col-md-6" style="width: 200px; height: 40px; margin-left:10px ;background: #0fd44a; border-radius: 8px; justify-content: space-between; align-items: center; display: flex">
+                    <div class="col-md-6">
+                        <label class="form-label">Họ và tên</label>
+                        <input class="form-control" id="inputName"  placeholder="Họ và tên" required>
+                        <span class="text-danger"></span>
 
-                        <label class="label_status" style="color: white; margin-bottom: 6px; margin-left: 37px; font-size: 16px; font-family: Jost; font-weight: 700; word-wrap: break-word; background: none; border: none; cursor: pointer;">
-                            KÍCH HOẠT
-                        </label>
-                    </div>
-                    <div class="col-12">
-                        <label for="inputName" class="form-label" style="color: #888888;">Họ và tên</label>
-                        <input class="form-control" type="text" placeholder="sdsdc" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputEmail" class="form-label" style="color: #888888;">Email</label>
-                        <input class="form-control" type="email" placeholder="abc@gmail.com" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputCCCD" class="form-label" style="color: #888888;">CCCD/CMND</label>
-                        <input class="form-control" type="number" placeholder="abc@gmail.com" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputCCCD" class="form-label" style="color: #888888;">CCCD/CMND</label>
-                        <input class="form-control" type="number" placeholder="abc@gmail.com" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
+                        <label class="form-label" style="padding-top:60px;">Năm sinh</label>
+                        <input type="date" class="form-control" required>
+                        <span class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label" style="color: #888888;">Ngày cấp</label>
-                        <input class="form-control" type="date" placeholder="abc@gmail.com" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
+                        <label for="inputName" class="form-label">Số điện thoại</label>
+                        <input class="form-control"  maxlength="12" required>
+                        <span class="text-danger" ></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label" style="color: #888888;">Ngày hết hạn</label>
-                        <input class="form-control" type="date" placeholder="abc@gmail.com" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-5">
-            <div class="box2">
-                <form class="row g-3" style="width:500px; margin: 0 auto;">
-                    <div class="col-12">
-                        <label for="inputTaxCode" class="form-label" style="color: #888888;">Mã thuế</label>
-                        <input class="form-control" type="text" placeholder="abc@gmail.com" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputAddress2" class="form-label" style="color: #888888;">Địa chỉ thường trú</label>
-                        <input class="form-control" type="text" placeholder="abc@gmail.com" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputPass" class="form-label" style="color: #888888;">Password</label>
-                        <input class="form-control" type="text" placeholder="******" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
+                        <label for="inputGender" class="form-label">Giới tính</label>
+                        <select style="background-color: #F3F3F3;" required  class="form-control">
+                            <option value="" disabled selected>...chọn giới tính</option>
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>
+                        </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputNational" class="form-label" style="color: #888888;">Vai trò</label>
-                        <input class="form-control" type="text" placeholder="abc@gmail.com" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
+                        <label for="inputDateStart" class="form-label">Email</label>
+                        <input class="form-control" type="email"  placeholder="abc123@gmail.com" required>
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateEnd" class="form-label">FAX</label>
+                        <input class="form-control">
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateStart" class="form-label">CCCD/CMND</label>
+                        <input class="form-control" required>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateEnd" class="form-label">Ngày cấp</label>
+                        <input type="date" class="form-control"  required>
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateStart" class="form-label">Nơi cấp</label>
+                        <input class="form-control" required>
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputNational" class="form-label">Quốc tịch</label>
+                        <input class="form-control" required>
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
+                        <textarea style="background-color: #F3F3F3;" class="form-control" required></textarea>
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
+                        <div>
+                            <input type="radio" class="btn-check " id="false" value="false" autocomplete="off" required>
+                            <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
 
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputGender" class="form-label" style="color: #888888;">Quyền truy cập</label>
-                        <input class="form-control" type="text" placeholder="abc@gmail.com" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputSerri" class="form-label" style="color: #888888;">Số seri chứng chỉ</label>
-                        <input class="form-control" type="text" placeholder="abc@gmail.com" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
-                    </div>
-                    <div class="col-12">
-                        <input type="checkbox" id="disable-checkbox" style="color: #888888;"> khách hàng doanh nghiệp
-                        <div class="content row " style="margin-top:10px;">
-                            <div class="col-md-5" style="margin:0 auto;">
-                                <label for="inputNameBuss" class="form-label" style="color: #888888;">Tên doanh nghiệp</label>
-                                <input class="form-control" type="text" placeholder="abc@gmail.com" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
-                            </div>
-                            <div class="col-md-5" style="margin:0 auto;">
-                                <label for="inputPosition" class="form-label" style="color: #888888;">Chức vụ</label>
-                                <input class="form-control" type="text" placeholder="abc@gmail.com" style="color: #525252; border-radius: 8px; font-size: 20px;
-                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
-                                                            background: #EDEDED;">
-                            </div>
+                            <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" required>
+                            <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
                         </div>
                     </div>
-                    <div class="row justify-content-around " style="margin-top:30px;">
-                        <div class="col-md-5">
-                            <button class="btn custom-color"
-                                    style="background-color:#2CDDBD; color: #F5F5F5; width: 200px;">
-                                LƯU THAY ĐỔI
-                            </button>
-                        </div>
-                        <div class="col-md-5">
-                            <button class="btn custom-color" style="background-color: #ed2819; color: #fff; width: 200px;">
-                                VÔ HIỆU HÓA
-                            </button>
-                        </div>
+                    <div class="col-md-12">
+                        <label for="note" class="form-label">Ghi chú</label>
+                        <textarea style="background-color: #F3F3F3;" class="form-control"></textarea>
+                        <span class="text-danger"></span>
                     </div>
-                    
-                </form>
+                    @* <div class="col-md-5" style="margin:auto;">
+                        <button class="add_cus" type="submit">
+                            Cập nhật thông tin
+                        </button>
+                    </div> *@
+                </div>
             </div>
-        </div>
+            @**@
+        </form>
+
     </div>
 </div>

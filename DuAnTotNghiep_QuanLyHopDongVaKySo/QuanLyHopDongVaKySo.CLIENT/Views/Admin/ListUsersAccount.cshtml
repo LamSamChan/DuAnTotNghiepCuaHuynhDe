@@ -1,0 +1,381 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+    
+@* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+
+<div class="container-fluid">
+    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-container">
+        <div class="tab-button active" onclick="showTab('tab1')">Danh sách tài khoản nhân viên</div>
+        <div class="tab-button" onclick="showTab('tab2')">Danh sách tài khoản khách hàng</div>
+    </div>
+    <div class="tab-content active" id="tab1">
+        <div class="listTable">
+            <table class="table">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th></th>
+                        <th scope="col">ID</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">CCCD/CMND</th>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">CHỨC VỤ</th>
+                        <th scope="col">VAI TRÒ</th>
+                        <th scope="col">TRẠNG THÁI</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
+
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>3233222</td>
+                        <td>abc@gmail.com</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Bình thường</div>
+                            </div>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
+
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>3233222</td>
+                        <td>abc@gmail.com</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Khóa</div>
+                            </div>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
+
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>3233222</td>
+                        <td>abc@gmail.com</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Bình thường</div>
+                            </div>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
+
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>3233222</td>
+                        <td>abc@gmail.com</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Bình thường</div>
+                            </div>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
+
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>3233222</td>
+                        <td>abc@gmail.com</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Khóa</div>
+                            </div>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
+
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>3233222</td>
+                        <td>abc@gmail.com</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Bình thường</div>
+                            </div>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="tab-content" id="tab2">
+        <div class="listTable">
+            <table class="table">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th></th>
+                        <th scope="col">ID</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">CCCD/CMND</th>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">TRẠNG THÁI</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
+
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>3233222</td>
+                        <td>abc@gmail.com</td>
+                        <td>abc</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Khóa</div>
+                            </div>
+                        </td>
+                        <td>
+                            <a href="">Chi tiết</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
+
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>3233222</td>
+                        <td>abc@gmail.com</td>
+                        <td>abc</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Bình thường</div>
+                            </div>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
+
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>3233222</td>
+                        <td>abc@gmail.com</td>
+                        <td>abc</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Khóa</div>
+                            </div>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
+
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>3233222</td>
+                        <td>abc@gmail.com</td>
+                        <td>abc</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Bình thường</div>
+                            </div>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
+
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>3233222</td>
+                        <td>abc@gmail.com</td>
+                        <td>abc</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Bình thường</div>
+                            </div>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <a><i class="ph-bold ph-note-pencil"></i></a>
+                                <a><i class="ph-bold ph-trash"></i></a>
+
+                            </div>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>3233222</td>
+                        <td>abc@gmail.com</td>
+                        <td>abc</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                <div>Khóa</div>
+                            </div>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>
+<script>
+    function showTab(tabId) {
+        // Ẩn tất cả các nội dung tab
+        var tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(function (content) {
+            content.classList.remove('active');
+        });
+
+        // Ẩn tất cả các tab-button
+        var tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(function (button) {
+            button.classList.remove('active');
+        });
+
+        // Hiển thị nội dung của tab được chọn và làm cho tab-button trở nên active
+        var selectedTab = document.getElementById(tabId);
+        selectedTab.classList.add('active');
+
+        var selectedButton = document.querySelector('[onclick="showTab(\'' + tabId + '\')"]');
+        selectedButton.classList.add('active');
+    }
+</script>
