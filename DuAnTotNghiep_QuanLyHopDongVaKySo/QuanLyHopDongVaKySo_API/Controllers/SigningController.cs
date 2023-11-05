@@ -268,7 +268,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 return BadRequest("Biên bản này đã được khách hàng ký !");
             }
-            var dContract = await _dContractSvc.getByIdAsnyc(pMinute.DoneContractId);
+            var dContract = await _dContractSvc.getByIdAsnyc(pMinute.DoneContractId.ToString());
             var tMinuteID = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.templateMinuteID;
             TemplateMinute tMinute = await _templateMinuteSvc.getByIdAsnyc(tMinuteID);
             SignatureZone signatureZone = JsonConvert.DeserializeObject<SignatureZone>(tMinute.jsonIntallationZone);
@@ -521,7 +521,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 return BadRequest("Hợp đồng này đã được khách hàng ký !");
             }
 
-            var dContract = await _dContractSvc.getByIdAsnyc(pMinute.DoneContractId);
+            var dContract = await _dContractSvc.getByIdAsnyc(pMinute.DoneContractId.ToString());
             var tMinuteID = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.templateMinuteID;
             TemplateMinute tMinute = await _templateMinuteSvc.getByIdAsnyc(tMinuteID);
             SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tMinute.jsonCustomerZone);
@@ -553,7 +553,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             PutDContract putDContract = new PutDContract()
             {
-                DContractID = dContract.DContractID,
+                DContractID = dContract.DContractID.ToString(),
                 DateDone = dContract.DateDone,
                 DContractName = dContract.DConTractName,
                 DContractFile = dContract.DContractFile,

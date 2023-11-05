@@ -130,7 +130,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
         }
         public async Task<MinuteInfo> ExportMinute(PendingMinute pMinute, string empId)
         {
-            var dContract = await _doneContractSvc.getByIdAsnyc(pMinute.DoneContractId);
+            var dContract = await _doneContractSvc.getByIdAsnyc(pMinute.DoneContractId.ToString());
             var cus = await _customerSvc.GetByIdAsync(dContract.CustomerId.ToString());
             var emp = await _employeeSvc.GetById(empId);
             var tOS = await _typeOfServiceSvc.GetById(dContract.TOS_ID);

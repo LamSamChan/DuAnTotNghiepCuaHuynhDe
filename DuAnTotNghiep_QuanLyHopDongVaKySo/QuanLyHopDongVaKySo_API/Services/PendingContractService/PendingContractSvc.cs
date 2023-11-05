@@ -92,18 +92,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             try{
                 if(update != null)
                 {
-                    update.DateCreated = PContract.DateCreated;
-                    update.PContractName = PContract.PContractName;
-                    update.PContractFile = PContract.PContractFile;
-                    update.InstallationAddress = PContract.InstallationAddress;
-                    update.IsDirector = PContract.IsDirector;
-                    update.IsCustomer = PContract.IsCustomer;
                     update.IsRefuse = PContract.IsRefuse;
                     update.Reason = PContract.Reason;
-                    update.EmployeeCreatedId = PContract.EmployeeCreatedId;
-                    update.DirectorSignedId = PContract.DirectorSignedId;
-                    update.CustomerId = PContract.CustomerId;
-                    update.TOS_ID = PContract.TOS_ID;
                 }
                 _context.PendingContracts.Update(update);
                 await _context.SaveChangesAsync();
@@ -178,13 +168,13 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
                     PContractName = pc.PContractName,
                     PContractFile = pc.PContractFile,
-                    IsDirector = pc.IsDirector? "da ky" : "chua ky",
-                    IsCustomer = pc.IsCustomer? "da ky" : "chua ky",
-                    IsRefuse = pc.IsRefuse ? "tu choi ky" : " ",
+                    IsDirector = pc.IsDirector? "Đã ký" : "Chưa ký",
+                    IsCustomer = pc.IsCustomer? "Đã ký" : "Chưa ký",
+                    IsRefuse = pc.IsRefuse ? "Từ chối ký" : " ",
                     InstallationAddress = pc.InstallationAddress,
                     Reason = pc.Reason,
                     TOS_ID = pc.TypeOfService.ServiceName
-                }).Where(p => p.IsDirector == "chua ky" && p.IsCustomer == "chua ky").ToListAsync();
+                }).Where(p => p.IsDirector == "Chưa ký" && p.IsCustomer == "Chưa ký").ToListAsync();
             return viewModels;
         }
        
@@ -198,13 +188,13 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
                     PContractName = pc.PContractName,
                     PContractFile = pc.PContractFile,
-                    IsDirector = pc.IsDirector ? "da ky" : "chua ky",
-                    IsCustomer = pc.IsCustomer ? "da ky" : "chua ky",
+                    IsDirector = pc.IsDirector ? "Đã ký" : "Chưa ký",
+                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chưa ký",
                     InstallationAddress = pc.InstallationAddress,
-                    IsRefuse = pc.IsRefuse? "tu choi ky" : " ",
+                    IsRefuse = pc.IsRefuse? "Từ chối ký" : " ",
                     Reason = pc.Reason,
                     TOS_ID = pc.TypeOfService.ServiceName
-                }).Where(p => p.IsDirector == "da ky" && p.IsCustomer == "chua ky").ToListAsync();
+                }).Where(p => p.IsDirector == "Đã ký" && p.IsCustomer == "Chưa ký").ToListAsync();
             return viewModels;
         }
 
@@ -218,13 +208,13 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
                     PContractName = pc.PContractName,
                     PContractFile = pc.PContractFile,
-                    IsDirector = pc.IsDirector ? "da ky" : "chua ky",
-                    IsCustomer = pc.IsCustomer ? "da ky" : "chua ky",
+                    IsDirector = pc.IsDirector ? "Đã ký" : "Chưa ký",
+                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chưa ký",
                     InstallationAddress = pc.InstallationAddress,
-                    IsRefuse = pc.IsRefuse ? "tu choi ky" : " ",
+                    IsRefuse = pc.IsRefuse ? "Từ chối ký" : " ",
                     Reason = pc.Reason,
                     TOS_ID = pc.TypeOfService.ServiceName
-                }).Where(p => p.IsRefuse == "tu choi ky").ToListAsync();
+                }).Where(p => p.IsRefuse == "Từ chối ký").ToListAsync();
             return viewModels;
         }
     }

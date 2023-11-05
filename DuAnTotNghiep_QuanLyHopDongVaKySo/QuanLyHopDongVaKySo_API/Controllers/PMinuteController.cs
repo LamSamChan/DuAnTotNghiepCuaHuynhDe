@@ -55,7 +55,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             int pMinute = await _pMinuteSvc.addAsnyc(pendingMinute);
 
-            var tos = _doneContractSvc.getByIdAsnyc(ir.DoneContractId).Result.TOS_ID;
+            var tos = _doneContractSvc.getByIdAsnyc(ir.DoneContractId.ToString()).Result.TOS_ID;
 
             var tMinuteId = _typeOfServiceSvc.GetById(tos).Result.templateMinuteID;
             // lấy thông tin biên bản mẫu

@@ -5,12 +5,12 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
     public interface IDoneContractSvc
     {
         Task<List<DoneContract>> getAllAsnyc(); 
-        Task<DoneContract> getByIdAsnyc(int id);
+        Task<DoneContract> getByIdAsnyc(string id);
         Task<DoneContract> addAsnyc(PutPendingContract Pcontract);
         Task<string> updateAsnyc(PutDContract dContract);
 
         Task<List<DContractViewModel>> getListIsEffect();
-        
+        Task<List<DContractViewModel>> getListByCusId(string id);
 
         
     }
