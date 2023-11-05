@@ -1,5 +1,6 @@
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using System.Net.Http;
@@ -14,6 +15,8 @@ builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeesService>();
 builder.Services.AddScoped<IPositionService, PositionService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IPContractService, PContractService>();
+
 
 builder.Services.AddMvc(options =>
 {

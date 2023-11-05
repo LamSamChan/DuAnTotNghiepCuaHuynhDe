@@ -350,539 +350,276 @@ D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo
 /Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/nl/PdfiumViewer.resources.dll
 /Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.dll
 /Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net7.0/System.Drawing.Common.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.Development.json
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.json
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.exe
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.deps.json
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.runtimeconfig.json
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Azure.Core.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Azure.Identity.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\BouncyCastle.Crypto.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Ghostscript.NET.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Humanizer.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\itextsharp.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Identity.Client.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.OpenApi.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Mono.TextTemplating.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Newtonsoft.Json.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\NSwag.Annotations.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\PdfiumViewer.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QRCoder.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\RestSharp.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Scrutor.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Spire.Pdf.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Annotations.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.CodeDom.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Drawing.Common.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Memory.Data.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Runtime.Caching.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Security.Permissions.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Windows.Extensions.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\nl\PdfiumViewer.resources.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.AssemblyReference.cache
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.GeneratedMSBuildEditorConfig.editorconfig
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.AssemblyInfoInputs.cache
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.AssemblyInfo.cs
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.CoreCompileInputs.cache
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cs
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cache
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.QuanLyHopDongVaKySo_API.Microsoft.AspNetCore.StaticWebAssets.props
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.build.QuanLyHopDongVaKySo_API.props
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.QuanLyHopDongVaKySo_API.props
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.QuanLyHopDongVaKySo_API.props
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.pack.json
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.build.json
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.development.json
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\scopedcss\bundle\QuanLyHopDongVaKySo_API.styles.css
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.CopyComplete
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\refint\QuanLyHopDongVaKySo_API.dll
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.genruntimeconfig.cache
-D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_API.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.Development.json
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.json
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.exe
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.deps.json
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.runtimeconfig.json
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Azure.Core.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Azure.Identity.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\BouncyCastle.Crypto.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Ghostscript.NET.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Humanizer.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\itextsharp.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Identity.Client.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.OpenApi.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Mono.TextTemplating.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Newtonsoft.Json.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\NSwag.Annotations.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\PdfiumViewer.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QRCoder.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\RestSharp.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Scrutor.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Spire.Pdf.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Annotations.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.CodeDom.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Drawing.Common.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Memory.Data.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Runtime.Caching.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Security.Permissions.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Text.Json.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Windows.Extensions.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\nl\PdfiumViewer.resources.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.AssemblyReference.cache
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.AssemblyInfoInputs.cache
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.AssemblyInfo.cs
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.CoreCompileInputs.cache
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cs
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cache
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.QuanLyHopDongVaKySo_API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.build.QuanLyHopDongVaKySo_API.props
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.QuanLyHopDongVaKySo_API.props
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.QuanLyHopDongVaKySo_API.props
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.pack.json
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.build.json
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.development.json
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\scopedcss\bundle\QuanLyHopDongVaKySo_API.styles.css
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.CopyComplete
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\refint\QuanLyHopDongVaKySo_API.dll
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.genruntimeconfig.cache
-C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_API.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.Development.json
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.json
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.exe
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.deps.json
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.runtimeconfig.json
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Azure.Core.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Azure.Identity.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\BouncyCastle.Crypto.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Ghostscript.NET.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Humanizer.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\itextsharp.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Identity.Client.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.OpenApi.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Mono.TextTemplating.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Newtonsoft.Json.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\NSwag.Annotations.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\PdfiumViewer.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QRCoder.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\RestSharp.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Scrutor.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Spire.Pdf.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Annotations.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.CodeDom.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Drawing.Common.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Memory.Data.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Runtime.Caching.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Security.Permissions.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Windows.Extensions.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\nl\PdfiumViewer.resources.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.AssemblyReference.cache
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.GeneratedMSBuildEditorConfig.editorconfig
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.AssemblyInfoInputs.cache
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.AssemblyInfo.cs
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.CoreCompileInputs.cache
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cs
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cache
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.QuanLyHopDongVaKySo_API.Microsoft.AspNetCore.StaticWebAssets.props
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.build.QuanLyHopDongVaKySo_API.props
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.QuanLyHopDongVaKySo_API.props
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.QuanLyHopDongVaKySo_API.props
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.pack.json
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.build.json
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.development.json
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\scopedcss\bundle\QuanLyHopDongVaKySo_API.styles.css
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.CopyComplete
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\refint\QuanLyHopDongVaKySo_API.dll
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.genruntimeconfig.cache
-E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_API.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.Development.json
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.json
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.exe
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.deps.json
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.runtimeconfig.json
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Azure.Core.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Azure.Identity.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\BouncyCastle.Crypto.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Ghostscript.NET.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Humanizer.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\itextsharp.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Identity.Client.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.OpenApi.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Mono.TextTemplating.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Newtonsoft.Json.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\NSwag.Annotations.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\PdfiumViewer.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QRCoder.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\RestSharp.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Scrutor.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Spire.Pdf.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Annotations.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.CodeDom.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Drawing.Common.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Memory.Data.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Runtime.Caching.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Security.Permissions.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Text.Json.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Windows.Extensions.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\nl\PdfiumViewer.resources.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.AssemblyReference.cache
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.AssemblyInfoInputs.cache
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.AssemblyInfo.cs
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.CoreCompileInputs.cache
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cs
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cache
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.QuanLyHopDongVaKySo_API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.build.QuanLyHopDongVaKySo_API.props
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.QuanLyHopDongVaKySo_API.props
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.QuanLyHopDongVaKySo_API.props
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.pack.json
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.build.json
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.development.json
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\scopedcss\bundle\QuanLyHopDongVaKySo_API.styles.css
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.CopyComplete
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\refint\QuanLyHopDongVaKySo_API.dll
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.genruntimeconfig.cache
-C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_API.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.Development.json
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.json
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.exe
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.deps.json
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.runtimeconfig.json
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Azure.Core.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Azure.Identity.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\BouncyCastle.Crypto.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Ghostscript.NET.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Humanizer.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\itextsharp.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Identity.Client.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.OpenApi.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Mono.TextTemplating.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Newtonsoft.Json.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\NSwag.Annotations.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\PdfiumViewer.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QRCoder.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\RestSharp.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Scrutor.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Spire.Pdf.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Annotations.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.CodeDom.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Drawing.Common.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Memory.Data.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Runtime.Caching.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Security.Permissions.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Windows.Extensions.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\nl\PdfiumViewer.resources.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.AssemblyReference.cache
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.GeneratedMSBuildEditorConfig.editorconfig
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.AssemblyInfoInputs.cache
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.AssemblyInfo.cs
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.CoreCompileInputs.cache
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cs
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cache
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.QuanLyHopDongVaKySo_API.Microsoft.AspNetCore.StaticWebAssets.props
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.build.QuanLyHopDongVaKySo_API.props
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.QuanLyHopDongVaKySo_API.props
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.QuanLyHopDongVaKySo_API.props
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.pack.json
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.build.json
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.development.json
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\scopedcss\bundle\QuanLyHopDongVaKySo_API.styles.css
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.CopyComplete
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\refint\QuanLyHopDongVaKySo_API.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.genruntimeconfig.cache
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_API.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.Development.json
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.json
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.exe
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.deps.json
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.runtimeconfig.json
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Azure.Core.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Azure.Identity.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\BouncyCastle.Crypto.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Ghostscript.NET.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Humanizer.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\itextsharp.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Identity.Client.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.OpenApi.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Mono.TextTemplating.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Newtonsoft.Json.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\NSwag.Annotations.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\PdfiumViewer.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QRCoder.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\RestSharp.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Scrutor.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Spire.Pdf.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Annotations.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.CodeDom.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Drawing.Common.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Memory.Data.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Runtime.Caching.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Security.Permissions.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\System.Windows.Extensions.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\nl\PdfiumViewer.resources.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.AssemblyReference.cache
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.AssemblyInfoInputs.cache
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.AssemblyInfo.cs
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.CoreCompileInputs.cache
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.QuanLyHopDongVaKySo_API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.build.QuanLyHopDongVaKySo_API.props
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.QuanLyHopDongVaKySo_API.props
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.QuanLyHopDongVaKySo_API.props
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.pack.json
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.build.json
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\staticwebassets.development.json
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\scopedcss\bundle\QuanLyHopDongVaKySo_API.styles.css
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.csproj.CopyComplete
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\refint\QuanLyHopDongVaKySo_API.dll
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.genruntimeconfig.cache
-C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_API.dll
+D:/HUYNHDE_DATN_2023/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Spire.Pdf.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/appsettings.Development.json
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/appsettings.json
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.exe
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.deps.json
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.runtimeconfig.json
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.pdb
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Azure.Core.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Azure.Identity.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/BouncyCastle.Crypto.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Ghostscript.NET.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Humanizer.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/itextsharp.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Identity.Client.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Identity.Client.Extensions.Msal.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.OpenApi.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Mono.TextTemplating.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Newtonsoft.Json.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/NSwag.Annotations.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/PdfiumViewer.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QRCoder.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/RestSharp.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Scrutor.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Spire.Pdf.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.Annotations.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.Filters.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.CodeDom.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Configuration.ConfigurationManager.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Drawing.Common.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Memory.Data.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Runtime.Caching.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Security.Cryptography.ProtectedData.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Security.Permissions.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Text.Json.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Windows.Extensions.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/nl/PdfiumViewer.resources.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net7.0/System.Drawing.Common.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.csproj.AssemblyReference.cache
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.GeneratedMSBuildEditorConfig.editorconfig
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.AssemblyInfoInputs.cache
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.AssemblyInfo.cs
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.csproj.CoreCompileInputs.cache
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cs
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cache
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets/msbuild.QuanLyHopDongVaKySo_API.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets/msbuild.build.QuanLyHopDongVaKySo_API.props
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.QuanLyHopDongVaKySo_API.props
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.QuanLyHopDongVaKySo_API.props
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets.pack.json
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets.build.json
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets.development.json
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/scopedcss/bundle/QuanLyHopDongVaKySo_API.styles.css
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.csproj.CopyComplete
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/refint/QuanLyHopDongVaKySo_API.dll
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.pdb
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.genruntimeconfig.cache
+C:/Learn/du-an-tot-nghiep_FE/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/ref/QuanLyHopDongVaKySo_API.dll
+E:/FPT Polytechnic/DATN_HUYNHDE_2023/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Spire.Pdf.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/appsettings.Development.json
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/appsettings.json
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.exe
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.deps.json
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.runtimeconfig.json
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.pdb
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Azure.Core.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Azure.Identity.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/BouncyCastle.Crypto.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Ghostscript.NET.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Humanizer.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/itextsharp.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Identity.Client.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Identity.Client.Extensions.Msal.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.OpenApi.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Mono.TextTemplating.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Newtonsoft.Json.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/NSwag.Annotations.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/PdfiumViewer.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QRCoder.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/RestSharp.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Scrutor.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Spire.Pdf.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.Annotations.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.Filters.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.CodeDom.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Configuration.ConfigurationManager.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Drawing.Common.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Memory.Data.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Runtime.Caching.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Security.Cryptography.ProtectedData.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Security.Permissions.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Text.Json.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Windows.Extensions.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/nl/PdfiumViewer.resources.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net7.0/System.Drawing.Common.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.csproj.AssemblyReference.cache
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.GeneratedMSBuildEditorConfig.editorconfig
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.AssemblyInfoInputs.cache
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.AssemblyInfo.cs
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.csproj.CoreCompileInputs.cache
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cs
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cache
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets/msbuild.QuanLyHopDongVaKySo_API.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets/msbuild.build.QuanLyHopDongVaKySo_API.props
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.QuanLyHopDongVaKySo_API.props
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.QuanLyHopDongVaKySo_API.props
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets.pack.json
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets.build.json
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets.development.json
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/scopedcss/bundle/QuanLyHopDongVaKySo_API.styles.css
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.csproj.CopyComplete
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/refint/QuanLyHopDongVaKySo_API.dll
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.pdb
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.genruntimeconfig.cache
+C:/Learn/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/ref/QuanLyHopDongVaKySo_API.dll
+D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Spire.Pdf.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/appsettings.Development.json
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/appsettings.json
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.exe
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.deps.json
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.runtimeconfig.json
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QuanLyHopDongVaKySo_API.pdb
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Azure.Core.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Azure.Identity.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/BouncyCastle.Crypto.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Ghostscript.NET.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Humanizer.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/itextsharp.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Identity.Client.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Identity.Client.Extensions.Msal.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.OpenApi.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Mono.TextTemplating.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Newtonsoft.Json.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/NSwag.Annotations.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/PdfiumViewer.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/QRCoder.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/RestSharp.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Scrutor.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Spire.Pdf.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.Annotations.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.Filters.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.CodeDom.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Configuration.ConfigurationManager.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Drawing.Common.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Memory.Data.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Runtime.Caching.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Security.Permissions.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/System.Windows.Extensions.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/nl/PdfiumViewer.resources.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net7.0/System.Drawing.Common.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.csproj.AssemblyReference.cache
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.AssemblyInfoInputs.cache
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.AssemblyInfo.cs
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.csproj.CoreCompileInputs.cache
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets/msbuild.QuanLyHopDongVaKySo_API.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets/msbuild.build.QuanLyHopDongVaKySo_API.props
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.QuanLyHopDongVaKySo_API.props
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.QuanLyHopDongVaKySo_API.props
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets.pack.json
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets.build.json
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/staticwebassets.development.json
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/scopedcss/bundle/QuanLyHopDongVaKySo_API.styles.css
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.csproj.CopyComplete
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/refint/QuanLyHopDongVaKySo_API.dll
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.pdb
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/QuanLyHopDongVaKySo_API.genruntimeconfig.cache
+C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/obj/Debug/net7.0/ref/QuanLyHopDongVaKySo_API.dll
+/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/bin/Debug/net7.0/Spire.Pdf.dll

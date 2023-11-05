@@ -1,34 +1,47 @@
 ﻿<Properties StartupConfiguration="Multiple Projects">
-  <MultiItemStartupConfigurations>
-    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects" />
-  </MultiItemStartupConfigurations>
-  <MonoDevelop.Ide.Workbench ActiveDocument="QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs">
-    <Files>
-      <File FileName="QuanLyHopDongVaKySo_API/appsettings.Development.json" />
-      <File FileName="QuanLyHopDongVaKySo_API/appsettings.json" Line="5" Column="15" />
-      <File FileName="QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs" Line="1" Column="1" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="DuAnTotNghiep_QuanLyHopDongVaKySo" expanded="True">
-            <Node name="QuanLyHopDongVaKySo_API" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="PFXCertificatesController.cs" selected="True" />
-              </Node>
-              <Node name="appsettings.json" expanded="True" />
-            </Node>
-            <Node name="QuanLyHopDongVaKySo_CLIENT" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.QuanLyHopDongVaKySo__API PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs" relfile="QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs" line="281" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
+      <Items>
+        <StartupItem ItemId="{9FDC017B-6EEE-4C91-8646-8783173B5F48}" ItemName="QuanLyHopDongVaKySo_API" ConfigurationId="Default" />
+        <StartupItem ItemId="{63453605-2089-4D9B-B91A-D26B87CA745A}" ItemName="QuanLyHopDongVaKySo.CLIENT" ConfigurationId="https" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.ItemProperties.QuanLyHopDongVaKySo.CLIENT PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/ContractListEffect.cshtml">
+    <Files>
+      <File FileName="QuanLyHopDongVaKySo_API/appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="QuanLyHopDongVaKySo_API/appsettings.json" Line="8" Column="40" />
+      <File FileName="QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs" Line="1" Column="1" />
+      <File FileName="QuanLyHopDongVaKySo.CLIENT/Program.cs" Line="18" Column="17" />
+      <File FileName="QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/ContractListEffect.cshtml" Line="68" Column="17" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DuAnTotNghiep_QuanLyHopDongVaKySo" expanded="True">
+            <Node name="QuanLyHopDongVaKySo.CLIENT" expanded="True">
+              <Node name="Views" expanded="True">
+                <Node name="BusinessStaff" expanded="True">
+                  <Node name="ContractListEffect.cshtml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="QuanLyHopDongVaKySo_API" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
 </Properties>
