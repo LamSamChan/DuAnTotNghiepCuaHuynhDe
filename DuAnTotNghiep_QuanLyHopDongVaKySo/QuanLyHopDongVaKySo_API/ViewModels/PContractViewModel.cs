@@ -12,7 +12,7 @@ namespace QuanLyHopDongVaKySo_API.ViewModels
         public string PContractName { get; set; }
         public string IsDirector { get; set; }
         public string IsCustomer { get; set; }
-        public bool IsRefuse { get; set; }
+        public string IsRefuse { get; set; }
         public string? Reason { get; set; }
         public string InstallationAddress { get; set; }
         public string TOS_ID { get; set; }

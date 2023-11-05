@@ -167,5 +167,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(await _PContractSvc.getListWaitCustomerSigns());
         }
+
+        [HttpGet("ListIsRefuse")]
+        public async Task<IActionResult> GetListIsRefuse()
+        {
+            return Ok(await _PContractSvc.getListIsRefuse());
+        }
     }
 }

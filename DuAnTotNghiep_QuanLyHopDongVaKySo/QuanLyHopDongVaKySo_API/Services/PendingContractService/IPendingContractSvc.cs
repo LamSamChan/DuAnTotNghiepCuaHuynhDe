@@ -15,7 +15,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
         Task<int> updatePContractFile(int id, string File);
         Task<ContractInternet> ExportContract(PendingContract PContract, Employee? employee);
         Task<List<PContractViewModel>> getListWaitDirectorSigns();
-        Task<List<PContractViewModel>> getListWaitCustomerSings();
-        Tasl<List<PContractViewModel>> getListIsRefuse
+        Task<List<PContractViewModel>> getListWaitCustomerSigns();
+        Task<List<PContractViewModel>> getListIsRefuse();
     }
 }

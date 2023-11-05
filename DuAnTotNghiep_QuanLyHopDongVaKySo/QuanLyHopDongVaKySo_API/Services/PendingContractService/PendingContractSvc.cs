@@ -180,6 +180,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     PContractFile = pc.PContractFile,
                     IsDirector = pc.IsDirector? "da ky" : "chua ky",
                     IsCustomer = pc.IsCustomer? "da ky" : "chua ky",
+                    IsRefuse = pc.IsRefuse ? "tu choi ky" : " ",
                     InstallationAddress = pc.InstallationAddress,
                     Reason = pc.Reason,
                     TOS_ID = pc.TypeOfService.ServiceName
@@ -200,9 +201,30 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     IsDirector = pc.IsDirector ? "da ky" : "chua ky",
                     IsCustomer = pc.IsCustomer ? "da ky" : "chua ky",
                     InstallationAddress = pc.InstallationAddress,
+                    IsRefuse = pc.IsRefuse? "tu choi ky" : " ",
                     Reason = pc.Reason,
                     TOS_ID = pc.TypeOfService.ServiceName
                 }).Where(p => p.IsDirector == "da ky" && p.IsCustomer == "chua ky").ToListAsync();
+            return viewModels;
+        }
+
+        public async Task<List<PContractViewModel>> getListIsRefuse()
+        {
+            List<PContractViewModel> viewModels = new List<PContractViewModel>();
+            viewModels = await _context.PendingContracts
+                .Select(pc => new PContractViewModel
+                {
+                    PContractID = pc.PContractID.ToString(),
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    PContractName = pc.PContractName,
+                    PContractFile = pc.PContractFile,
+                    IsDirector = pc.IsDirector ? "da ky" : "chua ky",
+                    IsCustomer = pc.IsCustomer ? "da ky" : "chua ky",
+                    InstallationAddress = pc.InstallationAddress,
+                    IsRefuse = pc.IsRefuse ? "tu choi ky" : " ",
+                    Reason = pc.Reason,
+                    TOS_ID = pc.TypeOfService.ServiceName
+                }).Where(p => p.IsRefuse == "tu choi ky").ToListAsync();
             return viewModels;
         }
     }
