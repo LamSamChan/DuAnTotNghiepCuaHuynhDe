@@ -62,7 +62,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     enail = dc.Customer.Email,
                     dateDone = dc.DateDone.ToString("dd/MM/yyyy"),
                     typeOfService = dc.TypeOfService.ServiceName,
-                    status = dc.IsInEffect ? "Hoat dong" : ""
+                    status = dc.IsInEffect ? "Hoat dong" : "Hêt hạn"
                 }).ToListAsync();
             return viewModel;
         }
