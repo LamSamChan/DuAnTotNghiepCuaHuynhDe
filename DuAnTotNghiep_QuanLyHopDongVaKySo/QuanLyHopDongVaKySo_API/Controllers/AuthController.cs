@@ -24,8 +24,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _configuration = configuration;
             _roleSvc = roleSvc;
         }
+
         [HttpPost]
-        public async Task<ActionResult<Employee>> Login([FromForm] ViewLogin viewLogin)
+        public async Task<ActionResult> Login(ViewLogin viewLogin)
         {
             string token = null;
             var login = await _employeeSvc.Login(viewLogin);
