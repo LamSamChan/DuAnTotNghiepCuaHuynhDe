@@ -22,6 +22,7 @@ using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
 using QuanLyHopDongVaKySo_API.Services.TemplateMinuteService;
 using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
 using QuanLyHopDongVaKySo_API.Services.InstallationDeviceService;
+using QuanLyHopDongVaKySo_API.Services.AuthServices;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 using Newtonsoft.Json;
@@ -64,7 +65,7 @@ builder.Services.AddScoped<IOTPGeneratorHelper, OTPGeneratorHelper>();
 builder.Services.AddScoped<IContractCoordinateSvc, ContractCoordinateSvc>();
 builder.Services.AddScoped<IMinuteCoordinateSvc, MinuteCoordinateSvc>();
 builder.Services.AddScoped<IPdfToImageHelper, PdfToImageHelper>();
-builder.Services.AddScoped<IAuthServices, AuthServices>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -90,7 +91,7 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
                 builder.Configuration["AppSettings:Token"]!))
     };
 });
-
+builder.Services.AddScoped<IAuthService, AuthService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

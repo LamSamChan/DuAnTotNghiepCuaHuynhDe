@@ -34,6 +34,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices
 
         }
 
+        public async Task<Employee> GetEmployeeByEmail(string email)
+        {
+            var reponse = await _httpClient.GetFromJsonAsync<Employee>($"api/Employees/GetByEmail/{email}");
+            return reponse;
+        }
+
         public async Task<PutEmployee> GetEmployeeById(string id)
         {
             var reponse = await _httpClient.GetFromJsonAsync<PutEmployee>($"api/Employees/{id}");
@@ -53,5 +59,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices
                 return null;
             }
         }
+
     }
 }

@@ -16,15 +16,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.RoleServices
             var content = new StringContent(JsonConvert.SerializeObject(role), Encoding.UTF8, "application/json");
             try
             {
-                var reponse = await _httpClient.PostAsJsonAsync("api/Role/AddNew",content);
-                if(reponse.IsSuccessStatusCode)
+                using (var reponse = await _httpClient.PostAsJsonAsync("api/Role/AddNew", content))
                 {
-                    var ps = await reponse.Content.ReadAsStringAsync();
-                    return 1;
-                }
-                else
-                {
-                    return 0;
+                   
+                    if (reponse.IsSuccessStatusCode)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
 
             }

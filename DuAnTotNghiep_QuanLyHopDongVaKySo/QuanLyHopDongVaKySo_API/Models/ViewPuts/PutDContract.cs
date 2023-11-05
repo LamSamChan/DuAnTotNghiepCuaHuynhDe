@@ -8,7 +8,7 @@ namespace QuanLyHopDongVaKySo_API.Models
     public class PutDContract
     {
         [Column("Id")]
-        public int DContractID { get; set; }
+        public string DContractID { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
         [Display(Name = "Ngày hoàn thành")]

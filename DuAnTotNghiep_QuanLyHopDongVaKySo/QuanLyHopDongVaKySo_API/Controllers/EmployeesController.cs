@@ -48,6 +48,20 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 return BadRequest(emp);
             }
         }
+
+        [HttpGet("GetByEmail/{email}")]
+        public async Task<ActionResult<Employee>> GetByEmail(string email)
+        {
+            Employee emp = await _employeeSvc.GetByEmail(email);
+            if (emp != null)
+            {
+                return Ok(emp);
+            }
+            else
+            {
+                return BadRequest(emp);
+            }
+        }
         //Chưa bắt lỗi khi dùng Role Với Positon đang bị ẩn trong table, trùng nhân viên
         [HttpPost("AddNew")]
         public async Task<ActionResult<string>> AddNew([FromForm] PostEmployee postEmployee)

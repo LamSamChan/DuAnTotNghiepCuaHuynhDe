@@ -155,11 +155,23 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 data = await _PContractSvc.getAllAsnyc()
             });
         }
-
-        [HttpGet("getAllEffect")]
-        public async Task<IActionResult> getAllEffect()
+        [HttpGet("WaitDirectorSigns")]
+        public async Task<IActionResult> GetListWaitDirectorSigns()
         {
-            return Ok (await _doneContractSvc.getListIsEffect());
+            return Ok(await _PContractSvc.getListWaitDirectorSigns());
+        }
+
+
+        [HttpGet("WaitCustomerSigns")]
+        public async Task<IActionResult> GetListWaitCustomerSigns()
+        {
+            return Ok(await _PContractSvc.getListWaitCustomerSigns());
+        }
+
+        [HttpGet("ListIsRefuse")]
+        public async Task<IActionResult> GetListIsRefuse()
+        {
+            return Ok(await _PContractSvc.getListIsRefuse());
         }
     }
 }
