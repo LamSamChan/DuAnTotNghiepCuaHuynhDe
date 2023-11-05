@@ -10,6 +10,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
         Task<string> updateAsnyc(PutDContract dContract);
 
         Task<List<DContractViewModel>> getListIsEffect();
+        
 
         
     }

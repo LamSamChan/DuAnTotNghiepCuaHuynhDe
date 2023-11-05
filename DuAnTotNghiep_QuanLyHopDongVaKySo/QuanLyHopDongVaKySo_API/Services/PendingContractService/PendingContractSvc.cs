@@ -7,13 +7,13 @@ using QuanLyHopDongVaKySo_API.Models.ContractInfo;
 using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
 using QuanLyHopDongVaKySo_API.Services.PositionService;
+using QuanLyHopDongVaKySo_API.ViewModels;
 
 namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
 {
     public class PendingContractSvc : IPendingContractSvc
     {
         private readonly ProjectDbContext _context;
-        private readonly IUploadFileHelper _imageHelper;
         private readonly IPositionSvc _positionSvc;
         private readonly ICustomerSvc _customerSvc;
         private readonly ITypeOfServiceSvc _typeOfServiceSvc;
@@ -21,7 +21,6 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             ICustomerSvc customerSvc, ITypeOfServiceSvc typeOfServiceSvc, IPositionSvc positionSvc)
         {
             _context = context;
-            _imageHelper = imageHelper;
             _customerSvc = customerSvc;
             _typeOfServiceSvc = typeOfServiceSvc;
             _positionSvc = positionSvc;
@@ -167,6 +166,44 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 contract.RepresentativePosition2 = postion == null ? "" : postion;
             }
             return contract;
+        }
+
+        public async Task<List<PContractViewModel>> getListWaitDirectorSigns()
+        {
+            List<PContractViewModel> viewModels = new List<PContractViewModel>();
+            viewModels = await _context.PendingContracts
+                .Select(pc => new PContractViewModel
+                {
+                    PContractID = pc.PContractID.ToString(),
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    PContractName = pc.PContractName,
+                    PContractFile = pc.PContractFile,
+                    IsDirector = pc.IsDirector? "da ky" : "chua ky",
+                    IsCustomer = pc.IsCustomer? "da ky" : "chua ky",
+                    InstallationAddress = pc.InstallationAddress,
+                    Reason = pc.Reason,
+                    TOS_ID = pc.TypeOfService.ServiceName
+                }).Where(p => p.IsDirector == "chua ky" && p.IsCustomer == "chua ky").ToListAsync();
+            return viewModels;
+        }
+       
+        public async Task<List<PContractViewModel>> getListWaitCustomerSigns()
+        {
+            List<PContractViewModel> viewModels = new List<PContractViewModel>();
+            viewModels = await _context.PendingContracts
+                .Select(pc => new PContractViewModel
+                {
+                    PContractID = pc.PContractID.ToString(),
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    PContractName = pc.PContractName,
+                    PContractFile = pc.PContractFile,
+                    IsDirector = pc.IsDirector ? "da ky" : "chua ky",
+                    IsCustomer = pc.IsCustomer ? "da ky" : "chua ky",
+                    InstallationAddress = pc.InstallationAddress,
+                    Reason = pc.Reason,
+                    TOS_ID = pc.TypeOfService.ServiceName
+                }).Where(p => p.IsDirector == "da ky" && p.IsCustomer == "chua ky").ToListAsync();
+            return viewModels;
         }
     }
 }

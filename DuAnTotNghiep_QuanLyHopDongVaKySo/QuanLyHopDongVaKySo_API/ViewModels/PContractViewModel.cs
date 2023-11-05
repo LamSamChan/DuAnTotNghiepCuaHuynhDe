@@ -1,0 +1,21 @@
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+
+namespace QuanLyHopDongVaKySo_API.ViewModels
+{
+    public class PContractViewModel
+    {
+        public string PContractID { get; set; }
+        public string DateCreated { get; set; }
+        public string PContractName { get; set; }
+        public string IsDirector { get; set; }
+        public string IsCustomer { get; set; }
+        public bool IsRefuse { get; set; }
+        public string? Reason { get; set; }
+        public string InstallationAddress { get; set; }
+        public string TOS_ID { get; set; }
+        public string PContractFile { get; set; }
+    }
+}
