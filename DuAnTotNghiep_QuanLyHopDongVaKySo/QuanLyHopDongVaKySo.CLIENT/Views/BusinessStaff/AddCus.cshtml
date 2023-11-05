@@ -33,77 +33,106 @@
             <div class="col-md-5">
                 <div class="box1 row justify-content-between g-3 ">
                     <div class="col-md-6">
-                        <label class="form-label">Họ và tên</label>
-                        <input class="form-control" id="inputName" asp-for="FullName" placeholder="Họ và tên" required>
+                        <label class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Họ và tên</label>
+                        <input class="form-control" type="text" placeholder="Trung đẹp trai" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="FullName" required>
                         <span class="text-danger" asp-validation-for="FullName"></span>
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Năm sinh</label>
-                        <input type="date" class="form-control" asp-for="DateOfBirth" required>
+                        <label class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Năm sinh</label>
+                        <input class="form-control" type="date" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="DateOfBirth" required>
                         <span class="text-danger" asp-validation-for="DateOfBirth"></span>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="inputName" class="form-label">Số điện thoại</label>
-                        <input class="form-control" asp-for="PhoneNumber" maxlength="12" required>
+                        <label for="inputName" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Số điện thoại</label>
+                        <input class="form-control" type="number" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="PhoneNumber" maxlength="12" required>
                         <span class="text-danger" asp-validation-for="PhoneNumber"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputGender" class="form-label">Giới tính</label>
-                        <select style="background-color: #F3F3F3;" required asp-for="Gender" class="form-control">
+                        <label for="inputGender" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Giới tính</label>
+                        <select style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" required asp-for="Gender" class="form-control">
                             <option value="" disabled selected>...chọn giới tính</option>
                             <option value="1">Nam</option>
                             <option value="2">Nữ</option>
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
-                        <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Address" required></textarea>
+                        <label for="inputEmail" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Địa chỉ thường trú</label>
+                        <textarea style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" class="form-control" asp-for="Address" required></textarea>
                         <span class="text-danger" asp-validation-for="Address"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputCCCD" class="form-label">Giấy ủy quyền</label>
-                        <input class="form-control" asp-for="PowerOfAttorneyNum" maxlength="12">
+                        <label for="inputCCCD" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Giấy ủy quyền</label>
+                        <input class="form-control" type="date" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="PowerOfAttorneyNum" maxlength="12" required>
                         <span class="text-danger" asp-validation-for="PowerOfAttorneyNum"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Ngày ủy quyền</label>
-                        <input type="date" class="form-control" asp-for="DatePOA">
+                        <label for="inputDateStart" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Ngày ủy quyền</label>
+                        <input class="form-control" type="date" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="DatePOA" required>
                         <span class="text-danger" asp-validation-for="DatePOA"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">Người ủy quyền</label>
-                        <input class="form-control" asp-for="WhoPOA">
+                        <label for="inputDateEnd" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Người ủy quyền</label>
+
+                        <input class="form-control" type="text" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="WhoPOA" required>
                         <span class="text-danger" asp-validation-for="WhoPOA"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Email</label>
-                        <input class="form-control" type="email" asp-for="Email" placeholder="abc123@gmail.com" required>
+                        <label for="inputDateStart" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Email</label>
+                        <input class="form-control" type="email" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="Email" placeholder="abc123@gmail.com" required>
                         <span class="text-danger" asp-validation-for="Email"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">FAX</label>
-                        <input class="form-control" asp-for="FAX">
+                        <label for="inputDateEnd" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">FAX</label>
+                        <input class="form-control" type="number" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="FAX" required>
                         <span class="text-danger" asp-validation-for="FAX"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">CCCD/CMND</label>
-                        <input class="form-control" asp-for="Identification" required>
+                        <label for="inputDateStart" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">CCCD/CMND</label>
+                        <input class="form-control" type="number" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="Identification" required>
                         <span class="text-danger" asp-validation-for="Identification"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">Ngày cấp</label>
-                        <input type="date" class="form-control" asp-for="IssuedDate" required>
+                        <label for="inputDateEnd" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Ngày cấp</label>
+                        <input class="form-control" type="date" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="IssuedDate" required>
                         <span class="text-danger" asp-validation-for="IssuedDate"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Nơi cấp</label>
-                        <input class="form-control" asp-for="IssuedPlace" required>
+                        <label for="inputDateStart" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Nơi cấp</label>
+                        <input class="form-control" type="text" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="IssuedPlace" required>
                         <span class="text-danger" asp-validation-for="IssuedPlace"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputNational" class="form-label">Quốc tịch</label>
-                        <input class="form-control" asp-for="Nationality" required>
+                        <label for="inputNational" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Quốc tịch</label>
+                        <input class="form-control" type="text" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="Nationality" required>
                         <span class="text-danger" asp-validation-for="Nationality"></span>
                     </div>
                 </div>
@@ -112,72 +141,94 @@
             <div class="col-md-5">
                 <div class="box2 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
                     <div class="col-md-6">
-                        <label for="inputTaxCode" class="form-label">Số tài khoản</label>
-                        <input class="form-control" asp-for="BankAccount" required>
+                        <label for="inputTaxCode" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Số tài khoản</label>
+                        <input class="form-control" type="number" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="BankAccount" required>
                         <span class="text-danger" asp-validation-for="BankAccount"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputAddress2" class="form-label">Ngân hàng</label>
-                        <input class="form-control" asp-for="BankName" required>
+                        <label for="inputAddress2" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Ngân hàng</label>
+                        <input class="form-control" type="text" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="BankName" required>
                         <span class="text-danger" asp-validation-for="BankName"></span>
                     </div>
                     <div class="col-md-12">
-                        <label for="inputPass" class="form-label">Mã số thuế</label>
-                        <input style="background-color: #F3F3F3;" class="form-control" asp-for="TaxIDNumber">
+                        <label for="inputPass" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Mã số thuế</label>
+
+                        <input class="form-control" type="number" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="TaxIDNumber" required>
                         <span class="text-danger" asp-validation-for="TaxIDNumber"></span>
                     </div>
                     <div class="col-md-12">
-                        <label for="adReport" class="form-label">Địa chỉ báo cước</label>
-                        <input style="background-color: #F3F3F3;" class="form-control" asp-for="ChargeNoticeAddress" required>
+                        <label for="adReport" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Địa chỉ báo cước</label>
+                        <input class="form-control" type="text" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="ChargeNoticeAddress" required>
                         <span class="text-danger" asp-validation-for="ChargeNoticeAddress"></span>
                     </div>
                     <div class="col-12">
-                        <label for="adInvoice" class="form-label" style="color: #525252;
-        font-size: 18px;
-        font-family: Joxt;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-">Địa chỉ xuất hóa đơn</label>
-                        <input style="background-color: #F3F3F3;" class="form-control" asp-for="BillingAddress" required>
+                        <label for="adInvoice" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Địa chỉ xuất hóa đơn</label>
+
+                        <input class="form-control" type="text" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="BillingAddress" required>
                         <span class="text-danger" asp-validation-for="BillingAddress"></span>
                     </div>
                     <div class="col-12">
                         <div>
-                            <input type="checkbox" id="enable-input">
-                            <label for="enable-input">Khách hàng doanh nghiệp</label>
+                            <input type="checkbox" class="form-check-input" id="enable-input">
+                            <label for="enable-input" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Khách hàng doanh nghiệp</label>
                         </div>
                         <div class="content row" style="height: 300px;width: 95%;margin: 10px auto; ">
                             <div class="col-md-5" style="margin:0 auto;">
-                                <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
-                                <input class="form-control" id="inputNameBuss" asp-for="BuisinessName" disabled>
+                                <label for="inputNameBuss" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Tên doanh nghiệp</label>
+
+                                <input class="form-control" type="text" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="Identification" id="inputNameBuss" asp-for="BuisinessName" disabled>
                                 <span class="text-danger" asp-validation-for="BuisinessName"></span>
                             </div>
-                            <div class="col-md-5" style="margin:0 auto;">
+                            <div class="col-md-5" style="margin:0 auto;color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">
                                 <label for="inputPosition" class="form-label">Chức vụ</label>
-                                <input class="form-control" id="inputPosition" asp-for="Position" disabled>
+
+                                <input class="form-control" type="text" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="Identification" id="inputPosition" asp-for="Position" disabled>
                                 <span class="text-danger" asp-validation-for="Position"></span>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
-                                <label for="certi" class="form-label">Số chứng nhận doanh nghiệp</label>
-                                <input class="form-control" id="certi" asp-for="BuisinessNumber" disabled>
+                                <label for="certi" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 15px; font-family: Jost; font-weight: 700; word-wrap: break-word">Số chứng nhận doanh nghiệp</label>
+
+                                <input class="form-control" type="number" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="Identification" id="certi" asp-for="BuisinessNumber" disabled>
                                 <span class="text-danger" asp-validation-for="BuisinessNumber"></span>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
-                                <label for="dateSDN" class="form-label">Ngày cấp SDN</label>
-                                <input type="date" class="form-control" id="dateSDN" asp-for="BNDate" disabled>
+                                <label for="dateSDN" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Ngày cấp SDN</label>
+                                <input class="form-control" type="date" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="Identification" id="dateSDN" asp-for="BNDate" disabled>
                                 <span class="text-danger" asp-validation-for="BNDate"></span>
                             </div>
                             <div class="col-md-10" style="margin:0 auto;">
-                                <label for="adSDN" class="form-label">Nơi cấp SDN</label>
-                                <input class="form-control" id="adSDN" asp-for="BNPlace" disabled>
+                                <label for="adSDN" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Nơi cấp SDN</label>
+
+                                <input class="form-control" type="number" style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" asp-for="Identification" id="adSDN" asp-for="BNPlace" disabled>
                                 <span class="text-danger" asp-validation-for="BNPlace"></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="note" class="form-label">Ghi chú</label>
-                        <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Note"></textarea>
+                        <label for="note" class="form-label" style="color: #888888; margin-left: 15px ;font-size: 18px; font-family: Jost; font-weight: 700; word-wrap: break-word">Ghi chú</label>
+                        <textarea style="color: #525252; border-radius: 8px; font-size: 20px;
+                                                            font-family: Jost; font-weight: 700; word-wrap: break-word;
+                                                            background: #EDEDED;" class="form-control" asp-for="Note"></textarea>
                         <span class="text-danger" asp-validation-for="Note"></span>
                     </div>
                     <div class="col-md-5" style="margin: 40px auto;">
@@ -189,7 +240,7 @@
 
             </div>
         </form>
-            
+
     </div>
 </div>
 <script src="~/js/AddCus.js" type="text/javascript"></script>
