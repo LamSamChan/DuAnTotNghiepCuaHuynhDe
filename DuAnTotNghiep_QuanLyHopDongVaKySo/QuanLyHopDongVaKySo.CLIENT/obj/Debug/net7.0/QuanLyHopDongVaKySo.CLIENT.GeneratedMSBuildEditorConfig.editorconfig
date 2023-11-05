@@ -52,10 +52,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdFVzZXJzQWNjb3VudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/Auth/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/AddCus.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzaW5lc3NTdGFmZlxBZGRDdXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -210,6 +206,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/Verify/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVyaWZ5XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/_ViewImports.cshtml]

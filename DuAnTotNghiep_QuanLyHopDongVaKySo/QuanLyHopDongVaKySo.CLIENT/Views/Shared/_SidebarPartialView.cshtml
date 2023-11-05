@@ -28,12 +28,12 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a asp-controller="BusinessStaff" asp-action="ListInstallRecord">
+                            <a asp-controller="BusinessStaff" asp-action="ContractFormPage">
                                 <span class="text">Thêm mẫu hợp đồng</span>
                             </a>
                         </li>
                         <li>
-                            <a asp-controller="BusinessStaff" asp-action="DetailsCus">
+                            <a asp-controller="BusinessStaff" asp-action="CreateFormContract">
                                 <span class="text">Tạo hợp đồng</span>
                             </a>
                         </li>
@@ -44,22 +44,22 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a >
+                                    <a asp-controller="BusinessStaff" asp-action="ContractListPending">
                                         <span class="text">Hợp đồng chờ duyệt</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a >
+                                    <a asp-controller="BusinessStaff" asp-action="ContractListWaitSign">
                                         <span class="text">Hợp đồng chờ khách ký</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a >
+                                    <a asp-controller="BusinessStaff" asp-action="ContractListRefuse">
                                         <span class="text">Hợp đồng từ chối duyệt</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a >
+                                    <a asp-controller="BusinessStaff" asp-action="ContractListEffect">
                                         <span class="text">Hợp đồng đang hiệu lực</span>
                                     </a>
                                 </li>
@@ -75,7 +75,7 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a >
+                            <a asp-controller="BusinessStaff" asp-action="Index">
                                 <span class="text">Danh sách khách hàng</span>
                             </a>
                         </li>
@@ -83,7 +83,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a >
+                    <a asp-controller="BusinessStaff" asp-action="SendMail">
                         <i class="icon ph-bold ph-paper-plane-tilt"></i>
                         <span class="text">Gửi mail</span>
 
@@ -91,13 +91,13 @@
 
                 </li>
                 <li class="active">
-                    <a >
+                    <a asp-controller="BusinessStaff" asp-action="ContractListPending">
                         <i class="icon ph-bold ph-user"></i>
                         <span class="text">Cá nhân</span>
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a asp-controller="BusinessStaff" asp-action="HistoryOperation">
                         <i class="icon ph-bold ph-clock-counter-clockwise"></i>
                         <span class="text">Lịch sử hoạt động</span>
                     </a>
