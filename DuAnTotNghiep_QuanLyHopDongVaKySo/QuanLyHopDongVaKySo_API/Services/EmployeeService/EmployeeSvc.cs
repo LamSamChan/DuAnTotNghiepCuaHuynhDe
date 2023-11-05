@@ -221,12 +221,7 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             return "-6";
         }
 
-        public async Task<Employee> Login(ViewLogin viewLogin)
-        {
-            var login = _context.Employees.FirstOrDefault(e => e.Email.Equals(viewLogin.Email) && e.Password.Equals(_encodeHelper.Encode(viewLogin.Password)));
-
-            return login;
-        }
+        
 
         public async Task<string> Update(Employee employee)
         {

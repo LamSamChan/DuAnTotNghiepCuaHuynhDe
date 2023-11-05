@@ -6,11 +6,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
     public class AuthController : Controller
     {
-        readonly private IAuthServices _authServices;
+        private readonly IAuthServices _authServices;
         public AuthController(IAuthServices authServices)
         {
             _authServices = authServices;
-        }    
+        }
         public IActionResult Index()
         {
             return View();

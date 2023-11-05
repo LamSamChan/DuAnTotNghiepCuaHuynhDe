@@ -44,6 +44,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpPost("AddNew")]
         public async Task<ActionResult<int>> AddNew(Role role)
         {
+            role.isHidden = false;
             int isError = await _roleSvc.AddNew(role);
             if (isError != 0)
             {

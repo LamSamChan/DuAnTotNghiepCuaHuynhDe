@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Services
 {
-    public interface IAuthServices
+   public interface IAuthServices
     {
         Task<int> Login(VMLogin login);
     }

@@ -43,8 +43,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost("AddNew")]
-        public async Task<ActionResult<int>> AddNew([FromForm] Position position)
+        public async Task<ActionResult<int>> AddNew(Position position)
         {
+            position.isHidden = false;
             int isError = await _positionSvc.AddNew(position);
             if (isError != 0)
             {
