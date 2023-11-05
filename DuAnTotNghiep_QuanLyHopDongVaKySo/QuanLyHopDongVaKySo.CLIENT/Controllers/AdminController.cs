@@ -28,7 +28,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult AddPosition_2()
+        public IActionResult EditPosition()
         {
             return View();
         }
@@ -44,7 +44,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult AddRole_2()
+        public IActionResult EditRole()
         {
             return View();
         }
@@ -64,14 +64,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult ListAccounts()
+        {
+            return View();
+        }
         public IActionResult DetailsAccount()
         {
             return View();
         }
-        public IActionResult ListAccount()
-        {
-            return View();
-        }
+        
 
         public async Task<IActionResult> ListPosition()
         {
