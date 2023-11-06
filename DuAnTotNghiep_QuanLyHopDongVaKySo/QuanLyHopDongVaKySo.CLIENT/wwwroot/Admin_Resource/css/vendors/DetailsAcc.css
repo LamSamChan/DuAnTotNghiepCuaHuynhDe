@@ -55,11 +55,12 @@ div[class="overlay"] {
     padding: 10px;
     opacity: 0;
 }
-div[class="overlay"] button{
+div[class="overlay"] input{
     background-color:transparent;
     color: white;
     font-size:10px;
     font-weight:bold;
+    width:180px;
 }
 .avt:hover div[class="overlay"] {
     opacity: 1;
