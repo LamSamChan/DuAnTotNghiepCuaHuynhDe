@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
+using QuanLyHopDongVaKySo_API.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -49,14 +51,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult EditRole()
-        {
-            return View();
-        }
-        public IActionResult EditPosition()
-        {
-            return View();
-        }
+
 
         public IActionResult ListUsersAccount()
         {
@@ -67,17 +62,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> ListPosition()
         {
-            VMListPostion vm = new VMListPostion();
+            VMListPosition vm = new VMListPosition();
             try
             {
-                vm.Postions = await _positionService.GetAllPositionsAsync();
+                vm.Positions = await _positionService.GetAllPositionsAsync();
                 vm.Employees = await _employeeService.GetAllEmployees();
                 return View(vm);
             }
             catch (Exception ex)
             {
 
-                return View(new VMListPostion());
+                return View(new VMListPosition());
             }
         }
         public async Task<IActionResult> ListRole()
@@ -95,5 +90,83 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return View(new VMListRole());
             }
         }
+
+        public async Task<IActionResult> AddPosition(Position position)
+        {
+            int reponse = await _positionService.AddPositionAsync(position);
+            if (reponse != 0)
+            {
+                return RedirectToAction("ListPosition");
+            }
+            else
+            {
+                return RedirectToAction("ListPosition");
+            }
+        }
+
+        public async Task<IActionResult> EditPosition(int positionId)
+        {
+            var position = await _positionService.GetPositionByIdAsync(positionId);
+            if (position != null)
+            {
+                return View(position);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+        public async Task<IActionResult> UpdatePosition(Position position)
+        {
+            var update = await _positionService.UpdatePositionAsync(position);
+            if (update != 0)
+            {
+                return RedirectToAction("ListPosition");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+        public async Task<IActionResult> AddRole(Role role)
+        {
+
+            int reponse = await _roleService.AddRoleAsync(role);
+            if (reponse != 0)
+            {
+                return RedirectToAction("ListRole");
+            }
+            else
+            {
+                return RedirectToAction("ListPosition");
+            }
+        }
+
+        public async Task<IActionResult> EditRole(int roleId)
+        {
+            var role = await _roleService.GetRoleByIdAsync(roleId);
+            if (role != null)
+            {
+                return View(role);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+        public async Task<IActionResult> UpdateRole(Role role)
+        {
+            var update = await _roleService.UpdateRoleAsync(role);
+            if (update != 0)
+            {
+                return RedirectToAction("ListRole");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
     }
 }

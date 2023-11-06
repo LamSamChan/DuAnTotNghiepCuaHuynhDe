@@ -91,7 +91,7 @@ namespace QuanLyHopDongVaKySo_API.Services.RoleService
             try
             {
                 // Lấy đối tượng từ database dựa vào id
-                var existingPostion = _context.Roles.FirstOrDefault(p => p.RoleID == p.RoleID);
+                var existingPostion = _context.Roles.FirstOrDefault(p => p.RoleID == role.RoleID);
 
                 // Kiểm tra xem đối tượng có tồn tại trong database không
                 if (existingPostion == null)

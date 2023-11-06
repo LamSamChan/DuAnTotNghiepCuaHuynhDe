@@ -13,10 +13,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.RoleServices
         }
         public async Task<int> AddRoleAsync(Role role)
         {
-            var content = new StringContent(JsonConvert.SerializeObject(role), Encoding.UTF8, "application/json");
+            string json = JsonConvert.SerializeObject(role);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
             try
             {
-                using (var reponse = await _httpClient.PostAsJsonAsync("api/Role/AddNew", content))
+                using (var reponse = await _httpClient.PostAsync("api/Roles/AddNew", content))
                 {
                    
                     if (reponse.IsSuccessStatusCode)
@@ -56,13 +57,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.RoleServices
 
         public async Task<int> UpdateRoleAsync(Role role)
         {
-            var content = new StringContent(JsonConvert.SerializeObject(role), Encoding.UTF8, "application/json");
+            string json = JsonConvert.SerializeObject(role);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
             try
             {
-                var reponse = await _httpClient.PutAsJsonAsync("api/Roles/Update", content);
+                var reponse = await _httpClient.PutAsync("api/Roles/Update", content);
                 if (reponse.IsSuccessStatusCode)
                 {
-                    var ps = await reponse.Content.ReadAsStringAsync();
                     return 1;
                 }
                 else

@@ -55,7 +55,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPut("Update")]
-        public async Task<ActionResult<int>> Update([FromForm] Position position)
+        public async Task<ActionResult<int>> Update(Position position)
         {
             int isError = await _positionSvc.Update(position);
             if (isError != 0)

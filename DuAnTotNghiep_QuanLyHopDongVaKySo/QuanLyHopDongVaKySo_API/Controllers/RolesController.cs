@@ -53,7 +53,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             else { return BadRequest(isError); }
         }
 
-        [HttpPut("Update/{id}")]
+        [HttpPut("Update")]
         public async Task<ActionResult<int>> Update(Role role)
         {
             int isError = await _roleSvc.Update(role);

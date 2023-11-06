@@ -1,4 +1,6 @@
-﻿@{
+﻿@model QuanLyHopDongVaKySo_API.Models.Role
+
+@{
     Layout = "_AdminLayout";
 }
 <div class="container-fluid">
@@ -29,86 +31,37 @@
         </div>
     </div>
     <div style="margin-top: 40px;">
-        <form class="row justify-content-around" style=" margin: 0 auto;">
+        <form class="row justify-content-around" style=" margin: 0 auto;" asp-action="UpdateRole" asp-controller="Admin">
             <div class="col-md-5">
                 <div class="box1 row justify-content-between g-3 " style="max-height: 800px;overflow-y: scroll; height: 500px; margin: 40px auto;">
-                    <div class="col-md-6">
-                        <label class="form-label">Id</label>
-                        <input type="date" class="form-control" required>
-                        <span class="text-danger"></span>
+                    <div class="col-md-12">
+                        <label class="form-label" asp-for="RoleID">Id</label>
+                        <input class="form-control" readonly asp-for="RoleID">
+                        <span class="text-danger" asp-validation-for="RoleID"></span>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label" asp-for="RoleName">Tên vai trò</label>
+                        <input class="form-control" id="inputName" asp-for="RoleName" required>
+                        <span class="text-danger" asp-validation-for="RoleName"></span>
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Họ và tên</label>
-                        <input class="form-control" id="inputName" placeholder="Họ và tên" required>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Email</label>
-                        <input class="form-control" type="email" placeholder="abc123@gmail.com" required>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputName" class="form-label">Số điện thoại</label>
-                        <input class="form-control" maxlength="12" required>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Vị trí</label>
-                        <input class="form-control" required>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6 mt-3">
-                        <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
+                        <label class="mb-3 mr-1" for="Status" asp-for="isHidden">Trạng thái: </label>
                         <div>
-                            <input type="radio" class="btn-check " id="false" value="false" autocomplete="off" required>
-                            <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
+                            <input type="radio" class="btn-check " id="false" asp-for="isHidden" value="false" autocomplete="off" required>
+                            <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hiển thị</label>
 
-                            <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" required>
-                            <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
+                            <input type="radio" class="btn-check " id="true" asp-for="isHidden" value="true" autocomplete="off" required>
+                            <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Ẩn</label>
                         </div>
                     </div>
-                    <div class="col-md-5" style="margin:auto;">
+                    <div class="col-md-6" style="margin:auto;">
                         <button class="add_cus" type="submit">
-                            Cập nhật thông tin
+                            Cập nhật
                         </button>
-                    </div>
-                    <div class="col-md-5" style="margin:auto;">
-                        <button class="addmore" data-bs-toggle="modal" data-bs-target="#listRole">
-                            Gán thêm vị trí
-                        </button>
-                    </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="listRole" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <input type="checkbox" id="item1" name="items" value="item1">
-                                    <label for="item1">Nhân viên</label><br>
-
-                                    <input type="checkbox" id="item2" name="items" value="item2">
-                                    <label for="item2">Khách hàng</label><br>
-
-                                    <input type="checkbox" id="item3" name="items" value="item3">
-                                    <label for="item3">Giám đốc</label><br>
-                                </div>
-                                <div class="modal-footer">
-
-                                    <div class="col-md-5" style="margin:auto;">
-                                        <button class="add_cus" type="submit" data-bs-dismiss="modal">
-                                            Thêm
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
             @**@
         </form>
-
     </div>
 </div>

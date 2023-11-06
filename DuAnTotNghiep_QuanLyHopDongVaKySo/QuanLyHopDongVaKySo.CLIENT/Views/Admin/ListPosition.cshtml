@@ -1,4 +1,4 @@
-﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListPostion
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListPosition
 
 @{
     Layout = "_AdminLayout";
@@ -32,47 +32,74 @@
     </div>
     <div class="tab-container">
         <div class="tab-button active" onclick="showTab('tab1')">Danh sách người dùng</div>
-        <div class="tab-button" onclick="showTab('tab2')">Danh sách vai trò</div>
+        <div class="tab-button" onclick="showTab('tab2')">Danh sách chức danh</div>
     </div>
     <div class="tab-content active" id="tab1">
         <div class="listTable">
             <table class="table">
                 <thead>
                     <tr style="color: #8B909A;">
-                        <th></th>
-                        <th scope="col">ID</th>
-                        <th scope="col">HỌ VÀ TÊN</th>
-                        <th scope="col">EMAIL</th>
-                        <th scope="col">SỐ ĐIỆN THOẠI</th>
-                        <th scope="col">CHỨC VỤ</th>
-                        <th scope="col">TRẠNG THÁI</th>
-                        <th scope="col"></th>
+                        <th>HÀNHĐỘNG</th>
+                        <th>ID</th>
+                        <th>CHỨC DANH</th>
+                        <th>HỌ VÀ TÊN</th>
+                        <th>EMAIL</th>
+                        <th>SỐ ĐIỆN THOẠI</th>
+                        <th>TRẠNG THÁI</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>abc</td>
-                        <td>abc@gmail.com</td>
-                        <td>3233222</td>
-                        <td>abc</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Bình thường</div>
-                            </div>
-                        </td>
-                        <td>
-                            <a>Chi tiết</a>
-                        </td>
-                    </tr>
+                    @foreach (var emp in Model.Employees)
+                    {
+                        <tr>
+                            <td class="text-left">
+                                <div class="row action">
+                                    <a><i class="ph-bold ph-note-pencil"></i></a>
+                                </div>
+                            </td>
+                            <th>
+                                @emp.EmployeeId.ToString().Substring(0,8)
+                            </th>
+                            @foreach (var role in Model.Positions)
+                            {
+                                if (emp.PositionID == role.PositionID)
+                                {
+                                    <td>@role.PositionName</td>
+                                }
+                            }
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <span class="m-b-0">@emp.FullName</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <span class="m-b-0">@emp.Email</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <span class="m-b-0">@emp.PhoneNumber</span>
+                                </div>
+                            </td>
+                            <td>
+                                @if (emp.IsLocked)
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                        <span>Đã khoá</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                        <span>Đang hoạt động</span>
+                                    </div>
+                                }
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
@@ -82,61 +109,79 @@
             <table class="table">
                 <thead>
                     <tr style="color: #8B909A;">
-                        <th></th>
+                        <th scope="col">HÀNH ĐỘNG</th>
                         <th scope="col">ID</th>
-                        <th scope="col">CHỨC VỤ</th>
+                        <th scope="col">CHỨC DANH</th>
                         <th scope="col">TRẠNG THÁI</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>NVKD</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Khóa</div>
-                            </div>
-                        </td>
-                    </tr>
+                    @foreach (var position in Model.Positions)
+                    {
+                        <tr>
+                            <td class="text-left">
+                                <div class="row action">
+                                    <a asp-route-positionId="@position.PositionID" asp-action="EditPosition" asp-controller="Admin"><i class="ph-bold ph-note-pencil"></i></a>
+                                </div>
+                            </td>
+                            <th>
+                                @position.PositionID
+                            </th>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <span class="m-b-0">@position.PositionName</span>
+                                </div>
+                            </td>
+                            <td>
+                                @if (position.isHidden)
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                        <div>Đã ẩn</div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                        <div>Đang hiển thị</div>
+                                    </div>
+                                }
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
         <button class="btn-addRole" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            THÊM CHỨC VỤ
+            THÊM CHỨC DANH
         </button>
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm chức vụ mới</h1>
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm chức danh mới</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form class="row justify-content-around" style=" margin: 0 auto;">
+                        <form class="row justify-content-around" style=" margin: 0 auto;" asp-action="AddPosition" asp-controller="Admin">
                             <div class="col-md-12">
+                                <input class="form-control d-none" asp-for="Position.PositionID">
                                 <div class="col-md-12">
-                                    <label for="inputName" class="form-label">Chức vụ</label>
-                                    <input class="form-control" required>
-                                    <span class="text-danger"></span>
+                                <label for="inputName" class="form-label" asp-for="Position.PositionName">Vai trò</label>
+                                <input class="form-control" asp-for="Position.PositionName" required>
+                                <span class="text-danger" asp-validation-for="Position.PositionName"></span>
                                 </div>
                             </div>
-                            <div class="col-md-6 mt-3">
-                                <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
+                            <div class="col-md-6 mt-3 d-none">
+                            <label class="mb-3 mr-1" for="Status" asp-for="Position.isHidden">Trạng thái: </label>
                                 <div>
-                                    <input type="radio" class="btn-check " id="false" value="false" autocomplete="off" required>
-                                    <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
+                                <input type="radio" class="btn-check " id="false" asp-for="Position.isHidden" value="false" autocomplete="off" required checked>
+                                    <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hiển thị</label>
 
-                                    <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" required>
-                                    <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
+                                <input type="radio" class="btn-check " id="true" asp-for="Position.isHidden" value="true" autocomplete="off" required>
+                                    <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Ẩn</label>
                                 </div>
                             </div>
                             <div class="col-md-5" style="margin:auto;">

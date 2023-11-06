@@ -13,6 +13,8 @@ namespace QuanLyHopDongVaKySo_API.ViewModels
         public string IsDirector { get; set; }
         public string IsCustomer { get; set; }
         public string IsRefuse { get; set; }
+        public string? DirectorSignedId { get; set; }
+        public string EmployeeCreatedId { get; set; }
         public string? Reason { get; set; }
         public string InstallationAddress { get; set; }
         public string TOS_ID { get; set; }

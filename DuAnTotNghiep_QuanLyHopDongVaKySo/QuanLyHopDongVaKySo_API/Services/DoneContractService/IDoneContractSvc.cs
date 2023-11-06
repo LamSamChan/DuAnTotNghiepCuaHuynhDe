@@ -11,7 +11,9 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
 
         Task<List<DContractViewModel>> getListIsEffect();
         Task<List<DContractViewModel>> getListByCusId(string id);
+        Task<List<DContractViewModel>> getListByEmpId(string id);
+        Task<List<DContractViewModel>> getListByDirectorId(string id);
 
-        
+
     }
 }

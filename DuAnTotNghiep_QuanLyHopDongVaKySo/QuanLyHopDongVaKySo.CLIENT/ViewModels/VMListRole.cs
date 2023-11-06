@@ -6,5 +6,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.ViewModels
     {
         public List<Model.Role>? Roles { get; set; }
         public List<Employee>? Employees { get; set; }
+        public Model.Role Role { get; set; }
     }
 }

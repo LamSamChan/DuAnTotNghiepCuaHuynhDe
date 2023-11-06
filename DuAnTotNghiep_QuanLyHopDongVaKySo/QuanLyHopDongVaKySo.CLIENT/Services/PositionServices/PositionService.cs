@@ -16,7 +16,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PositionServices
             var content = new StringContent(JsonConvert.SerializeObject(position), Encoding.UTF8, "application/json");
             try
             {
-                var reponse = await _httpClient.PostAsync("api/Position/AddNew",content);
+                var reponse = await _httpClient.PostAsync("api/Positions/AddNew",content);
                 if(reponse.IsSuccessStatusCode)
                 {
                     return 1;
@@ -56,7 +56,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PositionServices
             var content = new StringContent(JsonConvert.SerializeObject(position), Encoding.UTF8, "application/json");
             try
             {
-                var reponse = await _httpClient.PutAsJsonAsync("api/Positions/Update", content);
+                var reponse = await _httpClient.PutAsync("api/Positions/Update", content);
                 if (reponse.IsSuccessStatusCode)
                 {
                     return 1;

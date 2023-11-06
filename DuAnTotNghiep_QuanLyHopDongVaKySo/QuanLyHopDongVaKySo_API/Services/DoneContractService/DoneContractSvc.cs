@@ -59,14 +59,48 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                 {
                     id = dc.DContractID.ToString(),
                     fullName = dc.Customer.FullName,
-                    enail = dc.Customer.Email,
+                    email = dc.Customer.Email,
                     dateDone = dc.DateDone.ToString("dd/MM/yyyy"),
                     typeOfService = dc.TypeOfService.ServiceName,
-                    status = dc.IsInEffect ? "Hoat dong" : "Hêt hạn"
+                    status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc"
                 }).ToListAsync();
             return viewModel;
         }
-        
+
+        public async Task<List<DContractViewModel>> getListByDirectorId(string id)
+        {
+            List<DContractViewModel> viewModel = new List<DContractViewModel>();
+
+            viewModel = await _context.DoneContracts.Where(d => d.DirectorSignedId == Guid.Parse(id))
+                .Select(dc => new DContractViewModel
+                {
+                    id = dc.DContractID.ToString(),
+                    fullName = dc.Customer.FullName,
+                    email = dc.Customer.Email,
+                    dateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    typeOfService = dc.TypeOfService.ServiceName,
+                    status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc"
+                }).ToListAsync();
+            return viewModel;
+        }
+
+        public async Task<List<DContractViewModel>> getListByEmpId(string id)
+        {
+            List<DContractViewModel> viewModel = new List<DContractViewModel>();
+
+            viewModel = await _context.DoneContracts.Where(d => d.EmployeeCreatedId == Guid.Parse(id))
+                .Select(dc => new DContractViewModel
+                {
+                    id = dc.DContractID.ToString(),
+                    fullName = dc.Customer.FullName,
+                    email = dc.Customer.Email,
+                    dateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    typeOfService = dc.TypeOfService.ServiceName,
+                    status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc"
+                }).ToListAsync();
+            return viewModel;
+        }
+
         public async Task<List<DContractViewModel>> getListIsEffect()
         {
             List<DContractViewModel> viewModel = new List<DContractViewModel>();
@@ -76,7 +110,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                 {
                     id = dc.DContractID.ToString(),
                     fullName = dc.Customer.FullName,
-                    enail = dc.Customer.Email,
+                    email = dc.Customer.Email,
                     dateDone = dc.DateDone.ToString("dd/MM/yyyy"),
                     typeOfService = dc.TypeOfService.ServiceName,
                     status = dc.IsInEffect ? "Hoat dong" : ""

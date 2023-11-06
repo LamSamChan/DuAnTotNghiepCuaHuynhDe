@@ -20,10 +20,20 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(await _doneContractSvc.getListIsEffect());
         }
 
-        [HttpGet("getByCustomerId")]
+        [HttpGet("getByCustomerId/{id}")]
         public async Task<IActionResult> GetbyCusId(string id)
         {
             return Ok(await _doneContractSvc.getListByCusId(id));
+        }
+        [HttpGet("getByEmpId/{id}")]
+        public async Task<IActionResult> GetbyEmpId(string id)
+        {
+            return Ok(await _doneContractSvc.getListByEmpId(id));
+        }
+        [HttpGet("getByDirectorId/{id}")]
+        public async Task<IActionResult> GetbyDirectorId(string id)
+        {
+            return Ok(await _doneContractSvc.getListByDirectorId(id));
         }
 
         [HttpPut]
