@@ -89,7 +89,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-
+        public IActionResult DetailsCus()
+        {
+            return View();
+        }
+        public IActionResult DetailsDContract()
+        {
+            return View();
+        }
         public async Task<IActionResult> AddCusAction(PostCustomer customer)
         {
             customer.IsLocked = false;
