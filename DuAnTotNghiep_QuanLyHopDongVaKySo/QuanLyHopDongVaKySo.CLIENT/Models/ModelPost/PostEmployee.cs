@@ -49,14 +49,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Models.ModelPost
         [NotMapped]
         [Display(Name = "Tệp ảnh")]
         public IFormFile? ImageFile { get; set; }
-
+        public string? Base64String { get; set; }
         [Column(TypeName = "nvarchar(255)"), AllowNull]
         [Display(Name = "Ghi chú")]
         public string? Note { get; set; }
 
-        [Required(ErrorMessage = "Hãy nhập id của vai trò !")]
+        [Required(ErrorMessage = "Hãy chọn vai trò !")]
         public int RoleID { get; set; }
-        [Required(ErrorMessage = "Hãy nhập id của chức vụ !")]
+        [Required(ErrorMessage = "Hãy chọn chức vụ !")]
         public int PositionID { get; set; }
     }
 }

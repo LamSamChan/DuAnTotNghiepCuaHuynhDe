@@ -48,7 +48,8 @@ namespace QuanLyHopDongVaKySo_API.Models.ViewPost
         [NotMapped]
         [Display(Name = "Tệp ảnh")]
         public IFormFile? ImageFile { get; set; }
-
+        [NotMapped]
+        public string? Base64String { get; set; }
         [Column(TypeName = "nvarchar(255)"), AllowNull]
         [Display(Name = "Ghi chú")]
         public string? Note { get; set; }

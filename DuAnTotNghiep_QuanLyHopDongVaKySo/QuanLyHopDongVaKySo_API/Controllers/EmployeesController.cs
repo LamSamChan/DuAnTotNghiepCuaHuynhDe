@@ -86,20 +86,22 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 PositionID = postEmployee.PositionID,
         };
 
-            if (postEmployee.ImageFile != null)
+            if (postEmployee.Base64String != null)
             {
-                if (postEmployee.ImageFile.ContentType.StartsWith("image/"))
+                IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(postEmployee.Base64String, employee.EmployeeId.ToString().Substring(0, 8), "image/jpeg");
+                if (file.ContentType.StartsWith("image/"))
                 {
-                    if (postEmployee.ImageFile.Length > 0)
+                    if (file.Length > 0)
                     {
-                        employee.Image = _uploadFileHelper.UploadFile(postEmployee.ImageFile, "AppData", "Avatars");
+                        employee.Image = _uploadFileHelper.UploadFile(file, "../QuanLyHopDongVaKySo.CLIENT/wwwroot", "Avatars");
                     }
                 }
                 else
                 {
                     return BadRequest("Hãy tải lên tệp có định dạng là ảnh !");
                 }
-            } 
+            }
+            
 
             string isError = await _employeeSvc.AddNew(employee);
 

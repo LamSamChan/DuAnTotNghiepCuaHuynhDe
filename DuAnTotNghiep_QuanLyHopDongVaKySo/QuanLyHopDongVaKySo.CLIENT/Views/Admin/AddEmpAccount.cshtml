@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMAddEmployee
 @{
     Layout = "_AdminLayout";
 }
@@ -32,78 +30,80 @@
         </div>
     </div>
     <div style="margin-top: 40px;">
-        <form class="row justify-content-around" style=" margin: 0 auto;">
+        <form class="row justify-content-around" style=" margin: 0 auto;" method="post" enctype="multipart/form-data" asp-action="AddEmpAction" asp-controller="Admin">
             <div class="col-md-5">
                 <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
                     <div class="col-md-6">
                         <div class="avt">
                             <img src="~/Resource/Image/Avatar.jpg" alt="" style="width:200px; height:200px;" />
                             <div class="overlay">
-                                <input type="file" value="UPFILE"/>
+                                <input type="file" accept="image/*" asp-for="Employee.ImageFile"/>
+                                <span class="text-danger" asp-validation-for="Employee.ImageFile"></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Họ và tên</label>
-                        <input class="form-control" id="inputName" placeholder="Họ và tên" required>
-                        <span class="text-danger"></span>
+                        <input class="form-control" id="inputName" placeholder="Họ và tên" asp-for="Employee.FullName" required>
+                        <span class="text-danger" asp-validation-for="Employee.FullName"></span>
 
                         <label for="inputDateStart" class="form-label" style="padding-top:60px;">Email</label>
-                        <input class="form-control" type="email" placeholder="abc123@gmail.com" required>
-                        <span class="text-danger"></span>
+                        <input class="form-control" type="email" asp-for="Employee.Email" placeholder="abc123@gmail.com" required>
+                        <span class="text-danger" asp-validation-for="Employee.Email"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputName" class="form-label">Số điện thoại</label>
-                        <input class="form-control" maxlength="12" required>
-                        <span class="text-danger"></span>
+                        <input class="form-control" maxlength="12" required asp-for="Employee.PhoneNumber">
+                        <span class="text-danger" asp-validation-for="Employee.PhoneNumber"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputGender" class="form-label">Giới tính</label>
-                        <select style="background-color: #F3F3F3;" required class="form-control">
+                        <select style="background-color: #F3F3F3;" required class="form-control" asp-for="Employee.Gender">
                             <option value="" disabled selected>...chọn giới tính</option>
                             <option value="1">Nam</option>
                             <option value="2">Nữ</option>
                         </select>
+                        <span class="text-danger" asp-validation-for="Employee.Gender"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputRole" class="form-label">Vị trí</label>
-                        <select style="background-color: #F3F3F3;" required class="form-control">
-                            <option value="" disabled selected>...chọn vị trí</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
+                        <label for="inputRole" class="form-label">Vai trò</label>
+                        <select style="background-color: #F3F3F3;" required class="form-control" asp-for="Employee.RoleID">
+                            <option value="" disabled selected>...chọn vai trò trên hệ thống</option>
+                            @foreach (var r in Model.Roles)
+                            {
+                                <option value="@r.RoleID">@r.RoleName</option>
+                            }
                         </select>
+                        <span class="text-danger" asp-validation-for="Employee.RoleID"></span>
                     </div> <div class="col-md-6">
                         <label for="inputPosition" class="form-label">Chức vụ</label>
-                        <select style="background-color: #F3F3F3;" required class="form-control">
-                            <option value="" disabled selected>...chọn chức vụ</option>
-                            <option value="1">Giám đốc</option>
-                            <option value="2">Nhân viên</option>
+                        <select style="background-color: #F3F3F3;" required class="form-control" asp-for="Employee.PositionID">
+                            <option value="" disabled selected>...chọn chức vụ trong công ty</option>
+                            @foreach (var p in Model.Positions)
+                            {
+                                <option value="@p.PositionID">@p.PositionName</option>
+                            }
                         </select>
+                        <span class="text-danger" asp-validation-for="Employee.PositionID"></span>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Năm sinh</label>
-                        <input type="date" class="form-control" required>
-                        <span class="text-danger"></span>
+                        <input type="date" class="form-control" required asp-for="Employee.DateOfBirth">
+                        <span class="text-danger" asp-validation-for="Employee.DateOfBirth"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">CMND / CCCD</label>
+                        <input class="form-control" required asp-for="Employee.Identification">
+                        <span class="text-danger" asp-validation-for="Employee.Identification"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
-                        <textarea style="background-color: #F3F3F3;" class="form-control" required></textarea>
-                        <span class="text-danger"></span>
+                        <textarea style="background-color: #F3F3F3;" class="form-control" required asp-for="Employee.Address"></textarea>
+                        <span class="text-danger" asp-validation-for="Employee.Address"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="note" class="form-label">Ghi chú</label>
-                        <textarea style="background-color: #F3F3F3;" class="form-control"></textarea>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6 mt-3">
-                        <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
-                        <div>
-                            <input type="radio" class="btn-check " id="false" value="false" autocomplete="off" required>
-                            <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
-
-                            <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" required>
-                            <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
-                        </div>
+                        <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Employee.Note"></textarea>
                     </div>
                     <div class="col-md-5" style="margin:auto; padding: 20px 0;">
                         <button class="add_cus" type="submit">
