@@ -39,11 +39,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult DetailsAccount()
+        public IActionResult DetailsEmpAccount()
         {
             return View();
         }
-        public IActionResult EditAccount()
+        public IActionResult EditEmpAccount()
         {
             return View();
         }
