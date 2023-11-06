@@ -15,7 +15,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly ICustomerService _customerService;
         private readonly IDContractsService _dContractService;
         private readonly IPContractService _pContractService;
-        private int isAuthenticate;
+        private int isAuthenticate = 1 ;
         private string employeeId;
 
         public int IsAuthenticate
@@ -43,7 +43,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 else
                 {
-                    isAuthenticate = 5; // chưa login
+                    isAuthenticate = 0; // chưa login
                 }
                 return isAuthenticate;
             }
@@ -141,7 +141,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 //người khác role và vô thì trả về index của họ, sửa lại khi đủ FE
-                return View(null);
+                return View(contractList);
             }
         }
 
@@ -162,7 +162,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 //người khác role và vô thì trả về index của họ, sửa lại khi đủ FE
-                return View(null);
+                return View(pContractList);
             }
         }
 
@@ -188,7 +188,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 //người khác role và vô thì trả về index của họ, sửa lại khi đủ FE
-                return View(null);
+                return View(pContractList);
             }
         }
 
@@ -214,7 +214,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 //người khác role và vô thì trả về index của họ, sửa lại khi đủ FE
-                return View(null);
+                return View(pContractList);
             }
         }
 

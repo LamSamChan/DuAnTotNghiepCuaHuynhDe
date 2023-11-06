@@ -1,4 +1,5 @@
-﻿@*
+﻿@model List<QuanLyHopDongVaKySo_API.Models.PendingContract>
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -44,104 +45,26 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>abc@gmail.com</td>
-                    <td>23/3/2023</td>
-                    <td>abc</td>
-                    <td>Lắp đặt WIFI</td>
-                    <td>
-                        <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
-                            CHỜ DUYỆT
-                        </div>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.PContractID.ToString()</th>
+                        @*<td>@item.Customer.Email</td>
+                        <td>@item.DateCreated.ToString()</td>
+                        <td>@item.Customer.FullName</td>
+                        <td>@item.TypeOfService.ServiceName</td>*@
+                        <td>
+                            <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
+                                Chờ ký
+                            </div>
 
-                    </td>
-                    <td>
-                        <a >Chi tiết</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>abc@gmail.com</td>
-                    <td>23/3/2023</td>
-                    <td>abc</td>
-                    <td>Lắp đặt WIFI</td>
-                    <td>
-                        <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
-                            CHỜ DUYỆT
-                        </div>
-
-                    </td>
-                    <td>
-                        <a href="#">Chi tiết</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>abc@gmail.com</td>
-                    <td>23/3/2023</td>
-                    <td>abc</td>
-                    <td>Lắp đặt WIFI</td>
-                    <td>
-                        <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
-                            CHỜ DUYỆT
-                        </div>
-
-                    </td>
-                    <td>
-                        <a href="#">Chi tiết</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>abc@gmail.com</td>
-                    <td>23/3/2023</td>
-                    <td>abc</td>
-                    <td>Lắp đặt WIFI</td>
-                    <td>
-                        <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
-                            CHỜ DUYỆT
-                        </div>
-
-                    </td>
-                    <td>
-                        <a href="#">Chi tiết</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>abc@gmail.com</td>
-                    <td>23/3/2023</td>
-                    <td>abc</td>
-                    <td>Lắp đặt WIFI</td>
-                    <td>
-                        <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
-                            CHỜ DUYỆT
-                        </div>
-
-                    </td>
-                    <td>
-                        <a href="#">Chi tiết</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>abc@gmail.com</td>
-                    <td>23/3/2023</td>
-                    <td>abc</td>
-                    <td>Lắp đặt WIFI</td>
-                    <td>
-                        <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
-                            CHỜ DUYỆT
-                        </div>
-
-                    </td>
-                    <td>
-                        <a href="#">Chi tiết</a>
-                    </td>
-                </tr>
-                <tr>
-                </tr>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                }
+                
             </tbody>
         </table>
     </div>
