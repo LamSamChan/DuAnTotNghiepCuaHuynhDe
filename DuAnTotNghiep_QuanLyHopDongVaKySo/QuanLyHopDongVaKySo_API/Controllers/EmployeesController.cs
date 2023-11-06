@@ -64,7 +64,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
         //Chưa bắt lỗi khi dùng Role Với Positon đang bị ẩn trong table, trùng nhân viên
         [HttpPost("AddNew")]
-        public async Task<ActionResult<string>> AddNew([FromForm] PostEmployee postEmployee)
+        public async Task<ActionResult<string>> AddNew(PostEmployee postEmployee)
         {
             
             string passwordEmp = await _randomPasswordHelper.GeneratePassword(8);
@@ -166,7 +166,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPut("Update")]
-        public async Task<ActionResult<string>> Update([FromForm]PutEmployee putEmployee)
+        public async Task<ActionResult<string>> Update(PutEmployee putEmployee)
         {
             Employee employee = new Employee {
                 EmployeeId = putEmployee.EmployeeId,

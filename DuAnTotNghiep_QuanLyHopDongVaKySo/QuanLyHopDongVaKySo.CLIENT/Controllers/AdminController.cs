@@ -55,6 +55,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
 
+        public IActionResult AddEmpAccount()
+        {
+            return View();
+        }
 
         public async Task<IActionResult> ListUsersAccount()
         {
