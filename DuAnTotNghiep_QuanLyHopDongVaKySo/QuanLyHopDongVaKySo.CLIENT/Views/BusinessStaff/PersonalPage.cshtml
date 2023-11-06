@@ -1,0 +1,132 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container-fluid">
+    <div class="header">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="body">
+        <div class="row justify-content-around" style="height:365px;">
+            <div class="col-6 row">
+                <h4 style="color:#FFFFFF; margin: auto; ">Chào mừng bạn đã trở lại !!</h4>
+                <div class="box_avatar">
+                    <img src="~/Resource/Image/Avatar.jpg" />
+                    <h4 style="color:#FFFFFF; padding-top:10px; ">DO THAO(DANZOU)</h4>
+                    <h5 style="color:#FFFFFF; ">CEO TECHSEAL</h5>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="row">
+                    <div class="col" id="box_load">
+                        <button class="upload">
+                            <i class="ph-bold ph-upload-simple"></i>
+                        </button>
+                        <h3 class="tt">UPLOAD IMAGE</h3>
+                    </div>
+                    <div class="col" style="align-items:center; justify-content: center;  display: flex; flex-direction: column;">
+                        <h5>
+                            Tải ảnh giao diện mới để làm nổi bật thông tin của bạn.
+                        </h5>
+                        <button class="save">
+                            SAVE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="height:500px;">
+            <div class="infor col-5">
+                <h4 class="title">Thông tin cá nhân</h4>
+                <form class="row justify-content-around g-3">
+                    <div class="col-md-5">
+                        <label for="inputName" class="form-label">Họ tên</label>
+                        <input type="text" placeholder="Tên:" class="form-input" id="inputName">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputEmail" class="form-label">Email</label>
+                        <input type="email" placeholder="Email:" class="form-input" id="inputEmail">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputPhone" class="form-label">Số điện thoại</label>
+                        <input type="text" placeholder="SDT" class="form-input" id="inputPhone">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputAddress" class="form-label">Địa chỉ</label>
+                        <input type="text" placeholder="Add" class="form-input" id="inputAddress">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputDate" class="form-label">Ngày sinh</label>
+                        <input type="date" class="form-input" id="inputDate">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputGender" class="form-label">Giới tính</label>
+                        <select id="inpuGender" class="form-select">
+                            <option selected>Nam</option>
+                            <option>Nữ</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="infor col-5">
+                <h4 class="title">Thông tin khác</h4>
+                <form class="row justify-content-around g-3">
+                    <div class="col-md-5">
+                        <label for="inputRole" class="form-label">Vai trò</label>
+                        <select id="inpuRole" class="form-select">
+                            <option selected>Select..</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputPosition" class="form-label">Chức danh</label>
+                        <select id="inpuPosition" class="form-select">
+                            <option selected>Select..</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputPhone" class="form-label">Trạng thái tài khoản</label>
+                        <input type="text" placeholder="SDT" class="form-input" id="inputPhone">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputAddress" class="form-label">Quyền truy cập</label>
+                        <input type="text" placeholder="Add" class="form-input" id="inputAddress">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputDate" class="form-label">Ngày cấp</label>
+                        <input type="date" class="form-input" id="inputDate">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputExp" class="form-label">Giới hết hạn</label>
+                        <input type="date" class="form-input" id="inputExp">
+                    </div>
+                </form>
+            </div>
+            <img src="~/Resource/Image/LOGO_WITHOUT_BG/1.png" style="width: 330px;
+height: 340px; margin: 100px 0;" />
+        </div>
+    </div>
+</div>

@@ -83,6 +83,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult PersonalPage()
+        {
+            return View();
+        }
         public IActionResult ContractListRefuse()
         {
             return View();
