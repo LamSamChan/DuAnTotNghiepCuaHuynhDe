@@ -1,0 +1,146 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_AdminLayout";
+}
+<div class="container-fluid">
+    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-top: 40px;">
+        <form class="row justify-content-around" style=" margin: 0 auto;">
+            <div class="col-md-5">
+                <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
+                    <div class="col-md-6">
+                        <div class="avt">
+                            <img src="~/Resource/Image/Avatar.jpg" alt="" style="width:200px; height:200px;"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Họ và tên</label>
+                        <input class="form-control" id="inputName"  placeholder="Họ và tên" required>
+                        <span class="text-danger"></span>
+
+                        <label class="form-label" style="padding-top:60px;">Năm sinh</label>
+                        <input type="date" class="form-control" required>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputName" class="form-label">Số điện thoại</label>
+                        <input class="form-control"  maxlength="12" required>
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputGender" class="form-label">Giới tính</label>
+                        <select style="background-color: #F3F3F3;" required  class="form-control">
+                            <option value="" disabled selected>...chọn giới tính</option>
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputRole" class="form-label">Vị trí</label>
+                        <select style="background-color: #F3F3F3;" required class="form-control">
+                            <option value="" disabled selected>...chọn vị trí</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div> <div class="col-md-6">
+                        <label for="inputPosition" class="form-label">Chức vụ</label>
+                        <select style="background-color: #F3F3F3;" required class="form-control">
+                            <option value="" disabled selected>...chọn chức vụ</option>
+                            <option value="1">Giám đốc</option>
+                            <option value="2">Nhân viên</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateStart" class="form-label">Email</label>
+                        <input class="form-control" type="email"  placeholder="abc123@gmail.com" required>
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateEnd" class="form-label">FAX</label>
+                        <input class="form-control">
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateStart" class="form-label">CCCD/CMND</label>
+                        <input class="form-control" required>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateEnd" class="form-label">Ngày cấp</label>
+                        <input type="date" class="form-control"  required>
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateStart" class="form-label">Nơi cấp</label>
+                        <input class="form-control" required>
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputNational" class="form-label">Quốc tịch</label>
+                        <input class="form-control" required>
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
+                        <textarea style="background-color: #F3F3F3;" class="form-control" required></textarea>
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
+                        <div>
+                            <input type="radio" class="btn-check " id="false" value="false" autocomplete="off" required>
+                            <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
+
+                            <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" required>
+                            <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputSeri" class="form-label">Chứng chỉ Số SERI</label>
+                        <input style="background-color: #F3F3F3;" class="form-control" required>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="note" class="form-label">Ghi chú</label>
+                        <textarea style="background-color: #F3F3F3;" class="form-control"></textarea>
+                        <span class="text-danger"></span>
+                    </div>
+                    @* <div class="col-md-5" style="margin:auto;">
+                        <button class="add_cus" type="submit">
+                            Cập nhật thông tin
+                        </button>
+                    </div> *@
+                </div>
+            </div>
+            @**@
+        </form>
+
+    </div>
+</div>
