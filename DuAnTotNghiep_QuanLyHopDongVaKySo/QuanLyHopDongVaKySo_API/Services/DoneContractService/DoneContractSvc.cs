@@ -57,12 +57,12 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
             viewModel = await _context.DoneContracts.Where(d => d.CustomerId == Guid.Parse(id))
                 .Select(dc => new DContractViewModel
                 {
-                    id = dc.DContractID.ToString(),
-                    fullName = dc.Customer.FullName,
-                    email = dc.Customer.Email,
-                    dateDone = dc.DateDone.ToString("dd/MM/yyyy"),
-                    typeOfService = dc.TypeOfService.ServiceName,
-                    status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc"
+                    Id = dc.DContractID.ToString(),
+                    CustomerName = dc.Customer.FullName,
+                    CustomerEmail = dc.Customer.Email,
+                    DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    TypeOfService = dc.TypeOfService.ServiceName,
+                    Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc"
                 }).ToListAsync();
             return viewModel;
         }
@@ -74,12 +74,12 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
             viewModel = await _context.DoneContracts.Where(d => d.DirectorSignedId == Guid.Parse(id))
                 .Select(dc => new DContractViewModel
                 {
-                    id = dc.DContractID.ToString(),
-                    fullName = dc.Customer.FullName,
-                    email = dc.Customer.Email,
-                    dateDone = dc.DateDone.ToString("dd/MM/yyyy"),
-                    typeOfService = dc.TypeOfService.ServiceName,
-                    status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc"
+                    Id = dc.DContractID.ToString(),
+                    CustomerName = dc.Customer.FullName,
+                    CustomerEmail = dc.Customer.Email,
+                    DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    TypeOfService = dc.TypeOfService.ServiceName,
+                    Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc"
                 }).ToListAsync();
             return viewModel;
         }
@@ -91,12 +91,12 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
             viewModel = await _context.DoneContracts.Where(d => d.EmployeeCreatedId == Guid.Parse(id))
                 .Select(dc => new DContractViewModel
                 {
-                    id = dc.DContractID.ToString(),
-                    fullName = dc.Customer.FullName,
-                    email = dc.Customer.Email,
-                    dateDone = dc.DateDone.ToString("dd/MM/yyyy"),
-                    typeOfService = dc.TypeOfService.ServiceName,
-                    status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc"
+                    Id = dc.DContractID.ToString(),
+                    CustomerName = dc.Customer.FullName,
+                    CustomerEmail = dc.Customer.Email,
+                    DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    TypeOfService = dc.TypeOfService.ServiceName,
+                    Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc"
                 }).ToListAsync();
             return viewModel;
         }
@@ -108,12 +108,12 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
             viewModel = await _context.DoneContracts.Where(d => d.IsInEffect)
                 .Select(dc => new DContractViewModel
                 {
-                    id = dc.DContractID.ToString(),
-                    fullName = dc.Customer.FullName,
-                    email = dc.Customer.Email,
-                    dateDone = dc.DateDone.ToString("dd/MM/yyyy"),
-                    typeOfService = dc.TypeOfService.ServiceName,
-                    status = dc.IsInEffect ? "Đang hiệu lực" : "Đã dừng hiệu lực"
+                    Id = dc.DContractID.ToString(),
+                    CustomerName = dc.Customer.FullName,
+                    CustomerEmail = dc.Customer.Email,
+                    DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    TypeOfService = dc.TypeOfService.ServiceName,
+                    Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã dừng hiệu lực"
                 }).ToListAsync();
             return viewModel;
         }

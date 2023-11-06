@@ -1,0 +1,301 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model QuanLyHopDongVaKySo.CLIENT.Models.ModelPut.PutCustomer;
+
+<div class="container-fluid">
+    <div class="header">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-container">
+        <div class="tab-button active" onclick="showTab('tab1')">Thông tin chi tiết</div>
+        <div class="tab-button" onclick="showTab('tab2')">Danh sách hợp đồng chờ ký</div>
+        <div class="tab-button" onclick="showTab('tab3')">Danh sách hợp đồng đã ký</div>
+    </div>
+    <div class="tab-content active" id="tab1">
+        <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="UpdateInfoCustomer" asp-controller="BusinessStaff">
+            <div class="col-md-5">
+                <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
+                    <div class="col-md-6">
+                        <label class="form-label">ID khách hàng</label>
+                        <input class="form-control" id="inputName" asp-for="CustomerId" placeholder="Họ và tên" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Họ và tên</label>
+                        <input class="form-control" id="inputName" asp-for="FullName" placeholder="Họ và tên" readonly>
+
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Năm sinh</label>
+                        <input class="form-control" asp-for="DateOfBirth" readonly>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inputName" class="form-label">Số điện thoại</label>
+                        <input class="form-control" asp-for="PhoneNumber" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputGender" class="form-label">Giới tính</label>
+                        <input class="form-control" asp-for="Gender" readonly>
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputCCCD" class="form-label">Giấy ủy quyền</label>
+                        <input class="form-control" asp-for="PowerOfAttorneyNum" readonly>
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateStart" class="form-label">Ngày ủy quyền</label>
+                        <input type="date" class="form-control" asp-for="DatePOA" readonly>
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateEnd" class="form-label">Người ủy quyền</label>
+                        <input class="form-control" asp-for="WhoPOA" readonly>
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateStart" class="form-label">Email</label>
+                        <input class="form-control" asp-for="Email" placeholder="abc123@gmail.com" readonly>
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateEnd" class="form-label">FAX</label>
+                        <input class="form-control" asp-for="FAX" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateStart" class="form-label">CCCD/CMND</label>
+                        <input class="form-control" asp-for="Identification" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateEnd" class="form-label">Ngày cấp</label>
+                        <input type="date" class="form-control" asp-for="IssuedDate" readonly>
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateStart" class="form-label">Nơi cấp</label>
+                        <input class="form-control" asp-for="IssuedPlace" readonly>
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputNational" class="form-label">Quốc tịch</label>
+                        <input class="form-control" asp-for="Nationality" readonly>
+
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
+                        <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Address" readonly></textarea>
+
+                    </div>
+                </div>
+            </div>
+            @**@
+            <div class="col-md-5">
+                <div class="box2 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
+                    <div class="col-md-6">
+                        <label for="inputTaxCode" class="form-label">Số tài khoản</label>
+                        <input class="form-control" asp-for="BankAccount" readonly>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputAddress2" class="form-label">Ngân hàng</label>
+                        <input class="form-control" asp-for="BankName" readonly>
+                       
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputPass" class="form-label">Mã số thuế</label>
+                        <input style="background-color: #F3F3F3;" class="form-control" asp-for="TaxIDNumber">
+                      
+                    </div>
+                    <div class="col-md-12">
+                        <label for="adReport" class="form-label">Địa chỉ báo cước</label>
+                        <input style="background-color: #F3F3F3;" class="form-control" asp-for="ChargeNoticeAddress" readonly />
+                       
+                    </div>
+                    <div class="col-12">
+                        <label for="adInvoice" class="form-label" style="color: #525252;
+        font-size: 18px;
+        font-family: Joxt;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+">Địa chỉ xuất hóa đơn</label>
+                        <input style="background-color: #F3F3F3;" class="form-control" asp-for="BillingAddress" readonly>
+                       
+                    </div>
+                   @*  @if (Model.typeofCustomer == "Doanh nghiệp")
+                    { *@
+                        <div class="col-12">
+                            <div>
+                                <label for="enable-input">Khách hàng doanh nghiệp</label>
+                            </div>
+                            <div class="content row" style="height: 300px;width: 95%;margin: 10px auto; ">
+                                <div class="col-md-5" style="margin:0 auto;">
+                                    <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
+                                    <input class="form-control" id="inputNameBuss" asp-for="BuisinessName" disabled readonly>
+                                   
+                                </div>
+                                <div class="col-md-5" style="margin:0 auto;">
+                                    <label for="inputPosition" class="form-label">Chức vụ</label>
+                                    <input class="form-control" id="inputPosition" asp-for="Position" readonly>
+                                    
+                                </div>
+                                <div class="col-md-5" style="margin:0 auto;">
+                                    <label for="certi" class="form-label">Số chứng nhận doanh nghiệp</label>
+                                    <input class="form-control" id="certi" asp-for="BuisinessNumber" readonly>
+                                    
+                                </div>
+                                <div class="col-md-5" style="margin:0 auto;">
+                                    <label for="dateSDN" class="form-label">Ngày cấp SDN</label>
+                                    <input type="date" class="form-control" id="dateSDN" asp-for="BNDate" readonly>
+                                   
+                                </div>
+                                <div class="col-md-10" style="margin:0 auto;">
+                                    <label for="adSDN" class="form-label">Nơi cấp SDN</label>
+                                    <input class="form-control" id="adSDN" asp-for="BNPlace" readonly>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    @* } *@
+                    <div class="col-md-6 mt-3">
+                        <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
+                        <div>
+                            <input type="radio" class="btn-check " asp-for="IsLocked" id="false" value="false" autocomplete="off" required>
+                            <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
+
+                            <input type="radio" class="btn-check " asp-for="IsLocked" id="true" value="true" autocomplete="off" required>
+                            <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="note" class="form-label">Ghi chú</label>
+                        <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Note"></textarea>
+                       
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+    </div> 
+    <div class="tab-content " id="tab2">
+        <div class="listTable" style="margin-top:0;">
+            <table class="table">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th scope="col">ID</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">NGÀY ĐĂNG KÝ DỊCH VỤ</th>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">LOẠI HỢP ĐỒNG ĐĂNG KÝ</th>
+                        <th scope="col">TRẠNG THÁI</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>abc@gmail.com</td>
+                        <td>23/3/2023</td>
+                        <td>abc</td>
+                        <td>Lắp đặt WIFI</td>
+                        <td>
+                            <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
+                                CHỜ KÝ
+                            </div>
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="tab-content " id="tab3">
+        <div class="listTable" style="margin-top:0;">
+            <table class="table">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th scope="col">ID</th>
+                        <th scope="col">NGÀY HOÀN THÀNH</th>
+                        <th scope="col">TÊN HỢP ĐỒNG</th>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">ĐỊA CHỈ LẮP ĐẶT</th>
+                        <th scope="col">TRẠNG THÁI</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>23/3/2023</td>
+                        <td>Lắp đặt WIFI</td>
+                        <td>abc</td>
+                        <td>123 THÀNH PHỐ NÚI</td>
+                        <td>
+                            <div style="background-color: #00C9A7; color:white; font-weight:bold; ;display: flex;align-items: center;justify-content: center;">
+                                ĐÃ TẠO
+                            </div>
+
+                        </td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+<script>
+    function showTab(tabId) {
+        // Ẩn tất cả các nội dung tab
+        var tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(function (content) {
+            content.classList.remove('active');
+        });
+
+        // Ẩn tất cả các tab-button
+        var tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(function (button) {
+            button.classList.remove('active');
+        });
+
+        // Hiển thị nội dung của tab được chọn và làm cho tab-button trở nên active
+        var selectedTab = document.getElementById(tabId);
+        selectedTab.classList.add('active');
+
+        var selectedButton = document.querySelector('[onclick="showTab(\'' + tabId + '\')"]');
+        selectedButton.classList.add('active');
+    }
+</script>

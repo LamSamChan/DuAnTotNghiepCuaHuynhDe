@@ -71,7 +71,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 {
                     if(tContract.File != null)
                     {
-                        filePath = _helpers.UploadFile(tContract.File,"AppData","TContracts");
+                        //filePath = _helpers.UploadFile(tContract.File,"AppData","TContracts");
                         int pageNum = 0;
                         doc.LoadFromFile(filePath);
 
@@ -145,7 +145,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 {
                     if(tContract.File != null)
                     {
-                        _helpers.UploadFile(tContract.File,"AppData","TContracts");
+                        //_helpers.UploadFile(tContract.File,"AppData","TContracts");
                         return Ok (new{
                             retText = "sửa mẫu hợp đồng thành công",
                             data = await _TContractSvc.getByIdAsnyc(id_Tcontract)

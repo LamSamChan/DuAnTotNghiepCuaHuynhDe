@@ -39,7 +39,7 @@
                     <th scope="col">EMAIL</th>
                     <th scope="col">NGÀY ĐĂNG KÝ DỊCH VỤ</th>
                     <th scope="col">HỌ VÀ TÊN</th>
-                    <th scope="col">LOẠI HỢP ĐỒNG ĐĂN KÝ</th>
+                    <th scope="col">LOẠI HỢP ĐỒNG ĐĂNG KÝ</th>
                     <th scope="col">TRẠNG THÁI</th>
                     <th scope="col"></th>
                 </tr>
@@ -48,7 +48,7 @@
                 @foreach(var item in Model)
                 {
                     <tr>
-                        <th scope="row">@item.id </th>
+                        @*<th scope="row">@item.id </th>
                         <td>@item.email</td>
                         <td>@item.dateDone</td>
                         <td>@item.fullName</td>
@@ -56,7 +56,7 @@
                         <td>
                             <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
                             <span>@item.status</span>
-                        </td>
+                        </td>*@
                         <td>
                             <a asp-controller="BusinessStaff" asp-action="DetailsContractEffect">Chi tiết</a>
                         </td>

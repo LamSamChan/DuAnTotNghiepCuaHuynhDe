@@ -159,7 +159,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
         }
 
-        [HttpGet("WaitDirectorSigns")]
+        /*[HttpGet("WaitDirectorSigns")]
         public async Task<IActionResult> GetListWaitDirectorSigns()
         {
             return Ok(await _PContractSvc.getListWaitDirectorSigns());
@@ -170,7 +170,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         public async Task<IActionResult> GetListWaitCustomerSigns()
         {
             return Ok(await _PContractSvc.getListWaitCustomerSigns());
-        }
+        }*/
 
         [HttpPut("Update")]
         public async Task<IActionResult> Update(PutPendingContract pContract)

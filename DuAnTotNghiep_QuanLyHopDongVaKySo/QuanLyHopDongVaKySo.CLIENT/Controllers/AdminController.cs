@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
@@ -55,9 +58,48 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
 
-        public IActionResult AddEmpAccount()
+        public async Task<IActionResult> AddEmpAccount()
         {
-            return View();
+            VMAddEmployee vm = new VMAddEmployee();
+            vm.Roles = await _roleService.GetAllRolesAsync();
+            vm.Positions = await _positionService.GetAllPositionsAsync();
+
+            return View(vm);
+        }
+
+        public async Task<IActionResult> AddEmpAction(PostEmployee employee)
+        {
+            if (employee.ImageFile != null)
+            {
+                if (employee.ImageFile.ContentType.StartsWith("image/"))
+                {
+                    if (employee.ImageFile.Length > 0)
+                    {
+                        using (var stream = new MemoryStream())
+                        {
+                            employee.ImageFile.CopyTo(stream);
+                            byte[] bytes = stream.ToArray();
+                            employee.Base64String = Convert.ToBase64String(bytes);
+                            employee.ImageFile = null;
+                        }
+                    }
+                }
+                else
+                {
+                    //báo lỗi ko tải lên file ảnh
+                    RedirectToAction("AddEmpAccount");
+                }
+            }
+            var reponse = await _employeeService.AddNewEmployee(employee);
+            
+            if (reponse != 0)
+            {
+                return RedirectToAction("ListUsersAccount");
+            }
+            else
+            {
+                return RedirectToAction("AddEmpAccount");
+            }
         }
 
         public async Task<IActionResult> ListUsersAccount()

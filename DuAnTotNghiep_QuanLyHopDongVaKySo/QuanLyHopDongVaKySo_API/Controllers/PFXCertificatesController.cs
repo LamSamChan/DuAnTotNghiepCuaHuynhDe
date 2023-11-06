@@ -118,23 +118,23 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         {
                             if (certificateExist.ImageSignature1 == null)
                             {
-                                certificateExist.ImageSignature1 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
+                                //certificateExist.ImageSignature1 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else if (certificateExist.ImageSignature2 == null)
                             {
-                                certificateExist.ImageSignature2 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
+                                //certificateExist.ImageSignature2 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else if (certificateExist.ImageSignature3 == null)
                             {
-                                certificateExist.ImageSignature3 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
+                                //certificateExist.ImageSignature3 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else if (certificateExist.ImageSignature4 == null)
                             {
-                                certificateExist.ImageSignature4 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
+                                //certificateExist.ImageSignature4 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else if (certificateExist.ImageSignature5 == null)
                             {
-                                certificateExist.ImageSignature5 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
+                                //certificateExist.ImageSignature5 = _uploadFileHelper.UploadFile(imageFile, "AppData", $"SignatureImages/{certificateExist.Serial}");
                             }
                             else
                             {

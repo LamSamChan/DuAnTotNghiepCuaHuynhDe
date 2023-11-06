@@ -1,4 +1,4 @@
-﻿@model List<QuanLyHopDongVaKySo_API.Models.PendingContract>
+﻿@model List<QuanLyHopDongVaKySo_API.ViewModels.PContractViewModel>
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -39,7 +39,7 @@
                     <th scope="col">EMAIL</th>
                     <th scope="col">NGÀY ĐĂNG KÝ DỊCH VỤ</th>
                     <th scope="col">HỌ VÀ TÊN</th>
-                    <th scope="col">LOẠI HỢP ĐỒNG ĐĂN KÝ</th>
+                    <th scope="col">LOẠI HỢP ĐỒNG ĐĂNG KÝ</th>
                     <th scope="col">TRẠNG THÁI</th>
                     <th scope="col"></th>
                 </tr>
@@ -49,10 +49,10 @@
                 {
                     <tr>
                         <th scope="row">@item.PContractID.ToString()</th>
-                        @*<td>@item.Customer.Email</td>
-                        <td>@item.DateCreated.ToString()</td>
-                        <td>@item.Customer.FullName</td>
-                        <td>@item.TypeOfService.ServiceName</td>*@
+                        <td>@item.CustomerName</td>
+                        <td>@item.DateCreated</td>
+                        <td>@item.CustomerEmail</td>
+                        <td>@item.TOS_ID</td>
                         <td>
                             <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
                                 Chờ ký

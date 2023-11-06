@@ -72,7 +72,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 {
                     if(tMinute.File != null)
                     {
-                        filePath = _helpers.UploadFile(tMinute.File,"AppData","TMinutes");
+                        /*filePath = _helpers.UploadFile(tMinute.File,"AppData","TMinutes");*/
                         int pageNum = 0;
                         doc.LoadFromFile(filePath);
 
@@ -144,7 +144,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 {
                     if(tMinute.File != null)
                     {
-                        _helpers.UploadFile(tMinute.File,"AppData","TMinutes");
+                        /*_helpers.UploadFile(tMinute.File,"AppData","TMinutes");*/
                         return Ok(new{
                             retText = "Sữa mâu biên bản thành công",
                             data = await _TMinuteSvc.getByIdAsnyc(id_Tminute)

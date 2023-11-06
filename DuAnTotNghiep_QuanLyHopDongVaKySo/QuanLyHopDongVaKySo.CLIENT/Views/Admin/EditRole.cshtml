@@ -33,13 +33,13 @@
     <div style="margin-top: 40px;">
         <form class="row justify-content-around" style=" margin: 0 auto;" asp-action="UpdateRole" asp-controller="Admin">
             <div class="col-md-5">
-                <div class="box1 row justify-content-between g-3 " style="max-height: 800px;overflow-y: scroll; height: 500px; margin: 40px auto;">
+                <div class="box1 row justify-content-between g-3 " style="max-height: 800px;overflow-y: scroll; height: 300px; margin: 40px auto;">
                     <div class="col-md-12">
                         <label class="form-label" asp-for="RoleID">Id</label>
                         <input class="form-control" readonly asp-for="RoleID">
                         <span class="text-danger" asp-validation-for="RoleID"></span>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <label class="form-label" asp-for="RoleName">Tên vai trò</label>
                         <input class="form-control" id="inputName" asp-for="RoleName" required>
                         <span class="text-danger" asp-validation-for="RoleName"></span>

@@ -8,8 +8,10 @@ namespace QuanLyHopDongVaKySo_API.ViewModels
     public class PContractViewModel
     {
         public string PContractID { get; set; }
-        public string DateCreated { get; set; }
         public string PContractName { get; set; }
+        public string DateCreated { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerEmail { get; set; }
         public string IsDirector { get; set; }
         public string IsCustomer { get; set; }
         public string IsRefuse { get; set; }

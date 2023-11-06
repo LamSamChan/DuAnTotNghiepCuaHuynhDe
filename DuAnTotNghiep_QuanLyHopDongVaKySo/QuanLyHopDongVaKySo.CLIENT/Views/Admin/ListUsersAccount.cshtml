@@ -54,9 +54,10 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <tr>
-                        @foreach(var emp in Model.Employees)
-                        {
+                    
+                    @foreach (var emp in Model.Employees)
+                    {
+                        <tr>
                             <td>
                                 <div class="row action">
                                     <a asp-route-empId="@emp.EmployeeId"><i class="ph-bold ph-note-pencil"></i></a>
@@ -67,12 +68,12 @@
                             <td>@emp.Email</td>
                             <td>@emp.PhoneNumber</td>
                             <td>@emp.Identification</td>
-                            @foreach(var p in Model.Positions)
+                            @foreach (var p in Model.Positions)
                             {
-                               if (emp.PositionID == p.PositionID)
+                                if (emp.PositionID == p.PositionID)
                                 {
-                                   <td>@p.PositionName</td> 
-                               }
+                                    <td>@p.PositionName</td>
+                                }
                             }
                             @foreach (var r in Model.Roles)
                             {
@@ -97,12 +98,13 @@
                                     </div>
                                 }
                             </td>
-                        }
-                    </tr>
+                        </tr>
+                    }
+
                 </tbody>
             </table>
         </div>
-        <button style="width:300px; display:flex; align-items:center; justify-content:center;" class="add_cus">Thêm nhân viên <i class="ph-bold ph-user-plus" style="font-size:20px; padding-left:10px;"></i> </button>
+        <a style="width:300px; display:flex; align-items:center; justify-content:center;" class="add_cus m-4" asp-action="AddEmpAccount" asp-controller="Admin">Thêm nhân viên <i class="ph-bold ph-user-plus" style="font-size:20px; padding-left:10px;"></i> </a>
     </div>
     <div class="tab-content" id="tab2">
         <div class="listTable">
@@ -157,6 +159,8 @@
                 </tbody>
             </table>
         </div>
+        <a style="width:300px; display:flex; align-items:center; justify-content:center;" class="add_cus m-4" asp-action="AddCus" asp-controller="BusinessStaff">Thêm khách hàng <i class="ph-bold ph-user-plus" style="font-size:20px; padding-left:10px;"></i> </a>
+
     </div>
     
 </div>
