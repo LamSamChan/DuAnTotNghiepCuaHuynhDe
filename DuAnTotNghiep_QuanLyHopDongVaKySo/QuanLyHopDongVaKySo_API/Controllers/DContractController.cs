@@ -20,6 +20,18 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(await _doneContractSvc.getListIsEffect());
         }
 
+        [HttpGet("getAll")]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok(await _doneContractSvc.getAllAsnyc());
+        }
+
+        [HttpGet("getById/{id}")]
+        public async Task<IActionResult> getById(string id)
+        {
+            return Ok(await _doneContractSvc.getByIdAsnyc(id));
+        }
+
         [HttpGet("getByCustomerId/{id}")]
         public async Task<IActionResult> GetbyCusId(string id)
         {
@@ -36,7 +48,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(await _doneContractSvc.getListByDirectorId(id));
         }
 
-        [HttpPut]
+        [HttpPut("Update")]
         public async Task<IActionResult> Update(PutDContract dContract)
         {
             return Ok (await _doneContractSvc.updateAsnyc(dContract));

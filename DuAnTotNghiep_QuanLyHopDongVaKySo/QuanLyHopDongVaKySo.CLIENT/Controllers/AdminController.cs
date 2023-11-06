@@ -14,13 +14,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IPositionService _positionService;
         private readonly IEmployeeService _employeeService;
         private readonly IRoleService _roleService;
+        private readonly ICustomerService _customerService;
 
-
-        public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService)
+        public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService,
+            ICustomerService customerService)
         {
             _positionService = positionService;
             _employeeService = employeeService;
             _roleService = roleService;
+            _customerService = customerService;
+
         }
         public IActionResult Index()
         {
@@ -53,9 +56,22 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
 
-        public IActionResult ListUsersAccount()
+        public async Task<IActionResult> ListUsersAccount()
         {
-            return View();
+            VMAdminListUsersAccount vm = new VMAdminListUsersAccount();
+            try
+            {
+                vm.Customers = await _customerService.GetAllCustomers();
+                vm.Employees = await _employeeService.GetAllEmployees();
+                vm.Positions = await _positionService.GetAllPositionsAsync();
+                vm.Roles = await _roleService.GetAllRolesAsync();
+                return View(vm);
+            }
+            catch (Exception ex)
+            {
+
+                return View(new VMAdminListUsersAccount());
+            }
         }
 
 

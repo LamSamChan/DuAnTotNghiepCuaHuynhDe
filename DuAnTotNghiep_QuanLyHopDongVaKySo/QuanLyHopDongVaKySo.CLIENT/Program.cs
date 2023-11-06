@@ -4,8 +4,9 @@ using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
-using APIAuth = QuanLyHopDongVaKySo_API.Services;
+using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using System.Net.Http;
+using QuanLyHopDongVaKySo.CLIENT.Services.IRequirementsServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,9 @@ builder.Services.AddScoped<IPositionService, PositionService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IPContractService, PContractService>();
 builder.Services.AddScoped<IAuthServices, AuthServices>();
+builder.Services.AddScoped<IDContractsService, DContractsService>();
+builder.Services.AddScoped<IIRequirementService, IRequirementService>();
+
 
 builder.Services.AddSession(option =>
 {

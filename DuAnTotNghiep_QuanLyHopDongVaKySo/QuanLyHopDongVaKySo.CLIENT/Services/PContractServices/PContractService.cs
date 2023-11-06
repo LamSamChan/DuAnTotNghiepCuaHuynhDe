@@ -1,6 +1,8 @@
-﻿using QuanLyHopDongVaKySo_API.Models;
+﻿using Newtonsoft.Json;
+using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Models.ContractInfo;
 using QuanLyHopDongVaKySo_API.ViewModels;
+using System.Text;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
 {
@@ -11,45 +13,45 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
         {
             _httpClient = httpClient;
         }
-        public Task<string> addAsnyc(PostPendingContract PContract)
+
+        public async Task<string> addAsnyc(PostPendingContract PContract)
         {
-            throw new NotImplementedException();
+            string json = JsonConvert.SerializeObject(PContract);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            using (var response = await _httpClient.PostAsync("api/PContract/AddPContractAsnyc", content))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return PContract.CustomerId.ToString();
+                }
+                return null;
+            }
         }
 
-        public Task<bool> deleteAsnyc(int id)
+        public async Task<List<PendingContract>> getAllAsnyc()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<ContractInternet> ExportContract(PendingContract PContract)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<PendingContract>> getAllAsnyc()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<PendingContract> getByIdAsnyc(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<List<DContractViewModel>> getListEffect()
-        {
-            var response = await _httpClient.GetFromJsonAsync<List<DContractViewModel>>("api/PContract/getAllEffect");
+            var response = await _httpClient.GetFromJsonAsync<List<PendingContract>>("api/PContract");
             return response;
         }
 
-        public Task<string> updateAsnyc(PutPendingContract PContract)
+        public async Task<PendingContract> getByIdAsnyc(int id)
         {
-            throw new NotImplementedException();
+            var response = await _httpClient.GetFromJsonAsync<PendingContract>($"api/PContract/{id}");
+            return response;
         }
 
-        public Task<int> updatePContractFile(int id, string File)
+        public async Task<string> updateAsnyc(PutPendingContract PContract)
         {
-            throw new NotImplementedException();
+            string json = JsonConvert.SerializeObject(PContract);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            using (var response = await _httpClient.PutAsync("api/PContract/Update", content))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return PContract.CustomerId.ToString();
+                }
+                return null;
+            }
         }
     }
 }

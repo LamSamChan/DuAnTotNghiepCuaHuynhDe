@@ -174,7 +174,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     IsRefuse = pc.IsRefuse ? "Từ chối ký" : "Đã duyệt",
                     InstallationAddress = pc.InstallationAddress,
                     Reason = pc.Reason,
-                    TOS_ID = pc.TOS_ID.ToString()
+                    TOS_ID = pc.TypeOfService.ServiceName
                 }).Where(p => p.IsDirector == "Chưa ký" && p.IsCustomer == "Chưa ký").ToListAsync();
             return viewModels;
         }
@@ -196,93 +196,10 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     InstallationAddress = pc.InstallationAddress,
                     IsRefuse = pc.IsRefuse? "Từ chối ký" : "Đã duyệt",
                     Reason = pc.Reason,
-                    TOS_ID = pc.TOS_ID.ToString()
+                    TOS_ID = pc.TypeOfService.ServiceName
                 }).Where(p => p.IsDirector == "Đã ký" && p.IsCustomer == "Chưa ký").ToListAsync();
             return viewModels;
         }
-
-        public async Task<List<PContractViewModel>> getListIsRefuse()
-        {
-            List<PContractViewModel> viewModels = new List<PContractViewModel>();
-            viewModels = await _context.PendingContracts
-                .Select(pc => new PContractViewModel
-                {
-                    PContractID = pc.PContractID.ToString(),
-                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
-                    PContractName = pc.PContractName,
-                    PContractFile = pc.PContractFile,
-                    IsDirector = pc.IsDirector ? "Đã ký" : "Chưa ký",
-                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chưa ký",
-                    InstallationAddress = pc.InstallationAddress,
-                    IsRefuse = pc.IsRefuse ? "Từ chối ký" : " ",
-                    Reason = pc.Reason,
-                    TOS_ID = pc.TOS_ID.ToString()
-                }).Where(p => p.IsRefuse == "Từ chối ký").ToListAsync();
-            return viewModels;
-        }
-
-        public async Task<List<PContractViewModel>> getListWaitDirectorSignsByEmpID(string empID)
-        {
-            List<PContractViewModel> viewModels = new List<PContractViewModel>();
-            viewModels = await _context.PendingContracts
-                .Select(pc => new PContractViewModel
-                {
-                    PContractID = pc.PContractID.ToString(),
-                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
-                    PContractName = pc.PContractName,
-                    PContractFile = pc.PContractFile,
-                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString(),
-                    IsDirector = pc.IsDirector ? "Đã ký" : "Chưa ký",
-                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chưa ký",
-                    IsRefuse = pc.IsRefuse ? "Từ chối ký" : " ",
-                    InstallationAddress = pc.InstallationAddress,
-                    Reason = pc.Reason,
-                    TOS_ID = pc.TOS_ID.ToString()
-                }).Where(p => p.IsDirector == "Chưa ký" && p.IsCustomer == "Chưa ký" && p.EmployeeCreatedId == empID).ToListAsync();
-            return viewModels;
-        }
-
-        public async Task<List<PContractViewModel>> getListWaitCustomerSignsByEmpID(string empID)
-        {
-            List<PContractViewModel> viewModels = new List<PContractViewModel>();
-            viewModels = await _context.PendingContracts
-                .Select(pc => new PContractViewModel
-                {
-                    PContractID = pc.PContractID.ToString(),
-                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
-                    PContractName = pc.PContractName,
-                    PContractFile = pc.PContractFile,
-                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString(),
-                    DirectorSignedId = pc.DirectorSignedId.ToString(),
-                    IsDirector = pc.IsDirector ? "Đã ký" : "Chưa ký",
-                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chưa ký",
-                    InstallationAddress = pc.InstallationAddress,
-                    IsRefuse = pc.IsRefuse ? "Từ chối ký" : " ",
-                    Reason = pc.Reason,
-                    TOS_ID = pc.TOS_ID.ToString()
-                }).Where(p => p.IsDirector == "Đã ký" && p.IsCustomer == "Chưa ký" && p.EmployeeCreatedId == empID).ToListAsync();
-            return viewModels;
-        }
-
-        public async Task<List<PContractViewModel>> getListIsRefuseByEmpID(string empID)
-        {
-            List<PContractViewModel> viewModels = new List<PContractViewModel>();
-            viewModels = await _context.PendingContracts
-                .Select(pc => new PContractViewModel
-                {
-                    PContractID = pc.PContractID.ToString(),
-                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
-                    PContractName = pc.PContractName,
-                    PContractFile = pc.PContractFile,
-                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString(),
-                    IsDirector = pc.IsDirector ? "Đã ký" : "Chưa ký",
-                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chưa ký",
-                    InstallationAddress = pc.InstallationAddress,
-                    IsRefuse = pc.IsRefuse ? "Từ chối ký" : "Đã duyệt",
-                    Reason = pc.Reason,
-                    TOS_ID = pc.TOS_ID.ToString()
-                }).Where(p => p.IsRefuse == "Từ chối ký" && p.EmployeeCreatedId == empID).ToListAsync();
-            return viewModels;
-        }
+      
     }
 }

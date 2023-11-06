@@ -2,25 +2,33 @@
 using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
-using QuanLyHopDongVaKySo.CLIENT.Models;
+using CLIENT = QuanLyHopDongVaKySo.CLIENT.Models;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using Newtonsoft.Json;
+using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
+using QuanLyHopDongVaKySo_CLIENT.Constants;
+using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
     public class BusinessStaffController : Controller
     {
         private readonly ICustomerService _customerService;
+        private readonly IDContractsService _dContractService;
         private readonly IPContractService _pContractService;
-        public BusinessStaffController(ICustomerService customerService, IPContractService pContractService) { 
+
+        public BusinessStaffController(ICustomerService customerService, IDContractsService dContractService,
+            IPContractService pContractService) { 
             _customerService = customerService;
+            _dContractService = dContractService;
             _pContractService = pContractService;
         }
         public async Task<IActionResult> Index()
         {
-            List<Customer> customersList = new List<Customer>();
+            List<CLIENT.Models.Customer> customersList = new List<CLIENT.Models.Customer>();
             try
             {
                 customersList = await _customerService.GetAllCustomers();
@@ -65,35 +73,113 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        //done contract
         public async Task<IActionResult> ContractListEffect()
         {
             List<DContractViewModel> contractList = new List<DContractViewModel>();
-            try
+            string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
+            string empID = HttpContext.Session.GetString(SessionKey.Employee.EmployeeID);
+            if (role == "Admin")
             {
-                contractList = await _pContractService.getListEffect();
-                return View(contractList);
-            }
-            catch (Exception ex)
-            {
+                try
+                {
+                    contractList = await _dContractService.getListIsEffect();
+                }
+                catch (Exception ex)
+                {
 
-                return View(contractList);
+                    return View(contractList);
+                }
+            }else if (role == "Giám đốc")
+            { 
+                try
+                {
+                    contractList = await _dContractService.getListByDirectorId(empID);
+                }
+                catch (Exception ex)
+                {
+
+                    return View(contractList);
+                }
             }
+            else if (role == "Nhân viên kinh doanh")
+            {
+                try
+                {
+                    contractList = await _dContractService.getListByEmpId(empID);
+                }
+                catch (Exception ex)
+                {
+
+                    return View(contractList);
+                }
+            }
+
+            return View(contractList);
+
         }
-        public IActionResult ContractListPending()
+
+
+        // hiển thị list chờ duyệt theo role và id ng tạo
+        public async Task<IActionResult> ContractListPending()
         {
-            return View();
+            string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
+            string empID = HttpContext.Session.GetString(SessionKey.Employee.EmployeeID);
+
+            List<PendingContract> pContractList = new List<PendingContract>();
+            if (role == "Admin")
+            {
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => !p.IsDirector).ToList();
+            }
+            else if (role == "Nhân viên kinh doanh")
+            {
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == Guid.Parse(empID) && !p.IsDirector).ToList();
+            }
+            return View(pContractList);
+
         }
         public IActionResult PersonalPage()
         {
             return View();
         }
-        public IActionResult ContractListRefuse()
+
+        //danh sách từ chối duyệt
+        public async Task<IActionResult> ContractListRefuse()
         {
-            return View();
+            string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
+            string empID = HttpContext.Session.GetString(SessionKey.Employee.EmployeeID);
+            List<PendingContract> pContractList = new List<PendingContract>();
+            if (role == "Admin" || role =="Giám đốc")
+            {
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.IsRefuse).ToList();
+            }
+            else if (role == "Nhân viên kinh doanh")
+            {
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == Guid.Parse(empID) && p.IsRefuse).ToList();
+            }
+            return View(pContractList);
         }
-        public IActionResult ContractListWaitSign()
+
+        //hiển thị danh sách chờ kh ký theo role và theo nhân viên tạo hoặc ng ký
+        public async Task<IActionResult> ContractListWaitSign()
         {
-            return View();
+            string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
+            string empID = HttpContext.Session.GetString(SessionKey.Employee.EmployeeID);
+            List<PendingContract> pContractList = new List<PendingContract>();
+            if (role == "Admin")
+            {
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => !p.IsCustomer).ToList();
+            }
+            else if (role == "Nhân viên kinh doanh")
+            {
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == Guid.Parse(empID) && !p.IsCustomer && p.IsDirector).ToList();
+            }
+            else if (role == "Giám đốc")
+            {
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.DirectorSignedId == Guid.Parse(empID) && !p.IsCustomer).ToList();
+            }
+            return View(pContractList);
+
         }
         public IActionResult CreateFormContract()
         {

@@ -54,10 +54,8 @@
                         <td>@item.fullName</td>
                         <td>@item.typeOfService</td>
                         <td>
-                            <div style="background: rgba(40, 199, 111, 0.16); color:#28C76F;display: flex;align-items: center;justify-content: center;">
-                                @item.status
-                            </div>
-
+                            <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                            <span>@item.status</span>
                         </td>
                         <td>
                             <a asp-controller="BusinessStaff" asp-action="DetailsContractEffect">Chi tiết</a>

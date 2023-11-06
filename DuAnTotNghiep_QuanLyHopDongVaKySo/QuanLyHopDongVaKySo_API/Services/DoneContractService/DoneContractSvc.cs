@@ -105,7 +105,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
         {
             List<DContractViewModel> viewModel = new List<DContractViewModel>();
 
-            viewModel = await _context.DoneContracts
+            viewModel = await _context.DoneContracts.Where(d => d.IsInEffect)
                 .Select(dc => new DContractViewModel
                 {
                     id = dc.DContractID.ToString(),
@@ -113,10 +113,11 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     email = dc.Customer.Email,
                     dateDone = dc.DateDone.ToString("dd/MM/yyyy"),
                     typeOfService = dc.TypeOfService.ServiceName,
-                    status = dc.IsInEffect ? "Hoat dong" : ""
+                    status = dc.IsInEffect ? "Đang hiệu lực" : "Đã dừng hiệu lực"
                 }).ToListAsync();
             return viewModel;
         }
+
 
         public async Task<string> updateAsnyc(PutDContract dContract)
         {

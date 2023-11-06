@@ -1,4 +1,6 @@
-﻿@{
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMAdminListUsersAccount
+
+@{
     Layout = "_AdminLayout";
 }
     
@@ -40,163 +42,62 @@
             <table class="table">
                 <thead>
                     <tr style="color: #8B909A;">
-                        <th></th>
+                        <th scope="col">HÀNH ĐỘNG</th>
                         <th scope="col">ID</th>
-                        <th scope="col">EMAIL</th>
-                        <th scope="col">CCCD/CMND</th>
                         <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">SỐ ĐIỆN THOẠI</th>
+                        <th scope="col">CCCD/CMND</th>
                         <th scope="col">CHỨC VỤ</th>
                         <th scope="col">VAI TRÒ</th>
                         <th scope="col">TRẠNG THÁI</th>
-                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
                     <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>3233222</td>
-                        <td>abc@gmail.com</td>
-                        <td>abc</td>
-                        <td>abc</td>
-                        <td>abc</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Bình thường</div>
-                            </div>
-                        </td>
-                        <td>
-                            <a>Chi tiết</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>3233222</td>
-                        <td>abc@gmail.com</td>
-                        <td>abc</td>
-                        <td>abc</td>
-                        <td>abc</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Khóa</div>
-                            </div>
-                        </td>
-                        <td>
-                            <a>Chi tiết</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>3233222</td>
-                        <td>abc@gmail.com</td>
-                        <td>abc</td>
-                        <td>abc</td>
-                        <td>abc</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Bình thường</div>
-                            </div>
-                        </td>
-                        <td>
-                            <a>Chi tiết</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>3233222</td>
-                        <td>abc@gmail.com</td>
-                        <td>abc</td>
-                        <td>abc</td>
-                        <td>abc</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Bình thường</div>
-                            </div>
-                        </td>
-                        <td>
-                            <a>Chi tiết</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>3233222</td>
-                        <td>abc@gmail.com</td>
-                        <td>abc</td>
-                        <td>abc</td>
-                        <td>abc</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Khóa</div>
-                            </div>
-                        </td>
-                        <td>
-                            <a>Chi tiết</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>3233222</td>
-                        <td>abc@gmail.com</td>
-                        <td>abc</td>
-                        <td>abc</td>
-                        <td>abc</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Bình thường</div>
-                            </div>
-                        </td>
-                        <td>
-                            <a>Chi tiết</a>
-                        </td>
-                    </tr>
-                    <tr>
+                        @foreach(var emp in Model.Employees)
+                        {
+                            <td>
+                                <div class="row action">
+                                    <a asp-route-empId="@emp.EmployeeId"><i class="ph-bold ph-note-pencil"></i></a>
+                                </div>
+                            </td>
+                            <th scope="row">@emp.EmployeeId.ToString().Substring(0,8)</th>
+                            <td>@emp.FullName</td>
+                            <td>@emp.Email</td>
+                            <td>@emp.PhoneNumber</td>
+                            <td>@emp.Identification</td>
+                            @foreach(var p in Model.Positions)
+                            {
+                               if (emp.PositionID == p.PositionID)
+                                {
+                                   <td>@p.PositionName</td> 
+                               }
+                            }
+                            @foreach (var r in Model.Roles)
+                            {
+                                if (emp.RoleID == r.RoleID)
+                                {
+                                    <td>@r.RoleName</td>
+                                }
+                            }
+                            <td>
+                                @if (emp.IsLocked)
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                        <span>Đã khoá</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                        <span>Đang hoạt động</span>
+                                    </div>
+                                }
+                            </td>
+                        }
                     </tr>
                 </tbody>
             </table>
@@ -208,149 +109,50 @@
             <table class="table">
                 <thead>
                     <tr style="color: #8B909A;">
-                        <th></th>
+                        <th scope="col">HÀNH ĐỘNG</th>
                         <th scope="col">ID</th>
-                        <th scope="col">EMAIL</th>
-                        <th scope="col">CCCD/CMND</th>
                         <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">SỐ ĐIỆN THOẠI</th>
+                        <th scope="col">CCCD/CMND</th>
                         <th scope="col">TRẠNG THÁI</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
                     <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>3233222</td>
-                        <td>abc@gmail.com</td>
-                        <td>abc</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Khóa</div>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="">Chi tiết</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>3233222</td>
-                        <td>abc@gmail.com</td>
-                        <td>abc</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Bình thường</div>
-                            </div>
-                        </td>
-                        <td>
-                            <a>Chi tiết</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>3233222</td>
-                        <td>abc@gmail.com</td>
-                        <td>abc</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Khóa</div>
-                            </div>
-                        </td>
-                        <td>
-                            <a>Chi tiết</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>3233222</td>
-                        <td>abc@gmail.com</td>
-                        <td>abc</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Bình thường</div>
-                            </div>
-                        </td>
-                        <td>
-                            <a>Chi tiết</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>3233222</td>
-                        <td>abc@gmail.com</td>
-                        <td>abc</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Bình thường</div>
-                            </div>
-                        </td>
-                        <td>
-                            <a>Chi tiết</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a><i class="ph-bold ph-note-pencil"></i></a>
-                                <a><i class="ph-bold ph-trash"></i></a>
-
-                            </div>
-                        </td>
-                        <th scope="row">1</th>
-                        <td>3233222</td>
-                        <td>abc@gmail.com</td>
-                        <td>abc</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                <div>Khóa</div>
-                            </div>
-                        </td>
-                        <td>
-                            <a>Chi tiết</a>
-                        </td>
-                    </tr>
-                    <tr>
+                        @foreach (var cus in Model.Customers)
+                        {
+                            <td>
+                                <div class="row action">
+                                    <a asp-route-customerID="@cus.CustomerId" asp-action="EditCus" asp-controller="BusinessStaff"><i class="ph-bold ph-note-pencil"></i></a>
+                                </div>
+                            </td>
+                            <th scope="row">@cus.CustomerId.ToString().Substring(0,8)</th>
+                            <td>@cus.FullName</td>
+                            <td>@cus.Email</td>
+                            <td>@cus.PhoneNumber</td>
+                            <td>@cus.Identification</td>
+                            <td>
+                                @if (cus.IsLocked)
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                        <span>Đã khoá</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                        <span>Đang hoạt động</span>
+                                    </div>
+                                }
+                            </td>
+                            <td>
+                                <a asp-route-cusId="@cus.CustomerId">Chi tiết</a>
+                            </td>
+                        }
                     </tr>
                 </tbody>
             </table>

@@ -41,7 +41,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPContractAsnyc([FromForm] PostPendingContract pContract)
+        public async Task<IActionResult> AddPContractAsnyc(PostPendingContract pContract)
         {
             var tContractID = _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.templateContractID;
             //lây thông tin mẫu hợp đồng
@@ -130,16 +130,15 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPContractAsync(int id)
         {
-
-            var pdfPath = _PContractSvc.getByIdAsnyc(id).Result.PContractFile;
-            List<string> outputPathContracts = _pdfToImageHelper.PdfToPng(pdfPath, id, "contract");
-
-            return Ok(new
+            var pcontract = await _PContractSvc.getByIdAsnyc(id);
+            if (pcontract != null)
             {
-                retText = "Lấy hợp đồng thành công",
-                data = await _PContractSvc.getByIdAsnyc(id),
-                Path = outputPathContracts
-            });
+                return Ok(pcontract);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         /// <summary>
@@ -149,12 +148,17 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPContractsAsync()
         {
-            return Ok(new
+            var pContractList = await _PContractSvc.getAllAsnyc();
+            if (pContractList != null)
             {
-                retText = "Lấy danh sách hợp đồng thành công",
-                data = await _PContractSvc.getAllAsnyc()
-            });
+                return Ok(pContractList);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
+
         [HttpGet("WaitDirectorSigns")]
         public async Task<IActionResult> GetListWaitDirectorSigns()
         {
@@ -168,10 +172,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(await _PContractSvc.getListWaitCustomerSigns());
         }
 
-        [HttpGet("ListIsRefuse")]
-        public async Task<IActionResult> GetListIsRefuse()
+        [HttpPut("Update")]
+        public async Task<IActionResult> Update(PutPendingContract pContract)
         {
-            return Ok(await _PContractSvc.getListIsRefuse());
+            return Ok(await _PContractSvc.updateAsnyc(pContract));
         }
     }
 }
