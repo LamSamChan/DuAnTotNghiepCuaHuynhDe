@@ -33,9 +33,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices
             return response;
         }
 
-        public async Task<PutCustomer> GetCustomerById(string id)
+        public async Task<PutCustomer> GetCustomerByIdPut(string id)
         {
             var response = await _httpClient.GetFromJsonAsync<PutCustomer>($"api/Customers/{id}");
+            return response;
+        }
+
+        public async Task<Customer> GetCustomerById(string id)
+        {
+            var response = await _httpClient.GetFromJsonAsync<Customer>($"api/Customers/{id}");
             return response;
         }
 

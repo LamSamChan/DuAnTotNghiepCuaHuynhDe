@@ -1,0 +1,231 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_AdminLayout";
+}
+<div class="container-fluid">
+    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-container">
+        <div class="tab-button active" onclick="showTab('tab1')">Thông tin chi tiết</div>
+        <div class="tab-button" onclick="showTab('tab2')">Danh sách thiết bị lắp đặt</div>
+    </div>
+    <div class="tab-content active" id="tab1">
+        <form class="row justify-content-around" style=" margin: 0 auto;" method="post" enctype="multipart/form-data" asp-action="AddEmpAction" asp-controller="Admin">
+            <div class="col-md-5" style="margin-top:20px;">
+                <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll; height:500px;">
+                    <div class="col-md-6">
+                        <label class="form-label">Id</label>
+                        <input class="form-control" id="inputName" placeholder="ID" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Tên loại dịch vụ</label>
+                        <input class="form-control" id="inputName" placeholder="Họ và tên" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputName" class="form-label">Giá</label>
+                        <input class="form-control" maxlength="12" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Đơn vị tính</label>
+                        <input type="text" class="form-control" readonly placeholder="Trên năm, tháng, ...">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ngày tạo</label>
+                        <input type="date" class="form-control" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ngày cập nhật</label>
+                        <input type="date" class="form-control" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputGender" class="form-label">Mã hợp đồng mẫu</label>
+                        <input type="date" class="form-control" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputGender" class="form-label">Mã biên bản lắp đặt</label>
+                        <input type="date" class="form-control" readonly>
+                    </div>
+                    <div class="col-md-7" style="margin:auto; padding: 20px 0;">
+                        <button class="add_cus" type="submit">
+                            <a>
+                                QUAY LẠI
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            @**@
+        </form>
+    </div>
+    <div class="tab-content active" id="tab2">
+        <div class="listTable" @* style="background-color:white; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); min-height:700px" *@>
+            <table class="table">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th scope="col">HÀNH ĐỘNG</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">TÊN THIẾT BỊ</th>
+                        <th scope="col">TÌNH TRẠNG</th>
+                        <th scope="col">MÃ LOẠI DỊCH VỤ</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td>
+                            <div class="row action">
+                                <button data-bs-toggle="modal" data-bs-target="#EditEquid" style="width:40px; background-color:transparent; border:none;">
+                                    <a><i class="ph-bold ph-note-pencil"></i></a>
+                                </button>
+                                <a><i class="ph-bold ph-trash"></i></a>
+                            </div>
+                        </td>
+                        <td scope="row">1</td>
+                        <td>LAN</td>
+                        <td>Đầy đủ</td>
+                        <td>DV002</td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="add_cus" style="margin: 20px; width:300px;" data-bs-toggle="modal" data-bs-target="#addEquid">
+            Thêm thiết bị lắp
+        </button>
+        <!--modal-->
+        <div class="modal fade" id="addEquid" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm mới thiết bị lắp</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row justify-content-around" style=" margin: 0 auto; height:300px">
+                            <div class="col-md-6">
+                                <label class="form-label">Tên thiết bị</label>
+                                <input class="form-control" id="inputName" placeholder="Tên thiết bị" required>
+                                <span class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputName" class="form-label">Tình trạng</label>
+                                <input class="form-control" required>
+                                <span class="text-danger"></span>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputGender" class="form-label">Mã hợp loại dịch vụ</label>
+                                <select style="background-color: #F3F3F3;" required class="form-control">
+                                    <option value="" disabled selected>...chọn mã hợp đồng</option>
+                                    <option value="1">HD3333</option>
+                                    <option value="2">NHD001</option>
+                                </select>
+                                <span class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6" style="display: flex;align-items: center;justify-content: center;">
+                                <button class="btn-addRole" type="submit" style="width: 100%;">
+                                    THÊM
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        
+        <!--modal eidt-->
+        <div class="modal fade" id="EditEquid" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Chỉnh sửa thiết bị lắp</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row justify-content-around" style=" margin: 0 auto; height:300px">
+                            <div class="col-md-6">
+                                <label class="form-label">Id</label>
+                                <input class="form-control" id="inputName" placeholder="Id" readonly>
+                                <span class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Tên thiết bị</label>
+                                <input class="form-control" id="inputName" placeholder="Tên thiết bị" required>
+                                <span class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputName" class="form-label">Tình trạng</label>
+                                <input class="form-control" required>
+                                <span class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputGender" class="form-label">Mã hợp loại dịch vụ</label>
+                                <select style="background-color: #F3F3F3;" required class="form-control">
+                                    <option value="" disabled selected>...chọn mã hợp đồng</option>
+                                    <option value="1">HD3333</option>
+                                    <option value="2">NHD001</option>
+                                </select>
+                                <span class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6" style="display: flex;align-items: center;justify-content: center;">
+                                <button class="btn-addRole" type="submit" style="width: 100%;">
+                                    LƯU THÔNG TIN
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showTab(tabId) {
+        // Ẩn tất cả các nội dung tab
+        var tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(function (content) {
+            content.classList.remove('active');
+        });
+
+        // Ẩn tất cả các tab-button
+        var tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(function (button) {
+            button.classList.remove('active');
+        });
+
+        // Hiển thị nội dung của tab được chọn và làm cho tab-button trở nên active
+        var selectedTab = document.getElementById(tabId);
+        selectedTab.classList.add('active');
+
+        var selectedButton = document.querySelector('[onclick="showTab(\'' + tabId + '\')"]');
+        selectedButton.classList.add('active');
+    }
+</script>

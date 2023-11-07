@@ -33,7 +33,6 @@
             THÊM KHÁCH HÀNG MỚI
             <i class="ph-bold ph-user-plus"></i>
         </a>
-
     </button>
     <div class="listTable_Cus">
         <table class="table">
@@ -84,7 +83,7 @@
                            
                         }
                         <td>
-                            <a asp-action="DetailsCus">Chi tiết</a>
+                            <a asp-action="DetailsCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId" style="background-color: #00C9A7; color:white; border: 2px solid; padding: 1px 2px;">Chi tiết</a>
                         </td>
                     </tr>
                 } 

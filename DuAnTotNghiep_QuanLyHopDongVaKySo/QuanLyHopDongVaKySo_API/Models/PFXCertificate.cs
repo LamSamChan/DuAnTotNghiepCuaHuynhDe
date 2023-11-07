@@ -63,9 +63,6 @@ namespace QuanLyHopDongVaKySo_API.Models
         [StringLength(500), AllowNull]
         [Display(Name = "Ảnh chữ ký 5")]
         public string? ImageSignature5 { get; set; }
-        [NotMapped]
-        [Display(Name = "Tệp ảnh")]
-        public IFormFile? ImageFile { get; set; }
 
         //tạo liên kết
 
