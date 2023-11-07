@@ -1,4 +1,4 @@
-﻿@model List<QuanLyHopDongVaKySo_API.ViewModels.PContractViewModel>
+﻿@model List<QuanLyHopDongVaKySo_API.Models.PendingContract>
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -49,9 +49,9 @@
                 {
                     <tr>
                         <th scope="row">@item.PContractID.ToString()</th>
-                        <td>@item.CustomerName</td>
+                        <td>@item.Reason</td>
                         <td>@item.DateCreated</td>
-                        <td>@item.CustomerEmail</td>
+                        <td>@item.PContractName</td>
                         <td>@item.TOS_ID</td>
                         <td>
                             <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">

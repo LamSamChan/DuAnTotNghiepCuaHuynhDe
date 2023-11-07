@@ -28,51 +28,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
             }
         }
 
-        public async Task<List<PContractViewModel>> getAllAsnyc()
+        public async Task<List<PendingContract>> getAllAsnyc()
         {
-            List<PContractViewModel> viewModels= new List<PContractViewModel>();
+
             var response = await _httpClient.GetFromJsonAsync<List<PendingContract>>("api/PContract");
-
-            viewModels = response.Select(r => new PContractViewModel
-            {
-                PContractID = r.PContractID.ToString(),
-                PContractName = r.PContractName,
-                DateCreated = r.DateCreated.ToString("dd/MM/yyyy"),
-                CustomerName = r.Customer != null ? r.Customer.FullName: " ",
-                CustomerEmail = r.Customer != null ? r.Customer.Email : " ",
-                IsDirector = r.IsDirector ? "Đã ký" : "Chưa ký",
-                IsCustomer = r.IsCustomer ? "Đã ký" : "Chưa ký",
-                IsRefuse = r.IsRefuse ? "Từ chối ký" : "Chờ ký",
-                DirectorSignedId = r.DirectorSignedId.ToString(),
-                EmployeeCreatedId = r.EmployeeCreatedId.ToString(),
-                Reason = r.Reason,
-                InstallationAddress = r.InstallationAddress,
-                TOS_ID = r.TypeOfService != null ? r.TypeOfService.ServiceName : " ",
-                PContractFile = r.PContractFile
-            }).ToList();
-            return viewModels;
+            return response;
     }
-        public async Task<PContractViewModel> getByIdAsnyc(int id)
+        public async Task<PendingContract> getByIdAsnyc(int id)
         {
-            PContractViewModel viewModels = new PContractViewModel();
             var response = await _httpClient.GetFromJsonAsync<PendingContract>($"api/PContract/{id}");
-
-            viewModels.PContractID = response.PContractID.ToString();
-            viewModels.PContractName = response.PContractName;
-            viewModels.DateCreated = response.DateCreated.ToString("dd/MM/yyyy");
-            viewModels.CustomerName = response.Customer.FullName;
-            viewModels.CustomerEmail = response.Customer.Email;
-            viewModels.IsDirector = response.IsDirector ? "Đã ký" : "Chưa ký";
-            viewModels.IsCustomer = response.IsCustomer ? "Đã ký" : "Chưa ký";
-            viewModels.IsRefuse = response.IsRefuse ? "Từ chối ký" : "Chờ ký";
-            viewModels.DirectorSignedId = response.DirectorSignedId.ToString();
-            viewModels.EmployeeCreatedId = response.EmployeeCreatedId.ToString();
-            viewModels.Reason = response.Reason;
-            viewModels.InstallationAddress = response.InstallationAddress;
-            viewModels.TOS_ID = response.TypeOfService.ServiceName;
-            viewModels.PContractFile = response.PContractFile;
             
-            return viewModels;
+            return response;
         }
 
         public async Task<string> updateAsnyc(PutPendingContract PContract)

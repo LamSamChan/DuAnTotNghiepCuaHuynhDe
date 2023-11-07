@@ -48,15 +48,15 @@
                 @foreach(var item in Model)
                 {
                     <tr>
-                        @*<th scope="row">@item.id </th>
-                        <td>@item.email</td>
-                        <td>@item.dateDone</td>
-                        <td>@item.fullName</td>
-                        <td>@item.typeOfService</td>
+                        <th scope="row">@item.Id </th>
+                        <td>@item.CustomerEmail</td>
+                        <td>@item.DateDone</td>
+                        <td>@item.CustomerName</td>
+                        <td>@item.TypeOfService</td>
                         <td>
                             <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                            <span>@item.status</span>
-                        </td>*@
+                            <span>@item.Status</span>
+                        </td>
                         <td>
                             <a asp-controller="BusinessStaff" asp-action="DetailsContractEffect">Chi tiết</a>
                         </td>

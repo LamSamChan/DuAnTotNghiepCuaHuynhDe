@@ -15,8 +15,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly ICustomerService _customerService;
         private readonly IDContractsService _dContractService;
         private readonly IPContractService _pContractService;
-        private int isAuthenticate = 1 ;
-        private string employeeId;
+        private int isAuthenticate   ;
+        private string employeeId ;
 
         public int IsAuthenticate
         {
@@ -24,19 +24,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 if (!String.IsNullOrEmpty(HttpContext.Session.GetString(SessionKey.Employee.EmployeeID)))
                 {
-                    if (HttpContext.Session.GetString(SessionKey.Employee.Role) == "Admin")
+                    string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
+                    if (role == "Admin")
                     {
                         isAuthenticate = 1; //Admin
                     }
-                    else if (HttpContext.Session.GetString(SessionKey.Employee.Role) == "Giám đốc")
+                    else if (role == "Giám đốc")
                     {
                         isAuthenticate = 2; //Director
                     }
-                    else if (HttpContext.Session.GetString(SessionKey.Employee.Role) == "Nhân viên kinh doanh")
+                    else if (role == "Nhân viên kinh doanh")
                     {
                         isAuthenticate = 3; //BusinessStaff
                     }
-                    else if (HttpContext.Session.GetString(SessionKey.Employee.Role) == "Nhân viên lắp đặt")
+                    else if (role == "Nhân viên lắp đặt")
                     {
                         isAuthenticate = 4; //InstallStaff
                     }
@@ -128,20 +129,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListEffect()
         {
             List<DContractViewModel> contractList = new List<DContractViewModel>();
-            if (isAuthenticate == 1)
+            if (IsAuthenticate == 1)
             {
                 contractList = await _dContractService.getListIsEffect();
                 return View(contractList);
             }
-            else if (isAuthenticate == 2)
+            else if (IsAuthenticate == 2)
             {
-                contractList = await _dContractService.getListByDirectorId(employeeId);
+                contractList = await _dContractService.getListByDirectorId(EmployeeId);
 
                 return View(contractList);
             }
-            else if (isAuthenticate == 3)
+            else if (IsAuthenticate == 3)
             {
-                contractList = await _dContractService.getListByEmpId(employeeId);
+                contractList = await _dContractService.getListByEmpId(EmployeeId);
 
                 return View(contractList);
             }
@@ -155,15 +156,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         // hiển thị list chờ duyệt theo role và id ng tạo
         public async Task<IActionResult> ContractListPending()
         {
-            List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (isAuthenticate == 1)
+            List<PendingContract> pContractList = new List<PendingContract>();
+            if (IsAuthenticate == 1)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.IsDirector == "Chưa ký").ToList();
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => !p.IsDirector).ToList();
                 return View(pContractList);
             }
-            else if (isAuthenticate == 3)
+            else if (IsAuthenticate == 3)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == employeeId && p.IsDirector == "Chưa ký").ToList();
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == Guid.Parse(EmployeeId) && !p.IsDirector).ToList();
                 return View(pContractList);
             }
             else
@@ -181,15 +182,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         //danh sách từ chối duyệt
         public async Task<IActionResult> ContractListRefuse()
         {
-            List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (isAuthenticate == 1 || isAuthenticate == 2)
+            List<PendingContract> pContractList = new List<PendingContract>();
+            if (IsAuthenticate == 1 || IsAuthenticate == 2)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.IsRefuse == "Từ chối").ToList();
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.IsRefuse).ToList();
                 return View(pContractList);
             }
-            else if (isAuthenticate == 3)
+            else if (IsAuthenticate == 3)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == employeeId && p.IsRefuse == "Từ chối").ToList();
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == Guid.Parse(EmployeeId) && p.IsRefuse).ToList();
                 return View(pContractList);
             }
             else
@@ -202,20 +203,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         //hiển thị danh sách chờ kh ký theo role và theo nhân viên tạo hoặc ng ký
         public async Task<IActionResult> ContractListWaitSign()
         {
-            List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (isAuthenticate == 1)
+            List<PendingContract> pContractList = new List<PendingContract>();
+            if (IsAuthenticate == 1)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.IsCustomer == "Chưa ký").ToList();
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => !p.IsCustomer).ToList();
                 return View(pContractList);
             }
-            else if (isAuthenticate == 3)
+            else if (IsAuthenticate == 3)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == employeeId && p.IsCustomer == "Chưa ký" && p.IsDirector == "Đã ký").ToList();
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == Guid.Parse(EmployeeId) && !p.IsCustomer && p.IsDirector).ToList();
                 return View(pContractList);
             }
-            else if (isAuthenticate == 2)
+            else if (IsAuthenticate == 2)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.DirectorSignedId == employeeId && p.IsCustomer == "Chưa ký").ToList();
+                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.DirectorSignedId == Guid.Parse(EmployeeId) && !p.IsCustomer).ToList();
                 return View(pContractList);
             }
             else
