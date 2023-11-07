@@ -59,7 +59,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         /// <param name="tContract"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> AddTContractAsnyc([FromForm] PostTContract tContract)
+        public async Task<IActionResult> AddTContractAsnyc(PostTContract tContract)
         {
             Spire.Pdf.PdfDocument doc = new Spire.Pdf.PdfDocument();
             if (ModelState.IsValid)
@@ -69,9 +69,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 float X = 0; float Y = 0;
                 if(id_Tcontract > 0)
                 {
-                    if(tContract.File != null)
+                    if(tContract.Base64StringFile != null)
                     {
-                        //filePath = _helpers.UploadFile(tContract.File,"AppData","TContracts");
+                        IFormFile file = _helpers.ConvertBase64ToIFormFile(tContract.Base64StringFile, tContract.TContractName, "application/pdf"); 
+                        filePath = _helpers.UploadFile(file, "AppData","TContracts",".pdf");
                         int pageNum = 0;
                         doc.LoadFromFile(filePath);
 

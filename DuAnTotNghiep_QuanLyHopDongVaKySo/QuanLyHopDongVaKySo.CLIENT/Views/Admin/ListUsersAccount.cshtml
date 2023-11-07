@@ -60,7 +60,7 @@
                         <tr>
                             <td>
                                 <div class="row action">
-                                    <a asp-route-empId="@emp.EmployeeId"><i class="ph-bold ph-note-pencil"></i></a>
+                                    <a asp-action="EditEmpAccount" asp-controller="Admin" asp-route-empId="@emp.EmployeeId"><i class="ph-bold ph-note-pencil"></i></a>
                                 </div>
                             </td>
                             <th scope="row">@emp.EmployeeId.ToString().Substring(0,8)</th>

@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using Org.BouncyCastle.Ocsp;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
@@ -49,13 +51,62 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult EditEmpAccount()
+        public async Task<IActionResult> EditEmpAccount(string empId)
         {
-            return View();
+            VMEditEmployee vm = new VMEditEmployee();
+            vm.Roles = await _roleService.GetAllRolesAsync();
+            vm.Positions = await _positionService.GetAllPositionsAsync();
+            vm.Employee= await _employeeService.GetEmployeeById(empId);
+
+            if (vm.Employee != null)
+            {
+                return View(vm);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
-        public IActionResult EditUsers()
+
+        public async Task<IActionResult> EditEmpAction(PutEmployee employee)
         {
-            return View();
+
+            if (employee.ImageFile != null)
+            {
+                if (employee.ImageFile.ContentType.StartsWith("image/"))
+                {
+                    if (employee.ImageFile.Length > 0)
+                    {
+                        using (var stream = new MemoryStream())
+                        {
+                            employee.ImageFile.CopyTo(stream);
+                            byte[] bytes = stream.ToArray();
+                            employee.Base64String = Convert.ToBase64String(bytes);
+                            employee.ImageFile = null;
+                        }
+                    }
+                }
+                else
+                {
+                    //báo lỗi ko tải lên file ảnh
+                    RedirectToAction("AddEmpAccount");
+                }
+            }
+            string respone = await _employeeService.UpdateEmployee(employee);
+            var emp = await _employeeService.GetEmployeeById(respone);
+
+            if (emp != null)
+            {
+                VMEditEmployee vm = new VMEditEmployee();
+                vm.Roles = await _roleService.GetAllRolesAsync();
+                vm.Positions = await _positionService.GetAllPositionsAsync();
+                vm.Employee = emp;
+                return View("EditEmpAccount", vm);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
 
         public async Task<IActionResult> AddEmpAccount()

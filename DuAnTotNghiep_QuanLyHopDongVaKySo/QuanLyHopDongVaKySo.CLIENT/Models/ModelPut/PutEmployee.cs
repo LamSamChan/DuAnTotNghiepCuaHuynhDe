@@ -46,17 +46,18 @@ namespace QuanLyHopDongVaKySo.CLIENT.Models.ModelPut
         [MaxLength(20)]
         public string Identification { get; set; }
 
-
         [Column(TypeName = "nvarchar(255)")]
         [Required(ErrorMessage = "Hãy nhập địa chỉ !")]
         [Display(Name = "Địa chỉ")]
         public string Address { get; set; }
 
+        public string? Image { get; set; }
+
         [NotMapped]
         [Display(Name = "Tệp ảnh")]
         public IFormFile? ImageFile { get; set; }
 
-        //tự động tạo và gửi qua mail ghi đăng ký
+        public string? Base64String { get; set; }
 
         [Display(Name = "Trạng thái hoạt động")]
         public bool IsLocked { get; set; }
@@ -64,7 +65,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Models.ModelPut
         [Column(TypeName = "nvarchar(255)"), AllowNull]
         [Display(Name = "Ghi chú")]
         public string? Note { get; set; }
-
 
         [Required(ErrorMessage = "Hãy nhập id của vai trò !")]
         public int RoleID { get; set; }

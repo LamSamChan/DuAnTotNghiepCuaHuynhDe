@@ -60,7 +60,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         /// <param name="tMinute"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> AddTMinuteAsnyc([FromForm] PostTMinute tMinute)
+        public async Task<IActionResult> AddTMinuteAsnyc(PostTMinute tMinute)
         {
             Spire.Pdf.PdfDocument doc = new Spire.Pdf.PdfDocument();
             if (ModelState.IsValid)
@@ -70,9 +70,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 float X = 0; float Y = 0;
                 if (id_Tminute >0)
                 {
-                    if(tMinute.File != null)
+                    if(tMinute.Base64StringFile != null)
                     {
-                        /*filePath = _helpers.UploadFile(tMinute.File,"AppData","TMinutes");*/
+                        IFormFile file = _helpers.ConvertBase64ToIFormFile(tMinute.Base64StringFile, tMinute.TMinuteName, "application/pdf");
+                        filePath = _helpers.UploadFile(file, "AppData", "TMinutes", ".pdf");
                         int pageNum = 0;
                         doc.LoadFromFile(filePath);
 

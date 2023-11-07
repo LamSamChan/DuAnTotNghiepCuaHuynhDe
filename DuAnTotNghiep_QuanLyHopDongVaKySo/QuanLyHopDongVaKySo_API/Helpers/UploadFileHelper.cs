@@ -23,7 +23,7 @@ namespace QuanLyHopDongVaKySo_API.Helpers
                 {
                     Directory.CreateDirectory(dirPath);
                 }
-                string filePath = dirPath + @"/" + file.FileName +$".{extension}";
+                string filePath = dirPath + @"/" + file.FileName +$"{extension}";
 
                 if (!File.Exists(filePath))
                 {

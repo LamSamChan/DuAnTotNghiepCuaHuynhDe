@@ -93,7 +93,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 {
                     if (file.Length > 0)
                     {
-                        //employee.Image = _uploadFileHelper.UploadFile(file, "../QuanLyHopDongVaKySo.CLIENT/wwwroot", "Avatars");
+                        employee.Image = _uploadFileHelper.UploadFile(file, "../QuanLyHopDongVaKySo.CLIENT/wwwroot", "Avatars",".jpeg").Replace("../QuanLyHopDongVaKySo.CLIENT/wwwroot/","");
+                        
                     }
                 }
                 else
@@ -185,14 +186,15 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 PositionID = putEmployee.PositionID,
             };
             var existEmp =await _employeeSvc.GetById(employee.EmployeeId.ToString());
-            if (putEmployee.ImageFile != null)
+            if (putEmployee.Base64String != null)
             {
-                if (putEmployee.ImageFile.ContentType.StartsWith("image/"))
+                IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(putEmployee.Base64String, employee.EmployeeId.ToString().Substring(0, 8), "image/jpeg");
+                if (file.ContentType.StartsWith("image/"))
                 {
-                    if (putEmployee.ImageFile.Length > 0)
+                    if (file.Length > 0)
                     {
-                        _uploadFileHelper.RemoveFile(existEmp.Image);
-                        //employee.Image = _uploadFileHelper.UploadFile(putEmployee.ImageFile, "AppData", "Avatars");
+                        _uploadFileHelper.RemoveFile("../QuanLyHopDongVaKySo.CLIENT/wwwroot/"+existEmp.Image);
+                        employee.Image = _uploadFileHelper.UploadFile(file, "../QuanLyHopDongVaKySo.CLIENT/wwwroot", "Avatars",".jpeg").Replace("../QuanLyHopDongVaKySo.CLIENT/wwwroot/","");
                     }
                 }
                 else

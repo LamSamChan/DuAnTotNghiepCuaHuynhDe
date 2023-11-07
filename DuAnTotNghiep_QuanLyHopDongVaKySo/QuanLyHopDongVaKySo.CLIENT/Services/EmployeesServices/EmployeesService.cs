@@ -42,8 +42,23 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices
 
         public async Task<PutEmployee> GetEmployeeById(string id)
         {
-            var reponse = await _httpClient.GetFromJsonAsync<PutEmployee>($"api/Employees/{id}");
-            return reponse;
+            var reponse = await _httpClient.GetFromJsonAsync<Employee>($"api/Employees/{id}");
+            PutEmployee employee = new PutEmployee() { 
+                EmployeeId = reponse.EmployeeId,
+                FullName = reponse.FullName,
+                Email = reponse.Email,
+                DateOfBirth = reponse.DateOfBirth,
+                Gender = reponse.Gender,
+                PhoneNumber = reponse.PhoneNumber,
+                Identification = reponse.Identification,
+                Image = reponse.Image,
+                Address = reponse.Address,
+                IsLocked = reponse.IsLocked,
+                Note = reponse.Note,
+                PositionID = reponse.PositionID,
+                RoleID = reponse.RoleID,
+            };
+            return employee;
         }
 
         public async Task<string> UpdateEmployee(PutEmployee putEmployee)
