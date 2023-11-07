@@ -1,23 +1,58 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@using Microsoft.AspNetCore.Hosting
+@inject IWebHostEnvironment _hostingEnvironment
+
 @{
+    // Lấy link trực ảnh từ file tỉnh
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+
+    string folderItem = System.IO.Path.Combine(folderPath, "1");
+
+    string[] imageFiles = Directory.GetFiles(folderItem);
 }
 <div class="container-fluid">
     <div class="row" style="background-color:#FFFFFF; margin: 40px auto; height:100%; border-radius:16px;">
         <div class="col-6" style="margin: 20px; border-radius:10px;">
             <div class="showFile">
-                <h4 style="color: #4318FF; font-family:Source Sans Pro; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng còn thiếu chữ ký</h4>
-                <img src="~/Resource/Image/Contract_IMG.png" style="margin: 0px 50px 20px 50px; width: 500px;height: 750px; background-color:#FFFF;" />
+                <h4 style="color: #4318FF; font-family:Source Sans Pro; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng chờ khách ký </h4>
+                <div id="myCarousel" class="carousel slide" style="margin: 0px 50px 20px 50px; width: 500px;height: 750px; background-color:#FFFF;">
+                    @*   <div class="carousel-indicators">
+                    @foreach (var item in imageFiles)
+                    {
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    }
+                    </div> *@
+                    <div class="carousel-inner">
+                        <div class="carousel-item active " style="width:800px;">
+                            <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" style="margin:100px auto;" />
+                        </div>
+                        @foreach (var imgPath in imageFiles)
+                        {
+                            <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                <img src="@Url.Content("~/ContractImage/1/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                            </div>
+                        }
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
+                        <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </div>
-        <img src="~/Resource/Image/LOGO_WITHOUT_BG/2.png" class="logo_sz" />
+
     </div>
-    <div class="inforCus" style="position: absolute;top: 120px;left: 900px;">
-        <h4 style="    color: #4318FF;font-family: Source Sans Pro;">
+    <div class="inforCus" style="position: absolute;top: 120px;left: 900px; max-height:800px; overflow-y: scroll; ">
+        <h4 style="color: #4318FF;font-family: Source Sans Pro;">
             Thông tin khách hàng
         </h4>
-        <form class="row g-3">
+        <form class="row g-3" style="max-width:950px;">
             <div class="col-md-6">
                 <label for="inputName" class="form-label">Họ và tên</label>
                 <input type="text" class="form-input" id="inputName" placeholder="Họ và tên">
@@ -45,25 +80,81 @@
                 <label for="inputAddress" class="form-label">Nơi ở</label>
                 <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở">
             </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
+                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
+            </div>
+            <div class="col-md-5">
+                <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
+                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Chữ ký khách hàng</label>
+                <div class="d-flex align-items-center">
+                    <div style="width: 5px; height: 5px; background-color: yellow; border-radius: 50%; margin-right: 10px;"></div>
+                    <span>Chờ ký</span>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <label for="inputAddress" class="form-label">Chữ ký giám đốc</label>
+                <div class="d-flex align-items-center">
+                    <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                    <span>Đã duyệt</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Ngày tạo</label>
+                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
+            </div>
+            <div class="col-md-5">
+                <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
+                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
+            </div>
+            <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
+                Thông tin nhân viên tạo hợp đồng
+            </h4>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Mã nhân viên</label>
+                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
+            </div>
+            <div class="col-md-5">
+                <label for="inputAddress" class="form-label">Họ và tên</label>
+                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
+            </div>
+            <div class="col-md-5">
+                <label for="inputAddress" class="form-label">Số điện thoại</label>
+                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
+            </div>
         </form>
-        <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
-            Dịch vụ sử dụng
-        </h4>
-        <input type="text" class="" id="inputName" placeholder="Tên dịch vụ" style="border-radius: 20px;background: #D9D9D9; width: 400px; border: none;border: none;outline: none;height: 40px;">
-        <div class="button_design row justify-content-around " style="margin-top:70px;">
+        <div class="button_design row " style="margin-top:70px;">
             <div class="col-md-5">
                 <button style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
-                    <i class="ph-bold ph-arrow-left"></i>
-                    QUAY LẠI
+                   <a>
+                        <i class="ph-bold ph-arrow-left"></i>
+                        QUAY LẠI
+                   </a>
                 </button>
             </div>
             <div class="col-md-5">
                 <button style="border-radius: 12px;background: rgba(29, 194, 46, 0.58); border:none; color: white;font-weight:bold;">
-                    GỬI THÔNG BÁO
-                    <i class="ph-bold ph-share-fat"></i>
+                    <a>
+                        GỬI THÔNG BÁO
+                        <i class="ph-bold ph-share-fat"></i>
+                    </a>
                 </button>
             </div>
         </div>
 
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $('#myCarousel').carousel({
+            interval: false
+        });
+    });
+</script>
