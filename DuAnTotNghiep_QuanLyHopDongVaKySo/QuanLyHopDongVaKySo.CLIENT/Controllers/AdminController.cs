@@ -38,6 +38,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult DetailsPFXCertificate()
+        {
+            return View();
+        }
         public IActionResult DetailsUsers()
         {
             return View();
