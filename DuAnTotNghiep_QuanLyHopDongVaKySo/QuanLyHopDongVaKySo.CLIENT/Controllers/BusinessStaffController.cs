@@ -4,6 +4,7 @@ using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
+using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using QuanLyHopDongVaKySo_CLIENT.Constants;
@@ -89,9 +90,24 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult DetailsCus()
+        public async Task<IActionResult> DetailsCus(string customerID)
         {
-            return View();
+            var respone = await _customerService.GetCustomerById(customerID);
+            if (respone != null)
+            {
+                VMDetailsCus vm = new VMDetailsCus();
+                vm.Customer = respone;
+
+                //truyền thêm
+                /*vm.PendingContracts = ;
+                vm.DoneContracts = ;*/
+                return View(vm);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            
         }
         public IActionResult DetailsDContract()
         {
@@ -252,7 +268,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> EditCus(string customerID)
         {
-            var customer = await _customerService.GetCustomerById(customerID);
+            var customer = await _customerService.GetCustomerByIdPut(customerID);
             if (customer != null)
             {
                 return View(customer);
@@ -275,7 +291,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
 
             string respone = await _customerService.UpdateCustomer(putCustomer);
-            var customer = await _customerService.GetCustomerById(respone);
+            var customer = await _customerService.GetCustomerByIdPut(respone);
             if (customer != null)
             {
                 return View("EditCus", customer);

@@ -6,7 +6,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices
     public interface ICustomerService
     {
         Task<List<Customer>> GetAllCustomers();
-        Task<PutCustomer> GetCustomerById(string id);
+        Task<PutCustomer> GetCustomerByIdPut(string id);
+        Task<Customer> GetCustomerById(string id);
+
         Task<int> AddNewCustomer(PostCustomer postCustomer);
         Task<string> UpdateCustomer(PutCustomer putCustomer);
        
