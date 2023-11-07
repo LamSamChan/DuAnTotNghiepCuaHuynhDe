@@ -34,6 +34,22 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult ListTypeOfService()
+        {
+            return View();
+        }
+        public IActionResult AddTypeOfService()
+        {
+            return View();
+        }
+        public IActionResult DetailsTypeOfService()
+        {
+            return View();
+        }
+        public IActionResult EditTypeOfService()
+        {
+            return View();
+        }
         public IActionResult ListPFXCertificate()
         {
             return View();

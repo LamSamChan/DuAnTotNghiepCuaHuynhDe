@@ -1,0 +1,73 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_AdminLayout";
+}
+<div class="container-fluid">
+    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="listTable" style="background-color:white; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); min-height:700px">
+        <table class="table">
+            <thead>
+                <tr style="color: #8B909A;">
+                    <th scope="col">HÀNH ĐỘNG</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">NGÀY TẠO</th>
+                    <th scope="col">NGÀY CẬP NHẬT</th>
+                    <th scope="col">TÊN DỊCH VỤ</th>
+                    <th scope="col">GIÁ</th>
+                    <th scope="col">ĐƠN VỊ THỜI GIAN</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr>
+                    <td>
+                        <div class="row action">
+                            <a ><i class="ph-bold ph-note-pencil"></i></a>
+                            <a><i class="ph-bold ph-trash"></i></a>
+
+                        </div>
+                    </td>
+                    <td scope="row">1</td>
+                    <td>3/3/2003</td>
+                    <td>11/3/2023</td>
+                    <td>An ninh mạng</td>
+                    <td>1.000.000</td>
+                    <td>$$</td>
+                    <td>
+                        <a>Chi tiết</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button class="add_cus" style="margin: 20px; width:300px;">
+        <a class="m-4" >Thêm dịch vụ </a>
+    </button>
+</div>

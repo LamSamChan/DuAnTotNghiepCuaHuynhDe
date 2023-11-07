@@ -1,0 +1,97 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_AdminLayout";
+}
+<div class="container-fluid">
+    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-top: 140px;">
+        <form class="row justify-content-around" style=" margin: 0 auto;" method="post" enctype="multipart/form-data" asp-action="AddEmpAction" asp-controller="Admin">
+            <div class="col-md-5">
+                <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll; height:500px;">
+                    <div class="col-md-6">
+                        <label class="form-label">Id</label>
+                        <input class="form-control" id="inputName" placeholder="Id" readonly>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Tên loại dịch vụ</label>
+                        <input class="form-control" id="inputName" placeholder="Họ và tên" required>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputName" class="form-label">Giá</label>
+                        <input class="form-control" maxlength="12" required>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Đơn vị tính</label>
+                        <input type="text" class="form-control" required placeholder="Trên năm, tháng, ...">
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ngày tạo</label>
+                        <input type="date" class="form-control" required>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ngày cập nhật</label>
+                        <input type="date" class="form-control" required>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputGender" class="form-label">Mã hợp đồng mẫu</label>
+                        <select style="background-color: #F3F3F3;" required class="form-control">
+                            <option value="" disabled selected>...chọn mã hợp đồng</option>
+                            <option value="1">HD3333</option>
+                            <option value="2">NHD001</option>
+                        </select>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputGender" class="form-label">Mã biên bản lắp đặt</label>
+                        <select style="background-color: #F3F3F3;" required class="form-control">
+                            <option value="" disabled selected>...chọn mã biên bản</option>
+                            <option value="1">BB1</option>
+                            <option value="2">BB2</option>
+                        </select>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-7" style="margin:auto; padding: 20px 0;">
+                        <button class="add_cus" type="submit">
+                            LƯU THAY ĐỔI
+                        </button>
+                    </div>
+                </div>
+            </div>
+            @**@
+        </form>
+
+    </div>
+</div>
