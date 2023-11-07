@@ -34,7 +34,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-
+        public IActionResult ListPFXCertificate()
+        {
+            return View();
+        }
+        public IActionResult AddPFXCertificate()
+        {
+            return View();
+        }
         public IActionResult DetailsUsers()
         {
             return View();

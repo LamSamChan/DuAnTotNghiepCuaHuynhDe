@@ -1,0 +1,128 @@
+﻿
+@{
+    Layout = "_AdminLayout";
+}
+<div class="container-fluid">
+    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-top: 40px;">
+        <form class="row justify-content-around" style=" margin: 0 auto;" method="post" enctype="multipart/form-data" asp-action="AddEmpAction" asp-controller="Admin">
+            <div class="col-md-5">
+                <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
+                    <div class="col-md-6">
+                        <div class="avt">
+                            <img src="~/Avatars/empty_avatar.jpg" alt="" style="width:200px; height:200px;" />
+                            <div class="overlay">
+                                <input type="file" accept="image/*" /> Vui lòng chọn file PFX
+                                <span class="text-danger" ></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Số Seri chứng chỉ </label>
+                        <input class="form-control" type="number" id="inputName" placeholder="123"  required>
+                        <span class="text-danger" ></span>
+
+                        <label for="inputDateStart" class="form-label" style="padding-top:60px;">Người sỡ hữu</label>
+                        <input class="form-control" type="text"  placeholder="trung" required>
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputName" class="form-label">Mật khẩu</label>
+                        <input class="form-control" type="password" maxlength="12" required >
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputName" class="form-label">Tổ chức cung cấp</label>
+                        <input class="form-control" type="text" maxlength="12" required>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputName" class="form-label">Giá trị bấm của chứng chỉ</label>
+                        <input class="form-control"  maxlength="12" required >
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputName" class="form-label">Khóa công khai</label>
+                        <input class="form-control"  maxlength="12" required>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ngày hiệu lực</label>
+                        <input type="date" class="form-control" required />
+                        <span class="text-danger" ></span>
+                    </div>
+                       <div class="col-md-6">
+                        <label class="form-label">Ngày hết hạn</label>
+                        <input type="date" class="form-control" required />
+                        <span class="text-danger" ></span>
+                    </div>                
+                    <div class="form-check" style="margin-left:40px">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Is nhân viên
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ảnh chữ ký 1 </label>
+                        <input type="file" class="form-control-file">
+                        <span class="text-danger"  ></span>
+                    </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Ảnh chữ ký 2 </label>
+                        <input type="file" class="form-control-file">
+                        <span class="text-danger"  ></span>
+                    </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Ảnh chữ ký 3 </label>
+                        <input type="file" class="form-control-file">
+                        <span class="text-danger"  ></span>
+                    </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Ảnh chữ ký 4 </label>
+                        <input type="file" class="form-control-file">
+                        <span class="text-danger"  ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ảnh chữ ký 5 </label>
+                        <input type="file" class="form-control-file">
+                        <span class="text-danger"></span>
+                    </div>
+                  
+                   
+                    <div class="col-md-5" style="margin-left: 50px; padding: 20px 0;">
+                        <button class="btn btn-primary" type="submit">
+                            THÊM
+                        </button>
+                    </div>
+                </div>
+            </div>
+            @**@
+        </form>
+
+    </div>
+</div>
