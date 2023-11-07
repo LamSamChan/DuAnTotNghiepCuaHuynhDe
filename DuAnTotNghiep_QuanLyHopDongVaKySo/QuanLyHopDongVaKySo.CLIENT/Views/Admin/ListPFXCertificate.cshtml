@@ -30,13 +30,139 @@
         </div>
     </div>
     <div class="tab-container">
-        <div class="tab-button active" onclick="showTab('tab1')">Danh sách chứng chỉ số còn hạn</div>
+        <div class="tab-button active" onclick="showTab('tab4')">Danh sách khách hàng</div>
+        <div class="tab-button" onclick="showTab('tab5')">Chứng chỉ nhân viên</div>
+    </div>
+    <div class="tab-container">
+        <div class="tab-button" onclick="showTab('tab1')">Danh sách chứng chỉ số còn hạn</div>
         <div class="tab-button" onclick="showTab('tab2')">Danh sách chứng chỉ số sắp hết hạn</div>
         <div class="tab-button" onclick="showTab('tab3')">Danh sách chứng chỉ số đã hết hạn</div>
     </div>
-   
+    <div class="tab-content active" id="tab4">
+        <div class="listTable">
+            <table class="table">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th scope="col">Số Seri chứng chỉ </th>
+                        <th scope="col">Người sỡ hữu</th>
+                        <th scope="col">Mật khẩu</th>
+                        <th scope="col">File PFX</th>
+                        <th scope="col">Tổ chức cung cấp</th>
+                        <th scope="col">Giá trị bấm của chứng chỉ</th>
+                        <th scope="col">Khóa công khai</th>
+                        <th scope="col">Ngày hiệu lực</th>
+                        <th scope="col">Ngày hết hạn</th>
+                        <th scope="col">Is nhân viên</th>
+                        <th scope="col">Hành động</th>
+
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+
+
+                    <tr>
+
+                        <td>PS22582</td>
+                        <td>Trung</td>
+                        <td>abc</td>
+                        <td>ks.pfx</td>
+                        <td>FPT</td>
+                        <td>??</td>
+                        <td>Public</td>
+                        <td>07/11/2023</td>
+                        <td>11/11/2023</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                <span>Không</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <span>Chi tiết</span>
+
+                            </div>
+                        </td>
+
+
+
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="tab-content active" id="tab5">
+
+        <div class="listTable">
+            <table class="table">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th scope="col">Số Seri chứng chỉ </th>
+                        <th scope="col">Người sỡ hữu</th>
+                        <th scope="col">Mật khẩu</th>
+                        <th scope="col">File PFX</th>
+                        <th scope="col">Tổ chức cung cấp</th>
+                        <th scope="col">Giá trị bấm của chứng chỉ</th>
+                        <th scope="col">Khóa công khai</th>
+                        <th scope="col">Ngày hiệu lực</th>
+                        <th scope="col">Ngày hết hạn</th>
+                        <th scope="col">Is nhân viên</th>
+                        <th scope="col">Ảnh chữ ký 1</th>
+                        <th scope="col">Ảnh chữ ký 2</th>
+                        <th scope="col">Ảnh chữ ký 3</th>
+                        <th scope="col">Ảnh chữ ký 4</th>
+                        <th scope="col">Ảnh chữ ký 5</th>
+                        <th scope="col">Hành động</th>
+
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+
+
+                    <tr>
+
+                        <td>PS22582</td>
+                        <td>Trung</td>
+                        <td>abc</td>
+                        <td>ks.pfx</td>
+                        <td>FPT</td>
+                        <td>??</td>
+                        <td>Public</td>
+                        <td>07/11/2023</td>
+                        <td>11/11/2023</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div style="width: 5px; height: 5px; background-color: green; border-radius: 50%; margin-right: 10px;"></div>
+                                <span>Có</span>
+                            </div>
+                        </td>
+                        <td>s.jpg</td>
+                        <td>s.jpg</td>
+                        <td>s.jpg</td>
+                        <td>s.jpg</td>
+                        <td>s.jpg</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <span>Chi tiết</span>
+
+                            </div>
+                        </td>
+
+
+
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
     <div class="tab-content active" id="tab1">
-        
         <div class="listTable">
             <table class="table">
                 <thead>
@@ -100,10 +226,7 @@
         </div>
         
     </div>
-    <div class="tab-container">
-        <div class="tab-button" onclick="showTab('tab4')">Danh sách khách hàng</div>
-        <div class="tab-button" onclick="showTab('tab5')">Chứng chỉ nhân viên</div>
-    </div>
+   
     <div class="tab-content active" id="tab2">
 
        
@@ -245,130 +368,7 @@
   
    
     
-    <div class="tab-content active" id="tab4">
-        <div class="listTable">
-            <table class="table">
-                <thead>
-                    <tr style="color: #8B909A;">
-                        <th scope="col">Số Seri chứng chỉ </th>
-                        <th scope="col">Người sỡ hữu</th>
-                        <th scope="col">Mật khẩu</th>
-                        <th scope="col">File PFX</th>
-                        <th scope="col">Tổ chức cung cấp</th>
-                        <th scope="col">Giá trị bấm của chứng chỉ</th>
-                        <th scope="col">Khóa công khai</th>
-                        <th scope="col">Ngày hiệu lực</th>
-                        <th scope="col">Ngày hết hạn</th>
-                        <th scope="col">Is nhân viên</th>                 
-                        <th scope="col">Hành động</th>
-
-                    </tr>
-                </thead>
-                <tbody class="table-group-divider">
-
-
-                    <tr>
-
-                        <td>PS22582</td>
-                        <td>Trung</td>
-                        <td>abc</td>
-                        <td>ks.pfx</td>
-                        <td>FPT</td>
-                        <td>??</td>
-                        <td>Public</td>
-                        <td>07/11/2023</td>
-                        <td>11/11/2023</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                <span>Không</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <span>Chi tiết</span>
-
-                            </div>
-                        </td>
-
-
-
-
-                    </tr>
-
-
-                </tbody>
-            </table>
-        </div>
-       
-    </div>
-    <div class="tab-content active" id="tab5">
-
-        <div class="listTable">
-            <table class="table">
-                <thead>
-                    <tr style="color: #8B909A;">
-                        <th scope="col">Số Seri chứng chỉ </th>
-                        <th scope="col">Người sỡ hữu</th>
-                        <th scope="col">Mật khẩu</th>
-                        <th scope="col">File PFX</th>
-                        <th scope="col">Tổ chức cung cấp</th>
-                        <th scope="col">Giá trị bấm của chứng chỉ</th>
-                        <th scope="col">Khóa công khai</th>
-                        <th scope="col">Ngày hiệu lực</th>
-                        <th scope="col">Ngày hết hạn</th>
-                        <th scope="col">Is nhân viên</th>
-                        <th scope="col">Ảnh chữ ký 1</th>
-                        <th scope="col">Ảnh chữ ký 2</th>
-                        <th scope="col">Ảnh chữ ký 3</th>
-                        <th scope="col">Ảnh chữ ký 4</th>
-                        <th scope="col">Ảnh chữ ký 5</th>
-                        <th scope="col">Hành động</th>
-
-                    </tr>
-                </thead>
-                <tbody class="table-group-divider">
-
-
-                    <tr>
-
-                        <td>PS22582</td>
-                        <td>Trung</td>
-                        <td>abc</td>
-                        <td>ks.pfx</td>
-                        <td>FPT</td>
-                        <td>??</td>
-                        <td>Public</td>
-                        <td>07/11/2023</td>
-                        <td>11/11/2023</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div style="width: 5px; height: 5px; background-color: green; border-radius: 50%; margin-right: 10px;"></div>
-                                <span>Có</span>
-                            </div>
-                        </td>
-                        <td>s.jpg</td>
-                        <td>s.jpg</td>
-                        <td>s.jpg</td>
-                        <td>s.jpg</td>
-                        <td>s.jpg</td>
-                        <td>
-                            <div class="d-flex align-items-center"> 
-                                <span>Chi tiết</span>
-                                
-                            </div>
-                        </td>
-                       
-
-
-
-                    </tr>
-
-
-                </tbody>
-            </table>
-        </div>
-         </div>
+   
 </div>
 
 <script>
