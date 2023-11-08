@@ -106,7 +106,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId== empId).ToList(),
                 DoneContracts = _doneContractSvc.getAllAsnyc().Result.Where(d => d.EmployeeCreatedId == empId).ToList(),
 
-            };
+            }; 
             return View(vm);
         }
         public async Task<IActionResult> EditEmpAccount(string empId)
