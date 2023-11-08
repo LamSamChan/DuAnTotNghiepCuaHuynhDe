@@ -76,8 +76,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
         }
 
-        [HttpPost("UpdateNotAfter/{serial}")]
-        public async Task<ActionResult<string>> UpdateNotAfter(string serial)
+        [HttpPost("UpdateNotAfter")]
+        public async Task<ActionResult<string>> UpdateNotAfter([FromBody] string serial)
         {
 
             var certi = await _pfxCertificate.GetById(serial);
@@ -104,8 +104,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         }
 
-        [HttpPut("UploadImage/{serial}/{base64StringImage}")]
-        public async Task<ActionResult<string>> UploadSignatureImage(string serial, string base64StringImage)
+        [HttpPut("UploadImage")]
+        public async Task<ActionResult<string>> UploadSignatureImage([FromBody] string serial, string base64StringImage)
         {
             PFXCertificate certificateExist = await _pfxCertificate.GetById(serial);
             string filename = Guid.NewGuid().ToString().Substring(0,8);
@@ -169,8 +169,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         }
 
-        [HttpDelete("DeleteImage/{serial}/{filePath}")]
-        public async Task<ActionResult<string>> DeleteImage(string serial, string filePath)
+        [HttpDelete("DeleteImage")]
+        public async Task<ActionResult<string>> DeleteImage([FromBody] string serial, string filePath)
         {
             PFXCertificate certificateExist = await _pfxCertificate.GetById(serial);
             

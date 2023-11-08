@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMDetailsEmpAccount
 @{
     Layout = "_AdminLayout";
 }
@@ -42,83 +40,106 @@
                 <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
                     <div class="col-md-6">
                         <div class="avt">
-                            <img src="~/Resource/Image/Avatar.jpg" alt="" style="width:200px; height:200px;" />
+                            @if (Model.Employee.Image == null)
+                            {
+                                if (Model.Employee.Gender == 1)
+                                {
+                                    <img src="~/Avatars/blank_avatar_man.png" alt="Avatar" style="width:200px; height:200px;" />
+                                }
+                                else
+                                {
+
+                                    <img src="~/Avatars/blank_avatar_woman.png" alt="Avatar" style="width:200px; height:200px;" />
+                                }
+                            }
+                            else
+                            {
+                                <img src="~/@Model.Employee.Image" alt="Avatar" style="width:200px; height:200px;" />
+                            }
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">Id</label>
-                        <input class="form-control" readonly />
-                        <span class="text-danger"></span>
+                        <label for="inputDateEnd" class="form-label">ID nhân viên</label>
+                        <input class="form-control" readonly asp-for="Employee.EmployeeId">
 
                         <label class="form-label" style="padding-top:60px;">Họ và tên</label>
-                        <input class="form-control" id="inputName" placeholder="Họ và tên" readonly />
-                        <span class="text-danger"></span>
+                        <input class="form-control" id="inputName" placeholder="Họ và tên" asp-for="Employee.FullName" readonly>
                     </div>
                     <div class="col-md-6">
                         <label for="inputEmail" class="form-label">Email</label>
-                        <input class="form-control" type="email" placeholder="abc123@gmail.com" readonly />
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputPass" class="form-label">Password</label>
-                        <input class="form-control" type="password" readonly />
-                        <span class="text-danger"></span>
+                        <input class="form-control" type="email" asp-for="Employee.Email" placeholder="abc123@gmail.com" readonly>
                     </div>
                     <div class="col-md-6">
                         <label for="inputDateOfBirth" class="form-label">Năm sinh</label>
-                        <input class="form-control" readonly />
-                        <span class="text-danger"></span>
+                        <input type="date" class="form-control" required asp-for="Employee.DateOfBirth">
                     </div>
                     <div class="col-md-6">
                         <label for="inputPhone" class="form-label">Số điện thoại</label>
-                        <input class="form-control" maxlength="12" readonly />
-                        <span class="text-danger"></span>
+                        <input class="form-control" asp-for="Employee.PhoneNumber" readonly>
                     </div>
                     <div class="col-md-6">
                         <label for="inputGender" class="form-label">Giới tính</label>
-                        <input class="form-control" readonly />
-                        <span class="text-danger"></span>
+                        @if (Model.Employee.Gender == 1)
+                        {
+                            <input class="form-control" value="Nam" readonly>
+                        }
+                        else
+                        {
+
+                            <input class="form-control" value="Nữ" readonly>
+                        }
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">CMND / CCCD</label>
+                        <input class="form-control" readonly asp-for="Employee.Identification">
                     </div>
                     <div class="col-md-6">
                         <label for="inputRole" class="form-label">Vị trí</label>
-                        <input class="form-control" readonly />
-                        <span class="text-danger"></span>
+                            @foreach (var r in Model.Roles)
+                            {
+                                @if (r.RoleID == Model.Employee.RoleID)
+                                {
+                                    <input class="form-control" readonly value="@r.RoleName">
+                                }
+                            }
                     </div>
                     <div class="col-md-6">
-                        <label for="inputPosition" class="form-label">Chức vụ</label>
-                        <input class="form-control" readonly />
-                        <span class="text-danger"></span>
+                        <label for="inputRole" class="form-label">Chức vụ</label>
+                        @foreach (var p in Model.Positions)
+                        {
+                            @if (p.PositionID == Model.Employee.PositionID)
+                            {
+                                <input class="form-control" readonly value="@p.PositionName">
+                            }
+                        }
                     </div>
                     <div class="col-md-6">
                         <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
-                        <textarea style="background-color: #F3F3F3;" class="form-control" readonly></textarea>
-                        <span class="text-danger"></span>
+                        <textarea style="background-color: #F3F3F3;" class="form-control" readonly asp-for="Employee.Address"></textarea>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputSeri" class="form-label">Chứng chỉ Số SERI</label>
-                        <input style="background-color: #F3F3F3;" class="form-control" readonly />
-                        <span class="text-danger"></span>
+                        <label for="inputSeri" class="form-label">Serial PFX</label>
+                        <input style="background-color: #F3F3F3;" class="form-control" readonly asp-for="Employee.SerialPFX" />
                     </div>
                     <div class="col-md-6 mt-3">
                         <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
                         <div>
-                            <input type="radio" class="btn-check " id="false" value="false" autocomplete="off" required />
-                            <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
-
-                            <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" required />
-                            <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
+                            @if (!Model.Employee.IsLocked)
+                            {
+                                <input type="radio" class="btn-check " asp-for="Employee.IsLocked" id="false" value="false" autocomplete="off" readonly checked>
+                                <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
+                            }
+                            else
+                            {
+                                <input type="radio" class="btn-check " asp-for="Employee.IsLocked" id="true" value="true" autocomplete="off" readonly checked>
+                                <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
+                            }
                         </div>
                     </div>
                     <div class="col-md-12">
                         <label for="note" class="form-label">Ghi chú</label>
-                        <textarea style="background-color: #F3F3F3;" class="form-control"></textarea>
-                        <span class="text-danger"></span>
+                        <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Employee.Note" readonly></textarea>
                     </div>
-                    @* <div class="col-md-5" style="margin:auto;">
-                    <button class="add_cus" type="submit">
-                    Cập nhật thông tin
-                    </button>
-                    </div> *@
                 </div>
             </div>
             @**@

@@ -99,7 +99,7 @@
                                 }
                             </td>
                             <td>
-                                <a asp-route-empId="@emp.EmployeeId">Chi tiết</a>
+                                <a asp-action="DetailsEmpAccount" asp-controller="Admin" asp-route-empId="@emp.EmployeeId">Chi tiết</a>
                             </td>
                         </tr>
                     }
@@ -157,7 +157,7 @@
                                 }
                             </td>
                             <td>
-                                <a asp-route-cusId="@cus.CustomerId">Chi tiết</a>
+                                <a asp-action="DetailsCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId" style="background-color: #00C9A7; color:white; border: 2px solid; padding: 1px 2px;">Chi tiết</a>
                             </td>
                         </tr>
                     }

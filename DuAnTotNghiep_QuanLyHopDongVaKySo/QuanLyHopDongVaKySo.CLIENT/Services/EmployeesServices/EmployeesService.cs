@@ -40,7 +40,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices
             return reponse;
         }
 
-        public async Task<PutEmployee> GetEmployeeById(string id)
+        public async Task<Employee> GetEmployeeById(string id)
+        {
+            var reponse = await _httpClient.GetFromJsonAsync<Employee>($"api/Employees/{id}");
+            return reponse;
+        }
+
+        public async Task<PutEmployee> GetEmployeePutById(string id)
         {
             var reponse = await _httpClient.GetFromJsonAsync<Employee>($"api/Employees/{id}");
             PutEmployee employee = new PutEmployee() { 
