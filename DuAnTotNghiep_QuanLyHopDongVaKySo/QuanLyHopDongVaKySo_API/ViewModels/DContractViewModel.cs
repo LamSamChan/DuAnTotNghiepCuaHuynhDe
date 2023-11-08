@@ -11,5 +11,6 @@
         public string EmployeeCreatedId { get; set; }
         public string DirectorSignedId { get; set; }
         public string CustomerId { get; set; }
+        public string TOS_id { get; set; }
     }
 }

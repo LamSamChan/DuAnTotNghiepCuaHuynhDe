@@ -3,6 +3,7 @@ using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo_API.Models;
@@ -16,6 +17,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly ICustomerService _customerService;
         private readonly IDContractsService _dContractService;
         private readonly IPContractService _pContractService;
+        private readonly IEmployeeService _employeeService;
         private int isAuthenticate  = 1 ;
         private string employeeId ;
 
@@ -66,8 +68,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         public BusinessStaffController(ICustomerService customerService, IDContractsService dContractService,
-            IPContractService pContractService)
+            IPContractService pContractService, IEmployeeService employeeService)
         {
+            _employeeService = employeeService;
             _customerService = customerService;
             _dContractService = dContractService;
             _pContractService = pContractService;
@@ -253,19 +256,25 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
 
-        public IActionResult DetailsContractPending()
+        public async Task<IActionResult> DetailsContractPending(string id)
         {
-            return View();
+            VMDetailsContract viewModel = new VMDetailsContract();
+            viewModel.PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.PContractID == id).FirstOrDefault();
+            viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
+            viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
+            return View(viewModel);
         }
 
-        public IActionResult DetailsContractRefuse()
+        public IActionResult DetailsContractRefuse(string id)
         {
-            return View();
+            var reponse = _pContractService.getByIdAsnyc(int.Parse(id));
+            return View(reponse);
         }
 
-        public IActionResult DetailsContractWaitSign()
+        public IActionResult DetailsContractWaitSign(string id)
         {
-            return View();
+            var reponse = _pContractService.getByIdAsnyc(int.Parse(id));
+            return View(reponse);
         }
 
         public async Task<IActionResult> EditCus(string customerID)
