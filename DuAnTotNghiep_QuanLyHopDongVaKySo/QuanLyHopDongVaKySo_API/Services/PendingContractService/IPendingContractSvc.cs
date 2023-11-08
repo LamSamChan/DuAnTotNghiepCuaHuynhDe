@@ -7,7 +7,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
 {
     public interface IPendingContractSvc
     {
-        Task<List<PendingContract>> getAllAsnyc();
+        Task<List<PContractViewModel>> getAllAsnyc();
         Task<PendingContract> getByIdAsnyc(int id);
         Task<string> addAsnyc(PostPendingContract PContract);
         Task<string> updateAsnyc(PutPendingContract PContract);

@@ -12,6 +12,7 @@ namespace QuanLyHopDongVaKySo_API.ViewModels
         public string DateCreated { get; set; }
         public string CustomerName { get; set; }
         public string CustomerEmail { get; set; }
+        public string CustomerId { get; set; }
         public string IsDirector { get; set; }
         public string IsCustomer { get; set; }
         public string IsRefuse { get; set; }

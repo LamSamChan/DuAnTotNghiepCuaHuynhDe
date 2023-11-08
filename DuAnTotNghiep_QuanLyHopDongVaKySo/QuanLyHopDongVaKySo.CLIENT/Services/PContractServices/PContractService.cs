@@ -28,10 +28,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
             }
         }
 
-        public async Task<List<PendingContract>> getAllAsnyc()
+        public async Task<List<PContractViewModel>> getAllAsnyc()
         {
 
-            var response = await _httpClient.GetFromJsonAsync<List<PendingContract>>("api/PContract");
+            var response = await _httpClient.GetFromJsonAsync<List<PContractViewModel>>("api/PContract");
             return response;
     }
         public async Task<PendingContract> getByIdAsnyc(int id)

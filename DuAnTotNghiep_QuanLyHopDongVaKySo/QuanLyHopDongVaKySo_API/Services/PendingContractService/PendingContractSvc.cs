@@ -71,11 +71,32 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             return await _context.PendingContracts.Where(p => p.PContractID == id).FirstOrDefaultAsync();
         }
 
-        public async Task<List<PendingContract>> getAllAsnyc()
+        public async Task<List<PContractViewModel>> getAllAsnyc()
         {
-            return await _context.PendingContracts.ToListAsync();
-        }
+            List<PContractViewModel> viewModel = new List<PContractViewModel>();
 
+            viewModel = await _context.PendingContracts
+                .Select(pc => new PContractViewModel
+                {
+                    PContractID = pc.PContractID.ToString(),
+                    PContractName = pc.PContractName,
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    CustomerName = pc.Customer.FullName,
+                    CustomerEmail = pc.Customer.Email,
+                    IsDirector = pc.IsDirector? "Đã ký" : "Chờ ký",
+                    IsCustomer = pc.IsCustomer? "Đã ký" : "Chờ ký",
+                    CustomerId = pc.CustomerId.ToString(),
+                    IsRefuse = pc.IsRefuse? "Từ chối" : "Chờ ký",
+                    DirectorSignedId = pc.DirectorSignedId.ToString(),
+                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString(),
+                    Reason = pc.Reason,
+                    InstallationAddress = pc.InstallationAddress,
+                    TOS_ID = pc.TypeOfService.ServiceName,
+                    PContractFile = pc.PContractFile
+                }).ToListAsync();
+            return viewModel;
+        }
+       
         public async Task<int> updatePContractFile(int id, string File)
         {
             var update = await getByIdAsnyc(id);

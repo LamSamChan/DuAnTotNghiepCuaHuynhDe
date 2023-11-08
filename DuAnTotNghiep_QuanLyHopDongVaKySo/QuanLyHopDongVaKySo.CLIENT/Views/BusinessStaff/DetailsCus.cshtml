@@ -230,12 +230,14 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>abc@gmail.com</td>
-                        <td>23/3/2023</td>
-                        <td>abc</td>
-                        <td>Lắp đặt WIFI</td>
+                    @foreach(var item in Model.PendingContracts)
+                    {
+                        <tr>
+                        <th scope="row">@item.PContractID</th>
+                        <td>@item.CustomerEmail</td>
+                        <td>@item.DateCreated</td>
+                        <td>@item.CustomerName</td>
+                        <td>@item.TOS_ID</td>
                         <td>
                             <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
                                 CHỜ KÝ
@@ -245,6 +247,8 @@
                             <a>Chi tiết</a>
                         </td>
                     </tr>
+                    }
+                    
                 </tbody>
             </table>
         </div>
@@ -265,12 +269,14 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>23/3/2023</td>
-                        <td>Lắp đặt WIFI</td>
-                        <td>abc</td>
-                        <td>123 THÀNH PHỐ NÚI</td>
+                    @foreach(var item in Model.DoneContracts)
+                    {
+                        <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.DateDone</td>
+                        <td>@item.CustomerName</td>
+                        <td>@item.CustomerName</td>
+                        <td>@item.TypeOfService</td>
                         <td>
                             <div style="background-color: #00C9A7; color:white; font-weight:bold; ;display: flex;align-items: center;justify-content: center;">
                                 ĐÃ KÝ
@@ -281,6 +287,8 @@
                             <a>Chi tiết</a>
                         </td>
                     </tr>
+                    }
+                    
                 </tbody>
             </table>
         </div>

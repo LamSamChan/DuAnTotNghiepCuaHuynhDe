@@ -126,10 +126,10 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider">
-                    <tr>
-                        @foreach (var cus in Model.Customers)
-                        {
+                <tbody class="table-group-divider">                   
+                    @foreach (var cus in Model.Customers)
+                    {
+                        <tr>
                             <td>
                                 <div class="row action">
                                     <a asp-route-customerID="@cus.CustomerId" asp-action="EditCus" asp-controller="BusinessStaff"><i class="ph-bold ph-note-pencil"></i></a>
@@ -159,8 +159,8 @@
                             <td>
                                 <a asp-route-cusId="@cus.CustomerId">Chi tiết</a>
                             </td>
-                        }
-                    </tr>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

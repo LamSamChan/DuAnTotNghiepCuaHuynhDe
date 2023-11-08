@@ -8,7 +8,5 @@
         public string DateDone { get; set; }
         public string TypeOfService { get; set; }
         public string Status { get; set; }
-
-
     }
 }
