@@ -7,6 +7,7 @@ using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
@@ -20,14 +21,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IEmployeeService _employeeService;
         private readonly IRoleService _roleService;
         private readonly ICustomerService _customerService;
-
+        private readonly IPFXCertificateServices _pFXCertificateServices;
         public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService,
-            ICustomerService customerService)
+            ICustomerService customerService, IPFXCertificateServices pFXCertificateServices)
         {
             _positionService = positionService;
             _employeeService = employeeService;
             _roleService = roleService;
             _customerService = customerService;
+            _pFXCertificateServices = pFXCertificateServices;
 
         }
         public IActionResult Index()
@@ -50,17 +52,34 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult ListPFXCertificate()
+        public async Task<IActionResult> ListPFXCertificate()
         {
-            return View();
+            VMListPFX vm = new VMListPFX();
+            vm.Customers = await _customerService.GetAllCustomers();
+            vm.Employees = await _employeeService.GetAllEmployees();
+            vm.PFXCertificates = await _pFXCertificateServices.GetAll();
+            vm.PFXCertificatesE = await _pFXCertificateServices.GetAllExpire();
+            vm.PFXCertificatesATE = await _pFXCertificateServices.GetAllAboutToExpire();
+            return View(vm);
         }
-        public IActionResult DetailsPFXCertificate()
+        public async Task<IActionResult> DetailsPFXCertificate(string serial)
         {
-            return View();
+            var respone = await _pFXCertificateServices.GetById(serial);
+            return View(respone);
         }
-        public IActionResult DetailsUsers()
+        public async Task<IActionResult> UpdateNotAfterPFX(string serial)
         {
-            return View();
+            var respone = await _pFXCertificateServices.UpdateNotAfter(serial);
+            if (respone != null)
+            {
+                //update thành công
+                return RedirectToAction("ListPFXCertificate");
+
+            }
+            else
+            {
+                return RedirectToAction("ListPFXCertificate");
+            }
         }
         public IActionResult DetailsPosition()
         {

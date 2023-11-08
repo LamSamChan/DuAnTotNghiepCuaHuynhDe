@@ -1,4 +1,6 @@
-﻿@{
+﻿@model QuanLyHopDongVaKySo_API.Models.PFXCertificate
+
+@{
     Layout = "_AdminLayout";
 }
 <div class="container-fluid">
@@ -29,64 +31,78 @@
         </div>
     </div>
     <div style="margin-top: 40px;">
-        <form class="row justify-content-around" style=" margin: 0 auto;" method="post" enctype="multipart/form-data" asp-action="AddEmpAction" asp-controller="Admin">
+        <form class="row justify-content-around" style=" margin: 0 auto;" method="post">
             <div class="col-md-5">
                 <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
                     <div class="col-md-6">
                         <div class="avt">
                             Ảnh chữ ký 1
-                            <img src="~/Avatars/empty_avatar.jpg" alt="" style="width:200px; height:200px;" />
-                            <div class="overlay">
-                                <input type="file" accept="image/*" /> Vui lòng chọn file PFX
-                                <span class="text-danger"></span>
-                            </div>
+                            @if (Model.ImageSignature1 != null)
+                            {
+                                <img src="~/@Model.ImageSignature1" alt="@Model.ImageSignature1" style="width:300px; height:300px;" />
+                            }
+                            else
+                            {
+                                <img src="~/Resource/Image/empty.png" alt="EmptymageSignature" style="width:300px; height:300px;" />
+                            }
+
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="avt">
                             Ảnh chữ ký 2
-                            <img src="~/Avatars/empty_avatar.jpg" alt="" style="width:200px; height:200px;" />
-                            <div class="overlay">
-                                <input type="file" accept="image/*" /> Vui lòng chọn file PFX
-                                <span class="text-danger"></span>
-                            </div>
+                            @if (Model.ImageSignature2 != null)
+                            {
+                                <img src="~/@Model.ImageSignature2" alt="@Model.ImageSignature2" style="width:300px; height:300px;" />
+                            }
+                            else
+                            {
+                            <img src="~/Resource/Image/empty.png" alt="EmptymageSignature" style="width:300px; height:300px;" />
+                            }
                         </div>
                     </div>
                      <div class="col-md-6">
                         <div class="avt">
                             Ảnh chữ ký 3
-                            <img src="~/Avatars/empty_avatar.jpg" alt="" style="width:200px; height:200px;" />
-                            <div class="overlay">
-                                <input type="file" accept="image/*" /> Vui lòng chọn file PFX
-                                <span class="text-danger"></span>
-                            </div>
+                            @if (Model.ImageSignature3 != null)
+                            {
+                                <img src="~/@Model.ImageSignature3" alt="@Model.ImageSignature3" style="width:300px; height:300px;" />
+                            }
+                            else
+                            {
+                            <img src="~/Resource/Image/empty.png" alt="EmptymageSignature" style="width:300px; height:300px;" />
+                            }
                         </div>
                     </div>
                      <div class="col-md-6">
                         <div class="avt">
                             Ảnh chữ ký 4
-                            <img src="~/Avatars/empty_avatar.jpg" alt="" style="width:200px; height:200px;" />
-                            <div class="overlay">
-                                <input type="file" accept="image/*" /> Vui lòng chọn file PFX
-                                <span class="text-danger"></span>
-                            </div>
+                            @if (Model.ImageSignature4 != null)
+                            {
+                                <img src="~/@Model.ImageSignature4" alt="@Model.ImageSignature4" style="width:300px; height:300px;" />
+                            }
+                            else
+                            {
+                            <img src="~/Resource/Image/empty.png" alt="EmptymageSignature" style="width:300px; height:300px;" />
+                            }
                         </div>
                     </div>
                      <div class="col-md-6">
                         <div class="avt">
                             Ảnh chữ ký 5
-                            <img src="~/Avatars/empty_avatar.jpg" alt="" style="width:200px; height:200px;" />
-                            <div class="overlay">
-                                <input type="file" accept="image/*" /> Vui lòng chọn file PFX
-                                <span class="text-danger"></span>
-                            </div>
+                            @if (Model.ImageSignature5 != null)
+                            {
+                                <img src="~/@Model.ImageSignature5" alt="@Model.ImageSignature5" style="width:300px; height:300px;" />
+                            }
+                            else
+                            {
+                            <img src="~/Resource/Image/empty.png" alt="EmptymageSignature" style="width:300px; height:300px;" />
+                            }
                         </div>
                     </div>
-
-
-                    <div class="col-md-5" style="margin-left: 50px; padding: 20px 0;">
-                        <button class="btn btn-primary" type="submit">
-                            GIA HẠN
+                    <div class="col-md-12">
+                        <button class="add_cus" style="margin: 20px; width:300px;">
+                            <a class="m-4" asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@Model.Serial">Gia hạn</a>
                         </button>
                     </div>
                 </div>

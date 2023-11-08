@@ -76,7 +76,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
         }
 
-        [HttpPost("UpdateNotAfter")]
+        [HttpPost("UpdateNotAfter/{serial}")]
         public async Task<ActionResult<string>> UpdateNotAfter(string serial)
         {
 

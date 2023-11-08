@@ -129,7 +129,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Models
         [Column(TypeName = "nvarchar(255)"), AllowNull]
         [Display(Name = "Ghi chú")]
         public string? Note { get; set; }
-
+        public string? SerialPFX { get; set; }
         //tạo liên kết
         [Required(ErrorMessage = "Hãy nhập loại khách hàng")]
         public string typeofCustomer { get; set; }

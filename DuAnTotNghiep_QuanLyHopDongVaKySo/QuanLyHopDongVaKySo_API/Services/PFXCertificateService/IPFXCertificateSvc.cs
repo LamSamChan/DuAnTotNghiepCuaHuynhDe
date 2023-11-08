@@ -9,6 +9,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
         Task<List<PFXCertificate>> GetAllAboutToExpire();
         //Danh sách hết hạn
         Task<List<PFXCertificate>> GetAllExpire();
+
         Task<PFXCertificate> GetById(string serial);
 
         //tạo file -> lưu thông tin vào dtb

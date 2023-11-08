@@ -37,7 +37,7 @@
     </div>
     <div class="tab-content active" id="tab1">
         <div class="tab-container">
-            <div class="tab-button active" onclick="showTabChild('tab1-1')">Danh sách chứng chỉ số còn hạn </div>
+            <div class="tab-button active" onclick="showTabChild('tab1-1')">Danh sách chứng chỉ số</div>
             <div class="tab-button" onclick="showTabChild('tab1-2')">Danh sách chứng chỉ số sắp hết hạn</div>
             <div class="tab-button" onclick="showTabChild('tab1-3')">Danh sách chứng chỉ số hết hạn</div>
         </div>
@@ -46,49 +46,39 @@
                 <table class="table">
                     <thead>
                         <tr style="color: #8B909A;">
-                            <th scope="col">Số Seri chứng chỉ </th>
+                            <th scope="col">Serial</th>
                             <th scope="col">Người sỡ hữu</th>
-                            <th scope="col">Mật khẩu</th>
-                            <th scope="col">File PFX</th>
                             <th scope="col">Tổ chức cung cấp</th>
-                            <th scope="col">Giá trị bấm của chứng chỉ</th>
-                            <th scope="col">Khóa công khai</th>
                             <th scope="col">Ngày hiệu lực</th>
                             <th scope="col">Ngày hết hạn</th>
-                            <th scope="col">Is nhân viên</th>
                             <th scope="col">Hành động</th>
-
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-
-
-                        <tr>
-
-                            <td>dfgdfgdfg</td>
-                            <td>Trung</td>
-                            <td>abc</td>
-                            <td>ks.pfx</td>
-                            <td>FPT</td>
-                            <td>??</td>
-                            <td>Public</td>
-                            <td>07/11/2023</td>
-                            <td>11/11/2023</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                    <span>Không</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span>Chi tiết</span>
-
-                                </div>
-                            </td>
-                        </tr>
-
-
+                        @foreach (var nv in Model.PFXCertificates)
+                        {
+                            if (nv.IsEmployee)
+                            {
+                                <tr>
+                                    <th>@nv.Serial</th>
+                                    @foreach (var emp in Model.Employees)
+                                    {
+                                        if (emp.SerialPFX == nv.Serial)
+                                        {
+                                            <td><a asp-action="DetailsEmpAccount" asp-controller="Admin" asp-route-empId="@emp.EmployeeId">@nv.Subject</a></td>
+                                        }
+                                    }
+                                    <td>@nv.Issuer</td>
+                                    <td>@nv.ValidFrom.ToString("dd/MM/yyyy")</td>
+                                    <td>@nv.ValidUntil.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a asp-action="DetailsPFXCertificate" asp-controller="Admin" asp-route-serial="@nv.Serial">Chi tiết</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
                     </tbody>
                 </table>
             </div>
@@ -98,49 +88,44 @@
                 <table class="table">
                     <thead>
                         <tr style="color: #8B909A;">
-                            <th scope="col">Số Seri chứng chỉ </th>
+                            <th scope="col">Serial</th>
                             <th scope="col">Người sỡ hữu</th>
-                            <th scope="col">Mật khẩu</th>
-                            <th scope="col">File PFX</th>
                             <th scope="col">Tổ chức cung cấp</th>
-                            <th scope="col">Giá trị bấm của chứng chỉ</th>
-                            <th scope="col">Khóa công khai</th>
                             <th scope="col">Ngày hiệu lực</th>
                             <th scope="col">Ngày hết hạn</th>
-                            <th scope="col">Is nhân viên</th>
-                            <th scope="col">Hành động</th>
-
+                            <th scope="col" colspan="2">Hành động</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-
-
-                        <tr>
-
-                            <td>bcvcbvbcv</td>
-                            <td>Trung</td>
-                            <td>abc</td>
-                            <td>ks.pfx</td>
-                            <td>FPT</td>
-                            <td>??</td>
-                            <td>Public</td>
-                            <td>07/11/2023</td>
-                            <td>11/11/2023</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                    <span>Không</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span>Chi tiết</span>
-
-                                </div>
-                            </td>
-                        </tr>
-
-
+                        @foreach (var nv in Model.PFXCertificatesATE)
+                        {
+                            if (nv.IsEmployee)
+                            {
+                                <tr>
+                                    <th>@nv.Serial</th>
+                                    @foreach (var emp in Model.Employees)
+                                    {
+                                        if (emp.SerialPFX == nv.Serial)
+                                        {
+                                            <td><a asp-action="DetailsEmpAccount" asp-controller="Admin" asp-route-empId="@emp.EmployeeId">@nv.Subject</a></td>
+                                        }
+                                    }
+                                    <td>@nv.Issuer</td>
+                                    <td>@nv.ValidFrom.ToString("dd/MM/yyyy")</td>
+                                    <td>@nv.ValidUntil.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a asp-action="DetailsPFXCertificate" asp-controller="Admin" asp-route-serial="@nv.Serial">Chi tiết</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial">Gia hạn</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
                     </tbody>
                 </table>
             </div>
@@ -150,49 +135,44 @@
                 <table class="table">
                     <thead>
                         <tr style="color: #8B909A;">
-                            <th scope="col">Số Seri chứng chỉ </th>
+                            <th scope="col">Serial</th>
                             <th scope="col">Người sỡ hữu</th>
-                            <th scope="col">Mật khẩu</th>
-                            <th scope="col">File PFX</th>
                             <th scope="col">Tổ chức cung cấp</th>
-                            <th scope="col">Giá trị bấm của chứng chỉ</th>
-                            <th scope="col">Khóa công khai</th>
                             <th scope="col">Ngày hiệu lực</th>
                             <th scope="col">Ngày hết hạn</th>
-                            <th scope="col">Is nhân viên</th>
-                            <th scope="col">Hành động</th>
-
+                            <th scope="col" colspan="2" >Hành động</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-
-
-                        <tr>
-
-                            <td>vbnvbnnvb</td>
-                            <td>Trung</td>
-                            <td>abc</td>
-                            <td>ks.pfx</td>
-                            <td>FPT</td>
-                            <td>??</td>
-                            <td>Public</td>
-                            <td>07/11/2023</td>
-                            <td>11/11/2023</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                    <span>Không</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span>Chi tiết</span>
-
-                                </div>
-                            </td>
-                        </tr>
-
-
+                        @foreach (var nv in Model.PFXCertificatesE)
+                        {
+                            if (nv.IsEmployee)
+                            {
+                                <tr>
+                                    <th>@nv.Serial</th>
+                                    @foreach (var emp in Model.Employees)
+                                    {
+                                        if (emp.SerialPFX == nv.Serial)
+                                        {
+                                            <td><a asp-action="DetailsEmpAccount" asp-controller="Admin" asp-route-empId="@emp.EmployeeId">@nv.Subject</a></td>
+                                        }
+                                    }
+                                    <td>@nv.Issuer</td>
+                                    <td>@nv.ValidFrom.ToString("dd/MM/yyyy")</td>
+                                    <td>@nv.ValidUntil.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a asp-action="DetailsPFXCertificate" asp-controller="Admin" asp-route-serial="@nv.Serial">Chi tiết</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial">Gia hạn</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
                     </tbody>
                 </table>
             </div>
@@ -201,58 +181,42 @@
     <div class="tab-content" id="tab2">
         
         <div class="tab-container">
-            <div class="tab-button" onclick="showTabChild('tab2-1')">Danh sách chứng chỉ số còn hạn 1 </div>
-            <div class="tab-button" onclick="showTabChild('tab2-2')">Danh sách chứng chỉ số sắp hết hạn 1</div>
-            <div class="tab-button" onclick="showTabChild('tab2-3')">Danh sách chứng chỉ số hết hạn 1</div>
+            <div class="tab-button" onclick="showTabChild('tab2-1')">Danh sách chứng chỉ số</div>
+            <div class="tab-button" onclick="showTabChild('tab2-2')">Danh sách chứng chỉ số sắp hết hạn</div>
+            <div class="tab-button" onclick="showTabChild('tab2-3')">Danh sách chứng chỉ số hết hạn</div>
         </div>
         <div class="tab-content active" id="tab2-1">
             <div class="listTable">
                 <table class="table">
                     <thead>
                         <tr style="color: #8B909A;">
-                            <th scope="col">Số Seri chứng chỉ </th>
+                            <th scope="col">Serial</th>
                             <th scope="col">Người sỡ hữu</th>
-                            <th scope="col">Mật khẩu</th>
-                            <th scope="col">File PFX</th>
                             <th scope="col">Tổ chức cung cấp</th>
-                            <th scope="col">Giá trị bấm của chứng chỉ</th>
-                            <th scope="col">Khóa công khai</th>
                             <th scope="col">Ngày hiệu lực</th>
                             <th scope="col">Ngày hết hạn</th>
-                            <th scope="col">Is nhân viên</th>
-                            <th scope="col">Hành động</th>
-
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-
-
-                        <tr>
-
-                            <td>2323232</td>
-                            <td>Trung</td>
-                            <td>abc</td>
-                            <td>ks.pfx</td>
-                            <td>FPT</td>
-                            <td>??</td>
-                            <td>Public</td>
-                            <td>07/11/2023</td>
-                            <td>11/11/2023</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                    <span>Không</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span>Chi tiết</span>
-
-                                </div>
-                            </td>
-                        </tr>
-
-
+                        @foreach (var kh in Model.PFXCertificates)
+                        {
+                            if (!kh.IsEmployee)
+                            {
+                                <tr>
+                                    <th>@kh.Serial</th>
+                                    @foreach (var cus in Model.Customers)
+                                    {
+                                        if (cus.SerialPFX == kh.Serial)
+                                        {
+                                            <td><a asp-action="DetailsCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId">@kh.Subject</a></td>
+                                        }
+                                    }
+                                    <td>@kh.Issuer</td>
+                                    <td>@kh.ValidFrom.ToString("dd/MM/yyyy")</td>
+                                    <td>@kh.ValidUntil.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                            }
+                        }
                     </tbody>
                 </table>
             </div>
@@ -262,49 +226,39 @@
                 <table class="table">
                     <thead>
                         <tr style="color: #8B909A;">
-                            <th scope="col">Số Seri chứng chỉ </th>
+                            <th scope="col">Serial</th>
                             <th scope="col">Người sỡ hữu</th>
-                            <th scope="col">Mật khẩu</th>
-                            <th scope="col">File PFX</th>
                             <th scope="col">Tổ chức cung cấp</th>
-                            <th scope="col">Giá trị bấm của chứng chỉ</th>
-                            <th scope="col">Khóa công khai</th>
                             <th scope="col">Ngày hiệu lực</th>
                             <th scope="col">Ngày hết hạn</th>
-                            <th scope="col">Is nhân viên</th>
                             <th scope="col">Hành động</th>
-
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-
-
-                        <tr>
-
-                            <td>kjhjkhk</td>
-                            <td>Trung</td>
-                            <td>abc</td>
-                            <td>ks.pfx</td>
-                            <td>FPT</td>
-                            <td>??</td>
-                            <td>Public</td>
-                            <td>07/11/2023</td>
-                            <td>11/11/2023</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                    <span>Không</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span>Chi tiết</span>
-
-                                </div>
-                            </td>
-                        </tr>
-
-
+                        @foreach (var kh in Model.PFXCertificatesATE)
+                        {
+                            if (!kh.IsEmployee)
+                            {
+                                <tr>
+                                    <th>@kh.Serial</th>
+                                    @foreach (var cus in Model.Customers)
+                                    {
+                                        if (cus.SerialPFX == kh.Serial)
+                                        {
+                                            <td><a asp-action="DetailsCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId">@kh.Subject</a></td>
+                                        }
+                                    }
+                                    <td>@kh.Issuer</td>
+                                    <td>@kh.ValidFrom.ToString("dd/MM/yyyy")</td>
+                                    <td>@kh.ValidUntil.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial">Gia hạn</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
                     </tbody>
                 </table>
             </div>
@@ -314,49 +268,39 @@
                 <table class="table">
                     <thead>
                         <tr style="color: #8B909A;">
-                            <th scope="col">Số Seri chứng chỉ </th>
+                            <th scope="col">Serial</th>
                             <th scope="col">Người sỡ hữu</th>
-                            <th scope="col">Mật khẩu</th>
-                            <th scope="col">File PFX</th>
                             <th scope="col">Tổ chức cung cấp</th>
-                            <th scope="col">Giá trị bấm của chứng chỉ</th>
-                            <th scope="col">Khóa công khai</th>
                             <th scope="col">Ngày hiệu lực</th>
                             <th scope="col">Ngày hết hạn</th>
-                            <th scope="col">Is nhân viên</th>
                             <th scope="col">Hành động</th>
-
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-
-
-                        <tr>
-
-                            <td>m/,..m,/.,</td>
-                            <td>Trung</td>
-                            <td>abc</td>
-                            <td>ks.pfx</td>
-                            <td>FPT</td>
-                            <td>??</td>
-                            <td>Public</td>
-                            <td>07/11/2023</td>
-                            <td>11/11/2023</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                    <span>Không</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span>Chi tiết</span>
-
-                                </div>
-                            </td>
-                        </tr>
-
-
+                        @foreach (var kh in Model.PFXCertificatesE)
+                        {
+                            if (!kh.IsEmployee)
+                            {
+                                <tr>
+                                    <th>@kh.Serial</th>
+                                    @foreach (var cus in Model.Customers)
+                                    {
+                                        if (cus.SerialPFX == kh.Serial)
+                                        {
+                                            <td><a asp-action="DetailsCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId">@kh.Subject</a></td>
+                                        }
+                                    }
+                                    <td>@kh.Issuer</td>
+                                    <td>@kh.ValidFrom.ToString("dd/MM/yyyy")</td>
+                                    <td>@kh.ValidUntil.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial">Gia hạn</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
                     </tbody>
                 </table>
             </div>
@@ -390,12 +334,6 @@
         selectedTab.classList.add('active');
         var selectedTabChild = document.getElementById(tabId+"-1");
         selectedTabChild.classList.add('active');
-
-        var parentTabId = selectedTab.parentElement.closest('.tab-content').id;
-        if (parentTabId) {
-            var parentTab = document.getElementById(parentTabId);
-            parentTab.classList.add('active');
-        }
     }
 
     function showTabChild(tabChildId) {
@@ -424,12 +362,6 @@
         var selectedButtonChild = document.querySelector('[onclick="showTabChild(\'' + tabChildId + '\')"]');
         selectedButtonChild.classList.add('active');
 
-
-        var parentTabId = selectedTab.parentElement.closest('.tab-content').id;
-        if (parentTabId) {
-            var parentTab = document.getElementById(parentTabId);
-            parentTab.classList.add('active');
-        }
     }
 
 </script>

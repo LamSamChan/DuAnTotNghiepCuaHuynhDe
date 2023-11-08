@@ -7,6 +7,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using System.Net.Http;
 using QuanLyHopDongVaKySo.CLIENT.Services.IRequirementsServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,7 @@ builder.Services.AddScoped<IPContractService, PContractService>();
 builder.Services.AddScoped<IAuthServices, AuthServices>();
 builder.Services.AddScoped<IDContractsService, DContractsService>();
 builder.Services.AddScoped<IIRequirementService, IRequirementService>();
-
+builder.Services.AddScoped <IPFXCertificateServices, PFXCertificateServices>();
 
 builder.Services.AddSession(option =>
 {
