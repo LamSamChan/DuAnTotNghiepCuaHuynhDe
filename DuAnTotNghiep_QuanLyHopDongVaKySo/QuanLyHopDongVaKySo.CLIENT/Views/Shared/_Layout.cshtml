@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/@@phosphor-icons/web"></script>
 </head>
 <body>
-    <header style="background-color:#001529; ">
+    <header style="background-color:#001529; position:fixed; width:100%; top:0; left:0; z-index:9999;">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
             <div class="container-fluid">
                 <div class="logo">
@@ -23,7 +23,7 @@
     </header>
     <div class="contai">
        @Html.Partial("_SidebarPartialView")
-      <main role="main" class="pb-3">
+      <main style="margin-left:280px; margin-top:50px;" role="main" class="pb-3" >
             @RenderBody()
       </main>
     </div>

@@ -1,35 +1,43 @@
 ﻿
 
 /* CSS cho màn hình 15.6 inch  */
-    .body {
-        margin-top: 100px;
-    }
 
-        .body .row .col-6 {
-            background-image: url("../../Resource/Image/BackgroundImage.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            border-radius: 16px;
-            margin-left: -30px;
-        }
+.body {
+    margin-top: 100px;
+}
+.body .row .col-6 {
+    background-image: url("../../Resource/Image/BackgroundImage.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    margin-left: -30px;
+}     
+.body div[class="box_avatar"] {
+    position: relative;
+    width: 257px;
+    bottom: 30px;
+    left: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.body div[class="box_avtr"] {
+    margin: auto 0 ;
+    width: 257px;
+    bottom: 30px;
+    left: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .body div[class="box_avatar"] {
-            position: relative;
-            width: 257px;
-            bottom: 30px;
-            left: 500px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-    div[class="box_avatar"] > img {
-        width: 257px;
-        height: 210px;
-        border: 7px solid #FFF;
-      
-    }
+div[class="box_avtr"] > img,
+div[class="box_avatar"] > img {
+    width: 257px;
+    height: 210px;
+    border: 7px solid #FFF;
+}
 
 div[id="box_load"] {
     display: flex;
@@ -42,7 +50,6 @@ div[id="box_load"] {
     height: 310px;
 
 }
-
     .body .row .col-5 {
         background-color: #FFF;
         border-radius: 26px;

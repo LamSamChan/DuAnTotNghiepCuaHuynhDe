@@ -15,6 +15,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult PersonalView()
+        {
+            return View();
+        }
         public IActionResult CompleteRecord()
         {
             return View();
