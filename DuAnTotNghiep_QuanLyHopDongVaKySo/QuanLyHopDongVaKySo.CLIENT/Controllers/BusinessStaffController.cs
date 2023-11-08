@@ -3,6 +3,7 @@ using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo_API.Models;
@@ -20,6 +21,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IPContractService _pContractService;
         private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly IHttpContextAccessor _contextAccessor;
+        private readonly IEmployeeService _employeeService;
         private int isAuthenticate  = 1 ;
         private string employeeId ;
 
@@ -69,7 +71,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             set { this.employeeId = value; }
         }
 
-        public BusinessStaffController(ICustomerService customerService, IDContractsService dContractService,
+        public BusinessStaffController(ICustomerService customerService, IDContractsService dContractService,IEmployeeService employeeService,
             IPContractService pContractService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor)
         {
             _customerService = customerService;
@@ -77,6 +79,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _pContractService = pContractService;
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
+            _employeeService = employeeService;
         }
 
         public async Task<IActionResult> Index()
@@ -259,19 +262,34 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
 
-        public IActionResult DetailsContractPending()
+        public async Task<IActionResult>  DetailsContractPending(string id)
         {
-            return View();
+            VMDetailsContract viewModel = new VMDetailsContract();
+
+            viewModel.PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.PContractID == id).FirstOrDefault();
+            viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
+            viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
+            return View(viewModel);
         }
 
-        public IActionResult DetailsContractRefuse()
+        public async Task<IActionResult> DetailsContractRefuse(string id)
         {
-            return View();
+            VMDetailsContract viewModel = new VMDetailsContract();
+
+            viewModel.PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.PContractID == id).FirstOrDefault();
+            viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
+            viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.DirectorSignedId);
+            return View(viewModel);
         }
 
-        public IActionResult DetailsContractWaitSign()
+        public async Task<IActionResult> DetailsContractWaitSign(string id)
         {
-            return View();
+            VMDetailsContract viewModel = new VMDetailsContract();
+
+            viewModel.PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.PContractID == id).FirstOrDefault();
+            viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
+            viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
+            return View(viewModel);
         }
 
         public async Task<IActionResult> EditCus(string customerID)
