@@ -62,15 +62,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             vm.PFXCertificatesATE = await _pFXCertificateServices.GetAllAboutToExpire();
             return View(vm);
         }
-     /*   public async Task<IActionResult> DetailsPFXCertificate(string serial)
+        public async Task<IActionResult> DetailsPFXCertificate(string serial)
         {
             var respone = await _pFXCertificateServices.GetById(serial);
             return View(respone);
-        }*/
-        public IActionResult DetailsPFXCertificate()
-        {
-            return View();
         }
+     
         public async Task<IActionResult> UpdateNotAfterPFX(string serial)
         {
             var respone = await _pFXCertificateServices.UpdateNotAfter(serial);
