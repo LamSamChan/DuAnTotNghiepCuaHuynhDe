@@ -40,9 +40,24 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
         }
 
 
-        public async Task<List<DoneContract>> getAllAsnyc()
+        public async Task<List<DContractViewModel>> getAllAsnyc()
         {
-            return await _context.DoneContracts.ToListAsync();
+            List<DContractViewModel> viewModel = new List<DContractViewModel>();
+
+            viewModel = await _context.DoneContracts
+                .Select(dc => new DContractViewModel
+                {
+                    Id = dc.DContractID.ToString(),
+                    CustomerName = dc.Customer.FullName,
+                    CustomerEmail = dc.Customer.Email,
+                    DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    TypeOfService = dc.TypeOfService.ServiceName,
+                    Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc",
+                    EmployeeCreatedId = dc.EmployeeCreatedId.ToString().ToLower(),
+                    DirectorSignedId = dc.DirectorSignedId.ToString().ToLower(),
+                    CustomerId = dc.CustomerId.ToString().ToLower(),
+                }).ToListAsync();
+            return viewModel;
         }
 
         public async Task<DoneContract> getByIdAsnyc(string id)
@@ -62,7 +77,10 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     CustomerEmail = dc.Customer.Email,
                     DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
                     TypeOfService = dc.TypeOfService.ServiceName,
-                    Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc"
+                    Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc",
+                    EmployeeCreatedId = dc.EmployeeCreatedId.ToString().ToLower(),
+                    DirectorSignedId = dc.DirectorSignedId.ToString().ToLower(),
+                    CustomerId = dc.CustomerId.ToString().ToLower(),
                 }).ToListAsync();
             return viewModel;
         }
@@ -79,7 +97,10 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     CustomerEmail = dc.Customer.Email,
                     DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
                     TypeOfService = dc.TypeOfService.ServiceName,
-                    Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc"
+                    Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc",
+                    EmployeeCreatedId = dc.EmployeeCreatedId.ToString().ToLower(),
+                    DirectorSignedId= dc.DirectorSignedId.ToString().ToLower(),
+                    CustomerId= dc.CustomerId.ToString().ToLower(),
                 }).ToListAsync();
             return viewModel;
         }

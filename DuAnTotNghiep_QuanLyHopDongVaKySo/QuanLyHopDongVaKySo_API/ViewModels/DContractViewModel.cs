@@ -8,5 +8,8 @@
         public string DateDone { get; set; }
         public string TypeOfService { get; set; }
         public string Status { get; set; }
+        public string EmployeeCreatedId { get; set; }
+        public string DirectorSignedId { get; set; }
+        public string CustomerId { get; set; }
     }
 }

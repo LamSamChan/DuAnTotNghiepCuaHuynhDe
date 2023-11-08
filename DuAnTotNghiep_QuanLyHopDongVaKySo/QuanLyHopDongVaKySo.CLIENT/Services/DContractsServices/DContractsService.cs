@@ -13,9 +13,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
             _httpClient = httpClient;
         }
 
-        public async Task<List<DoneContract>> getAllAsnyc()
+        public async Task<List<DContractViewModel>> getAllAsnyc()
         {
-            var response = await _httpClient.GetFromJsonAsync< List<DoneContract>>($"api/DContract/getAll");
+            var response = await _httpClient.GetFromJsonAsync< List<DContractViewModel>>($"api/DContract/getAll");
             return response;
         }
 

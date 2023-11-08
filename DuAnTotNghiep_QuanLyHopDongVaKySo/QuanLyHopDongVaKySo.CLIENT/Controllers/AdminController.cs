@@ -7,11 +7,13 @@ using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -22,15 +24,18 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IRoleService _roleService;
         private readonly ICustomerService _customerService;
         private readonly IPFXCertificateServices _pFXCertificateServices;
+        private readonly IPContractService _pContractService;
+        private readonly IDoneContractSvc _doneContractSvc;
         public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService,
-            ICustomerService customerService, IPFXCertificateServices pFXCertificateServices)
+            ICustomerService customerService, IPFXCertificateServices pFXCertificateServices, IPContractService pContractService, IDoneContractSvc doneContractSvc)
         {
             _positionService = positionService;
             _employeeService = employeeService;
             _roleService = roleService;
             _customerService = customerService;
             _pFXCertificateServices = pFXCertificateServices;
-
+            _pContractService= pContractService;
+            _doneContractSvc = doneContractSvc;
         }
         public IActionResult Index()
         {
@@ -96,8 +101,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 Employee = await _employeeService.GetEmployeeById(empId),
                 Roles = await _roleService.GetAllRolesAsync(),
-                Positions = await _positionService.GetAllPositionsAsync()
+                Positions = await _positionService.GetAllPositionsAsync(),
                 //truyền thêm pcontract + donecontract
+                PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId== empId).ToList(),
+                DoneContracts = _doneContractSvc.getAllAsnyc().Result.Where(d => d.EmployeeCreatedId == empId).ToList(),
 
             };
             return View(vm);

@@ -5,7 +5,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
 {
     public interface IDContractsService
     {
-        Task<List<DoneContract>> getAllAsnyc();
+        Task<List<DContractViewModel>> getAllAsnyc();
         Task<DoneContract> getByIdAsnyc(string id);
         Task<string> updateAsnyc(PutDContract dContract);
 

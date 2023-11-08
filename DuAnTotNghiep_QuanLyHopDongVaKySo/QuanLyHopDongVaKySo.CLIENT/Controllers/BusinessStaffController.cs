@@ -100,7 +100,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 vm.Customer = respone;
 
                 //truyền thêm
-                vm.PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.IsCustomer == "Chờ ký" && p.CustomerId == customerID).ToList();
+                vm.PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.CustomerId == customerID).ToList();
                 vm.DoneContracts = await _dContractService.getListByCusId(customerID);
                 return View(vm);
             }
