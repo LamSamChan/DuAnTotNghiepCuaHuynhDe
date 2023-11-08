@@ -40,8 +40,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices
 
         public async Task<string> UpdateNotAfter(string serial)
         {
-            var content = new StringContent(serial, Encoding.UTF8, "application/json");
-            using (var response = await _httpClient.PostAsync("api/PFXCertificates/UpdateNotAfter", content))
+            using (var response = await _httpClient.PostAsJsonAsync<string>($"api/PFXCertificates/UpdateNotAfter",serial))
             {
                 if (response.IsSuccessStatusCode)
                 {

@@ -89,16 +89,24 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult DetailsEmpAccount()
+        public async Task<IActionResult> DetailsEmpAccount(string empId)
         {
-            return View();
+            VMDetailsEmpAccount vm = new VMDetailsEmpAccount()
+            {
+                Employee = await _employeeService.GetEmployeeById(empId),
+                Roles = await _roleService.GetAllRolesAsync(),
+                Positions = await _positionService.GetAllPositionsAsync()
+                //truyền thêm pcontract + donecontract
+
+            };
+            return View(vm);
         }
         public async Task<IActionResult> EditEmpAccount(string empId)
         {
             VMEditEmployee vm = new VMEditEmployee();
             vm.Roles = await _roleService.GetAllRolesAsync();
             vm.Positions = await _positionService.GetAllPositionsAsync();
-            vm.Employee= await _employeeService.GetEmployeeById(empId);
+            vm.Employee= await _employeeService.GetEmployeePutById(empId);
 
             if (vm.Employee != null)
             {
@@ -135,7 +143,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
             }
             string respone = await _employeeService.UpdateEmployee(employee);
-            var emp = await _employeeService.GetEmployeeById(respone);
+            var emp = await _employeeService.GetEmployeePutById(respone);
 
             if (emp != null)
             {

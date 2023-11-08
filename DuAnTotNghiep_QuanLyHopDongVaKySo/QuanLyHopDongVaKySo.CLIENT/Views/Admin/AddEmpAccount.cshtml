@@ -71,7 +71,10 @@
                             <option value="" disabled selected>...chọn vai trò trên hệ thống</option>
                             @foreach (var r in Model.Roles)
                             {
-                                <option value="@r.RoleID">@r.RoleName</option>
+                                @if (!r.isHidden)
+                                {
+                                    <option value="@r.RoleID">@r.RoleName</option>
+                                }
                             }
                         </select>
                         <span class="text-danger" asp-validation-for="Employee.RoleID"></span>
@@ -81,7 +84,10 @@
                             <option value="" disabled selected>...chọn chức vụ trong công ty</option>
                             @foreach (var p in Model.Positions)
                             {
-                                <option value="@p.PositionID">@p.PositionName</option>
+                                @if (!p.isHidden)
+                                {
+                                    <option value="@p.PositionID">@p.PositionName</option>
+                                }
                             }
                         </select>
                         <span class="text-danger" asp-validation-for="Employee.PositionID"></span>
