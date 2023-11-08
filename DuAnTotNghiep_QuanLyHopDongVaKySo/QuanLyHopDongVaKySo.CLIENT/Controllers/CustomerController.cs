@@ -37,7 +37,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
 
             var fileName = System.Guid.NewGuid() + ".png";
-            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, "Signatures"), fileName);
+
+            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, "TempSignature"), fileName);
+
 
             bmpSign.Save(filePath, ImageFormat.Png);
 

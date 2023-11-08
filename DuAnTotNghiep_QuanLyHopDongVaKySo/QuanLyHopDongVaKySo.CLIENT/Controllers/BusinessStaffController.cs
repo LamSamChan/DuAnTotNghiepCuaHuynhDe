@@ -3,12 +3,13 @@ using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
-using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using QuanLyHopDongVaKySo_CLIENT.Constants;
+using System.Drawing.Imaging;
+using test.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -17,7 +18,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly ICustomerService _customerService;
         private readonly IDContractsService _dContractService;
         private readonly IPContractService _pContractService;
-        private readonly IEmployeeService _employeeService;
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IHttpContextAccessor _contextAccessor;
         private int isAuthenticate  = 1 ;
         private string employeeId ;
 
@@ -68,12 +70,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         public BusinessStaffController(ICustomerService customerService, IDContractsService dContractService,
-            IPContractService pContractService, IEmployeeService employeeService)
+            IPContractService pContractService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor)
         {
-            _employeeService = employeeService;
             _customerService = customerService;
             _dContractService = dContractService;
             _pContractService = pContractService;
+            _hostingEnvironment = hostingEnvironment;
+            _contextAccessor = contextAccessor;
         }
 
         public async Task<IActionResult> Index()
@@ -256,25 +259,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
 
-        public async Task<IActionResult> DetailsContractPending(string id)
+        public IActionResult DetailsContractPending()
         {
-            VMDetailsContract viewModel = new VMDetailsContract();
-            viewModel.PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.PContractID == id).FirstOrDefault();
-            viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
-            viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
-            return View(viewModel);
+            return View();
         }
 
-        public IActionResult DetailsContractRefuse(string id)
+        public IActionResult DetailsContractRefuse()
         {
-            var reponse = _pContractService.getByIdAsnyc(int.Parse(id));
-            return View(reponse);
+            return View();
         }
 
-        public IActionResult DetailsContractWaitSign(string id)
+        public IActionResult DetailsContractWaitSign()
         {
-            var reponse = _pContractService.getByIdAsnyc(int.Parse(id));
-            return View(reponse);
+            return View();
         }
 
         public async Task<IActionResult> EditCus(string customerID)
@@ -321,6 +318,24 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public IActionResult SendMail()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult SaveSignature([FromBody] SignData sData)
+        {
+            if (null == sData)
+                return NotFound();
+
+            var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
+
+            var fileName = System.Guid.NewGuid() + ".png";
+
+            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, "SignatureImages"), fileName);
+
+
+            bmpSign.Save(filePath, ImageFormat.Png);
+
+            return Content(fileName);
         }
     }
 }

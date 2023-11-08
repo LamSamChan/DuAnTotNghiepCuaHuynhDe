@@ -315,6 +315,30 @@
 }
 
 
+/*css chu ky*/
+.avt {
+    position: relative;
+    display: inline-block;
+    height: 200px;
+    border: 1px solid;
+    margin: 6px 30px;
+}
 
+div[class="overlay"] {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    transition: opacity 0.3s;
+    padding: 10px;
+    opacity: 0;
+}
+
+.avt:hover div[class="overlay"] {
+    opacity: 1;
+}
 
 
