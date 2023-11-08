@@ -8,6 +8,8 @@ using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using QuanLyHopDongVaKySo_CLIENT.Constants;
+using System.Drawing.Imaging;
+using test.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -16,6 +18,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly ICustomerService _customerService;
         private readonly IDContractsService _dContractService;
         private readonly IPContractService _pContractService;
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IHttpContextAccessor _contextAccessor;
         private int isAuthenticate  = 1 ;
         private string employeeId ;
 
@@ -66,11 +70,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         public BusinessStaffController(ICustomerService customerService, IDContractsService dContractService,
-            IPContractService pContractService)
+            IPContractService pContractService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor)
         {
             _customerService = customerService;
             _dContractService = dContractService;
             _pContractService = pContractService;
+            _hostingEnvironment = hostingEnvironment;
+            _contextAccessor = contextAccessor;
         }
 
         public async Task<IActionResult> Index()
@@ -312,6 +318,24 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public IActionResult SendMail()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult SaveSignature([FromBody] SignData sData)
+        {
+            if (null == sData)
+                return NotFound();
+
+            var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
+
+            var fileName = System.Guid.NewGuid() + ".png";
+
+            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, "SignatureImages"), fileName);
+
+
+            bmpSign.Save(filePath, ImageFormat.Png);
+
+            return Content(fileName);
         }
     }
 }
