@@ -3,6 +3,9 @@
 @{
     Layout = "_AdminLayout";
 }
+<link rel="stylesheet" type="text/css" href="~/Test/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/Test/css/style.css">
+
 <div class="container-fluid">
     <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
         <div class="SearchBox">
@@ -31,84 +34,97 @@
         </div>
     </div>
     <div style="margin-top: 40px;">
-        <form class="row justify-content-around" style=" margin: 0 auto;" method="post">
-            <div class="col-md-5">
-                <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
-                    <div class="col-md-6">
-                        <div class="avt">
-                            Ảnh chữ ký 1
-                            @if (Model.ImageSignature1 != null)
+        <section class="gallery min-vh-100">
+            <div class="container-lg">
+                <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+                    <div class="col">
+                        Ảnh chữ ký 1                       
+                         @if (Model.ImageSignature1 != null)
                             {
                                 <img src="~/@Model.ImageSignature1" alt="@Model.ImageSignature1" style="width:300px; height:300px;" />
                             }
                             else
                             {
-                                <img src="~/Resource/Image/empty.png" alt="EmptymageSignature" style="width:300px; height:300px;" />
+                            <img src="~/Test/img/1.jpg" class="gallery-item" alt="gallery">
                             }
-
-                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="avt">
-                            Ảnh chữ ký 2
-                            @if (Model.ImageSignature2 != null)
-                            {
-                                <img src="~/@Model.ImageSignature2" alt="@Model.ImageSignature2" style="width:300px; height:300px;" />
-                            }
-                            else
-                            {
-                            <img src="~/Resource/Image/empty.png" alt="EmptymageSignature" style="width:300px; height:300px;" />
-                            }
-                        </div>
+                    <div class="col">
+                        Ảnh chữ ký 2
+                        @if (Model.ImageSignature1 != null)
+                        {
+                            <img src="~/@Model.ImageSignature1" alt="@Model.ImageSignature1" style="width:300px; height:300px;" />
+                        }
+                        else
+                        {
+                            <img src="~/Test/img/2.jpg" class="gallery-item" alt="gallery">
+                        }
                     </div>
-                     <div class="col-md-6">
-                        <div class="avt">
-                            Ảnh chữ ký 3
-                            @if (Model.ImageSignature3 != null)
-                            {
-                                <img src="~/@Model.ImageSignature3" alt="@Model.ImageSignature3" style="width:300px; height:300px;" />
-                            }
-                            else
-                            {
-                            <img src="~/Resource/Image/empty.png" alt="EmptymageSignature" style="width:300px; height:300px;" />
-                            }
-                        </div>
+                    <div class="col">
+                        Ảnh chữ ký 3
+                        @if (Model.ImageSignature1 != null)
+                        {
+                            <img src="~/@Model.ImageSignature1" alt="@Model.ImageSignature1" style="width:300px; height:300px;" />
+                        }
+                        else
+                        {
+                            <img src="~/Test/img/3.jpg" class="gallery-item" alt="gallery">
+                        }
                     </div>
-                     <div class="col-md-6">
-                        <div class="avt">
-                            Ảnh chữ ký 4
-                            @if (Model.ImageSignature4 != null)
-                            {
-                                <img src="~/@Model.ImageSignature4" alt="@Model.ImageSignature4" style="width:300px; height:300px;" />
-                            }
-                            else
-                            {
-                            <img src="~/Resource/Image/empty.png" alt="EmptymageSignature" style="width:300px; height:300px;" />
-                            }
-                        </div>
+                    <div class="col">
+                        Ảnh chữ ký 4
+                        @if (Model.ImageSignature1 != null)
+                        {
+                            <img src="~/@Model.ImageSignature1" alt="@Model.ImageSignature1" style="width:300px; height:300px;" />
+                        }
+                        else
+                        {
+                            <img src="~/Test/img/4.jpg" class="gallery-item" alt="gallery">
+                        }
                     </div>
-                     <div class="col-md-6">
-                        <div class="avt">
-                            Ảnh chữ ký 5
-                            @if (Model.ImageSignature5 != null)
-                            {
-                                <img src="~/@Model.ImageSignature5" alt="@Model.ImageSignature5" style="width:300px; height:300px;" />
-                            }
-                            else
-                            {
-                            <img src="~/Resource/Image/empty.png" alt="EmptymageSignature" style="width:300px; height:300px;" />
-                            }
-                        </div>
+                    <div class="col">
+                        Ảnh chữ ký 5
+                        @if (Model.ImageSignature1 != null)
+                        {
+                            <img src="~/@Model.ImageSignature1" alt="@Model.ImageSignature1" style="width:300px; height:300px;" />
+                        }
+                        else
+                        {
+                            <img src="~/Test/img/5.jpg" class="gallery-item" alt="gallery">
+                        }
                     </div>
-                    <div class="col-md-12">
-                        <div class="d-flex align-items-center">
-                            <a class="m-4 add_cus" style="margin: 20px; width:300px;" asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@Model.Serial">Gia hạn</a>
-                        </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="d-flex align-items-center">
+                        <a class="m-4 add_cus" style="margin: 20px; width:300px;" asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@Model.Serial">Gia hạn</a>
                     </div>
                 </div>
             </div>
-            @**@
-        </form>
+        </section>
+
+        <!-- Modal -->
+        <div class="modal fade" id="gallery-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                           @if (Model.ImageSignature1 != null)
+                        {
+                            <img src="~/@Model.ImageSignature1" alt="@Model.ImageSignature1" style="width:300px; height:300px;" />
+                        }
+                        else
+                        {
+                            <img src="~/Test/img/1.jpg" class="modal-img" alt="modal img">
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>
+
+<script src="~/Test/js/bootstrap.bundle.min.js"></script>
+<script src="~/Test/js/main.js"></script>
