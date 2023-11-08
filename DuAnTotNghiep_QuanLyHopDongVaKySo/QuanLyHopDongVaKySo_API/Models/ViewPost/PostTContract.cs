@@ -7,9 +7,9 @@ namespace QuanLyHopDongVaKySo_API.Models
     {
         [Required]
         public string TContractName { get; set; }
-        [Required]
+
         public string jsonDirectorZone { get; set; }
-        [Required]
+
         public string jsonCustomerZone { get; set; }
         
         public IFormFile? File {get;set;}

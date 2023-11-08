@@ -17,11 +17,13 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly ITemplateContractSvc _TContractSvc;
         private readonly IContractCoordinateSvc _contractCoordinateSvc;
          private readonly IUploadFileHelper _helpers;
-        public TContractController(ITemplateContractSvc TContractSvc,IUploadFileHelper helpers, IContractCoordinateSvc contractCoordinateSvc)
+        private readonly IPdfToImageHelper _pdfToImgHelpers;
+        public TContractController(ITemplateContractSvc TContractSvc,IUploadFileHelper helpers, IContractCoordinateSvc contractCoordinateSvc, IPdfToImageHelper pdfToImgHelpers)
         {
             _TContractSvc = TContractSvc;
             _helpers = helpers;
             _contractCoordinateSvc = contractCoordinateSvc;
+            _pdfToImgHelpers = pdfToImgHelpers;
         }
 
         /// <summary>
@@ -116,7 +118,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                             }
                         }
 
-
+                        _pdfToImgHelpers.PdfToPng(filePath, id_Tcontract, "tcontract");
                         return Ok(new
                         {
                             retText = "Thêm mẫu hợp đồng thành công",
