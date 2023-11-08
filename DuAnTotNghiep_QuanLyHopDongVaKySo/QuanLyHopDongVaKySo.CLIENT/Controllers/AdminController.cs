@@ -11,9 +11,9 @@ using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo_API.Models;
-using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -25,9 +25,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly ICustomerService _customerService;
         private readonly IPFXCertificateServices _pFXCertificateServices;
         private readonly IPContractService _pContractService;
-        private readonly IDoneContractSvc _doneContractSvc;
+        private readonly IDContractsService _doneContractSvc;
         public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService,
-            ICustomerService customerService, IPFXCertificateServices pFXCertificateServices, IPContractService pContractService, IDoneContractSvc doneContractSvc)
+            ICustomerService customerService, IPFXCertificateServices pFXCertificateServices, IPContractService pContractService, IDContractsService doneContractSvc)
         {
             _positionService = positionService;
             _employeeService = employeeService;

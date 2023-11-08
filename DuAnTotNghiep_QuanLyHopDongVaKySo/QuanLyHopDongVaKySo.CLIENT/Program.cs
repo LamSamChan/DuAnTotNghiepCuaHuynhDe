@@ -24,7 +24,7 @@ builder.Services.AddScoped<IAuthServices, AuthServices>();
 builder.Services.AddScoped<IDContractsService, DContractsService>();
 builder.Services.AddScoped<IIRequirementService, IRequirementService>();
 builder.Services.AddScoped <IPFXCertificateServices, PFXCertificateServices>();
-
+builder.Services.AddScoped<IDContractsService, DContractsService>();
 builder.Services.AddSession(option =>
 {
     option.IdleTimeout = TimeSpan.FromMinutes(300);

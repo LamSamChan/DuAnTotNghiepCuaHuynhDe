@@ -30,9 +30,16 @@ namespace QuanLyHopDongVaKySo_API.Helpers
                 {
                     outputDirectoryPath = $"../QuanLyHopDongVaKySo.CLIENT/wwwroot/MinuteImage/{idContract}";
                 }
-                else
+                else if (typeDoc == "contract")
                 {
                     outputDirectoryPath = $"../QuanLyHopDongVaKySo.CLIENT/wwwroot/ContractImage/{idContract}";
+                }else if (typeDoc == "tcontract")
+                {
+                    outputDirectoryPath = $"../QuanLyHopDongVaKySo.CLIENT/wwwroot/TContractImage/{idContract}";
+                }
+                else
+                {
+                    outputDirectoryPath = $"../QuanLyHopDongVaKySo.CLIENT/wwwroot/TMinuteImage/{idContract}";
                 }
                 
                 if(!Directory.Exists(outputDirectoryPath))
