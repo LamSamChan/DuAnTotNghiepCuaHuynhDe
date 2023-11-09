@@ -98,7 +98,7 @@
                     <div class="col-md-6">
                         <label for="inputRole" class="form-label">Vị trí</label>
                         <select style="background-color: #F3F3F3;" required class="form-control" asp-for="Employee.RoleID">
-                            <option value="" disabled selected>...chọn vai trò trên hệ thống</option>
+                            <option value="" disabled>...chọn vai trò trên hệ thống</option>
                             @foreach (var r in Model.Roles)
                             {
                                 @if (!r.isHidden)
@@ -112,7 +112,7 @@
                     <div class="col-md-6">
                         <label for="inputRole" class="form-label">Chức vụ</label>
                         <select style="background-color: #F3F3F3;" required class="form-control" asp-for="Employee.PositionID">
-                            <option value="" disabled selected>...chọn chức vụ trong công ty</option>
+                            <option value="" disabled>...chọn chức vụ trong công ty</option>
                             @foreach (var p in Model.Positions)
                             {
                                 

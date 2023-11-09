@@ -30,9 +30,25 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 HttpContext.Session.SetString(SessionKey.Employee.EmployeeContext,
                         JsonConvert.SerializeObject(reponse));
-                HttpContext.Session.SetString(SessionKey.Employee.EmployeeID,reponse.EmployeeId.ToString());
-                HttpContext.Session.SetString(SessionKey.Employee.Role,_roleService.GetRoleByIdAsync(reponse.RoleID).Result.RoleName);
-                return RedirectToAction("Index", "BusinessStaff");
+                HttpContext.Session.SetString(SessionKey.Employee.EmployeeID, reponse.EmployeeId.ToString());
+                HttpContext.Session.SetString(SessionKey.Employee.Role, _roleService.GetRoleByIdAsync(reponse.RoleID).Result.RoleName);
+                string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
+                if (role == "Admin")
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
+                else if (role == "Giám đốc")
+                {
+                    return RedirectToAction("Index", "Director");
+                }
+                else if (role =="Nhân viên kinh doanh")
+                {
+                    return RedirectToAction("Index", "BusinessStaff");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "InstallStaff");
+                } 
             }
             else
             {
