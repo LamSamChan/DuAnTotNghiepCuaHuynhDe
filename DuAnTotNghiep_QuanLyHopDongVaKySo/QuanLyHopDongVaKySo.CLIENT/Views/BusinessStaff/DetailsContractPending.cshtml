@@ -14,6 +14,9 @@
     string[] imageFiles = Directory.GetFiles(folderItem);
 }
 <div class="container-fluid">
+    <button class="return">
+        <i class="ph-bold ph-arrow-left"></i>
+    </button>
     <div class="row" style="background-color:#FFFFFF; margin: 40px auto; height:100%; border-radius:16px;">
         <div class="col-6" style="margin: 20px; border-radius:10px;">
             <div class="showFile">
@@ -43,7 +46,7 @@
         </div>
 
     </div>
-    <div class="inforCus" style="position: absolute;top: 120px;left: 900px; max-height:800px; overflow-y: scroll; ">
+    <div class="inforCus" style="position: absolute;top: 120px;left: 950px; max-height:800px; overflow-y: scroll; ">
         <h4 style="color: #4318FF;font-family: Source Sans Pro;">
             Thông tin khách hàng
         </h4>
@@ -94,7 +97,7 @@
             <div class="col-md-5">
                 <label for="inputAddress" class="form-label">Chữ ký giám đốc</label>
                 <div class="d-flex align-items-center">
-                    <div style="width: 5px; height: 5px; background-color: yellow border-radius: 50%; margin-right: 10px;">
+                    <div style="width: 5px; height: 5px; background-color: yellow; border-radius: 50%; margin-right: 10px;">
                         <span>@Model.PendingContracts.IsDirector</span>
                     </div>     
                 </div>

@@ -22,6 +22,22 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult ListInstallRequire()
+        {
+            return View();
+        }
+        public IActionResult DetailsRequire()
+        {
+            return View();
+        }
+        public IActionResult ListDevice()
+        {
+            return View();
+        }
+        public IActionResult DetailsDevice()
+        {
+            return View();
+        }
         public IActionResult PersonalView()
         {
             return View();
