@@ -244,7 +244,7 @@
                             </div>
                         </td>
                         <td>
-                            <a>Chi tiết</a>
+                            <a asp-action="DetailsContractWaitSign" asp-controller="BusinessStaff" asp-route-id="@item.PContractID">Chi tiết</a>
                         </td>
                     </tr>
                     }
@@ -284,7 +284,7 @@
 
                         </td>
                         <td>
-                            <a>Chi tiết</a>
+                                <a asp-controller="BusinessStaff" asp-action="DetailsContractEffect" asp-route-id="@item.Id">Chi tiết</a>
                         </td>
                     </tr>
                     }

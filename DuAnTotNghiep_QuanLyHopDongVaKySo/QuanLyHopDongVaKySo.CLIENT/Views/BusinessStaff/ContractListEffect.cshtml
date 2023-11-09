@@ -58,7 +58,7 @@
                             <span>@item.Status</span>
                         </td>
                         <td>
-                            <a asp-controller="BusinessStaff" asp-action="DetailsContractEffect">Chi tiết</a>
+                            <a asp-controller="BusinessStaff" asp-action="DetailsContractEffect" asp-route-id="@item.Id">Chi tiết</a>
                         </td>
                     </tr>
                 }
