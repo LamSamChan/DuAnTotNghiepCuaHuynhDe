@@ -66,5 +66,9 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         //tạo liên kết
 
+        [NotMapped]
+        public IFormFile? ImageFile { get; set; }
+        [NotMapped]
+        public string? Base64StringFile { get; set; }
     }
 }

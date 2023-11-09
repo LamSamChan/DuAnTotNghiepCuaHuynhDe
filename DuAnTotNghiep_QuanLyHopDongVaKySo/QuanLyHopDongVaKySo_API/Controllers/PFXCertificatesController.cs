@@ -2,6 +2,8 @@
 using Newtonsoft.Json;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Models.ViewDeletes;
+using QuanLyHopDongVaKySo_API.Models.ViewPost;
 using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 using QuanLyHopDongVaKySo_API.Services.EmployeeService;
@@ -105,11 +107,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPut("UploadImage")]
-        public async Task<ActionResult<string>> UploadSignatureImage([FromBody] string serial, string base64StringImage)
+        public async Task<ActionResult<string>> UploadSignatureImage([FromBody] PostUploadSignatureImage image)
         {
-            PFXCertificate certificateExist = await _pfxCertificate.GetById(serial);
+            PFXCertificate certificateExist = await _pfxCertificate.GetById(image.Serial);
             string filename = Guid.NewGuid().ToString().Substring(0,8);
-            IFormFile imageFile = _uploadFileHelper.ConvertBase64ToIFormFile(base64StringImage, filename, "image/jpeg");
+            IFormFile imageFile = _uploadFileHelper.ConvertBase64ToIFormFile(image.Base64String, filename, "image/jpeg");
             try
             {
                 if (imageFile != null)
@@ -169,39 +171,39 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         }
 
-        [HttpDelete("DeleteImage")]
-        public async Task<ActionResult<string>> DeleteImage([FromBody] string serial, string filePath)
+        [HttpPut("DeleteImage")]
+        public async Task<ActionResult<string>> DeleteImage([FromBody] DeleteSignatureImage image)
         {
-            PFXCertificate certificateExist = await _pfxCertificate.GetById(serial);
+            PFXCertificate certificateExist = await _pfxCertificate.GetById(image.Serial);
             
-            if (certificateExist.ImageSignature1 == filePath)
+            if (certificateExist.ImageSignature1 == image.FilePath)
             {
-                _uploadFileHelper.RemoveFile("../QuanLyHopDongVaKySo.CLIENT/wwwroot/" + filePath);
+                _uploadFileHelper.RemoveFile("../QuanLyHopDongVaKySo.CLIENT/wwwroot/" + image.FilePath);
                 certificateExist.ImageSignature1 = null;
                 return Ok(await _pfxCertificate.UpdateInfoToDatabase(certificateExist));
                
             }
-            if (certificateExist.ImageSignature2 == filePath)
+            if (certificateExist.ImageSignature2 == image.FilePath)
             {
-                _uploadFileHelper.RemoveFile("../QuanLyHopDongVaKySo.CLIENT/wwwroot/" + filePath);
+                _uploadFileHelper.RemoveFile("../QuanLyHopDongVaKySo.CLIENT/wwwroot/" + image.FilePath);
                 certificateExist.ImageSignature2 = null;
                 return Ok(await _pfxCertificate.UpdateInfoToDatabase(certificateExist));
             }
-            if (certificateExist.ImageSignature3 == filePath)
+            if (certificateExist.ImageSignature3 == image.FilePath)
             {
-                _uploadFileHelper.RemoveFile("../QuanLyHopDongVaKySo.CLIENT/wwwroot/" + filePath);
+                _uploadFileHelper.RemoveFile("../QuanLyHopDongVaKySo.CLIENT/wwwroot/" + image.FilePath);
                 certificateExist.ImageSignature3 = null;
                 return Ok(await _pfxCertificate.UpdateInfoToDatabase(certificateExist));
             }
-            if (certificateExist.ImageSignature4 == filePath)
+            if (certificateExist.ImageSignature4 == image.FilePath)
             {
-                _uploadFileHelper.RemoveFile("../QuanLyHopDongVaKySo.CLIENT/wwwroot/" + filePath);
+                _uploadFileHelper.RemoveFile("../QuanLyHopDongVaKySo.CLIENT/wwwroot/" + image.FilePath);
                 certificateExist.ImageSignature4 = null;
                 return Ok(await _pfxCertificate.UpdateInfoToDatabase(certificateExist));
             }
-            if (certificateExist.ImageSignature5 == filePath)
+            if (certificateExist.ImageSignature5 == image.FilePath)
             {
-                _uploadFileHelper.RemoveFile("../QuanLyHopDongVaKySo.CLIENT/wwwroot/" + filePath);
+                _uploadFileHelper.RemoveFile("../QuanLyHopDongVaKySo.CLIENT/wwwroot/" + image.FilePath);
                 certificateExist.ImageSignature5 = null;
                 return Ok(await _pfxCertificate.UpdateInfoToDatabase(certificateExist));
             }

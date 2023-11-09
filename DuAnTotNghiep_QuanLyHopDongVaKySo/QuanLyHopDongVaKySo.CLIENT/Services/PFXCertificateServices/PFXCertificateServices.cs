@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Models.ViewDeletes;
+using QuanLyHopDongVaKySo_API.Models.ViewPost;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 using System.Net.Http.Json;
 using System.Text;
@@ -52,13 +54,34 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices
 
         public async Task<string> UploadSignatureImage(string serial, string base64StringImage)
         {
-            throw new NotImplementedException();
+            PostUploadSignatureImage image = new PostUploadSignatureImage();
+            image.Serial = serial;
+            image.Base64String = base64StringImage;
+            using (var response = await _httpClient.PutAsJsonAsync<PostUploadSignatureImage>($"api/PFXCertificates/UploadImage", image))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return serial;
+                }
+                return null;
+            }
         }
 
 
         public async Task<string> DeleteImage(string serial, string filePath)
         {
-            throw new NotImplementedException();
+            DeleteSignatureImage image = new DeleteSignatureImage();
+            image.Serial = serial;
+            image.FilePath = filePath;
+            using (var response = await _httpClient.PutAsJsonAsync<DeleteSignatureImage>($"api/PFXCertificates/DeleteImage", image))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return serial;
+                }
+                return null;
+            }
+
         }
     }
 }

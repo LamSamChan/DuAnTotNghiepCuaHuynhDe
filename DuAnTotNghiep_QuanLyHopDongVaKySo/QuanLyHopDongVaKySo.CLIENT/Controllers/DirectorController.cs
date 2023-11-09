@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using QuanLyHopDongVaKySo.CLIENT.Models;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
+using API = QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_CLIENT.Constants;
+using Spire.Pdf.Graphics;
 using System.Drawing.Imaging;
 using test.Models;
 
@@ -97,9 +100,43 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index","Verify");
             }
         }
-        public IActionResult ListContractAwait()
+        public async Task<IActionResult> UpdateInfo(PutEmployee employee)
         {
-            return View();
+
+            if (employee.ImageFile != null)
+            {
+                var temp = employee.ImageFile;
+                employee = await _employeeService.GetEmployeePutById(employee.EmployeeId.ToString());
+
+                if (temp.ContentType.StartsWith("image/"))
+                {
+                    if (temp.Length > 0)
+                    {
+                        using (var stream = new MemoryStream())
+                        {
+                            temp.CopyTo(stream);
+                            byte[] bytes = stream.ToArray();
+                            employee.Base64String = Convert.ToBase64String(bytes);
+                            employee.ImageFile = null;
+                        }
+                    }
+                }
+                else
+                {
+                    //báo lỗi ko tải lên file ảnh
+                    RedirectToAction("AddEmpAccount");
+                }
+            }
+            string respone = await _employeeService.UpdateEmployee(employee);
+
+            if (respone != null || employee.FullName == null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index","Verify");
+            }
         }
         public IActionResult ListContractActive()
         {
@@ -127,7 +164,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveSignature([FromBody] SignData sData)
+        public async Task<ActionResult> SaveSignature([FromBody] SignData sData)
         {
             if (null == sData)
                 return NotFound();
@@ -136,12 +173,76 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             var fileName = System.Guid.NewGuid() + ".png";
 
-            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, "SignatureImages"), fileName);
-
+            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, "TempSignatures"), fileName);
 
             bmpSign.Save(filePath, ImageFormat.Png);
 
-            return Content(fileName);
+            byte[] bytes = System.IO.File.ReadAllBytes(filePath);
+            string base64String = Convert.ToBase64String(bytes);
+
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var result = await _pfxCertificateServices.UploadSignatureImage(serialPFX, base64String);
+
+            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            fs.Close();
+            System.IO.File.Delete(filePath);
+
+            if (result != null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
+        }
+        
+        public async Task<ActionResult> UploadSignature(VMPersonalPage vm)
+        {
+            API.PFXCertificate pfx = new API.PFXCertificate();
+            pfx = vm.PFXCertificate;
+            if (pfx.ImageFile != null)
+            {
+                if (pfx.ImageFile.ContentType.StartsWith("image/"))
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        pfx.ImageFile.CopyTo(stream);
+                        byte[] bytes = stream.ToArray();
+                        pfx.Base64StringFile = Convert.ToBase64String(bytes);
+                        pfx.ImageFile = null;
+                    }
+                } 
+            }
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var result = await _pfxCertificateServices.UploadSignatureImage(serialPFX, pfx.Base64StringFile);
+
+            if (result != null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
+        }
+
+        public async Task<ActionResult> DeleteSignature(string filePath)
+        {
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var result = await _pfxCertificateServices.DeleteImage(serialPFX, filePath);
+
+            if (result != null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
         }
     }
 }

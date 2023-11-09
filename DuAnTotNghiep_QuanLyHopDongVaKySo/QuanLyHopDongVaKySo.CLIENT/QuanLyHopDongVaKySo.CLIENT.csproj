@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Avatars\" />
+    <Folder Include="wwwroot\TempSignatures\" />
   </ItemGroup>
 
 </Project>
