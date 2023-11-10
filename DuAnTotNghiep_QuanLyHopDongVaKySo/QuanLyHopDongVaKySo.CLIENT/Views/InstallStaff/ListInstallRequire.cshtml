@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListIRequire
 @{
 }
 <div class="container-fluid">
@@ -34,27 +32,37 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">YÊU CẦU</th>
-                    <th scope="col">TÊN YÊU CẦU</th>
+                    <th scope="col">ID</th>
                     <th scope="col">NGÀY TẠO</th>
-                    <th scope="col">MÃ HỢP ĐỒNG</th>
-                    <th scope="col">HOẠT ĐỘNG</th>
-                    <th></th>
+                    <th scope="col">TÊN BIÊN BẢN</th>
+                    <th scope="col">ĐỊA CHỈ LẮP ĐẶT</th>
+                    <th scope="col">HỢP ĐỒNG</th>
+                    <th scope="col">HÀNH ĐỘNG</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Lắp cap quan</td>
-                    <td>22/3/2023</td>
-                    <td>HT0001</td>
-                    <td>
-                        <a class="accpet">Nhận</a>
-                    </td>
-                    <td>
-                        <a>Chi tiết</a>
-                    </td>
-                </tr>
+                @foreach (var r in Model.IRequirements)
+                {
+                    <tr>
+                        <th scope="row">@r.InstallRequireID</th>
+                        <td>@r.DateCreated.ToString("dd/MM/yyyy")</td>
+                        <td>@r.MinuteName</td>
+                        @foreach (var add in Model.DContracts)
+                        {
+                            if (r.DoneContractId == add.DContractID)
+                            {
+                                <td>@add.InstallationAddress</td>
+                            }
+                        }
+                        
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                        <td>
+                            <a class="accpet" asp-action="GetTaskFormIR" asp-route-iRequirementID="@r.InstallRequireID">Nhận</a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

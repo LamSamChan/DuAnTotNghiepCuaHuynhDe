@@ -1,6 +1,5 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListIRequire
+
 @{
 }
 <div class="container-fluid">
@@ -35,21 +34,33 @@
             <thead>
                 <tr>
                     <th scope="col">MÃ BIÊN BẢN</th>
-                    <th scope="col">TÊN BIÊN BẢN</th>
-                    <th scope="col">NGÀY HOÀN THÀNH</th>
-                    <th scope="col">FILE BIÊN BẢN</th>
-                    <th scope="col">MÃ NHÂN VIÊN</th>
+                    <th scope="col">NGÀY NHẬN</th>
+                    <th scope="col">TÊM BIÊN BẢN</th>
+                    <th scope="col">ĐỊA CHỈ LẮP ĐẶT</th>
+                    <th scope="col">BIÊN BẢN</th>
+                    <th scope="col">HỢP ĐỒNG</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                @foreach (var p in Model.PMinutes)
+                {
+                    <tr>
+                        <th scope="row">@p.PendingMinuteId</th>
+                        <td>@p.DateCreated.ToString("dd/MM/yyyy")</td>
+                        <td>@p.MinuteName</td>
+                        @foreach (var add in Model.DContracts)
+                        {
+                            if (p.DoneContractId == add.DContractID)
+                            {
+                                <td>@add.InstallationAddress</td>
+                            }
+                        }
+                        <td>@p.MinuteFile</td>
+                        <td>
+                            <a>Chi tiết</a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

@@ -39,6 +39,18 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
             }
         }
 
+        public async Task<List<DoneContract>> GetAll()
+        {
+            try
+            {
+                return await _context.DoneContracts.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+
+                return new List<DoneContract>();
+            }
+        }
 
         public async Task<List<DContractViewModel>> getAllAsnyc()
         {
