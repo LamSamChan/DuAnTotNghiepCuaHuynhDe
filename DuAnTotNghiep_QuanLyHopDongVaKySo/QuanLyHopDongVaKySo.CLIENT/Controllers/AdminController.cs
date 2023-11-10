@@ -57,6 +57,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult ListDevice()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> ListPFXCertificate()
         {
             VMListPFX vm = new VMListPFX();

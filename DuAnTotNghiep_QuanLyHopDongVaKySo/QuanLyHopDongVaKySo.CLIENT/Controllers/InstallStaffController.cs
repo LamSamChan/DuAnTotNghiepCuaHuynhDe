@@ -42,19 +42,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult CompleteRecord()
-        {
-            return View();
-        }
-        public IActionResult ConfirmRecordInstall ()
-        {
-            return View();
-        }
-        public IActionResult DetailsInstallRecord()
-        {
-            return View();
-        }
-        public IActionResult DetailsInstallRecordWait()
+       
+        public IActionResult DetailsInstall()
         {
             return View();
         }
