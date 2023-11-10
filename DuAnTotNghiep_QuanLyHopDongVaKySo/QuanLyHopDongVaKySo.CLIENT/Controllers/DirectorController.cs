@@ -142,6 +142,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult HistoryOperation()
+        {
+            return View();
+        }
         public IActionResult InforSign()
         {
             return View();
