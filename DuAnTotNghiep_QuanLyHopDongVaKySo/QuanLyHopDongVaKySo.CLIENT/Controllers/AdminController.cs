@@ -19,6 +19,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
 using APIPost = QuanLyHopDongVaKySo_API.Models.ViewPost;
 using APITPut = QuanLyHopDongVaKySo_API.Models.ViewPuts;
+using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -34,10 +35,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly ITOSService _tosService;
         private readonly ITContractService _tContractService;
         private readonly ITMinuteService _tMinuteService;
+        private readonly IInstallationDevicesService _installationDevicesService;
 
         public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService,
             ICustomerService customerService, IPFXCertificateServices pFXCertificateServices, IPContractService pContractService,
-            IDContractsService doneContractSvc, ITOSService tosService, ITContractService tContractService, ITMinuteService tMinuteService)
+            IDContractsService doneContractSvc, ITOSService tosService, ITContractService tContractService, ITMinuteService tMinuteService,
+            IInstallationDevicesService installationDevicesService)
         {
             _positionService = positionService;
             _employeeService = employeeService;
@@ -48,7 +51,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _doneContractSvc = doneContractSvc;
             _tosService = tosService;
             _tContractService = tContractService;
-            _tMinuteService = tMinuteService;   
+            _tMinuteService = tMinuteService; 
+            _installationDevicesService = installationDevicesService;
         }
         public IActionResult Index()
         {
@@ -95,9 +99,26 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         }
 
-        public IActionResult DetailsTypeOfService()
+        public async Task<IActionResult> DetailsTypeOfService(int tosID)
         {
-            return View();
+            VMDetailsTypeOfService vm = new VMDetailsTypeOfService() {
+            InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID)
+            };
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditDeviceAction(InstallationDevice device)
+        {
+            var respone = await _installationDevicesService.UpdateDevice(device);
+            if (respone != null)
+            {
+                return RedirectToAction("DetailsTypeOfService", device.TOS_ID);
+            }
+            else
+            {
+                return RedirectToAction("ListRole");
+            }
         }
         public async Task<IActionResult> EditTypeOfService(int tosID)
         {

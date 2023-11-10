@@ -6,7 +6,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TypeOfServiceService
     {
         Task<List<TypeOfService>> GetAll();
         Task<List<TypeOfService>> GetAllNotHidden();
-        Task<TypeOfService> GetById(int typeOfService_ID);
+        Task<TypeOfService> GetById(int? typeOfService_ID);
         Task<int> AddNew(TypeOfService typeOfService);
         Task<int> Update(TypeOfService typeOfService);
     }

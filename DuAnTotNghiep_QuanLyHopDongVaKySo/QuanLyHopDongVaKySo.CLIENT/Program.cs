@@ -13,6 +13,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,7 @@ builder.Services.AddScoped<IPMinuteService, PMinuteService>();
 builder.Services.AddScoped<ITOSService, TOSService>();
 builder.Services.AddScoped<ITContractService, TContractService>();
 builder.Services.AddScoped<ITMinuteService, TMinuteService>();
+builder.Services.AddScoped<IInstallationDevicesService, InstallationDevicesService>();
 
 builder.Services.AddSession(option =>
 {

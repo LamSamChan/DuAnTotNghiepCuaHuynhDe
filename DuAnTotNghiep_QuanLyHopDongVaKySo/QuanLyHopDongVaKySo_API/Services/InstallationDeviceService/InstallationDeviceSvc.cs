@@ -49,7 +49,7 @@ namespace QuanLyHopDongVaKySo_API.Services.InstallationDeviceService
             }
         }
 
-        public async Task<List<InstallationDevice>> GetAllByServiceId(int serviceID)
+        public async Task<List<InstallationDevice>> GetAllByServiceId(int? serviceID)
         {
             try
             {
