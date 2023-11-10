@@ -83,7 +83,8 @@ namespace QuanLyHopDongVaKySo_API.Services.TypeOfServiceService
                 existingTOS.DateAdded = existingTOS.DateAdded;
                 existingTOS.DateUpdated = DateTime.Now;
                 existingTOS.isHidden = typeOfService.isHidden;
-
+                existingTOS.templateContractID = typeOfService.templateContractID;
+                existingTOS.templateMinuteID = typeOfService.templateMinuteID;
                 // Lưu thay đổi vào database
                 await _context.SaveChangesAsync();
                 status = typeOfService.TOS_ID;
