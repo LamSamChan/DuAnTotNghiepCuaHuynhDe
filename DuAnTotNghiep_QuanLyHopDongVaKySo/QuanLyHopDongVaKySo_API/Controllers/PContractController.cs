@@ -172,5 +172,31 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(await _PContractSvc.getListCusId(id));
         }
+        [HttpGet("GetRefuseByEmpId/{id}")]
+        public async Task<IActionResult> GetListRefuseByEmpId(string id)
+        {
+            return Ok(await _PContractSvc.getListRefuseByEmpId(id));
+        }
+        [HttpGet("GetRefuse")]
+        public async Task<IActionResult> GetRefuse()
+        {
+            return Ok(await _PContractSvc.getListRefuse());
+        }
+        [HttpGet("GetWaitCusSignsByEmpId/{id}")]
+        public async Task<IActionResult> GetListWaitCusSignsByEmpId(string id)
+        {
+            return Ok(await _PContractSvc.getListWaitCusSignsByEmpId(id));
+        }
+        [HttpGet("GetWaitCusSignsByDirId/{id}")]
+        public async Task<IActionResult> GetListWaitCusSignsByDirId(string id)
+        {
+            return Ok(await _PContractSvc.getListWaitCusSignsByDirId(id));
+        }
+
+        [HttpGet("GetWaitDirSignsEmpId/{id}")]
+        public async Task<IActionResult> GetListWaitDirSignsEmpId(string id)
+        {
+            return Ok(await _PContractSvc.getListWaitDirSignsByEmpId(id));
+        }
     }
 }

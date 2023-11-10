@@ -15,5 +15,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
         Task<List<PContractViewModel>> getListWaitCustomerSigns();
         Task<List<PContractViewModel>> getListEmpId(string id);
         Task<List<PContractViewModel>> getListCusId(string id);
+        Task<List<PContractViewModel>> getListRefuseByEmpId(string id);
+        Task<List<PContractViewModel>> getListRefuse();
+        Task<List<PContractViewModel>> getListWaitCusSignsByEmpId(string id);
+        Task<List<PContractViewModel>> getListWaitCusSignsByDirId(string id);
+        Task<List<PContractViewModel>> getListWaitDirSignsEmpId(string id);
     }
 }

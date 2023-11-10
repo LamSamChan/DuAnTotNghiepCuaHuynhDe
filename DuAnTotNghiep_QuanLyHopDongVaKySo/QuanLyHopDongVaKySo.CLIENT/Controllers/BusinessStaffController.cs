@@ -168,13 +168,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else if (isAuthenticate == 2)
             {
-                contractList = await _dContractService.getListByDirectorId(EmployeeId);
+                contractList = await _dContractService.getListByDirectorId(employeeId);
 
                 return View(contractList);
             }
             else if (isAuthenticate == 3)
             {
-                contractList = await _dContractService.getListByEmpId(EmployeeId);
+                contractList = await _dContractService.getListByEmpId(employeeId);
 
                 return View(contractList);
             }
@@ -196,7 +196,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else if (isAuthenticate == 3)
             {
-                pContractList = _pContractService.getListWaitDirectorSigns().Result.Where(p => p.IsDirector == "Chờ ký").ToList();
+                pContractList = await _pContractService.getListWaitDirSignsEmpId(employeeId);
                 return View(pContractList);
             }
             else
@@ -213,12 +213,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             if (isAuthenticate == 1 || isAuthenticate == 2)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.IsRefuse == "Từ chối").ToList();
+                pContractList = await _pContractService.getListRefuse();
                 return View(pContractList);
             }
             else if (isAuthenticate == 3)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == EmployeeId && p.IsRefuse == "Từ chối").ToList();
+                pContractList = await _pContractService.getListRefuseByEmpId(employeeId);
                 return View(pContractList);
             }
             else
@@ -239,12 +239,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else if (isAuthenticate == 3)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == EmployeeId && p.IsCustomer == "Chờ ký" && p.IsDirector == "Đã ký").ToList();
+                pContractList = await _pContractService.getListWaitCusSignsByEmpId(employeeId);
                 return View(pContractList);
             }
             else if (isAuthenticate == 2)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.DirectorSignedId == EmployeeId && p.IsCustomer == "Chờ ký").ToList();
+                pContractList = await _pContractService.getListWaitCusSignsByDirId(employeeId);
                 return View(pContractList);
             }
             else
@@ -266,6 +266,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             { 
             viewModel.DoneContracts = await _dContractService.getByIdAsnyc(id);
             viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
+            viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.DoneContracts.DirectorSignedId);
             }
             catch
             {

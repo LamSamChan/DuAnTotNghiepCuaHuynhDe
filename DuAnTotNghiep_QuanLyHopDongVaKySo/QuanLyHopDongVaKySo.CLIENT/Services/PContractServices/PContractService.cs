@@ -65,7 +65,36 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
 
             return response;
         }
-        
+        public async Task<List<PContractViewModel>> getListRefuse()
+        {
+            var response = await _httpClient.GetFromJsonAsync<List<PContractViewModel>>($"api/PContract/GetRefuse");
+
+            return response;
+        }
+        public async Task<List<PContractViewModel>> getListRefuseByEmpId(string id)
+        {
+            var response = await _httpClient.GetFromJsonAsync<List<PContractViewModel>>($"api/PContract/GetRefuseByEmpId/{id}");
+
+            return response;
+        }
+        public async Task<List<PContractViewModel>> getListWaitCusSignsByDirId(string id)
+        {
+            var response = await _httpClient.GetFromJsonAsync<List<PContractViewModel>>($"api/PContract/GetWaitCusSignsByDirId/{id}");
+
+            return response;
+        }
+        public async Task<List<PContractViewModel>> getListWaitCusSignsByEmpId(string id)
+        {
+            var response = await _httpClient.GetFromJsonAsync<List<PContractViewModel>>($"api/PContract/GetWaitCusSignsByEmpId/{id}");
+
+            return response;
+        }
+        public async Task<List<PContractViewModel>> getListWaitDirSignsEmpId(string id)
+        {
+            var response = await _httpClient.GetFromJsonAsync<List<PContractViewModel>>($"api/PContract/GetWaitDirSignsEmpId/{id}");
+
+            return response;
+        }
         public async Task<string> updateAsnyc(PutPendingContract PContract)
         {
             string json = JsonConvert.SerializeObject(PContract);

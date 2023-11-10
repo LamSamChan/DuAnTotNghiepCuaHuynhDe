@@ -29,7 +29,7 @@
                         @foreach (var imgPath in imageFiles)
                         {
                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                <img src="@Url.Content("~/ContractImage/"+Model.PendingContracts.PContractID+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                <img src="@Url.Content("~/ContractImage/"+Model.DoneContracts.Id+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                             </div>
                         }
                     </div>
@@ -80,26 +80,26 @@
             </div>
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
-                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.PContractID">
+                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContracts.Id">
             </div>
             <div class="col-md-5">
                 <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
-                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.TOS_ID">
+                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.DoneContracts.TypeOfService">
             </div>
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Ngày tạo</label>
-                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.DateCreated">
+                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContracts.DateDone">
             </div>
             <div class="col-md-5">
                 <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
-                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.DateCreated">
+                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.DoneContracts.TOS_id">
             </div>
             <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
                 Thông tin nhân viên tạo hợp đồng
             </h4>
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Mã nhân viên</label>
-                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.EmployeeCreatedId">
+                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.EmployeeId">
             </div>
             <div class="col-md-5">
                 <label for="inputAddress" class="form-label">Họ và tên</label>

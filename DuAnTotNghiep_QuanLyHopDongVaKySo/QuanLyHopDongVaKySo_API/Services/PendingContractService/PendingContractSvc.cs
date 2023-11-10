@@ -313,5 +313,129 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 }).ToListAsync();
             return viewModels;
         }
+
+        public async Task<List<PContractViewModel>> getListRefuse()
+        {
+            List<PContractViewModel> viewModels = new List<PContractViewModel>();
+            viewModels = await _context.PendingContracts.Where(p => p.IsRefuse == true)
+                .Select(pc => new PContractViewModel
+                {
+                    PContractID = pc.PContractID.ToString(),
+                    PContractName = pc.PContractName,
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    CustomerName = pc.Customer.FullName,
+                    CustomerEmail = pc.Customer.Email,
+                    IsDirector = pc.IsDirector ? "Đã ký" : "Chờ ký",
+                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chờ ký",
+                    CustomerId = pc.CustomerId.ToString().ToLower(),
+                    IsRefuse = pc.IsRefuse ? "Từ chối" : "Chờ ký",
+                    DirectorSignedId = pc.DirectorSignedId.ToString().ToLower(),
+                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString().ToLower(),
+                    Reason = pc.Reason,
+                    InstallationAddress = pc.InstallationAddress,
+                    TOS_ID = pc.TypeOfService.ServiceName,
+                    PContractFile = pc.PContractFile
+                }).ToListAsync();
+            return viewModels;
+        }
+
+        public async Task<List<PContractViewModel>> getListRefuseByEmpId(string id)
+        {
+            List<PContractViewModel> viewModels = new List<PContractViewModel>();
+            viewModels = await _context.PendingContracts.Where(p => p.IsRefuse == true && p.EmployeeCreatedId == Guid.Parse(id))
+                .Select(pc => new PContractViewModel
+                {
+                    PContractID = pc.PContractID.ToString(),
+                    PContractName = pc.PContractName,
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    CustomerName = pc.Customer.FullName,
+                    CustomerEmail = pc.Customer.Email,
+                    IsDirector = pc.IsDirector ? "Đã ký" : "Chờ ký",
+                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chờ ký",
+                    CustomerId = pc.CustomerId.ToString().ToLower(),
+                    IsRefuse = pc.IsRefuse ? "Từ chối" : "Chờ ký",
+                    DirectorSignedId = pc.DirectorSignedId.ToString().ToLower(),
+                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString().ToLower(),
+                    Reason = pc.Reason,
+                    InstallationAddress = pc.InstallationAddress,
+                    TOS_ID = pc.TypeOfService.ServiceName,
+                    PContractFile = pc.PContractFile
+                }).ToListAsync();
+            return viewModels;
+        }
+
+        public async Task<List<PContractViewModel>> getListWaitCusSignsByEmpId(string id)
+        {
+            List<PContractViewModel> viewModels = new List<PContractViewModel>();
+            viewModels = await _context.PendingContracts.Where(p =>p.EmployeeCreatedId == Guid.Parse(id) && p.IsDirector == true && p.IsCustomer == false)
+                .Select(pc => new PContractViewModel
+                {
+                    PContractID = pc.PContractID.ToString(),
+                    PContractName = pc.PContractName,
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    CustomerName = pc.Customer.FullName,
+                    CustomerEmail = pc.Customer.Email,
+                    IsDirector = pc.IsDirector ? "Đã ký" : "Chờ ký",
+                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chờ ký",
+                    CustomerId = pc.CustomerId.ToString().ToLower(),
+                    IsRefuse = pc.IsRefuse ? "Từ chối" : "Chờ ký",
+                    DirectorSignedId = pc.DirectorSignedId.ToString().ToLower(),
+                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString().ToLower(),
+                    Reason = pc.Reason,
+                    InstallationAddress = pc.InstallationAddress,
+                    TOS_ID = pc.TypeOfService.ServiceName,
+                    PContractFile = pc.PContractFile
+                }).ToListAsync();
+            return viewModels;
+        }
+
+        public async Task<List<PContractViewModel>> getListWaitCusSignsByDirId(string id)
+        {
+            List<PContractViewModel> viewModels = new List<PContractViewModel>();
+            viewModels = await _context.PendingContracts.Where(p => p.DirectorSignedId == Guid.Parse(id) && p.IsDirector == true && p.IsCustomer == false)
+                .Select(pc => new PContractViewModel
+                {
+                    PContractID = pc.PContractID.ToString(),
+                    PContractName = pc.PContractName,
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    CustomerName = pc.Customer.FullName,
+                    CustomerEmail = pc.Customer.Email,
+                    IsDirector = pc.IsDirector ? "Đã ký" : "Chờ ký",
+                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chờ ký",
+                    CustomerId = pc.CustomerId.ToString().ToLower(),
+                    IsRefuse = pc.IsRefuse ? "Từ chối" : "Chờ ký",
+                    DirectorSignedId = pc.DirectorSignedId.ToString().ToLower(),
+                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString().ToLower(),
+                    Reason = pc.Reason,
+                    InstallationAddress = pc.InstallationAddress,
+                    TOS_ID = pc.TypeOfService.ServiceName,
+                    PContractFile = pc.PContractFile
+                }).ToListAsync();
+            return viewModels;
+        }
+        public async Task<List<PContractViewModel>> getListWaitDirSignsByEmpId(string id)
+        {
+            List<PContractViewModel> viewModels = new List<PContractViewModel>();
+            viewModels = await _context.PendingContracts.Where(p => p.EmployeeCreatedId == Guid.Parse(id) && p.IsDirector == false && p.IsCustomer == false)
+                .Select(pc => new PContractViewModel
+                {
+                    PContractID = pc.PContractID.ToString(),
+                    PContractName = pc.PContractName,
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    CustomerName = pc.Customer.FullName,
+                    CustomerEmail = pc.Customer.Email,
+                    IsDirector = pc.IsDirector ? "Đã ký" : "Chờ ký",
+                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chờ ký",
+                    CustomerId = pc.CustomerId.ToString().ToLower(),
+                    IsRefuse = pc.IsRefuse ? "Từ chối" : "Chờ ký",
+                    DirectorSignedId = pc.DirectorSignedId.ToString().ToLower(),
+                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString().ToLower(),
+                    Reason = pc.Reason,
+                    InstallationAddress = pc.InstallationAddress,
+                    TOS_ID = pc.TypeOfService.ServiceName,
+                    PContractFile = pc.PContractFile
+                }).ToListAsync();
+            return viewModels;
+        }
     }
 }
