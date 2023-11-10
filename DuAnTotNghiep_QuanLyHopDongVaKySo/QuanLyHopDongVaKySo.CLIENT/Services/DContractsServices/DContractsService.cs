@@ -25,9 +25,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
             return response;
         }
 
-        public async Task<DoneContract> getByIdAsnyc(string id)
+        public async Task<DContractViewModel> getByIdAsnyc(string id)
         {
-            var response = await _httpClient.GetFromJsonAsync<DoneContract>($"api/DContract/getById/{id}");
+            var response = await _httpClient.GetFromJsonAsync<DContractViewModel>($"api/DContract/getById/{id}");
             return response;
         }
 

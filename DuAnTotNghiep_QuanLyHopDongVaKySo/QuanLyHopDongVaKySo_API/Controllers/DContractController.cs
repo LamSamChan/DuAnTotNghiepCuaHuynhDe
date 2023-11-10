@@ -26,16 +26,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(await _doneContractSvc.getAllAsnyc());
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllByModel()
-        {
-            return Ok(await _doneContractSvc.GetAll());
-        }
-
         [HttpGet("getById/{id}")]
-        public async Task<IActionResult> getById(string id)
+        public async Task<IActionResult> getById(int id)
         {
-            return Ok(await _doneContractSvc.getByIdAsnyc(id));
+            return Ok(await _doneContractSvc.getByIView(id));
         }
 
         [HttpGet("getByCustomerId/{id}")]

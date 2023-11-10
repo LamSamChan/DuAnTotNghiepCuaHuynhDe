@@ -7,10 +7,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
     public interface IPContractService
     {
         Task<List<PContractViewModel>> getAllAsnyc();
-        Task<PendingContract> getByIdAsnyc(int id);
+        Task<PContractViewModel> getByIdAsnyc(string id);
         Task<string> addAsnyc(PostPendingContract PContract);
         Task<string> updateAsnyc(PutPendingContract PContract);
 
-
+        Task<List<PContractViewModel>> getListWaitDirectorSigns();
+        Task<List<PContractViewModel>> getListWaitCustomerSigns();
+        Task<List<PContractViewModel>> getListEmpId(string id);
+        Task<List<PContractViewModel>> getListCusId(string id);
     }
 }

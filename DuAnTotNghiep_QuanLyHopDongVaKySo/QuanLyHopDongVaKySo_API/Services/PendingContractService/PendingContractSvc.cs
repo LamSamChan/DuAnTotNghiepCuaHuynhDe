@@ -8,6 +8,7 @@ using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
 using QuanLyHopDongVaKySo_API.Services.PositionService;
 using QuanLyHopDongVaKySo_API.ViewModels;
+using System.Drawing;
 
 namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
 {
@@ -185,45 +186,132 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
         public async Task<List<PContractViewModel>> getListWaitDirectorSigns()
         {
             List<PContractViewModel> viewModels = new List<PContractViewModel>();
-            viewModels = await _context.PendingContracts
+            viewModels = await _context.PendingContracts.Where(p => p.IsDirector == false && p.IsCustomer == false)
                 .Select(pc => new PContractViewModel
                 {
                     PContractID = pc.PContractID.ToString(),
-                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
                     PContractName = pc.PContractName,
-                    PContractFile = pc.PContractFile,
-                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString(),
-                    IsDirector = pc.IsDirector? "Đã ký" : "Chưa ký",
-                    IsCustomer = pc.IsCustomer? "Đã ký" : "Chưa ký",
-                    IsRefuse = pc.IsRefuse ? "Từ chối ký" : "Đã duyệt",
-                    InstallationAddress = pc.InstallationAddress,
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    CustomerName = pc.Customer.FullName,
+                    CustomerEmail = pc.Customer.Email,
+                    IsDirector = pc.IsDirector ? "Đã ký" : "Chờ ký",
+                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chờ ký",
+                    CustomerId = pc.CustomerId.ToString().ToLower(),
+                    IsRefuse = pc.IsRefuse ? "Từ chối" : "Chờ ký",
+                    DirectorSignedId = pc.DirectorSignedId.ToString().ToLower(),
+                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString().ToLower(),
                     Reason = pc.Reason,
-                    TOS_ID = pc.TypeOfService.ServiceName
-                }).Where(p => p.IsDirector == "Chưa ký" && p.IsCustomer == "Chưa ký").ToListAsync();
+                    InstallationAddress = pc.InstallationAddress,
+                    TOS_ID = pc.TypeOfService.ServiceName,
+                    PContractFile = pc.PContractFile
+                }).ToListAsync();
             return viewModels;
         }
        
         public async Task<List<PContractViewModel>> getListWaitCustomerSigns()
         {
             List<PContractViewModel> viewModels = new List<PContractViewModel>();
-            viewModels = await _context.PendingContracts
+            viewModels = await _context.PendingContracts.Where(p => p.IsDirector == true && p.IsCustomer == false)
                 .Select(pc => new PContractViewModel
                 {
                     PContractID = pc.PContractID.ToString(),
-                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
                     PContractName = pc.PContractName,
-                    PContractFile = pc.PContractFile,
-                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString(),
-                    DirectorSignedId = pc.DirectorSignedId.ToString(),
-                    IsDirector = pc.IsDirector ? "Đã ký" : "Chưa ký",
-                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chưa ký",
-                    InstallationAddress = pc.InstallationAddress,
-                    IsRefuse = pc.IsRefuse? "Từ chối ký" : "Đã duyệt",
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    CustomerName = pc.Customer.FullName,
+                    CustomerEmail = pc.Customer.Email,
+                    IsDirector = pc.IsDirector ? "Đã ký" : "Chờ ký",
+                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chờ ký",
+                    CustomerId = pc.CustomerId.ToString().ToLower(),
+                    IsRefuse = pc.IsRefuse ? "Từ chối" : "Chờ ký",
+                    DirectorSignedId = pc.DirectorSignedId.ToString().ToLower(),
+                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString().ToLower(),
                     Reason = pc.Reason,
-                    TOS_ID = pc.TypeOfService.ServiceName
-                }).Where(p => p.IsDirector == "Đã ký" && p.IsCustomer == "Chưa ký").ToListAsync();
+                    InstallationAddress = pc.InstallationAddress,
+                    TOS_ID = pc.TypeOfService.ServiceName,
+                    PContractFile = pc.PContractFile
+                }).ToListAsync();
             return viewModels;
         }
-      
+
+        public async Task<PContractViewModel> geByIdView(int id)
+        {
+            PContractViewModel viewModel = new PContractViewModel();
+
+            viewModel = await _context.PendingContracts.Where(p => p.PContractID == id).
+                Select(pc => new PContractViewModel
+                {
+                    PContractID = pc.PContractID.ToString(),
+                    PContractName = pc.PContractName,
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    CustomerName = pc.Customer.FullName,
+                    CustomerEmail = pc.Customer.Email,
+                    IsDirector = pc.IsDirector ? "Đã ký" : "Chờ ký",
+                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chờ ký",
+                    CustomerId = pc.CustomerId.ToString().ToLower(),
+                    IsRefuse = pc.IsRefuse ? "Từ chối" : "Chờ ký",
+                    DirectorSignedId = pc.DirectorSignedId.ToString().ToLower(),
+                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString().ToLower(),
+                    Reason = pc.Reason,
+                    InstallationAddress = pc.InstallationAddress,
+                    TOS_ID = pc.TypeOfService.ServiceName,
+                    PContractFile = pc.PContractFile
+                }).FirstOrDefaultAsync();
+            
+            return viewModel;
+        }
+
+        public async Task<List<PContractViewModel>> getListEmpId(string id)
+        {
+            PContractViewModel viewModel = new PContractViewModel();
+
+            List<PContractViewModel> viewModels = new List<PContractViewModel>();
+            viewModels = await _context.PendingContracts.Where(p => p.EmployeeCreatedId == Guid.Parse(id))
+                .Select(pc => new PContractViewModel
+                {
+                    PContractID = pc.PContractID.ToString(),
+                    PContractName = pc.PContractName,
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    CustomerName = pc.Customer.FullName,
+                    CustomerEmail = pc.Customer.Email,
+                    IsDirector = pc.IsDirector ? "Đã ký" : "Chờ ký",
+                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chờ ký",
+                    CustomerId = pc.CustomerId.ToString().ToLower(),
+                    IsRefuse = pc.IsRefuse ? "Từ chối" : "Chờ ký",
+                    DirectorSignedId = pc.DirectorSignedId.ToString().ToLower(),
+                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString().ToLower(),
+                    Reason = pc.Reason,
+                    InstallationAddress = pc.InstallationAddress,
+                    TOS_ID = pc.TypeOfService.ServiceName,
+                    PContractFile = pc.PContractFile
+                }).ToListAsync();
+            return viewModels;
+        }
+
+        public async Task<List<PContractViewModel>> getListCusId(string id)
+        {
+            PContractViewModel viewModel = new PContractViewModel();
+
+            List<PContractViewModel> viewModels = new List<PContractViewModel>();
+            viewModels = await _context.PendingContracts.Where(p => p.CustomerId == Guid.Parse(id))
+                .Select(pc => new PContractViewModel
+                {
+                    PContractID = pc.PContractID.ToString(),
+                    PContractName = pc.PContractName,
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    CustomerName = pc.Customer.FullName,
+                    CustomerEmail = pc.Customer.Email,
+                    IsDirector = pc.IsDirector ? "Đã ký" : "Chờ ký",
+                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chờ ký",
+                    CustomerId = pc.CustomerId.ToString().ToLower(),
+                    IsRefuse = pc.IsRefuse ? "Từ chối" : "Chờ ký",
+                    DirectorSignedId = pc.DirectorSignedId.ToString().ToLower(),
+                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString().ToLower(),
+                    Reason = pc.Reason,
+                    InstallationAddress = pc.InstallationAddress,
+                    TOS_ID = pc.TypeOfService.ServiceName,
+                    PContractFile = pc.PContractFile
+                }).ToListAsync();
+            return viewModels;
+        }
     }
 }

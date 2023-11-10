@@ -129,18 +129,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPContractAsync(int id)
-        {
-            var pcontract = await _PContractSvc.getByIdAsnyc(id);
-            if (pcontract != null)
-            {
-                return Ok(pcontract);
-            }
-            else
-            {
-                return BadRequest();
-            }
+        {    
+            return Ok(await _PContractSvc.geByIdView(id));
+            
         }
-
         /// <summary>
         ///
         /// </summary>
@@ -148,18 +140,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPContractsAsync()
         {
-            var pContractList = await _PContractSvc.getAllAsnyc();
-            if (pContractList != null)
-            {
-                return Ok(pContractList);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            return Ok(await _PContractSvc.getAllAsnyc());            
         }
 
-        /*[HttpGet("WaitDirectorSigns")]
+        [HttpGet("WaitDirectorSigns")]
         public async Task<IActionResult> GetListWaitDirectorSigns()
         {
             return Ok(await _PContractSvc.getListWaitDirectorSigns());
@@ -170,12 +154,23 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         public async Task<IActionResult> GetListWaitCustomerSigns()
         {
             return Ok(await _PContractSvc.getListWaitCustomerSigns());
-        }*/
+        }
 
         [HttpPut("Update")]
         public async Task<IActionResult> Update(PutPendingContract pContract)
         {
             return Ok(await _PContractSvc.updateAsnyc(pContract));
+        }
+
+        [HttpGet("GetByEmpId/{id}")]
+        public async Task<IActionResult> GetListByEmpId(string id)
+        {
+            return Ok(await _PContractSvc.getListEmpId(id));
+        }
+        [HttpGet("GetByCusId/{id}")]
+        public async Task<IActionResult> GetListByCusId(string id)
+        {
+            return Ok(await _PContractSvc.getListCusId(id));
         }
     }
 }

@@ -116,7 +116,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 vm.Customer = respone;
 
                 //truyền thêm
-                vm.PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.CustomerId == customerID).ToList();
+                vm.PendingContracts = await _pContractService.getListCusId(customerID); ;
                 vm.DoneContracts = await _dContractService.getListByCusId(customerID);
                 return View(vm);
             }
@@ -191,12 +191,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             if (isAuthenticate == 1)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.IsDirector == "Chờ ký").ToList();
+                pContractList = await _pContractService.getListWaitDirectorSigns();
                 return View(pContractList);
             }
             else if (isAuthenticate == 3)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == EmployeeId && p.IsDirector == "Chờ ký").ToList();
+                pContractList = _pContractService.getListWaitDirectorSigns().Result.Where(p => p.IsDirector == "Chờ ký").ToList();
                 return View(pContractList);
             }
             else
@@ -234,7 +234,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             if (isAuthenticate == 1)
             {
-                pContractList = _pContractService.getAllAsnyc().Result.Where(p => p.IsCustomer == "Chờ ký").ToList();
+                pContractList =  await _pContractService.getListWaitCustomerSigns();
                 return View(pContractList);
             }
             else if (isAuthenticate == 3)
@@ -264,7 +264,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             VMDetailsContract viewModel = new VMDetailsContract();
             try 
             { 
-            viewModel.DoneContracts = _dContractService.getAllAsnyc().Result.Where(d => d.Id== id).FirstOrDefault();
+            viewModel.DoneContracts = await _dContractService.getByIdAsnyc(id);
             viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
             }
             catch
@@ -279,7 +279,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             VMDetailsContract viewModel = new VMDetailsContract();
             try 
             { 
-            viewModel.PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.PContractID == id).FirstOrDefault();
+            viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
             viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
             viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
             }
@@ -296,7 +296,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             try 
             { 
-                viewModel.PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.PContractID == id).FirstOrDefault();
+                viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
                 viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.DirectorSignedId);
             }
@@ -313,7 +313,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             try
             {
-                viewModel.PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.PContractID == id).FirstOrDefault();
+                viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
                 viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
             }
