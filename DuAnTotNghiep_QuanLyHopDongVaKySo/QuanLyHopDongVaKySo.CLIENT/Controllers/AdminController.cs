@@ -182,7 +182,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 Positions = await _positionService.GetAllPositionsAsync(),
                 //truyền thêm pcontract + donecontract
                 PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId== empId).ToList(),
-                DoneContracts = _doneContractSvc.getAllAsnyc().Result.Where(d => d.EmployeeCreatedId == empId).ToList(),
+                DoneContracts = _doneContractSvc.getAllView().Result.Where(d => d.EmployeeCreatedId == empId).ToList(),
 
             }; 
             return View(vm);

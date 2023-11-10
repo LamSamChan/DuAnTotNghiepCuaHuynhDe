@@ -98,7 +98,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             VMListIRequire vm = new VMListIRequire()
             {
                 IRequirements = await _iRequirementService.GetAll(),
-                DContracts = await _doneContractSvc.GetAll(),
+                DContracts = await _doneContractSvc.getAll(),
             };
             return View(vm);
         }
@@ -195,7 +195,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             VMListIRequire vm = new VMListIRequire()
             {
                 PMinutes = _pMinuteService.GetAll().Result.Where(e => e.EmployeeId.ToString() == EmployeeId).ToList(),
-                DContracts = await _doneContractSvc.GetAll()
+                DContracts = await _doneContractSvc.getAll()
             };
             return View(vm);
         }

@@ -19,9 +19,14 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(await _doneContractSvc.getListIsEffect());
         }
-
         [HttpGet("getAll")]
         public async Task<IActionResult> GetAll()
+        {
+            return Ok(await _doneContractSvc.GetAll());
+        }
+
+        [HttpGet("getAllView")]
+        public async Task<IActionResult> GetAllView()
         {
             return Ok(await _doneContractSvc.getAllAsnyc());
         }

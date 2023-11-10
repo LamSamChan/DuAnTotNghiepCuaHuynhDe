@@ -13,15 +13,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
             _httpClient = httpClient;
         }
 
-        public async Task<List<DoneContract>> GetAll()
+        public async Task<List<DoneContract>> getAll()
         {
-            var response = await _httpClient.GetFromJsonAsync<List<DoneContract>>($"api/DContract");
+            var response = await _httpClient.GetFromJsonAsync<List<DoneContract>>($"api/DContract/getAll");
             return response;
         }
 
-        public async Task<List<DContractViewModel>> getAllAsnyc()
+        public async Task<List<DContractViewModel>> getAllView()
         {
-            var response = await _httpClient.GetFromJsonAsync< List<DContractViewModel>>($"api/DContract/getAll");
+            var response = await _httpClient.GetFromJsonAsync< List<DContractViewModel>>($"api/DContract/getAllView");
             return response;
         }
 
