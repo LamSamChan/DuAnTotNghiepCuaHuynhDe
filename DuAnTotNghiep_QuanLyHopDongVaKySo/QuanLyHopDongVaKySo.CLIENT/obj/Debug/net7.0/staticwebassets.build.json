@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dN0PJKe24i1jw3CazhUAbzLl3agLiae4UJ0qw/kpEwg=",
+  "Hash": "blQ7vJ7BV+vbWa2IFiG2iAwA1p1taUqa/H2m5YCbXco=",
   "Source": "QuanLyHopDongVaKySo.CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
   "Mode": "Default",
@@ -30425,6 +30425,23 @@
       "OriginalItemSpec": "wwwroot\\SignatureImages\\638351720736683994\\51acfc29.jpeg"
     },
     {
+      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638351720736683994\\559b3a99.jpeg",
+      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
+      "RelativePath": "SignatureImages/638351720736683994/559b3a99.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\SignatureImages\\638351720736683994\\559b3a99.jpeg"
+    },
+    {
       "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638351720736683994\\9762e956.jpeg",
       "SourceId": "QuanLyHopDongVaKySo.CLIENT",
       "SourceType": "Discovered",
@@ -30457,23 +30474,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\SignatureImages\\638351720736683994\\bfb4d49a.jpeg"
-    },
-    {
-      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638351720736683994\\f3f55f87.jpeg",
-      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
-      "RelativePath": "SignatureImages/638351720736683994/f3f55f87.jpeg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\SignatureImages\\638351720736683994\\f3f55f87.jpeg"
     },
     {
       "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SuperSignature.MouseSignature.lic",

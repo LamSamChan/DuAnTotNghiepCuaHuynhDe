@@ -100,7 +100,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-      
+        public IActionResult CreateFormForCus()
+        {
+            return View();
+        }
         public async Task<IActionResult> DetailsCus(string customerID)
         {
             var respone = await _customerService.GetCustomerById(customerID);

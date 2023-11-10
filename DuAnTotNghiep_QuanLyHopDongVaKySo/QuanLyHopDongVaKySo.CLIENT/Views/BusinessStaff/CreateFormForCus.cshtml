@@ -1,0 +1,106 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container-fluid">
+    <div class="header">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-top: 120px;">
+        <form class="row justify-content-around" style=" margin: 0 auto;" method="post" >
+            <div class="col-md-5">
+                <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
+                    <div class="col-md-6">
+                        <label for="inputGender" class="form-label">Mã khách hàng</label>
+                        <select style="background-color: #F3F3F3;" required class="form-control">
+                            <option value="" disabled selected>...chọn mã</option>
+                            <option value="1">kh001</option>
+                            <option value="2">kh002</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Tên khách hàng</label>
+                        <input type="date" class="form-control" readonly>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Mã hợp đồng</label>
+                        <input type="date" class="form-control"  readonly>
+                        <span class="text-danger" ></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Mã loại hình dịch vụ</label>
+                        <input type="date" class="form-control" readonly>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Mã biên bản lắp đặt</label>
+                        <input type="date" class="form-control" readonly>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateStart" class="form-label">Số điện thoại</label>
+                        <input class="form-control"  maxlength="11"  readonly>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDateStart" class="form-label">Email</label>
+                        <input class="form-control" type="email" placeholder="abc123@gmail.com" readonly>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail" class="form-label">Nơi ở</label>
+                        <textarea style="background-color: #F3F3F3;" class="form-control" readonly></textarea>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Mã nhân viên tạo dịch vụ</label>
+                        <input type="date" class="form-control" readonly>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Mã hợp đồng mẫu</label>
+                        <input type="date" class="form-control" readonly>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputEmail" class="form-label">Địa chỉ lắp đặt cụ thể</label>
+                        <textarea style="background-color: #F3F3F3;" class="form-control" required></textarea>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="col-md-5" style="margin: 40px auto;">
+                        <button class="add_cus" type="submit">
+                           Tạo hợp đồng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>
