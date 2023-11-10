@@ -67,7 +67,45 @@
             </tbody>
         </table>
     </div>
-    <button class="add_cus" style="margin: 20px; width:300px;">
-        <a class="m-4" >Thêm dịch vụ </a>
+    <button class="add_cus" style="margin: 20px; width:300px;" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Thêm dịch vụ
     </button>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm vai trò mới</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row justify-content-around" style=" margin: 0 auto;" asp-action="" asp-controller="Admin">
+                        <div class="col-md-12">
+                            <input class="form-control d-none">
+                            <div class="col-md-12">
+                                <label for="inputName" class="form-label" >Vai trò</label>
+                                <input class="form-control" required>
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3 d-none">
+                            <label class="mb-3 mr-1" for="Status" >Trạng thái: </label>
+                            <div>
+                                <input type="radio" class="btn-check " id="false" value="false" autocomplete="off" required checked>
+                                <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hiển thị</label>
+
+                                <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" required>
+                                <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Ẩn</label>
+                            </div>
+                        </div>
+                        <div class="col-md-5" style="margin:auto;">
+                            <button class="btn-addRole" type="submit" style="width: 100%;">
+                                THÊM
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
