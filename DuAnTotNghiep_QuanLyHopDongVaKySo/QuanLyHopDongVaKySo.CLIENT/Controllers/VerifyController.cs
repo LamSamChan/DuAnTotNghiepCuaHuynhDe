@@ -47,7 +47,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "InstallStaff");
+                    return RedirectToAction("PersonalView", "InstallStaff");
                 } 
             }
             else

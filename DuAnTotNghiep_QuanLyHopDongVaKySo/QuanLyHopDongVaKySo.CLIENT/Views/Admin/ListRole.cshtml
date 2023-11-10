@@ -52,9 +52,9 @@
                     @foreach (var emp in Model.Employees)
                     {
                         <tr>
-                            <td class="text-left">
+                            <td>
                                 <div class="row action">
-                                    <a><i class="ph-bold ph-note-pencil"></i></a>
+                                    <a asp-action="EditEmpAccount" asp-controller="Admin" asp-route-empId="@emp.EmployeeId"><i class="ph-bold ph-note-pencil"></i></a>
                                 </div>
                             </td>
                             <th>

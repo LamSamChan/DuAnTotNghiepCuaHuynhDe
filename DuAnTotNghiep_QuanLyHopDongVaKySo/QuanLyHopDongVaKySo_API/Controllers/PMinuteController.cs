@@ -3,6 +3,7 @@ using iTextSharp.text.pdf;
 using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Models.ViewPost;
 using QuanLyHopDongVaKySo_API.Services;
 using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 using QuanLyHopDongVaKySo_API.Services.InstallationRequirementService;
@@ -37,10 +38,23 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _pdfToImageHelper = pdfToImageHelper;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> GetTaskFormIRequirement(int iRequirementId, string employeeID)
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        { 
+            return Ok(await _pMinuteSvc.GetAll());
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(string id)
         {
-            var ir = await _installationRequirementSvc.GetById(iRequirementId);
+            return Ok(await _pMinuteSvc.GetById(int.Parse(id)));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GetTaskFormIRequirement([FromBody] PostGetTaskFromIR task)
+        {
+            
+            var ir = await _installationRequirementSvc.GetById(task.IRequirementId);
 
             PendingMinute pendingMinute = new PendingMinute()
             {
@@ -50,7 +64,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 IsCustomer = false,
                 MinuteFile = "",
                 DoneContractId = ir.DoneContractId,
-                EmployeeId = Guid.Parse(employeeID)
+                EmployeeId = Guid.Parse(task.EmployeeID)
             };
 
             int pMinute = await _pMinuteSvc.addAsnyc(pendingMinute);
@@ -64,7 +78,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             var Coordinates = await _mCoordinateSvc.getByTMinute(tMinuteId);
             
                 var minuteById = await _pMinuteSvc.GetById(pMinute);
-                var minute = await _pMinuteSvc.ExportMinute(minuteById, employeeID);
+                var minute = await _pMinuteSvc.ExportMinute(minuteById, task.EmployeeID);
                 if (minute != null)
                 {
                     if (!Directory.Exists("AppData/PMinutes/"))
@@ -106,7 +120,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     pdfStamper.Close();
                     pdfReader.Close();
                     await _pMinuteSvc.updatePMinuteFile(pMinute, outputPdfFile);
-                    await _installationRequirementSvc.DeleteIRequirement(iRequirementId);
+                    await _installationRequirementSvc.DeleteIRequirement(task.IRequirementId);
                 _pdfToImageHelper.PdfToPng(outputPdfFile, pMinute, "minute");
                    
                 }

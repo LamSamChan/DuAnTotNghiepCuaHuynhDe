@@ -8,6 +8,8 @@ using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using System.Net.Http;
 using QuanLyHopDongVaKySo.CLIENT.Services.IRequirementsServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.PMinuteServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +27,9 @@ builder.Services.AddScoped<IDContractsService, DContractsService>();
 builder.Services.AddScoped<IIRequirementService, IRequirementService>();
 builder.Services.AddScoped <IPFXCertificateServices, PFXCertificateServices>();
 builder.Services.AddScoped<IDContractsService, DContractsService>();
+builder.Services.AddScoped<IPMinuteService, PMinuteService>();
+builder.Services.AddScoped<ITOSService, TOSService>();
+
 builder.Services.AddSession(option =>
 {
     option.IdleTimeout = TimeSpan.FromMinutes(300);
