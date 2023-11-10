@@ -53,9 +53,33 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TOSServices
             return reponse;
         }
 
-        public Task<int> Update(PutTOS typeOfService)
+        public async Task<PutTOS> GetByPutId(int typeOfService_ID)
         {
-            throw new NotImplementedException();
+            var reponse = await _httpClient.GetFromJsonAsync<TypeOfService>($"api/TypeOfServices/{typeOfService_ID}");
+            PutTOS put = new PutTOS() { 
+                TOS_ID = reponse.TOS_ID,
+                ServiceName = reponse.ServiceName,
+                Price = reponse.Price,
+                PerTime = reponse.PerTime,
+                isHidden = reponse.isHidden,
+                TContractID = reponse.templateContractID,
+                TMinuteID = reponse.templateMinuteID
+            };
+            return put;
+        }
+
+        public async Task<int> Update(PutTOS typeOfService)
+        {
+            string json = JsonConvert.SerializeObject(typeOfService);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            using (var response = await _httpClient.PutAsync("api/TypeOfServices/Update", content))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return typeOfService.TOS_ID;
+                }
+                return 0;
+            }
         }
     }
 }
