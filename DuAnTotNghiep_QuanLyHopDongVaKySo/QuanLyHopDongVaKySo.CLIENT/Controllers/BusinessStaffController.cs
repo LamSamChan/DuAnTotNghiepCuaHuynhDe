@@ -82,7 +82,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _employeeService = employeeService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> ListCus()
         {
             List<Models.Customer> customersList = new List<Models.Customer>();
             try
@@ -95,12 +95,18 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return View(customersList);
             }
         }
-
+        public IActionResult Index()
+        {
+            return View();
+        }
         public IActionResult AddCus()
         {
             return View();
         }
-      
+        public IActionResult CreateFormForCus()
+        {
+            return View();
+        }
         public async Task<IActionResult> DetailsCus(string customerID)
         {
             var respone = await _customerService.GetCustomerById(customerID);
@@ -200,10 +206,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-        public IActionResult PersonalPage()
-        {
-            return View();
-        }
 
         //danh sách từ chối duyệt
         public async Task<IActionResult> ContractListRefuse()

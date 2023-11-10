@@ -3,109 +3,160 @@
 *@
 @{
 }
-<div class="sidebar">
-    <div class="menu-btn">
-        <i class="ph-bold ph-caret-left"></i>
-    </div>
-    <!-- <div class="head">
-      <div class="user-img">
-        <img src="user.jpg" alt="" />
-      </div>
-      <div class="user-details">
-        <p class="title">web developer</p>
-        <p class="name">John Doe</p>
-      </div>
-    </div> -->
-    <div class="nav">
-        <div class="menu">
-            <ul>
-                <li>
-                    <a href="#">
-                        @* <i class="icon ph-bold ph-house-simple"></i> *@
-                        <i class="icon ph-bold ph-list-plus"></i>
-                        <span class="text">Quản lý hợp đồng</span>
-                        <i class="arrow ph-bold ph-caret-down"></i>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a asp-controller="BusinessStaff" asp-action="ContractFormPage">
-                                <span class="text">Thêm mẫu hợp đồng</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a asp-controller="BusinessStaff" asp-action="CreateFormContract">
-                                <span class="text">Tạo hợp đồng</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="text">Danh sách hợp đồng</span>
-                                <i class="arrow ph-bold ph-caret-down"></i>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a asp-controller="BusinessStaff" asp-action="ContractListPending">
-                                        <span class="text">Hợp đồng chờ duyệt</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a asp-controller="BusinessStaff" asp-action="ContractListWaitSign">
-                                        <span class="text">Hợp đồng chờ khách ký</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a asp-controller="BusinessStaff" asp-action="ContractListRefuse">
-                                        <span class="text">Hợp đồng từ chối duyệt</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a asp-controller="BusinessStaff" asp-action="ContractListEffect">
-                                        <span class="text">Hợp đồng đang hiệu lực</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+
+@if (ViewBag.Role == "Giám đốc")
+{
+        <div class="sidebar">
+            <div class="menu-btn">
+                <i class="ph-bold ph-caret-left"></i>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <ul>
+                    <li>
+                        <a asp-controller="Director" asp-action="ListContractAwait">
+                            <i class="icon ph-bold ph-list-plus"></i>
+                            <span class="text">Hợp đồng chờ duyệt</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Director" asp-action="ListContractActive">
+                            <i class="icon ph-bold ph-list-plus"></i>
+                            <span class="text">Hợp đồng đang hiệu lực</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a asp-controller="Director" asp-action="Index">
+                            <i class="icon ph-bold ph-user"></i>
+                            <span class="text">Cá nhân</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Director" asp-action="HistoryOperation">
+                            <i class="icon ph-bold ph-clock-counter-clockwise"></i>
+                            <span class="text">Lịch sử ký số</span>
+                        </a>
+                    </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon ph-bold ph-user-list"></i>
-                        <span class="text">Quản lý khách hàng</span>
-                        <i class="arrow ph-bold ph-caret-down"></i>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a asp-controller="BusinessStaff" asp-action="Index">
-                                <span class="text">Danh sách khách hàng</span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li>
-                    <a asp-controller="BusinessStaff" asp-action="SendMail">
-                        <i class="icon ph-bold ph-paper-plane-tilt"></i>
-                        <span class="text">Gửi mail</span>
-
-                    </a>
-
-                </li>
-                <li class="active">
-                    <a asp-controller="BusinessStaff" asp-action="ContractListPending">
-                        <i class="icon ph-bold ph-user"></i>
-                        <span class="text">Cá nhân</span>
-                    </a>
-                </li>
-                <li>
-                    <a asp-controller="BusinessStaff" asp-action="HistoryOperation">
-                        <i class="icon ph-bold ph-clock-counter-clockwise"></i>
-                        <span class="text">Lịch sử hoạt động</span>
-                    </a>
-                </li>
-
-            </ul>
+                </div>
+            </div>
+            <div class="menu">
+                <ul style="padding-left:10px;">
+                    <li>
+                        <a href="#">
+                            <i class="icon ph-bold ph-sign-out"></i>
+                            <span class="text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        @* <div class="menu">
+
+}else if (ViewBag.Role == "Nhân viên kinh doanh")
+{
+    <div class="sidebar">
+        <div class="menu-btn">
+            <i class="ph-bold ph-caret-left"></i>
+        </div>
+        <!-- <div class="head">
+          <div class="user-img">
+            <img src="user.jpg" alt="" />
+          </div>
+          <div class="user-details">
+            <p class="title">web developer</p>
+            <p class="name">John Doe</p>
+          </div>
+        </div> -->
+        <div class="nav">
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="#">
+                            @* <i class="icon ph-bold ph-house-simple"></i> *@
+                            <i class="icon ph-bold ph-list-plus"></i>
+                            <span class="text">Quản lý hợp đồng</span>
+                            <i class="arrow ph-bold ph-caret-down"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a asp-controller="BusinessStaff" asp-action="ContractFormPage">
+                                    <span class="text">Thêm mẫu hợp đồng</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="BusinessStaff" asp-action="CreateFormContract">
+                                    <span class="text">Tạo hợp đồng</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="text">Danh sách hợp đồng</span>
+                                    <i class="arrow ph-bold ph-caret-down"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a asp-controller="BusinessStaff" asp-action="ContractListPending">
+                                            <span class="text">Hợp đồng chờ duyệt</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="BusinessStaff" asp-action="ContractListWaitSign">
+                                            <span class="text">Hợp đồng chờ khách ký</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="BusinessStaff" asp-action="ContractListRefuse">
+                                            <span class="text">Hợp đồng từ chối duyệt</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="BusinessStaff" asp-action="ContractListEffect">
+                                            <span class="text">Hợp đồng đang hiệu lực</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icon ph-bold ph-user-list"></i>
+                            <span class="text">Quản lý khách hàng</span>
+                            <i class="arrow ph-bold ph-caret-down"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a asp-controller="BusinessStaff" asp-action="Index">
+                                    <span class="text">Danh sách khách hàng</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a asp-controller="BusinessStaff" asp-action="SendMail">
+                            <i class="icon ph-bold ph-paper-plane-tilt"></i>
+                            <span class="text">Gửi mail</span>
+
+                        </a>
+
+                    </li>
+                    <li class="active">
+                        <a asp-controller="BusinessStaff" asp-action="ContractListPending">
+                            <i class="icon ph-bold ph-user"></i>
+                            <span class="text">Cá nhân</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="BusinessStaff" asp-action="HistoryOperation">
+                            <i class="icon ph-bold ph-clock-counter-clockwise"></i>
+                            <span class="text">Lịch sử hoạt động</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            @* <div class="menu">
         <p class="title">Settings</p>
         <ul>
         <li>
@@ -116,16 +167,94 @@
         </li>
         </ul>
         </div> *@
-    </div>
-    <div class="menu">
+        </div>
+        <div class="menu">
 
-        <ul style="padding-left:10px;">
-            <li>
-                <a href="#">
-                    <i class="icon ph-bold ph-sign-out"></i>
-                    <span class="text">Logout</span>
-                </a>
-            </li>
-        </ul>
+            <ul style="padding-left:10px;">
+                <li>
+                    <a href="#">
+                        <i class="icon ph-bold ph-sign-out"></i>
+                        <span class="text">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+}
+else 
+{
+    <div class="sidebar">
+        <div class="menu-btn">
+            <i class="ph-bold ph-caret-left"></i>
+        </div>
+        <div class="nav">
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="#">
+                            @* <i class="icon ph-bold ph-house-simple"></i> *@
+                            <i class="icon ph-bold ph-list-plus"></i>
+                            <span class="text">Quản lý yêu cầu lắp</span>
+                            <i class="arrow ph-bold ph-caret-down"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a asp-controller="InstallStaff" asp-action="ListInstallRecord">
+                                    <span class="text">Danh sách biên bản lắp</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="InstallStaff" asp-action="ListInstallRequire">
+                                    <span class="text">Danh sách yêu cầu lắp</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="icon ph-bold ph-user-list"></i>
+                            <span class="text">Quản lý thiết bị lắp</span>
+                            <i class="arrow ph-bold ph-caret-down"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a asp-controller="InstallStaff" asp-action="ListDevice">
+                                    <span class="text">Danh sách dịch vụ</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a asp-controller="InstallStaff" asp-action="Index">
+                            <i class="icon ph-bold ph-user"></i>
+                            <span class="text">Cá nhân</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            @* <div class="menu">
+        <p class="title">Settings</p>
+        <ul>
+        <li>
+        <a href="#">
+        <i class="icon ph-bold ph-gear"></i>
+        <span class="text">Settings</span>
+        </a>
+        </li>
+        </ul>
+        </div> *@
+        </div>
+        <div class="menu">
+
+            <ul style="padding-left:10px;">
+                <li>
+                    <a href="#">
+                        <i class="icon ph-bold ph-sign-out"></i>
+                        <span class="text">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+}

@@ -46,7 +46,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         //bắt lỗi mỗi dịch vụ chỉ có 1 hợp đồng và 1 biên bản
         [HttpPost("AddNew")]
-        public async Task<ActionResult<int>> AddNew([FromForm] PostTOS typeOfService)
+        public async Task<ActionResult<int>> AddNew([FromBody] PostTOS typeOfService)
         {
             TypeOfService tos = new TypeOfService() { 
                 DateAdded = DateTime.UtcNow,
@@ -68,7 +68,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPut("Update")]
-        public async Task<ActionResult<int>> Update([FromForm] PutTOS typeOfService)
+        public async Task<ActionResult<int>> Update([FromBody] PutTOS typeOfService)
         {
 
             TypeOfService tos = new TypeOfService()

@@ -11,6 +11,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TContractServices
         {
             _httpClient = httpClient;
         }
+
+
         public async Task<int> addAsnyc(PostTContract tContract)
         {
             var content = new StringContent(JsonConvert.SerializeObject(tContract), Encoding.UTF8, "application/json");

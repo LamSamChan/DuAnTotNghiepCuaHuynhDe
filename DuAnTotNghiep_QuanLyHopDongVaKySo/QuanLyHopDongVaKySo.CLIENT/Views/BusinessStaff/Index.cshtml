@@ -1,6 +1,19 @@
-﻿@model List<QuanLyHopDongVaKySo.CLIENT.Models.Customer>
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
 @{
 }
+<!-- ssss-->
+<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+
+<!-- SuperSignature : Script (required) -->
+<script language="javascript" type="text/javascript" src="~/Scripts/ss.js"></script>
+<!-- [[[ ***********  IMPORTANT: DONOT USE THIS SS.JS ON PRODUCTION;
+     USE THE ONE AVAILABLE TO DOWNLOAD FROM YOUR DASHBOARD (POST PURCHASE) ************* ]]] -->
+<!-- BOOTSTRAP 4 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+@* <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ *@
 <div class="container-fluid">
     <div class="header">
         <div class="SearchBox">
@@ -15,7 +28,6 @@
                     <a>
                         <i class="ph-bold ph-bell"></i>
                     </a>
-
                 </li>
                 <li>
                     <a>
@@ -28,66 +40,225 @@
             </ul>
         </div>
     </div>
-    <button class="addCus">
-        <a asp-action="AddCus">
-            THÊM KHÁCH HÀNG MỚI
-            <i class="ph-bold ph-user-plus"></i>
-        </a>
-    </button>
-    <div class="listTable_Cus">
-        <table class="table">
-            <thead>
-                <tr style="color: #8B909A;">
-                    <th></th>
-                    <th scope="col">ID</th>
-                    <th scope="col">HỌ VÀ TÊN</th>
-                    <th scope="col">SĐT</th>
-                    <th scope="col">EMAIL</th>
-                    <th scope="col">ĐỊA CHỈ</th>
-                    <th scope="col">TRẠNG THÁI HOẠT ĐỘNG</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                 @foreach (var cus in Model)
-                {
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a asp-action="EditCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId"><i class="ph-bold ph-note-pencil"></i></a>
-                            </div>
-                        </td>
-                        <th scope="row">@cus.CustomerId.ToString().Substring(0,8)</th>
-                        <td>@cus.FullName</td>
-                        <td>@cus.PhoneNumber</td>
-                        <td>@cus.Email</td>
-                        <td>@cus.Address</td>
-                        @if (@cus.IsLocked)
-                        {
-                           <td>
-                                <div class="d-flex align-items-center">
-                                    <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                    <div>Khóa</div>
-                                </div>
-                            </td>
-                            
-                        }
-                        else
-                        {
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                                    <div>Bình thường</div>
-                                </div>
-                            </td>
-                           
-                        }
-                        <td>
-                            <a asp-action="DetailsCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId" style="background-color: #00C9A7; color:white; border: 2px solid; padding: 1px 2px;">Chi tiết</a>
-                        </td>
-                    </tr>
-                } 
-            </tbody>
-        </table>
+    <div class="body">
+        <div class="row justify-content-around" style="height:365px;">
+            <div class="col-6 row" style="width:700px;">
+                <div class="box_avtr" style=" margin: auto 0 ;
+    width: 257px;
+    bottom: 30px;
+    left: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;">
+                    <img src="~/Resource/Image/Avatar.jpg" style=" width: 257px;
+    height: 210px;
+    border: 7px solid #FFF;" />
+                    <h4 style="color:#FFFFFF; padding-top:10px; ">DO THAO(DANZOU)</h4>
+                    <h5 style="color:#FFFFFF; ">CEO TECHSEAL</h5>
+                </div>
+                <div id="box_load" style="width:300px; margin:auto;">
+                    <button class="upload">
+                        <i class="ph-bold ph-upload-simple"></i>
+                    </button>
+                    <input type="file" class="tt" style="width:200px;" />
+                </div>
+            </div>
+            <div class="col-5" style="width:800px;">
+                <div class="row">
+                    <h5 class="title">Tạo chữ ký</h5>
+                    <div class="col-md-8">
+                        @await Component.InvokeAsync("SignControl")
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-inline" style="display: flex;flex-direction: column;margin-left: 150px; margin-top: 100px;">
+                            <input type="button" id="btnUndo" class="btn btn-primary" onclick="UndoSignature('ctlSignature');" value="Hoàn tác" />&nbsp;
+                            <input type="button" id="btnClear" class="btn btn-danger" onclick="ClearSignature('ctlSignature');" value="Xóa" />&nbsp;
+                            <input type="button" id="btnSave" class="btn btn-success" onclick="ValidateSign();" value="Tạo" />&nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="height:600px;">
+            <div class="infor col-5" style="max-height: 600px; overflow-y: scroll;">
+                <h4 class="title">Thông tin cá nhân</h4>
+                <form class="row justify-content-around g-3">
+                    <div class="col-md-5">
+                        <label for="inputName" class="form-label">Họ tên</label>
+                        <input type="text" placeholder="Tên:" class="form-input" id="inputName">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputEmail" class="form-label">Email</label>
+                        <input type="email" placeholder="Email:" class="form-input" id="inputEmail">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputPhone" class="form-label">Số điện thoại</label>
+                        <input type="text" placeholder="SDT" class="form-input" id="inputPhone">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputAddress" class="form-label">Địa chỉ</label>
+                        <input type="text" placeholder="Add" class="form-input" id="inputAddress">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputDate" class="form-label">Ngày sinh</label>
+                        <input type="date" class="form-input" id="inputDate">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputGender" class="form-label">Giới tính</label>
+                        <select id="inpuGender" class="form-select">
+                            <option selected>Nam</option>
+                            <option>Nữ</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputRole" class="form-label">Vai trò</label>
+                        <select id="inpuRole" class="form-select">
+                            <option selected>Select..</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputPosition" class="form-label">Chức danh</label>
+                        <select id="inpuPosition" class="form-select">
+                            <option selected>Select..</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputPhone" class="form-label">Trạng thái tài khoản</label>
+                        <input type="text" placeholder="SDT" class="form-input" id="inputPhone">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputAddress" class="form-label">Quyền truy cập</label>
+                        <input type="text" placeholder="Add" class="form-input" id="inputAddress">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputDate" class="form-label">Ngày cấp</label>
+                        <input type="date" class="form-input" id="inputDate">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputExp" class="form-label">Giới hết hạn</label>
+                        <input type="date" class="form-input" id="inputExp">
+                    </div>
+                </form>
+                <button class="add_cus" style="margin:20px auto; width:50%; padding: 10px;">Lưu thông tin</button>
+            </div>
+            <div class="infor col-5" style="max-height: 600px; overflow-y: scroll;">
+                <h4 class="title">Danh sách chữ ký</h4>
+                <ul style="list-style:none; display:flex; flex-wrap:wrap; margin:auto; ">
+                    <li class="avt">
+                        <img src="~/Resource/Image/empty.png" style="width:200px;" />
+                        <div class="overlay">
+                            <a>Xóa</a>
+                        </div>
+                    </li>
+                    <li class="avt">
+                        <img src="~/Resource/Image/empty.png" style="width:200px;" />
+                        <div class="overlay">
+                            <a>Xóa</a>
+                        </div>
+                    </li>
+                    <li class="avt">
+                        <img src="~/Resource/Image/empty.png" style="width:200px;" />
+                        <div class="overlay">
+                            <a>Xóa</a>
+                        </div>
+                    </li>
+                    <li class="avt">
+                        <img src="~/Resource/Image/empty.png" style="width:200px;" />
+                        <div class="overlay">
+                            <a>Xóa</a>
+                        </div>
+                    </li>
+                    <li class="avt">
+                        <img src="~/Resource/Image/empty.png" style="width:200px;" />
+                        <div class="overlay">
+                            <a>Xóa</a>
+                        </div>
+                    </li>
+                    <li class="avt">
+                        <img src="~/Resource/Image/empty.png" style="width:200px;" />
+                        <div class="overlay">
+                            <a>Xóa</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="Img_Sign col-2" style="width:300px;">
+                <h4 class="title">Tải ảnh chữ ký</h4>
+                <div id="box_load" style=" margin:auto; ">
+                    <form style="display:contents;">
+                        <button class="upload" type="submit">
+                            <i class="ph-bold ph-upload-simple"></i>
+                        </button>
+                        <input type="file" class="tt" style="width:200px;" />
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<script type="text/javascript">
+
+    var statV = false;
+
+    function StatusBar() {
+        SignatureStatusBar('ctlSignature', statV);
+        statV = !statV; // toggle
+
+        // change status bar look dynamically
+        $('#ctlSignature_status').css({ "color": "orangered", "font-size": "12px", "font-weight": "bold", "float": "left" });
+    }
+
+    function ValidateSign() {
+        var isValid = ValidateSignature('ctlSignature');
+
+        if (!isValid) {
+            $('#ctlSignature').css("border", "2px dashed red");
+        }
+        else {
+            $('#ctlSignature').css("border", "2px dashed green");
+        }
+
+        if (isValid === true) {
+            SaveSign();
+        }
+    }
+
+    function SaveSign() {
+
+        var btnSave = $("#btnSave");
+
+        btnSave.prop('disabled', true);
+
+        var ctlSignature = { Data: $("#ctlSignature_data").val(), Smooth: $("#ctlSignature_data_smooth").val() };
+
+        $.ajax({
+            url: "/BusinessStaff/SaveSignature/",
+            data: JSON.stringify(ctlSignature),
+            contentType: "application/json",
+            type: 'POST',
+            cache: false,
+            success: function (data) {
+                $("#imgSign").attr("src", "/Signs/" + data);
+            },
+            error: function (textStatus, errorThrown) {
+                alert("Unable to save signatures : " + JSON.stringify(textStatus) + " : " + errorThrown);
+            }
+        });
+
+        btnSave.prop('disabled', false);
+
+    }
+
+    function objctlSignature_status(success, points) {
+        $("#liStatus").html("<strong>Signature done? : " + success + ", with " + points + " points.</strong>");
+    }
+
+    $(document).ready(function () { StatusBar(); });
+
+    $(document).ready(function () {
+        $('#myCarousel').carousel({
+            interval: false
+        });
+    });
+</script>

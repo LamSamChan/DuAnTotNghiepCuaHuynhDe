@@ -16,7 +16,7 @@
     <div class="tab-content active" id="tab1">
         <form class="row justify-content-around" style=" margin: 0 auto;">
             <div class="col-md-5">
-                <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll; height:400px;">
+                <div class="box1 row justify-content-between g-3 " style=" max-height: 600px;overflow-y: scroll; height:500px;">
                     <div class="col-md-6">
                         <label for="inputDateEnd" class="form-label">ID biên bản</label>
                         <input class="form-control" readonly>
@@ -24,6 +24,26 @@
                     <div class="col-md-6">
                         <label class="form-label" >Tên biên bản</label>
                         <input class="form-control" id="inputName" placeholder="Họ và tên" readonly>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label">Danh sách thiết bị lắp</label>
+                        <table class="table">
+                            <thead>
+                                <tr style="color: #8B909A;">
+                                    <th scope="col">ID</th>
+                                    <th scope="col">TÊN THIẾT BỊ</th>
+                                    <th scope="col">TÌNH TRẠNG</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td>LAN</td>
+                                    <td>Đầy đủ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
                     <div class="col-md-6 mt-3">
                         <label class="mb-3 mr-1" for="Status">Chữ ký nhân viên lắp: </label>

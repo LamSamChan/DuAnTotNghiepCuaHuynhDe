@@ -14,6 +14,11 @@ using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
+using APIPost = QuanLyHopDongVaKySo_API.Models.ViewPost;
+using APITPut = QuanLyHopDongVaKySo_API.Models.ViewPuts;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -26,8 +31,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IPFXCertificateServices _pFXCertificateServices;
         private readonly IPContractService _pContractService;
         private readonly IDContractsService _doneContractSvc;
+        private readonly ITOSService _tosService;
+        private readonly ITContractService _tContractService;
+        private readonly ITMinuteService _tMinuteService;
+
         public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService,
-            ICustomerService customerService, IPFXCertificateServices pFXCertificateServices, IPContractService pContractService, IDContractsService doneContractSvc)
+            ICustomerService customerService, IPFXCertificateServices pFXCertificateServices, IPContractService pContractService,
+            IDContractsService doneContractSvc, ITOSService tosService, ITContractService tContractService, ITMinuteService tMinuteService)
         {
             _positionService = positionService;
             _employeeService = employeeService;
@@ -36,27 +46,74 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _pFXCertificateServices = pFXCertificateServices;
             _pContractService= pContractService;
             _doneContractSvc = doneContractSvc;
+            _tosService = tosService;
+            _tContractService = tContractService;
+            _tMinuteService = tMinuteService;   
         }
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult ListTypeOfService()
+        public async Task<IActionResult> ListTypeOfService()
         {
-            return View();
+            VMListTOS vm = new VMListTOS() {
+                TypeOfServices = await _tosService.GetAll(),
+                TemplateMinutes = await _tMinuteService.GetAll(),
+                TemplateContracts = await _tContractService.getAllAsnyc()
+            };
+            return View(vm);
         }
-        public IActionResult AddTypeOfService()
+        public async Task<IActionResult> AddTOSAction(VMListTOS vm)
         {
-            return View();
+            APIPost.PostTOS tos = new APIPost.PostTOS();
+            tos = vm.PostTOS;
+            var repone = await _tosService.AddNew(tos);
+            if (repone != 0)
+            {
+                return RedirectToAction("ListTypeOfService");
+            }
+            else
+            {
+                return RedirectToAction("ListRole");
+            }
+            
         }
+
+        public async Task<IActionResult> UpdateTOSAction(VMListTOS vm)
+        {
+            APITPut.PutTOS tos = new APITPut.PutTOS();
+            tos = vm.PutTOS;
+            var repone = await _tosService.Update(tos);
+            if (repone != 0)
+            {
+                return RedirectToAction("ListTypeOfService");
+            }
+            else
+            {
+                return RedirectToAction("ListRole");
+            }
+
+        }
+
         public IActionResult DetailsTypeOfService()
         {
             return View();
         }
-        public IActionResult EditTypeOfService()
+        public async Task<IActionResult> EditTypeOfService(int tosID)
+        {
+            VMListTOS vm = new VMListTOS()
+            {
+                PutTOS = await _tosService.GetByPutId(tosID),
+                TemplateMinutes = await _tMinuteService.GetAll(),
+                TemplateContracts = await _tContractService.getAllAsnyc()
+            };
+            return View(vm);
+        }
+        public IActionResult ListDevice()
         {
             return View();
         }
+
         public async Task<IActionResult> ListPFXCertificate()
         {
             VMListPFX vm = new VMListPFX();
