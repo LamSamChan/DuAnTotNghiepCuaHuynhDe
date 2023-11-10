@@ -49,7 +49,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TypeOfServiceService
             }
         }
 
-        public async Task<TypeOfService> GetById(int typeOfService_ID)
+        public async Task<TypeOfService> GetById(int? typeOfService_ID)
         {
             try
             {

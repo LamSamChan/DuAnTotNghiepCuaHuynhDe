@@ -20,7 +20,7 @@
     <div class="row" style="background-color:#FFFFFF; margin: 40px auto; height:100%; border-radius:16px;">
         <div class="col-6" style="margin: 20px; border-radius:10px;">
             <div class="showFile">
-                <h4 style="color: #4318FF; font-family:Source Sans Pro; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng chờ duyệt </h4>
+                <h4 style="color: #4318FF; font-family:Source Sans Pro; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng đang hiệu lực </h4>
                 <div id="myCarousel" class="carousel slide" style="margin: 0px 50px 20px 50px; width: 500px;height: 750px; background-color:#FFFF;">
                     <div class="carousel-inner">
                         <div class="carousel-item active " style="width:800px;">
@@ -85,22 +85,6 @@
             <div class="col-md-5">
                 <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
                 <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.TOS_ID">
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Chữ ký khách hàng</label>
-                <div class="d-flex align-items-center">
-                    <div style="width: 5px; height: 5px; background-color: yellow; border-radius: 50%; margin-right: 10px;">
-                        <span>@Model.PendingContracts.IsCustomer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <label for="inputAddress" class="form-label">Chữ ký giám đốc</label>
-                <div class="d-flex align-items-center">
-                    <div style="width: 5px; height: 5px; background-color: yellow; border-radius: 50%; margin-right: 10px;">
-                        <span>@Model.PendingContracts.IsDirector</span>
-                    </div>
-                </div>
             </div>
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Ngày tạo</label>

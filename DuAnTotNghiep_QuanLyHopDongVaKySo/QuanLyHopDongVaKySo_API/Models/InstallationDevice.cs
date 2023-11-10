@@ -29,7 +29,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [ForeignKey("TypeOfService")]
         [Required(ErrorMessage = "Hãy điền mã loại dịch vụ !")]
         [Display(Name = "Loại dịch vụ")]
-        public int TOS_ID { get; set; }
+        public int? TOS_ID { get; set; }
 
         [JsonIgnore]
         public TypeOfService? TypeOfService { get; set; }

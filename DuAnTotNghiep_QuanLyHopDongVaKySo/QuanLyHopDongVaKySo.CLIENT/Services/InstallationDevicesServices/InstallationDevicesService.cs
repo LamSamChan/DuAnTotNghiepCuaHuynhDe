@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Azure;
+using Microsoft.IdentityModel.Tokens;
 using QuanLyHopDongVaKySo_API.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices
@@ -13,14 +14,22 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices
         public async Task<string> AddNewDevice(InstallationDevice postDevice)
         {
             var reponse = await _httpClient.PostAsJsonAsync("api/InstallationDevices/AddNew", postDevice);
-            reponse.EnsureSuccessStatusCode();
-            return await reponse.Content.ReadAsStringAsync();
+            if (reponse.IsSuccessStatusCode)
+            {
+                return postDevice.Device_ID.ToString();
+            }
+            return null;
         }
 
         public async Task<int> DelectDevice(int id)
         {
             var response = await _httpClient.DeleteAsync($"api/InstallationDevices/Delete/{id}");
-            return 1;
+
+            if (response.IsSuccessStatusCode)
+            {
+                return id;
+            }
+            return 0;
         }
 
         public async Task<List<InstallationDevice>> GetAllByServiceId(int serviceID)
@@ -43,9 +52,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices
 
         public async Task<string> UpdateDevice(InstallationDevice putDevice)
         {
-            var reponse = await _httpClient.PostAsJsonAsync("api/InstallationDevices/Update", putDevice);
-            reponse.EnsureSuccessStatusCode();
-            return await reponse.Content.ReadAsStringAsync();
+            var reponse = await _httpClient.PutAsJsonAsync("api/InstallationDevices/Update", putDevice);
+            if (reponse.IsSuccessStatusCode)
+            {
+                return putDevice.Device_ID.ToString();
+            }
+            return null;
         }
     }
 }
