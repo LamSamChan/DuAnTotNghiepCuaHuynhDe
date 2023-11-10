@@ -392,7 +392,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
 
             var pContract = await _pendingContract.getByIdAsnyc(idContract);
-
+            if(pContract == null)
+            {
+                return BadRequest("Hợp đông không tồn tại");
+            }
             if (serial != customer.SerialPFX)
             {
                 return BadRequest("Chữ ký không đúng với khách hàng của hợp đồng này");
@@ -453,6 +456,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             _pdfToImageHelper.PdfToPng(outputContract, pendingContract.PContractId,"contract");
             var dContract = await _dContractSvc.addAsnyc(pendingContract);
+            if(dContract == null)
+            {
+                return BadRequest("Them hop dong that bai");
+            };
             await _pendingContract.deleteAsnyc(pendingContract.PContractId);
 
             string serviceName = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.ServiceName;

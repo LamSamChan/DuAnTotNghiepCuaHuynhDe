@@ -113,6 +113,9 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             try{
                 if(update != null)
                 {
+                    update.DirectorSignedId = PContract.DirectorSignedId;
+                    update.IsDirector = PContract.IsDirector;
+                    update.IsCustomer = PContract.IsCustomer;
                     update.IsRefuse = PContract.IsRefuse;
                     update.Reason = PContract.Reason;
                 }
