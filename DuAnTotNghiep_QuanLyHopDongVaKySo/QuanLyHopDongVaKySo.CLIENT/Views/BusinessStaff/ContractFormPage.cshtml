@@ -3,6 +3,116 @@
 *@
 @{
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<style>
+    #pdfContainer {
+        position: relative;
+        border: 3px solid gray;
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+        #pdfContainer canvas {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+    .signatureArea {
+        position: absolute;
+        border: 2px dashed red;
+        pointer-events: auto;
+        width: 100px;
+        height: 50px;
+        border-radius: 5px;
+        display: none;
+        /* Initially hide signature areas */
+    }
+
+    .pagination {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin-top: 30px;
+    }
+
+        .pagination li {
+            margin-right: 5px;
+        }
+
+        .pagination a {
+            text-decoration: none;
+            color: #007bff;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: #007bff 2px solid;
+            background-color: initial;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+            .pagination a:hover {
+                text-decoration: underline;
+                background-color: #007bff;
+                color: white;
+            }
+
+            .pagination a.active {
+                background-color: #007bff;
+                color: white;
+            }
+
+    .round {
+        border-radius: 50%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+
+
+    /* CSS */
+    .button-22 {
+        align-items: center;
+        appearance: button;
+        background-color: #0276FF;
+        border-radius: 8px;
+        border-style: none;
+        box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        flex-shrink: 0;
+        font-family: "RM Neue", sans-serif;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+        padding: 10px 21px;
+        text-align: center;
+        text-transform: none;
+        transition: color .13s ease-in-out, background .13s ease-in-out, opacity .13s ease-in-out, box-shadow .13s ease-in-out;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+        .button-22:active {
+            background-color: #006AE8;
+        }
+
+        .button-22:hover {
+            background-color: #1C84FF;
+        }
+</style>
 <div class="container-fluid">
     <div class="header">
         <div class="SearchBox">
@@ -32,9 +142,8 @@
     </div>
     <div class="tab-container">
         <div class="tab-button active" onclick="showTab('tab1')">Thêm mẫu hợp đồng</div>
-        <div class="tab-button" onclick="showTab('tab2')">Thêm mẫu biên bản lắp đặt</div>
         <div class="tab-button" onclick="showTab('tab3')">Danh sách mẫu hợp đồng</div>
-        <div class="tab-button" onclick="showTab('tab4')">Danh sách mẫu biên bản lắp đặt</div>
+  
     </div>
     <div class="tab-content active" id="tab1">
         <div class="row text-center">
@@ -43,87 +152,23 @@
                 <form method="post" enctype="multipart/form-data">
                     <div class="upForm">
                         <label class="form-label">Tệp hợp mẫu hợp đồng: </label>
-                        <input class="upload" type="file" accept="application/pdf" style="color: #4318FF;" value="UPLOAD FILE">
+                        <input type="file" id="pdfInput" accept=".pdf" class="form-control-file">
                     </div>
-                    <img src="~/Resource/Image/LOGO_WITHOUT_BG/1.png" style="z-index:-1; position:absolute;"/>
+                    
                     <div class="upForm">
                         <label class="form-label">Tên hợp đồng: </label>
                         <input class="upload" style="color: #4318FF;">
                     </div>
-                    <div class="upForm">
-                        <button type="submit">Thêm</button>
+                    <div style="display: flex; justify-content: space-evenly; gap: 50px;">
+                        <input type="file" id="pdfInput" accept=".pdf" class="form-control-file">
+                        <button id="addDirectorSignature" type="button" class="button-22">Thêm chữ ký Giám đốc</button>
+                        <button id="savePositions" type="button" class="button-22">Lưu</button>
+                        <button id="addEmployeeSignature" type="button" class="button-22">Thêm chữ ký Nhân viên</button>
                     </div>
+                    <div id="paginationContainer" class="pagination" style="margin-left: 220px;"></div>
+                    <br>
+                    <div id="pdfContainer"></div>
                 </form>
-            </div>
-        </div>
-    </div>
-    <div class="tab-content" id="tab2">
-        <div class="row">
-            <h4 style="color: #4318FF; font-family:Source Sans Pro;">Tải mẫu để lưu trữ</h4>
-            <div class="col-4">
-                <div class="upForm">
-                    <button class="upload">
-                        <i class="ph-bold ph-upload-simple"></i>
-                    </button>
-                    <h3 style="color: #4318FF;">UPLOAD FILE</h3>
-                </div>
-                <img src="~/Resource/Image/LOGO_WITHOUT_BG/1.png" />
-            </div>
-            <div class="col-8" style="max-height:750px; overflow-y: scroll; display: flow;">
-                <div class="row justify-content-between ">
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-between ">
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/BackgroundImage.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-between ">
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -197,78 +242,8 @@
             </div>
         </div>
     </div>
-    <div class="tab-content" id="tab4">
-        <div class="row">
-            <h4 style="color: #4318FF; font-family:Source Sans Pro;">Tải mẫu để lưu trữ</h4>
-            <div class="col-4">
-                <div class="upForm">
-                    <button class="upload">
-                        <i class="ph-bold ph-upload-simple"></i>
-                    </button>
-                    <h3 style="color: #4318FF;">UPLOAD FILE</h3>
-                </div>
-                <img src="~/Resource/Image/LOGO_WITHOUT_BG/1.png" />
-            </div>
-            <div class="col-8" style="max-height:750px; overflow-y: scroll; display: flow;">
-                <div class="row justify-content-between ">
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-between ">
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-between ">
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  
 
-</div>
 <script>
     function showTab(tabId) {
         // Ẩn tất cả các nội dung tab
@@ -289,5 +264,261 @@
 
         var selectedButton = document.querySelector('[onclick="showTab(\'' + tabId + '\')"]');
         selectedButton.classList.add('active');
+
+        // Trigger PDF rendering when switching to Tab 2
+        if (tabId === 'tab2') {
+            renderPage(pageNum); // Call the PDF rendering function (adjust as needed)
+        }
     }
+
+    //
+    //
+    let pdfDoc = null;
+    let pageNum = 1;
+    const scale = 1.5;
+    let canvas = null;
+    let context = null;
+    let pdfContainer = document.getElementById('pdfContainer');
+
+
+    let signatureAreas = [];
+
+    const pdfInput = document.getElementById('pdfInput');
+    pdfInput.addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        if (file) {
+            pdfjsLib.getDocument(URL.createObjectURL(file)).promise.then(pdf => {
+                pdfDoc = pdf;
+                pageNum = 1;
+                renderPage(pageNum);
+
+                // Hide the file input after selecting a file
+                pdfInput.style.display = 'none';
+
+                // Create and render pagination
+                renderPagination(pdf.numPages);
+            });
+        }
+    });
+
+    function renderPagination(totalPages) {
+        const paginationContainer = document.getElementById('paginationContainer');
+        paginationContainer.innerHTML = ''; // Clear existing pagination
+
+        // First page button
+        const firstPageButton = createPageLink('<<');
+        firstPageButton.addEventListener('click', () => {
+            goToPage(1);
+        });
+        paginationContainer.appendChild(firstPageButton);
+
+        // Previous button
+        const previousButton = createPageLink('&#8249;');
+        previousButton.addEventListener('click', () => {
+            goToPage(pageNum - 1);
+        });
+        paginationContainer.appendChild(previousButton);
+
+        for (let i = 1; i <= totalPages; i++) {
+            const pageLink = createPageLink(i);
+            pageLink.addEventListener('click', () => {
+                goToPage(i);
+            });
+
+            paginationContainer.appendChild(pageLink);
+        }
+
+        // Next button
+        const nextButton = createPageLink('&#8250;');
+        nextButton.addEventListener('click', () => {
+            goToPage(pageNum + 1);
+        });
+        paginationContainer.appendChild(nextButton);
+
+        // Last page button
+        const lastPageButton = createPageLink('>>');
+        lastPageButton.addEventListener('click', () => {
+            goToPage(totalPages);
+        });
+        paginationContainer.appendChild(lastPageButton);
+
+        updateActivePage();
+    }
+
+    function createPageLink(content) {
+        const pageLink = document.createElement('a');
+        pageLink.innerHTML = content;
+        pageLink.classList.add('page-link');
+        return pageLink;
+    }
+
+    function goToPage(page) {
+        if (page >= 1 && page <= pdfDoc.numPages) {
+            pageNum = page;
+            renderPage(pageNum);
+            updateActivePage();
+        }
+    }
+
+    function renderPage(num) {
+        pdfDoc.getPage(num).then(page => {
+            const viewport = page.getViewport({
+                scale
+            });
+            const pdfCanvas = document.createElement('canvas');
+            const pdfContext = pdfCanvas.getContext('2d');
+            pdfCanvas.height = viewport.height;
+            pdfCanvas.width = viewport.width;
+
+            page.render({
+                canvasContext: pdfContext,
+                viewport
+            }).promise.then(() => {
+                const pdfImage = new Image();
+                pdfImage.src = pdfCanvas.toDataURL();
+                pdfImage.onload = function () {
+                    if (canvas) {
+                        pdfContainer.removeChild(canvas);
+                    }
+                    canvas = document.createElement('canvas');
+                    context = canvas.getContext('2d');
+                    canvas.height = pdfCanvas.height;
+                    canvas.width = pdfCanvas.width;
+                    context.drawImage(pdfImage, 0, 0);
+                    pdfContainer.appendChild(canvas);
+
+
+                    // Clear existing signature areas
+                    signatureAreas.forEach(area => {
+                        area.element.style.display = 'none';
+                    });
+
+                    // Render signature areas only on the last page
+                    if (num === pdfDoc.numPages) {
+                        signatureAreas.forEach(area => {
+                            area.element.style.display = 'block';
+                        });
+                    }
+                };
+            });
+        });
+    }
+
+    function updateActivePage() {
+        const pageLinks = document.querySelectorAll('.page-link');
+        pageLinks.forEach(link => {
+            link.classList.remove('active');
+            if (parseInt(link.innerHTML) === pageNum) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    document.getElementById('addDirectorSignature').addEventListener('click', () => {
+        createSignatureArea('Director');
+    });
+
+    document.getElementById('addEmployeeSignature').addEventListener('click', () => {
+        createSignatureArea('Employee');
+    });
+
+    document.getElementById('savePositions').addEventListener('click', () => {
+        savePositions();
+    });
+
+    function createSignatureArea(role) {
+        // Check if a signature for the role already exists
+        const existingSignature = signatureAreas.find(area => area.role === role);
+
+        if (existingSignature) {
+            alert(`Chữ ký ${role} đã tồn tại.`);
+            return;
+        }
+
+        const signatureArea = document.createElement('div');
+        signatureArea.className = 'signatureArea';
+        signatureArea.textContent = role;
+        pdfContainer.appendChild(signatureArea);
+
+        let isDragging = false;
+
+        signatureArea.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            moveSignatureArea(e, signatureArea);
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                moveSignatureArea(e, signatureArea);
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        signatureAreas.push({
+            role,
+            element: signatureArea
+        });
+
+        // Hide the newly added signature area if not on the last page
+        if (pageNum < pdfDoc.numPages) {
+            signatureArea.style.display = 'none';
+        }
+    }
+
+    function moveSignatureArea(e, area) {
+        const rect = pdfContainer.getBoundingClientRect();
+        const x = Math.round(e.clientX - rect.left);
+        const y = Math.round(e.clientY - rect.top);
+
+        area.style.left = x + 'px';
+        area.style.top = y + 'px';
+    }
+
+    function savePositions() {
+        const directorPositions = [];
+        const employeePositions = [];
+
+        signatureAreas.forEach(area => {
+            const position = {
+                x: Math.round(parseInt(area.element.style.left)),
+                y: Math.round(parseInt(area.element.style.top))
+            };
+
+            if (area.role === 'Director') {
+                directorPositions.push(position);
+            } else if (area.role === 'Employee') {
+                employeePositions.push(position);
+            }
+        });
+
+        downloadJSON(directorPositions, 'director_positions.json');
+        downloadJSON(employeePositions, 'employee_positions.json');
+    }
+
+    function downloadJSON(data, fileName) {
+        const blob = new Blob([JSON.stringify(data, null, 2)], {
+            type: 'application/json'
+        });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+   
 </script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
