@@ -57,7 +57,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         /// <param name="tContract"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> AddTContractAsnyc(PostTContract tContract)
+        public async Task<IActionResult> AddTContractAsnyc([FromBody] PostTContract tContract)
         {
             Spire.Pdf.PdfDocument doc = new Spire.Pdf.PdfDocument();
             if (ModelState.IsValid)
@@ -116,11 +116,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         }
 
                         _pdfToImgHelpers.PdfToPng(filePath, id_Tcontract, "tcontract");
-                        return Ok(new
-                        {
-                            retText = "Thêm mẫu hợp đồng thành công",
-                            data = _TContractSvc.getByIdAsnyc(id_Tcontract).Result.TContactID.ToString()
-                        });
+                        return Ok(_TContractSvc.getByIdAsnyc(id_Tcontract).Result.TContactID.ToString());
                     }
                 }
             }

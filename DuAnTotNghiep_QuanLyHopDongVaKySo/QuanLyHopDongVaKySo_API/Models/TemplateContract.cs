@@ -21,7 +21,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [Column(TypeName = "nvarchar(250)")]
         [Display(Name = "Tệp hợp đồng")]
-        public string TContractFile { get; set; }
+        public string? TContractFile { get; set; }
 
         public string jsonDirectorZone { get; set; }
         public string jsonCustomerZone { get; set; }
