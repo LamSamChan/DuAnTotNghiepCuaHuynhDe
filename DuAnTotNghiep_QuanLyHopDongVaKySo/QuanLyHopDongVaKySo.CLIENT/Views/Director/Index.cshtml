@@ -321,7 +321,8 @@
         });
 
         btnSave.prop('disabled', false);
-
+        var redirectToUrl = '@Url.Action("Index", "Director")';
+        window.location.href = redirectToUrl;
     }
 
     function objctlSignature_status(success, points) {

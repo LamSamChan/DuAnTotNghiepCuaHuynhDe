@@ -318,9 +318,13 @@
             error: function (textStatus, errorThrown) {
                 alert("Unable to save signatures : " + JSON.stringify(textStatus) + " : " + errorThrown);
             }
+
         });
 
         btnSave.prop('disabled', false);
+
+        var redirectToUrl = '@Url.Action("Index", "InstallStaff")';
+        window.location.href = redirectToUrl;
 
     }
 

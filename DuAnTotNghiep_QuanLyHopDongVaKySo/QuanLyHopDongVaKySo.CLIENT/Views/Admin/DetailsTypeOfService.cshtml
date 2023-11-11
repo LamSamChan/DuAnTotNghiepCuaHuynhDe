@@ -27,9 +27,6 @@
                         // Chuyển hướng tới trang mong muốn
                         var redirectToUrl = '@Url.Action("DetailsTypeOfService", "Admin")?tosID=' + device.TOS_ID;
                         window.location.href = redirectToUrl;
-                    } else {
-
-                        console.error('Lỗi khi cập nhật thiết bị.');
                     }
                 },
                 error: function () {
