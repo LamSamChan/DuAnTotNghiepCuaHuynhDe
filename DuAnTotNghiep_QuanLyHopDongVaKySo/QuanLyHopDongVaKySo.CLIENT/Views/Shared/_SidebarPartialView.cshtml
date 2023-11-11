@@ -2,9 +2,10 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+  
 }
 
-@if (ViewBag.Role == "Giám đốc")
+@if ( @ViewBag.Role == "Giám đốc")
 {
         <div class="sidebar">
             <div class="menu-btn">
@@ -213,7 +214,7 @@ else
                     </li>
                     <li>
                         <a href="#">
-                            <i class="ph-bold ph-wrench"></i>
+                            <i class="ph-bold ph-wrench" style="font-size:26px;"></i>
                             <span class="text">Quản lý thiết bị lắp</span>
                             <i class="arrow ph-bold ph-caret-down"></i>
                         </a>

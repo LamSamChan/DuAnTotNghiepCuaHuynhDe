@@ -84,6 +84,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public async Task<IActionResult> Index()
         {
+            string VB = ViewBag.Role;
             if (IsAuthenticate == 2)
             {
                 VMPersonalPage vm = new VMPersonalPage();
@@ -93,6 +94,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
                 vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
+                ViewData["Role"] = VB;
                 return View(vm);
             }
             else
