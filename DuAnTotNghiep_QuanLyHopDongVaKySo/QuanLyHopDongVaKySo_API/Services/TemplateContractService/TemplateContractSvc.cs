@@ -21,8 +21,8 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
                     DateAdded = DateTime.Now,
                     TContractName = tContract.TContractName,
                     TContractFile = @"AppData/TContracts/"+tContract.TContractName,
-                    jsonCustomerZone = tContract.jsonCustomerZone,
-                    jsonDirectorZone = tContract.jsonDirectorZone
+                    jsonCustomerZone = null,
+                    jsonDirectorZone = null
                 };
                 await _context.TemplateContracts.AddAsync(add);
                 await _context.SaveChangesAsync();

@@ -1,7 +1,4 @@
 ﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMDetailsContract;
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
 @using Microsoft.AspNetCore.Hosting
 @inject IWebHostEnvironment _hostingEnvironment
 
@@ -9,7 +6,7 @@
     // Lấy link trực ảnh từ file tỉnh
     string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
 
-    string folderItem = System.IO.Path.Combine(folderPath, "1");
+    string folderItem = System.IO.Path.Combine(folderPath, Model.DoneContracts.Id);
 
     string[] imageFiles = Directory.GetFiles(folderItem);
 }
@@ -29,7 +26,7 @@
                         @foreach (var imgPath in imageFiles)
                         {
                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                <img src="@Url.Content("~/ContractImage/"+Model.DoneContracts.Id+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                             </div>
                         }
                     </div>

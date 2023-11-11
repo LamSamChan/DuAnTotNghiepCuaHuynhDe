@@ -4,15 +4,11 @@ namespace QuanLyHopDongVaKySo_API.Models
 {
     public class PostTMinute
     {
-        [Required]
-        public string TMinuteName { get; set; }
-        
-        public IFormFile? File {get;set;}
-        [Required]
-        public string Base64StringFile { get; set; }
-        [Required]
-        public string jsonDirectorZone { get; set; }
-        [Required]
-        public string jsonCustomerZone { get; set; }
+        public IFormFile? File { get; set; }
+        public string? TMinuteName { get; set; }    
+        public string? jsonInstallerZone { get; set; }
+        public string? jsonCustomerZone { get; set; }
+        public string? Base64StringFile { get; set; }
+
     }
 }

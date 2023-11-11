@@ -347,7 +347,8 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("TOS_ID")
+                    b.Property<int?>("TOS_ID")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("Device_ID");
@@ -684,7 +685,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("TContractFile")
-                        .IsRequired()
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("TContractName")

@@ -140,102 +140,20 @@
     </div>
     <div class="tab-container">
         <div class="tab-button active" onclick="showTab('tab1')">Thêm mẫu hợp đồng</div>
-        <div class="tab-button" onclick="showTab('tab3')">Danh sách mẫu hợp đồng</div>
-  
     </div>
     <div class="tab-content active" id="tab1">
         <div class="row text-center">
             <h2 style="color: #4318FF; font-family:Source Sans Pro;">Tải mẫu để lưu trữ</h2>
             <div class="col-6 m-auto">
-                <form method="post" enctype="multipart/form-data" id="FormPostTContract">
+                <form method="post" enctype="multipart/form-data" id="FormPostTContract" asp-action="AddTContract" asp-controller="BusinessStaff">
                     <div class="upForm">
                         <label class="form-label">Tệp hợp mẫu hợp đồng: </label>
                         <input type="file" required asp-for="File" id="pdfInput" accept=".pdf" class="form-control-file">
                     </div>  
-                    
-                    <div class="upForm">
-                        <label class="form-label">Tên hợp đồng: </label>
-                        <input id="tContractName" required asp-for="TContractName" class="upload" style="color: #4318FF;">
-                    </div>
                     <div style="display: flex; justify-content: space-evenly; gap: 50px;">
-                        <button id="addDirectorSignature" type="button" class="button-22">Thêm chữ ký Giám đốc</button>
-                        <button id="savePositions" type="button" class="button-22">Lưu</button>
-                        <button id="addEmployeeSignature" type="button" class="button-22">Thêm chữ ký Nhân viên</button>
+                        <button type="submit" class="button-22" >Lưu</button>
                     </div>
-                    <div id="paginationContainer" class="pagination" style="margin-left: 220px;"></div>
-                    <br>
-                    <div id="pdfContainer"></div>
                 </form>
-            </div>
-        </div>
-    </div>
-    <div class="tab-content" id="tab3">
-        <div class="row">
-            <h4 style="color: #4318FF; font-family:Source Sans Pro;">Tải mẫu để lưu trữ</h4>
-            <div class="col-4">
-                <div class="upForm">
-                    <button class="upload">
-                        <i class="ph-bold ph-upload-simple"></i>
-                    </button>
-                    <h3 style="color: #4318FF;">UPLOAD FILE</h3>
-                </div>
-                <img src="~/Resource/Image/LOGO_WITHOUT_BG/1.png" />
-            </div>
-            <div class="col-8" style="max-height:750px; overflow-y: scroll; display: flow;">
-                <div class="row justify-content-between ">
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-between ">
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-between ">
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 31rem; border: none;">
-                        <img src="~/Resource/Image/Contract_IMG.png" class="card-img-top">
-                        <div class="card-body">
-                            <button>
-                                Sử dụng
-                            </button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -492,8 +410,9 @@
         });
 
             var formData = new FormData($("#FormPostTContract")[0]);
-            formData.append('jsonDirectorZone', JSON.stringify(directorPositions[0]));
-            formData.append('jsonCustomerZone', JSON.stringify(employeePositions[0]));
+            formData.append('TContractName', "");
+            formData.append('jsonDirectorZone', "");
+            formData.append('jsonCustomerZone', "");
             formData.append('Base64StringFile',"");
 
 

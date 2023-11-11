@@ -173,6 +173,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                         {
                             tContract.File.CopyTo(stream);
                             byte[] bytes = stream.ToArray();
+                            tContract.TContractName = tContract.File.FileName.ToString().Replace(".pdf","");
                             tContract.Base64StringFile = Convert.ToBase64String(bytes);
                             tContract.File = null;
                         }
@@ -188,10 +189,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (reponse != 0)
             {
+                //thành công
                 return RedirectToAction("ContractFormPage");
             }
             else
             {
+                //thất bại
                 return RedirectToAction("AddCus");
             }
         }

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
+using System.Diagnostics.CodeAnalysis;
 
 namespace QuanLyHopDongVaKySo_API.Models
 {
@@ -23,7 +24,9 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Tệp biên bản")]
         public string TMinuteFile { get; set; }
 
+        [AllowNull]
         public string jsonIntallationZone { get; set; }
+        [AllowNull]
         public string jsonCustomerZone { get; set; }
 
         //tạo liên kết

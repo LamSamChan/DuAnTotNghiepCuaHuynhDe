@@ -20,6 +20,8 @@ using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
 using APIPost = QuanLyHopDongVaKySo_API.Models.ViewPost;
 using APITPut = QuanLyHopDongVaKySo_API.Models.ViewPuts;
 using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
+using QuanLyHopDongVaKySo_CLIENT.Constants;
+using QuanLyHopDongVaKySo_API.Services.InstallationDeviceService;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -102,9 +104,38 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> DetailsTypeOfService(int tosID)
         {
             VMDetailsTypeOfService vm = new VMDetailsTypeOfService() {
-            InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID)
-            };
+            InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID)};
+            HttpContext.Session.SetString("tosID",tosID.ToString());
             return View(vm);
+        }
+
+        public async Task<IActionResult> AddDeviceAction(VMDetailsTypeOfService vm)
+        {
+            InstallationDevice device = new InstallationDevice();
+            device = vm.InstallationDevice;
+            var respone = await _installationDevicesService.AddNewDevice(device);
+            if (respone != null)
+            {
+                return RedirectToAction("DetailsTypeOfService", new { tosID = device.TOS_ID });
+            }
+            else
+            {
+                return RedirectToAction("ListRole");
+            }  
+        }
+
+        public async Task<IActionResult> DelDeviceAction(int deviceID)
+        {
+            var respone = await _installationDevicesService.DelectDevice(deviceID);
+            string tosID = HttpContext.Session.GetString("tosID");
+            if (respone != 0)
+            {
+                return RedirectToAction("DetailsTypeOfService", new { tosID = tosID });
+            }
+            else
+            {
+                return RedirectToAction("ListRole");
+            }
         }
 
         [HttpPut]

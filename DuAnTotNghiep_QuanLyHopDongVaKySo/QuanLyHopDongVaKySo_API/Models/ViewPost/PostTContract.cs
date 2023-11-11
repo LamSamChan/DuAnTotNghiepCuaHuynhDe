@@ -6,11 +6,10 @@ namespace QuanLyHopDongVaKySo_API.Models
     public class PostTContract
     {
         public IFormFile? File { get; set; }
-        [Required]
-        public string TContractName { get; set; }
-        public string jsonDirectorZone { get; set; }
+        public string? TContractName { get; set; }
+        public string? jsonDirectorZone { get; set; }
 
-        public string jsonCustomerZone { get; set; }
+        public string? jsonCustomerZone { get; set; }
         
         public string? Base64StringFile { get; set; }
     }

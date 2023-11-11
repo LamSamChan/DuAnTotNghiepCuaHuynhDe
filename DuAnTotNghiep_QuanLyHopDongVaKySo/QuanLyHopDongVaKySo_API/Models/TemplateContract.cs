@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using System.Diagnostics.CodeAnalysis;
 
 namespace QuanLyHopDongVaKySo_API.Models
 {
@@ -23,7 +24,9 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Tệp hợp đồng")]
         public string? TContractFile { get; set; }
 
+        [AllowNull]
         public string jsonDirectorZone { get; set; }
+        [AllowNull]
         public string jsonCustomerZone { get; set; }
 
         //tạo liên kết

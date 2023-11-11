@@ -1,6 +1,8 @@
 ﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMDetailsTypeOfService
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 @{
     Layout = "_AdminLayout";
+    string tosID = HttpContextAccessor.HttpContext.Session.GetString("tosID");
 }
 
 @section Scripts {
@@ -57,7 +59,6 @@
                 @foreach (var item in Model.InstallationDevices)
                 {
                 <tr>
-                
                     <td><input class="form-control" asp-for="@item.Device_ID" readonly></td>
                     <td><input class="form-control" required asp-for="@item.DeviceName" id="deviceName_@item.Device_ID"></td>
                     <td><input class="form-control" required asp-for="@item.DeviceStatus" id="deviceStatus_@item.Device_ID"></td>
@@ -71,10 +72,9 @@
                         <button class="add_cus" type="button" onclick="saveDevice('@item.Device_ID')">Lưu</button>
                     </td>
                     <td>
-                        <a class="btn btn-danger" style="height: 30px;">Xoá</a>
+                        <a class="btn btn-danger" style="height: 30px;" asp-action="DelDeviceAction" asp-controller="Admin" asp-route-deviceID="@item.Device_ID">Xoá</a>
                     </td>
                 </tr>
-                
                 }
         </tbody>
     </table>
@@ -92,6 +92,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                    <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="AddDeviceAction" asp-controller="Admin">
                     <table class="table">
                         <thead>
                             <tr style="color: #8B909A;">
@@ -103,29 +104,25 @@
                         </thead>
                         <tbody class="table-group-divider">
                             <tr>
-                                <form class="row justify-content-around" style=" margin: 0 auto;" method="post" enctype="multipart/form-data" asp-action="EditDeviceAction" asp-controller="Admin">
-
                                 <td>
-                                    <input class="form-control" id="inputName" >
+                                    <input class="form-control" required asp-for="@Model.InstallationDevice.DeviceName">
                                 </td>
                                 <td>
-                                    <input class="form-control" maxlength="12" >
+                                    <input class="form-control" required asp-for="@Model.InstallationDevice.DeviceStatus">
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" >
+                                    <input type="number" min="0" step="1" class="form-control" required asp-for="@Model.InstallationDevice.DeviceQuantity">
                                 </td>
                                 <td class="d-none">
-                                    <input type="text" class="form-control" readonly>
-                                </td>
-                                <td>
-                                    <button class="add_cus" type="submit">
-                                        Thêm
-                                    </button>
-                                </td>
-                                </form>
+                                    <input type="text" class="form-control" required readonly asp-for="@Model.InstallationDevice.TOS_ID" value="@tosID" />
+                                </td>                               
                             </tr>
                         </tbody>
                     </table>
+                        <button class="add_cus" type="submit">
+                            Thêm
+                        </button>
+                     </form>
                     </div>
                 </div>
             </div>
