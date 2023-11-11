@@ -107,8 +107,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View(vm);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> EditDeviceAction(InstallationDevice device)
+        [HttpPut]
+        public async Task<IActionResult> EditDeviceAction([FromBody] InstallationDevice device)
         {
             var respone = await _installationDevicesService.UpdateDevice(device);
             if (respone != null)

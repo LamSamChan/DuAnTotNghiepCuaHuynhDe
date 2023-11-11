@@ -2,11 +2,48 @@
 @{
     Layout = "_AdminLayout";
 }
-<td class="container-fluid">
+
+@section Scripts {
+    <script>
+        // jQuery is assumed to be available
+
+        // Hàm để thực hiện Ajax và cập nhật dữ liệu
+        function saveDevice(deviceId) {
+            var device = {
+                Device_ID: deviceId,
+                DeviceName: $('#deviceName_' + deviceId).val(),
+                DeviceStatus: $('#deviceStatus_' + deviceId).val(),
+                DeviceQuantity: $('#deviceQuantity_' + deviceId).val(),
+                TOS_ID: $('#tosId_' + deviceId).val()
+            };
+
+            $.ajax({
+                url: '@Url.Action("EditDeviceAction")',
+                type: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(device),
+                success: function (result) {
+                    if (!result.success) {
+                        // Chuyển hướng tới trang mong muốn
+                        var redirectToUrl = '@Url.Action("DetailsTypeOfService", "Admin")?tosID=' + device.TOS_ID;
+                        window.location.href = redirectToUrl;
+                    } else {
+
+                        console.error('Lỗi khi cập nhật thiết bị.');
+                    }
+                },
+                error: function () {
+                    console.error('Lỗi khi gửi yêu cầu.');
+                }
+            });
+        }
+    </script>
+}
+
+<div class="container-fluid">
     <button class="return">
         <i class="ph-bold ph-arrow-left"></i>
     </button>
-    <td class="tab-content active">
 
 
     <table class="table">
@@ -23,19 +60,24 @@
                 @foreach (var item in Model.InstallationDevices)
                 {
                 <tr>
+                
                     <td><input class="form-control" asp-for="@item.Device_ID" readonly></td>
-                    <td><input class="form-control" required asp-for="@item.DeviceName"></td>
-                    <td><input class="form-control" required asp-for="@item.DeviceStatus"></td>
+                    <td><input class="form-control" required asp-for="@item.DeviceName" id="deviceName_@item.Device_ID"></td>
+                    <td><input class="form-control" required asp-for="@item.DeviceStatus" id="deviceStatus_@item.Device_ID"></td>
                     <td>
-                        <input type="number" min="0" step="1" required class="form-control" asp-for="@item.DeviceQuantity">
+                        <input type="number" min="0" step="1" required class="form-control" asp-for="@item.DeviceQuantity" id="deviceQuantity_@item.Device_ID">
+                    </td>
+                    <td class="d-none">
+                        <input class="form-control" required asp-for="@item.TOS_ID" id="tosId_@item.Device_ID">
                     </td>
                     <td>
-                        <button class="add_cus" type="button" >Lưu</button>
+                        <button class="add_cus" type="button" onclick="saveDevice('@item.Device_ID')">Lưu</button>
                     </td>
                     <td>
                         <a class="btn btn-danger" style="height: 30px;">Xoá</a>
                     </td>
                 </tr>
+                
                 }
         </tbody>
     </table>
@@ -91,6 +133,7 @@
                 </div>
             </div>
         </div>
+</div>
 <script>
    
 
