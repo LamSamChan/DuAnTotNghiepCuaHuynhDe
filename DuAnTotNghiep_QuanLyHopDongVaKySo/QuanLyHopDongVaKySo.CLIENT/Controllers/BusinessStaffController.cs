@@ -5,6 +5,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.ViewModels;
@@ -22,6 +23,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly IHttpContextAccessor _contextAccessor;
         private readonly IEmployeeService _employeeService;
+        private readonly ITContractService _tContractService;
         private int isAuthenticate  = 1 ;
         private string employeeId ;
 
@@ -72,7 +74,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         public BusinessStaffController(ICustomerService customerService, IDContractsService dContractService,IEmployeeService employeeService,
-            IPContractService pContractService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor)
+            IPContractService pContractService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, ITContractService tContractService)
         {
             _customerService = customerService;
             _dContractService = dContractService;
@@ -80,6 +82,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
             _employeeService = employeeService;
+            _tContractService = tContractService;
         }
 
         public async Task<IActionResult> ListCus()
@@ -155,6 +158,42 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public IActionResult ContractFormPage()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddTContract([FromForm] PostTContract tContract)
+        {
+            if (tContract.File != null)
+            {
+                if (tContract.File.ContentType.StartsWith("application/pdf"))
+                {
+                    if (tContract.File.Length > 0)
+                    {
+                        using (var stream = new MemoryStream())
+                        {
+                            tContract.File.CopyTo(stream);
+                            byte[] bytes = stream.ToArray();
+                            tContract.Base64StringFile = Convert.ToBase64String(bytes);
+                            tContract.File = null;
+                        }
+                    }
+                }
+                else
+                {
+                    //báo lỗi ko tải lên file ảnh
+                    RedirectToAction("AddEmpAccount");
+                }
+            }
+            var reponse = await _tContractService.addAsnyc(tContract);
+
+            if (reponse != 0)
+            {
+                return RedirectToAction("ContractFormPage");
+            }
+            else
+            {
+                return RedirectToAction("AddCus");
+            }
         }
 
         //done contract

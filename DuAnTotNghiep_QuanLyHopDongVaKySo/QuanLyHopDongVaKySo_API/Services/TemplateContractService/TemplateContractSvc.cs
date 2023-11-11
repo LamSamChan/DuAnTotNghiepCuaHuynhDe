@@ -20,7 +20,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
                 {
                     DateAdded = DateTime.Now,
                     TContractName = tContract.TContractName,
-                    TContractFile = @"AppData/TContracts/"+tContract.File.FileName,
+                    TContractFile = @"AppData/TContracts/"+tContract.TContractName,
                     jsonCustomerZone = tContract.jsonCustomerZone,
                     jsonDirectorZone = tContract.jsonDirectorZone
                 };

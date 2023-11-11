@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model QuanLyHopDongVaKySo_API.Models.PostTContract
 @{
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -149,18 +147,17 @@
         <div class="row text-center">
             <h2 style="color: #4318FF; font-family:Source Sans Pro;">Tải mẫu để lưu trữ</h2>
             <div class="col-6 m-auto">
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data" id="FormPostTContract">
                     <div class="upForm">
                         <label class="form-label">Tệp hợp mẫu hợp đồng: </label>
-                        <input type="file" id="pdfInput" accept=".pdf" class="form-control-file">
-                    </div>
+                        <input type="file" required asp-for="File" id="pdfInput" accept=".pdf" class="form-control-file">
+                    </div>  
                     
                     <div class="upForm">
                         <label class="form-label">Tên hợp đồng: </label>
-                        <input class="upload" style="color: #4318FF;">
+                        <input id="tContractName" required asp-for="TContractName" class="upload" style="color: #4318FF;">
                     </div>
                     <div style="display: flex; justify-content: space-evenly; gap: 50px;">
-                        <input type="file" id="pdfInput" accept=".pdf" class="form-control-file">
                         <button id="addDirectorSignature" type="button" class="button-22">Thêm chữ ký Giám đốc</button>
                         <button id="savePositions" type="button" class="button-22">Lưu</button>
                         <button id="addEmployeeSignature" type="button" class="button-22">Thêm chữ ký Nhân viên</button>
@@ -494,24 +491,28 @@
             }
         });
 
-        downloadJSON(directorPositions, 'director_positions.json');
-        downloadJSON(employeePositions, 'employee_positions.json');
-    }
+            var formData = new FormData($("#FormPostTContract")[0]);
+            formData.append('jsonDirectorZone', JSON.stringify(directorPositions[0]));
+            formData.append('jsonCustomerZone', JSON.stringify(employeePositions[0]));
+            formData.append('Base64StringFile',"");
 
-    function downloadJSON(data, fileName) {
-        const blob = new Blob([JSON.stringify(data, null, 2)], {
-            type: 'application/json'
-        });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = fileName;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-    }
-   
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("AddTcontract")', // Điều chỉnh URL theo cấu trúc của bạn
+                data: formData,
+                processData: false,  // Không xử lý dữ liệu trước khi gửi
+                contentType: false,  // Không đặt tiêu đề Content-Type
+                success: function (result) {
+                    var redirectToUrl = '@Url.Action("ContractFormPage")';
+                    window.location.href = redirectToUrl;
+                },
+                error: function (error) {
+                    // Xử lý lỗi
+                    console.log(formData);
+                }
+            });
+    } 
 </script>
 
 

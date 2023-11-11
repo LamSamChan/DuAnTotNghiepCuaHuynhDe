@@ -15,14 +15,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TContractServices
 
         public async Task<int> addAsnyc(PostTContract tContract)
         {
-            var content = new StringContent(JsonConvert.SerializeObject(tContract), Encoding.UTF8, "application/json");
+            var json = JsonConvert.SerializeObject(tContract);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
             try
             {
                 var reponse = await _httpClient.PostAsync("api/TContract", content);
                 if (reponse.IsSuccessStatusCode)
                 {
-                    var tc = await reponse.Content.ReadAsStringAsync();
-                    return int.Parse(tc);
+                    return 1;
                 }
                 else{ return 0; }
             }

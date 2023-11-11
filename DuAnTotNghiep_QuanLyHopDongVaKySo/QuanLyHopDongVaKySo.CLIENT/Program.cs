@@ -11,7 +11,6 @@ using QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
-using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
 
@@ -36,6 +35,8 @@ builder.Services.AddScoped<ITOSService, TOSService>();
 builder.Services.AddScoped<ITContractService, TContractService>();
 builder.Services.AddScoped<ITMinuteService, TMinuteService>();
 builder.Services.AddScoped<IInstallationDevicesService, InstallationDevicesService>();
+
+
 
 builder.Services.AddSession(option =>
 {
