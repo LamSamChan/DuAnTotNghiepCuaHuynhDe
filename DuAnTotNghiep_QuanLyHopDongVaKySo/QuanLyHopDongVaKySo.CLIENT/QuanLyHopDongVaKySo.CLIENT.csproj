@@ -8,6 +8,12 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <Compile Remove="wwwroot\php\files\**" />
+    <Content Remove="wwwroot\php\files\**" />
+    <EmbeddedResource Remove="wwwroot\php\files\**" />
+    <None Remove="wwwroot\php\files\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
@@ -25,7 +31,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Avatars\" />
-    <Folder Include="wwwroot\php\files\" />
     <Folder Include="wwwroot\TempSignatures\" />
   </ItemGroup>
 

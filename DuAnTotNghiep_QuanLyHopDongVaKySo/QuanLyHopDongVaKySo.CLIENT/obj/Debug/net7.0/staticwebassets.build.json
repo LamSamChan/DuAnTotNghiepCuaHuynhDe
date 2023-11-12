@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fgR7E/RPC652Bu722QEbuhX6/mU0GdKGvMuS9VOzp9s=",
+  "Hash": "kVBicEoRjhRBp85P6PibmqOt7hgtDrbyzlFQoKUVoRs=",
   "Source": "QuanLyHopDongVaKySo.CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
   "Mode": "Default",
@@ -29405,12 +29405,12 @@
       "OriginalItemSpec": "wwwroot\\MinuteImage\\3\\1.png"
     },
     {
-      "Identity": "C:\\Learn\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\php\\upload.php",
+      "Identity": "C:\\Learn\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\php\\style.css",
       "SourceId": "QuanLyHopDongVaKySo.CLIENT",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Learn\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
       "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
-      "RelativePath": "php/upload.php",
+      "RelativePath": "php/style.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -29419,7 +29419,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\php\\upload.php"
+      "OriginalItemSpec": "wwwroot\\php\\style.css"
     },
     {
       "Identity": "C:\\Learn\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Resource\\bootstrap-5.3.2-dist\\css\\bootstrap.css",

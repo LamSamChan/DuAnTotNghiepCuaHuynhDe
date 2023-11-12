@@ -7289,8 +7289,8 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Learn\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\php\\upload.php",
-      "PackagePath": "staticwebassets\\php\\upload.php"
+      "Id": "C:\\Learn\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\php\\style.css",
+      "PackagePath": "staticwebassets\\php\\style.css"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.QuanLyHopDongVaKySo.CLIENT.Microsoft.AspNetCore.StaticWebAssets.props",
