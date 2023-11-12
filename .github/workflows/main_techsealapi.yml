@@ -1,6 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy ASP.Net Core app to Azure Web App - techsealapi
 
 on:
@@ -22,20 +19,17 @@ jobs:
           dotnet-version: '7.x'
           include-prerelease: true
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      - name: Change directory to the API project
+        run: cd DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API
 
-      - name: dotnet publish API project
-        run: dotnet publish -c Release -o ./DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API -p:Project=QuanLyHopDongVaKySo_API
+      - name: dotnet publish
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
-      - name: dotnet publish CLIENT project
-        run: dotnet publish -c Release -o ./DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT -p:Project=QuanLyHopDongVaKySo.CLIENT
-      
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/DuAnTotNghiep_QuanLyHopDongVaKySo
+          path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
     runs-on: windows-latest
