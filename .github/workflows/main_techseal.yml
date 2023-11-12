@@ -53,8 +53,3 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ADCFE10C1AE140AAB9963486C91F9EF7 }}
           package: .
           working-directory: DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT
-          
-      - name: Print Azure Web App Deployment Logs
-        run: |
-          az webapp log tail --ids  "/subscriptions/c5543cad-ea03-457a-b8be-c8d77186b341/resourceGroups/DuAnTotNghiep_HUYNHDE_2023/providers/Microsoft.Web/sites/techseal"
-
