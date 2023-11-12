@@ -52,9 +52,7 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ADCFE10C1AE140AAB9963486C91F9EF7 }}
           package: .
-        env:
-          DOTNET_ROOT: ${{ env.DOTNET_ROOT }}
-
+          
       - name: Print Azure Web App Deployment Logs
         run: |
           az webapp log tail --ids  "/subscriptions/c5543cad-ea03-457a-b8be-c8d77186b341/resourceGroups/DuAnTotNghiep_HUYNHDE_2023/providers/Microsoft.Web/sites/techseal"
