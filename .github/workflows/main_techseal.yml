@@ -52,4 +52,4 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ADCFE10C1AE140AAB9963486C91F9EF7 }}
           package: .
-          working-directory: DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT
+          
