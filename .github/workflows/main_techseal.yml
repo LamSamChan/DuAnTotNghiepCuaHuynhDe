@@ -22,15 +22,13 @@ jobs:
           dotnet-version: '7.x'
           include-prerelease: true
           
-      - name: Change directory to the CLIENT project
-        run: cd DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT
-
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT
-        
+        working-directory: DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
-        with:
+      - with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
   deploy:
