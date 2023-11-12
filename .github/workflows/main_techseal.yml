@@ -57,5 +57,5 @@ jobs:
 
       - name: Print Azure Web App Deployment Logs
         run: |
-          az webapp log tail --ids ${{ steps.deploy-to-webapp.outputs.webapp-id }}
+          az webapp log tail --ids  "/subscriptions/c5543cad-ea03-457a-b8be-c8d77186b341/resourceGroups/DuAnTotNghiep_HUYNHDE_2023/providers/Microsoft.Web/sites/techseal"
 
