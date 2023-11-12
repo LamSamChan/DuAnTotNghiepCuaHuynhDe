@@ -25,14 +25,17 @@ jobs:
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      - name: dotnet publish API project
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API -p:Project=DuAnAPI
 
+      - name: dotnet publish CLIENT project
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT -p:Project=DuAnClient
+      
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ${{env.DOTNET_ROOT}}/DuAnTotNghiep_QuanLyHopDongVaKySo
 
   deploy:
     runs-on: windows-latest
