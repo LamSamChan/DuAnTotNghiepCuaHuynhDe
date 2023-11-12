@@ -16,6 +16,12 @@ using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration
+    .AddJsonFile("appsettings.client.json", optional: false, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
+    .AddEnvironmentVariables();
+
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllersWithViews().AddDataAnnotationsLocalization();
