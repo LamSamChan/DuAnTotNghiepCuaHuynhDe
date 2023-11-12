@@ -1,0 +1,173 @@
+﻿@* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<style>
+    #pdfContainer {
+        position: relative;
+        border: 3px solid gray;
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+        #pdfContainer canvas {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+    .signatureArea {
+        position: absolute;
+        border: 2px dashed red;
+        pointer-events: auto;
+        width: 100px;
+        height: 50px;
+        border-radius: 5px;
+        display: none;
+        /* Initially hide signature areas */
+    }
+
+    .pagination {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin-top: 30px;
+    }
+
+        .pagination li {
+            margin-right: 5px;
+        }
+
+        .pagination a {
+            text-decoration: none;
+            color: #007bff;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: #007bff 2px solid;
+            background-color: initial;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+            .pagination a:hover {
+                text-decoration: underline;
+                background-color: #007bff;
+                color: white;
+            }
+
+            .pagination a.active {
+                background-color: #007bff;
+                color: white;
+            }
+
+    .round {
+        border-radius: 50%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+
+
+    /* CSS */
+    .button-22 {
+        align-items: center;
+        appearance: button;
+        background-color: #0276FF;
+        border-radius: 8px;
+        border-style: none;
+        box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        flex-shrink: 0;
+        font-family: "RM Neue", sans-serif;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+        padding: 10px 21px;
+        text-align: center;
+        text-transform: none;
+        transition: color .13s ease-in-out, background .13s ease-in-out, opacity .13s ease-in-out, box-shadow .13s ease-in-out;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+        .button-22:active {
+            background-color: #006AE8;
+        }
+
+        .button-22:hover {
+            background-color: #1C84FF;
+        }
+</style>
+<div class="container-fluid">
+    <div class="page-header no-gutters has-tab">
+        <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+            <div class="media align-items-center m-b-15">
+                <br />
+                <div class="m-l-15">
+                    <h4 class="m-b-0"
+                        style="width: 512px; height: 52px; color: #2B3674; font-size: 34px; font-family: DM Sans; font-weight: 700; line-height: 42px; word-wrap: break-word">
+                        Chỉnh sửa cấu hình
+                    </h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <div style="display: flex; justify-content: space-evenly; gap: 50px;">
+        
+        <button id="addDirectorSignature" type="button" class="button-22">Thêm vị trí chữ ký giám đốc</button>
+        <button id="addEmployeeSignature" type="button" class="button-22">Thêm vị trí chữ ký khách hàng</button>
+    </div>
+    <div id="paginationContainer" class="pagination" style="margin-left: 220px;"></div>
+    <br>
+    <div id="pdfContainer"></div>
+    
+
+
+    <button class="btn btn-primary" id="savePositions" style="margin: 20px; width:300px;">
+        <div class="row action">
+            <a class="m-4">CẬP NHẬT <i class="ph-bold ph-user-plus" style="font-size:20px; padding-left:10px;"></i> </a>
+        </div>
+    </button>
+</div>
+
+
+

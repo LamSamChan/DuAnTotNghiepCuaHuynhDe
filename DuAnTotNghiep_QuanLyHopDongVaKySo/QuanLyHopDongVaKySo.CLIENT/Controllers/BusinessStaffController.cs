@@ -159,7 +159,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-
+        public IActionResult ListContractFormPage()
+        {
+            return View();
+        }
+        public IActionResult EditContratFormPage()
+        {
+            return View();
+        }
         [HttpPost]
         public async Task<IActionResult> AddTContract([FromForm] PostTContract tContract)
         {
