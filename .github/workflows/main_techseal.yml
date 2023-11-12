@@ -52,3 +52,10 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ADCFE10C1AE140AAB9963486C91F9EF7 }}
           package: .
+        env:
+          DOTNET_ROOT: ${{ env.DOTNET_ROOT }}
+
+      - name: Print Azure Web App Deployment Logs
+        run: |
+          az webapp log tail --ids ${{ steps.deploy-to-webapp.outputs.webapp-id }}
+
