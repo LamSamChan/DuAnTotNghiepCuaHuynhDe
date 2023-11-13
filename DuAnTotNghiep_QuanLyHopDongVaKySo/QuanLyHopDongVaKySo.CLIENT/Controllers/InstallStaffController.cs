@@ -231,25 +231,46 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (null == sData)
                 return NotFound();
 
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var certificate = await _pfxCertificateServices.GetById(serialPFX);
+            int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
+
+            if (fileCount == 5)
+            {
+                //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                return RedirectToAction("Index", "Verify");
+            }
             var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
 
-            var fileName = System.Guid.NewGuid() + ".png";
+            var fileName = System.Guid.NewGuid().ToString().Substring(0, 8) + ".png";
 
-            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, "TempSignatures"), fileName);
+            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}"), fileName);
+
+            if (certificate.ImageSignature1 == null)
+            {
+                certificate.ImageSignature1 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+            }
+            else if (certificate.ImageSignature2 == null)
+            {
+                certificate.ImageSignature2 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+            }
+            else if (certificate.ImageSignature3 == null)
+            {
+                certificate.ImageSignature3 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+            }
+            else if (certificate.ImageSignature4 == null)
+            {
+                certificate.ImageSignature4 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+            }
+            else if (certificate.ImageSignature5 == null)
+            {
+                certificate.ImageSignature5 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+            }
 
             bmpSign.Save(filePath, ImageFormat.Png);
 
-            byte[] bytes = System.IO.File.ReadAllBytes(filePath);
-            string base64String = Convert.ToBase64String(bytes);
-
-            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
-            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
-            var result = await _pfxCertificateServices.UploadSignatureImage(serialPFX, base64String);
-
-
-            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-            fs.Close();
-            System.IO.File.Delete(filePath);
+            var result = await _pfxCertificateServices.Update(certificate);
 
             if (result != null)
             {
@@ -263,24 +284,52 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> UploadSignature(VMPersonalPage vm)
         {
-            API.PFXCertificate pfx = new API.PFXCertificate();
-            pfx = vm.PFXCertificate;
-            if (pfx.ImageFile != null)
+            API.PFXCertificate certificate = new API.PFXCertificate();
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+
+            var temp = vm.PFXCertificate.ImageFile;
+
+            int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
+
+            if (fileCount == 5)
             {
-                if (pfx.ImageFile.ContentType.StartsWith("image/"))
+                //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                return RedirectToAction("Index", "Verify");
+            }
+            if (temp != null)
+            {
+                if (temp.ContentType.StartsWith("image/"))
                 {
-                    using (var stream = new MemoryStream())
+
+                    certificate = await _pfxCertificateServices.GetById(serialPFX);
+
+                    string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}");
+                    if (certificate.ImageSignature1 == null)
                     {
-                        pfx.ImageFile.CopyTo(stream);
-                        byte[] bytes = stream.ToArray();
-                        pfx.Base64StringFile = Convert.ToBase64String(bytes);
-                        pfx.ImageFile = null;
+                        certificate.ImageSignature1 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else if (certificate.ImageSignature2 == null)
+                    {
+                        certificate.ImageSignature2 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else if (certificate.ImageSignature3 == null)
+                    {
+                        certificate.ImageSignature3 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else if (certificate.ImageSignature4 == null)
+                    {
+                        certificate.ImageSignature4 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else if (certificate.ImageSignature5 == null)
+                    {
+                        certificate.ImageSignature5 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                     }
                 }
             }
-            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
-            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
-            var result = await _pfxCertificateServices.UploadSignatureImage(serialPFX, pfx.Base64StringFile);
+
+            var result = await _pfxCertificateServices.Update(certificate);
+
             if (result != null)
             {
                 return RedirectToAction("Index");
@@ -295,7 +344,35 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
-            var result = await _pfxCertificateServices.DeleteImage(serialPFX, filePath);
+            var certificate = await _pfxCertificateServices.GetById(serialPFX);
+
+            if (filePath == certificate.ImageSignature1)
+            {
+                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature1));
+                certificate.ImageSignature1 = null;
+            }
+            else if (filePath == certificate.ImageSignature2)
+            {
+                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature2));
+                certificate.ImageSignature2 = null;
+            }
+            else if (filePath == certificate.ImageSignature3)
+            {
+                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature3));
+                certificate.ImageSignature3 = null;
+            }
+            else if (filePath == certificate.ImageSignature4)
+            {
+                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature4));
+                certificate.ImageSignature4 = null;
+            }
+            else if (filePath == certificate.ImageSignature5)
+            {
+                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature5));
+                certificate.ImageSignature5 = null;
+            }
+            var result = await _pfxCertificateServices.Update(certificate);
+
             if (result != null)
             {
                 return RedirectToAction("Index");
@@ -303,72 +380,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 return RedirectToAction("Index", "Verify");
-            }
-        }
-
-        public async Task<IActionResult> ListTypeOfService()
-        {
-            VMListTOS vm = new VMListTOS()
-            {
-                TypeOfServices = await _tosService.GetAll(),
-                TemplateMinutes = await _tMinuteService.GetAll(),
-                TemplateContracts = await _tContractService.getAllAsnyc()
-            };
-            return View(vm);
-        }
-
-        public async Task<IActionResult> DetailsTypeOfService(int tosID)
-        {
-            VMDetailsTypeOfService vm = new VMDetailsTypeOfService()
-            {
-                InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID)
-            };
-            HttpContext.Session.SetString("tosID", tosID.ToString());
-            return View(vm);
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> EditDeviceAction([FromBody] API.InstallationDevice device)
-        {
-            var respone = await _installationDevicesService.UpdateDevice(device);
-            if (respone != null)
-            {
-                return RedirectToAction("DetailsTypeOfService", device.TOS_ID);
-            }
-            else
-            {
-                return RedirectToAction("ListRole");
-            }
-        }
-
-        public async Task<IActionResult> AddDeviceAction(VMDetailsTypeOfService vm)
-        {
-            API.InstallationDevice device = new API.InstallationDevice();
-            device = vm.InstallationDevice;
-            var respone = await _installationDevicesService.AddNewDevice(device);
-            if (respone != null)
-            {
-                return RedirectToAction("DetailsTypeOfService", new { tosID = device.TOS_ID });
-            }
-            else
-            {
-                //lỗi
-                return RedirectToAction("ListRole");
-            }
-        }
-
-        public async Task<IActionResult> DelDeviceAction(int deviceID)
-        {
-            var respone = await _installationDevicesService.DelectDevice(deviceID);
-            string tosID = HttpContext.Session.GetString("tosID");
-            if (respone != 0)
-            {
-                return RedirectToAction("DetailsTypeOfService", new { tosID = tosID });
-            }
-            else
-            {
-                //lỗi
-                return RedirectToAction("ListRole");
             }
         }
     }

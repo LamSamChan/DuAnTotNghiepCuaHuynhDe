@@ -40,6 +40,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices
             return response;
         }
 
+        public async Task<string> Update(PFXCertificate certificate)
+        {
+            using (var response = await _httpClient.PutAsJsonAsync<PFXCertificate>($"api/PFXCertificates/Update", certificate))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return certificate.Serial;
+                }
+                return null;
+            }
+               
+        }
+
         public async Task<string> UpdateNotAfter(string serial)
         {
             using (var response = await _httpClient.PostAsJsonAsync<string>($"api/PFXCertificates/UpdateNotAfter",serial))
