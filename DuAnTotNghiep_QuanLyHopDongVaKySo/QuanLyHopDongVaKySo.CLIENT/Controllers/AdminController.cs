@@ -586,13 +586,22 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
             var certificate = await _pfxCertificateServices.GetById(serialPFX);
-            int fileCount = Directory.GetFiles($"SignatureImages/{serialPFX}").Length;
+
+            int fileCountServer = Directory.GetFiles($"SignatureImages/{serialPFX}").Length;
+
+            if (fileCountServer == 5)
+            {
+                //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                return RedirectToAction("Index", "Verify");
+            }
+
+            /*int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath,$"SignatureImages/{serialPFX}").Length;
 
             if (fileCount == 5)
             {
                 //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
                 return RedirectToAction("Index", "Verify");
-            }
+            }*/
             var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
 
             var fileName = System.Guid.NewGuid().ToString().Substring(0,8) + ".png";
@@ -641,14 +650,30 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
 
             var temp = vm.PFXCertificate.ImageFile;
+            
+            string directoryPath = Path.Combine(_hostingEnvironment.WebRootPath,$"SignatureImages/{serialPFX}");
 
-            int fileCount = Directory.GetFiles($"SignatureImages/{serialPFX}").Length;
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
+            int fileCountServer = Directory.GetFiles($"SignatureImages/{serialPFX}").Length;
+
+            if (fileCountServer == 5)
+            {
+                //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                return RedirectToAction("Index", "Verify");
+            }
+
+            /*int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath,$"SignatureImages/{serialPFX}").Length;
 
             if (fileCount == 5)
             {
                 //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
                 return RedirectToAction("Index", "Verify");
-            }
+            }*/
+
             if (temp != null)
             {
                 if (temp.ContentType.StartsWith("image/"))
