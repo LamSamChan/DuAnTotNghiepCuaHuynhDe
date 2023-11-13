@@ -320,12 +320,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-        public async Task<IActionResult> ListUsersAccount()
+        public async Task<IActionResult> ListEmpAccount()
         {
             VMAdminListUsersAccount vm = new VMAdminListUsersAccount();
             try
             {
-                vm.Customers = await _customerService.GetAllCustomers();
                 vm.Employees = await _employeeService.GetAllEmployees();
                 vm.Positions = await _positionService.GetAllPositionsAsync();
                 vm.Roles = await _roleService.GetAllRolesAsync();
@@ -338,6 +337,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
+        public async Task<IActionResult> ListCusAccount()
+        {
+            VMAdminListUsersAccount vm = new VMAdminListUsersAccount();
+            try
+            {
+                vm.Customers = await _customerService.GetAllCustomers();
+                return View(vm);
+            }
+            catch (Exception ex)
+            {
+
+                return View(new VMAdminListUsersAccount());
+            }
+        }
 
 
         public async Task<IActionResult> ListPosition()
