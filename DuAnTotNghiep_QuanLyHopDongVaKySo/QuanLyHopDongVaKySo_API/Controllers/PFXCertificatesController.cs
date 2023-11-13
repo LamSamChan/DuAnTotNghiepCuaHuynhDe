@@ -78,6 +78,20 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
         }
 
+        [HttpPut("Update")]
+        public async Task<ActionResult<string>> Update(PFXCertificate certificate)
+        {
+            var result = await _pfxCertificate.UpdateInfoToDatabase(certificate);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
         [HttpPost("UpdateNotAfter")]
         public async Task<ActionResult<string>> UpdateNotAfter([FromBody] string serial)
         {
