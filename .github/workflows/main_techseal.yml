@@ -49,7 +49,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'techseal'
-          slot-name: 'Production'
+          slot-name: 'Development'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ADCFE10C1AE140AAB9963486C91F9EF7 }}
           package: .
           
