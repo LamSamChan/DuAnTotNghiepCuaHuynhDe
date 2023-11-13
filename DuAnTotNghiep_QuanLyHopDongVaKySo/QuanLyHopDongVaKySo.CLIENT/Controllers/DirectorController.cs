@@ -231,44 +231,51 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> UploadSignature(VMPersonalPage vm)
         {
-            API.PFXCertificate pfx = new API.PFXCertificate();
-            pfx = vm.PFXCertificate;
-            int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{pfx.Serial}")).Length;
+            API.PFXCertificate certificate = new API.PFXCertificate();
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+
+            var temp = vm.PFXCertificate.ImageFile;
+
+            int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
 
             if (fileCount == 5)
             {
                 //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
                 return RedirectToAction("Index", "Verify");
             }
-            if (pfx.ImageFile != null)
+            if (temp != null)
             {
-                if (pfx.ImageFile.ContentType.StartsWith("image/"))
+                if (temp.ContentType.StartsWith("image/"))
                 {
-                    string imagePath = _uploadHelper.UploadImage(pfx.ImageFile, _hostingEnvironment.WebRootPath, $"SignatureImages/{pfx.Serial}");
-                    if (pfx.ImageSignature1 == null)
+
+                    certificate = await _pfxCertificateServices.GetById(serialPFX);
+
+                    string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}");
+                    if (certificate.ImageSignature1 == null)
                     {
-                        pfx.ImageSignature1 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                        certificate.ImageSignature1 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                     }
-                    else if (pfx.ImageSignature2 == null)
+                    else if (certificate.ImageSignature2 == null)
                     {
-                        pfx.ImageSignature2 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                        certificate.ImageSignature2 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                     }
-                    else if (pfx.ImageSignature3 == null)
+                    else if (certificate.ImageSignature3 == null)
                     {
-                        pfx.ImageSignature3 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                        certificate.ImageSignature3 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                     }
-                    else if (pfx.ImageSignature4 == null)
+                    else if (certificate.ImageSignature4 == null)
                     {
-                        pfx.ImageSignature4 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                        certificate.ImageSignature4 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                     }
-                    else if (pfx.ImageSignature5 == null)
+                    else if (certificate.ImageSignature5 == null)
                     {
-                        pfx.ImageSignature5 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                        certificate.ImageSignature5 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                     }
                 }
             }
 
-            var result = await _pfxCertificateServices.Update(pfx);
+            var result = await _pfxCertificateServices.Update(certificate);
 
             if (result != null)
             {

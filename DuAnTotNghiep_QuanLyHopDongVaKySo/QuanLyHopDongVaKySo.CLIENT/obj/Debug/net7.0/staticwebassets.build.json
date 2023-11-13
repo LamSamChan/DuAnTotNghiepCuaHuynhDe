@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EPCtWmlzRK28XK3rLxsIudH4ql1aEreSwIpSUFQLGPo=",
+  "Hash": "EO7zOst5Nnmhfn2Lra2DUDQkYv3RtioAaELiTThAhQM=",
   "Source": "QuanLyHopDongVaKySo.CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
   "Mode": "Default",
@@ -30527,12 +30527,12 @@
       "OriginalItemSpec": "wwwroot\\SignatureImages\\638351542981591741\\069c9911.png"
     },
     {
-      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638351542981591741\\74d9ca07.png",
+      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638351542981591741\\db37fcac.png",
       "SourceId": "QuanLyHopDongVaKySo.CLIENT",
       "SourceType": "Discovered",
       "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
       "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
-      "RelativePath": "SignatureImages/638351542981591741/74d9ca07.png",
+      "RelativePath": "SignatureImages/638351542981591741/db37fcac.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -30541,7 +30541,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\SignatureImages\\638351542981591741\\74d9ca07.png"
+      "OriginalItemSpec": "wwwroot\\SignatureImages\\638351542981591741\\db37fcac.png"
     },
     {
       "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638351720736683994\\07069717.jpeg",
