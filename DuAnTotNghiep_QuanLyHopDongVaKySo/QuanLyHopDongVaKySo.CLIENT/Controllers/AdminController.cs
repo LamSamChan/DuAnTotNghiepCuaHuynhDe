@@ -650,13 +650,25 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
 
             var temp = vm.PFXCertificate.ImageFile;
+
+            string rootPath = Path.Combine(_hostingEnvironment.WebRootPath, "SignatureImages");
             
-            string directoryPath = Path.Combine(_hostingEnvironment.WebRootPath,$"SignatureImages/{serialPFX}");
+            Console.WriteLine(rootPath);
+
+            if (!Directory.Exists(rootPath))
+            {
+                Directory.CreateDirectory(rootPath);
+            }
+
+            string directoryPath = Path.Combine(rootPath, $"{serialPFX}");
 
             if (!Directory.Exists(directoryPath))
             {
                 Directory.CreateDirectory(directoryPath);
             }
+
+
+            Console.WriteLine(directoryPath);
 
             int fileCountServer = Directory.GetFiles($"SignatureImages/{serialPFX}").Length;
 
