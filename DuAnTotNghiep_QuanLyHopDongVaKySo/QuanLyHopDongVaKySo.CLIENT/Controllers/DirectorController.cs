@@ -12,6 +12,7 @@ using QuanLyHopDongVaKySo.CLIENT.Constants;
 using Spire.Pdf.Graphics;
 using System.Drawing.Imaging;
 using test.Models;
+using QuanLyHopDongVaKySo.CLIENT.Helpers;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -23,12 +24,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IPositionService _positionService;
         private readonly IEmployeeService _employeeService;
         private readonly IPFXCertificateServices _pfxCertificateServices;
+        private readonly IUploadHelper _uploadHelper;
 
         private int isAuthenticate;
         private string employeeId;
        
         public DirectorController(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
-            IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices)
+            IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices,
+            IUploadHelper uploadHelper)
         {
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
@@ -36,6 +39,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _positionService = positionSerivce;
             _pfxCertificateServices = pfxCertificateServices;
             _employeeService = employeeService;
+            _uploadHelper = uploadHelper;
         }
         public int IsAuthenticate
         {
@@ -114,13 +118,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     if (temp.Length > 0)
                     {
-                        using (var stream = new MemoryStream())
+                        if (employee.Image != null)
                         {
-                            temp.CopyTo(stream);
-                            byte[] bytes = stream.ToArray();
-                            employee.Base64String = Convert.ToBase64String(bytes);
-                            employee.ImageFile = null;
+                            _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, employee.Image));
                         }
+                        string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath, "Avatars");
+                        employee.Image = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                     }
                 }
                 else

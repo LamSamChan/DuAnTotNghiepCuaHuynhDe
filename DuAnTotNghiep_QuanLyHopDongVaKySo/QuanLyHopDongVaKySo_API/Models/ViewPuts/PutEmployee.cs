@@ -57,8 +57,6 @@ namespace QuanLyHopDongVaKySo_API.Models.ViewPuts
         [Display(Name = "Tệp ảnh")]
         public IFormFile? ImageFile { get; set; }
 
-        public string? Base64String { get; set; }
-
         [Display(Name = "Trạng thái hoạt động")]
         public bool IsLocked { get; set; }
 

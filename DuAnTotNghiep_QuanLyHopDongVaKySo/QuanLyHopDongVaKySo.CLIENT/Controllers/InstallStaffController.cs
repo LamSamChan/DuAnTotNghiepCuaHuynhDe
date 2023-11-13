@@ -21,6 +21,7 @@ using QuanLyHopDongVaKySo.CLIENT.Constants;
 using System.Drawing.Imaging;
 using test.Models;
 using API = QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo.CLIENT.Helpers;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -39,6 +40,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly ITMinuteService _tMinuteService;
         private readonly IInstallationDevicesService _installationDevicesService;
         private readonly ITContractService _tContractService;
+        private readonly IUploadHelper _uploadHelper;
 
         private int isAuthenticate;
         private string employeeId;
@@ -89,7 +91,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public InstallStaffController(IIRequirementService iRequirementService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices, IDContractsService doneContractSvc,
-            IPMinuteService pMinuteService, ITOSService tosService, ITMinuteService tMinuteService, IInstallationDevicesService installationDevicesService, ITContractService tContractService)
+            IPMinuteService pMinuteService, ITOSService tosService, ITMinuteService tMinuteService, IInstallationDevicesService installationDevicesService, ITContractService tContractService,
+            IUploadHelper uploadHelper)
         {
             _iRequirementService = iRequirementService;
             _hostingEnvironment = hostingEnvironment;
@@ -104,6 +107,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _tMinuteService = tMinuteService;
             _installationDevicesService = installationDevicesService;
             _tContractService = tContractService;
+            _uploadHelper = uploadHelper;
 
         }
 
@@ -174,13 +178,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     if (temp.Length > 0)
                     {
-                        using (var stream = new MemoryStream())
+                        if (employee.Image != null)
                         {
-                            temp.CopyTo(stream);
-                            byte[] bytes = stream.ToArray();
-                            employee.Base64String = Convert.ToBase64String(bytes);
-                            employee.ImageFile = null;
+                            _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, employee.Image));
                         }
+                        string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath, "Avatars");
+                        employee.Image = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                     }
                 }
                 else

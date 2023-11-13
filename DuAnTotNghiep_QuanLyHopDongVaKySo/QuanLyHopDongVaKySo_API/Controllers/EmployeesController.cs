@@ -80,29 +80,13 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Address = postEmployee.Address,
                 Password = passwordEmp,
                 IsFirstLogin = true,
+                Image = postEmployee.Image,
                 IsLocked = false,
                 Note = postEmployee.Note,
                 RoleID = postEmployee.RoleID,
                 PositionID = postEmployee.PositionID,
         };
-
-            if (postEmployee.Base64String != null)
-            {
-                IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(postEmployee.Base64String, employee.EmployeeId.ToString().Substring(0, 8), "image/jpeg");
-                if (file.ContentType.StartsWith("image/"))
-                {
-                    if (file.Length > 0)
-                    {
-                        employee.Image = _uploadFileHelper.UploadFile(file, "../QuanLyHopDongVaKySo.CLIENT/wwwroot", "Avatars",".jpeg").Replace("../QuanLyHopDongVaKySo.CLIENT/wwwroot/","");
-                        
-                    }
-                }
-                else
-                {
-                    return BadRequest("Hãy tải lên tệp có định dạng là ảnh !");
-                }
-            }
-            
+       
 
             string isError = await _employeeSvc.AddNew(employee);
 
@@ -179,29 +163,13 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Gender = putEmployee.Gender,
                 PhoneNumber = putEmployee.PhoneNumber,
                 Identification = putEmployee.Identification,
+                Image = putEmployee.Image,
                 Address = putEmployee.Address,
                 IsLocked = putEmployee.IsLocked,
                 Note = putEmployee.Note,
                 RoleID = putEmployee.RoleID,
                 PositionID = putEmployee.PositionID,
             };
-            var existEmp =await _employeeSvc.GetById(employee.EmployeeId.ToString());
-            if (putEmployee.Base64String != null)
-            {
-                IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(putEmployee.Base64String, employee.EmployeeId.ToString().Substring(0, 8), "image/jpeg");
-                if (file.ContentType.StartsWith("image/"))
-                {
-                    if (file.Length > 0)
-                    {
-                        _uploadFileHelper.RemoveFile("../QuanLyHopDongVaKySo.CLIENT/wwwroot/"+existEmp.Image);
-                        employee.Image = _uploadFileHelper.UploadFile(file, "../QuanLyHopDongVaKySo.CLIENT/wwwroot", "Avatars",".jpeg").Replace("../QuanLyHopDongVaKySo.CLIENT/wwwroot/","");
-                    }
-                }
-                else
-                {
-                    return BadRequest("Hãy tải lên tệp có định dạng là ảnh !");
-                }
-            }
 
             string isError = await _employeeSvc.Update(employee);
 

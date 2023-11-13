@@ -13,7 +13,6 @@ namespace QuanLyHopDongVaKySo_API.Helpers
     {
             public string UploadFile(IFormFile file, string rootPath, string category, string extension)
             {
-                //string path = Path.Combine(_hostingEnvironment.WebRootPath, "images", file.FileName);
                 if (!Directory.Exists(rootPath))
                 {
                     Directory.CreateDirectory(rootPath);

@@ -25,6 +25,8 @@ namespace QuanLyHopDongVaKySo_API.Helpers
             string outputDirectoryPath = null;
             using (var rasterizer = new GhostscriptRasterizer()) //create an instance for GhostscriptRasterizer
             {
+
+                //locallhost
                 rasterizer.Open(inputFile); //opens the PDF file for rasterizing
                 if (typeDoc == "minute")
                 {
@@ -41,8 +43,10 @@ namespace QuanLyHopDongVaKySo_API.Helpers
                 {
                     outputDirectoryPath = $"../QuanLyHopDongVaKySo.CLIENT/wwwroot/TMinuteImage/{idContract}";
                 }
-                
-                if(!Directory.Exists(outputDirectoryPath))
+
+                //server
+
+                if (!Directory.Exists(outputDirectoryPath))
                 {
                     Directory.CreateDirectory(outputDirectoryPath);
                 }

@@ -11,6 +11,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices
         Task<List<PFXCertificate>> GetAllExpire();
 
         Task<PFXCertificate> GetById(string serial);
+        Task<string> UpdateInfoToDatabase(PFXCertificate pfxCertificate);
 
         Task<string> UpdateNotAfter(string serial);
         Task<string> UploadSignatureImage(string serial, string base64StringImage);

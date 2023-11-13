@@ -21,6 +21,7 @@ using System.Drawing.Imaging;
 using test.Models;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
+using QuanLyHopDongVaKySo.CLIENT.Helpers;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -39,6 +40,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IPFXCertificateServices _pfxCertificateServices;
         private readonly IRoleService _roleService;
         private readonly IPositionService _positionService;
+        private readonly IUploadHelper _uploadHelper;
+
 
         private int isAuthenticate  = 1 ;
         private string employeeId ;
@@ -92,7 +95,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public BusinessStaffController(ICustomerService customerService, IDContractsService dContractService,IEmployeeService employeeService,
             IPContractService pContractService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, ITContractService tContractService,
             ITOSService tosService, ITMinuteService tMinuteService, IInstallationDevicesService installationDevicesService, IPFXCertificateServices pfxCertificateServices,
-            IRoleService roleService, IPositionService positionSerivce)
+            IRoleService roleService, IPositionService positionSerivce, IUploadHelper uploadHelper)
         {
             _customerService = customerService;
             _dContractService = dContractService;
@@ -107,7 +110,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _tMinuteService = tMinuteService;
             _installationDevicesService = installationDevicesService;
             _pfxCertificateServices = pfxCertificateServices;
-
+            _uploadHelper = uploadHelper;   
         }
 
         public async Task<IActionResult> ListCus()
@@ -474,13 +477,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     if (temp.Length > 0)
                     {
-                        using (var stream = new MemoryStream())
+
+                        if (employee.Image != null)
                         {
-                            temp.CopyTo(stream);
-                            byte[] bytes = stream.ToArray();
-                            employee.Base64String = Convert.ToBase64String(bytes);
-                            employee.ImageFile = null;
+                            _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, employee.Image));
                         }
+                        string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath, "Avatars");
+                        employee.Image = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                     }
                 }
                 else

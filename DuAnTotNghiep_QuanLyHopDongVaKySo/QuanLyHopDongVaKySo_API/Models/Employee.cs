@@ -66,8 +66,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string? Image { get; set; }
         [NotMapped]
         public IFormFile? ImageFile { get; set; }
-        [NotMapped]
-        public string? Base64String { get; set; }
+
         //tự động tạo và gửi qua mail ghi đăng ký
 
         [Column(TypeName = "varchar(50)"), MaxLength(50), MinLength(8, ErrorMessage = "Mật khẩu phải nhiều hơn 8 ký tự !")]

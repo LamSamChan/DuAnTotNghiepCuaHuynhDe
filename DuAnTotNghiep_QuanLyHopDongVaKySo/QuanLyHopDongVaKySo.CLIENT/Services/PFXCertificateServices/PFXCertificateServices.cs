@@ -83,5 +83,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices
             }
 
         }
+
+        public Task<string> UpdateInfoToDatabase(PFXCertificate pfxCertificate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

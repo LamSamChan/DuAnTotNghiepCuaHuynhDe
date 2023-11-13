@@ -25,6 +25,9 @@ using QuanLyHopDongVaKySo.CLIENT.Models;
 using Newtonsoft.Json;
 using System.Drawing.Imaging;
 using test.Models;
+using QuanLyHopDongVaKySo.CLIENT.Helpers;
+using Microsoft.AspNetCore.Hosting;
+using Org.BouncyCastle.Asn1.X509;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -43,6 +46,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IInstallationDevicesService _installationDevicesService;
         private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly IHttpContextAccessor _contextAccessor;
+        private readonly IUploadHelper _uploadHelper;
+
 
         private int isAuthenticate;
         private string employeeId;
@@ -50,7 +55,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService,
             ICustomerService customerService, IPFXCertificateServices pfxCertificateServices, IPContractService pContractService,
             IDContractsService doneContractSvc, ITOSService tosService, ITContractService tContractService, ITMinuteService tMinuteService,
-            IInstallationDevicesService installationDevicesService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor)
+            IInstallationDevicesService installationDevicesService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor,
+            IUploadHelper uploadHelper)
         {
             _positionService = positionService;
             _employeeService = employeeService;
@@ -65,6 +71,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _installationDevicesService = installationDevicesService;
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
+            _uploadHelper = uploadHelper;
         }
 
         public int IsAuthenticate
@@ -310,20 +317,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> EditEmpAction(PutEmployee employee)
         {
-
+            var existEmp = await _employeeService.GetEmployeeById(employee.EmployeeId.ToString());
             if (employee.ImageFile != null)
             {
                 if (employee.ImageFile.ContentType.StartsWith("image/"))
                 {
                     if (employee.ImageFile.Length > 0)
                     {
-                        using (var stream = new MemoryStream())
+                        if (existEmp.Image != null)
                         {
-                            employee.ImageFile.CopyTo(stream);
-                            byte[] bytes = stream.ToArray();
-                            employee.Base64String = Convert.ToBase64String(bytes);
-                            employee.ImageFile = null;
+                            _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, existEmp.Image));
                         }
+                        string imagePath = _uploadHelper.UploadImage(employee.ImageFile, _hostingEnvironment.WebRootPath, "Avatars");
+                        employee.Image = imagePath.Replace(_hostingEnvironment.WebRootPath+ @"\", "");
+                        employee.ImageFile = null;
                     }
                 }
                 else
@@ -366,13 +373,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     if (employee.ImageFile.Length > 0)
                     {
-                        using (var stream = new MemoryStream())
-                        {
-                            employee.ImageFile.CopyTo(stream);
-                            byte[] bytes = stream.ToArray();
-                            employee.Base64String = Convert.ToBase64String(bytes);
-                            employee.ImageFile = null;
-                        }
+                        string imagePath = _uploadHelper.UploadImage(employee.ImageFile, _hostingEnvironment.WebRootPath, "Avatars");
+                        employee.Image = imagePath.Replace(_hostingEnvironment.WebRootPath, "");
                     }
                 }
                 else
@@ -381,6 +383,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     RedirectToAction("AddEmpAccount");
                 }
             }
+           
             var reponse = await _employeeService.AddNewEmployee(employee);
             
             if (reponse != 0)
@@ -545,13 +548,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     if (temp.Length > 0)
                     {
-                        using (var stream = new MemoryStream())
+                        if (employee.Image != null)
                         {
-                            temp.CopyTo(stream);
-                            byte[] bytes = stream.ToArray();
-                            employee.Base64String = Convert.ToBase64String(bytes);
-                            employee.ImageFile = null;
+                            _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, employee.Image));
                         }
+                        string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath, "Avatars");
+                        employee.Image = imagePath.Replace(_hostingEnvironment.WebRootPath+@"\", "");
                     }
                 }
                 else
@@ -615,12 +617,26 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 if (pfx.ImageFile.ContentType.StartsWith("image/"))
                 {
-                    using (var stream = new MemoryStream())
+                    string imagePath = _uploadHelper.UploadImage(pfx.ImageFile, _hostingEnvironment.WebRootPath, $"SignatureImages/{pfx.Serial}");
+                    if (pfx.ImageSignature1 == null)
                     {
-                        pfx.ImageFile.CopyTo(stream);
-                        byte[] bytes = stream.ToArray();
-                        pfx.Base64StringFile = Convert.ToBase64String(bytes);
-                        pfx.ImageFile = null;
+                        pfx.ImageSignature1 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else if (pfx.ImageSignature2 == null)
+                    {
+                        pfx.ImageSignature2 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else if (pfx.ImageSignature3 == null)
+                    {
+                        pfx.ImageSignature3 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else if (pfx.ImageSignature4 == null)
+                    {
+                        pfx.ImageSignature4 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else if (pfx.ImageSignature5 == null)
+                    {
+                        pfx.ImageSignature5 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                     }
                 }
             }

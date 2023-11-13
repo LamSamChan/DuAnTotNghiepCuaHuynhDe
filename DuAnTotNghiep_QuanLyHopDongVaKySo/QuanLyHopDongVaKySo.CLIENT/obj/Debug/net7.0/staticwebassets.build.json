@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "r/RCdqKQjszRJhpFfn10YI10zfZpz3oK8X6S8YBKeIE=",
+  "Hash": "DLsLscM6gEnhjrvaOoU5NXMPrHF5BlJw67JGxzpWAtg=",
   "Source": "QuanLyHopDongVaKySo.CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
   "Mode": "Default",
@@ -26974,6 +26974,23 @@
       "OriginalItemSpec": "wwwroot\\assets2\\vendors\\select2\\select2x2.png"
     },
     {
+      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\1.png",
+      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
+      "RelativePath": "Avatars/1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Avatars\\1.png"
+    },
+    {
       "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\2b25b93d.jpeg",
       "SourceId": "QuanLyHopDongVaKySo.CLIENT",
       "SourceType": "Discovered",
@@ -27091,6 +27108,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Avatars\\f774f587.jpeg"
+    },
+    {
+      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\Screenshot 2023-10-26 152936.png",
+      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
+      "RelativePath": "Avatars/Screenshot 2023-10-26 152936.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Avatars\\Screenshot 2023-10-26 152936.png"
+    },
+    {
+      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\Screenshot 2023-11-05 025007.png",
+      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
+      "RelativePath": "Avatars/Screenshot 2023-11-05 025007.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Avatars\\Screenshot 2023-11-05 025007.png"
     },
     {
       "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\ContractImage\\1\\1.png",
@@ -30459,12 +30510,12 @@
       "OriginalItemSpec": "wwwroot\\SignatureImages\\638351720736683994\\07069717.jpeg"
     },
     {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638351720736683994\\20ca136b.jpeg",
+      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638351720736683994\\bf9f163a.jpeg",
       "SourceId": "QuanLyHopDongVaKySo.CLIENT",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
       "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
-      "RelativePath": "SignatureImages/638351720736683994/20ca136b.jpeg",
+      "RelativePath": "SignatureImages/638351720736683994/bf9f163a.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -30473,24 +30524,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\SignatureImages\\638351720736683994\\20ca136b.jpeg"
-    },
-    {
-      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638351720736683994\\559b3a99.jpeg",
-      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
-      "RelativePath": "SignatureImages/638351720736683994/559b3a99.jpeg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\SignatureImages\\638351720736683994\\559b3a99.jpeg"
+      "OriginalItemSpec": "wwwroot\\SignatureImages\\638351720736683994\\bf9f163a.jpeg"
     },
     {
       "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638351720736683994\\d3ab1184.jpeg",
@@ -30508,6 +30542,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\SignatureImages\\638351720736683994\\d3ab1184.jpeg"
+    },
+    {
+      "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638351720736683994\\e0529ab8.jpeg",
+      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
+      "RelativePath": "SignatureImages/638351720736683994/e0529ab8.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\SignatureImages\\638351720736683994\\e0529ab8.jpeg"
     },
     {
       "Identity": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638351720736683994\\e550f4ec.jpeg",
