@@ -13,15 +13,18 @@ using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
-using QuanLyHopDongVaKySo_API.Models;
+using API = QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
 using APIPost = QuanLyHopDongVaKySo_API.Models.ViewPost;
 using APITPut = QuanLyHopDongVaKySo_API.Models.ViewPuts;
 using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
-using QuanLyHopDongVaKySo_CLIENT.Constants;
-using QuanLyHopDongVaKySo_API.Services.InstallationDeviceService;
+using QuanLyHopDongVaKySo.CLIENT.Constants;
+using QuanLyHopDongVaKySo.CLIENT.Models;
+using Newtonsoft.Json;
+using System.Drawing.Imaging;
+using test.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -31,34 +34,104 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IEmployeeService _employeeService;
         private readonly IRoleService _roleService;
         private readonly ICustomerService _customerService;
-        private readonly IPFXCertificateServices _pFXCertificateServices;
+        private readonly IPFXCertificateServices _pfxCertificateServices;
         private readonly IPContractService _pContractService;
         private readonly IDContractsService _doneContractSvc;
         private readonly ITOSService _tosService;
         private readonly ITContractService _tContractService;
         private readonly ITMinuteService _tMinuteService;
         private readonly IInstallationDevicesService _installationDevicesService;
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IHttpContextAccessor _contextAccessor;
+
+        private int isAuthenticate;
+        private string employeeId;
 
         public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService,
-            ICustomerService customerService, IPFXCertificateServices pFXCertificateServices, IPContractService pContractService,
+            ICustomerService customerService, IPFXCertificateServices pfxCertificateServices, IPContractService pContractService,
             IDContractsService doneContractSvc, ITOSService tosService, ITContractService tContractService, ITMinuteService tMinuteService,
-            IInstallationDevicesService installationDevicesService)
+            IInstallationDevicesService installationDevicesService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor)
         {
             _positionService = positionService;
             _employeeService = employeeService;
             _roleService = roleService;
             _customerService = customerService;
-            _pFXCertificateServices = pFXCertificateServices;
+            _pfxCertificateServices = pfxCertificateServices;
             _pContractService= pContractService;
             _doneContractSvc = doneContractSvc;
             _tosService = tosService;
             _tContractService = tContractService;
             _tMinuteService = tMinuteService; 
             _installationDevicesService = installationDevicesService;
+            _hostingEnvironment = hostingEnvironment;
+            _contextAccessor = contextAccessor;
         }
-        public IActionResult Index()
+
+        public int IsAuthenticate
         {
-            return View();
+            get
+            {
+                if (!String.IsNullOrEmpty(HttpContext.Session.GetString(SessionKey.Employee.EmployeeID)))
+                {
+                    string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
+                    if (role == "Admin")
+                    {
+                        isAuthenticate = 1; //Admin
+                    }
+                    else if (role == "Giám đốc")
+                    {
+                        isAuthenticate = 2; //Director
+                    }
+                    else if (role == "Nhân viên kinh doanh")
+                    {
+                        isAuthenticate = 3; //BusinessStaff
+                    }
+                    else if (role == "Nhân viên lắp đặt")
+                    {
+                        isAuthenticate = 4; //InstallStaff
+                    }
+                }
+                else
+                {
+                    isAuthenticate = 0; // chưa login
+                }
+                return isAuthenticate;
+            }
+            set { this.isAuthenticate = value; }
+        }
+
+        public string EmployeeId
+        {
+            get
+            {
+                if (!String.IsNullOrEmpty(HttpContext.Session.GetString(SessionKey.Employee.EmployeeID)))
+                {
+                    employeeId = HttpContext.Session.GetString(SessionKey.Employee.EmployeeID);
+                }
+                return employeeId;
+            }
+            set { this.employeeId = value; }
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            string VB = ViewBag.Role;
+            if (IsAuthenticate == 1)
+            {
+                VMPersonalPage vm = new VMPersonalPage();
+                vm.Positions = await _positionService.GetAllPositionsAsync();
+                vm.Roles = await _roleService.GetAllRolesAsync();
+                vm.Employee = await _employeeService.GetEmployeePutById(EmployeeId);
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+                vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
+                ViewData["Role"] = VB;
+                return View(vm);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
         }
         public async Task<IActionResult> ListTypeOfService()
         {
@@ -111,7 +184,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> AddDeviceAction(VMDetailsTypeOfService vm)
         {
-            InstallationDevice device = new InstallationDevice();
+            API.InstallationDevice device = new API.InstallationDevice();
             device = vm.InstallationDevice;
             var respone = await _installationDevicesService.AddNewDevice(device);
             if (respone != null)
@@ -139,7 +212,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> EditDeviceAction([FromBody] InstallationDevice device)
+        public async Task<IActionResult> EditDeviceAction([FromBody] API.InstallationDevice device)
         {
             var respone = await _installationDevicesService.UpdateDevice(device);
             if (respone != null)
@@ -171,20 +244,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             VMListPFX vm = new VMListPFX();
             vm.Customers = await _customerService.GetAllCustomers();
             vm.Employees = await _employeeService.GetAllEmployees();
-            vm.PFXCertificates = await _pFXCertificateServices.GetAll();
-            vm.PFXCertificatesE = await _pFXCertificateServices.GetAllExpire();
-            vm.PFXCertificatesATE = await _pFXCertificateServices.GetAllAboutToExpire();
+            vm.PFXCertificates = await _pfxCertificateServices.GetAll();
+            vm.PFXCertificatesE = await _pfxCertificateServices.GetAllExpire();
+            vm.PFXCertificatesATE = await _pfxCertificateServices.GetAllAboutToExpire();
             return View(vm);
         }
         public async Task<IActionResult> DetailsPFXCertificate(string serial)
         {
-            var respone = await _pFXCertificateServices.GetById(serial);
+            var respone = await _pfxCertificateServices.GetById(serial);
             return View(respone);
         }
      
         public async Task<IActionResult> UpdateNotAfterPFX(string serial)
         {
-            var respone = await _pFXCertificateServices.UpdateNotAfter(serial);
+            var respone = await _pfxCertificateServices.UpdateNotAfter(serial);
             if (respone != null)
             {
                 //update thành công
@@ -312,7 +385,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             
             if (reponse != 0)
             {
-                return RedirectToAction("ListUsersAccount");
+                return RedirectToAction("ListEmpAccount");
             }
             else
             {
@@ -384,7 +457,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-        public async Task<IActionResult> AddPosition(Position position)
+        public async Task<IActionResult> AddPosition(API.Position position)
         {
             int reponse = await _positionService.AddPositionAsync(position);
             if (reponse != 0)
@@ -409,7 +482,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index");
             }
         }
-        public async Task<IActionResult> UpdatePosition(Position position)
+        public async Task<IActionResult> UpdatePosition(API.Position position)
         {
             var update = await _positionService.UpdatePositionAsync(position);
             if (update != 0)
@@ -422,7 +495,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-        public async Task<IActionResult> AddRole(Role role)
+        public async Task<IActionResult> AddRole(API.Role role)
         {
 
             int reponse = await _roleService.AddRoleAsync(role);
@@ -448,7 +521,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index");
             }
         }
-        public async Task<IActionResult> UpdateRole(Role role)
+        public async Task<IActionResult> UpdateRole(API.Role role)
         {
             var update = await _roleService.UpdateRoleAsync(role);
             if (update != 0)
@@ -458,6 +531,126 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 return RedirectToAction("Index");
+            }
+        }
+        public async Task<IActionResult> UpdateInfo(PutEmployee employee)
+        {
+
+            if (employee.ImageFile != null)
+            {
+                var temp = employee.ImageFile;
+                employee = await _employeeService.GetEmployeePutById(employee.EmployeeId.ToString());
+
+                if (temp.ContentType.StartsWith("image/"))
+                {
+                    if (temp.Length > 0)
+                    {
+                        using (var stream = new MemoryStream())
+                        {
+                            temp.CopyTo(stream);
+                            byte[] bytes = stream.ToArray();
+                            employee.Base64String = Convert.ToBase64String(bytes);
+                            employee.ImageFile = null;
+                        }
+                    }
+                }
+                else
+                {
+                    //báo lỗi ko tải lên file ảnh
+                    RedirectToAction("AddEmpAccount");
+                }
+            }
+            string respone = await _employeeService.UpdateEmployee(employee);
+
+            if (respone != null || employee.FullName == null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> SaveSignature([FromBody] SignData sData)
+        {
+            if (null == sData)
+                return NotFound();
+
+            var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
+
+            var fileName = System.Guid.NewGuid() + ".png";
+
+            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, "TempSignatures"), fileName);
+
+            bmpSign.Save(filePath, ImageFormat.Png);
+
+            byte[] bytes = System.IO.File.ReadAllBytes(filePath);
+            string base64String = Convert.ToBase64String(bytes);
+
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var result = await _pfxCertificateServices.UploadSignatureImage(serialPFX, base64String);
+
+            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            fs.Close();
+            System.IO.File.Delete(filePath);
+
+            if (result != null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
+        }
+
+        public async Task<ActionResult> UploadSignature(VMPersonalPage vm)
+        {
+            API.PFXCertificate pfx = new API.PFXCertificate();
+            pfx = vm.PFXCertificate;
+            if (pfx.ImageFile != null)
+            {
+                if (pfx.ImageFile.ContentType.StartsWith("image/"))
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        pfx.ImageFile.CopyTo(stream);
+                        byte[] bytes = stream.ToArray();
+                        pfx.Base64StringFile = Convert.ToBase64String(bytes);
+                        pfx.ImageFile = null;
+                    }
+                }
+            }
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var result = await _pfxCertificateServices.UploadSignatureImage(serialPFX, pfx.Base64StringFile);
+
+            if (result != null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
+        }
+
+        public async Task<ActionResult> DeleteSignature(string filePath)
+        {
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var result = await _pfxCertificateServices.DeleteImage(serialPFX, filePath);
+
+            if (result != null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
             }
         }
 

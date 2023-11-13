@@ -1,0 +1,133 @@
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMDetailsTypeOfService
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    string tosID = HttpContextAccessor.HttpContext.Session.GetString("tosID");
+}
+
+@section Scripts {
+    <script>
+        // jQuery is assumed to be available
+
+        // Hàm để thực hiện Ajax và cập nhật dữ liệu
+        function saveDevice(deviceId) {
+            var device = {
+                Device_ID: deviceId,
+                DeviceName: $('#deviceName_' + deviceId).val(),
+                DeviceStatus: $('#deviceStatus_' + deviceId).val(),
+                DeviceQuantity: $('#deviceQuantity_' + deviceId).val(),
+                TOS_ID: $('#tosId_' + deviceId).val()
+            };
+
+            $.ajax({
+                url: '@Url.Action("EditDeviceAction")',
+                type: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(device),
+                success: function (result) {
+                    if (!result.success) {
+                        // Chuyển hướng tới trang mong muốn
+                        var redirectToUrl = '@Url.Action("DetailsTypeOfService", "InstallStaff")?tosID=' + device.TOS_ID;
+                        window.location.href = redirectToUrl;
+                    }
+                },
+                error: function () {
+                    console.error('Lỗi khi gửi yêu cầu.');
+                }
+            });
+        }
+    </script>
+}
+
+<div class="container-fluid">
+    <button class="return">
+        <i class="ph-bold ph-arrow-left"></i>
+    </button>
+
+
+    <table class="table">
+        <thead>
+            <tr style="color: #8B909A;">
+                <th>ID</th>
+                <th>TÊN THIẾT BỊ</th>
+                <th>TRẠNG THÁI</th>
+                <th>SỐ LƯỢNG</th>
+                <th colspan="2">HÀNH ĐỘNG</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach (var item in Model.InstallationDevices)
+                {
+                <tr>
+                    <td><input class="form-control" asp-for="@item.Device_ID" readonly></td>
+                    <td><input class="form-control" required asp-for="@item.DeviceName" id="deviceName_@item.Device_ID"></td>
+                    <td><input class="form-control" required asp-for="@item.DeviceStatus" id="deviceStatus_@item.Device_ID"></td>
+                    <td>
+                        <input type="number" min="0" step="1" required class="form-control" asp-for="@item.DeviceQuantity" id="deviceQuantity_@item.Device_ID">
+                    </td>
+                    <td class="d-none">
+                        <input class="form-control" required asp-for="@item.TOS_ID" id="tosId_@item.Device_ID">
+                    </td>
+                    <td>
+                        <button class="add_cus" type="button" onclick="saveDevice('@item.Device_ID')">Lưu</button>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" style="height: 30px;" asp-action="DelDeviceAction" asp-controller="InstallStaff" asp-route-deviceID="@item.Device_ID">Xoá</a>
+                    </td>
+                </tr>
+                }
+        </tbody>
+    </table>
+
+        @**@
+  <button class="add_cus" style="margin: 20px; width:300px;" data-bs-toggle="modal" data-bs-target="#addEquid">
+            Thêm thiết bị lắp
+   </button>
+        <!--modal-->
+        <div class="modal fade" id="addEquid" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm mới thiết bị lắp</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="AddDeviceAction" asp-controller="InstallStaff">
+                    <table class="table">
+                        <thead>
+                            <tr style="color: #8B909A;">
+                                <th>TÊN THIẾT BỊ</th>
+                                <th>TRẠNG THÁI</th>
+                                <th>SỐ LƯỢNG</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <tr>
+                                <td>
+                                    <input class="form-control" required asp-for="@Model.InstallationDevice.DeviceName">
+                                </td>
+                                <td>
+                                    <input class="form-control" required asp-for="@Model.InstallationDevice.DeviceStatus">
+                                </td>
+                                <td>
+                                    <input type="number" min="0" step="1" class="form-control" required asp-for="@Model.InstallationDevice.DeviceQuantity">
+                                </td>
+                                <td class="d-none">
+                                    <input type="text" class="form-control" required readonly asp-for="@Model.InstallationDevice.TOS_ID" value="@tosID" />
+                                </td>                               
+                            </tr>
+                        </tbody>
+                    </table>
+                        <button class="add_cus" type="submit">
+                            Thêm
+                        </button>
+                     </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<script>
+   
+
+</script>

@@ -4,16 +4,20 @@ using QuanLyHopDongVaKySo.CLIENT.Models;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.IRequirementsServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo_API.Models.ViewPost;
 using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 using QuanLyHopDongVaKySo_API.Services.PendingMinuteService;
-using QuanLyHopDongVaKySo_CLIENT.Constants;
+using QuanLyHopDongVaKySo.CLIENT.Constants;
 using System.Drawing.Imaging;
 using test.Models;
 using API = QuanLyHopDongVaKySo_API.Models;
@@ -31,6 +35,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IPFXCertificateServices _pfxCertificateServices;
         private readonly IDContractsService _doneContractSvc;
         private readonly IPMinuteService _pMinuteService;
+        private readonly ITOSService _tosService;
+        private readonly ITMinuteService _tMinuteService;
+        private readonly IInstallationDevicesService _installationDevicesService;
+        private readonly ITContractService _tContractService;
+
         private int isAuthenticate;
         private string employeeId;
         public int IsAuthenticate
@@ -80,7 +89,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public InstallStaffController(IIRequirementService iRequirementService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices, IDContractsService doneContractSvc,
-            IPMinuteService pMinuteService)
+            IPMinuteService pMinuteService, ITOSService tosService, ITMinuteService tMinuteService, IInstallationDevicesService installationDevicesService, ITContractService tContractService)
         {
             _iRequirementService = iRequirementService;
             _hostingEnvironment = hostingEnvironment;
@@ -91,6 +100,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _employeeService = employeeService;
             _doneContractSvc = doneContractSvc;
             _pMinuteService = pMinuteService;
+            _tosService = tosService;
+            _tMinuteService = tMinuteService;
+            _installationDevicesService = installationDevicesService;
+            _tContractService = tContractService;
+
         }
 
         public async Task<IActionResult> ListInstallRequire()
@@ -286,6 +300,72 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 return RedirectToAction("Index", "Verify");
+            }
+        }
+
+        public async Task<IActionResult> ListTypeOfService()
+        {
+            VMListTOS vm = new VMListTOS()
+            {
+                TypeOfServices = await _tosService.GetAll(),
+                TemplateMinutes = await _tMinuteService.GetAll(),
+                TemplateContracts = await _tContractService.getAllAsnyc()
+            };
+            return View(vm);
+        }
+
+        public async Task<IActionResult> DetailsTypeOfService(int tosID)
+        {
+            VMDetailsTypeOfService vm = new VMDetailsTypeOfService()
+            {
+                InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID)
+            };
+            HttpContext.Session.SetString("tosID", tosID.ToString());
+            return View(vm);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> EditDeviceAction([FromBody] API.InstallationDevice device)
+        {
+            var respone = await _installationDevicesService.UpdateDevice(device);
+            if (respone != null)
+            {
+                return RedirectToAction("DetailsTypeOfService", device.TOS_ID);
+            }
+            else
+            {
+                return RedirectToAction("ListRole");
+            }
+        }
+
+        public async Task<IActionResult> AddDeviceAction(VMDetailsTypeOfService vm)
+        {
+            API.InstallationDevice device = new API.InstallationDevice();
+            device = vm.InstallationDevice;
+            var respone = await _installationDevicesService.AddNewDevice(device);
+            if (respone != null)
+            {
+                return RedirectToAction("DetailsTypeOfService", new { tosID = device.TOS_ID });
+            }
+            else
+            {
+                //lỗi
+                return RedirectToAction("ListRole");
+            }
+        }
+
+        public async Task<IActionResult> DelDeviceAction(int deviceID)
+        {
+            var respone = await _installationDevicesService.DelectDevice(deviceID);
+            string tosID = HttpContext.Session.GetString("tosID");
+            if (respone != 0)
+            {
+                return RedirectToAction("DetailsTypeOfService", new { tosID = tosID });
+            }
+            else
+            {
+                //lỗi
+                return RedirectToAction("ListRole");
             }
         }
     }

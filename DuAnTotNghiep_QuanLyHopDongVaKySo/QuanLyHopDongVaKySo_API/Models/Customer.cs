@@ -95,15 +95,15 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Quốc tịch")]
         public string Nationality { get; set; }
 
+        [AllowNull]
         [Column(TypeName = "varchar(50)")]
-        [Required(ErrorMessage = "Hãy nhập số tài khoản ngân hàng!")]
         [Display(Name = "Số tài khoản ngân hàng")]
-        public string BankAccount { get; set; }
+        public string? BankAccount { get; set; }
 
+        [AllowNull]
         [Column(TypeName = "varchar(50)")]
-        [Required(ErrorMessage = "Hãy nhập tên ngân hàng!")]
         [Display(Name = "Tên ngân hàng")]
-        public string BankName { get; set; }
+        public string? BankName { get; set; }
 
         [Column(TypeName = "varchar(50)"), AllowNull]
         [Display(Name = "Mã số thuế")]

@@ -1,0 +1,84 @@
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListTOS
+@{
+}
+<div class="container-fluid">
+    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
+        <div class="SearchBox">
+            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
+                <li>
+                    <div class="Search">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search.." />
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-bell"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="ph-bold ph-moon"></i>
+                    </a>
+                </li>
+                <li>
+                    <img src="o.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="listTable" style="background-color:white; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); min-height:700px">
+        <table class="table">
+            <thead>
+                <tr style="color: #8B909A;">
+                    <th scope="col">ID</th>
+                    <th scope="col">NGÀY TẠO</th>
+                    <th scope="col">NGÀY CẬP NHẬT</th>
+                    <th scope="col">TÊN DỊCH VỤ</th>
+                    <th scope="col">GIÁ</th>
+                    <th scope="col">ĐƠN VỊ THỜI GIAN</th>
+                    <th scope="col">TRẠNG THÁI</th>
+                    <th scope="col">HÀNH ĐỘNG</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                @foreach (var item in Model.TypeOfServices)
+                {
+                    <tr>
+                        <td scope="row">@item.TOS_ID</td>
+                        <td>
+                            @item.DateAdded?.ToString("HH:mm:ss dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @item.DateUpdated?.ToString("HH:mm:ss dd/MM/yyyy")
+                        </td>
+                        <td>@item.ServiceName</td>
+                        <td>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", item.Price)</td>
+                        <td>@item.PerTime</td>
+                        <td>
+                                @if (item.isHidden)
+                                {
+                                <div class="d-flex align-items-center">
+                                    <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                    <span>Đã khoá</span>
+                                </div>
+                                }
+                                else
+                                {
+                                <div class="d-flex align-items-center">
+                                    <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                    <span>Có thể sử dụng</span>
+                                </div>
+                                }
+                        </td>
+                        <td>
+                            <a asp-route-tosID="@item.TOS_ID" asp-action="DetailsTypeOfService" asp-controller="InstallStaff">Chi tiết</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

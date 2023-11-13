@@ -1,4 +1,4 @@
-﻿namespace QuanLyHopDongVaKySo_CLIENT.Constants
+﻿namespace QuanLyHopDongVaKySo.CLIENT.Constants
 {
     public class SessionKey
     {

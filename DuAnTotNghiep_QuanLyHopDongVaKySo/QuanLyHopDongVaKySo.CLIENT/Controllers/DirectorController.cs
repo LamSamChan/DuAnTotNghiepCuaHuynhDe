@@ -8,7 +8,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using API = QuanLyHopDongVaKySo_API.Models;
-using QuanLyHopDongVaKySo_CLIENT.Constants;
+using QuanLyHopDongVaKySo.CLIENT.Constants;
 using Spire.Pdf.Graphics;
 using System.Drawing.Imaging;
 using test.Models;

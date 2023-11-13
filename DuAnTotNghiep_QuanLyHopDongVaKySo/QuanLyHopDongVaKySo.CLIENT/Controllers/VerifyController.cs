@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using QuanLyHopDongVaKySo.CLIENT.Services;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
-using QuanLyHopDongVaKySo_CLIENT.Constants;
+using QuanLyHopDongVaKySo.CLIENT.Constants;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
