@@ -22,6 +22,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult ConfirmEmail()
+        {
+            return View();
+        }
+        public IActionResult ResetPass()
+        {
+            return View();
+        }
 
         public async Task<IActionResult> Login(VMLogin login)
         {
