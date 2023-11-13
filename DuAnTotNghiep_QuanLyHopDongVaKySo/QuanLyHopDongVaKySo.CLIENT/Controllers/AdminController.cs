@@ -642,7 +642,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             var temp = vm.PFXCertificate.ImageFile;
 
-            int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
+            string directoryPath = Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}");
+            int fileCount = Directory.GetFiles(directoryPath).Length;
 
             if (fileCount == 5)
             {
