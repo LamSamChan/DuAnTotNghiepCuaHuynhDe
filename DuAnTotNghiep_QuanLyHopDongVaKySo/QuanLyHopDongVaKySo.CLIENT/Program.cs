@@ -14,6 +14,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
 using QuanLyHopDongVaKySo.CLIENT.Helpers;
+using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,11 +29,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddControllersWithViews().AddDataAnnotationsLocalization();
 
 //api server
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://techsealapi.azurewebsites.net/") });
+//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://techsealapi.azurewebsites.net/") });
 
 
 //api locallhost
-//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7286/") });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7286/") });
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeesService>();
 builder.Services.AddScoped<IPositionService, PositionService>();
@@ -49,6 +50,8 @@ builder.Services.AddScoped<ITContractService, TContractService>();
 builder.Services.AddScoped<ITMinuteService, TMinuteService>();
 builder.Services.AddScoped<IInstallationDevicesService, InstallationDevicesService>();
 builder.Services.AddScoped<IUploadHelper, UploadHelper>();
+builder.Services.AddScoped<ISigningService, SigningService>();
+builder.Services.AddScoped<IPdfToImageHelper, PdfToImageHelper>();
 
 
 

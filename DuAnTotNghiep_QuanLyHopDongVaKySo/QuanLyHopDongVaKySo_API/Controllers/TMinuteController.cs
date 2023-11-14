@@ -46,10 +46,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetTMinuteAsnyc(int id)
         {
-            return Ok(new{
-                retText = "Lấy mẫu biên bản thành công",
-                data = await _TMinuteSvc.getByIdAsnyc(id)
-            });
+            return Ok(await _TMinuteSvc.getByIdAsnyc(id)
+            );
         }
 
 

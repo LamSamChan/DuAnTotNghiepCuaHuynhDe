@@ -18,7 +18,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
         {
             string json = JsonConvert.SerializeObject(PContract);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            using (var response = await _httpClient.PostAsync("api/PContract/AddPContractAsnyc", content))
+            using (var response = await _httpClient.PostAsync("api/PContract", content))
             {
                 if (response.IsSuccessStatusCode)
                 {
