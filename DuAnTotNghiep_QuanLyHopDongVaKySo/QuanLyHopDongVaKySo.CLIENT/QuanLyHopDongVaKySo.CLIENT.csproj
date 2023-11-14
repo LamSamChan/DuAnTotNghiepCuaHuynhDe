@@ -31,6 +31,8 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Avatars\" />
+    <Folder Include="wwwroot\TempFile\" />
+    <Folder Include="wwwroot\TMinuteImg\" />
     <Folder Include="wwwroot\TempSignatures\" />
   </ItemGroup>
 

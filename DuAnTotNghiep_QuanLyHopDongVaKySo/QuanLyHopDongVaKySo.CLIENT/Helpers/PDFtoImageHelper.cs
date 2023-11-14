@@ -47,7 +47,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
                 }
                 else
                 {
-                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath, $"TMinuteImage/{idContract}");
+                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath, $"TMinuteImg/{idContract}");
                 }
 
                 //server

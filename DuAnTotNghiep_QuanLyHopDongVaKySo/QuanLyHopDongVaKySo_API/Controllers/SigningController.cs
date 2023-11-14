@@ -76,7 +76,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _doneMinuteSvc = doneMinuteSvc;
         }
 
-        [HttpPost("DirectorSignContract/{serial}/{idContract}/{imagePath}")]
+        [HttpPost("DirectorSignContract")]
         public async Task<ActionResult<string>> SignContractByDirector(string serial, int idContract, string imagePath)
         {
             var certi = await _pfxCertificate.GetById(serial);
@@ -225,7 +225,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(signedContractPath);
         }
 
-        [HttpPost("InstallerSignMinute/{serial}/{idMinute}/{imagePath}")]
+        [HttpPost("InstallerSignMinute")]
         public async Task<ActionResult<string>> SignMinuteByInstaller(string serial, int idMinute, string imagePath)
         {
             var certi = await _pfxCertificate.GetById(serial);
@@ -362,7 +362,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         }
 
-        [HttpPost("CustomerSignContract/{serial}/{idContract}/{imagePath}")]
+        [HttpPost("CustomerSignContract")]
         public async Task<ActionResult<string>> SignContractByCustomer(string serial, int idContract, string imagePath)
         {
             var certi = await _pfxCertificate.GetById(serial);
@@ -482,7 +482,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             
         }
 
-        [HttpPost("CustomerSignMinute/{serial}/{idMinute}/{imagePath}")]
+        [HttpPost("CustomerSignMinute")]
         public async Task<ActionResult<string>> SignMinuteByCustomer(string serial, int idMinute, string imagePath)
         {
             var certi = await _pfxCertificate.GetById(serial);

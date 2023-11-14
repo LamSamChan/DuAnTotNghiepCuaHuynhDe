@@ -14,6 +14,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
 using QuanLyHopDongVaKySo.CLIENT.Helpers;
+using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,6 +50,8 @@ builder.Services.AddScoped<ITContractService, TContractService>();
 builder.Services.AddScoped<ITMinuteService, TMinuteService>();
 builder.Services.AddScoped<IInstallationDevicesService, InstallationDevicesService>();
 builder.Services.AddScoped<IUploadHelper, UploadHelper>();
+builder.Services.AddScoped<ISigningService, SigningService>();
+builder.Services.AddScoped<IPdfToImageHelper, PdfToImageHelper>();
 
 
 
