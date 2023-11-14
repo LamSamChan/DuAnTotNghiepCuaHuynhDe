@@ -22,6 +22,9 @@ using test.Models;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Helpers;
+using QuanLyHopDongVaKySo_API.Models;
+using Employee = QuanLyHopDongVaKySo_API.Models.Employee;
+using static QuanLyHopDongVaKySo.CLIENT.Constants.SessionKey;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -43,8 +46,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IUploadHelper _uploadHelper;
 
 
-        private int isAuthenticate  = 1 ;
-        private string employeeId ;
+        private int isAuthenticate = 1;
+        private string employeeId;
 
         public int IsAuthenticate
         {
@@ -92,7 +95,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             set { this.employeeId = value; }
         }
 
-        public BusinessStaffController(ICustomerService customerService, IDContractsService dContractService,IEmployeeService employeeService,
+        public BusinessStaffController(ICustomerService customerService, IDContractsService dContractService, IEmployeeService employeeService,
             IPContractService pContractService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, ITContractService tContractService,
             ITOSService tosService, ITMinuteService tMinuteService, IInstallationDevicesService installationDevicesService, IPFXCertificateServices pfxCertificateServices,
             IRoleService roleService, IPositionService positionSerivce, IUploadHelper uploadHelper)
@@ -110,7 +113,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _tMinuteService = tMinuteService;
             _installationDevicesService = installationDevicesService;
             _pfxCertificateServices = pfxCertificateServices;
-            _uploadHelper = uploadHelper;   
+            _uploadHelper = uploadHelper;
+
         }
 
         public async Task<IActionResult> ListCus()
@@ -171,7 +175,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 return RedirectToAction("Index");
             }
-            
+
         }
         public IActionResult DetailsDContract()
         {
@@ -204,14 +208,109 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult ListContractFormPage()
+        public IActionResult MinuteFormPage()
         {
             return View();
         }
-        public IActionResult EditContratFormPage()
+        public async Task<IActionResult> ListContractFormPage()
         {
-            return View();
+
+            return View(await _tContractService.getAllAsnyc());
+
         }
+        public async Task<IActionResult> EditContratFormPage(int id)
+        {
+            try
+            {
+                TemplateContract template = await _tContractService.getByIdAsnyc(id);
+                return View(template);
+            }
+            catch (Exception ex)
+            {
+
+                return RedirectToAction("EditContratFormPage");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditContratFormPage(PutTContract tContract)
+        {
+            try
+            {
+                await _tContractService.updateAsnyc(tContract);
+                return RedirectToAction("ListContractFormPage", "BusinessStaff");
+            }
+            catch (Exception ex)
+            {
+
+                return RedirectToAction("EditContratFormPage");
+            }
+        }
+
+        public async Task<IActionResult> TListMinute()
+        {
+
+            return View(await _tMinuteService.GetAll());
+
+        }
+
+        public async Task<IActionResult> TEditMinute(int id)
+        {
+
+            TemplateMinute template = await _tMinuteService.GetById(id);
+            return View(template);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> TEditMinute(PutTMinute tContract)
+        {
+
+            await _tMinuteService.Update(tContract);
+            return RedirectToAction("TListMinute", "BusinessStaff");
+
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddTMinute([FromForm] API.PostTMinute tContract)
+        {
+            if (tContract.File != null)
+            {
+                if (tContract.File.ContentType.StartsWith("application/pdf"))
+                {
+                    if (tContract.File.Length > 0)
+                    {
+                        using (var stream = new MemoryStream())
+                        {
+                            tContract.File.CopyTo(stream);
+                            byte[] bytes = stream.ToArray();
+                            tContract.TMinuteName = tContract.File.FileName.ToString().Replace(".pdf", "");
+                            tContract.Base64StringFile = Convert.ToBase64String(bytes);
+                            tContract.File = null;
+                        }
+                    }
+                }
+                else
+                {
+                    //báo lỗi ko tải lên file ảnh
+                    RedirectToAction("AddEmpAccount");
+                }
+            }
+            var reponse = await _tMinuteService.AddNew(tContract);
+
+            if (reponse != 0)
+            {
+                //thành công
+                return RedirectToAction("MinutuFormPage");
+            }
+            else
+            {
+                //thất bại
+                return RedirectToAction("AddCus");
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddTContract([FromForm] API.PostTContract tContract)
         {
@@ -225,10 +324,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                         {
                             tContract.File.CopyTo(stream);
                             byte[] bytes = stream.ToArray();
-                            tContract.TContractName = tContract.File.FileName.ToString().Replace(".pdf","");
+                            tContract.TContractName = tContract.File.FileName.ToString().Replace(".pdf", "");
                             tContract.Base64StringFile = Convert.ToBase64String(bytes);
                             tContract.File = null;
-
                         }
                     }
                 }
@@ -329,7 +427,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             if (isAuthenticate == 1)
             {
-                pContractList =  await _pContractService.getListWaitCustomerSigns();
+                pContractList = await _pContractService.getListWaitCustomerSigns();
                 return View(pContractList);
             }
             else if (isAuthenticate == 3)
@@ -357,41 +455,41 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> DetailsContractEffect(string id)
         {
             VMDetailsContract viewModel = new VMDetailsContract();
-            try 
-            { 
-            viewModel.DoneContracts = await _dContractService.getByIdAsnyc(id);
-            viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
-            viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.DoneContracts.DirectorSignedId);
+            try
+            {
+                viewModel.DoneContracts = await _dContractService.getByIdAsnyc(id);
+                viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
+                viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.DoneContracts.DirectorSignedId);
             }
             catch
             {
                 return RedirectToAction("Index");
             }
-                return View(viewModel);
+            return View(viewModel);
         }
 
-        public async Task<IActionResult>  DetailsContractPending(string id)
+        public async Task<IActionResult> DetailsContractPending(string id)
         {
             VMDetailsContract viewModel = new VMDetailsContract();
-            try 
-            { 
-            viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
-            viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
-            viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
+            try
+            {
+                viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
+                viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
+                viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
             }
             catch
             {
                 return RedirectToAction("Index");
             }
-                return View(viewModel);
+            return View(viewModel);
         }
 
         public async Task<IActionResult> DetailsContractRefuse(string id)
         {
             VMDetailsContract viewModel = new VMDetailsContract();
 
-            try 
-            { 
+            try
+            {
                 viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
                 viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.DirectorSignedId);
@@ -400,7 +498,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 return RedirectToAction("Index");
             }
-                return View(viewModel);
+            return View(viewModel);
         }
 
         public async Task<IActionResult> DetailsContractWaitSign(string id)
@@ -511,46 +609,24 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (null == sData)
                 return NotFound();
 
-            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
-            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
-            var certificate = await _pfxCertificateServices.GetById(serialPFX);
-            int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
-
-            if (fileCount == 5)
-            {
-                //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
-                return RedirectToAction("Index", "Verify");
-            }
             var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
 
-            var fileName = System.Guid.NewGuid().ToString().Substring(0, 8) + ".png";
+            var fileName = System.Guid.NewGuid() + ".png";
 
-            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}"), fileName);
-
-            if (certificate.ImageSignature1 == null)
-            {
-                certificate.ImageSignature1 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
-            }
-            else if (certificate.ImageSignature2 == null)
-            {
-                certificate.ImageSignature2 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
-            }
-            else if (certificate.ImageSignature3 == null)
-            {
-                certificate.ImageSignature3 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
-            }
-            else if (certificate.ImageSignature4 == null)
-            {
-                certificate.ImageSignature4 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
-            }
-            else if (certificate.ImageSignature5 == null)
-            {
-                certificate.ImageSignature5 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
-            }
+            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, "TempSignatures"), fileName);
 
             bmpSign.Save(filePath, ImageFormat.Png);
 
-            var result = await _pfxCertificateServices.Update(certificate);
+            byte[] bytes = System.IO.File.ReadAllBytes(filePath);
+            string base64String = Convert.ToBase64String(bytes);
+
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var result = await _pfxCertificateServices.UploadSignatureImage(serialPFX, base64String);
+
+            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            fs.Close();
+            System.IO.File.Delete(filePath);
 
             if (result != null)
             {
@@ -564,51 +640,24 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> UploadSignature(VMPersonalPage vm)
         {
-            API.PFXCertificate certificate = new API.PFXCertificate();
-            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
-            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
-
-            var temp = vm.PFXCertificate.ImageFile;
-
-            int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
-
-            if (fileCount == 5)
+            API.PFXCertificate pfx = new API.PFXCertificate();
+            pfx = vm.PFXCertificate;
+            if (pfx.ImageFile != null)
             {
-                //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
-                return RedirectToAction("Index", "Verify");
-            }
-            if (temp != null)
-            {
-                if (temp.ContentType.StartsWith("image/"))
+                if (pfx.ImageFile.ContentType.StartsWith("image/"))
                 {
-
-                    certificate = await _pfxCertificateServices.GetById(serialPFX);
-
-                    string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}");
-                    if (certificate.ImageSignature1 == null)
+                    using (var stream = new MemoryStream())
                     {
-                        certificate.ImageSignature1 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
-                    }
-                    else if (certificate.ImageSignature2 == null)
-                    {
-                        certificate.ImageSignature2 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
-                    }
-                    else if (certificate.ImageSignature3 == null)
-                    {
-                        certificate.ImageSignature3 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
-                    }
-                    else if (certificate.ImageSignature4 == null)
-                    {
-                        certificate.ImageSignature4 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
-                    }
-                    else if (certificate.ImageSignature5 == null)
-                    {
-                        certificate.ImageSignature5 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                        pfx.ImageFile.CopyTo(stream);
+                        byte[] bytes = stream.ToArray();
+                        pfx.Base64StringFile = Convert.ToBase64String(bytes);
+                        pfx.ImageFile = null;
                     }
                 }
             }
-
-            var result = await _pfxCertificateServices.Update(certificate);
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var result = await _pfxCertificateServices.UploadSignatureImage(serialPFX, pfx.Base64StringFile);
 
             if (result != null)
             {
@@ -624,34 +673,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
-            var certificate = await _pfxCertificateServices.GetById(serialPFX);
-
-            if (filePath == certificate.ImageSignature1)
-            {
-                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature1));
-                certificate.ImageSignature1 = null;
-            }
-            else if (filePath == certificate.ImageSignature2)
-            {
-                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature2));
-                certificate.ImageSignature2 = null;
-            }
-            else if (filePath == certificate.ImageSignature3)
-            {
-                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature3));
-                certificate.ImageSignature3 = null;
-            }
-            else if (filePath == certificate.ImageSignature4)
-            {
-                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature4));
-                certificate.ImageSignature4 = null;
-            }
-            else if (filePath == certificate.ImageSignature5)
-            {
-                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature5));
-                certificate.ImageSignature5 = null;
-            }
-            var result = await _pfxCertificateServices.Update(certificate);
+            var result = await _pfxCertificateServices.DeleteImage(serialPFX, filePath);
 
             if (result != null)
             {

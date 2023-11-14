@@ -1,0 +1,293 @@
+﻿@model QuanLyHopDongVaKySo_API.Models.PostTMinute
+@{
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link href="~/php/style.css" rel="stylesheet" />
+
+<div class="wrapper">
+    <h4 class="m-b-0"
+        style="text-align:center;margin-left:65px ;width: 512px; height: 52px; color: #2B3674; font-size: 34px; font-family: DM Sans; font-weight: 700; line-height: 42px; word-wrap: break-word">
+        Tải hợp đồng biên bản
+    </h4>
+    <form method="post" enctype="multipart/form-data" id="FormPostTMinute" asp-action="AddTMinute" asp-controller="BusinessStaff">
+        <input asp-for="File" type="file" accept=".pdf" id="pdfInput" style="display:none;" required>
+        <img width="64" height="64" style="margin-bottom:15px" src="https://img.icons8.com/external-others-iconmarket/64/external-pdf-file-types-others-iconmarket.png" alt="external-pdf-file-types-others-iconmarket" />
+        <button type="button" class="button-22" id="uploadIcon">TẢI PDF</button>
+        <br />
+        <section>
+            <div style="display: flex; justify-content: space-evenly;">
+                <button type="submit" class="button-22" id="saveButton" style="display:none;">Lưu</button>
+            </div>
+        </section>
+    </form>
+</div>
+
+<script>
+    document.getElementById('uploadIcon').addEventListener('click', function () {
+        document.getElementById('pdfInput').click();
+    });
+    document.getElementById('pdfInput').addEventListener('change', function () {
+        var fileInput = document.getElementById('pdfInput');
+        var saveButton = document.getElementById('saveButton');
+
+        if (fileInput.files.length > 0) {
+            saveButton.style.display = 'block'; // Hiển thị button nếu có tệp đã chọn
+        } else {
+            saveButton.style.display = 'none'; // Ẩn button nếu không có tệp được chọn
+        }
+    });
+
+    //
+    //
+    let pdfDoc = null;
+    let pageNum = 1;
+    const scale = 1.5;
+    let canvas = null;
+    let context = null;
+    let pdfContainer = document.getElementById('pdfContainer');
+
+
+    let signatureAreas = [];
+
+    const pdfInput = document.getElementById('pdfInput');
+    pdfInput.addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        if (file) {
+            pdfjsLib.getDocument(URL.createObjectURL(file)).promise.then(pdf => {
+                pdfDoc = pdf;
+                pageNum = 1;
+                renderPage(pageNum);
+
+                // Hide the file input after selecting a file
+                pdfInput.style.display = 'none';
+
+                // Create and render pagination
+                renderPagination(pdf.numPages);
+            });
+        }
+    });
+
+    function renderPagination(totalPages) {
+        const paginationContainer = document.getElementById('paginationContainer');
+        paginationContainer.innerHTML = ''; // Clear existing pagination
+
+        // First page button
+        const firstPageButton = createPageLink('<<');
+        firstPageButton.addEventListener('click', () => {
+            goToPage(1);
+        });
+        paginationContainer.appendChild(firstPageButton);
+
+        // Previous button
+        const previousButton = createPageLink('&#8249;');
+        previousButton.addEventListener('click', () => {
+            goToPage(pageNum - 1);
+        });
+        paginationContainer.appendChild(previousButton);
+
+        for (let i = 1; i <= totalPages; i++) {
+            const pageLink = createPageLink(i);
+            pageLink.addEventListener('click', () => {
+                goToPage(i);
+            });
+
+            paginationContainer.appendChild(pageLink);
+        }
+
+        // Next button
+        const nextButton = createPageLink('&#8250;');
+        nextButton.addEventListener('click', () => {
+            goToPage(pageNum + 1);
+        });
+        paginationContainer.appendChild(nextButton);
+
+        // Last page button
+        const lastPageButton = createPageLink('>>');
+        lastPageButton.addEventListener('click', () => {
+            goToPage(totalPages);
+        });
+        paginationContainer.appendChild(lastPageButton);
+
+        updateActivePage();
+    }
+
+    function createPageLink(content) {
+        const pageLink = document.createElement('a');
+        pageLink.innerHTML = content;
+        pageLink.classList.add('page-link');
+        return pageLink;
+    }
+
+    function goToPage(page) {
+        if (page >= 1 && page <= pdfDoc.numPages) {
+            pageNum = page;
+            renderPage(pageNum);
+            updateActivePage();
+        }
+    }
+
+    function renderPage(num) {
+        pdfDoc.getPage(num).then(page => {
+            const viewport = page.getViewport({
+                scale
+            });
+            const pdfCanvas = document.createElement('canvas');
+            const pdfContext = pdfCanvas.getContext('2d');
+            pdfCanvas.height = viewport.height;
+            pdfCanvas.width = viewport.width;
+
+            page.render({
+                canvasContext: pdfContext,
+                viewport
+            }).promise.then(() => {
+                const pdfImage = new Image();
+                pdfImage.src = pdfCanvas.toDataURL();
+                pdfImage.onload = function () {
+                    if (canvas) {
+                        pdfContainer.removeChild(canvas);
+                    }
+                    canvas = document.createElement('canvas');
+                    context = canvas.getContext('2d');
+                    canvas.height = pdfCanvas.height;
+                    canvas.width = pdfCanvas.width;
+                    context.drawImage(pdfImage, 0, 0);
+                    pdfContainer.appendChild(canvas);
+
+
+                    // Clear existing signature areas
+                    signatureAreas.forEach(area => {
+                        area.element.style.display = 'none';
+                    });
+
+                    // Render signature areas only on the last page
+                    if (num === pdfDoc.numPages) {
+                        signatureAreas.forEach(area => {
+                            area.element.style.display = 'block';
+                        });
+                    }
+                };
+            });
+        });
+    }
+
+    function updateActivePage() {
+        const pageLinks = document.querySelectorAll('.page-link');
+        pageLinks.forEach(link => {
+            link.classList.remove('active');
+            if (parseInt(link.innerHTML) === pageNum) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    document.getElementById('addDirectorSignature').addEventListener('click', () => {
+        createSignatureArea('Director');
+    });
+
+    document.getElementById('addEmployeeSignature').addEventListener('click', () => {
+        createSignatureArea('Employee');
+    });
+
+    document.getElementById('savePositions').addEventListener('click', () => {
+        savePositions();
+    });
+
+    function createSignatureArea(role) {
+        // Check if a signature for the role already exists
+        const existingSignature = signatureAreas.find(area => area.role === role);
+
+        if (existingSignature) {
+            alert(`Chữ ký ${role} đã tồn tại.`);
+            return;
+        }
+
+        const signatureArea = document.createElement('div');
+        signatureArea.className = 'signatureArea';
+        signatureArea.textContent = role;
+        pdfContainer.appendChild(signatureArea);
+
+        let isDragging = false;
+
+        signatureArea.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            moveSignatureArea(e, signatureArea);
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                moveSignatureArea(e, signatureArea);
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        signatureAreas.push({
+            role,
+            element: signatureArea
+        });
+
+        // Hide the newly added signature area if not on the last page
+        if (pageNum < pdfDoc.numPages) {
+            signatureArea.style.display = 'block';
+        }
+    }
+
+    function moveSignatureArea(e, area) {
+        const rect = pdfContainer.getBoundingClientRect();
+        const x = Math.round(e.clientX - rect.left);
+        const y = Math.round(e.clientY - rect.top);
+
+        area.style.left = x + 'px';
+        area.style.top = y + 'px';
+    }
+
+    function savePositions() {
+        const directorPositions = [];
+        const employeePositions = [];
+
+        signatureAreas.forEach(area => {
+            const position = {
+                x: Math.round(parseInt(area.element.style.left)),
+                y: Math.round(parseInt(area.element.style.top))
+            };
+
+            if (area.role === 'Director') {
+                directorPositions.push(position);
+            } else if (area.role === 'Employee') {
+                employeePositions.push(position);
+            }
+        });
+
+        var formData = new FormData($("#FormPostTMinute")[0]);
+        formData.append('TMinuteName', "");
+        formData.append('jsonIntallationZone', "");
+        formData.append('jsonCustomerZone', "");
+        formData.append('Base64StringFile', "");
+
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("AddTMinute")', // Điều chỉnh URL theo cấu trúc của bạn
+            data: formData,
+            processData: false,  // Không xử lý dữ liệu trước khi gửi
+            contentType: false,  // Không đặt tiêu đề Content-Type
+            success: function (result) {
+                var redirectToUrl = '@Url.Action("MinuFormPage")';
+                window.location.href = redirectToUrl;
+            },
+            error: function (error) {
+                // Xử lý lỗi
+                console.log(formData);
+            }
+        });
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

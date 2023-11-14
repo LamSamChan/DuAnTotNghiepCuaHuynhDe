@@ -1,4 +1,6 @@
-﻿using QuanLyHopDongVaKySo_API.Models;
+﻿using Newtonsoft.Json;
+using QuanLyHopDongVaKySo_API.Models;
+using System.Text;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices
 {
@@ -9,9 +11,23 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices
         {
             _httpClient = httpClient;
         }
-        public Task<int> AddNew(PostTMinute tMinute)
+        public async Task<int> AddNew(PostTMinute tMinute)
         {
-            throw new NotImplementedException();
+            var json = JsonConvert.SerializeObject(tMinute);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
+                var reponse = await _httpClient.PostAsync("api/TMinute", content);
+                if (reponse.IsSuccessStatusCode)
+                {
+                    return 1;
+                }
+                else { return 0; }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
         }
 
         public Task<bool> Delete(int id)
@@ -25,14 +41,29 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices
             return reponse;
         }
 
-        public Task<TemplateMinute> GetById(int id)
+        public async Task<TemplateMinute> GetById(int id)
         {
-            throw new NotImplementedException();
+            var reponse = await _httpClient.GetFromJsonAsync<TemplateMinute>($"api/TMinute/{id}");
+            return reponse;
         }
 
-        public Task<int> Update(PutTMinute tMinute)
+        public async Task<int> Update(PutTMinute tMinute)
         {
-            throw new NotImplementedException();
+            var content = new StringContent(JsonConvert.SerializeObject(tMinute), Encoding.UTF8, "application/json");
+            try
+            {
+                var reponse = await _httpClient.PutAsync("api/TMinute", content);
+                if (reponse.IsSuccessStatusCode)
+                {
+                    var tc = await reponse.Content.ReadAsStringAsync();
+                    return int.Parse(tc);
+                }
+                else { return 0; }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
         }
     }
 }
