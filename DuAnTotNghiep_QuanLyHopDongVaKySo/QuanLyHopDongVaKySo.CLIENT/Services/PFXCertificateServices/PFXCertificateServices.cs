@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using QuanLyHopDongVaKySo_API.Models;
-using QuanLyHopDongVaKySo_API.Models.ViewDeletes;
 using QuanLyHopDongVaKySo_API.Models.ViewPost;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
 using System.Net.Http.Json;
@@ -65,7 +64,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices
             }
         }
 
-        public async Task<string> UploadSignatureImage(string serial, string base64StringImage)
+        /*public async Task<string> UploadSignatureImage(string serial, string base64StringImage)
         {
             PostUploadSignatureImage image = new PostUploadSignatureImage();
             image.Serial = serial;
@@ -95,11 +94,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices
                 return null;
             }
 
-        }
-
-        public Task<string> UpdateInfoToDatabase(PFXCertificate pfxCertificate)
-        {
-            throw new NotImplementedException();
-        }
+        }*/
     }
 }

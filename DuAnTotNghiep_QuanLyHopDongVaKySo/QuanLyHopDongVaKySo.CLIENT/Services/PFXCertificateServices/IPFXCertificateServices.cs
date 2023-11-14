@@ -14,5 +14,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices
         Task<string> Update(PFXCertificate pfxCertificate);
 
         Task<string> UpdateNotAfter(string serial);
+
     }
 }

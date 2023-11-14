@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
-using QuanLyHopDongVaKySo_API.Models.ViewDeletes;
 using QuanLyHopDongVaKySo_API.Models.ViewPost;
 using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.DoneContractService;
@@ -120,7 +119,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         }
 
-        [HttpPut("UploadImage")]
+        /*[HttpPut("UploadImage")]
         public async Task<ActionResult<string>> UploadSignatureImage([FromBody] PostUploadSignatureImage image)
         {
             PFXCertificate certificateExist = await _pfxCertificate.GetById(image.Serial);
@@ -183,9 +182,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 return BadRequest(ex.Message);
             }
 
-        }
+        }*/
 
-        [HttpPut("DeleteImage")]
+        /*[HttpPut("DeleteImage")]
         public async Task<ActionResult<string>> DeleteImage([FromBody] DeleteSignatureImage image)
         {
             PFXCertificate certificateExist = await _pfxCertificate.GetById(image.Serial);
@@ -223,7 +222,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
 
             return BadRequest("Không thể xoá ảnh, hãy kiểm tra lại !");
-        }
+        }*/
 
     }
 }
