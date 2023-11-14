@@ -609,24 +609,45 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (null == sData)
                 return NotFound();
 
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var certificate = await _pfxCertificateServices.GetById(serialPFX);
+
             var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
 
-            var fileName = System.Guid.NewGuid() + ".png";
+            var fileName = System.Guid.NewGuid().ToString().Substring(0, 8) + ".png";
 
-            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, "TempSignatures"), fileName);
+            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}"), fileName);
+
+            if (certificate.ImageSignature1 == null)
+            {
+                certificate.ImageSignature1 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+            }
+            else if (certificate.ImageSignature2 == null)
+            {
+                certificate.ImageSignature2 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+            }
+            else if (certificate.ImageSignature3 == null)
+            {
+                certificate.ImageSignature3 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+            }
+            else if (certificate.ImageSignature4 == null)
+            {
+                certificate.ImageSignature4 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+            }
+            else if (certificate.ImageSignature5 == null)
+            {
+                certificate.ImageSignature5 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+            }
+            else
+            {
+                //tt hết slot chữ ký
+                return View("Index");
+            }
 
             bmpSign.Save(filePath, ImageFormat.Png);
 
-            byte[] bytes = System.IO.File.ReadAllBytes(filePath);
-            string base64String = Convert.ToBase64String(bytes);
-
-            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
-            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
-            var result = await _pfxCertificateServices.UploadSignatureImage(serialPFX, base64String);
-
-            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-            fs.Close();
-            System.IO.File.Delete(filePath);
+            var result = await _pfxCertificateServices.Update(certificate);
 
             if (result != null)
             {
@@ -640,24 +661,49 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> UploadSignature(VMPersonalPage vm)
         {
-            API.PFXCertificate pfx = new API.PFXCertificate();
-            pfx = vm.PFXCertificate;
-            if (pfx.ImageFile != null)
+            API.PFXCertificate certificate = new API.PFXCertificate();
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+
+            var temp = vm.PFXCertificate.ImageFile;
+
+            if (temp != null)
             {
-                if (pfx.ImageFile.ContentType.StartsWith("image/"))
+                if (temp.ContentType.StartsWith("image/"))
                 {
-                    using (var stream = new MemoryStream())
+
+                    certificate = await _pfxCertificateServices.GetById(serialPFX);
+
+                    string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}");
+                    if (certificate.ImageSignature1 == null)
                     {
-                        pfx.ImageFile.CopyTo(stream);
-                        byte[] bytes = stream.ToArray();
-                        pfx.Base64StringFile = Convert.ToBase64String(bytes);
-                        pfx.ImageFile = null;
+                        certificate.ImageSignature1 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else if (certificate.ImageSignature2 == null)
+                    {
+                        certificate.ImageSignature2 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else if (certificate.ImageSignature3 == null)
+                    {
+                        certificate.ImageSignature3 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else if (certificate.ImageSignature4 == null)
+                    {
+                        certificate.ImageSignature4 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else if (certificate.ImageSignature5 == null)
+                    {
+                        certificate.ImageSignature5 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else
+                    {
+                        //tt hết slot chữ ký
+                        return View("Index");
                     }
                 }
             }
-            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
-            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
-            var result = await _pfxCertificateServices.UploadSignatureImage(serialPFX, pfx.Base64StringFile);
+
+            var result = await _pfxCertificateServices.Update(certificate);
 
             if (result != null)
             {
@@ -673,7 +719,34 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
-            var result = await _pfxCertificateServices.DeleteImage(serialPFX, filePath);
+            var certificate = await _pfxCertificateServices.GetById(serialPFX);
+
+            if (filePath == certificate.ImageSignature1)
+            {
+                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature1));
+                certificate.ImageSignature1 = null;
+            }
+            else if (filePath == certificate.ImageSignature2)
+            {
+                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature2));
+                certificate.ImageSignature2 = null;
+            }
+            else if (filePath == certificate.ImageSignature3)
+            {
+                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature3));
+                certificate.ImageSignature3 = null;
+            }
+            else if (filePath == certificate.ImageSignature4)
+            {
+                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature4));
+                certificate.ImageSignature4 = null;
+            }
+            else if (filePath == certificate.ImageSignature5)
+            {
+                _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature5));
+                certificate.ImageSignature5 = null;
+            }
+            var result = await _pfxCertificateServices.Update(certificate);
 
             if (result != null)
             {

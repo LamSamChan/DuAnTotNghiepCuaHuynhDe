@@ -214,6 +214,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 certificate.ImageSignature5 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
             }
+            else
+            {
+                //tt hết slot chữ ký
+                return View("Index");
+            }
 
             bmpSign.Save(filePath, ImageFormat.Png);
 
@@ -271,6 +276,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     else if (certificate.ImageSignature5 == null)
                     {
                         certificate.ImageSignature5 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    }
+                    else
+                    {
+                        //tt hết slot chữ ký
+                        return View("Index");
                     }
                 }
             }
