@@ -116,7 +116,18 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _uploadHelper = uploadHelper;
 
         }
+        public async Task<IActionResult> AddPContract(string id)
+        {
+            string ID = id;
+            PostPendingContract pContract = new PostPendingContract();
+            pContract.CustomerId = Guid.Parse(id);
+            pContract.EmployeeCreatedId = Guid.Parse(EmployeeId);
+            pContract.TOS_ID = 1;
+            pContract.InstallationAddress = "123123123 phung van cung";
 
+            await _pContractService.addAsnyc(pContract);
+            return RedirectToAction("Index");
+        }
         public async Task<IActionResult> ListCus()
         {
             List<Models.Customer> customersList = new List<Models.Customer>();
