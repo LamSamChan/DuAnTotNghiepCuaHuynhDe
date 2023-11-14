@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -27,6 +27,7 @@ using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 using Newtonsoft.Json;
 using System.Text.Json.Serialization;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -100,6 +101,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+            Path.Combine(Directory.GetCurrentDirectory(), "AppData")),
+    RequestPath = "/AppData",
+    ServeUnknownFileTypes = true, // Cho phép phục vụ các loại tệp không xác định
+    DefaultContentType = "image/jpeg" // Đặt kiểu nội dung mặc định cho các tệp không xác định
+});
 
 app.UseHttpsRedirection();
 
