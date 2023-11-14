@@ -102,16 +102,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+
+app.UseHttpsRedirection();
+
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
             Path.Combine(Directory.GetCurrentDirectory(), "AppData")),
     RequestPath = "/AppData",
     ServeUnknownFileTypes = true, // Cho phép phục vụ các loại tệp không xác định
-    DefaultContentType = "image/jpeg" // Đặt kiểu nội dung mặc định cho các tệp không xác định
+    DefaultContentType = "image/png" // Đặt kiểu nội dung mặc định cho các tệp không xác định
 });
-
-app.UseHttpsRedirection();
 
 app.UseAuthentication();
 
