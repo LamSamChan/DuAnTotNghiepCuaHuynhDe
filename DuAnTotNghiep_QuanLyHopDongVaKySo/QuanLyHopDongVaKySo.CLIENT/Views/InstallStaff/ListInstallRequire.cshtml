@@ -2,32 +2,21 @@
 @{
 }
 <div class="container-fluid">
-    <div class="header">
-        <div class="SearchBox">
-            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
-                <li>
-                    <div class="Search">
-                        <i class="ph-bold ph-magnifying-glass"></i>
-                        <input type="text" placeholder="Search.." />
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-bell"></i>
-                    </a>
-
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-moon"></i>
-                    </a>
-                </li>
-                <li>
-                    <img src="o.jpg" />
-                </li>
-            </ul>
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Danh sách yêu cầu lắp</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+        <div class="row">
+            <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
         </div>
     </div>
+
     <div class="listTable_Record" style="margin-top:100px;" >
         <table class="table">
             <thead>

@@ -39,10 +39,26 @@
 }
 
 <div class="container-fluid">
-    <button class="return">
-        <i class="ph-bold ph-arrow-left"></i>
-    </button>
-
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item"><a>Quản lý thiết bị lắp</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Danh sách dịch vụ</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">CHI TIẾT DỊCH VỤ</h1>
+        <div class="row">
+            <button class="col-md-2" style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
+                <a asp-action="ListTypeOfService" asp-controller="InstallStaff">
+                    <i class="ph-bold ph-arrow-left">
+                        QUAY LẠI
+                    </i>
+                </a>
+            </button>
+        </div>
+    </div>
 
     <table class="table">
         <thead>

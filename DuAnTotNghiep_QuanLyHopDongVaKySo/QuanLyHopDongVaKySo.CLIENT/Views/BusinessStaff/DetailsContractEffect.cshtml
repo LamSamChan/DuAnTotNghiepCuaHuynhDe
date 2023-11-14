@@ -11,9 +11,25 @@
     string[] imageFiles = Directory.GetFiles(folderItem);
 }
 <div class="container-fluid">
-    <button class="return">
-        <i class="ph-bold ph-arrow-left"></i>
-    </button>
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Hợp đồng đã hoàn thành</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">TẤT CẢ DANH SÁCH </h1>
+        <div class="row">
+            <button class="col-md-2" style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
+                <a asp-action="ContractListEffect" asp-controller="BusinessStaff">
+                    <i class="ph-bold ph-arrow-left">
+                        QUAY LẠI
+                    </i>
+                </a>
+            </button>
+        </div>
+    </div>
     <div class="row" style="background-color:#FFFFFF; margin: 40px auto; height:100%; border-radius:16px;">
         <div class="col-6" style="margin: 20px; border-radius:10px;">
             <div class="showFile">
@@ -110,22 +126,7 @@
                 <label for="inputAddress" class="form-label">Số điện thoại</label>
                 <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.PhoneNumber">
             </div>
-        </form>
-        <div class="button_design row " style="margin-top:70px;">
-            <div class="col-md-5">
-                <button style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
-                    <i class="ph-bold ph-arrow-left"></i>
-                    QUAY LẠI
-                </button>
-            </div>
-            <div class="col-md-5">
-                @* <button style="border-radius: 12px;background: rgba(29, 194, 46, 0.58); border:none; color: white;font-weight:bold;">
-                GỬI THÔNG BÁO
-                <i class="ph-bold ph-share-fat"></i>
-                </button> *@
-            </div>
-        </div>
-
+        </form>     
     </div>
 </div>
 <script>

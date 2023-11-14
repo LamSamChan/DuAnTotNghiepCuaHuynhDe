@@ -252,19 +252,32 @@
         width: 100%;
     }
 
-    /*css - Mic*/
 
-    .SearchBox {
-        height: 61px;
-        width: 400px;
-        flex-shrink: 0;
-        border-radius: 30px;
-        background: #FFF;
-        box-shadow: 14px 17px 40px 4px rgba(112, 144, 176, 0.08);
-        align-items: center;
+    /*serch header */
+    .Search_All {
+        width: 250px;
+        display: flex;
+        flex: revert-layer;
+        background-color: azure;
         position: absolute;
-        top: 70px;
-        right: 10px;
+        left: 300px;
+        border-radius: 4px;
+        height: 40px;
+    }
+    .Search_All i {
+        padding: 0 5px;
+        font-size: 20px;
+        margin: auto 0;
+    }
+    .Search_All input {
+        border: none;
+        background-color: transparent;
+        width: 150px;
+    }
+
+    .Search_All input:focus {
+        background-color: none;
+        outline: none;
     }
 
     .horizontal-list li {
@@ -283,34 +296,61 @@
     .horizontal-list li a i {
         margin: 10px 0;
     }
-
-    .horizontal-list li .Search {
-        width: 250px;
-        height: 41px;
-        border-radius: 30px;
-        background-color: #F4F7FE;
-        display: flex;
+    /*================================================================*/
+    /*css list_table*/
+    .listTable {
+        width: 100%;
+        height: 871px;
+        flex-shrink: 0;
+        fill: var(--secondary-primary-white, #FFF);
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        margin-top: 30px;
     }
 
-    .Search i {
-        padding-left: 20px;
+    /*css - Mic*/
+    .SearchBox {
+        height: 61px;
+        width: 400px;
+        flex-shrink: 0;
+        border-radius: 30px;
+        background: #FFF;
+        box-shadow: 14px 17px 40px 4px rgba(112, 144, 176, 0.08);
+        align-items: center;
+        position: absolute;
+        top: 70px;
+        right: 10px;
+    }
+    input[type="search"] {
+        width: 300px;
+        height: 40px;
+        margin: auto;
+        border-radius:5px;
+        opacity: 0.6;
+    }
+    .add_Cus {
+        font-weight: bold;
+        border: 1px solid white;
+        width: 300px;
+        border-radius: 12px;
+        background: #2CA8DD;
+        padding: 0px 8px;
+        height: 30px;
+        align-items: end;
+    }
+    .add_Cus a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .add_Cus > i {
+        margin-left: 10px;
         font-size: 20px;
     }
-
-    .Search i, .Search input {
-        padding-right: 20px;
-        margin: 10px 0; /* Khoảng cách 10px ở trên và dưới */
-    }
-
-    .Search input {
-        border: none;
-        background-color: #F4F7FE;
-        width: 150px;
-    }
-
-    .Search input:focus {
-        background-color: none;
-        outline: none;
+    .typeHead {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        color: #1890FF;
     }
 }
 
