@@ -25,6 +25,7 @@ using QuanLyHopDongVaKySo_API.Services.TemplateMinuteService;
 using QuanLyHopDongVaKySo_API.Services.DoneMinuteService;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using static QRCoder.PayloadGenerator.SwissQrCode;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
@@ -233,7 +234,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var customer = await _customerSvc.GetByIdAsync(pContract.CustomerId.ToString());
 
-            var url = GenerateUrl(pContract.PContractID);
+            var url = GenerateUrl(pContract.PContractID,serial);
             var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
             var sendMail = SendMailToCustomerWithImage(qrPath, url, customer);
 
@@ -681,29 +682,25 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         public async Task<ActionResult<string>> GetByToken(string token)
         {
             // Giải mã token để lấy id khách hàng và id hợp đồng
-            var contractID = DecodeToken(token);
+            (int,string) contractID = DecodeToken(token);
 
+            //contractID.Item1: get contractID
+            //contractID.Item2: get Serial
+
+            string url = "";
             //test
             // Lấy thông tin hợp đồng dựa trên customerId và contractId
-            var contract = GetContract(contractID);
-
             //chạy với client thì truyền contractID vào link hiển thị hợp đồng và chuyển tới link đó
 
-            if (contract == null)
-            {
-                return NotFound("Không tìm thấy hợp đồng.");
-            }
 
-            // Hiển thị hợp đồng cho khách hàng
-            return Ok(await contract);
-
-           // return Redirect("/YourController/AnotherAction");
+            return Redirect(url);
         }
 
-        private string GenerateToken(int contractID)
+        private string GenerateToken(int contractID, string serial)
         {
             List<Claim> claims = new List<Claim>() {
-                 new Claim("ContractID", contractID.ToString())
+                 new Claim("ContractID", contractID.ToString()),
+                 new Claim("Serial", serial)
              };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
@@ -722,33 +719,31 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return jwt;
         }
 
-        private string GenerateUrl(int contractID)
+        private string GenerateUrl(int contractID, string serial)
         {
-            //Tạo token với id khách hàng và id hợp đồng
-            var token = GenerateToken(contractID);
+            //Tạo token với id khách hàng và id hợp đồng + serial pfx
+            var token = GenerateToken(contractID,serial);
 
             // Tạo đường link có chứa token
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
+
             var url = $"https://localhost:7286/api/Signing/ReadWithToken/{token}";
 
             // Gửi URL cho khách hàng
             return url;
         }
 
-        private int DecodeToken(string token)
+        private (int,string) DecodeToken(string token)
         {
             var handler = new JwtSecurityTokenHandler();
             var jsonToken = handler.ReadToken(token);
             var tokenS = jsonToken as JwtSecurityToken;
 
             var pcontractID = int.Parse(tokenS.Claims.First(claim => claim.Type == "ContractID").Value);
-            return pcontractID;
+            var serial = tokenS.Claims.First(claim => claim.Type == "Serial").Value;
+            return (pcontractID, serial);
         }
 
-        private async Task<PendingContract> GetContract(int contractID)
-        {
-            return await _pendingContract.getByIdAsnyc(contractID);
-        }
 
         private async Task<string> SendMailToCustomerWithImage(byte[] qrPath, string url, Customer customer)
         {
