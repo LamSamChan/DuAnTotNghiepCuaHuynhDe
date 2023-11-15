@@ -22,7 +22,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TContractServices
                 var reponse = await _httpClient.PostAsync("api/TContract", content);
                 if (reponse.IsSuccessStatusCode)
                 {
-                    return 1;
+                    int tContractID = 0;
+                    bool result = Int32.TryParse(await reponse.Content.ReadAsStringAsync(), out tContractID);
+                    if (result)
+                    {
+                        return tContractID;
+                    }
+                    else {
+                        return 0;
+                    }
                 }
                 else{ return 0; }
             }

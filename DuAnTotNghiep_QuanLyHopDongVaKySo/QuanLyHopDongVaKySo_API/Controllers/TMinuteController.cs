@@ -115,17 +115,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                             }
                         }
                         _pdfToImageHelper.PdfToPng(filePath, id_Tminute, "tminute");
-                        return Ok(new {
-                        retText = "Thêm mẫu biên bản thành công",
-                        data = _TMinuteSvc.getByIdAsnyc(id_Tminute).Result.TMinuteID.ToString()
-                        });
+                        return Ok(id_Tminute);
                     }
                 }
             }
-            return Ok(new {
-                retText = "Dữ liệu không hợp lê",
-                data = ""
-            });
+            return BadRequest();
         }
 
         /// <summary>

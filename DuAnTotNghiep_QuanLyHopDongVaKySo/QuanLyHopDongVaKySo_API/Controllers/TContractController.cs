@@ -116,15 +116,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         }
 
                         _pdfToImgHelpers.PdfToPng(filePath, id_Tcontract, "tcontract");
-                        return Ok(_TContractSvc.getByIdAsnyc(id_Tcontract).Result.TContactID.ToString());
+                        return Ok(id_Tcontract);
                     }
                 }
             }
-            return Ok(new
-            {
-                retText = "dữ liệu không hợp lệ",
-                data = ""
-            });
+            return BadRequest();
         }
 
         /// <summary>

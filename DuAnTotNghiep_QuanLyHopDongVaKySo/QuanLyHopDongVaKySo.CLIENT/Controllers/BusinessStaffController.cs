@@ -44,6 +44,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IRoleService _roleService;
         private readonly IPositionService _positionService;
         private readonly IUploadHelper _uploadHelper;
+        private readonly IPdfToImageHelper _pdfToImageHelper;
+
 
 
         private int isAuthenticate = 1;
@@ -98,7 +100,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public BusinessStaffController(ICustomerService customerService, IDContractsService dContractService, IEmployeeService employeeService,
             IPContractService pContractService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, ITContractService tContractService,
             ITOSService tosService, ITMinuteService tMinuteService, IInstallationDevicesService installationDevicesService, IPFXCertificateServices pfxCertificateServices,
-            IRoleService roleService, IPositionService positionSerivce, IUploadHelper uploadHelper)
+            IRoleService roleService, IPositionService positionSerivce, IUploadHelper uploadHelper, IPdfToImageHelper pdfToImageHelper)
         {
             _customerService = customerService;
             _dContractService = dContractService;
@@ -114,6 +116,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _installationDevicesService = installationDevicesService;
             _pfxCertificateServices = pfxCertificateServices;
             _uploadHelper = uploadHelper;
+            _pdfToImageHelper = pdfToImageHelper;
 
         }
         public async Task<IActionResult> AddPContract(string id)
@@ -272,7 +275,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         }
 
-        [HttpPost]
         public async Task<IActionResult> AddTMinute([FromForm] API.PostTMinute tContract)
         {
             if (tContract.File != null)
@@ -311,11 +313,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddTContract([FromForm] API.PostTContract tContract)
+        public async Task<IActionResult> AddTContract(API.PostTContract tContract)
         {
+            IFormFile temp = null;
             if (tContract.File != null)
             {
+                temp = tContract.File;
                 if (tContract.File.ContentType.StartsWith("application/pdf"))
                 {
                     if (tContract.File.Length > 0)
@@ -340,6 +343,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (reponse != 0)
             {
+                string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile");
+                _pdfToImageHelper.PdfToPng(inputFile, reponse, "tcontract");
+                FileStream fs = new FileStream(inputFile, FileMode.Open, FileAccess.Read);
+                fs.Close();
+                System.IO.File.Delete(inputFile);
+
                 //thành công
                 return RedirectToAction("ContractFormPage");
             }

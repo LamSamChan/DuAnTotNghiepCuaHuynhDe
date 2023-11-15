@@ -20,7 +20,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices
                 var reponse = await _httpClient.PostAsync("api/TMinute", content);
                 if (reponse.IsSuccessStatusCode)
                 {
-                    return 1;
+                    int tMinuteID = 0;
+                    bool result = Int32.TryParse(await reponse.Content.ReadAsStringAsync(), out tMinuteID);
+                    if (result)
+                    {
+                        return tMinuteID;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
                 else { return 0; }
             }

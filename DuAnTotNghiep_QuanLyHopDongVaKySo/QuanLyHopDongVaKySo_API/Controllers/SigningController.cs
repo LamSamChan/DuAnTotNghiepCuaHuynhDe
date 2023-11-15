@@ -23,6 +23,8 @@ using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
 using QuanLyHopDongVaKySo_API.Services.PendingMinuteService;
 using QuanLyHopDongVaKySo_API.Services.TemplateMinuteService;
 using QuanLyHopDongVaKySo_API.Services.DoneMinuteService;
+using QuanLyHopDongVaKySo_API.ViewModels;
+using static QRCoder.PayloadGenerator.SwissQrCode;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
@@ -77,8 +79,20 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost("DirectorSignContract")]
-        public async Task<ActionResult<string>> SignContractByDirector(string serial, int idContract, string imagePath)
+        public async Task<ActionResult<string>> SignContractByDirector([FromBody] SigningModel signing)
         {
+            int idContract = int.Parse(signing.IdFile);
+            string serial = signing.Serial;
+            string imagePath = null;
+            if (signing.Base64StringFile != null)
+            {
+                IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFile, Guid.NewGuid().ToString().Substring(0, 8), "image/jpeg");
+                imagePath = _uploadFileHelper.UploadFile(file, "AppData", "SignatureImages", ".jpeg");
+            }else
+            {
+                return BadRequest();
+            }
+            
             var certi = await _pfxCertificate.GetById(serial);
             var expireCerti = await _pfxCertificate.GetAllExpire();
 
@@ -216,18 +230,41 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 CustomerId = pContract.CustomerId,
                 TOS_ID = pContract.TOS_ID,
             };
+
             var customer = await _customerSvc.GetByIdAsync(pContract.CustomerId.ToString());
+
             var url = GenerateUrl(pContract.PContractID);
             var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
             var sendMail = SendMailToCustomerWithImage(qrPath, url, customer);
-            _pdfToImageHelper.PdfToPng(pContract.PContractFile, pendingContract.PContractId,"contract");
+
+            //_pdfToImageHelper.PdfToPng(pContract.PContractFile, pendingContract.PContractId,"contract");
+
             await _pendingContract.updateAsnyc(pendingContract);
-            return Ok(signedContractPath);
+            _uploadFileHelper.RemoveFile(imagePath);
+
+            byte[] fileBytes = System.IO.File.ReadAllBytes(pContract.PContractFile);
+            string base64String = Convert.ToBase64String(fileBytes);
+
+            return Ok(base64String);
         }
 
         [HttpPost("InstallerSignMinute")]
-        public async Task<ActionResult<string>> SignMinuteByInstaller(string serial, int idMinute, string imagePath)
+        public async Task<ActionResult<string>> SignMinuteByInstaller([FromBody] SigningModel signing)
         {
+
+            int idMinute = int.Parse(signing.IdFile);
+            string serial = signing.Serial;
+            string imagePath = null;
+            if (signing.Base64StringFile != null)
+            {
+                IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFile, Guid.NewGuid().ToString().Substring(0, 8), "image/jpeg");
+                imagePath = _uploadFileHelper.UploadFile(file, "AppData", "SignatureImages", ".jpeg");
+            }
+            else
+            {
+                return BadRequest();
+            }
+
             var certi = await _pfxCertificate.GetById(serial);
             var expireCerti = await _pfxCertificate.GetAllExpire();
 
@@ -354,17 +391,38 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 MinuteFile = pMinute.MinuteFile,
             };
 
-            _pdfToImageHelper.PdfToPng(pMinute.MinuteFile, pMinute.PendingMinuteId,"minute");
+           // _pdfToImageHelper.PdfToPng(pMinute.MinuteFile, pMinute.PendingMinuteId,"minute");
             await _pendingMinuteSvc.updateAsnyc(pendingMinute);
+
+            byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile);
+            string base64String = Convert.ToBase64String(fileBytes);
+
             FileStream fsPContract2 = new System.IO.FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
             fsPContract2.Close();
-            return Ok(signedMinutePath);
 
+            _uploadFileHelper.RemoveFile(imagePath);
+
+            return Ok(base64String);
         }
 
         [HttpPost("CustomerSignContract")]
-        public async Task<ActionResult<string>> SignContractByCustomer(string serial, int idContract, string imagePath)
+        public async Task<ActionResult<string>> SignContractByCustomer([FromBody] SigningModel signing)
         {
+
+            int idContract = int.Parse(signing.IdFile);
+            string serial = signing.Serial;
+            string imagePath = null;
+
+            if (signing.Base64StringFile != null)
+            {
+                IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFile, Guid.NewGuid().ToString().Substring(0, 8), "image/jpeg");
+                imagePath = _uploadFileHelper.UploadFile(file, "AppData", "SignatureImages", ".jpeg");
+            }
+            else
+            {
+                return BadRequest();
+            }
+
             var certi = await _pfxCertificate.GetById(serial);
 
             var expireCerti = await _pfxCertificate.GetAllExpire();
@@ -454,7 +512,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 TOS_ID = pContract.TOS_ID,
             };
 
-            _pdfToImageHelper.PdfToPng(outputContract, pendingContract.PContractId,"contract");
+            //_pdfToImageHelper.PdfToPng(outputContract, pendingContract.PContractId,"contract");
+
+            
             var dContract = await _dContractSvc.addAsnyc(pendingContract);
             if(dContract == null)
             {
@@ -471,9 +531,14 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             };
             int result = await _requirementSvc.CreateIRequirement(requirement);
 
+            _uploadFileHelper.RemoveFile(imagePath);
+
+            byte[] fileBytes = System.IO.File.ReadAllBytes(outputContract);
+            string base64String = Convert.ToBase64String(fileBytes);
+
             if (result != 0)
             {
-                return Ok(signedContractPath);
+                return Ok(base64String);
             }
             else
             {
@@ -483,8 +548,22 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost("CustomerSignMinute")]
-        public async Task<ActionResult<string>> SignMinuteByCustomer(string serial, int idMinute, string imagePath)
+        public async Task<ActionResult<string>> SignMinuteByCustomer([FromBody] SigningModel signing)
         {
+
+            int idMinute = int.Parse(signing.IdFile);
+            string serial = signing.Serial;
+            string imagePath = null;
+            if (signing.Base64StringFile != null)
+            {
+                IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFile, Guid.NewGuid().ToString().Substring(0, 8), "image/jpeg");
+                imagePath = _uploadFileHelper.UploadFile(file, "AppData", "SignatureImages", ".jpeg");
+            }
+            else
+            {
+                return BadRequest();
+            }
+
             var certi = await _pfxCertificate.GetById(serial);
 
             var expireCerti = await _pfxCertificate.GetAllExpire();
@@ -575,13 +654,20 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             };
             var updatedContract = await _dContractSvc.updateAsnyc(putDContract);
             int resutl = await _pendingMinuteSvc.DeletePMinute(pMinute.PendingMinuteId);
+
             var sendMail = SendMailToCustomerWithFile(System.IO.File.ReadAllBytes(dContract.DContractFile), System.IO.File.ReadAllBytes(outputMinute),customer);
+
+            byte[] fileBytes = System.IO.File.ReadAllBytes(outputMinute);
+            string base64String = Convert.ToBase64String(fileBytes);
 
             FileStream fsMinute = new System.IO.FileStream(outputMinute, FileMode.Open, FileAccess.Read);
             fsMinute.Close();
+
+            _uploadFileHelper.RemoveFile(imagePath);
+
             if (resutl != 0)
             {
-                return Ok(signedMinutePath);
+                return Ok(base64String);
             }
             else
             {
@@ -591,14 +677,17 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         //function test
-        [HttpGet("GetByToken/{token}")]
+        [HttpGet("ReadWithToken/{token}")]
         public async Task<ActionResult<string>> GetByToken(string token)
         {
             // Giải mã token để lấy id khách hàng và id hợp đồng
             var contractID = DecodeToken(token);
 
+            //test
             // Lấy thông tin hợp đồng dựa trên customerId và contractId
             var contract = GetContract(contractID);
+
+            //chạy với client thì truyền contractID vào link hiển thị hợp đồng và chuyển tới link đó
 
             if (contract == null)
             {
@@ -607,6 +696,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             // Hiển thị hợp đồng cho khách hàng
             return Ok(await contract);
+
+           // return Redirect("/YourController/AnotherAction");
         }
 
         private string GenerateToken(int contractID)
@@ -638,7 +729,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             // Tạo đường link có chứa token
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
-            var url = $"https://localhost:7286/api/Signing/GetByToken/{token}";
+            var url = $"https://localhost:7286/api/Signing/ReadWithToken/{token}";
 
             // Gửi URL cho khách hàng
             return url;
