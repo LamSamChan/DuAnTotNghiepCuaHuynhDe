@@ -3,8 +3,6 @@
 *@
 @{
 }
-<link href="~/php/style.css" rel="stylesheet" />
-
 <div class="container-fluid" style="height: 100vh;">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -14,25 +12,43 @@
                 <li class="breadcrumb-item active" aria-current="page"> Cá nhân</li>
             </ol>
         </nav>
-        <h1 class="typeHead">THÔNG TIN CÁ NHÂN</h1>
+        <h1 class="typeHead">THAY ĐỔI MẬT KHẨU</h1>
     </div>
+    <div class="changPassForm">
+        <div class="getOTP">
 
-    <div style="width: 800px;
-    height: 400px;
-    background-color: white;
-    margin: 40px auto;">
+            <h4 class="td">NHẬP MÃ OTP</h4>
+            <div class="otp-container">
+                <input class="otp-input" type="text" maxlength="1">
+                <input class="otp-input" type="text" maxlength="1">
+                <input class="otp-input" type="text" maxlength="1">
+                <input class="otp-input" type="text" maxlength="1">
+                <input class="otp-input" type="text" maxlength="1">
+                <input class="otp-input" type="text" maxlength="1">
+            </div>
+            <div class="row justify-content-around">
+                <button class="btn-addRole" type="submit">
+                   Lấy mã OTP
+                </button>
+                <button class="btn-addRole" type="submit" >
+                   Gửi lại mã 
+                </button>
+            </div>
+        </div>
+        <hr />
+        <h4 class="td">THAY ĐỔI MẬT KHẨU</h4>
         <form class="row g-3">
             <div class="col-md-12">
                 <label for="inputCCCD" class="form-label">Nhật mật khẩu cũ</label>
-                <input type="password" class="form-input" >
+                <input type="password" class="form-input">
             </div>
             <div class="col-md-12">
                 <label for="inputPhone" class="form-label">Nhập mật mới</label>
-                <input type="password" class="form-input" id="inputPhone"  >
+                <input type="password" class="form-input" id="inputPhone">
             </div>
             <div class="col-md-12">
                 <label for="inputEmail4" class="form-label">Xác nhận mật khẩu</label>
-                <input type="password" class="form-input" id="inputEmail4"  >
+                <input type="password" class="form-input" id="inputEmail4">
             </div>
             <div class="col-md-6">
                 <button class="btn-addRole" type="submit" style="width: 100%;">
@@ -41,5 +57,4 @@
             </div>
         </form>
     </div>
-
 </div>

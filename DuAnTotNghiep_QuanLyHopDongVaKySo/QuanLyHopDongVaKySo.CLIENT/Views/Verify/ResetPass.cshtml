@@ -117,6 +117,31 @@
             background: #D9D9D9;
             height: 50px;
         }
+
+        .otp-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .otp-input {
+            width: 40px;
+            height: 40px;
+            margin: 0 5px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .col-md-6 a{
+             margin: 10px;
+             display: flex;
+             cursor: pointer ;
+             text-decoration:underline;
+        }
+
+        .disabled {
+            opacity: 0.5;
+          
+        }
     </style>
 </head>
 <body>
@@ -131,26 +156,36 @@
             </div>
             <form asp-controller="Verify" asp-action="Login" method="post">
                 <div class="form">
-                    <h3>THAY ĐỔI MẬT KHẨU</h3>
+                    <h3>CẤP LẠI MẬT KHẨU</h3>
                     <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">MẬT KHẨU</label>
-                        <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="***********" required>
+                        <label for="formGroupExampleInput" class="form-label">EMAIL</label>
+                        <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="gmail.com" required>
                         <span class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label for="formGroupExampleInput2" class="form-label">XÁC NHẬN MẬT KHẨU</label>
-                        <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="***********" required>
+                        <label for="formGroupExampleInput2" class="form-label">MÃ OTP</label>
+                        <div class="otp-container">
+                            <input class="otp-input" type="text" maxlength="1">
+                            <input class="otp-input" type="text" maxlength="1">
+                            <input class="otp-input" type="text" maxlength="1">
+                            <input class="otp-input" type="text" maxlength="1">
+                            <input class="otp-input" type="text" maxlength="1">
+                            <input class="otp-input" type="text" maxlength="1">
+                        </div>
                         <span class="text-danger"></span>
                     </div>
+                    <div class="row justify-content-around" style="color:cornflowerblue;width: 450px;margin: auto;">
+                        <div class="col-md-6">
+                            <a id="myButton" onclick="handleClick(event)">[Lấy mã OTP]</a>
+                        </div>
+                        <div class="col-md-6" style="text-align:end;">
+                            <a style="display:flex; justify-content:end;">[Gửi lại OTP]</a>
+                        </div>
+                    </div>
+
                     <div class="mb-3">
                         <button type="submit">
                             ĐẶT LẠI MẬT KHẨU
-                        </button>
-                    </div>
-                    <hr />
-                    <div class="mb-3">
-                        <button type="submit">
-                            <a href="/Verify/Index">ĐĂNG NHẬP</a>
                         </button>
                     </div>
                 </div>
@@ -162,3 +197,26 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </html>
+<script>
+    let isButtonDisabled = false;
+
+    function handleClick(event) {
+        const button = document.getElementById('myButton');
+        if (!isButtonDisabled) {
+            disableButtonForSeconds(60000);
+            button.style.cursor = 'not-allowed';
+        }
+        event.preventDefault();
+        Console.log(button);
+    }
+   
+    function disableButtonForSeconds(milliseconds) {
+        isButtonDisabled = true;
+        document.getElementById('myButton').classList.add('disabled');
+        setTimeout(() => {
+            isButtonDisabled = false;
+            document.getElementById('myButton').classList.remove('disabled');
+            document.getElementById('myButton').style.cursor = 'pointer';
+        }, milliseconds);
+    }
+</script>

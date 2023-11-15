@@ -76,6 +76,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             set { this.isAuthenticate = value; }
         }
+        public IActionResult ChangePass()
+        {
+            return View();
+        }
+
         public string EmployeeId
         {
             get

@@ -367,7 +367,28 @@
         text-align: center;
         font-size: 18px;
     }
-
+/*=============*/
+    .changPassForm {
+        margin: 50px auto;
+        width: 600px;
+        background: white;
+    }
+    .changPassForm .row .col-md-12 {
+        display: flex;
+        flex-direction: column;
+    }
+    .changPassForm form{
+        padding: 50px;
+    }
+    .changPassForm form button{
+        margin : 40px auto;
+    }
+    .td {
+        padding: 10px;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        color: #1890FF;
+    }
 }
 
 
