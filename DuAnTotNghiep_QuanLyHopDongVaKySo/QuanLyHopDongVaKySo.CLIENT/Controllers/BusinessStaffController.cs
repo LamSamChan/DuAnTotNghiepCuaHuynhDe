@@ -25,6 +25,7 @@ using QuanLyHopDongVaKySo.CLIENT.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
 using Employee = QuanLyHopDongVaKySo_API.Models.Employee;
 using static QuanLyHopDongVaKySo.CLIENT.Constants.SessionKey;
+using System.Net.Http.Json;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -154,7 +155,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 vm.Roles = await _roleService.GetAllRolesAsync();
                 vm.Employee = await _employeeService.GetEmployeePutById(EmployeeId);
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
-                var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+                var serialPFX = JsonContent.DeserializeObject<Employee>(empContext).SerialPFX;
                 vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
                 ViewData["Role"] = VB;
                 return View(vm);
@@ -277,6 +278,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return RedirectToAction("TListMinute", "BusinessStaff");
 
 
+        }
+
+        public IActionResult EditContratFormPage()
+        {
+            return View();
+        }
+        public IActionResult TEditMinute()
+        {
+            return View();
         }
 
         public async Task<IActionResult> AddTMinute([FromForm] API.PostTMinute tContract)
