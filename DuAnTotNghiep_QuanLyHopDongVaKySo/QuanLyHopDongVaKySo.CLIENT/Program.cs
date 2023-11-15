@@ -15,6 +15,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
 using QuanLyHopDongVaKySo.CLIENT.Helpers;
 using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,7 +43,7 @@ builder.Services.AddScoped<IPContractService, PContractService>();
 builder.Services.AddScoped<IAuthServices, AuthServices>();
 builder.Services.AddScoped<IDContractsService, DContractsService>();
 builder.Services.AddScoped<IIRequirementService, IRequirementService>();
-builder.Services.AddScoped <IPFXCertificateServices, PFXCertificateServices>();
+builder.Services.AddScoped<IPFXCertificateServices, PFXCertificateServices>();
 builder.Services.AddScoped<IDContractsService, DContractsService>();
 builder.Services.AddScoped<IPMinuteService, PMinuteService>();
 builder.Services.AddScoped<ITOSService, TOSService>();
@@ -52,6 +53,7 @@ builder.Services.AddScoped<IInstallationDevicesService, InstallationDevicesServi
 builder.Services.AddScoped<IUploadHelper, UploadHelper>();
 builder.Services.AddScoped<ISigningService, SigningService>();
 builder.Services.AddScoped<IPdfToImageHelper, PdfToImageHelper>();
+builder.Services.AddScoped<IPasswordService, PasswordService>();
 
 
 

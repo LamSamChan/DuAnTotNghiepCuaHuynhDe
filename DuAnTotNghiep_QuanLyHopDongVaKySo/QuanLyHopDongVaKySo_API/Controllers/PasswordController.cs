@@ -27,11 +27,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost("ChangePassword")]
-        public async Task<ActionResult<string>> ChangePassword([FromForm] ChangePassword changePassword, string employeeId, string comfirmOTP)
+        public async Task<ActionResult<string>> ChangePassword([FromBody] ChangePassword changePassword)
         {
-            if (otpChange == comfirmOTP)
+            if (otpChange == changePassword.ComfirmOTP || changePassword.EmployeeID != null)
             {
-                int? result = await _employeeSvc.ChangePassword(employeeId, changePassword);
+                int? result = await _employeeSvc.ChangePassword(changePassword);
                 if (result != null)
                 {
                     if (result == 0)
@@ -54,7 +54,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
         }
 
-        [HttpPost("ForgotPassword")]
+        [HttpPost("ForgotPassword/{comfirmOTP}")]
         public async Task<ActionResult<string>> ForgotPassword(string comfirmOTP)
         {
             if (otpForgot == comfirmOTP)
@@ -107,7 +107,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
         }
 
-        [HttpPost("GetOTPChange")]
+        [HttpPost("GetOTPChange/{employeeId}")]
         public async Task<ActionResult<string>> GetOTPChange(string employeeId)
         {
             var employee = await _employeeSvc.GetById(employeeId);
@@ -120,7 +120,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         $"<p> Cảm ơn bạn đã sử dụng dịch vụ của Tech Seal.</p>" +
         $"<p> Dưới đây là mã OTP của bạn:</p>" +
         $"<p style=\"font-size: 24px; font-weight: bold;\">{otp}</p>" +
-        $"<p> Mã OTP này sẽ hết hạn sau <b>1 phút</b>, vui lòng không chia sẻ với bất kỳ ai.</p>" +
+        $"<p> Mã OTP này sẽ hết hạn sau <b>3 phút</b>, vui lòng không chia sẻ với bất kỳ ai.</p>" +
         $"<p> Nếu bạn không yêu cầu mã OTP này, vui lòng bỏ qua email này.</ p >" +
         $"<p> Cảm ơn bạn đã tin dùng Tech Seal.</p>" +
         $"</div>";
@@ -135,7 +135,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 await Task.Factory.StartNew(async () =>
                 {
-                    await Task.Delay(TimeSpan.FromMinutes(1));
+                    await Task.Delay(TimeSpan.FromMinutes(3));
                     otpChange = await _otpGeneratorHelper.GenerateOTP(6);
                 });
                 return Ok("Đã gửi mã OTP thành công !");
@@ -147,7 +147,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPost("GetOTPForgot")]
-        public async Task<ActionResult<string>> GetOTPForgot([FromForm] ForgotPassword forgotPassword)
+        public async Task<ActionResult<string>> GetOTPForgot([FromBody] ForgotPassword forgotPassword)
         {
             var employee = await _employeeSvc.GetByEmail(forgotPassword.Email);
 
@@ -170,7 +170,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
        $" Vui lòng sử dụng mã OTP này để xác minh tài khoản của bạn sau đó mật khẩu mới sẽ được gửi đến email cho bạn. Hãy chắc chắn rằng bạn không tiết lộ mã OTP này cho bất kỳ ai khác." +
     $"</p>" +
     $"<p>" +
-       $"Mã OTP này có hiệu lực trong <b>1 phút</b>.Nếu bạn không thực hiện yêu cầu này, hãy liên hệ với chúng tôi." +
+       $"Mã OTP này có hiệu lực trong <b>3 phút</b>.Nếu bạn không thực hiện yêu cầu này, hãy liên hệ với chúng tôi." +
     $"</p>" +
     $"<p>" +
         $"Trân trọng," +
@@ -189,7 +189,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 await Task.Factory.StartNew(async () =>
                 {
-                    await Task.Delay(TimeSpan.FromMinutes(1));
+                    await Task.Delay(TimeSpan.FromMinutes(3));
                     otpForgot = await _otpGeneratorHelper.GenerateOTP(6);
                 });
                 return Ok("Đã gửi mã OTP thành công !");

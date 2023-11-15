@@ -12,12 +12,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices
             _httpClient = httpClient;
         }
 
-        public async Task<string> ChangePasswordAsync(ChangePassword changePassword, string employeeId, string comfirmOTP)
+        public async Task<string> ChangePasswordAsync(ChangePassword changePassword)
         {
             try
             {
                 var content = new StringContent(JsonConvert.SerializeObject(changePassword), Encoding.UTF8, "application/json");
-                var response = await _httpClient.PostAsync($"api/Password/ChangePassword?employeeId={employeeId}&comfirmOTP={comfirmOTP}", content);
+                var response = await _httpClient.PostAsync($"api/Password/ChangePassword", content);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -41,7 +41,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices
         {
             try
             {
-                var response = await _httpClient.PostAsync($"api/Password/ForgotPassword?comfirmOTP={comfirmOTP}", null);
+                var content = new StringContent(JsonConvert.SerializeObject(comfirmOTP), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync($"api/Password/ForgotPassword", content);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -64,7 +65,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices
         {
             try
             {
-                var response = await _httpClient.PostAsync($"api/Password/GetOTPChange?employeeId={employeeId}", null);
+                var content = new StringContent(JsonConvert.SerializeObject(employeeId), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync($"api/Password/GetOTPChange", content);
 
                 if (response.IsSuccessStatusCode)
                 {

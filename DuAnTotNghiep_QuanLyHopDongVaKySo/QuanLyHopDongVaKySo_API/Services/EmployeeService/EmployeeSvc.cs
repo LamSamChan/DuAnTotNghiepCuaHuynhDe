@@ -61,9 +61,9 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
             return isSuccess;
         }
 
-        public async Task<int?> ChangePassword(string employeeId, ChangePassword changePassword)
+        public async Task<int?> ChangePassword(ChangePassword changePassword)
         {
-            var employee = await GetById(employeeId);
+            var employee = await GetById(changePassword.EmployeeID);
             if (employee != null)
             {
                 if (employee.Password != _encodeHelper.Encode(changePassword.Password))
