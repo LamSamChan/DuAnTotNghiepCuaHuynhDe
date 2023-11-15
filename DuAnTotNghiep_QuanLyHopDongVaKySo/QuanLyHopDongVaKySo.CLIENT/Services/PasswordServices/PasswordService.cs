@@ -26,14 +26,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices
                 }
                 else
                 {
-                   // Chưa có code xử lý lỗi
-                    return "Lỗi khi thực hiện cuộc gọi API.";
+                    // Chưa có code xử lý lỗi
+                    return null;
                 }
             }
             catch (Exception ex)
             {
                 // Xử lý lỗi nếu có ngoại lệ
-                return "Lỗi khi thực hiện cuộc gọi API: " + ex.Message;
+                return null;
             }
         }
 

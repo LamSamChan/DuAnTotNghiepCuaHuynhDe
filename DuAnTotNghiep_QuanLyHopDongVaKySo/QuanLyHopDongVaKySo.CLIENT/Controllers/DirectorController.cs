@@ -129,9 +129,22 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         [HttpPost]
-        public IActionResult ChangePassAction([FromBody] ChangePassword change)
+        public async Task<IActionResult> ChangePassAction([FromBody] ChangePassword change)
         {
-            return View();
+            change.EmployeeID = EmployeeId;
+            var respone = await _passwordService.ChangePasswordAsync(change);
+            if (respone != null)
+            {
+                var emp = await _employeeService.GetEmployeePutById(EmployeeId);
+                emp.IsFirstLogin = false;
+                await _employeeService.UpdateEmployee(emp);
+                return Ok();
+            }
+            else
+            {
+                // mk cũ không đúng
+                return BadRequest();
+            }
         }
 
         public async Task<IActionResult> UpdateInfo(PutEmployee employee)
