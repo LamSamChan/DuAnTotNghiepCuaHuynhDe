@@ -404,6 +404,19 @@
         color: white;
         font-weight: bold;
     }
+/*css ChangePass*/
+    #message {
+        font-style: italic;
+        display: inline-block;
+    }
+
+    .mismatch {
+        color: red;
+    }
+
+    .match {
+        color: green;
+    }
 }
 
 

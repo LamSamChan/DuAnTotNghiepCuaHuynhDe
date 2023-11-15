@@ -15,8 +15,29 @@
         <h1 class="typeHead">THAY ĐỔI MẬT KHẨU</h1>
     </div>
     <div class="changPassForm">
+        <h4 class="td">THAY ĐỔI MẬT KHẨU</h4>
+        <form class="row g-3">
+            <div class="mb-3">
+                <label for="passOld" class="form-label">Nhập mật khẩu cũ</label>
+                <input type="password" class="form-control" id="passOld">
+            </div>
+            <div class="mb-3">
+                <label for="passNew" class="form-label">Nhập mật khẩu mới</label>
+                <input type="password" class="form-control" id="passNew" oninput="checkMatch()">
+            </div>
+            <div class="mb-3">
+                <label for="ConfirmPassNew" class="form-label">Xác nhận mật khẩu</label>
+                <input type="password" class="form-control" id="ConfirmPassNew" oninput="checkMatch()">
+            </div>
+            <p id="message"></p>
+            <div class="mb-6">
+                <button class="btn btn-primary" type="submit" style="width: 100%; margin-top:10px" id="changePass" disabled>
+                    THAY ĐỔI MẬT KHẨU
+                </button>
+            </div>
+        </form>
+        <hr />
         <div class="getOTP">
-
             <h4 class="td">NHẬP MÃ OTP</h4>
             <div class="otp-container">
                 <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 2)">
@@ -38,43 +59,35 @@
                             nextInput.focus();
                         }
                     } else if (inputValue.length === 0) {
-                        const previousInputIndex = nextInputIndex - 2; // 1-based index to 0-based index
+                        const previousInputIndex = nextInputIndex - 2; 
                         const previousInput = document.querySelector(`.otp-input:nth-child(${previousInputIndex})`);
 
                         if (previousInput) {
                             previousInput.focus();
                         }
                     }
+                    checkAllInputs();
+                }
+                // kiểm tra nhập đủ text box hay chưa
+                function checkAllInputs() {
+                    const inputs = document.querySelectorAll('.otp-input');
+                    const isAllFilled = Array.from(inputs).every(input => input.value.length === 1);
+
+                    const button = document.getElementById('changePass');
+                    button.disabled = !isAllFilled;
+                }
+
+                function handleClick(event) {
+                    event.preventDefault();
                 }
             </script>
 
             <div class="row justify-content-around">
                 <button class="btn-addRole" type="submit" id="myButton" onclick="handleClick(event)">
-                   Lấy mã OTP
+                    Lấy mã OTP
                 </button>
             </div>
         </div>
-        <hr />
-        <h4 class="td">THAY ĐỔI MẬT KHẨU</h4>
-        <form class="row g-3">
-            <div class="col-md-12">
-                <label for="inputCCCD" class="form-label">Nhật mật khẩu cũ</label>
-                <input type="password" class="form-input">
-            </div>
-            <div class="col-md-12">
-                <label for="inputPhone" class="form-label">Nhập mật khẩu mới</label>
-                <input type="password" class="form-input" id="inputPhone">
-            </div>
-            <div class="col-md-12">
-                <label for="inputEmail4" class="form-label">Xác nhận mật khẩu mới</label>
-                <input type="password" class="form-input" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-                <button class="btn-addRole" type="submit" style="width: 100%;">
-                    THAY ĐỔI MẬT KHẨU
-                </button>
-            </div>
-        </form>
     </div>
 </div>
 <script>
@@ -115,4 +128,21 @@
             }
         }, 1000);
     }
+
+
+    // so sanh hai box input pass
+    function checkMatch() {
+        const password1 = document.getElementById('passNew').value;
+        const password2 = document.getElementById('ConfirmPassNew').value;
+        const message = document.getElementById('message');
+
+        if (password1 === password2) {
+            message.textContent = 'Passwords trùng khớp';
+            message.className = 'match';
+        } else {
+            message.textContent = 'Passwords không trùng khớp';
+            message.className = 'mismatch';
+        }
+    }
+
 </script>

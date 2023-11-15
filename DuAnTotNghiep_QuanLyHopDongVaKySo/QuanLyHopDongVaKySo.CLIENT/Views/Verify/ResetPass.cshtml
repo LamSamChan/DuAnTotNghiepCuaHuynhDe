@@ -141,7 +141,7 @@
 
         .disabled {
             opacity: 0.5;
-          
+            pointer-events: none;
         }
     </style>
 </head>
@@ -166,21 +166,39 @@
                     <div class="mb-3">
                         <label for="formGroupExampleInput2" class="form-label">MÃ OTP</label>
                         <div class="otp-container">
-                            <input class="otp-input" type="text" maxlength="1" id="inputOtp1">
-                            <input class="otp-input" type="text" maxlength="1" id="inputOtp2">
-                            <input class="otp-input" type="text" maxlength="1" id="inputOtp3">
-                            <input class="otp-input" type="text" maxlength="1" id="inputOtp4">
-                            <input class="otp-input" type="text" maxlength="1" id="inputOtp5">
-                            <input class="otp-input" type="text" maxlength="1" id="inputOtp6">
+                            <input id="inputOtp1" class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 2)">
+                            <input id="inputOtp2" class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 3)">
+                            <input id="inputOtp3" class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 4)">
+                            <input id="inputOtp4" class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 5)">
+                            <input id="inputOtp5" class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 6)">
+                            <input id="inputOtp6" class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 7)">
                         </div>
+                        <script>
+                            function handleInput(input, nextInputIndex) {
+                                const maxLength = parseInt(input.getAttribute('maxlength'), 10);
+                                const inputValue = input.value;
+
+                                if (inputValue.length === maxLength) {
+                                    const nextInput = document.querySelector(`.otp-input:nth-child(${nextInputIndex})`);
+
+                                    if (nextInput) {
+                                        nextInput.focus();
+                                    }
+                                } else if (inputValue.length === 0) {
+                                    const previousInputIndex = nextInputIndex - 2;
+                                    const previousInput = document.querySelector(`.otp-input:nth-child(${previousInputIndex})`);
+
+                                    if (previousInput) {
+                                        previousInput.focus();
+                                    }
+                                }
+                            }
+                        </script>
                         <span class="text-danger"></span>
                     </div>
                     <div class="row justify-content-around" style="color:cornflowerblue;width: 450px;margin: auto;">
                         <div class="col-md-6">
                             <a id="myButton" onclick="handleClick(event)">[Lấy mã OTP]</a>
-                        </div>
-                        <div class="col-md-6" style="text-align:end;">
-                            <a style="display:flex; justify-content:end;">[Gửi lại OTP]</a>
                         </div>
                     </div>
 
@@ -202,6 +220,17 @@
     let isButtonDisabled = false;
 
     function handleClick(event) {
+        const button = document.getElementById('myButton');
+        if (!isButtonDisabled) {
+            const countdownSpan = document.createElement('span');
+            countdownSpan.className = 'countdown';
+            button.appendChild(countdownSpan);
+
+            disableButtonForSeconds(180, countdownSpan);
+            button.style.cursor = 'not-allowed';
+        }
+
+        event.preventDefault();
         var email = {
                 Email: $('#inputEmail').val()
             };
@@ -213,12 +242,7 @@
                 data: JSON.stringify(email),
                 success: function (result) {
                     if (!result.success) {
-                    const button = document.getElementById('myButton');
-                    if (!isButtonDisabled) {
-                        disableButtonForSeconds(60000);
-                        button.style.cursor = 'not-allowed';
-                    }
-                    event.preventDefault();
+                        
                     
                     }
                 },
@@ -229,14 +253,27 @@
             
     }
    
-    function disableButtonForSeconds(milliseconds) {
+    function disableButtonForSeconds(seconds, countdownSpan) {
         isButtonDisabled = true;
         document.getElementById('myButton').classList.add('disabled');
-        setTimeout(() => {
-            isButtonDisabled = false;
-            document.getElementById('myButton').classList.remove('disabled');
-            document.getElementById('myButton').style.cursor = 'pointer';
-        }, milliseconds);
+
+        let secondsRemaining = seconds;
+
+        const countdownInterval = setInterval(() => {
+            const minutes = Math.floor(secondsRemaining / 60);
+            const remainingSeconds = secondsRemaining % 60;
+
+            if (secondsRemaining <= 0) {
+                clearInterval(countdownInterval);
+                isButtonDisabled = false;
+                document.getElementById('myButton').classList.remove('disabled');
+                document.getElementById('myButton').style.cursor = 'pointer';
+                countdownSpan.remove();
+            } else {
+                countdownSpan.textContent = ` (${minutes}p ${remainingSeconds}s)`;
+                secondsRemaining--;
+            }
+        }, 1000);
     }
 
 
@@ -251,8 +288,10 @@
             success: function (result) {
                 if (!result.success) {
                     alert("Chúng tôi đã tạo 1 mật khẩu mới, và đang gửi đến email của bạn.");
-                    var redirectToUrl = '@Url.Action("Index", "Verify")';
-                    window.location.href = redirectToUrl;
+                    setTimeout(function(){
+                        var redirectToUrl = '@Url.Action("Index", "Verify")';
+                        window.location.href = redirectToUrl;
+                    }, 3000);
                 }
             },
             error: function () {
