@@ -34,8 +34,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https:/
 
 
 //api locallhost
-//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7286/") });
-builder.Services.AddScoped<ICustomerService, CustomerService>();
+//builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeesService>();
 builder.Services.AddScoped<IPositionService, PositionService>();
 builder.Services.AddScoped<IRoleService, RoleService>();

@@ -96,7 +96,7 @@
                         <span class="text-danger" asp-validation-for="Employee.Gender"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputRole" class="form-label">Vị trí</label>
+                        <label for="inputRole" class="form-label">Vai trò</label>
                         <select style="background-color: #F3F3F3;" required class="form-control" asp-for="Employee.RoleID">
                             <option value="" disabled>...chọn vai trò trên hệ thống</option>
                             @foreach (var r in Model.Roles)

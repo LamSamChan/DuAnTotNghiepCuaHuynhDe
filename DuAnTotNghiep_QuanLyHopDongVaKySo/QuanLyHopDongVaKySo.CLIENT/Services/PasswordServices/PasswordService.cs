@@ -52,12 +52,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices
                 else
                 {
                     // Chưa có code xử lý lỗi
-                    return "Lỗi khi thực hiện cuộc gọi API.";
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return "Lỗi khi thực hiện cuộc gọi API: " + ex.Message;
+                return null;
             }
         }
 
@@ -76,12 +76,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices
                 else
                 {
                     // Code xử lý lỗi chưa có
-                    return "Lỗi khi thực hiện cuộc gọi API.";
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return "Lỗi khi thực hiện cuộc gọi API: " + ex.Message;
+                return null;
             }
         }
 
@@ -100,13 +100,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices
                 else
                 {
                     // Chưa có code xử lý lỗi
-                    return "Lỗi khi thực hiện cuộc gọi API.";
+                    return null;
                 }
             }
             catch (Exception ex)
             {
 
-                return "Lỗi khi thực hiện cuộc gọi API: " + ex.Message;
+                return null;
             }
         }
     }
