@@ -1,7 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
 <div class="container-fluid" style="height: 100vh;">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
@@ -19,12 +16,12 @@
 
             <h4 class="td">NHẬP MÃ OTP</h4>
             <div class="otp-container">
-                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 2)">
-                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 3)">
-                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 4)">
-                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 5)">
-                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 6)">
-                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 7)">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 2)" id="inputOtp1">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 3)" id="inputOtp2">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 4)" id="inputOtp3">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 5)" id="inputOtp4">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 6)" id="inputOtp5">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 7)" id="inputOtp6">
             </div>
             <script>
                 function handleInput(input, nextInputIndex) {
@@ -58,19 +55,22 @@
         <h4 class="td">THAY ĐỔI MẬT KHẨU</h4>
         <form class="row g-3">
             <div class="col-md-12">
-                <label for="inputCCCD" class="form-label">Nhật mật khẩu cũ</label>
+                <label for="inputCCCD" class="form-label" >Nhật mật khẩu cũ</label>
+                <input type="password" class="form-input" >
+                <span class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label for="inputPhone" class="form-label">Nhập mật khẩu mới</label>
+                <input type="password" class="form-input"  >
+                <span class="text-danger" ></span>
+            </div>
+            <div class="col-md-12">
+                <label for="inputEmail4" class="form-label" >Xác nhận mật khẩu mới</label>
                 <input type="password" class="form-input">
-            </div>
-            <div class="col-md-12">
-                <label for="inputPhone" class="form-label">Nhập mật mới</label>
-                <input type="password" class="form-input" id="inputPhone">
-            </div>
-            <div class="col-md-12">
-                <label for="inputEmail4" class="form-label">Xác nhận mật khẩu</label>
-                <input type="password" class="form-input" id="inputEmail4">
+                <span class="text-danger"></span>
             </div>
             <div class="col-md-6">
-                <button class="btn-addRole" type="submit" style="width: 100%;">
+                <button class="btn-addRole" style="width: 100%;" onclick="changePassAction()">
                     THAY ĐỔI MẬT KHẨU
                 </button>
             </div>
@@ -81,16 +81,28 @@
     let isButtonDisabled = false;
 
     function handleClick(event) {
-        const button = document.getElementById('myButton');
-        if (!isButtonDisabled) {
-            const countdownSpan = document.createElement('span');
-            countdownSpan.className = 'countdown';
-            button.appendChild(countdownSpan);
+        $.ajax({
+            url: '@Url.Action("GetOTP")',
+            type: 'GET',
+            contentType: 'application/json',
+            success: function (result) {
+                if (!result.success) {
+                    const button = document.getElementById('myButton');
+                    if (!isButtonDisabled) {
+                        const countdownSpan = document.createElement('span');
+                        countdownSpan.className = 'countdown';
+                        button.appendChild(countdownSpan);
 
-            disableButtonForSeconds(180, countdownSpan);
-            button.style.cursor = 'not-allowed';
-        }
-        event.preventDefault();
+                        disableButtonForSeconds(180, countdownSpan);
+                        button.style.cursor = 'not-allowed';
+                    }
+                    event.preventDefault();
+                }
+            },
+            error: function () {
+                console.error('Lỗi khi gửi yêu cầu.');
+            }
+        });
     }
 
     function disableButtonForSeconds(seconds, countdownSpan) {
@@ -115,4 +127,18 @@
             }
         }, 1000);
     }
+
+    function changePassAction() {
+
+        var otp = '';
+
+        var changePassword = {
+            Password: $('#inputEmail').val(),
+            NewPassword: $('#inputEmail').val(),
+            ConfirmNewPassword $('#inputEmail').val(),
+            EmployeeID: '',
+            ComfirmOTP: '',
+        };
+    }
+
 </script>

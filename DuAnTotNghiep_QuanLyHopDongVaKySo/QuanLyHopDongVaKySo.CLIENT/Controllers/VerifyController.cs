@@ -38,9 +38,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var respone = await _passwordService.GetOTPForgotAsync(forgotPassword);
             if (respone != null)
             {
-                return View("ResetPass");
+                return Ok();
             }
-            return RedirectToAction("Index");
+            return BadRequest();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword([FromBody] string comfirmOTP)
+        {
+            var respone = await _passwordService.ForgotPasswordAsync(comfirmOTP);
+            if (respone != null)
+            {
+                return Ok();
+            }
+            return BadRequest();
         }
 
         public async Task<IActionResult> Login(VMLogin login)
@@ -56,18 +67,34 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 ViewBag.Role = role;
                 if (role == "Admin")
                 {
+                    /*if (reponse.IsFirstLogin)
+                    {
+                        return RedirectToAction("ChangePass", "Admin");
+                    }*/
                     return RedirectToAction("Index", "Admin");
                 }
                 else if (role == "Giám đốc")
                 {
+                    if (reponse.IsFirstLogin)
+                    {
+                        return RedirectToAction("ChangePass", "Director");
+                    }
                     return RedirectToAction("Index", "Director");
                 }
                 else if (role =="Nhân viên kinh doanh")
                 {
+                    if (reponse.IsFirstLogin)
+                    {
+                        return RedirectToAction("ChangePass", "BusinessStaff");
+                    }
                     return RedirectToAction("Index", "BusinessStaff");
                 }
                 else
                 {
+                    if (reponse.IsFirstLogin)
+                    {
+                        return RedirectToAction("ChangePass", "InstallStaff");
+                    }
                     return RedirectToAction("Index", "InstallStaff");
                 } 
             }

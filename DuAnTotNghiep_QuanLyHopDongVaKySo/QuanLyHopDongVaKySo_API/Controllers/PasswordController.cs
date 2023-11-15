@@ -54,8 +54,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
         }
 
-        [HttpPost("ForgotPassword/{comfirmOTP}")]
-        public async Task<ActionResult<string>> ForgotPassword(string comfirmOTP)
+        [HttpPost("ForgotPassword")]
+        public async Task<ActionResult<string>> ForgotPassword([FromBody] string comfirmOTP)
         {
             if (otpForgot == comfirmOTP)
             {
@@ -67,9 +67,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     string content = $"<h1> Thiết lập Mật khẩu Mới</h1>" +
                                      $"<p> Xin chào {employee.FullName},</p>" +
                                      $"<p>" +
-                                        $"Bạn(hoặc một người nào đó) đã yêu cầu thiết lập lại mật khẩu của bạn. Dưới đây là mật khẩu mới của bạn:" +
+                                        $"Bạn (hoặc một người nào đó) đã yêu cầu thiết lập lại mật khẩu của bạn. Dưới đây là mật khẩu mới của bạn:" +
                                     $"</p>" +
-                                    $"<p><strong>{newPassword}</strong></p>" +
+                                    $"<h3>{newPassword}</h3>" +
                                     $"<p>" +
                                         $"Đừng quên thay đổi mật khẩu này ngay sau khi bạn đăng nhập. Nếu bạn không thực hiện yêu cầu này, hãy liên hệ với chúng tôi ngay lập tức." +
                                     $"</p>" +
@@ -107,8 +107,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
         }
 
-        [HttpPost("GetOTPChange/{employeeId}")]
-        public async Task<ActionResult<string>> GetOTPChange(string employeeId)
+        [HttpPost("GetOTPChange")]
+        public async Task<ActionResult<string>> GetOTPChange([FromBody] string employeeId)
         {
             var employee = await _employeeSvc.GetById(employeeId);
             string otp = await _otpGeneratorHelper.GenerateOTP(6);
@@ -165,7 +165,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     $"<p>" +
        $"Bạn đã yêu cầu lấy lại mật khẩu của bạn.Đây là mã OTP(Mã Xác Minh) của bạn:" +
     $"</p>" +
-    $"<p><strong>{otp}</strong></p>" +
+    $"<h3>{otp}</h3>" +
     $"<p>" +
        $" Vui lòng sử dụng mã OTP này để xác minh tài khoản của bạn sau đó mật khẩu mới sẽ được gửi đến email cho bạn. Hãy chắc chắn rằng bạn không tiết lộ mã OTP này cho bất kỳ ai khác." +
     $"</p>" +

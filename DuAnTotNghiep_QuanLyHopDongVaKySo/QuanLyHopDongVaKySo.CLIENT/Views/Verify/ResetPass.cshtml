@@ -1,4 +1,4 @@
-﻿@* @model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMLogin *@
+﻿@model QuanLyHopDongVaKySo_API.ViewModels.ForgotPassword 
 @{
     Layout = "";
 }
@@ -160,18 +160,18 @@
                     <h3>CẤP LẠI MẬT KHẨU</h3>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">EMAIL</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="abc@gmail.com" required>
-                        <span class="text-danger"></span>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="abc@gmail.com" required asp-for="Email">
+                        <span class="text-danger" asp-validation-for="Email"></span>
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput2" class="form-label">MÃ OTP</label>
                         <div class="otp-container">
-                            <input class="otp-input" type="text" maxlength="1">
-                            <input class="otp-input" type="text" maxlength="1">
-                            <input class="otp-input" type="text" maxlength="1">
-                            <input class="otp-input" type="text" maxlength="1">
-                            <input class="otp-input" type="text" maxlength="1">
-                            <input class="otp-input" type="text" maxlength="1">
+                            <input class="otp-input" type="text" maxlength="1" id="inputOtp1">
+                            <input class="otp-input" type="text" maxlength="1" id="inputOtp2">
+                            <input class="otp-input" type="text" maxlength="1" id="inputOtp3">
+                            <input class="otp-input" type="text" maxlength="1" id="inputOtp4">
+                            <input class="otp-input" type="text" maxlength="1" id="inputOtp5">
+                            <input class="otp-input" type="text" maxlength="1" id="inputOtp6">
                         </div>
                         <span class="text-danger"></span>
                     </div>
@@ -185,7 +185,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <button type="submit">
+                        <button onclick="resetPassword()">
                             ĐẶT LẠI MẬT KHẨU
                         </button>
                     </div>
@@ -239,5 +239,27 @@
         }, milliseconds);
     }
 
+
+    function resetPassword(){
+        var comfirmOTP = $('#inputOtp1').val() + $('#inputOtp2').val() + $('#inputOtp3').val() + $('#inputOtp4').val() + $('#inputOtp5').val() + $('#inputOtp6').val();
+        
+        $.ajax({
+            url: '@Url.Action("ResetPassword")',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(comfirmOTP),
+            success: function (result) {
+                if (!result.success) {
+                    alert("Chúng tôi đã tạo 1 mật khẩu mới, và đang gửi đến email của bạn.");
+                    var redirectToUrl = '@Url.Action("Index", "Verify")';
+                    window.location.href = redirectToUrl;
+                }
+            },
+            error: function () {
+                console.error('Lỗi khi gửi yêu cầu.');
+            }
+        });
+    
+    }
 
 </script>

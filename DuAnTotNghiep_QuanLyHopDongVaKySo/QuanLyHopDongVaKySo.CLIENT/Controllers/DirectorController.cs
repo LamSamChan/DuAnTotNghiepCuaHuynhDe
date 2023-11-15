@@ -13,6 +13,8 @@ using Spire.Pdf.Graphics;
 using System.Drawing.Imaging;
 using test.Models;
 using QuanLyHopDongVaKySo.CLIENT.Helpers;
+using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
+using QuanLyHopDongVaKySo_API.ViewModels;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -25,13 +27,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IEmployeeService _employeeService;
         private readonly IPFXCertificateServices _pfxCertificateServices;
         private readonly IUploadHelper _uploadHelper;
+        private readonly IPasswordService _passwordService;
+
 
         private int isAuthenticate;
         private string employeeId;
        
         public DirectorController(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices,
-            IUploadHelper uploadHelper)
+            IUploadHelper uploadHelper, IPasswordService passwordService)
         {
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
@@ -40,6 +44,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _pfxCertificateServices = pfxCertificateServices;
             _employeeService = employeeService;
             _uploadHelper = uploadHelper;
+            _passwordService = passwordService;
         }
         public int IsAuthenticate
         {
@@ -73,10 +78,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             set { this.isAuthenticate = value; }
         }
-        public IActionResult ChangePass()
-        {
-            return View();
-        }
+
         public string EmployeeId
         {
             get
@@ -109,6 +111,29 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index","Verify");
             }
         }
+
+        public IActionResult ChangePass()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetOTP()
+        {
+            var respone = await _passwordService.GetOTPChangeAsync(EmployeeId);
+            if (respone != null)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpPost]
+        public IActionResult ChangePassAction([FromBody] ChangePassword change)
+        {
+            return View();
+        }
+
         public async Task<IActionResult> UpdateInfo(PutEmployee employee)
         {
 
