@@ -72,7 +72,7 @@
                         <td>@item.jsonIntallationZone</td>
                         <td>@item.jsonCustomerZone</td>
                         <td>
-                            <a asp-controller="BusinessStaff" asp-action="TEditMinute" asp-route-id="@item.TMinuteID">Cấu hình</a>
+                            <a asp-controller="BusinessStaff" asp-action="TEditMinute" asp-route-TMinuteID="@item.TMinuteID">Cấu hình</a>
                         </td>
                     </tr>
                 }
@@ -83,7 +83,7 @@
     </div>
     <button class="btn btn-primary" style="margin: 20px; width:300px;">
         <div class="row action">
-            <a asp-controller="BusinessStaff" asp-action="ContractFormPage">Thêm mới hợp đồng <i class="ph-bold ph-user-plus"></i> </a>
+            <a asp-controller="BusinessStaff" asp-action="MinuteFormPage">Thêm mới hợp đồng <i class="ph-bold ph-user-plus"></i> </a>
         </div>
     </button>
 </div>

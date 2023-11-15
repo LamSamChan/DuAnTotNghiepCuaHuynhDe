@@ -229,33 +229,22 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View(await _tContractService.getAllAsnyc());
 
         }
-        public async Task<IActionResult> EditContratFormPage(int id)
+        public async Task<IActionResult> EditContratFormPage(int TContactID)
         {
-            try
-            {
-                TemplateContract template = await _tContractService.getByIdAsnyc(id);
+            
+                TemplateContract template = await _tContractService.getByIdAsnyc(TContactID);
                 return View(template);
-            }
-            catch (Exception ex)
-            {
-
-                return RedirectToAction("EditContratFormPage");
-            }
+            
+          
         }
-
         [HttpPost]
-        public async Task<IActionResult> EditContratFormPage(PutTContract tContract)
+        public async Task<IActionResult> UpdateCFormPage(PutTContract tContract)
         {
-            try
-            {
+           
                 await _tContractService.updateAsnyc(tContract);
                 return RedirectToAction("ListContractFormPage", "BusinessStaff");
-            }
-            catch (Exception ex)
-            {
-
-                return RedirectToAction("EditContratFormPage");
-            }
+            
+            
         }
 
         public async Task<IActionResult> TListMinute()
@@ -265,16 +254,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         }
 
-        public async Task<IActionResult> TEditMinute(int id)
+        public async Task<IActionResult> TEditMinute(int TMinuteID)
         {
 
-            TemplateMinute template = await _tMinuteService.GetById(id);
+            TemplateMinute template = await _tMinuteService.GetById(TMinuteID);
             return View(template);
 
         }
 
         [HttpPost]
-        public async Task<IActionResult> TEditMinute(PutTMinute tContract)
+        public async Task<IActionResult> TUpdateMinute(PutTMinute tContract)
         {
 
             await _tMinuteService.Update(tContract);
