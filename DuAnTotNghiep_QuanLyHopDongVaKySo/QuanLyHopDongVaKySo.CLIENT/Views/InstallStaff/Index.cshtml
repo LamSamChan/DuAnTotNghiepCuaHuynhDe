@@ -73,6 +73,7 @@
                         </button>
                         <input type="file" class="tt" style="width:200px;" accept="image/*" asp-for="Employee.ImageFile" />
                         <input type="text" class="form-input d-none" asp-for="Employee.EmployeeId" readonly>
+                        <input class="form-input d-none" asp-for="Employee.IsFirstLogin" readonly>
                         <span class="text-danger" asp-validation-for="Employee.ImageFile"></span>
                     </form>
                 </div>

@@ -21,7 +21,7 @@
             </div>
             <div class="col-md-12">
                 <label for="inputPhone" class="form-label">Nhập mật khẩu mới</label>
-                <input type="password" class="form-input"  >
+                <input type="password" class="form-input" >
                 <span class="text-danger" ></span>
             </div>
             <div class="col-md-12">
@@ -128,15 +128,32 @@
 
     function changePassAction() {
 
-        var otp = '';
+        var otp = $('#inputOtp1').val() + $('#inputOtp2').val() + $('#inputOtp3').val() + $('#inputOtp4').val() + $('#inputOtp5').val() + $('#inputOtp6').val();
 
         var changePassword = {
-            Password: $('#inputEmail').val(),
-            NewPassword: $('#inputEmail').val(),
-            ConfirmNewPassword $('#inputEmail').val(),
+            Password: $('#passOld').val(),
+            NewPassword: $('#passNew').val(),
+            ConfirmNewPassword $('#ConfirmPassNew').val(),
             EmployeeID: '',
-            ComfirmOTP: '',
+            ComfirmOTP: otp
         };
+
+        $.ajax({
+            url: '@Url.Action("ChangePassAction")',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(changePassword),
+            success: function (result) {
+                if (!result.success) {
+                    // Chuyển hướng tới trang mong muốn
+                    var redirectToUrl = '@Url.Action("Index", "Director")';
+                    window.location.href = redirectToUrl;
+                }
+            },
+            error: function () {
+                console.error('Lỗi khi gửi yêu cầu.');
+            }
+        });
     }
 
 </script>

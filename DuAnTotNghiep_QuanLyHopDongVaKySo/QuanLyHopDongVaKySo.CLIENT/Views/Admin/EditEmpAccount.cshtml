@@ -61,6 +61,7 @@
                         <label for="inputDateEnd" class="form-label">ID</label>
                         <input class="form-control" readonly asp-for="Employee.EmployeeId">
                         <span class="text-danger" asp-validation-for="Employee.EmployeeId"></span>
+                        <input class="form-input d-none" asp-for="Employee.IsFirstLogin" readonly>
 
                         <label class="form-label" style="padding-top:60px;">Họ và tên</label>
                         <input class="form-control" id="inputName" placeholder="Họ và tên" asp-for="Employee.FullName" required>
