@@ -12,8 +12,31 @@
         <h1 class="typeHead">THAY ĐỔI MẬT KHẨU</h1>
     </div>
     <div class="changPassForm">
+        <h4 class="td">THAY ĐỔI MẬT KHẨU</h4>
+        <form class="row g-3">
+            <div class="col-md-12">
+                <label for="inputCCCD" class="form-label" >Nhật mật khẩu cũ</label>
+                <input type="password" class="form-input" >
+                <span class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label for="inputPhone" class="form-label">Nhập mật khẩu mới</label>
+                <input type="password" class="form-input"  >
+                <span class="text-danger" ></span>
+            </div>
+            <div class="col-md-12">
+                <label for="inputEmail4" class="form-label" >Xác nhận mật khẩu mới</label>
+                <input type="password" class="form-input">
+                <span class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <button class="btn-addRole" style="width: 100%;" onclick="changePassAction()">
+                    THAY ĐỔI MẬT KHẨU
+                </button>
+            </div>
+        </form>
+        <hr />
         <div class="getOTP">
-
             <h4 class="td">NHẬP MÃ OTP</h4>
             <div class="otp-container">
                 <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 2)" id="inputOtp1">
@@ -44,37 +67,12 @@
                     }
                 }
             </script>
-
             <div class="row justify-content-around">
                 <button class="btn-addRole" type="submit" id="myButton" onclick="handleClick(event)">
                     Lấy mã OTP
                 </button>
             </div>
         </div>
-        <hr />
-        <h4 class="td">THAY ĐỔI MẬT KHẨU</h4>
-        <form class="row g-3">
-            <div class="col-md-12">
-                <label for="inputCCCD" class="form-label" >Nhật mật khẩu cũ</label>
-                <input type="password" class="form-input" >
-                <span class="text-danger"></span>
-            </div>
-            <div class="col-md-12">
-                <label for="inputPhone" class="form-label">Nhập mật khẩu mới</label>
-                <input type="password" class="form-input"  >
-                <span class="text-danger" ></span>
-            </div>
-            <div class="col-md-12">
-                <label for="inputEmail4" class="form-label" >Xác nhận mật khẩu mới</label>
-                <input type="password" class="form-input">
-                <span class="text-danger"></span>
-            </div>
-            <div class="col-md-6">
-                <button class="btn-addRole" style="width: 100%;" onclick="changePassAction()">
-                    THAY ĐỔI MẬT KHẨU
-                </button>
-            </div>
-        </form>
     </div>
 </div>
 <script>

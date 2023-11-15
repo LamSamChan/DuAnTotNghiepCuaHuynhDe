@@ -155,7 +155,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 vm.Roles = await _roleService.GetAllRolesAsync();
                 vm.Employee = await _employeeService.GetEmployeePutById(EmployeeId);
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
-                var serialPFX = JsonContent.DeserializeObject<Employee>(empContext).SerialPFX;
+                var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
                 vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
                 ViewData["Role"] = VB;
                 return View(vm);
