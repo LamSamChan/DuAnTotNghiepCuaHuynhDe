@@ -166,6 +166,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Image = putEmployee.Image,
                 Address = putEmployee.Address,
                 IsLocked = putEmployee.IsLocked,
+                IsFirstLogin = putEmployee.IsFirstLogin,
                 Note = putEmployee.Note,
                 RoleID = putEmployee.RoleID,
                 PositionID = putEmployee.PositionID,

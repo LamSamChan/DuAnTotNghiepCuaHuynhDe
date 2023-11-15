@@ -60,6 +60,9 @@ namespace QuanLyHopDongVaKySo_API.Models.ViewPuts
         [Display(Name = "Trạng thái hoạt động")]
         public bool IsLocked { get; set; }
 
+        public bool IsFirstLogin { get; set; }
+
+
         [Column(TypeName = "nvarchar(255)"), AllowNull]
         [Display(Name = "Ghi chú")]
         public string? Note { get; set; }

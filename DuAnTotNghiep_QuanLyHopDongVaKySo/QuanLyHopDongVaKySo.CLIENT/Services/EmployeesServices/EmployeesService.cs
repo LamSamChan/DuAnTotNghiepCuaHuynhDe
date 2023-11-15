@@ -60,6 +60,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices
                 Image = reponse.Image,
                 Address = reponse.Address,
                 IsLocked = reponse.IsLocked,
+                IsFirstLogin = reponse.IsFirstLogin,
                 Note = reponse.Note,
                 PositionID = reponse.PositionID,
                 RoleID = reponse.RoleID,

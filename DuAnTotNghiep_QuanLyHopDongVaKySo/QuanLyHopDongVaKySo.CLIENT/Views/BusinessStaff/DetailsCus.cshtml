@@ -17,7 +17,7 @@
         <div class="tab-button" onclick="showTab('tab2')">Danh sách hợp đồng chờ ký</div>
         <div class="tab-button" onclick="showTab('tab3')">Danh sách hợp đồng đã ký</div>
         <button class="add_cus" style="width:300px; margin: auto 20px;">
-            <a asp-action="AddPContract" asp-controller="BusinessStaff" asp-route-id="@Model.Customer.CustomerId">
+            <a asp-action="CreateFormForCus" asp-controller="BusinessStaff" asp-route-id="@Model.Customer.CustomerId">
                 Tạo hợp đồng
             </a>
         </button>
@@ -263,7 +263,7 @@
                         <td>@item.CustomerName</td>
                         <td>@item.TypeOfService</td>
                         <td>
-                            <div style="background-color: #00C9A7; color:white; font-weight:bold; ;display: flex;align-items: center;justify-content: center;">
+                            <div style="background-color: #00C9A7; color:white; font-weight:bold;display: flex;align-items: center;justify-content: center;">
                                 ĐÃ KÝ
                             </div>
 

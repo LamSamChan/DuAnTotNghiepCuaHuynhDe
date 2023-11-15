@@ -120,16 +120,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _pdfToImageHelper = pdfToImageHelper;
 
         }
-        public async Task<IActionResult> AddPContract(string id)
+        public async Task<IActionResult> CreatePContract(PostPendingContract pContract)
         {
-            string ID = id;
-            PostPendingContract pContract = new PostPendingContract();
-            pContract.CustomerId = Guid.Parse(id);
-            pContract.EmployeeCreatedId = Guid.Parse(EmployeeId);
-            pContract.TOS_ID = 1;
-            pContract.InstallationAddress = "123123123 phung van cung";
-
-            await _pContractService.addAsnyc(pContract);
+            pContract.CustomerId = Guid.Parse(HttpContext.Session.GetString(SessionKey.Customer.CustomerID));
+            pContract.EmployeeCreatedId = Guid.Parse(HttpContext.Session.GetString(SessionKey.Employee.EmployeeID));
             return RedirectToAction("Index");
         }
         public async Task<IActionResult> ListCus()
@@ -169,9 +163,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult CreateFormForCus()
+        public async Task<IActionResult> CreateFormForCus(string id)
         {
-            return View();
+            HttpContext.Session.SetString(SessionKey.Customer.CustomerID, id);
+            VMCreateFormForCus vm = new VMCreateFormForCus();
+            vm.TypeOfServices = await _tosService.GetAll();
+
+            return View(vm);
         }
         public async Task<IActionResult> DetailsCus(string customerID)
         {
@@ -474,11 +472,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 //người khác role và vô thì trả về index của họ, sửa lại khi đủ FE
                 return View(pContractList);
             }
-        }
-
-        public IActionResult CreateFormContract()
-        {
-            return View();
         }
 
         public async Task<IActionResult> DetailsContractEffect(string id)
