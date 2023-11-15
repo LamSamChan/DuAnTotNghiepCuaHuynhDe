@@ -23,5 +23,10 @@ namespace QuanLyHopDongVaKySo_API.ViewModels
         [Display(Name = "Xác nhận lại mật khẩu mới")]
         public string ConfirmNewPassword { get; set; }
 
+        public string? EmployeeID { get; set; }
+
+        [Required(ErrorMessage = "Hãy nhập mã OTP !")]
+        public string ComfirmOTP { get; set; }
+
     }
 }
