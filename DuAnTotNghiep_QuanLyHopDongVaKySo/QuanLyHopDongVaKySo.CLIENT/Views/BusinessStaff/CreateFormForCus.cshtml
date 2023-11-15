@@ -13,77 +13,86 @@
         </nav>
         <h1 class="typeHead">TẠO HỢP ĐỒNG</h1>
     </div>
-    <div style="margin-top: 30px;">
-        <form class="row justify-content-around" style=" margin: 0 auto;" method="post" >
-            <div class="col-md-5">
-                <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
-                    <div class="col-md-6">
-                        <label for="inputGender" class="form-label">Mã khách hàng</label>
-                        <select style="background-color: #F3F3F3;" required class="form-control">
-                            <option value="" disabled selected>...chọn mã</option>
-                            <option value="1">kh001</option>
-                            <option value="2">kh002</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Tên khách hàng</label>
-                        <input type="date" class="form-control" readonly>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Mã hợp đồng</label>
-                        <input type="date" class="form-control"  readonly>
-                        <span class="text-danger" ></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Mã loại hình dịch vụ</label>
-                        <input type="date" class="form-control" readonly>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Mã biên bản lắp đặt</label>
-                        <input type="date" class="form-control" readonly>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Số điện thoại</label>
-                        <input class="form-control"  maxlength="11"  readonly>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Email</label>
-                        <input class="form-control" type="email" placeholder="abc123@gmail.com" readonly>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputEmail" class="form-label">Nơi ở</label>
-                        <textarea style="background-color: #F3F3F3;" class="form-control" readonly></textarea>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Mã nhân viên tạo dịch vụ</label>
-                        <input type="date" class="form-control" readonly>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Mã hợp đồng mẫu</label>
-                        <input type="date" class="form-control" readonly>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="inputEmail" class="form-label">Địa chỉ lắp đặt cụ thể</label>
-                        <textarea style="background-color: #F3F3F3;" class="form-control" required></textarea>
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-5" style="margin: 40px auto;">
-                        <button class="add_cus" type="submit">
-                           Tạo hợp đồng
-                        </button>
-                    </div>
-                </div>
+    <div style="margin-top: 30px;" class="row justify-content-center">
+        <div class="col-4">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">ĐỊA CHỈ LẮP ĐẶT</label>
             </div>
-        </form>
+        </div>
+        <div class="col-4">
+            <div class="box_Svd">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="ph-bold ph-magnifying-glass"></i></span>
+                    <input type="search" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <ul class="listSVC">
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                WIFI
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                                WIFI
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                            <label class="form-check-label" for="exampleRadios3">
+                                WIFI
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
+                            <label class="form-check-label" for="exampleRadios4">
+                                WIFI
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
+                            <label class="form-check-label" for="exampleRadios5">
+                                WIFI
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
+                            <label class="form-check-label" for="exampleRadios5">
+                                WIFI
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
+                            <label class="form-check-label" for="exampleRadios5">
+                                WIFI
+                            </label>
+                        </div>
+                    </li>
+                </ul>
 
+
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 40px auto; width:300px;">
+        <button class="add_cus" type="submit">
+            TẠO HỢP ĐỒNG
+        </button>
     </div>
 
 </div>

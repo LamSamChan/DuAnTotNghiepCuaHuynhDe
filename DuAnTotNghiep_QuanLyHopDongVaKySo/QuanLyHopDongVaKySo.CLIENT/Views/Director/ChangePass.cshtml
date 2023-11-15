@@ -14,23 +14,21 @@
     <div class="changPassForm">
         <h4 class="td">THAY ĐỔI MẬT KHẨU</h4>
         <form class="row g-3">
-            <div class="col-md-12">
-                <label for="inputCCCD" class="form-label" >Nhật mật khẩu cũ</label>
-                <input type="password" class="form-input" >
-                <span class="text-danger"></span>
+            <div class="mb-3">
+                <label for="passOld" class="form-label">Nhập mật khẩu cũ</label>
+                <input type="password" class="form-control" id="passOld">
             </div>
-            <div class="col-md-12">
-                <label for="inputPhone" class="form-label">Nhập mật khẩu mới</label>
-                <input type="password" class="form-input" >
-                <span class="text-danger" ></span>
+            <div class="mb-3">
+                <label for="passNew" class="form-label">Nhập mật khẩu mới</label>
+                <input type="password" class="form-control" id="passNew" oninput="checkMatch()">
             </div>
-            <div class="col-md-12">
-                <label for="inputEmail4" class="form-label" >Xác nhận mật khẩu mới</label>
-                <input type="password" class="form-input">
-                <span class="text-danger"></span>
+            <div class="mb-3">
+                <label for="ConfirmPassNew" class="form-label">Xác nhận mật khẩu</label>
+                <input type="password" class="form-control" id="ConfirmPassNew" oninput="checkMatch()">
             </div>
-            <div class="col-md-6">
-                <button class="btn-addRole" style="width: 100%;" onclick="changePassAction()">
+            <p id="message"></p>
+            <div class="mb-6">
+                <button class="btn btn-primary" type="submit" style="width: 100%; margin-top:10px" id="changePass" disabled>
                     THAY ĐỔI MẬT KHẨU
                 </button>
             </div>
@@ -65,6 +63,19 @@
                             previousInput.focus();
                         }
                     }
+                    checkAllInputs()
+                }
+                // kiểm tra nhập đủ text box hay chưa
+                function checkAllInputs() {
+                    const inputs = document.querySelectorAll('.otp-input');
+                    const isAllFilled = Array.from(inputs).every(input => input.value.length === 1);
+
+                    const button = document.getElementById('changePass');
+                    button.disabled = !isAllFilled;
+                }
+
+                function handleClick(event) {
+                    event.preventDefault();
                 }
             </script>
             <div class="row justify-content-around">

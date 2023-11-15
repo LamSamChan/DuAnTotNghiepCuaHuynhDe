@@ -417,6 +417,26 @@
     .match {
         color: green;
     }
+/*css create contract for cus*/
+
+    .box_Svd{
+        background-color: white;
+        height:400px;
+
+    }
+    .listSVC {
+        list-style: none;
+        max-height: 300px;
+        border: 1px solid;
+        margin: 50px 10px;
+        overflow-y: scroll;
+    }
+    .listSVC li{
+        width: 50%;
+        margin-bottom: 25px;
+
+    }
+
 }
 
 

@@ -120,6 +120,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _pdfToImageHelper = pdfToImageHelper;
 
         }
+      
         public async Task<IActionResult> CreatePContract(PostPendingContract pContract)
         {
             pContract.CustomerId = Guid.Parse(HttpContext.Session.GetString(SessionKey.Customer.CustomerID));
