@@ -237,18 +237,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View(await _tContractService.getAllAsnyc());
 
         }
-        public async Task<IActionResult> EditContratFormPage(int TContactID)
+        public async Task<IActionResult> EditContractFormPage(string TContactID)
         {
-            string directoryPath = "wwwroot\\TContractImage\\1";
-            List<string> imagePath = new List<string>();
-
-            imagePath = Directory.GetFiles(directoryPath).ToList();
-
-            foreach(var item in imagePath)
-            {
-                Console.WriteLine(item);
-            }
-            TemplateContract template = await _tContractService.getByIdAsnyc(TContactID);
+            
+            TemplateContract template = await _tContractService.getByIdAsnyc(int.Parse(TContactID));
             return View(template);
         }
         [HttpPost]

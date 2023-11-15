@@ -44,11 +44,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetTContractAsnyc(int id)
         {
-            return Ok(new
-            {
-                retText = "Lấy hợp đồng mẫu thành công",
-                data = await _TContractSvc.getByIdAsnyc(id)
-            });
+            return Ok( await _TContractSvc.getByIdAsnyc(id));
         }
         /// <summary>
         /// Thêm mẫu hợp đồng
