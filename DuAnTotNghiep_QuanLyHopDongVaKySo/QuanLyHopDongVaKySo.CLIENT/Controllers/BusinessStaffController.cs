@@ -226,6 +226,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult ChangePass()
+        {
+            return View();
+        }
         public async Task<IActionResult> ListContractFormPage()
         {
 

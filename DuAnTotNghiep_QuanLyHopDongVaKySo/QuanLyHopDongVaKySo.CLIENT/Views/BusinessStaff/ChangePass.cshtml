@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link href="~/php/style.css" rel="stylesheet" />
+
+<div class="container-fluid" style="height: 100vh;">
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Cá nhân</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">THÔNG TIN CÁ NHÂN</h1>
+    </div>
+
+    <div style="width: 800px;
+    height: 400px;
+    background-color: white;
+    margin: 40px auto;">
+        <form class="row g-3">
+            <div class="col-md-12">
+                <label for="inputCCCD" class="form-label">Nhật mật khẩu cũ</label>
+                <input type="password" class="form-input" >
+            </div>
+            <div class="col-md-12">
+                <label for="inputPhone" class="form-label">Nhập mật mới</label>
+                <input type="password" class="form-input" id="inputPhone"  >
+            </div>
+            <div class="col-md-12">
+                <label for="inputEmail4" class="form-label">Xác nhận mật khẩu</label>
+                <input type="password" class="form-input" id="inputEmail4"  >
+            </div>
+            <div class="col-md-6">
+                <button class="btn-addRole" type="submit" style="width: 100%;">
+                    THAY ĐỔI MẬT KHẨU
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>

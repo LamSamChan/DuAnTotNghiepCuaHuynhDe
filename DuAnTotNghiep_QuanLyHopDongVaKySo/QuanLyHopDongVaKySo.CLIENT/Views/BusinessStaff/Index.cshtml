@@ -22,6 +22,36 @@
             </ol>
         </nav>
         <h1 class="typeHead">THÔNG TIN CÁ NHÂN</h1>
+        <div class="row">
+            <button class="add_Cus col-md-2" data-bs-toggle="modal" data-bs-target="#acOTP">
+               THAY ĐỔI MẬT KHẨU
+            </button>
+        </div>
+        @* Xác nhận otp *@
+        <div class="modal fade" id="acOTP" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">XÁC NHẬN MÃ OTP</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="otp-container">
+                            <input class="otp-input" type="text" maxlength="1">
+                            <input class="otp-input" type="text" maxlength="1">
+                            <input class="otp-input" type="text" maxlength="1">
+                            <input class="otp-input" type="text" maxlength="1">
+                            <input class="otp-input" type="text" maxlength="1">
+                            <input class="otp-input" type="text" maxlength="1">
+                        </div>
+                        <button class="btn-addRole" type="submit" style="margin: 20px auto;" >
+                            <a asp-action="ChangePass" asp-controller="BusinessStaff" >
+                                  XÁC NHẬN
+                            </a>
+                        </button>
+                    </div>S
+            </div>
+        </div>
     </div>
     <div class="body">
         <div class="row justify-content-around" style="height:365px;">

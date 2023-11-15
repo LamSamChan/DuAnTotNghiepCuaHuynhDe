@@ -3,7 +3,7 @@
 /* CSS cho màn hình 15.6 inch  */
 
 .body {
-    margin-top: 100px;
+    margin-top:30px;
 }
 .body .row .col-6 {
     background-image: url("../../Resource/Image/BackgroundImage.png");
