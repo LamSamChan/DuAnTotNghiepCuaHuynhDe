@@ -389,6 +389,21 @@
         line-height: 2rem;
         color: #1890FF;
     }
+    .disabled {
+        border-radius: 8px;
+        background: #2CDDBD;
+        display: flex;
+        width: 240px;
+        height: 40px;
+        padding: 8px 12px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        margin: 20px;
+        border: 2px solid;
+        color: white;
+        font-weight: bold;
+    }
 }
 
 

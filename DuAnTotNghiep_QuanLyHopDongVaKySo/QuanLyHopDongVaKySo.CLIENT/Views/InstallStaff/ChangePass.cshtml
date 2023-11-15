@@ -19,19 +19,38 @@
 
             <h4 class="td">NHẬP MÃ OTP</h4>
             <div class="otp-container">
-                <input class="otp-input" type="text" maxlength="1">
-                <input class="otp-input" type="text" maxlength="1">
-                <input class="otp-input" type="text" maxlength="1">
-                <input class="otp-input" type="text" maxlength="1">
-                <input class="otp-input" type="text" maxlength="1">
-                <input class="otp-input" type="text" maxlength="1">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 2)">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 3)">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 4)">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 5)">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 6)">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 7)">
             </div>
+            <script>
+                function handleInput(input, nextInputIndex) {
+                    const maxLength = parseInt(input.getAttribute('maxlength'), 10);
+                    const inputValue = input.value;
+
+                    if (inputValue.length === maxLength) {
+                        const nextInput = document.querySelector(`.otp-input:nth-child(${nextInputIndex})`);
+
+                        if (nextInput) {
+                            nextInput.focus();
+                        }
+                    } else if (inputValue.length === 0) {
+                        const previousInputIndex = nextInputIndex - 2; // 1-based index to 0-based index
+                        const previousInput = document.querySelector(`.otp-input:nth-child(${previousInputIndex})`);
+
+                        if (previousInput) {
+                            previousInput.focus();
+                        }
+                    }
+                }
+            </script>
+
             <div class="row justify-content-around">
-                <button class="btn-addRole" type="submit">
-                   Lấy mã OTP
-                </button>
-                <button class="btn-addRole" type="submit" >
-                   Gửi lại mã 
+                <button class="btn-addRole" type="submit" id="myButton" onclick="handleClick(event)">
+                    Lấy mã OTP
                 </button>
             </div>
         </div>
@@ -58,3 +77,42 @@
         </form>
     </div>
 </div>
+<script>
+    let isButtonDisabled = false;
+
+    function handleClick(event) {
+        const button = document.getElementById('myButton');
+        if (!isButtonDisabled) {
+            const countdownSpan = document.createElement('span');
+            countdownSpan.className = 'countdown';
+            button.appendChild(countdownSpan);
+
+            disableButtonForSeconds(180, countdownSpan);
+            button.style.cursor = 'not-allowed';
+        }
+        event.preventDefault();
+    }
+
+    function disableButtonForSeconds(seconds, countdownSpan) {
+        isButtonDisabled = true;
+        document.getElementById('myButton').classList.add('disabled');
+
+        let secondsRemaining = seconds;
+
+        const countdownInterval = setInterval(() => {
+            const minutes = Math.floor(secondsRemaining / 60);
+            const remainingSeconds = secondsRemaining % 60;
+
+            if (secondsRemaining <= 0) {
+                clearInterval(countdownInterval);
+                isButtonDisabled = false;
+                document.getElementById('myButton').classList.remove('disabled');
+                document.getElementById('myButton').style.cursor = 'pointer';
+                countdownSpan.remove();
+            } else {
+                countdownSpan.textContent = ` (${minutes}p ${remainingSeconds}s)`;
+                secondsRemaining--;
+            }
+        }, 1000);
+    }
+</script>
