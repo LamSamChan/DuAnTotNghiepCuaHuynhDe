@@ -2,6 +2,7 @@
 @{
     Layout = "";
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -159,7 +160,7 @@
                     <h3>CẤP LẠI MẬT KHẨU</h3>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">EMAIL</label>
-                        <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="gmail.com" required>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="abc@gmail.com" required>
                         <span class="text-danger"></span>
                     </div>
                     <div class="mb-3">
@@ -201,13 +202,31 @@
     let isButtonDisabled = false;
 
     function handleClick(event) {
-        const button = document.getElementById('myButton');
-        if (!isButtonDisabled) {
-            disableButtonForSeconds(60000);
-            button.style.cursor = 'not-allowed';
-        }
-        event.preventDefault();
-        Console.log(button);
+        var email = {
+                Email: $('#inputEmail').val()
+            };
+        console.log(JSON.stringify(email));
+            $.ajax({
+                url: '@Url.Action("GetOTP")',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(email),
+                success: function (result) {
+                    if (!result.success) {
+                    const button = document.getElementById('myButton');
+                    if (!isButtonDisabled) {
+                        disableButtonForSeconds(60000);
+                        button.style.cursor = 'not-allowed';
+                    }
+                    event.preventDefault();
+                    
+                    }
+                },
+                error: function () {
+                    console.error('Lỗi khi gửi yêu cầu.');
+                }
+            });
+            
     }
    
     function disableButtonForSeconds(milliseconds) {
@@ -219,4 +238,6 @@
             document.getElementById('myButton').style.cursor = 'pointer';
         }, milliseconds);
     }
+
+
 </script>
