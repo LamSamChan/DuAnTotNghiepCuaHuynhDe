@@ -50,7 +50,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 data = await _TContractSvc.getByIdAsnyc(id)
             });
         }
-
         /// <summary>
         /// Thêm mẫu hợp đồng
         /// </summary>
