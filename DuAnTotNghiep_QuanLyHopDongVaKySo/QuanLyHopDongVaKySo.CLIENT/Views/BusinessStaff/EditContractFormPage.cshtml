@@ -138,188 +138,213 @@
     </div>
     <br />
 
-    <div style="display: flex; justify-content: space-evenly; gap: 50px;">
-        <button id="addDirectorSignature" type="button" class="button-22">Cập nhật vị trí chữ ký giám đốc</button>
-        <!-- Thêm nút để thêm chữ ký một lần nữa -->
-        <button id="addEmployeeSignature" type="button" class="button-22">Cập nhật vị trí chữ ký nhân viên</button>
+    <div class="col-md-6">
+        <label asp-for="TContactID">Id</label>
+        <input style="text-align:center; height:10x; width:50px" disabled asp-for="TContactID">
+        <span class="text-danger" asp-validation-for="TContactID"></span>
     </div>
-    <div id="paginationContainer" class="pagination">
-        <button id="prevImage" class="round">Previous</button>
-        <a id="currentImage" class="number">1</a>
-        <button id="nextImage" class="round">Next</button>
+    <br />
+    <div style="display: flex; justify-content: space-evenly; gap: 20px;">
+        <button id="addDirectorSignatureButton" class="button-22">
+            Thêm chữ ký Giám đốc (ĐỎ)
+        </button>
+        <button id="getCoordinatesButton" class="number">Lấy Tọa Độ</button>
+        <button id="addCustomerSignatureButton" class="button-22">
+            Thêm chữ ký Khách hàng (XANH)
+        </button>
     </div>
-    <div id="stage-container" style="background-color: lightgrey; width: 800px; height: 600px;"></div>
+    <br />
+    <div id="pdfContainer"></div>
+    <br />
+    <div style="display: flex; justify-content: space-evenly; gap: 10px;">
+        <button id="prevPageButton" class="button-22">Trang Trước</button>
+        <button id="nextPageButton" class="button-22">Trang Tiếp</button>
 
-
-
-    <script>
-        // Sử dụng Razor syntax để chuyển đổi mảng C# thành mảng JavaScript
-        var imageFiles = @Html.Raw(Json.Serialize(imagePath));
-        
-        // Loại bỏ "/wwwroot" từ đầu mỗi đường dẫn
-        var updatedImagePaths = imageFiles.map(function (path) {
-            return path.replace(/wwwroot/, "");
-        });
-
-        var stage = new Konva.Stage({
-            container: 'stage-container',
-            width: 800,
-            height: 600,
-        });
-
-        var layer = new Konva.Layer();
-        stage.add(layer);
-
-        var imagePaths = updatedImagePaths;
-        
-        var currentImageIndex = 0;
-
-        var konvaImage = new Konva.Image({
-            x: 0,
-            y: 0,
-            width: 800,
-            height: 600,
-        });
-
-        layer.add(konvaImage);
-
-        function showImage(index) {
-            if (index >= 0 && index < imagePaths.length) {
-                var imageObj = new Image();
-                imageObj.src = imagePaths[index];
-
-                imageObj.onload = function () {
-                    konvaImage.image(imageObj);
-                    layer.draw();
-                    document.getElementById('currentImage').innerText = (index + 1);
-                };
-            }
-        }
-
-        document.getElementById('prevImage').addEventListener('click', function () {
-            currentImageIndex = (currentImageIndex - 1 + imagePaths.length) % imagePaths.length;
-            showImage(currentImageIndex);
-        });
-
-        document.getElementById('nextImage').addEventListener('click', function () {
-            currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
-            showImage(currentImageIndex);
-        });
-
-        var directorSignatureAdded = false;
-        var employeeSignatureAdded = false;
-
-        // Thêm chữ ký khi nhấn nút "Thêm vị trí chữ ký giám đốc"
-        document.getElementById('addDirectorSignature').addEventListener('click', function () {
-            addSignature('director');
-        });
-
-        // Thêm chữ ký khi nhấn nút "Thêm vị trí chữ ký nhân viên"
-        document.getElementById('addEmployeeSignature').addEventListener('click', function () {
-            addSignature('employee');
-        });
-
-        function addSignature(role) {
-            if (role === 'director' && !directorSignatureAdded) {
-                // Create a new Konva.Group for the director's signature
-                var signatureGroup = new Konva.Group({
-                    x: 100,
-                    y: 100,
-                    draggable: true,
-                });
-
-                // Create a background rectangle for the director's signature
-                var signatureRect = new Konva.Rect({
-                    width: 140,
-                    height: 70,
-                    fill: 'transparent',
-                    stroke: 'red',
-                    strokeWidth: 2,
-                });
-
-                // Create a text object for the director's signature
-                var signatureText = new Konva.Text({
-                    width: 140,
-                    height: 70,
-                    text: 'Giám đốc',
-                    fill: 'red',
-                    fontSize: 24,
-                    align: 'center',
-                    verticalAlign: 'middle',
-                });
-
-                // Add the background rectangle and text to the group
-                signatureGroup.add(signatureRect, signatureText);
-
-                // Add the group to the layer
-                layer.add(signatureGroup);
-                layer.draw();
-
-                // Update the flag to indicate that the director's signature has been added
-                directorSignatureAdded = true;
-                alert(`Chữ ký ${role} đã được thêm!`);
-            } else if (role === 'employee' && !employeeSignatureAdded) {
-                // Create a new Konva.Group for the employee's signature
-                var signatureGroup = new Konva.Group({
-                    x: 200,
-                    y: 200,
-                    draggable: true,
-                });
-
-                // Create a background rectangle for the employee's signature
-                var signatureRect = new Konva.Rect({
-                    width: 140,
-                    height: 70,
-                    fill: 'transparent',
-                    stroke: 'black',
-                    strokeWidth: 2,
-                });
-
-                // Create a text object for the employee's signature
-                var signatureText = new Konva.Text({
-                    width: 140,
-                    height: 70,
-                    text: 'Nhân viên',
-                    fill: 'black',
-                    fontSize: 24,
-                    align: 'center',
-                    verticalAlign: 'middle',
-                });
-
-                // Add the background rectangle and text to the group
-                signatureGroup.add(signatureRect, signatureText);
-
-                // Add the group to the layer
-                layer.add(signatureGroup);
-                layer.draw();
-
-                // Update the flag to indicate that the employee's signature has been added
-                employeeSignatureAdded = true;
-                alert(`Chữ ký ${role} đã được thêm!`);
-            } else {
-                alert(`Chữ ký ${role} đã tồn tại!`);
-            }
-        }
-
-
-
-
-
-        showImage(currentImageIndex);
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
-
+    </div>
 </div>
 
+<script>
+    const pdfContainer = document.getElementById("pdfContainer");
+    const stage = new Konva.Stage({
+        container: "pdfContainer",
+        width: pdfContainer.clientWidth,
+        height: pdfContainer.clientHeight,
+    });
+    const signatureLayer = new Konva.Layer(); // Lớp cho các vùng chữ ký
+    const signatureAreas = [];
+    let directorCoordinates = "";
+    let customerCoordinates = "";
+    let draggable = false;
+    var imagePaths = [
+        "/MinuteImage/1/1.png",
+    ];
 
+    document
+        .getElementById("addDirectorSignatureButton")
+        .addEventListener("click", function () {
+            draggable = true;
+            createSignatureArea("Director");
+        });
+
+    document
+        .getElementById("addCustomerSignatureButton")
+        .addEventListener("click", function () {
+            draggable = true;
+            createSignatureArea("Customer");
+        });
+
+    document
+        .getElementById("getCoordinatesButton")
+        .addEventListener("click", function () {
+            getSignatureAreasCoordinates();
+        });
+
+    document
+        .getElementById("prevPageButton")
+        .addEventListener("click", function () {
+            showPage(currentPageIndex - 1);
+        });
+
+    document
+        .getElementById("nextPageButton")
+        .addEventListener("click", function () {
+            showPage(currentPageIndex + 1);
+        });
+
+    let currentPageIndex = 0;
+
+    function showPage(index) {
+        if (index < 0 || index >= imagePaths.length) {
+            return;
+        }
+
+        currentPageIndex = index;
+
+        // Tìm lớp hiện tại
+        let pdfLayer = stage.findOne(".pdf-layer");
+
+        // Nếu lớp không tồn tại, tạo một lớp mới
+        if (!pdfLayer) {
+            pdfLayer = new Konva.Layer({
+                name: "pdf-layer"
+            });
+            stage.add(pdfLayer);
+        }
+
+        const imgElement = new Image();
+
+        imgElement.onload = function () {
+            const img = new Konva.Image({
+                x: 0,
+                y: 0,
+                width: pdfContainer.clientWidth,
+                height: pdfContainer.clientHeight,
+                name: "pdf-image",
+                image: imgElement,
+            });
+
+            // Xóa tất cả các vị trí trong lớp hiện tại
+            pdfLayer.destroyChildren();
+            pdfLayer.add(img);
+            pdfLayer.batchDraw();
+
+            if (index === imagePaths.length - 1) {
+                draggable = true;
+            } else {
+                draggable = false;
+            }
+
+            stage.add(signatureLayer);
+        };
+
+        imgElement.src = imagePaths[index];
+
+     
+    }
+
+    function createSignatureArea(role) {
+        // Kiểm tra xem vùng chữ ký đã được thêm chưa
+        const existingSignature = signatureAreas.find(
+            (area) => area.role === role
+        );
+
+        if (existingSignature) {
+            alert(`Bạn đã thêm vị trí chữ ký của ${role} rồi.`);
+            return;
+        }
+
+        const strokeColor = role === "Director" ? "red" : "blue";
+        const labelText = role === "Director" ? "Giám đốc" : "Khách hàng";
+
+        // Create a group to hold the background rectangle and text label
+        const signatureGroup = new Konva.Group({
+            x: 50,
+            y: 50,
+            width: 150,
+            height: 70,
+            draggable: draggable,
+        });
+
+        const backgroundRect = new Konva.Rect({
+            width: 150,
+            height: 70,
+            fill: "white", // Set the background color
+            stroke: strokeColor,
+            strokeWidth: 2,
+            dash: [5, 5],
+            draggable: draggable,
+        });
+
+        const signatureText = new Konva.Text({
+            width: 150,
+            height: 70,
+            text: labelText,
+            fill: strokeColor,
+            fontSize: 24,
+            align: 'center',
+            verticalAlign: 'middle',
+        });
+
+        // Add the background rectangle and text to the signatureGroup
+        signatureGroup.add(backgroundRect, signatureText);
+
+        // Add the group to the signatureLayer
+        signatureLayer.add(signatureGroup);
+        signatureLayer.batchDraw();
+
+        signatureAreas.push({
+            role,
+            element: signatureGroup,
+        });
+    }
+
+    function getSignatureAreasCoordinates() {
+        signatureAreas.forEach((area) => {
+            const position = area.element.getAbsolutePosition();
+            const role = area.role.toLowerCase();
+
+            if (role === "director") {
+                directorCoordinates = {
+                    x: position.x,
+                    y: position.y
+                };
+            } else if (role === "customer") {
+                customerCoordinates = {
+                    x: position.x,
+                    y: position.y
+                };
+            }
+        });
+
+        // Kiểm tra và làm gì đó với directorCoordinates và customerCoordinates
+        console.log("Director Coordinates: ", directorCoordinates);
+        console.log("Customer Coordinates: ", customerCoordinates);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        showPage(currentPageIndex);
+    });
+</script>
 
 
 

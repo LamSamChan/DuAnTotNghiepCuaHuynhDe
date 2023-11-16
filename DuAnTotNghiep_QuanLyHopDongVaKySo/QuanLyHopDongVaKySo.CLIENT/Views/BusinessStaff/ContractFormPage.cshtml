@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <link href="~/php/style.css" rel="stylesheet" />
 
-<div class="container-fluid" style="height: 100vh;">
+<div class="container-fluid" style="height: 20vh;">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -16,21 +16,19 @@
         </nav>
         <h1 class="typeHead">TẢI HỢP ĐỒNG MẪU</h1>
     </div>
-
-    <div class="wrapper" style="margin:40px auto;">
-        <form method="post" enctype="multipart/form-data" id="FormPostTContract" asp-action="AddTContract" asp-controller="BusinessStaff">
-            <input asp-for="File" type="file" accept=".pdf" id="pdfInput" style="display:none;" required>
-            <img width="64" height="64" style="margin-bottom:15px" src="~/Images/pdf_icon.png" alt="external-pdf-file-types-others-iconmarket" />
-            <button type="button" class="button-22" id="uploadIcon">TẢI PDF</button>
-            <br />
-            <section>
-                <div style="display: flex; justify-content: space-evenly;">
-                    <button type="submit" class="button-22" id="saveButton" style="display:none;">Lưu</button>
-                </div>
-            </section>
-        </form>
-    </div>
-
+</div>
+<div class="wrapper">
+    <form method="post" enctype="multipart/form-data" id="FormPostTContract" asp-action="AddTContract" asp-controller="BusinessStaff">
+        <input asp-for="File" type="file" accept=".pdf" id="pdfInput" style="display:none;" required>
+        <img width="64" height="64" style="margin-bottom:15px" src="https://img.icons8.com/external-others-iconmarket/64/external-pdf-file-types-others-iconmarket.png" alt="external-pdf-file-types-others-iconmarket" />
+        <button type="button" class="button-22" id="uploadIcon">TẢI PDF</button>
+        <br />
+        <section>
+            <div style="display: flex; justify-content: space-evenly;">
+                <button type="submit" class="button-22" id="saveButton" style="display:none;">Lưu</button>
+            </div>
+        </section>
+    </form>
 </div>
 
 

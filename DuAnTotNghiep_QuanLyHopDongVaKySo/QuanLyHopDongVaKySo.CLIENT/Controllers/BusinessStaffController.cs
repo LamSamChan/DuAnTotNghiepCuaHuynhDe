@@ -281,10 +281,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }*/
-        public IActionResult TEditMinute()
+     /*   public IActionResult TEditMinute()
         {
             return View();
-        }
+        }*/
 
         public async Task<IActionResult> AddTMinute([FromForm] API.PostTMinute tContract)
         {

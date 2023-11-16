@@ -1,3 +1,4 @@
+
 #pdfContainer {
     position: relative;
     border: 3px solid gray;
@@ -10,68 +11,6 @@
     overflow: hidden;
 }
 
-    #pdfContainer canvas {
-        max-width: 100%;
-        max-height: 100%;
-    }
-
-.signatureArea {
-    position: absolute;
-    border: 2px dashed red;
-    pointer-events: auto;
-    width: 100px;
-    height: 50px;
-    border-radius: 5px;
-    display: none;
-    /* Initially hide signature areas */
-}
-
-.pagination {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin-top: 30px;
-}
-
-    .pagination li {
-        margin-right: 5px;
-    }
-
-    .pagination a {
-        text-decoration: none;
-        color: #007bff;
-        cursor: pointer;
-        padding: 5px 10px;
-        border-radius: 5px;
-        border: #007bff 2px solid;
-        background-color: initial;
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-        .pagination a:hover {
-            text-decoration: underline;
-            background-color: #007bff;
-            color: white;
-        }
-
-        .pagination a.active {
-            background-color: #007bff;
-            color: white;
-        }
-
-.round {
-    border-radius: 50%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    text-align: center;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-
-
-/* CSS */
 .button-22 {
     align-items: center;
     appearance: button;
@@ -86,10 +25,8 @@
     flex-direction: row;
     flex-shrink: 0;
     font-family: "RM Neue", sans-serif;
-    font-size: 100%;
-    line-height: 1.15;
     margin: 0;
-    padding: 10px 21px;
+    padding: 5px 10px; /* Adjusted padding for a smaller size */
     text-align: center;
     text-transform: none;
     transition: color .13s ease-in-out, background .13s ease-in-out, opacity .13s ease-in-out, box-shadow .13s ease-in-out;
@@ -106,9 +43,18 @@
         background-color: #1C84FF;
     }
 
-</style >
-<style >
-/* Import Google font - Poppins */
+
+.number {
+    text-decoration: none;
+    color: #007bff;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: #007bff 2px solid;
+    background-color: initial;
+    transition: background-color 0.3s, color 0.3s;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -135,6 +81,7 @@ body {
     padding: 30px;
     box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.05);
     margin-left: 340px;
+    margin-bottom:400px
 }
 
     .wrapper header {
@@ -187,91 +134,4 @@ section .row {
 
 section .details span {
     font-size: 14px;
-}
-
-.progress-area .row .content {
-    width: 100%;
-    margin-left: 15px;
-}
-
-.progress-area .details {
-    display: flex;
-    align-items: center;
-    margin-bottom: 7px;
-    justify-content: space-between;
-}
-
-.progress-area .content .progress-bar {
-    height: 6px;
-    width: 100%;
-    margin-bottom: 4px;
-    background: #fff;
-    border-radius: 30px;
-}
-
-.content .progress-bar .progress {
-    height: 100%;
-    width: 0%;
-    background: #6990F2;
-    border-radius: inherit;
-}
-
-.uploaded-area {
-    max-height: 232px;
-    overflow-y: scroll;
-}
-
-    .uploaded-area.onprogress {
-        max-height: 150px;
-    }
-
-    .uploaded-area::-webkit-scrollbar {
-        width: 0px;
-    }
-
-    .uploaded-area .row .content {
-        display: flex;
-        align-items: center;
-    }
-
-    .uploaded-area .row .details {
-        display: flex;
-        margin-left: 15px;
-        flex-direction: column;
-    }
-
-        .uploaded-area .row .details .size {
-            color: #404040;
-            font-size: 11px;
-        }
-
-    .uploaded-area i.fa-check {
-        font-size: 16px;
-    }
-#stage-container {
-    position: relative;
-    border: 3px solid gray;
-    width: 100%;
-    height: 100%;
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    margin-left: 320px;
-}
-
-    #stage-container canvas {
-        width: 200%;
-        height: 200%;
-    }
-.number {
-    text-decoration: none;
-    color: #007bff;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: #007bff 2px solid;
-    background-color: initial;
-    transition: background-color 0.3s, color 0.3s;
 }
