@@ -534,3 +534,4 @@ C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDong
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.genruntimeconfig.cache
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_API.dll
+D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.sourcelink.json

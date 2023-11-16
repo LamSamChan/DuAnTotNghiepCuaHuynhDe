@@ -22,6 +22,7 @@
                 <label for="passNew" class="form-label">Nhập mật khẩu mới</label>
                 <input type="password" class="form-control" id="passNew" oninput="checkMatch()">
             </div>
+            <p id="message1"></p>
             <div class="mb-3">
                 <label for="ConfirmPassNew" class="form-label">Xác nhận mật khẩu</label>
                 <input type="password" class="form-control" id="ConfirmPassNew" oninput="checkMatch()">
@@ -165,6 +166,34 @@
                 console.error('Lỗi khi gửi yêu cầu.');
             }
         });
+    }
+    // so sanh hai box input pass
+    function checkMatch() {
+        const password1 = document.getElementById('passNew').value;
+        const password2 = document.getElementById('ConfirmPassNew').value;
+        const message = document.getElementById('message');
+        const message1 = document.getElementById('message1');
+        //Chech độ dài ký tự
+        if (password1.length < 8) {
+            message1.textContent = 'Mật khẩu mới phải có ít nhất 8 ký tự';
+            message1.className = 'mismatch';
+            message1.style.display = 'contents';
+        } else {
+            message1.textContent = '';
+            message1.style.display = 'none';
+        }
+
+
+        //so sánh 2 input pass
+        if (password1 === password2) {
+            message.textContent = 'Passwords trùng khớp';
+            message.className = 'match';
+            message.style.display = 'contents';
+        } else if (password1 !== password2) {
+            message.textContent = 'Passwords không trùng khớp';
+            message.className = 'mismatch';
+            message.style.display = 'contents';
+        }
     }
 
 </script>
