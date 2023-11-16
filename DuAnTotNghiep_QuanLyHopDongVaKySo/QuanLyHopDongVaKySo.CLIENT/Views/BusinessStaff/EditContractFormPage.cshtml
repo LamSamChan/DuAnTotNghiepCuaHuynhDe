@@ -1,82 +1,4 @@
-﻿@*@model QuanLyHopDongVaKySo_API.Models.TemplateMinute
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-<link href="~/php/style.css" rel="stylesheet" />
-
-
-<div class="container-fluid">
-    <div class="page-header no-gutters has-tab">
-        <div class="d-md-flex m-b-15 align-items-center justify-content-between">
-            <div class="media align-items-center m-b-15">
-                <br />
-                <div class="m-l-15">
-                    <h4 class="m-b-0"
-                        style="width: 512px; height: 52px; color: #2B3674; font-size: 25px; font-family: DM Sans; font-weight: 700; line-height: 42px; word-wrap: break-word">
-                        Chỉnh sửa cấu hình hợp đồng biên bản
-                    </h4>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
-        <div class="SearchBox">
-            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
-                <li>
-                    <div class="Search">
-                        <i class="ph-bold ph-magnifying-glass"></i>
-                        <input type="text" placeholder="Search.." />
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-bell"></i>
-                    </a>
-
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-moon"></i>
-                    </a>
-                </li>
-                <li>
-                    <img src="o.jpg" />
-                </li>
-            </ul>
-        </div>
-    </div>
-    <br />
-    <form class="row justify-content-around" style=" margin: 0 auto;" asp-action="TUpdateMinute" asp-controller="BusinessStaff" method="post">
-        <div class="col-md-5">
-            <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll; height:500px;">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                <div class="col-md-6">
-                    <label asp-for="TMinuteID" class="form-label">Id</label>
-                    <input class="form-control" disabled id="inputName" asp-for="TMinuteID">
-                    <span class="text-danger" asp-validation-for="TMinuteID"></span>
-                </div>
-
-                <div class="col-md-6">
-                    <label asp-for="jsonIntallationZone" class="form-label">Vị trí tải chữ ký </label>
-                    <input class="form-control" id="inputName" asp-for="jsonIntallationZone">
-                    <span class="text-danger" asp-validation-for="jsonIntallationZone"></span>
-                </div>
-                <div class="col-md-6">
-                    <label asp-for="jsonCustomerZone" class="form-label">Vị trí chữ ký của nhân viên</label>
-                    <input class="form-control" id="inputName" asp-for="jsonCustomerZone">
-                    <span class="text-danger" asp-validation-for="jsonCustomerZone"></span>
-                </div>
-                <div class="col-md-7" style="margin:auto; padding: 20px 0;">
-                    <button type="submit">
-                        CẬP NHẬT
-                    </button>
-                </div>
-            </div>
-        </div>
-
-    </form>
-</div>*@
-
+﻿
 @model QuanLyHopDongVaKySo_API.Models.TemplateContract
 @{
     string directoryPath = "wwwroot\\ContractImage\\" + Model.TContactID;
@@ -84,7 +6,7 @@
 
     imagePath = Directory.GetFiles(directoryPath).ToList();
 
-    foreach (var item in imagePath)
+    foreach(var item in imagePath)
     {
         Console.WriteLine(item);
     }
@@ -138,19 +60,19 @@
     </div>
     <br />
 
-    <div class="col-md-6">
+    @*<div class="col-md-6">
         <label asp-for="TContactID">Id</label>
         <input style="text-align:center; height:10x; width:50px" disabled asp-for="TContactID">
         <span class="text-danger" asp-validation-for="TContactID"></span>
-    </div>
+    </div>*@
     <br />
     <div style="display: flex; justify-content: space-evenly; gap: 20px;">
         <button id="addDirectorSignatureButton" class="button-22">
-            Thêm chữ ký Giám đốc (ĐỎ)
+            Thêm vùng ký Giám đốc (ĐỎ)
         </button>
-        <button id="getCoordinatesButton" class="number">Lấy Tọa Độ</button>
+        <button id="getCoordinatesButton" class="number">Lưu</button>
         <button id="addCustomerSignatureButton" class="button-22">
-            Thêm chữ ký Khách hàng (XANH)
+            Thêm vùng ký Khách hàng (XANH)
         </button>
     </div>
     <br />
@@ -164,6 +86,7 @@
 </div>
 
 <script>
+    var imageFiles = @Html.Raw(Json.Serialize(imagePath));
     const pdfContainer = document.getElementById("pdfContainer");
     const stage = new Konva.Stage({
         container: "pdfContainer",
@@ -175,10 +98,10 @@
     let directorCoordinates = "";
     let customerCoordinates = "";
     let draggable = false;
-    var imagePaths = [
-        "/MinuteImage/1/1.png",
-    ];
-
+    var imagePaths = imageFiles.map(function (path) {
+        return path.replace(/wwwroot/, "");
+    });
+    console.log(imagePaths);
     document
         .getElementById("addDirectorSignatureButton")
         .addEventListener("click", function () {
