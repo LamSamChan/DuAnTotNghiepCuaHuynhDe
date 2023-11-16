@@ -1,6 +1,22 @@
 ﻿
 /*@import url("ListUser.css");
 */
+
+
+
+/*css information*/
+input[type="file"] {
+    display: none;
+}
+
+/* Thiết lập giao diện tùy chỉnh cho input type="file" */
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+/*======*/
 .Search_All {
     width: 250px;
     display: flex;
@@ -102,7 +118,7 @@ input[type="search"] {
     align-items: end;
     color: white;
 }
-
+.btn-addRole a,
 .add_Cus a {
     color: white;
     text-decoration: none;
@@ -285,4 +301,29 @@ div[class="row action"] {
 div[class="row action"] a {
     text-decoration: none;
     color: #8B909A;
+}
+/*css button return*/
+.return {
+    border-radius: 8px;
+    background: rgba(44, 168, 221, 0.58);
+    display: flex;
+    width: 100px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 2px solid;
+    color: white;
+    font-weight: bold;
+}
+.return a{
+    text-decoration:none;
+    color: white;
+}
+/*css - listTable*/
+.listTable {
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    min-height: 700px;
+    margin-top: 20px;
 }

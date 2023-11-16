@@ -7,9 +7,30 @@
 <link rel="stylesheet" type="text/css" href="~/Test/css/style.css">
 
 <div class="container-fluid">
-    <button class="return">
-        <i class="ph-bold ph-arrow-left"></i>
-    </button>
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Danh sách chứng chỉ</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">CHI TIẾT CHỨNG CHỈ</h1>
+        <div class="row justify-contens-around">
+            <button class="return col-md-2" style="">
+                <a asp-action="ListPFXCertificate" asp-controller="Admin">
+                    <i class="ph-bold ph-arrow-left">
+                        QUAY LẠI
+                    </i>
+                </a>
+            </button>
+            <button class="btn-addRole col-md-2 offset-md-7" type="button">
+                <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@Model.Serial">
+                    GIA HẠN
+                </a>
+            </button>
+        </div>
+    </div>
     <div style="margin-top: 40px;">
         <section class="gallery min-vh-100">
             <div class="container-lg">
@@ -73,11 +94,6 @@
                             <img src="~/Resource/Image/empty.png"
                                  class="gallery-item" alt="gallery"/>
                         }
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="d-flex align-items-center">
-                        <a class="m-4 add_cus" style="margin: 20px; width:300px;" asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@Model.Serial">Gia hạn</a>
                     </div>
                 </div>
             </div>

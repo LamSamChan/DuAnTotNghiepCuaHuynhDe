@@ -40,12 +40,74 @@
 }
 
 <div class="container-fluid">
-    <button class="return">
-        <i class="ph-bold ph-arrow-left"></i>
-    </button>
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Danh sách dịch vụ</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">CHI TIẾT DỊCH VỤ</h1>
+        <div class="row justify-contens-around">
+            <button class="return col-md-2" style="">
+                <a asp-action="ListTypeOfService" asp-controller="Admin">
+                    <i class="ph-bold ph-arrow-left">
+                        QUAY LẠI
+                    </i>
+                </a>
+            </button>
+            <button class="btn-addRole col-md-2 offset-md-7" type="button" data-bs-toggle="modal" data-bs-target="#addEquid">
+               THÊM THIẾT BỊ
+            </button>
+            <!--modal-->
+            <div class="modal fade" id="addEquid" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm mới thiết bị lắp</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="AddDeviceAction" asp-controller="Admin">
+                                <table class="table">
+                                    <thead>
+                                        <tr style="color: #8B909A;">
+                                            <th>TÊN THIẾT BỊ</th>
+                                            <th>TRẠNG THÁI</th>
+                                            <th>SỐ LƯỢNG</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-group-divider">
+                                        <tr>
+                                            <td>
+                                                <input class="form-control" required asp-for="@Model.InstallationDevice.DeviceName">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" required asp-for="@Model.InstallationDevice.DeviceStatus">
+                                            </td>
+                                            <td>
+                                                <input type="number" min="0" step="1" class="form-control" required asp-for="@Model.InstallationDevice.DeviceQuantity">
+                                            </td>
+                                            <td class="d-none">
+                                                <input type="text" class="form-control" required readonly asp-for="@Model.InstallationDevice.TOS_ID" value="@tosID" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button class="add_cus" type="submit">
+                                    Thêm
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-    <table class="table">
+    <table class="table" style="margin-top:30px;">
         <thead>
             <tr style="color: #8B909A;">
                 <th>ID</th>
@@ -78,55 +140,6 @@
                 }
         </tbody>
     </table>
-
-        @**@
-  <button class="add_cus" style="margin: 20px; width:300px;" data-bs-toggle="modal" data-bs-target="#addEquid">
-            Thêm thiết bị lắp
-   </button>
-        <!--modal-->
-        <div class="modal fade" id="addEquid" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm mới thiết bị lắp</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="AddDeviceAction" asp-controller="Admin">
-                    <table class="table">
-                        <thead>
-                            <tr style="color: #8B909A;">
-                                <th>TÊN THIẾT BỊ</th>
-                                <th>TRẠNG THÁI</th>
-                                <th>SỐ LƯỢNG</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody class="table-group-divider">
-                            <tr>
-                                <td>
-                                    <input class="form-control" required asp-for="@Model.InstallationDevice.DeviceName">
-                                </td>
-                                <td>
-                                    <input class="form-control" required asp-for="@Model.InstallationDevice.DeviceStatus">
-                                </td>
-                                <td>
-                                    <input type="number" min="0" step="1" class="form-control" required asp-for="@Model.InstallationDevice.DeviceQuantity">
-                                </td>
-                                <td class="d-none">
-                                    <input type="text" class="form-control" required readonly asp-for="@Model.InstallationDevice.TOS_ID" value="@tosID" />
-                                </td>                               
-                            </tr>
-                        </tbody>
-                    </table>
-                        <button class="add_cus" type="submit">
-                            Thêm
-                        </button>
-                     </form>
-                    </div>
-                </div>
-            </div>
-        </div>
 </div>
 <script>
    

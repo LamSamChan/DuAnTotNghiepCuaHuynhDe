@@ -3,10 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
     <title>@ViewData["Title"] - QuanLyHopDongVaKySo.CLIENT</title>
 
     <!--css - cho từng page -->
-    <link href="~/Admin_Resource/css/vendors/Css_Index.css" rel="stylesheet" >
+    <link href="~/Admin_Resource/css/vendors/Css_Index.css?v=2" rel="stylesheet" type="text/css" >
 
     <!-- Vendors styles-->
     <link rel="stylesheet" href="~/Admin_Resource/vendors/simplebar/css/simplebar.css">
@@ -23,7 +26,7 @@
 
     <script src="https://unpkg.com/@@phosphor-icons/web"></script>
 </head>
-<body>
+<body style="font-family: 'Roboto', sans-serif;  background-color: #dbe2f4;">
     <header style="background-color:#001529; position:fixed; width:100%;z-index:9999; top:auto;">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
             <div class="container-fluid">
@@ -58,17 +61,17 @@
         <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
             <li class="nav-title">QUẢN LÝ TÀI KHOẢN NGƯỜI DÙNG</li>
             <li class="nav-item">
-                <a class="nav-link" asp-action="ListUsersAccount" asp-controller="Admin">
+                <a class="nav-link" asp-action="ListCusAccount" asp-controller="Admin">
                     <svg class="nav-icon" >
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
-                    </svg> Danh sách tài khoản 
+                    </svg> Danh sách khách hàng
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="typography.html">
+                <a class="nav-link" asp-action="ListEmpAccount" asp-controller="Admin">
                     <svg class="nav-icon">
-                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-user-plus"></use>
-                    </svg> Tạo hồ sơ tài khoản
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
+                    </svg> Danh sách nhân viên
                 </a>
             </li>
             <li class="nav-title">QUẢN LÝ VỊ TRÍ</li>
@@ -83,12 +86,6 @@
                         <a class="nav-link" asp-controller="Admin" asp-action="ListRole">
                             <span class="nav-icon"></span>
                            Danh sách vai trò
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="base/accordion.html">
-                            <span class="nav-icon"></span>
-                            Gán vai trò
                         </a>
                     </li>
                 </ul>
@@ -106,12 +103,6 @@
                             Danh sách chức danh
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="base/accordion.html">
-                            <span class="nav-icon"></span>
-                            Gán chức danh
-                        </a>
-                    </li>
                 </ul>
             </li>
             <li class="nav-title">QUẢN LÝ LOẠI DỊCH VỤ VÀ KĨ THUẬT</li>
@@ -122,37 +113,17 @@
                     </svg> Danh sách dịch vụ
                 </a>
             </li>
+            <li class="nav-title">QUẢN LÝ THÔNG TIN KÝ SỐ</li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Admin" asp-action="ListDevice" > 
+                <a class="nav-link" asp-controller="Admin" asp-action="ListPFXCertificate">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
-                    </svg> Danh sách thiết bị lắp
+                    </svg> Danh sách chứng chỉ
                 </a>
             </li>
 
-            <li class="nav-title">QUẢN LÝ THÔNG TIN KÝ SỐ</li>
-            <li class="nav-group">
-                <a class="nav-link nav-group-toggle">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list"></use>
-                    </svg> Danh sách chứng chỉ
-                </a>
-                <ul class="nav-group-items">
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Admin" asp-action="ListPFXCertificate">
-                            <span class="nav-icon"></span>
-                            Chứng chỉ đã hết hạn
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Admin" asp-action="ListPFXCertificate">
-                            <span class="nav-icon"></span>
-                            Chứng chỉ sắp hết hạn
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-title">GIÁM ĐỐC</li>
+
+            @* <li class="nav-title">GIÁM ĐỐC</li>
             <li class="nav-group">
                 <a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
@@ -308,11 +279,11 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> *@
         </ul>
         <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
     </div>
-    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <div class="wrapper d-flex flex-column min-vh-100">
         <div class="body flex-grow-1 px-3" style="margin-top:70px;">
             <div class="container-fluid">
                 <main role="main" class="pb-3">

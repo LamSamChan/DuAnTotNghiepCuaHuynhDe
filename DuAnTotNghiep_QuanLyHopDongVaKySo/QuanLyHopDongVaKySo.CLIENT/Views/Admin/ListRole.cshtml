@@ -9,17 +9,55 @@
             <ol class="breadcrumb">
                 <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
                 <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item"><a>Quản lý khách hàng</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Danh sách khách hàng</li>
+                <li class="breadcrumb-item"><a>Quản lý vai trò</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Danh sách vai trò</li>
             </ol>
         </nav>
         <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
         <div class="row justify-content-around">
-            <input type="search" class="src" placeholder="Tìm kiếm khách hảng" />
+            <input type="search" class="src" placeholder="Tìm kiếm trong danh sách" />
             <button class="btn-addRole col-md-2 offset-md-7" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 THÊM VAI TRÒ
                 <i class="ph-bold ph-plus"></i>
             </button>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm vai trò mới</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row justify-content-around" style=" margin: 0 auto;" asp-action="AddRole" asp-controller="Admin">
+                                <div class="col-md-12">
+                                    <input class="form-control d-none" asp-for="Role.RoleID">
+                                    <div class="col-md-12">
+                                        <label for="inputName" class="form-label" asp-for="Role.RoleName">Vai trò</label>
+                                        <input class="form-control" asp-for="Role.RoleName" required>
+                                        <span class="text-danger" asp-validation-for="Role.RoleName"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-3 d-none">
+                                    <label class="mb-3 mr-1" for="Status" asp-for="Role.isHidden">Trạng thái: </label>
+                                    <div>
+                                        <input type="radio" class="btn-check " id="false" asp-for="Role.isHidden" value="false" autocomplete="off" required checked>
+                                        <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hiển thị</label>
+
+                                        <input type="radio" class="btn-check " id="true" asp-for="Role.isHidden" value="true" autocomplete="off" required>
+                                        <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Ẩn</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-5" style="margin:auto;">
+                                    <button class="btn-addRole" type="submit" style="width: 100%;">
+                                        THÊM
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="tab-container">
@@ -145,44 +183,7 @@
                 </tbody>
             </table>
         </div>
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm vai trò mới</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form class="row justify-content-around" style=" margin: 0 auto;" asp-action="AddRole" asp-controller="Admin">
-                            <div class="col-md-12">
-                                <input class="form-control d-none" asp-for="Role.RoleID">
-                                <div class="col-md-12">
-                                    <label for="inputName" class="form-label" asp-for="Role.RoleName">Vai trò</label>
-                                    <input class="form-control" asp-for="Role.RoleName" required>
-                                    <span class="text-danger" asp-validation-for="Role.RoleName"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mt-3 d-none">
-                                <label class="mb-3 mr-1" for="Status" asp-for="Role.isHidden">Trạng thái: </label>
-                                <div>
-                                    <input type="radio" class="btn-check " id="false" asp-for="Role.isHidden" value="false" autocomplete="off" required checked>
-                                    <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hiển thị</label>
-
-                                    <input type="radio" class="btn-check " id="true" asp-for="Role.isHidden" value="true" autocomplete="off" required>
-                                    <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Ẩn</label>
-                                </div>
-                            </div>
-                            <div class="col-md-5" style="margin:auto;">
-                                <button class="btn-addRole" type="submit" style="width: 100%;">
-                                    THÊM
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
     </div>
 </div>
 <script>

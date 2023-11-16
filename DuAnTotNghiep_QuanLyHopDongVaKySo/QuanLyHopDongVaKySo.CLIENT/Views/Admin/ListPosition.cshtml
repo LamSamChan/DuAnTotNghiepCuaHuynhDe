@@ -4,30 +4,60 @@
     Layout = "_AdminLayout";
 }
 <div class="container-fluid">
-    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
-        <div class="SearchBox">
-            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
-                <li>
-                    <div class="Search">
-                        <i class="ph-bold ph-magnifying-glass"></i>
-                        <input type="text" placeholder="Search.." />
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-bell"></i>
-                    </a>
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item"><a>Quản lý chức danh</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Danh sách chức danh</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+        <div class="row justify-content-around">
+            <input type="search" class="src" placeholder="Tìm kiếm trong danh sách" />
+            <button class="btn-addRole col-md-2 offset-md-7" type="button" data-bs-toggle="modal" data-bs-target="#AddPosition">
+                THÊM CHỨC DANH
+                <i class="ph-bold ph-plus"></i>
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="AddPosition" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm chức danh mới</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row justify-content-around" style=" margin: 0 auto;" asp-action="AddPosition" asp-controller="Admin">
+                                <div class="col-md-12">
+                                    <input class="form-control d-none" asp-for="Position.PositionID">
+                                    <div class="col-md-12">
+                                        <label for="inputName" class="form-label" asp-for="Position.PositionName">Vai trò</label>
+                                        <input class="form-control" asp-for="Position.PositionName" required>
+                                        <span class="text-danger" asp-validation-for="Position.PositionName"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-3 d-none">
+                                    <label class="mb-3 mr-1" for="Status" asp-for="Position.isHidden">Trạng thái: </label>
+                                    <div>
+                                        <input type="radio" class="btn-check " id="false" asp-for="Position.isHidden" value="false" autocomplete="off" required checked>
+                                        <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hiển thị</label>
 
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-moon"></i>
-                    </a>
-                </li>
-                <li>
-                    <img src="o.jpg" />
-                </li>
-            </ul>
+                                        <input type="radio" class="btn-check " id="true" asp-for="Position.isHidden" value="true" autocomplete="off" required>
+                                        <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Ẩn</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-5" style="margin:auto;">
+                                    <button class="btn-addRole" type="submit" style="width: 100%;">
+                                        THÊM
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="tab-container">
@@ -153,47 +183,7 @@
                 </tbody>
             </table>
         </div>
-        <button class="btn-addRole" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            THÊM CHỨC DANH
-        </button>
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm chức danh mới</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form class="row justify-content-around" style=" margin: 0 auto;" asp-action="AddPosition" asp-controller="Admin">
-                            <div class="col-md-12">
-                                <input class="form-control d-none" asp-for="Position.PositionID">
-                                <div class="col-md-12">
-                                <label for="inputName" class="form-label" asp-for="Position.PositionName">Vai trò</label>
-                                <input class="form-control" asp-for="Position.PositionName" required>
-                                <span class="text-danger" asp-validation-for="Position.PositionName"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mt-3 d-none">
-                            <label class="mb-3 mr-1" for="Status" asp-for="Position.isHidden">Trạng thái: </label>
-                                <div>
-                                <input type="radio" class="btn-check " id="false" asp-for="Position.isHidden" value="false" autocomplete="off" required checked>
-                                    <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hiển thị</label>
-
-                                <input type="radio" class="btn-check " id="true" asp-for="Position.isHidden" value="true" autocomplete="off" required>
-                                    <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Ẩn</label>
-                                </div>
-                            </div>
-                            <div class="col-md-5" style="margin:auto;">
-                                <button class="btn-addRole" type="submit" style="width: 100%;">
-                                    THÊM
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+      
     </div>
 </div>
 <script>

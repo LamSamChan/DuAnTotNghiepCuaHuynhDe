@@ -7,30 +7,23 @@
 @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
 
 <div class="container-fluid">
-    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
-        <div class="SearchBox">
-            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
-                <li>
-                    <div class="Search">
-                        <i class="ph-bold ph-magnifying-glass"></i>
-                        <input type="text" placeholder="Search.." />
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-bell"></i>
-                    </a>
-
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-moon"></i>
-                    </a>
-                </li>
-                <li>
-                    <img src="o.jpg" />
-                </li>
-            </ul>
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Danh sách nhân viên</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+        <div class="row justify-content-around">
+            <input type="search" class="src" placeholder="Tìm kiếm trong danh sách" />
+            <button class="btn-addRole col-md-2 offset-md-7" type="button">
+                <a asp-action ="AddEmpAccount" asp-controller="Admin">
+                    THÊM NHÂN VIÊN
+                    <i class="ph-bold ph-plus"></i>
+                </a>
+            </button>
         </div>
     </div>
     <div class="tab-container">
@@ -106,9 +99,6 @@
                 </tbody>
             </table>
         </div>
-        <button class="add_cus" style="margin: 20px; width:300px;">
-            <a class="m-4" asp-action="AddEmpAccount" asp-controller="Admin">Thêm nhân viên <i class="ph-bold ph-user-plus" style="font-size:20px; padding-left:10px;"></i> </a>
-        </button>
     </div>
 
     

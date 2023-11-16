@@ -3,31 +3,15 @@
     Layout = "_AdminLayout";
 }
 <div class="container-fluid">
-    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
-        <div class="SearchBox">
-            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
-                <li>
-                    <div class="Search">
-                        <i class="ph-bold ph-magnifying-glass"></i>
-                        <input type="text" placeholder="Search.." />
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-bell"></i>
-                    </a>
-
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-moon"></i>
-                    </a>
-                </li>
-                <li>
-                    <img src="o.jpg" />
-                </li>
-            </ul>
-        </div>
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Danh sách nhân viên</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">CHỈNH SỬA NHÂN VIÊN</h1>
     </div>
     <div style="margin-top: 40px;">
         <form class="row justify-content-around" style=" margin: 0 auto;" asp-action="EditEmpAction" asp-controller="Admin" method="post" enctype="multipart/form-data">
@@ -90,7 +74,7 @@
                     <div class="col-md-6">
                         <label for="inputGender" class="form-label">Giới tính</label>
                         <select style="background-color: #F3F3F3;" required class="form-control" asp-for="Employee.Gender">
-                            <option value="" disabled selected>...chọn giới tính</option>
+                            <option value="" disabled selected>...Chọn giới tính</option>
                             <option value="1">Nam</option>
                             <option value="2">Nữ</option>
                         </select>
@@ -99,7 +83,7 @@
                     <div class="col-md-6">
                         <label for="inputRole" class="form-label">Vai trò</label>
                         <select style="background-color: #F3F3F3;" required class="form-control" asp-for="Employee.RoleID">
-                            <option value="" disabled>...chọn vai trò trên hệ thống</option>
+                            <option value="" disabled>...Chọn vai trò trên hệ thống</option>
                             @foreach (var r in Model.Roles)
                             {
                                 @if (!r.isHidden)
@@ -113,7 +97,7 @@
                     <div class="col-md-6">
                         <label for="inputRole" class="form-label">Chức vụ</label>
                         <select style="background-color: #F3F3F3;" required class="form-control" asp-for="Employee.PositionID">
-                            <option value="" disabled>...chọn chức vụ trong công ty</option>
+                            <option value="" disabled>...Chọn chức vụ trong công ty</option>
                             @foreach (var p in Model.Positions)
                             {
                                 

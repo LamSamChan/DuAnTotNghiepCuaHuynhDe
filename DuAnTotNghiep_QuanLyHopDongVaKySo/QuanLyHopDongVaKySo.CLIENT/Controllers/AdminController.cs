@@ -122,7 +122,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             set { this.employeeId = value; }
         }
-
+        public IActionResult VD()
+        {
+            return View();
+        }
         public async Task<IActionResult> Index()
         {
             string VB = ViewBag.Role;
