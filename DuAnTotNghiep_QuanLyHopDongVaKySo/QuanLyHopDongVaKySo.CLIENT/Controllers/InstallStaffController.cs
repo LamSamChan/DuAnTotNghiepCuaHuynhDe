@@ -22,6 +22,8 @@ using System.Drawing.Imaging;
 using test.Models;
 using API = QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo.CLIENT.Helpers;
+using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
+using QuanLyHopDongVaKySo_API.ViewModels;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -41,6 +43,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IInstallationDevicesService _installationDevicesService;
         private readonly ITContractService _tContractService;
         private readonly IUploadHelper _uploadHelper;
+        private readonly IPasswordService _passwordService;
 
         private int isAuthenticate;
         private string employeeId;
@@ -76,10 +79,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             set { this.isAuthenticate = value; }
         }
-        public IActionResult ChangePass()
-        {
-            return View();
-        }
 
         public string EmployeeId
         {
@@ -97,7 +96,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public InstallStaffController(IIRequirementService iRequirementService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices, IDContractsService doneContractSvc,
             IPMinuteService pMinuteService, ITOSService tosService, ITMinuteService tMinuteService, IInstallationDevicesService installationDevicesService, ITContractService tContractService,
-            IUploadHelper uploadHelper)
+            IUploadHelper uploadHelper, IPasswordService passwordService)
         {
             _iRequirementService = iRequirementService;
             _hostingEnvironment = hostingEnvironment;
@@ -113,7 +112,51 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _installationDevicesService = installationDevicesService;
             _tContractService = tContractService;
             _uploadHelper = uploadHelper;
+            _passwordService = passwordService;
 
+        }
+
+        public IActionResult ChangePass()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetOTP()
+        {
+            var respone = await _passwordService.GetOTPChangeAsync(EmployeeId);
+            if (respone != null)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassAction([FromBody] ChangePassword change)
+        {
+            change.EmployeeID = EmployeeId;
+            var respone = await _passwordService.ChangePasswordAsync(change);
+            if (respone != null)
+            {
+                var emp = await _employeeService.GetEmployeePutById(EmployeeId);
+                emp.IsFirstLogin = false;
+                var respone1 = await _employeeService.UpdateEmployee(emp);
+                if (respone1 != null)
+                {
+                    return RedirectToAction("Index");
+
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            else
+            {
+                // mk cũ không đúng
+                return BadRequest();
+            }
         }
 
         public async Task<IActionResult> ListInstallRequire()

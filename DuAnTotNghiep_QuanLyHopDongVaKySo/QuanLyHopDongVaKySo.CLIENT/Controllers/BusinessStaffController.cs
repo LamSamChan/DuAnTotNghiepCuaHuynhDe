@@ -26,6 +26,7 @@ using QuanLyHopDongVaKySo_API.Models;
 using Employee = QuanLyHopDongVaKySo_API.Models.Employee;
 using static QuanLyHopDongVaKySo.CLIENT.Constants.SessionKey;
 using System.Net.Http.Json;
+using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -46,7 +47,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IPositionService _positionService;
         private readonly IUploadHelper _uploadHelper;
         private readonly IPdfToImageHelper _pdfToImageHelper;
-
+        private readonly IPasswordService _passwordService;
 
 
         private int isAuthenticate = 1;
@@ -101,7 +102,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public BusinessStaffController(ICustomerService customerService, IDContractsService dContractService, IEmployeeService employeeService,
             IPContractService pContractService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, ITContractService tContractService,
             ITOSService tosService, ITMinuteService tMinuteService, IInstallationDevicesService installationDevicesService, IPFXCertificateServices pfxCertificateServices,
-            IRoleService roleService, IPositionService positionSerivce, IUploadHelper uploadHelper, IPdfToImageHelper pdfToImageHelper)
+            IRoleService roleService, IPositionService positionSerivce, IUploadHelper uploadHelper, IPdfToImageHelper pdfToImageHelper, IPasswordService passwordService)
         {
             _customerService = customerService;
             _dContractService = dContractService;
@@ -118,9 +119,52 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _pfxCertificateServices = pfxCertificateServices;
             _uploadHelper = uploadHelper;
             _pdfToImageHelper = pdfToImageHelper;
-
+            _passwordService = passwordService;
         }
-      
+
+        public IActionResult ChangePass()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetOTP()
+        {
+            var respone = await _passwordService.GetOTPChangeAsync(EmployeeId);
+            if (respone != null)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassAction([FromBody] ChangePassword change)
+        {
+            change.EmployeeID = EmployeeId;
+            var respone = await _passwordService.ChangePasswordAsync(change);
+            if (respone != null)
+            {
+                var emp = await _employeeService.GetEmployeePutById(EmployeeId);
+                emp.IsFirstLogin = false;
+                var respone1 = await _employeeService.UpdateEmployee(emp);
+                if (respone1 != null)
+                {
+                    return RedirectToAction("Index");
+
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            else
+            {
+                // mk cũ không đúng
+                return BadRequest();
+            }
+        }
+
         public async Task<IActionResult> CreatePContract(PostPendingContract pContract)
         {
             pContract.CustomerId = Guid.Parse(HttpContext.Session.GetString(SessionKey.Customer.CustomerID));
@@ -226,10 +270,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult ChangePass()
-        {
-            return View();
-        }
+
         public async Task<IActionResult> ListContractFormPage()
         {
 
@@ -242,14 +283,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             TemplateContract template = await _tContractService.getByIdAsnyc(int.Parse(TContactID));
             return View(template);
         }
-        [HttpPost]
-        public async Task<IActionResult> UpdateCFormPage(PutTContract tContract)
+        [HttpPut]
+        public async Task<IActionResult> UpdateCFormPage([FromBody] PutTContract tContract)
         {
-           
-                await _tContractService.updateAsnyc(tContract);
-                return RedirectToAction("ListContractFormPage", "BusinessStaff");
-            
-            
+            var respone = await _tContractService.updateAsnyc(tContract);
+            if (respone != 0)
+            {
+                return RedirectToAction("ListContractFormPage");
+            }else return RedirectToAction("Index");
         }
 
         public async Task<IActionResult> TListMinute()
@@ -277,14 +318,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         }
 
-        /*public IActionResult EditContratFormPage()
-        {
-            return View();
-        }*/
-     /*   public IActionResult TEditMinute()
-        {
-            return View();
-        }*/
 
         public async Task<IActionResult> AddTMinute([FromForm] API.PostTMinute tContract)
         {
@@ -369,7 +402,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 System.IO.File.Delete(inputFile);
 
                 //thành công
-                return RedirectToAction("ContractFormPage");
+                return RedirectToAction("ListContractFormPage");
             }
             else
             {

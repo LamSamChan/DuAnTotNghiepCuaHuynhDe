@@ -51,12 +51,9 @@
                 <tr style="color: #8B909A;">
 
                     <th scope="col">ID</th>
-                    <th scope="col">Ngày tạo</th>
+                    <th scope="col">Ngày thêm</th>
                     <th scope="col">Tên hợp đồng</th>
-                    <th scope="col">Tên file</th>
-                    <th scope="col">Vị trí ký của giám đốc</th>
-                    <th scope="col">Vị trí ký của nhân viên</th>
-                    <th scope="col">CHI TIẾT</th>
+                    <th scope="col" colspan="3" style="text-align:center;">Hành động</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -68,12 +65,16 @@
                         <th scope="row">@item.TContactID </th>
                         <td>@item.DateAdded</td>
                         <td>@item.TContractName</td>
-                        <td>@item.TContractFile</td>
-                        <td>@item.jsonDirectorZone</td>
-                        <td>@item.jsonCustomerZone</td>
                         <td>
                             <a asp-controller="BusinessStaff" asp-action="EditContractFormPage" asp-route-TContactID="@item.TContactID">Cấu hình</a>
                         </td>
+                        <td>
+                            <a asp-controller="BusinessStaff">Tải</a>
+                        </td>
+                        <td>
+                            <a asp-controller="BusinessStaff">Xoá</a>
+                        </td>
+                        
                     </tr>
                 }
             </tbody>

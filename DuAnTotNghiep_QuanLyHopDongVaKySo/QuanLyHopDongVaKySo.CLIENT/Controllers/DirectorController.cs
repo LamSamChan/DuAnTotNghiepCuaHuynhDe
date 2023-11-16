@@ -137,8 +137,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var emp = await _employeeService.GetEmployeePutById(EmployeeId);
                 emp.IsFirstLogin = false;
-                await _employeeService.UpdateEmployee(emp);
-                return Ok();
+                var respone1 = await _employeeService.UpdateEmployee(emp);
+                if(respone1 != null)
+                {
+                    return RedirectToAction("Index");
+
+                }
+                else
+                {
+                    return BadRequest();
+                }
             }
             else
             {

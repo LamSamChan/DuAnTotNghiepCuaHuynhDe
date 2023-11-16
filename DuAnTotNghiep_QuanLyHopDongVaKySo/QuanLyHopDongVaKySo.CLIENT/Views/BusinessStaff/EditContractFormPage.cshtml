@@ -1,15 +1,13 @@
 ﻿
 @model QuanLyHopDongVaKySo_API.Models.TemplateContract
 @{
-    string directoryPath = "wwwroot\\ContractImage\\" + Model.TContactID;
+    string directoryPath = "wwwroot\\TContractImage\\" + Model.TContactID;
     List<string> imagePath = new List<string>();
-
+    int tContractId = Model.TContactID;
+    string dateAdded = Model.DateAdded.ToString();
+    string tContractName = Model.TContractName;
+    string? tContractFile = Model.TContractFile;
     imagePath = Directory.GetFiles(directoryPath).ToList();
-
-    foreach(var item in imagePath)
-    {
-        Console.WriteLine(item);
-    }
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <link href="~/php/style.css" rel="stylesheet" />
@@ -25,7 +23,7 @@
                 <div class="m-l-15">
                     <h4 class="m-b-0"
                         style="width: 512px; height: 52px; color: #2B3674; font-size: 34px; font-family: DM Sans; font-weight: 700; line-height: 42px; word-wrap: break-word">
-                        Chỉnh sửa cấu hình hợp đồng mẫu @Model.TContactID
+                        Chỉnh sửa cấu hình hợp đồng mẫu: @Model.TContactID
                     </h4>
                 </div>
             </div>
@@ -182,7 +180,12 @@
 
         imgElement.src = imagePaths[index];
 
-     
+        if (index === imagePaths.length - 1) {
+            // Hiển thị vùng chữ ký chỉ ở trang cuối cùng
+            signatureLayer.show();
+        } else {
+            signatureLayer.hide();
+        }
     }
 
     function createSignatureArea(role) {
@@ -262,6 +265,33 @@
         // Kiểm tra và làm gì đó với directorCoordinates và customerCoordinates
         console.log("Director Coordinates: ", directorCoordinates);
         console.log("Customer Coordinates: ", customerCoordinates);
+
+        var tcontract = {
+            TContactID: '@Html.Raw(tContractId)',
+            DateAdded: '@Html.Raw(dateAdded)',
+            TContractName: '@Html.Raw(tContractName)',
+            TContractFile: '@Html.Raw(tContractFile)',
+            jsonDirectorZone: JSON.stringify(directorCoordinates),
+            jsonCustomerZone: JSON.stringify(customerCoordinates),
+        };
+
+        $.ajax({
+            url: '@Url.Action("UpdateCFormPage")',
+            type: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(tcontract),
+            success: function (result) {
+                if (!result.success) {
+                    // Chuyển hướng tới trang mong muốn
+                    var redirectToUrl = '@Url.Action("ListContractFormPage")';
+                    window.location.href = redirectToUrl;
+                }
+            },
+            error: function () {
+                console.error('Lỗi khi gửi yêu cầu.');
+
+            }
+        });
     }
 
     document.addEventListener("DOMContentLoaded", function () {

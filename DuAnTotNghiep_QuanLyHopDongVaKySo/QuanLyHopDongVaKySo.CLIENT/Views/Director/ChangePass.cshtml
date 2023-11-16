@@ -13,27 +13,27 @@
     </div>
     <div class="changPassForm">
         <h4 class="td">THAY ĐỔI MẬT KHẨU</h4>
-        <form class="row g-3">
+        <div class="row g-3 p-5">
             <div class="mb-3">
                 <label for="passOld" class="form-label">Nhập mật khẩu cũ</label>
-                <input type="password" class="form-control" id="passOld">
+                <input type="password" class="form-control" id="passOld" required minlength="8">
             </div>
             <div class="mb-3">
                 <label for="passNew" class="form-label">Nhập mật khẩu mới</label>
-                <input type="password" class="form-control" id="passNew" oninput="checkMatch()">
+                <input type="password" class="form-control" id="passNew" oninput="checkMatch()" required minlength="8">
             </div>
             <p id="message1"></p>
             <div class="mb-3">
                 <label for="ConfirmPassNew" class="form-label">Xác nhận mật khẩu</label>
-                <input type="password" class="form-control" id="ConfirmPassNew" oninput="checkMatch()">
+                <input type="password" class="form-control" id="ConfirmPassNew" oninput="checkMatch()" required minlength="8">
             </div>
             <p id="message"></p>
             <div class="mb-6">
-                <button class="btn btn-primary" type="submit" style="width: 100%; margin-top:10px" id="changePass" disabled>
+                <button class="btn btn-primary" style="width: 100%; margin-top:10px" id="changePass" onclick="changePassAction()" disabled>
                     THAY ĐỔI MẬT KHẨU
                 </button>
             </div>
-        </form>
+        </div>
         <hr />
         <div class="getOTP">
             <h4 class="td">NHẬP MÃ OTP</h4>
@@ -145,7 +145,7 @@
         var changePassword = {
             Password: $('#passOld').val(),
             NewPassword: $('#passNew').val(),
-            ConfirmNewPassword $('#ConfirmPassNew').val(),
+            ConfirmNewPassword: $('#ConfirmPassNew').val(),
             EmployeeID: '',
             ComfirmOTP: otp
         };
@@ -158,14 +158,18 @@
             success: function (result) {
                 if (!result.success) {
                     // Chuyển hướng tới trang mong muốn
-                    var redirectToUrl = '@Url.Action("Index", "Director")';
+                    var redirectToUrl = '@Url.Action("Index")';
                     window.location.href = redirectToUrl;
                 }
             },
             error: function () {
                 console.error('Lỗi khi gửi yêu cầu.');
+
             }
         });
+        // Chuyển hướng tới trang mong muốn
+        var redirectToUrl = '@Url.Action("Index")';
+        window.location.href = redirectToUrl;
     }
     // so sanh hai box input pass
     function checkMatch() {
