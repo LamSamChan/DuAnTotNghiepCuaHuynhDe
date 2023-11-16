@@ -260,7 +260,7 @@ namespace QuanLyHopDongVaKySo_API.Services.EmployeeService
                 existingEmp.SerialPFX = existingEmp.SerialPFX;
                 existingEmp.RoleID = employee.RoleID;
                 existingEmp.PositionID = employee.PositionID;
-                existingEmp.IsFirstLogin = existingEmp.IsFirstLogin;
+                existingEmp.IsFirstLogin = employee.IsFirstLogin;
 
                 string checkFiled = await IsFieldExist(existingEmp);
                 string checkHidden = await IsRoleOrPositonCheck(existingEmp);

@@ -1,7 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
 <div class="container-fluid" style="height: 100vh;">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
@@ -16,37 +13,37 @@
     </div>
     <div class="changPassForm">
         <h4 class="td">THAY ĐỔI MẬT KHẨU</h4>
-        <form class="row g-3">
+        <div class="row g-3 p-5">
             <div class="mb-3">
                 <label for="passOld" class="form-label">Nhập mật khẩu cũ</label>
-                <input type="password" class="form-control" id="passOld">
+                <input type="password" class="form-control" id="passOld" required minlength="8">
             </div>
             <div class="mb-3">
                 <label for="passNew" class="form-label">Nhập mật khẩu mới</label>
-                <input type="password" class="form-control" id="passNew" oninput="checkMatch()">
+                <input type="password" class="form-control" id="passNew" oninput="checkMatch()" required minlength="8">
             </div>
             <p id="message1"></p>
             <div class="mb-3">
                 <label for="ConfirmPassNew" class="form-label">Xác nhận mật khẩu</label>
-                <input type="password" class="form-control" id="ConfirmPassNew" oninput="checkMatch()">
+                <input type="password" class="form-control" id="ConfirmPassNew" oninput="checkMatch()" required minlength="8">
             </div>
             <p id="message"></p>
             <div class="mb-6">
-                <button class="btn btn-primary" type="submit" style="width: 100%; margin-top:10px" id="changePass" disabled>
+                <button class="btn btn-primary" style="width: 100%; margin-top:10px" id="changePass" onclick="changePassAction()" disabled>
                     THAY ĐỔI MẬT KHẨU
                 </button>
             </div>
-        </form>
+        </div>
         <hr />
         <div class="getOTP">
             <h4 class="td">NHẬP MÃ OTP</h4>
             <div class="otp-container">
-                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 2)">
-                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 3)">
-                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 4)">
-                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 5)">
-                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 6)">
-                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 7)">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 2)" id="inputOtp1">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 3)" id="inputOtp2">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 4)" id="inputOtp3">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 5)" id="inputOtp4">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 6)" id="inputOtp5">
+                <input class="otp-input" type="text" maxlength="1" oninput="handleInput(this, 7)" id="inputOtp6">
             </div>
             <script>
                 function handleInput(input, nextInputIndex) {
@@ -60,14 +57,14 @@
                             nextInput.focus();
                         }
                     } else if (inputValue.length === 0) {
-                        const previousInputIndex = nextInputIndex - 2;
+                        const previousInputIndex = nextInputIndex - 2; // 1-based index to 0-based index
                         const previousInput = document.querySelector(`.otp-input:nth-child(${previousInputIndex})`);
 
                         if (previousInput) {
                             previousInput.focus();
                         }
                     }
-                    checkAllInputs();
+                    checkAllInputs()
                 }
                 // kiểm tra nhập đủ text box hay chưa
                 function checkAllInputs() {
@@ -82,7 +79,6 @@
                     event.preventDefault();
                 }
             </script>
-
             <div class="row justify-content-around">
                 <button class="btn-addRole" type="submit" id="myButton" onclick="handleClick(event)">
                     Lấy mã OTP
@@ -95,16 +91,28 @@
     let isButtonDisabled = false;
 
     function handleClick(event) {
-        const button = document.getElementById('myButton');
-        if (!isButtonDisabled) {
-            const countdownSpan = document.createElement('span');
-            countdownSpan.className = 'countdown';
-            button.appendChild(countdownSpan);
+        $.ajax({
+            url: '@Url.Action("GetOTP")',
+            type: 'GET',
+            contentType: 'application/json',
+            success: function (result) {
+                if (!result.success) {
+                    const button = document.getElementById('myButton');
+                    if (!isButtonDisabled) {
+                        const countdownSpan = document.createElement('span');
+                        countdownSpan.className = 'countdown';
+                        button.appendChild(countdownSpan);
 
-            disableButtonForSeconds(180, countdownSpan);
-            button.style.cursor = 'not-allowed';
-        }
-        event.preventDefault();
+                        disableButtonForSeconds(180, countdownSpan);
+                        button.style.cursor = 'not-allowed';
+                    }
+                    event.preventDefault();
+                }
+            },
+            error: function () {
+                console.error('Lỗi khi gửi yêu cầu.');
+            }
+        });
     }
 
     function disableButtonForSeconds(seconds, countdownSpan) {
@@ -130,7 +138,39 @@
         }, 1000);
     }
 
+    function changePassAction() {
 
+        var otp = $('#inputOtp1').val() + $('#inputOtp2').val() + $('#inputOtp3').val() + $('#inputOtp4').val() + $('#inputOtp5').val() + $('#inputOtp6').val();
+
+        var changePassword = {
+            Password: $('#passOld').val(),
+            NewPassword: $('#passNew').val(),
+            ConfirmNewPassword: $('#ConfirmPassNew').val(),
+            EmployeeID: '',
+            ComfirmOTP: otp
+        };
+
+        $.ajax({
+            url: '@Url.Action("ChangePassAction")',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(changePassword),
+            success: function (result) {
+                if (!result.success) {
+                    // Chuyển hướng tới trang mong muốn
+                    var redirectToUrl = '@Url.Action("Index")';
+                    window.location.href = redirectToUrl;
+                }
+            },
+            error: function () {
+                console.error('Lỗi khi gửi yêu cầu.');
+
+            }
+        });
+        // Chuyển hướng tới trang mong muốn
+        var redirectToUrl = '@Url.Action("Index")';
+        window.location.href = redirectToUrl;
+    }
     // so sanh hai box input pass
     function checkMatch() {
         const password1 = document.getElementById('passNew').value;
