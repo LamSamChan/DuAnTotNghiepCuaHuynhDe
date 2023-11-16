@@ -5321,10 +5321,6 @@
       "PackagePath": "staticwebassets\\Resource\\Image\\Background_Login.png"
     },
     {
-      "Id": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Resource\\Image\\Contract_IMG.png",
-      "PackagePath": "staticwebassets\\Resource\\Image\\Contract_IMG.png"
-    },
-    {
       "Id": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Resource\\Image\\LOGO\\1.png",
       "PackagePath": "staticwebassets\\Resource\\Image\\LOGO\\1.png"
     },
@@ -5601,14 +5597,6 @@
       "PackagePath": "staticwebassets\\TContractImage\\4\\6.png"
     },
     {
-      "Id": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\4\\7.png",
-      "PackagePath": "staticwebassets\\TContractImage\\4\\7.png"
-    },
-    {
-      "Id": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\4\\8.png",
-      "PackagePath": "staticwebassets\\TContractImage\\4\\8.png"
-    },
-    {
       "Id": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\5\\1.png",
       "PackagePath": "staticwebassets\\TContractImage\\5\\1.png"
     },
@@ -5719,10 +5707,6 @@
     {
       "Id": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\8\\6.png",
       "PackagePath": "staticwebassets\\TContractImage\\8\\6.png"
-    },
-    {
-      "Id": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TempFile\\1.pdf.pdf",
-      "PackagePath": "staticwebassets\\TempFile\\1.pdf.pdf"
     },
     {
       "Id": "D:\\HUYNHDE_DATN_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Test\\css\\bootstrap.min.css",

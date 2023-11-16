@@ -74,7 +74,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
             {
                 Directory.CreateDirectory(dirPath);
             }
-            string filePath = dirPath + @"\" + file.FileName+".pdf";
+            string filePath = dirPath + @"\" + file.FileName;
 
             if (!File.Exists(filePath))
             {

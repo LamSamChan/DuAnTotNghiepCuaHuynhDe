@@ -25,9 +25,9 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string? TContractFile { get; set; }
 
         [AllowNull]
-        public string jsonDirectorZone { get; set; }
+        public string? jsonDirectorZone { get; set; }
         [AllowNull]
-        public string jsonCustomerZone { get; set; }
+        public string? jsonCustomerZone { get; set; }
 
         //tạo liên kết
         [JsonIgnore]

@@ -283,14 +283,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             TemplateContract template = await _tContractService.getByIdAsnyc(int.Parse(TContactID));
             return View(template);
         }
-        [HttpPost]
-        public async Task<IActionResult> UpdateCFormPage(PutTContract tContract)
+        [HttpPut]
+        public async Task<IActionResult> UpdateCFormPage([FromBody] PutTContract tContract)
         {
-           
-                await _tContractService.updateAsnyc(tContract);
-                return RedirectToAction("ListContractFormPage", "BusinessStaff");
-            
-            
+            var respone = await _tContractService.updateAsnyc(tContract);
+            if (respone != 0)
+            {
+                return RedirectToAction("ListContractFormPage");
+            }else return RedirectToAction("Index");
         }
 
         public async Task<IActionResult> TListMinute()
@@ -318,14 +318,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         }
 
-        /*public IActionResult EditContratFormPage()
-        {
-            return View();
-        }*/
-     /*   public IActionResult TEditMinute()
-        {
-            return View();
-        }*/
 
         public async Task<IActionResult> AddTMinute([FromForm] API.PostTMinute tContract)
         {
@@ -410,7 +402,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 System.IO.File.Delete(inputFile);
 
                 //thành công
-                return RedirectToAction("ContractFormPage");
+                return RedirectToAction("ListContractFormPage");
             }
             else
             {
