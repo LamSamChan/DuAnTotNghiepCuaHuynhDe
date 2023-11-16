@@ -288,8 +288,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> AddTMinute([FromForm] API.PostTMinute tContract)
         {
+            IFormFile temp = null;
             if (tContract.File != null)
             {
+                temp = tContract.File;
                 if (tContract.File.ContentType.StartsWith("application/pdf"))
                 {
                     if (tContract.File.Length > 0)
@@ -314,8 +316,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (reponse != 0)
             {
+                string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile");
+                _pdfToImageHelper.PdfToPng(inputFile, reponse, "tcontract");
+                FileStream fs = new FileStream(inputFile, FileMode.Open, FileAccess.Read);
+                fs.Close();
+                System.IO.File.Delete(inputFile);
+
                 //thành công
-                return RedirectToAction("MinutuFormPage");
+                return RedirectToAction("MinuteFormPage");
             }
             else
             {
