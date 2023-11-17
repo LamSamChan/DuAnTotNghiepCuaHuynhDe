@@ -1,6 +1,8 @@
 ﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMCreateFormForCus
-@{
-}
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -13,86 +15,171 @@
         </nav>
         <h1 class="typeHead">TẠO HỢP ĐỒNG</h1>
     </div>
-    <div style="margin-top: 30px;" class="row justify-content-center">
-        <div class="col-4">
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                <label for="floatingTextarea2">ĐỊA CHỈ LẮP ĐẶT</label>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="box_Svd">
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="ph-bold ph-magnifying-glass"></i></span>
-                    <input type="search" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    <form method="post" asp-action="CreatePContract">
+        <div style="margin-top: 30px;" class="row justify-content-center">
+            <div class="col-4">
+                <div class="form-floating">
+                    <div class="form-group">
+                        <label for="Province">Tỉnh/Thành Phố</label>
+                        <select id="Province" class="form-control" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Province">Tỉnh/Thành Phố</label>
+                        <select id="Province" class="form-control" required></select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="Ward">Xã/Phường</label>
+                        <select id="Ward" class="form-control" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Address">Địa chỉ</label>
+                        <input id="Address" class="form-control" required>
+                    </div>
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" asp-for="PostPendingContract.InstallationAddress" required readonly></textarea>
+                    <label for="floatingTextarea2">ĐỊA CHỈ LẮP ĐẶT</label>
                 </div>
-                <ul class="listSVC">
-                    <li>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios1">
-                                WIFI
-                            </label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                                WIFI
-                            </label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                            <label class="form-check-label" for="exampleRadios3">
-                                WIFI
-                            </label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                            <label class="form-check-label" for="exampleRadios4">
-                                WIFI
-                            </label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
-                            <label class="form-check-label" for="exampleRadios5">
-                                WIFI
-                            </label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
-                            <label class="form-check-label" for="exampleRadios5">
-                                WIFI
-                            </label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
-                            <label class="form-check-label" for="exampleRadios5">
-                                WIFI
-                            </label>
-                        </div>
-                    </li>
-                </ul>
+            </div>
+            <div class="col-4">
+                <div class="box_Svd">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default"><i class="ph-bold ph-magnifying-glass"></i></span>
+                        <input type="search" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <ul class="listSVC">
+                        @foreach (var tos in Model.TypeOfServices)
+                        {
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" asp-for="PostPendingContract.TOS_ID" value="@tos.TOS_ID" required>
+                                    <label class="form-check-label">
+                                        @tos.ServiceName
+                                    </label>
+                                </div>
+                            </li>
+                        }
+                    </ul>
 
 
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row" style="margin: 40px auto; width:300px;">
-        <button class="add_cus" type="submit">
-            TẠO HỢP ĐỒNG
-        </button>
-    </div>
+        <div class="row" style="margin: 40px auto; width:300px;">
+            <button class="add_cus" type="submit">
+                TẠO HỢP ĐỒNG
+            </button>
+        </div>
+    </form>
 
 </div>
+<script>
+    const provice_url = "https://api.npoint.io/ac646cb54b295b9555be";
+    const district_url = "https://api.npoint.io/34608ea16bebc5cffd42";
+    const ward_url = "https://api.npoint.io/dd278dc276e65c68cdf5";
+
+    var province_list = [];
+    var district_list = [];
+    var ward_list = [];
+
+    var singleSelectDropdown = function (id, placeholder, data, selectItem) {
+        setTimeout(function () {
+            $("#" + id).select2({
+                placeholder: placeholder,
+                data: data.map(function (item) {
+                    return {
+                        text: item.Name,
+                    };
+                }),
+                allowClear: true,
+            });
+        }, 200);
+
+        if (selectItem !== null) {
+            setTimeout(function () {
+                $("#" + id)
+                    .val(selectItem)
+                    .trigger("change");
+            }, 200);
+        }
+    };
+
+    var getProviceData = function (callback) {
+        $.getJSON(provice_url, function (list) {
+            callback(list);
+        });
+    };
+
+    var getDistrictData = function (callback) {
+        $.getJSON(district_url, function (list) {
+            callback(list);
+        });
+    };
+
+    var getWardData = function (callback) {
+        $.getJSON(ward_url, function (list) {
+            callback(list);
+        });
+    };
+
+    var hanldeOnchangeProvice = function () {
+        $("#Province").on("change", function () {
+            var id = $(this).val();
+            if (id) {
+
+                $("#District").empty();
+
+                var data_filter = district_list.filter(
+                    (entry) => entry.ProvinceId === parseInt(id)
+                );
+
+                singleSelectDropdown("District", "Chọn Quận/Huyện", data_filter);
+            }
+        });
+    };
+
+    var hanldeOnchangeDistrict = function () {
+        $("#District").on("change", function () {
+            var id = $(this).val();
+            if (id) {
+
+                $("#Ward").empty();
+
+                var data_filter = ward_list.filter(
+                    (entry) => entry.DistrictId === parseInt(id)
+                );
+
+                singleSelectDropdown("Ward", "Chọn Xã/Phường", data_filter);
+            }
+        });
+    };
+
+    var initProviceDropdown = function () {
+        var interval = setInterval(function () {
+            if (province_list.length > 0) {
+                singleSelectDropdown("Province", "Chọn Tỉnh/Thành Phố", province_list);
+                clearInterval(interval);
+            }
+        }, 100);
+    };
+
+    var getAllDataForDropdown = function () {
+        getProviceData(function (list) {
+            province_list = list;
+        });
+
+        getDistrictData(function (list) {
+            district_list = list;
+        });
+
+        getWardData(function (list) {
+            ward_list = list;
+        });
+    };
+
+    $(document).ready(function () {
+        getAllDataForDropdown();
+        initProviceDropdown();
+        hanldeOnchangeProvice();
+        hanldeOnchangeDistrict();
+    });
+</script>
