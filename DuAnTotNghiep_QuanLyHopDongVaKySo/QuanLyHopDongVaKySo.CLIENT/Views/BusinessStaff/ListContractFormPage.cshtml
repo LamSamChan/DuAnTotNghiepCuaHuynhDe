@@ -3,48 +3,26 @@
 @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
 
 <div class="container-fluid">
-    <div class="page-header no-gutters has-tab">
-        <div class="d-md-flex m-b-15 align-items-center justify-content-between">
-            <div class="media align-items-center m-b-15">
-                <br />
-                <div class="m-l-15">
-                    <h4 class="m-b-0"
-                        style="width: 512px; height: 52px; color: #2B3674; font-size: 34px; font-family: DM Sans; font-weight: 700; line-height: 42px; word-wrap: break-word">
-                        Danh sách hợp đồng mẫu
-                    </h4>
-                </div>
-            </div>
-
+   
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Danh sách mẫu hợp đồng</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+        <div class="row">
+            <input type="search" class="src" placeholder="Tìm kiếm khách hàng" />
+            <button class="add_Cus col-md-2 offset-md-7">
+                <a asp-controller="BusinessStaff" asp-action="ContractFormPage">
+                    THÊM MẪU
+                    <i class="ph-bold ph-plus"></i>
+                </a>
+            </button>
         </div>
     </div>
-    <div style="margin: 10px;display: flex;align-items: end;justify-content: end;">
-        <div class="SearchBox">
-            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
-                <li>
-                    <div class="Search">
-                        <i class="ph-bold ph-magnifying-glass"></i>
-                        <input type="text" placeholder="Search.." />
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-bell"></i>
-                    </a>
-
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-moon"></i>
-                    </a>
-                </li>
-                <li>
-                    <img src="o.jpg" />
-                </li>
-            </ul>
-        </div>
-    </div>
-
-
     <div class="listTable">
         <table class="table">
             <thead>
@@ -65,26 +43,16 @@
                         <th scope="row">@item.TContactID </th>
                         <td>@item.DateAdded</td>
                         <td>@item.TContractName</td>
-                        <td>
-                            <a asp-controller="BusinessStaff" asp-action="EditContractFormPage" asp-route-TContactID="@item.TContactID">Cấu hình</a>
+                        <td class="action">
+                            <a class="button-design" asp-controller="BusinessStaff" asp-action="EditContractFormPage" asp-route-TContactID="@item.TContactID"><i class="ph-bold ph-pencil-simple-line"></i></a>
+                            <a class="button-save" onclick="downloadPDF('@item.Base64File','@item.TContractName')"><i class="ph-bold ph-download-simple"></i></a>
+                            <a class="button-delete" asp-controller="BusinessStaff" asp-action="DeleteTContract" asp-route-tContractId="@item.TContactID"><i class="ph-bold ph-trash"></i></a>
                         </td>
-                        <td>
-                            <button onclick="downloadPDF('@item.Base64File','@item.TContractName')">Tải</button>
-                        </td>
-                        <td>
-                            <a asp-controller="BusinessStaff" asp-action="DeleteTContract" asp-route-tContractId="@item.TContactID">Xoá</a>
-                        </td>
-                        
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-    <button class="btn btn-primary" style="margin: 20px; width:300px;">
-        <div class="row action">
-            <a asp-controller="BusinessStaff" asp-action="ContractFormPage">Thêm mẫu hợp đồng mới </a>
-        </div>
-    </button>
 </div>
 <script>
     function downloadPDF(base64String,fileName) {
