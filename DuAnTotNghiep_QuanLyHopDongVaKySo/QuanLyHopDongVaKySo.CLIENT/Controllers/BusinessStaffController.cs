@@ -126,6 +126,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+       
 
         [HttpGet]
         public async Task<IActionResult> GetOTP()

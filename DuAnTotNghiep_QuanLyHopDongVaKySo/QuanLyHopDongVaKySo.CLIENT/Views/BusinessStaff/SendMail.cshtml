@@ -1,5 +1,77 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+
+<!-- Summernote css -->
+<link href="~/assetsEmail/libs/summernote/summernote-bs4.min.html" rel="stylesheet" type="text/css" />
+
+<!-- Bootstrap Css -->
+<link href="~/assetsEmail/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+<!-- Icons Css -->
+<link href="~/assetsEmail/css/icons.min.css" rel="stylesheet" type="text/css">
+<!-- App Css-->
+<link href="~/assetsEmail/css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+
+
+<div class="row" style="margin-top: 100px; margin-right: 200px;">
+    <div class="col-12">
+        
+        <div class="email-rightbar">
+            <div class="card">
+                <div class="card-body">
+                      <h4 class="m-b-0"
+                      style="width: 512px; height: 52px; color: #2B3674; font-size: 24px; font-family: DM Sans; font-weight: 700; line-height: 42px; word-wrap: break-word">
+                        Soạn Email
+                    </h4>
+                    <div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="To">
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="mb-3">
+                            <form method="post">
+                                <div class="form-group green-border-focus">
+
+                                    <textarea class="form-control" id="email-editor" placeholder="Write's text here"
+                                              name="area" rows="10"></textarea>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="d-flex mb-0">
+                            <div class="me-1">
+                                <button type="button" class="btn btn-success waves-effect waves-light">
+                                    <i class="far fa-save"></i>
+                                </button>
+                            </div>
+                            <div class="me-1">
+                                <button type="button" class="btn btn-success waves-effect waves-light">
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+                            </div>
+                            <div>
+                                <button class="btn btn-purple waves-effect waves-light">
+                                    <span>Send</span> <i class="fab fa-telegram-plane ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div> <!-- end Col-9 -->
+
+    </div>
+
+</div><!-- End row -->
+
+<script src="~/assetsEmail/libs/jquery/jquery.min.js"></script>
+<script src="~/assetsEmail/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+
