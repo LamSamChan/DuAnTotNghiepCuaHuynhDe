@@ -1,4 +1,5 @@
 ﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListRole
+@using Syncfusion.EJ2
 @{
     Layout = "_AdminLayout";
 }
@@ -185,6 +186,11 @@
         </div>
        
     </div>
+    <div class="content-wrapper">
+        <div class="col-lg-4 col-md-6 content-section">
+            <ejs-message id="msg_success_filled" severity="Success" variant="Filled" content="Your message has been sent successfully"></ejs-message>
+        </div>
+    </div>
 </div>
 <script>
     function showTab(tabId) {
@@ -206,5 +212,15 @@
 
         var selectedButton = document.querySelector('[onclick="showTab(\'' + tabId + '\')"]');
         selectedButton.classList.add('active');
+    }
+
+
+    // Hàm hiển thị message
+    function showSuccessMessage() {
+        $("#msg_success_filled").ej2Message.show();
+        // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
+        setTimeout(function () {
+            $("#msg_success_filled").ej2Message.hide();
+        }, 5000);
     }
 </script>
