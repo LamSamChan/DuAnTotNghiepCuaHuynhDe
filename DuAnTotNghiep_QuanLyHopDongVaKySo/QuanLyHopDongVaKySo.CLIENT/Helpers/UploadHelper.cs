@@ -5,7 +5,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
     public interface IUploadHelper
     {
         string UploadImage(IFormFile file, string rootPath, string category);
-        string UploadPDF(IFormFile file, string rootPath, string category);
+        string UploadPDF(IFormFile file, string rootPath, string category, string? extension);
         void RemoveImage(string filePath);
         IFormFile ConvertBase64ToIFormFile(string base64String, string fileName, string contentType);
 
@@ -63,7 +63,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
             return formFile;
         }
 
-        public string UploadPDF(IFormFile file, string rootPath, string category)
+        public string UploadPDF(IFormFile file, string rootPath, string category, string? extension)
         {
             if (!Directory.Exists(rootPath))
             {
@@ -74,8 +74,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
             {
                 Directory.CreateDirectory(dirPath);
             }
-            string filePath = dirPath + @"\" + file.FileName;
-
+            string filePath;
+            if (extension != null)
+            {
+                filePath = dirPath + @"\" + file.FileName + extension;
+            }
+            else
+            {
+                filePath = dirPath + @"\" + file.FileName;
+            }
             if (!File.Exists(filePath))
             {
                 using (Stream stream = new FileStream(filePath, FileMode.Create))

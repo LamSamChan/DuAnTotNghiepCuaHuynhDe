@@ -1,7 +1,8 @@
 ﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMCreateFormForCus
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<link rel="stylesheet" href="~/lib/libs/select2/select2.css" />
+<script src="~/lib/libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="~/lib/libs/select2/select2.full.min.js"></script>
 
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
@@ -19,21 +20,25 @@
         <div style="margin-top: 30px;" class="row justify-content-center">
             <div class="col-4 bg-white rounded">
                 <div class="row g-3">
-                    <div class="mb-3">
-                        <label for="Province" class="form-label">Tỉnh/Thành Phố</label>
-                        <select id="Province" class="form-select" required></select>
+                    <div class="form-group">
+                        <label for="Province">Tỉnh/Thành Phố</label>
+                        <select id="Province" class="form-control" required></select>
                     </div>
-                    <div class="mb-3">
-                        <label for="Ward" class="form-label">Xã/Phường</label>
-                        <select id="Ward" class="form-select" required></select>
+                    <div class="form-group">
+                        <label for="District">Quận/Huyện</label>
+                        <select id="District" class="form-control" required></select>
                     </div>
-                    <div class="mb-3">
-                        <label for="Address" class="form-label">Địa chỉ</label>
-                        <input id="Address" class="form-control" required>
+                    <div class="form-group">
+                        <label for="Ward">Xã/Phường</label>
+                        <select id="Ward" class="form-control" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Address" >Số nhà</label>
+                        <input type="text" id="Address" class="form-control" required>
                     </div>
                     <div class="form-floating mt-4">
                         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" asp-for="PostPendingContract.InstallationAddress" required readonly></textarea>
-                        <label for="floatingTextarea2">Địa chỉ lắp cụ thể</label>
+                        <label for="floatingTextarea2">Địa chỉ lắp</label>
                     </div>
                 </div>
             </div>
@@ -76,51 +81,34 @@
     var district_list = [];
     var ward_list = [];
 
-    var singleSelectDropdown = function (id, placeholder, data, selectItem) {
-        setTimeout(function () {
-            $("#" + id).select2({
-                placeholder: placeholder,
-                data: data.map(function (item) {
-                    return {
-                        text: item.Name,
-                    };
-                }),
-                allowClear: true,
-            });
-        }, 200);
+    $(document).ready(function () {
+        getAllDataForDropdown();
+        initProviceDropdown();
+        hanldeOnchangeProvice();
+        hanldeOnchangeDistrict();
+        $('#Ward, #District, #Province, #Address').on('change', function () {
+            updateInstallationAddress();
+        });
 
-        if (selectItem !== null) {
-            setTimeout(function () {
-                $("#" + id)
-                    .val(selectItem)
-                    .trigger("change");
-            }, 200);
+        function updateInstallationAddress() {
+            var address = $('#Address').val();
+            var ward = $('#Ward option:selected').text();
+            var district = $('#District option:selected').text();
+            var city = $('#Province option:selected').text();
+
+            var completeAddress = address + ', ' + ward + ', ' + district + ', ' + city;
+
+            $('textarea[name="PostPendingContract.InstallationAddress"]').val(completeAddress);
+
         }
-    };
+        
+    });
 
-    var getProviceData = function (callback) {
-        $.getJSON(provice_url, function (list) {
-            callback(list);
-        });
-    };
-
-    var getDistrictData = function (callback) {
-        $.getJSON(district_url, function (list) {
-            callback(list);
-        });
-    };
-
-    var getWardData = function (callback) {
-        $.getJSON(ward_url, function (list) {
-            callback(list);
-        });
-    };
 
     var hanldeOnchangeProvice = function () {
         $("#Province").on("change", function () {
             var id = $(this).val();
             if (id) {
-
                 $("#District").empty();
 
                 var data_filter = district_list.filter(
@@ -136,7 +124,6 @@
         $("#District").on("change", function () {
             var id = $(this).val();
             if (id) {
-
                 $("#Ward").empty();
 
                 var data_filter = ward_list.filter(
@@ -171,10 +158,45 @@
         });
     };
 
-    $(document).ready(function () {
-        getAllDataForDropdown();
-        initProviceDropdown();
-        hanldeOnchangeProvice();
-        hanldeOnchangeDistrict();
-    });
+    var getProviceData = function (callback) {
+        $.getJSON(provice_url, function (list) {
+            callback(list);
+        });
+    };
+
+    var getDistrictData = function (callback) {
+        $.getJSON(district_url, function (list) {
+            callback(list);
+        });
+    };
+
+    var getWardData = function (callback) {
+        $.getJSON(ward_url, function (list) {
+            callback(list);
+        });
+    };
+
+    
+    var singleSelectDropdown = function (id, placeholder, data, selectItem) {
+        setTimeout(function () {
+            $("#" + id).select2({
+                placeholder: placeholder,
+                data: data.map(function (item) {
+                    return {
+                        id: item.Id,
+                        text: item.Name,
+                    };
+                }),
+                allowClear: true,
+            });
+        }, 200);
+
+        if (selectItem !== null) {
+            setTimeout(function () {
+                $("#" + id)
+                    .val(selectItem)
+                    .trigger("change");
+            }, 200);
+        }
+    };
 </script>

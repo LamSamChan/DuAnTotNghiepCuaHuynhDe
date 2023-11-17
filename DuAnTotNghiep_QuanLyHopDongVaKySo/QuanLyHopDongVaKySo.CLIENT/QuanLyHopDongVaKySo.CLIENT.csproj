@@ -10,9 +10,13 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <Compile Remove="wwwroot\php\files\**" />
+    <Compile Remove="wwwroot\TMinuteImg\**" />
     <Content Remove="wwwroot\php\files\**" />
+    <Content Remove="wwwroot\TMinuteImg\**" />
     <EmbeddedResource Remove="wwwroot\php\files\**" />
+    <EmbeddedResource Remove="wwwroot\TMinuteImg\**" />
     <None Remove="wwwroot\php\files\**" />
+    <None Remove="wwwroot\TMinuteImg\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,7 +37,6 @@
   <ItemGroup>
     <Folder Include="wwwroot\Avatars\" />
     <Folder Include="wwwroot\TempFile\" />
-    <Folder Include="wwwroot\TMinuteImg\" />
     <Folder Include="wwwroot\TempSignatures\" />
   </ItemGroup>
 

@@ -1,5 +1,6 @@
 ﻿using Ghostscript.NET.Rasterizer;
 using iTextSharp.text.pdf;
+using Spire.Pdf.Graphics;
 using System.Drawing.Imaging;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Helpers
@@ -18,14 +19,43 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
         }
         public List<string> PdfToPng(string inputFile, int idContract, string typeDoc)
         {
-            FileStream fs1 = new FileStream(inputFile, FileMode.Open);
-            fs1.Close();
+            FileStream fs = null;
+            try
+            {
+                fs = new FileStream(inputFile, FileMode.Open);
+                // Thực hiện các thao tác trên fs ở đây
+            }
+            catch (IOException ex)
+            {
+                fs?.Close();
+            }
+            finally
+            {
+                // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
+                fs?.Close();
+            }
+
             int totalPage;
 
             PdfReader pdfReader = new PdfReader(inputFile);
             totalPage = pdfReader.NumberOfPages;
-            FileStream fs = new FileStream(inputFile, FileMode.Open);
-            fs.Close();
+
+            FileStream fs1 = null;
+            try
+            {
+                fs1 = new FileStream(inputFile, FileMode.Open);
+                // Thực hiện các thao tác trên fs ở đây
+            }
+            catch (IOException ex)
+            {
+                fs1?.Close();
+            }
+            finally
+            {
+                // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
+                fs1?.Close();
+            }
+
             List<string> output = new List<string>();
             string outputDirectoryPath = null;
             using (var rasterizer = new GhostscriptRasterizer()) //create an instance for GhostscriptRasterizer
@@ -68,8 +98,21 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
                     pdf2PNG.Save(outputPNGPath, ImageFormat.Png);
                 }
             }
-            FileStream fs3 = new FileStream(inputFile, FileMode.Open);
-            fs3.Close();
+            FileStream fs2 = null;
+            try
+            {
+                fs2 = new FileStream(inputFile, FileMode.Open);
+                // Thực hiện các thao tác trên fs ở đây
+            }
+            catch (IOException ex)
+            {
+                fs2?.Close();
+            }
+            finally
+            {
+                // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
+                fs2?.Close();
+            }
             return output;
         }
     }
