@@ -47,7 +47,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
                 }
                 else
                 {
-                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath, $"TMinuteImg/{idContract}");
+                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath, $"TMinuteImage/{idContract}");
                 }
 
                 //server
@@ -68,7 +68,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
                     pdf2PNG.Save(outputPNGPath, ImageFormat.Png);
                 }
             }
-
+            FileStream fs3 = new FileStream(inputFile, FileMode.Open, FileAccess.Read);
+            fs3.Close();
             return output;
         }
     }

@@ -51,7 +51,7 @@
                 <tr style="color: #8B909A;">
 
                     <th scope="col">ID</th>
-                    <th scope="col">Ngày thêm</th>
+                    <th scope="col">Ngày cập nhật</th>
                     <th scope="col">Tên hợp đồng</th>
                     <th scope="col" colspan="3" style="text-align:center;">Hành động</th>
                 </tr>
@@ -69,10 +69,10 @@
                             <a asp-controller="BusinessStaff" asp-action="EditContractFormPage" asp-route-TContactID="@item.TContactID">Cấu hình</a>
                         </td>
                         <td>
-                            <a asp-controller="BusinessStaff">Tải</a>
+                            <button onclick="downloadPDF('@item.Base64File','@item.TContractName')">Tải</button>
                         </td>
                         <td>
-                            <a asp-controller="BusinessStaff">Xoá</a>
+                            <a asp-controller="BusinessStaff" asp-action="DeleteTContract" asp-route-tContractId="@item.TContactID">Xoá</a>
                         </td>
                         
                     </tr>
@@ -82,10 +82,29 @@
     </div>
     <button class="btn btn-primary" style="margin: 20px; width:300px;">
         <div class="row action">
-            <a asp-controller="BusinessStaff" asp-action="ContractFormPage">Thêm mới hợp đồng <i class="ph-bold ph-user-plus"></i> </a>
+            <a asp-controller="BusinessStaff" asp-action="ContractFormPage">Thêm mẫu hợp đồng mới </a>
         </div>
     </button>
 </div>
+<script>
+    function downloadPDF(base64String,fileName) {
+        var byteCharacters = atob(base64String);
+        var byteNumbers = new Array(byteCharacters.length);
+        for (var i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        var byteArray = new Uint8Array(byteNumbers);
+        var blob = new Blob([byteArray], { type: 'application/pdf' });
 
+        var blobUrl = URL.createObjectURL(blob);
+
+        var a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+</script>
 
 

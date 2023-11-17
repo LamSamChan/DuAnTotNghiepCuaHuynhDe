@@ -28,6 +28,8 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Địa chỉ lắp đặt")]
         public string InstallationAddress { get; set; }
 
+        public string? Base64File { get; set; }
+
         //tạo liên kết
         [ForeignKey("Employee")]
         public Guid EmployeeCreatedId { get; set; }
@@ -41,6 +43,8 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [ForeignKey("DoneMinute"), AllowNull]
         public int? DoneMinuteId { get; set; }
+
+        
 
         [JsonIgnore]
         public Employee? Employee { get; set; }

@@ -29,6 +29,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column(TypeName = "nvarchar(250)")]
         [Display(Name = "Tệp biên bản")]
         public string MinuteFile { get; set; }
+        public string? Base64File { get; set; }
 
         //tạo liên kết
         [ForeignKey("Employee")]

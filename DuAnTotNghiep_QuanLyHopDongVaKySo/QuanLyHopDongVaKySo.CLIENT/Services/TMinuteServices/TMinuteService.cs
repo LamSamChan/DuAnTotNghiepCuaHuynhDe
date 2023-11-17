@@ -39,9 +39,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices
             }
         }
 
-        public Task<bool> Delete(int id)
+        public async Task<int> DeleteTMinute(int id)
         {
-            throw new NotImplementedException();
+            var reponse = await _httpClient.DeleteAsync($"api/TMinute/Delete/{id}");
+            if (reponse.IsSuccessStatusCode)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public async Task<List<TemplateMinute>> GetAll()
@@ -64,8 +72,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices
                 var reponse = await _httpClient.PutAsync("api/TMinute", content);
                 if (reponse.IsSuccessStatusCode)
                 {
-                    var tc = await reponse.Content.ReadAsStringAsync();
-                    return int.Parse(tc);
+                    return 1;
                 }
                 else { return 0; }
             }

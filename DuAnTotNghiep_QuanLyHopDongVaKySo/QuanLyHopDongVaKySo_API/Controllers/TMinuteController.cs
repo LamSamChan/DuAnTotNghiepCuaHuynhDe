@@ -128,27 +128,37 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         /// <param name="tMinute"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IActionResult> UpdateTMinuteAsnyc([FromForm] PutTMinute tMinute)
+        public async Task<IActionResult> UpdateTMinuteAsnyc([FromBody] PutTMinute tMinute)
         {
             if(ModelState.IsValid)
             {
                 int id_Tminute = await _TMinuteSvc.updateAsnyc(tMinute);
                 if(id_Tminute >0)
                 {
-                    if(tMinute.File != null)
-                    {
-                        /*_helpers.UploadFile(tMinute.File,"AppData","TMinutes");*/
-                        return Ok(new{
-                            retText = "Sữa mâu biên bản thành công",
-                            data = await _TMinuteSvc.getByIdAsnyc(id_Tminute)
-                        });
-                    }
+                        return Ok();
+                }
+                else
+                {
+                    return BadRequest();
                 }
             }
-            return Ok(new{
-                retText = "Dữ liệu không hợp lệ",
-                data = ""
-            });
+            return BadRequest();
+        }
+
+        [HttpDelete("Delete/{id}")]
+        public async Task<IActionResult> DeleteTMinute(int id)
+        {
+
+            var respone = await _TMinuteSvc.deleteAsnyc(id);
+            if (respone)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+
         }
     }
 }

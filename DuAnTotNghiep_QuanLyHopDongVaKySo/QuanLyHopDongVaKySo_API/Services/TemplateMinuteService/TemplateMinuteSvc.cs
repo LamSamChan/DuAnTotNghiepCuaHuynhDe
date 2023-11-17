@@ -7,22 +7,26 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
     public class TemplateMinuteSvc : ITemplateMinuteSvc
     {
         private readonly ProjectDbContext _context;
-
-        public TemplateMinuteSvc (ProjectDbContext context)
+        private readonly IUploadFileHelper _uploadFileHelper;
+        public TemplateMinuteSvc (ProjectDbContext context, IUploadFileHelper uploadFileHelper)
         {
             _context = context;
+            _uploadFileHelper = uploadFileHelper;
         }
         public async Task<int> addAsnyc(PostTMinute tMinute)
         {
-            try{
-                TemplateMinute add = new TemplateMinute
+            
+                TemplateMinute add = new TemplateMinute()
                 {
                     DateAdded = DateTime.Now,
                     TMinuteName =  tMinute.TMinuteName,
-                    TMinuteFile = @"AppData/TMinutes/"+tMinute.File.FileName,
+                    TMinuteFile = @"AppData/TMinutes/"+ tMinute.TMinuteName+".pdf",
                     jsonCustomerZone = tMinute.jsonCustomerZone,
-                    jsonIntallationZone = tMinute.jsonInstallerZone
+                    jsonIntallationZone = tMinute.jsonInstallerZone,
+                    Base64File = tMinute.Base64StringFile
                 };
+            try
+            {
                 await _context.TemplateMinutes.AddAsync(add);
                 await _context.SaveChangesAsync();
                 return add.TMinuteID;
@@ -34,10 +38,11 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
         public async Task<bool> deleteAsnyc(int id)
         {
             var delete = await getByIdAsnyc(id);
-            if(delete != null)
+            if (delete != null)
             {
                 _context.TemplateMinutes.Remove(delete);
                 await _context.SaveChangesAsync();
+                _uploadFileHelper.RemoveFile(delete.TMinuteFile);
                 return true;
             }
             return false;
@@ -60,10 +65,10 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
                 if(update != null)
                 {
                     update.TMinuteName = tMinute.TMinuteName;
-                    update.TMinuteFile = @"AppData\TContracts\"+tMinute.File.FileName;
+                    update.TMinuteFile = tMinute.TMinuteFile;
                     update.DateAdded = DateTime.Now;
                     update.jsonCustomerZone = tMinute.jsonCustomerZone;
-                    update.jsonIntallationZone = tMinute.jsonDirectorZone;
+                    update.jsonIntallationZone = tMinute.jsonInstallerZone;
                     _context.TemplateMinutes.Update(update);
                     await _context.SaveChangesAsync();
                     return update.TMinuteID;

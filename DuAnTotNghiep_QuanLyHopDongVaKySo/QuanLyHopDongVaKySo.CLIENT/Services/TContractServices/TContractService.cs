@@ -40,11 +40,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TContractServices
             }
         }
 
-        public async Task<bool> deleteAsnyc(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<List<TemplateContract>> getAllAsnyc()
         {
             try
@@ -64,6 +59,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TContractServices
             return reponse;
         }
 
+        public async Task<int> DeleteTContract(int id)
+        {
+            var reponse = await _httpClient.DeleteAsync($"api/TContract/Delete/{id}");
+            if (reponse.IsSuccessStatusCode)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         public async Task<int> updateAsnyc(PutTContract tContract)
         {
             var content = new StringContent(JsonConvert.SerializeObject(tContract), Encoding.UTF8, "application/json");
@@ -72,8 +80,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TContractServices
                 var reponse = await _httpClient.PutAsync("api/TContract", content);
                 if (reponse.IsSuccessStatusCode)
                 {
-                    var tc = await reponse.Content.ReadAsStringAsync();
-                    return int.Parse(tc);
+                    return 1;
                 }
                 else { return 0; }
             }

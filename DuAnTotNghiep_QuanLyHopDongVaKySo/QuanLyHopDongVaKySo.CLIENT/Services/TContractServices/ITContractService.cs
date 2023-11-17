@@ -8,6 +8,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TContractServices
         Task<TemplateContract> getByIdAsnyc(int id);
         Task<int> addAsnyc(PostTContract tContract);
         Task<int> updateAsnyc(PutTContract tContract);
-        Task<bool> deleteAsnyc(int id);
+        Task<int> DeleteTContract(int id);
     }
 }

@@ -72,11 +72,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("BankAccount")
-                        .IsRequired()
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("BankName")
-                        .IsRequired()
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("BillingAddress")
@@ -177,6 +175,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DContractID"));
 
+                    b.Property<string>("Base64File")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
@@ -231,6 +232,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DoneMinuteID"));
+
+                    b.Property<string>("Base64File")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateDone")
                         .HasColumnType("datetime2");
@@ -539,6 +543,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PContractID"));
 
+                    b.Property<string>("Base64File")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
@@ -597,6 +604,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PendingMinuteId"));
+
+                    b.Property<string>("Base64File")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
@@ -681,6 +691,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TContactID"));
 
+                    b.Property<string>("Base64File")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DateAdded")
                         .HasColumnType("datetime2");
 
@@ -692,11 +705,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("jsonCustomerZone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("jsonDirectorZone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TContactID");
@@ -712,6 +723,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TMinuteID"));
+
+                    b.Property<string>("Base64File")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateAdded")
                         .HasColumnType("datetime2");

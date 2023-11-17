@@ -25,9 +25,11 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string TMinuteFile { get; set; }
 
         [AllowNull]
-        public string jsonIntallationZone { get; set; }
+        public string? jsonIntallationZone { get; set; }
         [AllowNull]
-        public string jsonCustomerZone { get; set; }
+        public string? jsonCustomerZone { get; set; }
+
+        public string? Base64File { get; set; }
 
         //tạo liên kết
         [JsonIgnore]

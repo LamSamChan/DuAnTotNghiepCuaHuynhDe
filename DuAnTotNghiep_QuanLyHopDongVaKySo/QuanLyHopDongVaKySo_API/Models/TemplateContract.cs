@@ -29,6 +29,8 @@ namespace QuanLyHopDongVaKySo_API.Models
         [AllowNull]
         public string? jsonCustomerZone { get; set; }
 
+        public string? Base64File { get; set; }
+
         //tạo liên kết
         [JsonIgnore]
         public ICollection<ContractCoordinate>? ContractCoordinates { get; set; }

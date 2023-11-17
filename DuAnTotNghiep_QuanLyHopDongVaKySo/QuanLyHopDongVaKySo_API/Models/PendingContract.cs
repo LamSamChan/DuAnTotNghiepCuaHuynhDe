@@ -38,6 +38,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [Display(Name = "Địa chỉ lắp đặt")]
         public string InstallationAddress { get; set; }
+        public string? Base64File { get; set; }
 
         //tạo liên kết
         [ForeignKey("Employee")]

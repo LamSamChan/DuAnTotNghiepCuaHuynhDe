@@ -9,9 +9,11 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
     public class TemplateContractSvc : ITemplateContractSvc
     {
         private readonly ProjectDbContext _context;
-        public TemplateContractSvc(ProjectDbContext context)
+        private readonly IUploadFileHelper _uploadFileHelper;
+        public TemplateContractSvc(ProjectDbContext context, IUploadFileHelper uploadFileHelper)
         {
             _context = context;
+            _uploadFileHelper = uploadFileHelper;
         }
         public async Task<int> addAsnyc(PostTContract tContract)
         {
@@ -20,9 +22,11 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
                 {
                     DateAdded = DateTime.Now,
                     TContractName = tContract.TContractName,
-                    TContractFile = @"AppData/TContracts/"+tContract.TContractName,
+                    TContractFile = @"AppData/TContracts/"+tContract.TContractName + ".pdf",
                     jsonCustomerZone = null,
-                    jsonDirectorZone = null
+                    jsonDirectorZone = null,
+                    Base64File = tContract.Base64StringFile
+                    
                 };
                 await _context.TemplateContracts.AddAsync(add);
                 await _context.SaveChangesAsync();
@@ -40,6 +44,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
             {
                 _context.TemplateContracts.Remove(delete);
                 await _context.SaveChangesAsync();
+                _uploadFileHelper.RemoveFile(delete.TContractFile);
                 return true;
             }
             return false;
@@ -62,7 +67,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
                 if(update != null)
                 {
                     update.TContractName = tContract.TContractName;
-                    update.TContractFile = @"AppData/TContracts/"+tContract.File.FileName;
+                    update.TContractFile = tContract.TContractFile;
                     update.DateAdded = DateTime.Now;
                     update.jsonCustomerZone = tContract.jsonCustomerZone;
                     update.jsonDirectorZone = tContract.jsonDirectorZone;
