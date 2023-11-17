@@ -36,6 +36,22 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(await _TContractSvc.getAllAsnyc());
         }
 
+        [HttpDelete("Delete/{id}")]
+        public async Task<IActionResult> DeleteTContract(int id)
+        {
+
+            var respone = await _TContractSvc.deleteAsnyc(id);
+            if (respone)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+            
+        }
+
         /// <summary>
         /// Lấy mẫu hợp đồng được chọn theo id
         /// </summary>
@@ -124,25 +140,20 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         /// <param name="tContract"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IActionResult> UpdateTContractAsnyc([FromForm] PutTContract tContract)
+        public async Task<IActionResult> UpdateTContractAsnyc([FromBody] PutTContract tContract)
         {
             if (ModelState.IsValid)
             {
                 int id_Tcontract = await _TContractSvc.updateAsnyc(tContract);
-                if (id_Tcontract > 0)
+                if (id_Tcontract != 0)
                 {
-                    if (tContract.File != null)
-                    {
-                        //_helpers.UploadFile(tContract.File,"AppData","TContracts");
-                        return Ok(new
-                        {
-                            retText = "sửa mẫu hợp đồng thành công",
-                            data = await _TContractSvc.getByIdAsnyc(id_Tcontract)
-                        });
-                    }
+                    return Ok();
                 }
+                return BadRequest();
+                    
+                
             }
-            return Ok(new
+            return BadRequest(new
             {
                 retText = "dữ liệu không hợp lệ",
                 data = ""

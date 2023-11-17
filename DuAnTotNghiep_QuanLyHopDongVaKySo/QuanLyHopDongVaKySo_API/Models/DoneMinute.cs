@@ -23,6 +23,8 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Tệp biên bản")]
         public string MinuteFile { get; set; }
 
+        public string? Base64File { get; set; }
+
 
         //Tạo khoá liên kết
         [ForeignKey("Employee")]

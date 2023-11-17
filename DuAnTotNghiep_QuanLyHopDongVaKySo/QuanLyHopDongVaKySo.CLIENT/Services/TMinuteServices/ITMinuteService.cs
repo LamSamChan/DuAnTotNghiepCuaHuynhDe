@@ -8,6 +8,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices
         Task<List<TemplateMinute>> GetAll();
         Task<int> AddNew(PostTMinute tMinute);
         Task<int> Update(PutTMinute tMinute);
-        Task<bool> Delete(int id);
+        Task<int> DeleteTMinute(int id);
     }
 }

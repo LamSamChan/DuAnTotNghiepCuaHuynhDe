@@ -4,7 +4,6 @@
     string directoryPath = "wwwroot\\TContractImage\\" + Model.TContactID;
     List<string> imagePath = new List<string>();
     int tContractId = Model.TContactID;
-    string dateAdded = Model.DateAdded.ToString();
     string tContractName = Model.TContractName;
     string? tContractFile = Model.TContractFile;
     imagePath = Directory.GetFiles(directoryPath).ToList();
@@ -262,13 +261,8 @@
             }
         });
 
-        // Kiểm tra và làm gì đó với directorCoordinates và customerCoordinates
-        console.log("Director Coordinates: ", directorCoordinates);
-        console.log("Customer Coordinates: ", customerCoordinates);
-
-        var tcontract = {
-            TContactID: '@Html.Raw(tContractId)',
-            DateAdded: '@Html.Raw(dateAdded)',
+        var tContract = {
+            TContactID: @Html.Raw(tContractId),
             TContractName: '@Html.Raw(tContractName)',
             TContractFile: '@Html.Raw(tContractFile)',
             jsonDirectorZone: JSON.stringify(directorCoordinates),
@@ -279,7 +273,7 @@
             url: '@Url.Action("UpdateCFormPage")',
             type: 'PUT',
             contentType: 'application/json',
-            data: JSON.stringify(tcontract),
+            data: JSON.stringify(tContract),
             success: function (result) {
                 if (!result.success) {
                     // Chuyển hướng tới trang mong muốn
@@ -292,6 +286,7 @@
 
             }
         });
+
     }
 
     document.addEventListener("DOMContentLoaded", function () {

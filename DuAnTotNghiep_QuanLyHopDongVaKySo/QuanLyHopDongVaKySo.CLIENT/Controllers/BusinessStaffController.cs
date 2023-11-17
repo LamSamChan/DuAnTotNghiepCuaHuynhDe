@@ -263,11 +263,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
+      
+
+        //TContract
         public IActionResult ContractFormPage()
-        {
-            return View();
-        }
-        public IActionResult MinuteFormPage()
         {
             return View();
         }
@@ -277,93 +276,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             return View(await _tContractService.getAllAsnyc());
 
-        }
-        public async Task<IActionResult> EditContractFormPage(string TContactID)
-        {
-            
-            TemplateContract template = await _tContractService.getByIdAsnyc(int.Parse(TContactID));
-            return View(template);
-        }
-        [HttpPut]
-        public async Task<IActionResult> UpdateCFormPage([FromBody] PutTContract tContract)
-        {
-            var respone = await _tContractService.updateAsnyc(tContract);
-            if (respone != 0)
-            {
-                return RedirectToAction("ListContractFormPage");
-            }else return RedirectToAction("Index");
-        }
-
-        public async Task<IActionResult> TListMinute()
-        {
-
-            return View(await _tMinuteService.GetAll());
-
-        }
-
-        public async Task<IActionResult> TEditMinute(int TMinuteID)
-        {
-
-            TemplateMinute template = await _tMinuteService.GetById(TMinuteID);
-            return View(template);
-
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> TUpdateMinute(PutTMinute tContract)
-        {
-
-            await _tMinuteService.Update(tContract);
-            return RedirectToAction("TListMinute", "BusinessStaff");
-
-
-        }
-
-
-        public async Task<IActionResult> AddTMinute([FromForm] API.PostTMinute tContract)
-        {
-            IFormFile temp = null;
-            if (tContract.File != null)
-            {
-                temp = tContract.File;
-                if (tContract.File.ContentType.StartsWith("application/pdf"))
-                {
-                    if (tContract.File.Length > 0)
-                    {
-                        using (var stream = new MemoryStream())
-                        {
-                            tContract.File.CopyTo(stream);
-                            byte[] bytes = stream.ToArray();
-                            tContract.TMinuteName = tContract.File.FileName.ToString().Replace(".pdf", "");
-                            tContract.Base64StringFile = Convert.ToBase64String(bytes);
-                            tContract.File = null;
-                        }
-                    }
-                }
-                else
-                {
-                    //báo lỗi ko tải lên file ảnh
-                    RedirectToAction("AddEmpAccount");
-                }
-            }
-            var reponse = await _tMinuteService.AddNew(tContract);
-
-            if (reponse != 0)
-            {
-                string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile");
-                _pdfToImageHelper.PdfToPng(inputFile, reponse, "tcontract");
-                FileStream fs = new FileStream(inputFile, FileMode.Open, FileAccess.Read);
-                fs.Close();
-                System.IO.File.Delete(inputFile);
-
-                //thành công
-                return RedirectToAction("MinuteFormPage");
-            }
-            else
-            {
-                //thất bại
-                return RedirectToAction("AddCus");
-            }
         }
 
         public async Task<IActionResult> AddTContract(API.PostTContract tContract)
@@ -398,8 +310,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile");
                 _pdfToImageHelper.PdfToPng(inputFile, reponse, "tcontract");
-                FileStream fs = new FileStream(inputFile, FileMode.Open, FileAccess.Read);
-                fs.Close();
+
+                using (FileStream fs = new FileStream(inputFile, FileMode.Open, FileAccess.Read)) 
+                {
+                    fs.Close();
+                };
                 System.IO.File.Delete(inputFile);
 
                 //thành công
@@ -410,6 +325,154 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 //thất bại
                 return RedirectToAction("AddCus");
             }
+        }
+        public async Task<IActionResult> EditContractFormPage(string TContactID)
+        {
+            
+            TemplateContract template = await _tContractService.getByIdAsnyc(int.Parse(TContactID));
+            HttpContext.Session.SetString("EditTContractID", TContactID);
+            return View(template);
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateCFormPage([FromBody] PutTContract tContract)
+        {
+            string TContactID = HttpContext.Session.GetString("EditTContractID");
+            tContract.TContractID = int.Parse(TContactID);
+            var respone = await _tContractService.updateAsnyc(tContract);
+            HttpContext.Session.SetString("EditTContractID", "");
+            if (respone != 0)
+            {
+                return RedirectToAction("ListContractFormPage");
+            }else return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> DeleteTContract(int tContractId)
+        {
+            var tContract = _tContractService.getByIdAsnyc(tContractId);
+            var respone = await _tContractService.DeleteTContract(tContractId);
+            if (respone != 0)
+            {
+                string directoryPath = Path.Combine(_hostingEnvironment.WebRootPath, "TContractImage", tContractId.ToString());
+                string[] filePaths = Directory.GetFiles(directoryPath);
+                foreach (var item in filePaths)
+                {
+                    System.IO.File.Delete(item);
+                }
+                Directory.Delete(directoryPath);
+
+                return RedirectToAction("ListContractFormPage");
+            }
+            else return RedirectToAction("Index");
+        }
+
+
+        //TMinute 
+
+        public IActionResult MinuteFormPage()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> ListMinuteFormPage()
+        {
+
+            return View(await _tMinuteService.GetAll());
+
+        }
+
+        public async Task<IActionResult> EditMinuteFormPage(int tMinuteId)
+        {
+
+            TemplateMinute template = await _tMinuteService.GetById(tMinuteId);
+            HttpContext.Session.SetString("EditTMinuteID", tMinuteId.ToString());
+
+            return View(template);
+
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateMFormPage([FromBody] PutTMinute tMinute)
+        {
+
+            string TMinuteID = HttpContext.Session.GetString("EditTMinuteID");
+            tMinute.TMinuteID = int.Parse(TMinuteID);
+            var respone = await _tMinuteService.Update(tMinute);
+            HttpContext.Session.SetString("EditTMinuteID", "");
+            if (respone != 0)
+            {
+                return RedirectToAction("ListContractFormPage");
+            }
+            else return RedirectToAction("Index");
+
+
+        }
+
+
+        public async Task<IActionResult> AddTMinute(API.PostTMinute tMinute)
+        {
+            IFormFile temp = null;
+            if (tMinute.File != null)
+            {
+                temp = tMinute.File;
+                if (tMinute.File.ContentType.StartsWith("application/pdf"))
+                {
+                    if (tMinute.File.Length > 0)
+                    {
+                        using (var stream = new MemoryStream())
+                        {
+                            tMinute.File.CopyTo(stream);
+                            byte[] bytes = stream.ToArray();
+                            tMinute.TMinuteName = tMinute.File.FileName.ToString().Replace(".pdf", "");
+                            tMinute.Base64StringFile = Convert.ToBase64String(bytes);
+                            tMinute.File = null;
+                        }
+                    }
+                }
+                else
+                {
+                    //báo lỗi ko tải lên file ảnh
+                    RedirectToAction("AddEmpAccount");
+                }
+            }
+            var reponse = await _tMinuteService.AddNew(tMinute);
+
+            if (reponse != 0)
+            {
+                string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile");
+                _pdfToImageHelper.PdfToPng(inputFile, reponse, "tminute");
+                using (FileStream fs = new FileStream(inputFile, FileMode.Open, FileAccess.Read))
+                {
+                    fs.Close();
+                };
+                System.IO.File.Delete(inputFile);
+
+                //thành công
+                return RedirectToAction("ListMinuteFormPage");
+            }
+            else
+            {
+                //thất bại
+                return RedirectToAction("AddCus");
+            }
+        }
+
+        public async Task<IActionResult> DeleteTMinute(int tMinuteId)
+        {
+            var tMinute = _tMinuteService.GetById(tMinuteId);
+            var respone = await _tMinuteService.DeleteTMinute(tMinuteId);
+            if (respone != 0)
+            {
+                string directoryPath = Path.Combine(_hostingEnvironment.WebRootPath, "TMinuteImage", tMinuteId.ToString());
+                string[] filePaths = Directory.GetFiles(directoryPath);
+                foreach (var item in filePaths)
+                {
+                    System.IO.File.Delete(item);
+                }
+                Directory.Delete(directoryPath);
+
+                return RedirectToAction("ListMinuteFormPage");
+            }
+            else return RedirectToAction("Index");
         }
 
         //done contract
