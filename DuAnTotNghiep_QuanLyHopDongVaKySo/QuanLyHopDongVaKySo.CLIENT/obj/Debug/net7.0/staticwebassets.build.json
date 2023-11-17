@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "871+233XwX7OKsW1xS38NV6iypAqXyk655KDI1Wv+TM=",
+  "Hash": "YMJ7Vm2rYmYRczybRx9PfdDQA5t9YsN4NGtKGDwCYKs=",
   "Source": "QuanLyHopDongVaKySo.CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
   "Mode": "Default",
@@ -27025,6 +27025,23 @@
       "OriginalItemSpec": "wwwroot\\assetsEmail\\css\\icons.min.css"
     },
     {
+      "Identity": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\assetsEmail\\css\\sample.css",
+      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
+      "RelativePath": "assetsEmail/css/sample.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assetsEmail\\css\\sample.css"
+    },
+    {
       "Identity": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\assetsEmail\\fonts\\dripicons-v2.eot",
       "SourceId": "QuanLyHopDongVaKySo.CLIENT",
       "SourceType": "Discovered",
@@ -28655,6 +28672,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assetsEmail\\js\\app.js"
+    },
+    {
+      "Identity": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\assetsEmail\\js\\ckeditor.js",
+      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
+      "RelativePath": "assetsEmail/js/ckeditor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assetsEmail\\js\\ckeditor.js"
+    },
+    {
+      "Identity": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\assetsEmail\\js\\ckeditor.js.map",
+      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
+      "RelativePath": "assetsEmail/js/ckeditor.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assetsEmail\\js\\ckeditor.js.map"
     },
     {
       "Identity": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\assetsEmail\\js\\pages\\calendar.init.js",

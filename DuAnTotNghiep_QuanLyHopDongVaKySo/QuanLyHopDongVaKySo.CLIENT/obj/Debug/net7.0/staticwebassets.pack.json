@@ -6273,6 +6273,10 @@
       "PackagePath": "staticwebassets\\assetsEmail\\css\\icons.min.css"
     },
     {
+      "Id": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\assetsEmail\\css\\sample.css",
+      "PackagePath": "staticwebassets\\assetsEmail\\css\\sample.css"
+    },
+    {
       "Id": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\assetsEmail\\fonts\\dripicons-v2.eot",
       "PackagePath": "staticwebassets\\assetsEmail\\fonts\\dripicons-v2.eot"
     },
@@ -6655,6 +6659,14 @@
     {
       "Id": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\assetsEmail\\js\\app.js",
       "PackagePath": "staticwebassets\\assetsEmail\\js\\app.js"
+    },
+    {
+      "Id": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\assetsEmail\\js\\ckeditor.js",
+      "PackagePath": "staticwebassets\\assetsEmail\\js\\ckeditor.js"
+    },
+    {
+      "Id": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\assetsEmail\\js\\ckeditor.js.map",
+      "PackagePath": "staticwebassets\\assetsEmail\\js\\ckeditor.js.map"
     },
     {
       "Id": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\assetsEmail\\js\\pages\\calendar.init.js",
