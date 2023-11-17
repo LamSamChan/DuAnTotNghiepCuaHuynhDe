@@ -447,6 +447,7 @@
     height: 200px;
     border: 1px solid;
     margin: 6px 30px;
+    width: 200px;
 }
 
 div[class="overlay"] {

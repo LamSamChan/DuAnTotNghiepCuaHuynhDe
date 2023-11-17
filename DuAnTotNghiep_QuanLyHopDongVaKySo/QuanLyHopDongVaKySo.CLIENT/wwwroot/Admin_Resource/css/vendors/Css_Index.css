@@ -1,6 +1,93 @@
 ﻿
 /*@import url("ListUser.css");
 */
+.otp-container {
+    display: flex;
+    justify-content: center;
+}
+
+.otp-input {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    text-align: center;
+    font-size: 18px;
+}
+/*=============*/
+.changPassForm {
+    margin: 50px auto;
+    width: 600px;
+    background: white;
+}
+
+.changPassForm .row .col-md-12 {
+    display: flex;
+    flex-direction: column;
+}
+
+.changPassForm form {
+    padding: 50px;
+}
+
+.changPassForm form button {
+    margin: 40px auto;
+}
+
+.td {
+    padding: 10px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: #1890FF;
+}
+
+.disabled {
+    border-radius: 8px;
+    background: #2CDDBD;
+    display: flex;
+    width: 240px;
+    height: 40px;
+    padding: 8px 12px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin: 20px;
+    border: 2px solid;
+    color: white;
+    font-weight: bold;
+}
+/*css ChangePass*/
+#message {
+    font-style: italic;
+    display: inline-block;
+}
+
+.mismatch {
+    color: red;
+}
+
+.match {
+    color: green;
+}
+/*css create contract for cus*/
+
+.box_Svd {
+    background-color: white;
+    height: 400px;
+}
+
+.listSVC {
+    list-style: none;
+    max-height: 300px;
+    border: 1px solid;
+    margin: 50px 10px;
+    overflow-y: scroll;
+}
+
+.listSVC li {
+    width: 50%;
+    margin-bottom: 25px;
+}
+
 
 
 
@@ -10,13 +97,143 @@ input[type="file"] {
 }
 
 /* Thiết lập giao diện tùy chỉnh cho input type="file" */
-.custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
+
+.Save_btn {
+    margin-left:10px;
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(100% 100% at 100% 0, #457fca 0, #5691c8 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
     cursor: pointer;
+    display: inline-flex;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+}
+
+
+
+.custom-file-upload {
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+}
+.Save_btn i,
+.custom-file-upload i {
+    margin-right: 10px;
+}
+.Save_btn:focus,
+.custom-file-upload:focus {
+    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+.Save_btn:hover,
+.custom-file-upload:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.Save_btn:active,
+.custom-file-upload:active {
+    box-shadow: #3c4fe0 0 3px 7px inset;
+    transform: translateY(2px);
 }
 /*======*/
+
+/*danh sach chu ky*/
+#scrollable-list {
+    max-height: 400px;
+    overflow-y: auto; 
+}
+
+#scrollable-list ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+#scrollable-list ul li {
+    position: relative;
+    display: inline-block;
+    border: 1px solid;
+    margin: 10px;
+    width: 40%;
+    box-sizing: border-box;
+}
+#scrollable-list ul li img {
+    max-width: 100%;
+    height: auto;
+}
+div[class="overlay"] {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    transition: opacity 0.3s;
+    padding: 10px;
+    opacity: 0;
+}
+
+.avt:hover div[class="overlay"] {
+    opacity: 1;
+}
+/*================*/
+/*vùng ký*/
+#action_Sign{
+    margin:auto;
+}
+#action_Sign .form-inline {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+/*============*/
 .Search_All {
     width: 250px;
     display: flex;

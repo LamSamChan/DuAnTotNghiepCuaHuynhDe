@@ -122,7 +122,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             set { this.employeeId = value; }
         }
-        public IActionResult VD()
+        public IActionResult ChangePass()
         {
             return View();
         }
