@@ -17,30 +17,27 @@
     </div>
     <form method="post" asp-action="CreatePContract">
         <div style="margin-top: 30px;" class="row justify-content-center">
-            <div class="col-4">
-                <div class="form-floating">
-                    <div class="form-group">
-                        <label for="Province">Tỉnh/Thành Phố</label>
-                        <select id="Province" class="form-control" required></select>
+            <div class="col-4 bg-white rounded">
+                <div class="row g-3">
+                    <div class="mb-3">
+                        <label for="Province" class="form-label">Tỉnh/Thành Phố</label>
+                        <select id="Province" class="form-select" required></select>
                     </div>
-                    <div class="form-group">
-                        <label for="Province">Tỉnh/Thành Phố</label>
-                        <select id="Province" class="form-control" required></select>
+                    <div class="mb-3">
+                        <label for="Ward" class="form-label">Xã/Phường</label>
+                        <select id="Ward" class="form-select" required></select>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="Ward">Xã/Phường</label>
-                        <select id="Ward" class="form-control" required></select>
-                    </div>
-                    <div class="form-group">
-                        <label for="Address">Địa chỉ</label>
+                    <div class="mb-3">
+                        <label for="Address" class="form-label">Địa chỉ</label>
                         <input id="Address" class="form-control" required>
                     </div>
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" asp-for="PostPendingContract.InstallationAddress" required readonly></textarea>
-                    <label for="floatingTextarea2">ĐỊA CHỈ LẮP ĐẶT</label>
+                    <div class="form-floating mt-4">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" asp-for="PostPendingContract.InstallationAddress" required readonly></textarea>
+                        <label for="floatingTextarea2">Địa chỉ lắp cụ thể</label>
+                    </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-4 rounded" >
                 <div class="box_Svd">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default"><i class="ph-bold ph-magnifying-glass"></i></span>
@@ -59,8 +56,6 @@
                             </li>
                         }
                     </ul>
-
-
                 </div>
             </div>
         </div>

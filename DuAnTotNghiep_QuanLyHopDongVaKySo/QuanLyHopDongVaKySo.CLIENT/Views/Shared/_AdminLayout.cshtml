@@ -22,15 +22,15 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-    <!-- Thêm Syncfusion EJ2 -->
-    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/17.4.47/material.css" />
-    <script src="https://cdn.syncfusion.com/ej2/17.4.47/dist/ej2.min.js"></script>
-
+   @*  <!-- Syncfusion ASP.NET MVC controls styles -->
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/23.1.36/fluent.css" />
+    <!-- Syncfusion ASP.NET MVC controls scripts -->
+    <script src="https://cdn.syncfusion.com/ej2/23.1.36/dist/ej2.min.js"></script>
+ *@
     <script src="https://unpkg.com/@@phosphor-icons/web"></script>
 </head>
 <body style="font-family: 'Roboto', sans-serif;  background-color: #dbe2f4;">
+   
     <header style="background-color:#001529; position:fixed; width:100%;z-index:9999; top:auto;">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
             <div class="container-fluid">
@@ -292,7 +292,9 @@
             <div class="container-fluid">
                 <main role="main" class="pb-3">
                     @RenderBody()
+                   
                 </main>
+               
             </div>
         </div>
     </div>

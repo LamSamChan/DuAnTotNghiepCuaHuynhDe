@@ -4,17 +4,9 @@
     Layout = "_AdminLayout";
     string tosID = HttpContextAccessor.HttpContext.Session.GetString("tosID");
 }
-
 @section Scripts {
     <script>
-        // Hàm hiển thị message
-        function showSuccessMessage() {
-            $("#msg_success").ej2Message.show();
-            // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
-            setTimeout(function () {
-                $("#msg_success").ej2Message.hide();
-            }, 5000);
-        }
+    
         // jQuery is assumed to be available
 
         // Hàm để thực hiện Ajax và cập nhật dữ liệu
@@ -34,9 +26,6 @@
                 data: JSON.stringify(device),
                 success: function (result) {
                     if (!result.success) {
-                        // Hiển thị tin nhắn thành công
-                       // showSuccessMessage();
-
                         // Chuyển hướng tới trang mong muốn
                         var redirectToUrl = '@Url.Action("DetailsTypeOfService", "Admin")?tosID=' + device.TOS_ID;
                         window.location.href = redirectToUrl;
@@ -50,7 +39,6 @@
         }
     </script>
 }
-
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -152,11 +140,7 @@
                 }
         </tbody>
     </table>
-    <div class="content-wrapper">
-        <div class="col-lg-4 col-md-6 content-section">
-            <ejs-message id="msg_success" severity="Success" content="Your message has been sent successfully"></ejs-message>
-        </div>
-    </div>
+    
 </div>
 <script>
   

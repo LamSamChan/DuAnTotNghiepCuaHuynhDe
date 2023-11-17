@@ -105,13 +105,9 @@ div[class="infor col-5"]  .col{
         line-height: 1.5;
     }
 
-        .form-input:focus {
-            outline: none;
-        }
-
-    .form-select {
-        border: none;
-    }
+.form-input:focus {
+    outline: none;
+}  
 
     h4[class="title"] {
         color: #2B3674;

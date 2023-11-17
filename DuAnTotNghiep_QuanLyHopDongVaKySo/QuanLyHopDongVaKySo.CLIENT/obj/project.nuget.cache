@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kz8+nQQlSq+9c4APjscJrPOwKcJubISCHmepZDWW7F8PikxE0winUfaU0eZM3c1lqgxCT2J0hxFDXY4yCCVDGg==",
+  "dgSpecHash": "P2XLR8qZclJxq3uCpUiLSqFILBe/RKLQs1e8NregsjHSwgUuuWI2XAxBy+HTfFGKoXW7qrxEtV4o33EvaG8JdA==",
   "success": true,
   "projectFilePath": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\QuanLyHopDongVaKySo.CLIENT.csproj",
   "expectedPackageFiles": [
@@ -8,9 +8,6 @@
     "C:\\Users\\do272\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\bouncycastle\\1.8.9\\bouncycastle.1.8.9.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\ghostscript.net\\1.2.3.1\\ghostscript.net.1.2.3.1.nupkg.sha512",
-    "C:\\Users\\do272\\.nuget\\packages\\harfbuzzsharp\\7.3.0\\harfbuzzsharp.7.3.0.nupkg.sha512",
-    "C:\\Users\\do272\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\7.3.0\\harfbuzzsharp.nativeassets.macos.7.3.0.nupkg.sha512",
-    "C:\\Users\\do272\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\7.3.0\\harfbuzzsharp.nativeassets.win32.7.3.0.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\itextsharp\\5.5.13.3\\itextsharp.5.5.13.3.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.13\\microsoft.aspnetcore.authentication.jwtbearer.7.0.13.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
@@ -52,10 +49,6 @@
     "C:\\Users\\do272\\.nuget\\packages\\qrcoder\\1.4.1\\qrcoder.1.4.1.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\scrutor\\3.3.0\\scrutor.3.3.0.nupkg.sha512",
-    "C:\\Users\\do272\\.nuget\\packages\\skiasharp\\2.88.6\\skiasharp.2.88.6.nupkg.sha512",
-    "C:\\Users\\do272\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.6\\skiasharp.harfbuzz.2.88.6.nupkg.sha512",
-    "C:\\Users\\do272\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.6\\skiasharp.nativeassets.macos.2.88.6.nupkg.sha512",
-    "C:\\Users\\do272\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.6\\skiasharp.nativeassets.win32.2.88.6.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\spire.pdf\\9.10.2\\spire.pdf.9.10.2.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\6.5.0\\swashbuckle.aspnetcore.annotations.6.5.0.nupkg.sha512",
@@ -64,11 +57,9 @@
     "C:\\Users\\do272\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
-    "C:\\Users\\do272\\.nuget\\packages\\syncfusion.compression.net.core\\23.1.44\\syncfusion.compression.net.core.23.1.44.nupkg.sha512",
-    "C:\\Users\\do272\\.nuget\\packages\\syncfusion.ej2.pdfviewer.aspnet.core.windows\\23.1.44\\syncfusion.ej2.pdfviewer.aspnet.core.windows.23.1.44.nupkg.sha512",
-    "C:\\Users\\do272\\.nuget\\packages\\syncfusion.licensing\\23.1.44\\syncfusion.licensing.23.1.44.nupkg.sha512",
-    "C:\\Users\\do272\\.nuget\\packages\\syncfusion.pdf.net.core\\23.1.44\\syncfusion.pdf.net.core.23.1.44.nupkg.sha512",
-    "C:\\Users\\do272\\.nuget\\packages\\syncfusion.skiasharphelper.net.core\\23.1.44\\syncfusion.skiasharphelper.net.core.23.1.44.nupkg.sha512",
+    "C:\\Users\\do272\\.nuget\\packages\\syncfusion.ej2.javascript\\23.1.36\\syncfusion.ej2.javascript.23.1.36.nupkg.sha512",
+    "C:\\Users\\do272\\.nuget\\packages\\syncfusion.ej2.mvc5\\23.1.36\\syncfusion.ej2.mvc5.23.1.36.nupkg.sha512",
+    "C:\\Users\\do272\\.nuget\\packages\\syncfusion.licensing\\23.1.36\\syncfusion.licensing.23.1.36.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\do272\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
@@ -129,6 +120,16 @@
       "warningLevel": 1,
       "message": "Package 'PdfiumViewer 2.13.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
       "libraryId": "PdfiumViewer",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Syncfusion.EJ2.MVC5 23.1.36' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Syncfusion.EJ2.MVC5",
       "targetGraphs": [
         "net7.0"
       ]
