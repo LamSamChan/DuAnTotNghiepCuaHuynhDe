@@ -496,6 +496,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var update = await _positionService.UpdatePositionAsync(position);
             if (update != 0)
             {
+
                 return RedirectToAction("ListPosition");
             }
             else
@@ -510,11 +511,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             int reponse = await _roleService.AddRoleAsync(role);
             if (reponse != 0)
             {
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Thêm thành công !!";
                 return RedirectToAction("ListRole");
             }
             else
             {
-                return RedirectToAction("ListPosition");
+                return RedirectToAction("ListRole");
             }
         }
 

@@ -51,6 +51,26 @@
                                 <div class="col-md-5" style="margin:auto;">
                                     <button class="btn-addRole" type="submit" style="width: 100%;">
                                         THÊM
+                                        @if (TempData["SwalMessageType"] != null)
+                                        {
+                                            <script>
+                                                const Toast = Swal.mixin({
+                                                    toast: true,
+                                                    position: "bottom-end",
+                                                    showConfirmButton: false,
+                                                    timer: 3000,
+                                                    timerProgressBar: true,
+                                                    didOpen: (toast) => {
+                                                        toast.onmouseenter = Swal.stopTimer;
+                                                        toast.onmouseleave = Swal.resumeTimer;
+                                                    }
+                                                });
+                                                Toast.fire({
+                                                    icon: '@TempData["SwalMessageIcon"]',
+                                                    title: '@TempData["SwalMessageTitle"]'
+                                                });
+                                            </script>
+                                        }
                                     </button>
                                 </div>
                             </form>
