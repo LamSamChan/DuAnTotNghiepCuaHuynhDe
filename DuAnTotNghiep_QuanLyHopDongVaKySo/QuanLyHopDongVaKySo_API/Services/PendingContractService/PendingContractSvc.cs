@@ -34,7 +34,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 PendingContract add = new PendingContract()
                 {
                     DateCreated = DateTime.Now,
-                    PContractName = "Hợp đồng sử dụng " + serviceName,
+                    PContractName = "Hợp đồng " + serviceName,
                     PContractFile = "",
                     InstallationAddress = PContract.InstallationAddress,
                     IsDirector = false,

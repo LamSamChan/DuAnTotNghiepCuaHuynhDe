@@ -48,6 +48,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             var tContract = await _TContractSvc.getByIdAsnyc(tContractID);
             //lây thông tin toạ động mẫu hợp đòng
             var Coordinates = await _CCoordinateSvc.getByTContract(tContractID);
+            string base64String = null;
             List<string> outputPathContracts = new List<string>();
             if (ModelState.IsValid)
             {
@@ -99,27 +100,21 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
                     pdfStamper.Close();
                     pdfReader.Close();
-                    outputPathContracts = _pdfToImageHelper.PdfToPng(outputPdfFile, int.Parse(id_Pcontract), "contract");
+                    //outputPathContracts = _pdfToImageHelper.PdfToPng(outputPdfFile, int.Parse(id_Pcontract), "contract");
 
-                    FileStream fsPContract = new System.IO.FileStream(outputPdfFile, FileMode.Open, FileAccess.Read);
+                    FileStream fsPContract = new System.IO.FileStream(outputPdfFile, FileMode.Open);
                     fsPContract.Close();
                     await _PContractSvc.updatePContractFile(int.Parse(id_Pcontract), outputPdfFile);
+
+                    byte[] fileBytes = System.IO.File.ReadAllBytes(outputPdfFile);
+                    base64String = Convert.ToBase64String(fileBytes);
                 }
                 if (id_Pcontract != null)
                 {
-                    return Ok(new
-                    {
-                        retText = "Thêm hợp đồng thành công",
-                        data = await _PContractSvc.getByIdAsnyc(int.Parse(id_Pcontract)),
-                        imgae = outputPathContracts
-                    }); ;
+                    return Ok(base64String+"*"+id_Pcontract); 
                 }
             }
-            return Ok(new
-            {
-                reftext = "",
-                data = "dữ liệu không hợp lệ"
-            });
+            return BadRequest();
         }
 
         /// <summary>

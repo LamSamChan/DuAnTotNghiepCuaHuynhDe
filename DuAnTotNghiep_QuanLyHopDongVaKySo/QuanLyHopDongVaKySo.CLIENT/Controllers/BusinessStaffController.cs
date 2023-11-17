@@ -173,6 +173,51 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             pContract.CustomerId = Guid.Parse(HttpContext.Session.GetString(SessionKey.Customer.CustomerID));
             pContract.EmployeeCreatedId = Guid.Parse(HttpContext.Session.GetString(SessionKey.Employee.EmployeeID));
 
+            var respone = await _pContractService.addAsnyc(pContract);
+            string[] split = respone.Split('*');
+            string pdfPath = null;
+            if (respone != null)
+            {
+                IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
+                pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile",".pdf");
+                FileStream fs = null;
+                try
+                {
+                    fs = new FileStream(pdfPath, FileMode.Open);
+                    // Thực hiện các thao tác trên fs ở đây
+                }
+                catch (IOException ex)
+                {
+                    fs?.Close();
+                }
+                finally
+                {
+                    // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
+                    fs?.Close();
+                }
+                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
+
+                FileStream fs1 = null;
+                try
+                {
+                    fs1 = new FileStream(pdfPath, FileMode.Open);
+                    // Thực hiện các thao tác trên fs ở đây
+                }
+                catch (IOException ex)
+                {
+                    fs1?.Close();
+                }
+                finally
+                {
+                    // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
+                    fs1?.Close();
+                }
+                fs1?.Close();
+                System.Threading.Thread.Sleep(1000);
+                System.IO.File.Delete(pdfPath);
+
+                return RedirectToAction("ListCus");
+            }
             return RedirectToAction("Index");
         }
         public async Task<IActionResult> ListCus()
@@ -311,7 +356,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (reponse != 0)
             {
-                string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile");
+                string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile","");
                 _pdfToImageHelper.PdfToPng(inputFile, reponse, "tcontract");
 
                 FileStream fs = null;
@@ -329,6 +374,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
                     fs?.Close();
                 }
+                fs?.Close();
+                System.Threading.Thread.Sleep(1000);
                 System.IO.File.Delete(inputFile);
 
                 //thành công
@@ -452,12 +499,25 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (reponse != 0)
             {
-                string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile");
+                string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile","");
                 _pdfToImageHelper.PdfToPng(inputFile, reponse, "tminute");
-                using (FileStream fs = new FileStream(inputFile, FileMode.Open, FileAccess.Read))
+                FileStream fs = null;
+                try
                 {
-                    fs.Close();
-                };
+                    fs = new FileStream(inputFile, FileMode.Open);
+                    // Thực hiện các thao tác trên fs ở đây
+                }
+                catch (IOException ex)
+                {
+                    // Xử lý lỗi
+                }
+                finally
+                {
+                    // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
+                    fs?.Close();
+                }
+                fs?.Close();
+                System.Threading.Thread.Sleep(1000);
                 System.IO.File.Delete(inputFile);
 
                 //thành công

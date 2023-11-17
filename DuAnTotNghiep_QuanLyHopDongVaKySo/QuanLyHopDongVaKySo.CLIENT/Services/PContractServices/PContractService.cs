@@ -22,7 +22,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    return PContract.CustomerId.ToString();
+                    return await response.Content.ReadAsStringAsync();
                 }
                 return null;
             }
