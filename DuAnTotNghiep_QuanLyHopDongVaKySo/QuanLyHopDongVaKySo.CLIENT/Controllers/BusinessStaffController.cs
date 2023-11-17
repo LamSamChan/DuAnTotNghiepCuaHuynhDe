@@ -166,10 +166,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-        public async Task<IActionResult> CreatePContract(PostPendingContract pContract)
+        public async Task<IActionResult> CreatePContract(VMCreateFormForCus vm)
         {
+            PostPendingContract pContract = new PostPendingContract();
+            pContract = vm.PostPendingContract;
             pContract.CustomerId = Guid.Parse(HttpContext.Session.GetString(SessionKey.Customer.CustomerID));
             pContract.EmployeeCreatedId = Guid.Parse(HttpContext.Session.GetString(SessionKey.Employee.EmployeeID));
+
             return RedirectToAction("Index");
         }
         public async Task<IActionResult> ListCus()
@@ -311,10 +314,21 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile");
                 _pdfToImageHelper.PdfToPng(inputFile, reponse, "tcontract");
 
-                using (FileStream fs = new FileStream(inputFile, FileMode.Open, FileAccess.Read)) 
+                FileStream fs = null;
+                try
                 {
-                    fs.Close();
-                };
+                    fs = new FileStream(inputFile, FileMode.Open);
+                    // Thực hiện các thao tác trên fs ở đây
+                }
+                catch (IOException ex)
+                {
+                    // Xử lý lỗi
+                }
+                finally
+                {
+                    // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
+                    fs?.Close();
+                }
                 System.IO.File.Delete(inputFile);
 
                 //thành công

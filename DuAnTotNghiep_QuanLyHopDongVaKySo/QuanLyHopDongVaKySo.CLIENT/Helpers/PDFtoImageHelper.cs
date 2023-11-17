@@ -18,13 +18,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
         }
         public List<string> PdfToPng(string inputFile, int idContract, string typeDoc)
         {
-            FileStream fs1 = new FileStream(inputFile, FileMode.Open, FileAccess.Read);
+            FileStream fs1 = new FileStream(inputFile, FileMode.Open);
             fs1.Close();
             int totalPage;
 
             PdfReader pdfReader = new PdfReader(inputFile);
             totalPage = pdfReader.NumberOfPages;
-            FileStream fs = new FileStream(inputFile, FileMode.Open, FileAccess.Read);
+            FileStream fs = new FileStream(inputFile, FileMode.Open);
             fs.Close();
             List<string> output = new List<string>();
             string outputDirectoryPath = null;
@@ -68,7 +68,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
                     pdf2PNG.Save(outputPNGPath, ImageFormat.Png);
                 }
             }
-            FileStream fs3 = new FileStream(inputFile, FileMode.Open, FileAccess.Read);
+            FileStream fs3 = new FileStream(inputFile, FileMode.Open);
             fs3.Close();
             return output;
         }
