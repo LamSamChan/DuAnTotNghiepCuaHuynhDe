@@ -11,6 +11,8 @@ namespace QuanLyHopDongVaKySo_API.Helpers
     }
     public class PdfToImageHelper : IPdfToImageHelper
     {
+       
+
         public List<string> PdfToPng(string inputFile, int idContract,string typeDoc)
         {
             FileStream fs1 = new FileStream(inputFile, FileMode.Open, FileAccess.Read);

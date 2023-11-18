@@ -22,5 +22,7 @@ namespace QuanLyHopDongVaKySo_API.ViewModels
         public string InstallationAddress { get; set; }
         public string TOS_ID { get; set; }
         public string PContractFile { get; set; }
+        public string Base64File { get; set; }
+
     }
 }

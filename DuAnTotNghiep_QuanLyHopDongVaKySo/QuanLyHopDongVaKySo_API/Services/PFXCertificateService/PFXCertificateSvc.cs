@@ -282,7 +282,9 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 existingPfx.ImageSignature2 = pfxCertificate.ImageSignature2;
                 existingPfx.ImageSignature3 = pfxCertificate.ImageSignature3;
                 existingPfx.ImageSignature4 = pfxCertificate.ImageSignature4;
-                existingPfx.ImageSignature5 = pfxCertificate.ImageSignature5;                // Lưu thay đổi vào database
+                existingPfx.ImageSignature5 = pfxCertificate.ImageSignature5;
+                existingPfx.DefaultImageSignature = pfxCertificate.DefaultImageSignature;  
+                // Lưu thay đổi vào database
                 await _context.SaveChangesAsync();
                 status = pfxCertificate.Serial;
             }

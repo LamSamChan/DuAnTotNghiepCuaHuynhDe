@@ -29,6 +29,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     DirectorSignedId = (Guid)pContract.DirectorSignedId,
                     CustomerId = pContract.CustomerId,
                     TOS_ID = pContract.TOS_ID,
+                    Base64File = pContract.Base64File
                 };
                 await _context.DoneContracts.AddAsync(add);
                 await _context.SaveChangesAsync();
@@ -187,6 +188,10 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                 if (update != null)
                 {
                     update.IsInEffect = dContract.IsInEffect;
+                    if (dContract.DoneMinuteId != null)
+                    {
+                        update.DoneMinuteId = dContract.DoneMinuteId;
+                    }
                 }
                 _context.DoneContracts.Update(update);
                 await _context.SaveChangesAsync();
