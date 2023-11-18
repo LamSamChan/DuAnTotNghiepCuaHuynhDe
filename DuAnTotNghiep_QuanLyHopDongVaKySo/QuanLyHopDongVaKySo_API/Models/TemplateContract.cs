@@ -25,8 +25,10 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string? TContractFile { get; set; }
 
         [AllowNull]
+        [Column(TypeName = "nvarchar(50)"), MaxLength(50)]
         public string? jsonDirectorZone { get; set; }
         [AllowNull]
+        [Column(TypeName = "nvarchar(50)"),MaxLength(50)]
         public string? jsonCustomerZone { get; set; }
 
         public string? Base64File { get; set; }

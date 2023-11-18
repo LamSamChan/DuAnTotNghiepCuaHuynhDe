@@ -94,7 +94,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     Reason = pc.Reason,
                     InstallationAddress = pc.InstallationAddress,
                     TOS_ID = pc.TypeOfService.ServiceName,
-                    PContractFile = pc.PContractFile
+                    PContractFile = pc.PContractFile,
+                    Base64File = pc.Base64File
                 }).ToListAsync();
             }
             catch
@@ -127,6 +128,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                     update.IsCustomer = PContract.IsCustomer;
                     update.IsRefuse = PContract.IsRefuse;
                     update.Reason = PContract.Reason;
+                    update.Base64File = PContract.Base64File;
                 }
                 _context.PendingContracts.Update(update);
                 await _context.SaveChangesAsync();

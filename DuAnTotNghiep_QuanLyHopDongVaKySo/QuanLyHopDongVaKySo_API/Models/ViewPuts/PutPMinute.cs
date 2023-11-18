@@ -35,5 +35,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         public int DoneContractId { get; set; }
 
+        public string Base64File { get; set; }
+
     }
 }

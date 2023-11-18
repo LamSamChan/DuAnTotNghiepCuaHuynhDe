@@ -25,8 +25,10 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string TMinuteFile { get; set; }
 
         [AllowNull]
+        [Column(TypeName = "nvarchar(50)")]
         public string? jsonIntallationZone { get; set; }
         [AllowNull]
+        [Column(TypeName = "nvarchar(50)")]
         public string? jsonCustomerZone { get; set; }
 
         public string? Base64File { get; set; }

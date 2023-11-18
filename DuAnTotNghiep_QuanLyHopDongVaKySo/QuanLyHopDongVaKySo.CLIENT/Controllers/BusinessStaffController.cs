@@ -195,6 +195,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
                     fs?.Close();
                 }
+                fs?.Close();
+                System.Threading.Thread.Sleep(1000);
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
 
                 FileStream fs1 = null;
@@ -214,7 +216,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 fs1?.Close();
                 System.Threading.Thread.Sleep(1000);
-                System.IO.File.Delete(pdfPath);
+                _pdfToImageHelper.DeleteFileWithRetry(pdfPath);
 
                 return RedirectToAction("ListCus");
             }
@@ -367,7 +369,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 catch (IOException ex)
                 {
-                    // Xử lý lỗi
+                    fs?.Close();
                 }
                 finally
                 {
@@ -376,7 +378,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 fs?.Close();
                 System.Threading.Thread.Sleep(1000);
-                System.IO.File.Delete(inputFile);
+
+                _pdfToImageHelper.DeleteFileWithRetry(inputFile);
 
                 //thành công
                 return RedirectToAction("ListContractFormPage");
@@ -518,7 +521,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 fs?.Close();
                 System.Threading.Thread.Sleep(1000);
-                System.IO.File.Delete(inputFile);
+                _pdfToImageHelper.DeleteFileWithRetry(inputFile);
+
 
                 //thành công
                 return RedirectToAction("ListMinuteFormPage");
@@ -940,6 +944,26 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature5));
                 certificate.ImageSignature5 = null;
             }
+            var result = await _pfxCertificateServices.Update(certificate);
+
+            if (result != null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
+        }
+
+        public async Task<ActionResult> SetDefaultImageSignature(string filePath)
+        {
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var certificate = await _pfxCertificateServices.GetById(serialPFX);
+
+            certificate.DefaultImageSignature = filePath;
+
             var result = await _pfxCertificateServices.Update(certificate);
 
             if (result != null)

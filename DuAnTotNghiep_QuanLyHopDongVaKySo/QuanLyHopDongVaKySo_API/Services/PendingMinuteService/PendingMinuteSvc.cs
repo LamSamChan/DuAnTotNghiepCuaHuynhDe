@@ -118,6 +118,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
                     update.EmployeeId = pMinute.EmployeeId;
                     update.DoneContractId = pMinute.DoneContractId;
                     update.MinuteFile = pMinute.MinuteFile;
+                    update.Base64File = pMinute.Base64File;
                 }
                 _context.PendingMinutes.Update(update);
                 await _context.SaveChangesAsync();
@@ -197,10 +198,10 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
             return minuteInfo;
         }
 
-        public async Task<int> updatePMinuteFile(int id, string File)
+        public async Task<int> updatePMinuteFile(int id, string File, string base64String)
         {
             var update = await GetById(id);
-
+            update.Base64File = base64String;
             update.MinuteFile = File;
             _context.PendingMinutes.Update(update);
             await _context.SaveChangesAsync();

@@ -1,5 +1,5 @@
 ﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMDetailsCus;
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -220,7 +220,7 @@
                         <th scope="col">HỌ VÀ TÊN</th>
                         <th scope="col">LOẠI HỢP ĐỒNG ĐĂNG KÝ</th>
                         <th scope="col">TRẠNG THÁI</th>
-                        <th scope="col"></th>
+                        <th scope="col" colspan="2">HÀNH ĐỘNG</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -237,6 +237,9 @@
                                 CHỜ KÝ
                             </div>
                         </td>
+                            <td>
+                                <button onclick="downloadPDF('@item.Base64File','@item.PContractName')"><i class="ph-bold ph-download-simple"></i></button>
+                            </td>
                         <td>
                             <a asp-action="DetailsContractWaitSign" asp-controller="BusinessStaff" asp-route-id="@item.PContractID">Chi tiết</a>
                         </td>
@@ -310,4 +313,23 @@
         var selectedButton = document.querySelector('[onclick="showTab(\'' + tabId + '\')"]');
         selectedButton.classList.add('active');
     }
+    function downloadPDF(base64String, fileName) {
+        var byteCharacters = atob(base64String);
+        var byteNumbers = new Array(byteCharacters.length);
+        for (var i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        var byteArray = new Uint8Array(byteNumbers);
+        var blob = new Blob([byteArray], { type: 'application/pdf' });
+
+        var blobUrl = URL.createObjectURL(blob);
+
+        var a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+   
 </script>

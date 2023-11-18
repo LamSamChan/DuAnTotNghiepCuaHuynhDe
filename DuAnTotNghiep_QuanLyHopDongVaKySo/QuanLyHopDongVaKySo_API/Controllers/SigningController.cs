@@ -215,6 +215,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var signedContractPath = await _pfxCertificate.SignContract(imagePath, pContract.PContractFile, pContract.PContractFile, certi.Serial, directorZone.X, directorZone.Y);
 
+            byte[] fileBytes = System.IO.File.ReadAllBytes(pContract.PContractFile);
+            string base64String = Convert.ToBase64String(fileBytes);
+
             PutPendingContract pendingContract = new PutPendingContract
             {
                 PContractId = pContract.PContractID,
@@ -230,6 +233,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 InstallationAddress = pContract.InstallationAddress,
                 CustomerId = pContract.CustomerId,
                 TOS_ID = pContract.TOS_ID,
+                Base64File = base64String,
             };
 
             var customer = await _customerSvc.GetByIdAsync(pContract.CustomerId.ToString());
@@ -243,10 +247,153 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             await _pendingContract.updateAsnyc(pendingContract);
             _uploadFileHelper.RemoveFile(imagePath);
 
-            byte[] fileBytes = System.IO.File.ReadAllBytes(pContract.PContractFile);
+            return Ok(base64String+"*"+pContract.PContractID);
+        }
+
+        [HttpPost("CustomerSignContract")]
+        public async Task<ActionResult<string>> SignContractByCustomer([FromBody] SigningModel signing)
+        {
+
+            int idContract = int.Parse(signing.IdFile);
+            string serial = signing.Serial;
+            string imagePath = null;
+
+            if (signing.Base64StringFile != null)
+            {
+                IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFile, Guid.NewGuid().ToString().Substring(0, 8), "image/jpeg");
+                imagePath = _uploadFileHelper.UploadFile(file, "AppData", "SignatureImages", ".jpeg");
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+            var certi = await _pfxCertificate.GetById(serial);
+
+            var expireCerti = await _pfxCertificate.GetAllExpire();
+
+            if (expireCerti != null)
+            {
+                foreach (var pfx in expireCerti)
+                {
+                    if (certi.Serial == pfx.Serial)
+                    {
+                        return BadRequest("Chứng chỉ đã hết hạn, vui lòng gia hạn !");
+                    }
+                }
+            }
+
+            Customer customer = null;
+
+            if (certi.IsEmployee)
+            {
+                return BadRequest("Chữ ký không hợp lệ");
+            }
+            else
+            {
+                customer = await _customerSvc.GetBySerialPFXAsync(serial);
+            }
+
+            var pContract = await _pendingContract.getByIdAsnyc(idContract);
+            if (pContract == null)
+            {
+                return BadRequest("Hợp đông không tồn tại");
+            }
+            if (serial != customer.SerialPFX)
+            {
+                return BadRequest("Chữ ký không đúng với khách hàng của hợp đồng này");
+            }
+
+            if (pContract.IsRefuse)
+            {
+                return BadRequest("Hợp đồng này đã bị từ chối duyệt!");
+            }
+
+            if (!pContract.IsDirector)
+            {
+                return BadRequest("Hợp đồng này chưa được giám đốc ký !");
+            }
+
+            if (pContract.IsCustomer)
+            {
+                return BadRequest("Hợp đồng này đã được khách hàng ký !");
+            }
+            var tContractID = _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.templateContractID;
+            TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(tContractID);
+            SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tContract.jsonCustomerZone);
+
+            string outputContract = pContract.PContractFile.Replace("PContracts", "DContracts");
+
+            if (!Directory.Exists($"AppData/DContracts/{pContract.PContractID}"))
+            {
+                Directory.CreateDirectory($"AppData/DContracts/{pContract.PContractID}");
+            }
+
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath, pContract.PContractFile, outputContract, certi.Serial, customerZone.X, customerZone.Y);
+
+            FileStream fs = new FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
+            fs.Close();
+            System.IO.File.Delete(pContract.PContractFile);
+            string qrCodePath = pContract.PContractFile.Replace(".pdf", ".png");
+            FileStream fs1 = new FileStream(qrCodePath, FileMode.Open, FileAccess.Read);
+            fs1.Close();
+            System.IO.File.Delete(qrCodePath);
+            Directory.Delete($"AppData/PContracts/{pContract.PContractID}");
+
+            byte[] fileBytes = System.IO.File.ReadAllBytes(outputContract);
             string base64String = Convert.ToBase64String(fileBytes);
 
-            return Ok(base64String);
+            PutPendingContract pendingContract = new PutPendingContract
+            {
+                PContractId = pContract.PContractID,
+                DateCreated = pContract.DateCreated,
+                PContractName = pContract.PContractName,
+                PContractFile = outputContract,
+                IsDirector = pContract.IsDirector,
+                IsCustomer = true,
+                IsRefuse = pContract.IsRefuse,
+                Reason = pContract.Reason,
+                EmployeeCreatedId = pContract.EmployeeCreatedId,
+                DirectorSignedId = pContract.DirectorSignedId,
+                CustomerId = pContract.CustomerId,
+                InstallationAddress = pContract.InstallationAddress,
+                TOS_ID = pContract.TOS_ID,
+                Base64File = base64String
+            };
+
+            //_pdfToImageHelper.PdfToPng(outputContract, pendingContract.PContractId,"contract");
+
+
+            var dContract = await _dContractSvc.addAsnyc(pendingContract);
+
+            if (dContract == null)
+            {
+                return BadRequest("Them hop dong that bai");
+            };
+            await _pendingContract.deleteAsnyc(pendingContract.PContractId);
+
+            string serviceName = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.ServiceName;
+            InstallationRequirement requirement = new InstallationRequirement()
+            {
+                DateCreated = DateTime.Now,
+                MinuteName = "Biên bản lắp đặt hợp đồng " + serviceName,
+                DoneContractId = dContract.DContractID,
+            };
+            int result = await _requirementSvc.CreateIRequirement(requirement);
+
+            _uploadFileHelper.RemoveFile(imagePath);
+
+          
+            if (result != 0)
+            {
+                //lấy PContractId xoá imagecontract của pending và tạo image của DContractID
+                return Ok(base64String +"*" + dContract.DContractID+"*"+ pendingContract.PContractId);
+            }
+            else
+            {
+                return BadRequest();
+            }
+
         }
 
         [HttpPost("InstallerSignMinute")]
@@ -380,6 +527,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var signedMinutePath = await _pfxCertificate.SignContract(imagePath, pMinute.MinuteFile, pMinute.MinuteFile, certi.Serial, signatureZone.X, signatureZone.Y);
 
+            byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile);
+            string base64String = Convert.ToBase64String(fileBytes);
+
             PutPMinute pendingMinute = new PutPMinute
             {
                 PendingMinuteId = pMinute.PendingMinuteId,
@@ -390,162 +540,18 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 EmployeeId = pMinute.EmployeeId,
                 DoneContractId = pMinute.DoneContractId,
                 MinuteFile = pMinute.MinuteFile,
+                Base64File = base64String
             };
 
-           // _pdfToImageHelper.PdfToPng(pMinute.MinuteFile, pMinute.PendingMinuteId,"minute");
+           //_pdfToImageHelper.PdfToPng(pMinute.MinuteFile, pMinute.PendingMinuteId,"minute");
             await _pendingMinuteSvc.updateAsnyc(pendingMinute);
-
-            byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile);
-            string base64String = Convert.ToBase64String(fileBytes);
 
             FileStream fsPContract2 = new System.IO.FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
             fsPContract2.Close();
 
             _uploadFileHelper.RemoveFile(imagePath);
 
-            return Ok(base64String);
-        }
-
-        [HttpPost("CustomerSignContract")]
-        public async Task<ActionResult<string>> SignContractByCustomer([FromBody] SigningModel signing)
-        {
-
-            int idContract = int.Parse(signing.IdFile);
-            string serial = signing.Serial;
-            string imagePath = null;
-
-            if (signing.Base64StringFile != null)
-            {
-                IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFile, Guid.NewGuid().ToString().Substring(0, 8), "image/jpeg");
-                imagePath = _uploadFileHelper.UploadFile(file, "AppData", "SignatureImages", ".jpeg");
-            }
-            else
-            {
-                return BadRequest();
-            }
-
-            var certi = await _pfxCertificate.GetById(serial);
-
-            var expireCerti = await _pfxCertificate.GetAllExpire();
-
-            if (expireCerti != null)
-            {
-                foreach (var pfx in expireCerti)
-                {
-                    if (certi.Serial == pfx.Serial)
-                    {
-                        return BadRequest("Chứng chỉ đã hết hạn, vui lòng gia hạn !");
-                    }
-                }
-            }
-
-            Customer customer = null;
-
-            if (certi.IsEmployee)
-            {
-                return BadRequest("Chữ ký không hợp lệ");
-            }
-            else
-            {
-                customer = await _customerSvc.GetBySerialPFXAsync(serial);
-            }
-
-            var pContract = await _pendingContract.getByIdAsnyc(idContract);
-            if(pContract == null)
-            {
-                return BadRequest("Hợp đông không tồn tại");
-            }
-            if (serial != customer.SerialPFX)
-            {
-                return BadRequest("Chữ ký không đúng với khách hàng của hợp đồng này");
-            }
-
-            if (pContract.IsRefuse)
-            {
-                return BadRequest("Hợp đồng này đã bị từ chối duyệt!");
-            }
-
-            if (!pContract.IsDirector)
-            {
-                return BadRequest("Hợp đồng này chưa được giám đốc ký !");
-            }
-
-            if (pContract.IsCustomer)
-            {
-                return BadRequest("Hợp đồng này đã được khách hàng ký !");
-            }
-            var tContractID =  _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.templateContractID;
-            TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(tContractID);
-            SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tContract.jsonCustomerZone);
-
-            string outputContract = pContract.PContractFile.Replace("PContracts", "DContracts");
-
-            if (!Directory.Exists($"AppData/DContracts/{pContract.PContractID}"))
-            {
-                Directory.CreateDirectory($"AppData/DContracts/{pContract.PContractID}");
-            }
-
-            var signedContractPath = await _pfxCertificate.SignContract(imagePath, pContract.PContractFile, outputContract, certi.Serial, customerZone.X, customerZone.Y);
-
-            FileStream fs = new FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
-            fs.Close();
-            System.IO.File.Delete(pContract.PContractFile);
-            string qrCodePath = pContract.PContractFile.Replace(".pdf", ".png");
-            FileStream fs1 = new FileStream(qrCodePath, FileMode.Open, FileAccess.Read);
-            fs1.Close();
-            System.IO.File.Delete(qrCodePath);
-            Directory.Delete($"AppData/PContracts/{pContract.PContractID}");
-
-            PutPendingContract pendingContract = new PutPendingContract
-            {
-                PContractId = pContract.PContractID,
-                DateCreated = pContract.DateCreated,
-                PContractName = pContract.PContractName,
-                PContractFile = outputContract,
-                IsDirector = pContract.IsDirector,
-                IsCustomer = true,
-                IsRefuse = pContract.IsRefuse,
-                Reason = pContract.Reason,
-                EmployeeCreatedId = pContract.EmployeeCreatedId,
-                DirectorSignedId = pContract.DirectorSignedId,
-                CustomerId = pContract.CustomerId,
-                InstallationAddress = pContract.InstallationAddress,
-                TOS_ID = pContract.TOS_ID,
-            };
-
-            //_pdfToImageHelper.PdfToPng(outputContract, pendingContract.PContractId,"contract");
-
-            
-            var dContract = await _dContractSvc.addAsnyc(pendingContract);
-            if(dContract == null)
-            {
-                return BadRequest("Them hop dong that bai");
-            };
-            await _pendingContract.deleteAsnyc(pendingContract.PContractId);
-
-            string serviceName = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.ServiceName;
-            InstallationRequirement requirement = new InstallationRequirement()
-            {
-                DateCreated = DateTime.Now,
-                MinuteName = "Biên bản lắp đặt hợp đồng " + serviceName,
-                DoneContractId = dContract.DContractID,
-            };
-            int result = await _requirementSvc.CreateIRequirement(requirement);
-
-            _uploadFileHelper.RemoveFile(imagePath);
-
-            byte[] fileBytes = System.IO.File.ReadAllBytes(outputContract);
-            string base64String = Convert.ToBase64String(fileBytes);
-
-            if (result != 0)
-            {
-                return Ok(base64String);
-            }
-            else
-            {
-                return BadRequest();
-            }
-            
+            return Ok(base64String+"*"+pendingMinute.PendingMinuteId);
         }
 
         [HttpPost("CustomerSignMinute")]
@@ -626,15 +632,20 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             fs.Close();
             System.IO.File.Delete(pMinute.MinuteFile);
 
+            byte[] fileBytes = System.IO.File.ReadAllBytes(outputMinute);
+            string base64String = Convert.ToBase64String(fileBytes);
+
             DoneMinute doneMinute = new DoneMinute()
             {
                 DateDone = DateTime.Now,
                 MinuteName = pMinute.MinuteName,
                 MinuteFile = outputMinute,
-                EmployeeId = pMinute.EmployeeId
+                EmployeeId = pMinute.EmployeeId,
+                Base64File = base64String
             };
 
-            _pdfToImageHelper.PdfToPng(outputMinute, pMinute.PendingMinuteId, "minute");
+
+ //           _pdfToImageHelper.PdfToPng(outputMinute, pMinute.PendingMinuteId, "minute");
             var dMinute = await _doneMinuteSvc.AddNew(doneMinute);
             dContract.DoneMinuteId = dMinute;
 
@@ -651,15 +662,13 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 CustomerId = dContract.CustomerId,
                 TOS_ID = dContract.TOS_ID,
                 DoneMinuteId = dContract.DoneMinuteId,
-
             };
+
             var updatedContract = await _dContractSvc.updateAsnyc(putDContract);
+
             int resutl = await _pendingMinuteSvc.DeletePMinute(pMinute.PendingMinuteId);
 
             var sendMail = SendMailToCustomerWithFile(System.IO.File.ReadAllBytes(dContract.DContractFile), System.IO.File.ReadAllBytes(outputMinute),customer);
-
-            byte[] fileBytes = System.IO.File.ReadAllBytes(outputMinute);
-            string base64String = Convert.ToBase64String(fileBytes);
 
             FileStream fsMinute = new System.IO.FileStream(outputMinute, FileMode.Open, FileAccess.Read);
             fsMinute.Close();
@@ -668,7 +677,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             if (resutl != 0)
             {
-                return Ok(base64String);
+                return Ok(base64String +"*"+ dMinute + "*"+pMinute);
             }
             else
             {

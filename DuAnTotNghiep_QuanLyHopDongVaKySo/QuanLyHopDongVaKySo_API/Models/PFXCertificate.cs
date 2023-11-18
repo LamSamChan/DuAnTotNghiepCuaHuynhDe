@@ -64,6 +64,10 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Ảnh chữ ký 5")]
         public string? ImageSignature5 { get; set; }
 
+        [StringLength(500), AllowNull]
+        [Display(Name = "Ảnh chữ ký mặc định")]
+        public string? DefaultImageSignature { get; set; }
+
         //tạo liên kết
 
         [NotMapped]
