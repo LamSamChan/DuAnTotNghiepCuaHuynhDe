@@ -181,11 +181,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile",".pdf");
                 FileStream fs = null;
-                try
-                {
-                    fs = new FileStream(pdfPath, FileMode.Open);
+                /*try
+                {*/
+                using (fs = new FileStream(pdfPath, FileMode.Open))
+                { 
+                };
                     // Thực hiện các thao tác trên fs ở đây
-                }
+                /*}
                 catch (IOException ex)
                 {
                     fs?.Close();
@@ -194,10 +196,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
                     fs?.Close();
-                }
+                }*/
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
 
-                FileStream fs1 = null;
+                /*FileStream fs1 = null;
                 try
                 {
                     fs1 = new FileStream(pdfPath, FileMode.Open);
@@ -212,7 +214,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
                     fs1?.Close();
                 }
-                fs1?.Close();
+                fs1?.Close();*/
                 System.Threading.Thread.Sleep(1000);
                 System.IO.File.Delete(pdfPath);
 

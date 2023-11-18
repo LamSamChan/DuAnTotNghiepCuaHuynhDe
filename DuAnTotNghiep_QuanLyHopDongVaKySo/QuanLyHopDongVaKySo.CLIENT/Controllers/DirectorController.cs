@@ -15,6 +15,7 @@ using test.Models;
 using QuanLyHopDongVaKySo.CLIENT.Helpers;
 using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
 using QuanLyHopDongVaKySo_API.ViewModels;
+using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -28,14 +29,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IPFXCertificateServices _pfxCertificateServices;
         private readonly IUploadHelper _uploadHelper;
         private readonly IPasswordService _passwordService;
-
+        private readonly IDContractsService _dContractService;
 
         private int isAuthenticate;
         private string employeeId;
        
         public DirectorController(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices,
-            IUploadHelper uploadHelper, IPasswordService passwordService)
+            IUploadHelper uploadHelper, IPasswordService passwordService, IDContractsService dContractsService)
         {
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
@@ -45,6 +46,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _employeeService = employeeService;
             _uploadHelper = uploadHelper;
             _passwordService = passwordService;
+            _dContractService = dContractsService;
         }
         public int IsAuthenticate
         {
@@ -192,9 +194,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index","Verify");
             }
         }
-        public IActionResult ListContractActive()
+        public async Task<IActionResult> ListContractActive()
         {
-            return View();
+            List<DContractViewModel> contractList = new List<DContractViewModel>();
+            if (isAuthenticate == 2)
+            {
+                contractList = await _dContractService.getListByDirectorId(employeeId);
+
+                return View(contractList);
+            }
+            return View(contractList);
         }
         public IActionResult ListContractAwait()
         {
@@ -213,7 +222,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult DetailsActiveContract()
+        public IActionResult DetailsContractActive()
         {
             return View();
         }

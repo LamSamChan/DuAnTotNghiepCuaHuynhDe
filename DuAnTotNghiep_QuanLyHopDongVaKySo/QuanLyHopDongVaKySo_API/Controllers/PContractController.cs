@@ -79,7 +79,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     {
                         string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
                         float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
-                        float y = 837 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                        float y = 839 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                         var mappingName = ContractInternet.ContractFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
                         if (mappingName == null)
                         {

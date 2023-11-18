@@ -59,8 +59,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var reponse = await _authServices.Login(login);
             if (reponse != null)
             {
-                HttpContext.Session.SetString(SessionKey.Employee.EmployeeContext,
-                        JsonConvert.SerializeObject(reponse));
+                HttpContext.Session.SetString(SessionKey.Employee.EmployeeContext,JsonConvert.SerializeObject(reponse));
                 HttpContext.Session.SetString(SessionKey.Employee.EmployeeID, reponse.EmployeeId.ToString());
                 HttpContext.Session.SetString(SessionKey.Employee.Role, _roleService.GetRoleByIdAsync(reponse.RoleID).Result.RoleName);
                 string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
