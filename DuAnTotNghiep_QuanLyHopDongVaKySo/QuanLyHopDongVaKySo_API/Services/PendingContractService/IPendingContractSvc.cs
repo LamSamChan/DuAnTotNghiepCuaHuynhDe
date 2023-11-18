@@ -12,7 +12,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
         Task<string> addAsnyc(PostPendingContract PContract);
         Task<string> updateAsnyc(PutPendingContract PContract);
         Task<bool> deleteAsnyc(int id);
-        Task<int> updatePContractFile(int id, string File);
+        Task<int> updatePContractFile(int id, string File, string base64File);
         Task<ContractInternet> ExportContract(PendingContract PContract, Employee? employee);
 
         // view model

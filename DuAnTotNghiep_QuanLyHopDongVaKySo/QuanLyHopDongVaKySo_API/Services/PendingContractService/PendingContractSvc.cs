@@ -105,11 +105,12 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             return viewModel;
         }
        
-        public async Task<int> updatePContractFile(int id, string File)
+        public async Task<int> updatePContractFile(int id, string File, string base64File)
         {
             var update = await getByIdAsnyc(id);
 
             update.PContractFile = File;
+            update.Base64File = base64File;
             _context.PendingContracts.Update(update);
             await _context.SaveChangesAsync();
             return 1;

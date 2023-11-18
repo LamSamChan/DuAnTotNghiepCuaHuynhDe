@@ -196,14 +196,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult ListContractAwait()
+        {
+            return View();
+        }
         public IActionResult HistoryOperation()
         {
             return View();
         }
-        public IActionResult InforSign()
-        {
-            return View();
-        }
+
         public IActionResult DetailsContractAwait()
         {
             return View();
@@ -213,10 +214,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
         public IActionResult DetailsActiveContract()
-        {
-            return View();
-        }
-        public IActionResult ListContractEffect()
         {
             return View();
         }

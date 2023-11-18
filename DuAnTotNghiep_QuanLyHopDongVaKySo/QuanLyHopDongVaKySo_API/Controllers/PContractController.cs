@@ -104,10 +104,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
                     FileStream fsPContract = new System.IO.FileStream(outputPdfFile, FileMode.Open);
                     fsPContract.Close();
-                    await _PContractSvc.updatePContractFile(int.Parse(id_Pcontract), outputPdfFile);
-
+                   
                     byte[] fileBytes = System.IO.File.ReadAllBytes(outputPdfFile);
                     base64String = Convert.ToBase64String(fileBytes);
+
+                    await _PContractSvc.updatePContractFile(int.Parse(id_Pcontract), outputPdfFile, base64String);
                 }
                 if (id_Pcontract != null)
                 {
