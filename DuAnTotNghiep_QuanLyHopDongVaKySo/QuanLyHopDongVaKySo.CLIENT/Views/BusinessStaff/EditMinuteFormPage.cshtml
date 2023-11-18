@@ -10,6 +10,7 @@
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <link href="~/php/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
 <script src="https://unpkg.com/konva@9/konva.min.js"></script>
 
@@ -94,6 +95,7 @@
             showPage(currentPageIndex + 1);
         });
 
+   
     let currentPageIndex = 0;
 
     function showPage(index) {
@@ -238,23 +240,49 @@
             data: JSON.stringify(tMinute),
             success: function (result) {
                 if (!result.success) {
-                    // Chuyển hướng tới trang mong muốn
-                    var redirectToUrl = '@Url.Action("ListMinuteFormPage")';
-                    window.location.href = redirectToUrl;
+               
+                    showSaveSuccessAlert();
+                } else {
+                    // Hiển thị SweetAlert thông báo lưu thất bại
+                    showSaveErrorAlert();
                 }
             },
             error: function () {
-                console.error('Lỗi khi gửi yêu cầu.');
+                    showSaveErrorAlert();
+
 
             }
         });
 
     }
+    function showSaveSuccessAlert() {
+        // Hiển thị SweetAlert với thông báo lưu thành công
+        Swal.fire({
+            icon: 'success',
+            title: 'Thành công!',
+            text: 'Dữ liệu đã được lưu thành công.',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            // Chuyển hướng tới trang mong muốn sau khi người dùng nhấp OK
+            var redirectToUrl = '@Url.Action("ListMinuteFormPage")';
+            window.location.href = redirectToUrl;
+        });
+    }
 
+    function showSaveErrorAlert() {
+        // Hiển thị SweetAlert với thông báo lưu thất bại
+        Swal.fire({
+            icon: 'error',
+            title: 'Lỗi!',
+            text: 'Đã xảy ra lỗi khi lưu dữ liệu.',
+            confirmButtonText: 'OK'
+        });
+    }
     document.addEventListener("DOMContentLoaded", function () {
         showPage(currentPageIndex);
     });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 

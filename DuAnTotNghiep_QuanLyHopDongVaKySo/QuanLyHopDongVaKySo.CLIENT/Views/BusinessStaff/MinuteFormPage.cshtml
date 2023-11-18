@@ -3,6 +3,9 @@
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <link href="~/php/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+
 
 <div class="container-fluid" style="height: 20vh;">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
@@ -25,7 +28,7 @@
         <br />
         <section>
             <div style="display: flex; justify-content: space-evenly;">
-                <button type="submit" class="button-22" id="saveButton" style="display:none;">Lưu</button>
+                <button type="submit" class="button-22" id="saveButton" style="display:none;" >Lưu</button>
             </div>
         </section>
     </form>
@@ -36,16 +39,47 @@
     document.getElementById('uploadIcon').addEventListener('click', function () {
         document.getElementById('pdfInput').click();
     });
+
     document.getElementById('pdfInput').addEventListener('change', function () {
         var fileInput = document.getElementById('pdfInput');
         var saveButton = document.getElementById('saveButton');
 
         if (fileInput.files.length > 0) {
-            saveButton.style.display = 'block'; // Hiển thị button nếu có tệp đã chọn
+            var uploadedFileName = fileInput.files[0].name;
+
+            setTimeout(function () {
+                showSuccessAlert(uploadedFileName);
+                saveButton.style.display = 'block';
+            }, 2000);
         } else {
-            saveButton.style.display = 'none'; // Ẩn button nếu không có tệp được chọn
+            setTimeout(function () {
+                showErrorAlert(uploadedFileName);
+                saveButton.style.display = 'none';
+            }, 2000);
         }
     });
+
+    function showSuccessAlert(uploadedFileName) {
+        // Hiển thị SweetAlert với thông báo thành công và tên tệp
+        Swal.fire({
+            icon: 'success',
+            title: 'Thành công!',
+            text: 'Tệp ' + uploadedFileName + ' đã được chọn thành công.',
+            confirmButtonText: 'OK'
+        });
+    }
+
+
+    function showErrorAlert(uploadedFileName) {
+        // Hiển thị SweetAlert với thông báo không thành công
+        Swal.fire({
+            icon: 'error',
+            title: 'Không thành công!',
+            text: 'Lưu tệp ' + uploadedFileName + 'không thành công',
+            confirmButtonText: 'OK'
+        });
+    }
+   
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
@@ -55,3 +89,4 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

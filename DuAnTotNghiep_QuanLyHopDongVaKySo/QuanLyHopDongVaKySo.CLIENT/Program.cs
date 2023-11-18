@@ -30,11 +30,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddControllersWithViews().AddDataAnnotationsLocalization();
 
 //api server
-//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://techsealapi.azurewebsites.net/") });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://techsealapi.azurewebsites.net/") });
 
 
 //api locallhost
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7286/") });
+//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7286/") });
 
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeesService>();
