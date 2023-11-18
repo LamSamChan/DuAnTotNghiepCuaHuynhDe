@@ -60,6 +60,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (!String.IsNullOrEmpty(HttpContext.Session.GetString(SessionKey.Employee.EmployeeID)))
                 {
                     string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
+                    var userRole = TempData["Role"] as string;
                     if (role == "Admin")
                     {
                         isAuthenticate = 1; //Admin
@@ -124,6 +125,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public IActionResult ChangePass()
         {
+            var userRole = TempData["Role"] as string;
+
             return View();
         }
        
@@ -142,6 +145,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangePassAction([FromBody] ChangePassword change)
         {
+            var userRole = TempData["Role"] as string;
+
             change.EmployeeID = EmployeeId;
             var respone = await _passwordService.ChangePasswordAsync(change);
             if (respone != null)
@@ -168,6 +173,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> CreatePContract(VMCreateFormForCus vm)
         {
+            var userRole = TempData["Role"] as string;
+
             PostPendingContract pContract = new PostPendingContract();
             pContract = vm.PostPendingContract;
             pContract.CustomerId = Guid.Parse(HttpContext.Session.GetString(SessionKey.Customer.CustomerID));
@@ -222,6 +229,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public async Task<IActionResult> ListCus()
         {
+            var userRole = TempData["Role"] as string;
+
             List<Models.Customer> customersList = new List<Models.Customer>();
             try
             {
@@ -235,7 +244,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public async Task<IActionResult> Index()
         {
+
             string VB = ViewBag.Role;
+            var userRole = TempData["Role"] as string;
             if (IsAuthenticate == 3)
             {
                 VMPersonalPage vm = new VMPersonalPage();
@@ -255,10 +266,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public IActionResult AddCus()
         {
+            var userRole = TempData["Role"] as string;
+
             return View();
         }
         public async Task<IActionResult> CreateFormForCus(string id)
         {
+            var userRole = TempData["Role"] as string;
+
             HttpContext.Session.SetString(SessionKey.Customer.CustomerID, id);
             VMCreateFormForCus vm = new VMCreateFormForCus();
             vm.TypeOfServices = await _tosService.GetAll();
@@ -267,6 +282,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public async Task<IActionResult> DetailsCus(string customerID)
         {
+            var userRole = TempData["Role"] as string;
+
             var respone = await _customerService.GetCustomerById(customerID);
             if (respone != null)
             {
@@ -286,10 +303,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public IActionResult DetailsDContract()
         {
+            var userRole = TempData["Role"] as string;
+
             return View();
         }
         public async Task<IActionResult> AddCusAction(PostCustomer customer)
         {
+            var userRole = TempData["Role"] as string;
+
             customer.IsLocked = false;
             if (customer.BuisinessName != null)
             {
@@ -316,11 +337,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         //TContract
         public IActionResult ContractFormPage()
         {
+            var userRole = TempData["Role"] as string;
+
             return View();
         }
 
         public async Task<IActionResult> ListContractFormPage()
         {
+            var userRole = TempData["Role"] as string;
+
 
             return View(await _tContractService.getAllAsnyc());
 
