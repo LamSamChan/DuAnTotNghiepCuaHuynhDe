@@ -261,30 +261,43 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public async Task<IActionResult> CreateFormForCus(string id)
         {
-            HttpContext.Session.SetString(SessionKey.Customer.CustomerID, id);
-            VMCreateFormForCus vm = new VMCreateFormForCus();
-            vm.TypeOfServices = await _tosService.GetAll();
-
-            return View(vm);
-        }
-        public async Task<IActionResult> DetailsCus(string customerID)
-        {
-            var respone = await _customerService.GetCustomerById(customerID);
-            if (respone != null)
+            if (IsAuthenticate == 3)
             {
-                VMDetailsCus vm = new VMDetailsCus();
-                vm.Customer = respone;
+                HttpContext.Session.SetString(SessionKey.Customer.CustomerID, id);
+                VMCreateFormForCus vm = new VMCreateFormForCus();
+                vm.TypeOfServices = await _tosService.GetAll();
 
-                //truyền thêm
-                vm.PendingContracts = await _pContractService.getListCusId(customerID); ;
-                vm.DoneContracts = await _dContractService.getListByCusId(customerID);
                 return View(vm);
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Verify");
             }
+        }
+        public async Task<IActionResult> DetailsCus(string customerID)
+        {
+            if (IsAuthenticate == 3)
+            {
+                var respone = await _customerService.GetCustomerById(customerID);
+                if (respone != null)
+                {
+                    VMDetailsCus vm = new VMDetailsCus();
+                    vm.Customer = respone;
 
+                    //truyền thêm
+                    vm.PendingContracts = await _pContractService.getListCusId(customerID); ;
+                    vm.DoneContracts = await _dContractService.getListByCusId(customerID);
+                    return View(vm);
+                }
+                else
+                {
+                    return RedirectToAction("ListCus","BusinessStaff");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
         }
         public IActionResult DetailsDContract()
         {
@@ -318,18 +331,31 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         //TContract
         public IActionResult ContractFormPage()
         {
-            return View();
+            if (IsAuthenticate == 3)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
         }
 
         public async Task<IActionResult> ListContractFormPage()
         {
-
-            return View(await _tContractService.getAllAsnyc());
-
+            if (IsAuthenticate == 3)
+            {
+                return View(await _tContractService.getAllAsnyc());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
         }
 
         public async Task<IActionResult> AddTContract(API.PostTContract tContract)
         {
+
             IFormFile temp = null;
             if (tContract.File != null)
             {
@@ -438,9 +464,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> ListMinuteFormPage()
         {
-
-            return View(await _tMinuteService.GetAll());
-
+            if (IsAuthenticate == 3)
+            {
+                return View(await _tMinuteService.GetAll());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
+            
         }
 
         public async Task<IActionResult> EditMinuteFormPage(int tMinuteId)
@@ -555,27 +587,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListEffect()
         {
             List<DContractViewModel> contractList = new List<DContractViewModel>();
-            if (isAuthenticate == 1)
+            if (isAuthenticate == 3)
             {
                 contractList = await _dContractService.getListIsEffect();
                 return View(contractList);
             }
-            else if (isAuthenticate == 2)
-            {
-                contractList = await _dContractService.getListByDirectorId(employeeId);
-
-                return View(contractList);
-            }
-            else if (isAuthenticate == 3)
-            {
-                contractList = await _dContractService.getListByEmpId(employeeId);
-
-                return View(contractList);
-            }
             else
             {
-                //người khác role và vô thì trả về index của họ, sửa lại khi đủ FE
-                return View(contractList);
+                return RedirectToAction("Index", "Verify");
             }
         }
 
@@ -583,20 +602,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListPending()
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (isAuthenticate == 1)
+            if (isAuthenticate == 3)
             {
                 pContractList = await _pContractService.getListWaitDirectorSigns();
                 return View(pContractList);
             }
-            else if (isAuthenticate == 3)
-            {
-                pContractList = await _pContractService.getListWaitDirSignsEmpId(employeeId);
-                return View(pContractList);
-            }
             else
             {
-                //người khác role và vô thì trả về index của họ, sửa lại khi đủ FE
-                return View(pContractList);
+                return RedirectToAction("Index", "Verify");
             }
         }
 
@@ -605,20 +618,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListRefuse()
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (isAuthenticate == 1 || isAuthenticate == 2)
+            if (isAuthenticate == 3)
             {
                 pContractList = await _pContractService.getListRefuse();
                 return View(pContractList);
             }
-            else if (isAuthenticate == 3)
-            {
-                pContractList = await _pContractService.getListRefuseByEmpId(employeeId);
-                return View(pContractList);
-            }
             else
             {
-                //người khác role và vô thì trả về index của họ, sửa lại khi đủ FE
-                return View(pContractList);
+                return RedirectToAction("Index", "Verify");
             }
         }
 
@@ -626,75 +633,66 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListWaitSign()
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (isAuthenticate == 1)
+            if (isAuthenticate == 3)
             {
                 pContractList = await _pContractService.getListWaitCustomerSigns();
                 return View(pContractList);
             }
-            else if (isAuthenticate == 3)
-            {
-                pContractList = await _pContractService.getListWaitCusSignsByEmpId(employeeId);
-                return View(pContractList);
-            }
-            else if (isAuthenticate == 2)
-            {
-                pContractList = await _pContractService.getListWaitCusSignsByDirId(employeeId);
-                return View(pContractList);
-            }
             else
             {
-                //người khác role và vô thì trả về index của họ, sửa lại khi đủ FE
-                return View(pContractList);
+                return RedirectToAction("Index", "Verify");
             }
         }
 
         public async Task<IActionResult> DetailsContractEffect(string id)
         {
             VMDetailsContract viewModel = new VMDetailsContract();
-            try
+            if (IsAuthenticate == 3)
             {
                 viewModel.DoneContracts = await _dContractService.getByIdAsnyc(id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
                 viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.DoneContracts.DirectorSignedId);
+                return View(viewModel);
             }
-            catch
+            else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Verify");
             }
-            return View(viewModel);
         }
 
         public async Task<IActionResult> DetailsContractPending(string id)
         {
             VMDetailsContract viewModel = new VMDetailsContract();
-            try
+            if (IsAuthenticate == 3)
             {
                 viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
                 viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
+            
+                return View(viewModel);
             }
-            catch
+            else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Verify");
             }
-            return View(viewModel);
         }
 
         public async Task<IActionResult> DetailsContractRefuse(string id)
         {
             VMDetailsContract viewModel = new VMDetailsContract();
 
-            try
+            if (IsAuthenticate == 3)
             {
                 viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
                 viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.DirectorSignedId);
+            
+                return View(viewModel);
             }
-            catch
+            else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Verify");
             }
-            return View(viewModel);
         }
 
         public async Task<IActionResult> DetailsContractWaitSign(string id)
