@@ -37,14 +37,36 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Chọn chữ ký</h1>
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">DUYỆT HỢP ĐỒNG</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-
+                            <h5>
+                                Chọn chữ ký khác 
+                            </h5>
+                            <ul style="max-height:400px; overflow-y:scroll;">
+                                <li class="image-container" onclick="enableButton('button2', this)">
+                                    <img src="~/Resource/Image/img_sign.png" width="400" height="200" />
+                                </li>
+                                <li class="image-container" onclick="enableButton('button2', this)">
+                                    <img src="~/Resource/Image/img_sign.png" width="400" height="200" />
+                                </li>
+                                <li class="image-container" onclick="enableButton('button2', this)">
+                                    <img src="~/Resource/Image/img_sign.png" width="400" height="200" />
+                                </li>
+                            </ul>
                         </div>
-                        <div class="model-header">
-
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" id="button2" disabled>
+                                <a>
+                                    DUYỆT
+                                </a>
+                            </button>
+                            <button class="button-save" id="button1">
+                                <a>
+                                    DUYỆT BẰNG CHỮ KÝ MẶT ĐỊNH
+                                </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -157,6 +179,27 @@
             interval: false
         });
     });
+    
+    function enableButton(buttonId, imageContainer) {
+        // Lấy button và hình ảnh được chọn
+        var button = document.getElementById(buttonId);
+
+        // Loại bỏ thuộc tính disabled nếu hình ảnh được chọn
+        button.removeAttribute('disabled');
+
+        // Loại bỏ lớp 'selected' từ tất cả các hình ảnh khác
+        var allImageContainers = document.querySelectorAll('.image-container');
+        allImageContainers.forEach(function (container) {
+            container.classList.remove('selected');
+        });
+
+        // Thêm lớp 'selected' cho hình ảnh được chọn để tạo hiệu ứng
+        imageContainer.classList.add('selected');
+    }
+
+    function handleButtonClick() {
+        alert('Button clicked!');
+    }
 </script>
 
 
