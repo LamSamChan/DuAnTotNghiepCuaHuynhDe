@@ -76,7 +76,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             var tMinute = await _tMinuteSvc.getByIdAsnyc(tMinuteId);
             //lây thông tin toạ động mẫu biên bản
             var Coordinates = await _mCoordinateSvc.getByTMinute(tMinuteId);
-            
+
+            string base64String = null;
+
                 var minuteById = await _pMinuteSvc.GetById(pMinute);
                 var minute = await _pMinuteSvc.ExportMinute(minuteById, task.EmployeeID);
                 if (minute != null)
@@ -117,14 +119,17 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         }
                     }
 
-                    pdfStamper.Close();
+                byte[] fileBytes = System.IO.File.ReadAllBytes(outputPdfFile);
+                base64String = Convert.ToBase64String(fileBytes);
+
+                pdfStamper.Close();
                     pdfReader.Close();
-                    await _pMinuteSvc.updatePMinuteFile(pMinute, outputPdfFile);
+                    await _pMinuteSvc.updatePMinuteFile(pMinute, outputPdfFile, base64String);
                     await _installationRequirementSvc.DeleteIRequirement(task.IRequirementId);
-                _pdfToImageHelper.PdfToPng(outputPdfFile, pMinute, "minute");
-                   
-                }
-            return Ok(pMinute);
+                //_pdfToImageHelper.PdfToPng(outputPdfFile, pMinute, "minute");
+               
+            }
+            return Ok(base64String+"*"+tMinute.TMinuteID);
         }
     }
 }

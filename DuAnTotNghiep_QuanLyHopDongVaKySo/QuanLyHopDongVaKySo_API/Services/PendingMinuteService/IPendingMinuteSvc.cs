@@ -10,7 +10,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
         Task<int> DeletePMinute(int pMinuteId);
         Task<int> addAsnyc(PendingMinute pMinute);
         Task<MinuteInfo> ExportMinute(PendingMinute pMinute,string empId);
-        Task<int> updatePMinuteFile(int id, string File);
+        Task<int> updatePMinuteFile(int id, string File,string base64String);
         Task<string> updateAsnyc(PutPMinute pMinute);
     }
 }

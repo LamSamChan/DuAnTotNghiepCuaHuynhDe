@@ -14,7 +14,7 @@
     string[] imageFiles = Directory.GetFiles(folderItem);
 }
 <div class="container-fluid">
-    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
@@ -26,7 +26,7 @@
         <h1 class="typeHead">DANH SÁCH HỢP ĐỒNG CHỜ KHÁCH KÝ</h1>
         <div class="row">
             <button class="col-md-2" style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
-                <a asp-action="ContractListEffect" asp-controller="BusinessStaff">
+                <a asp-action="ContractListWaitSign" asp-controller="BusinessStaff">
                     <i class="ph-bold ph-arrow-left">
                         QUAY LẠI
                     </i>
@@ -40,7 +40,7 @@
             </button>
         </div>
     </div>
-    <div class="row" style="background-color:#FFFFFF; margin: 40px auto; height:100%; border-radius:16px;">
+    <div class="row" style="background-color:#FFFFFF; margin: 20px auto; height:100%; border-radius:16px;">
         <div class="col-6" style="margin: 20px; border-radius:10px;">
             <div class="showFile">
                 <h4 style="color: #4318FF; font-family:Source Sans Pro; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng chờ khách ký </h4>
@@ -73,102 +73,88 @@
                 </div>
             </div>
         </div>
-
-    </div>
-    <div class="inforCus" style="position: absolute;top: 120px;left: 950px; max-height:800px; overflow-y: scroll; ">
-        <h4 style="color: #4318FF;font-family: Source Sans Pro;">
-            Thông tin khách hàng
-        </h4>
-        <form class="row g-3" style="max-width:950px;">
-            <div class="col-md-6">
-                <label for="inputName" class="form-label">Họ và tên</label>
-                <input type="text" class="form-input" id="inputName" placeholder="Họ và tên" asp-for="@Model.Customer.FullName">
-            </div>
-            <div class="col-md-3">
-                <label for="inputState" class="form-label">Giới tính</label>
-                <select id="inputState" class="form-select">
-                    <option selected>Nam</option>
-                    <option>Nữ</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label for="inputCCCD" class="form-label">CCCD/CMND</label>
-                <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND" asp-for="@Model.Customer.Identification">
-            </div>
-            <div class="col-md-5">
-                <label for="inputPhone" class="form-label">Số điện thoại</label>
-                <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại" asp-for="@Model.Customer.PhoneNumber">
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
-                <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email" asp-for="@Model.Customer.Email">
-            </div>
-            <div class="col-md-5">
-                <label for="inputAddress" class="form-label">Nơi ở</label>
-                <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở" asp-for="@Model.Customer.Address">
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
-                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.PContractID">
-            </div>
-            <div class="col-md-5">
-                <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
-                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.TOS_ID">
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Chữ ký khách hàng</label>
-                <div class="d-flex align-items-center">
-                    <div style="width: 5px; height: 5px; background-color: yellow; border-radius: 50%; margin-right: 10px;"></div>
-                    <span>@Model.PendingContracts.IsCustomer</span>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <label for="inputAddress" class="form-label">Chữ ký giám đốc</label>
-                <div class="d-flex align-items-center">
-                    <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                    <span>@Model.PendingContracts.IsDirector</span>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Ngày tạo</label>
-                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.DateCreated">
-            </div>
-            <div class="col-md-5">
-                <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
-                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
-            </div>
-            <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
-                Thông tin nhân viên tạo hợp đồng
+        <div class="inforCus col-5 mt-4" style="max-height:800px; overflow-y: scroll;">
+            <h4 style="color: #4318FF;font-family: Source Sans Pro;">
+                Thông tin khách hàng
             </h4>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Mã nhân viên</label>
-                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.EmployeeId">
-            </div>
-            <div class="col-md-5">
-                <label for="inputAddress" class="form-label">Họ và tên</label>
-                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.FullName">
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.Email">
-            </div>
-            <div class="col-md-5">
-                <label for="inputAddress" class="form-label">Số điện thoại</label>
-                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.PhoneNumber">
-            </div>
-        </form>
-        <div class="button_design row " style="margin-top:70px;">
-            <div class="col-md-5">
-                <button style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
-                    <a asp-action="ContractListWaitSign" asp-controller="BusinessStaff">
-                        <i class="ph-bold ph-arrow-left"></i>
-                        QUAY LẠI
-                   </a>
-                </button>
-            </div>
-            <div class="col-md-5">
-                
-            </div>
+            <form class="row g-3" style="max-width:950px;">
+                <div class="col-md-6">
+                    <label for="inputName" class="form-label">Họ và tên</label>
+                    <input type="text" class="form-input" id="inputName" placeholder="Họ và tên" asp-for="@Model.Customer.FullName">
+                </div>
+                <div class="col-md-3">
+                    <label for="inputState" class="form-label">Giới tính</label>
+                    <select id="inputState" class="form-select">
+                        <option selected>Nam</option>
+                        <option>Nữ</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCCCD" class="form-label">CCCD/CMND</label>
+                    <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND" asp-for="@Model.Customer.Identification">
+                </div>
+                <div class="col-md-5">
+                    <label for="inputPhone" class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại" asp-for="@Model.Customer.PhoneNumber">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
+                    <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email" asp-for="@Model.Customer.Email">
+                </div>
+                <div class="col-md-5">
+                    <label for="inputAddress" class="form-label">Nơi ở</label>
+                    <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở" asp-for="@Model.Customer.Address">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
+                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.PContractID">
+                </div>
+                <div class="col-md-5">
+                    <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
+                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.TOS_ID">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Chữ ký khách hàng</label>
+                    <div class="d-flex align-items-center">
+                        <div style="width: 5px; height: 5px; background-color: yellow; border-radius: 50%; margin-right: 10px;"></div>
+                        <span>@Model.PendingContracts.IsCustomer</span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <label for="inputAddress" class="form-label">Chữ ký giám đốc</label>
+                    <div class="d-flex align-items-center">
+                        <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                        <span>@Model.PendingContracts.IsDirector</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Ngày tạo</label>
+                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.DateCreated">
+                </div>
+                <div class="col-md-5">
+                    <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
+                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
+                </div>
+                <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
+                    Thông tin nhân viên tạo hợp đồng
+                </h4>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Mã nhân viên</label>
+                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.EmployeeId">
+                </div>
+                <div class="col-md-5">
+                    <label for="inputAddress" class="form-label">Họ và tên</label>
+                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.FullName">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.Email">
+                </div>
+                <div class="col-md-5">
+                    <label for="inputAddress" class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.PhoneNumber">
+                </div>
+            </form>
         </div>
 
     </div>

@@ -63,7 +63,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 HttpContext.Session.SetString(SessionKey.Employee.EmployeeID, reponse.EmployeeId.ToString());
                 HttpContext.Session.SetString(SessionKey.Employee.Role, _roleService.GetRoleByIdAsync(reponse.RoleID).Result.RoleName);
                 string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
-                ViewBag.Role = role;
+                TempData["Role"] = role;
                 if (role == "Admin")
                 {
                     /*if (reponse.IsFirstLogin)

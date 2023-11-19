@@ -1,83 +1,97 @@
 ﻿<div class="container-fluid">
-    <div class="header">
-        <div class="SearchBox">
-            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
-                <li>
-                    <div class="Search">
-                        <i class="ph-bold ph-magnifying-glass"></i>
-                        <input type="text" placeholder="Search.." />
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-bell"></i>
-                    </a>
-
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-moon"></i>
-                    </a>
-                </li>
-                <li>
-                    <img src="o.jpg" />
-                </li>
-            </ul>
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Hợp đồng chờ duyệt</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+        <div class="row">
+            <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm hợp đồng" />
+            <button class="col-md-1" style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
+                <a>
+                    DUYỆT 
+                </a>
+                <span id="countButton" class="badge text-bg-danger">0</span>
+            </button>
         </div>
     </div>
-    <div class="row">
-        <button class="browse">
-            Duyệt hợp đồng
-            <span class="badge text-bg-danger">1</span>
-        </button>
-        <button class="browse">
-            Duyệt tất cả
-        </button>
-    </div>
-    <div class="listTable_Cus">
+    <div class="listTable">
         <table class="table">
             <thead>
-                <tr>
-                    <th></th>
-                    <th scope="col">MÃ HỢP ĐỒNG</th>
-                    <th scope="col">TÊN HỢP ĐỒNG</th>
-                    <th scope="col">FILE HỢP ĐỒNG</th>
-                    <th scope="col">GHI CHÚ</th>
-                    <th scope="col">MÃ KHÁCH HÀNG</th>
-                    <th scope="col">MÃ LOẠI DỊCH VỤ</th>
-                    <th scope="col">MÃ NHÂN VIÊN</th>
-                    <th scope="col">MÃ HỢP ĐỒNG MẪU</th>
-                    <th scope="col">HOẠT ĐỘNG</th>
-                    <th></th>
+                <tr style="color: #8B909A;">
+                    <th> <input type="checkbox" id="checkAll" /></th>
+                    <th scope="col">ID</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">NGÀY ĐĂNG KÝ DỊCH VỤ</th>
+                    <th scope="col">HỌ VÀ TÊN</th>
+                    <th scope="col">LOẠI HỢP ĐỒNG ĐĂNG KÝ</th>
+                    <th scope="col">TRẠNG THÁI</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
                 <tr>
-                    <td>
-                        <input type="checkbox" />
-                    </td>
-                    <th scope="row">1</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <th><input type="checkbox" class="checkBox" /></th>
+                    <th scope="row"></th>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td>
-                        <div class="row action">
-                            <a><i class="ph-bold ph-note-pencil"></i></a>
-                            <a><i class="ph-bold ph-trash"></i></a>
+                        <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
+                            Chờ duyệt
                         </div>
                     </td>
                     <td>
-                        <a href="#">Chi tiết</a>
+                        <a asp-action="DetailsContractWaitSign" asp-controller="BusinessStaff" >Chi tiết</a>
                     </td>
                 </tr>
+                <tr>
+                    <th><input type="checkbox" class="checkBox" /></th>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
+                            Chờ duyệt
+                        </div>
+                    </td>
+                    <td>
+                        <a asp-action="DetailsContractWaitSign" asp-controller="BusinessStaff">Chi tiết</a>
+                    </td>
+                </tr>
+
             </tbody>
         </table>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        var checkedCount = 0; // Biến để lưu trữ số lượng checkbox đã được chọn
+
+        // Xử lý sự kiện khi checkbox all được click
+        $('#checkAll').click(function () {
+            $('.checkBox').prop('checked', $(this).prop('checked'));
+            updateCheckedCount();
+        });
+
+        // Xử lý sự kiện khi checkbox con được click
+        $('.checkBox').click(function () {
+            if (!$(this).prop('checked')) {
+                $('#checkAll').prop('checked', false);
+            }
+            updateCheckedCount();
+        });
+
+        // Hàm cập nhật số lượng checkbox đã được chọn và hiển thị trên button
+        function updateCheckedCount() {
+            checkedCount = $('.checkBox:checked').length;
+            $('#countButton').text(checkedCount);
+        }
+    });
+</script>

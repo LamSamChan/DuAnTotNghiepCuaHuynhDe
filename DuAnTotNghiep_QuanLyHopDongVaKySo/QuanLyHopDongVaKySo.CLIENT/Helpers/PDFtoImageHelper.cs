@@ -8,6 +8,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
     public interface IPdfToImageHelper
     {
         List<string> PdfToPng(string inputFile, int idContract, string typeDoc);
+        void DeleteFileWithRetry(string filePath, int tryCount = 3);
+
     }
     public class PdfToImageHelper : IPdfToImageHelper
     {
@@ -115,5 +117,23 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
             }
             return output;
         }
+        public void DeleteFileWithRetry(string filePath, int tryCount = 3)
+        {
+            for (int i = 0; i < tryCount; ++i)
+            {
+                try
+                {
+                    File.Delete(filePath);
+                    break;
+                }
+                catch (IOException)
+                {
+                    if (i == tryCount - 1)
+                        throw;
+                    System.Threading.Thread.Sleep(1000);
+                }
+            }
+        }
     }
+
 }

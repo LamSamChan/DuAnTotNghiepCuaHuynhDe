@@ -440,5 +440,25 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index", "Verify");
             }
         }
+
+        public async Task<ActionResult> SetDefaultImageSignature(string filePath)
+        {
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var certificate = await _pfxCertificateServices.GetById(serialPFX);
+
+            certificate.DefaultImageSignature = filePath;
+
+            var result = await _pfxCertificateServices.Update(certificate);
+
+            if (result != null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
+        }
     }
 }
