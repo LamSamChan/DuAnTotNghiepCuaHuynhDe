@@ -7,12 +7,11 @@
     // Lấy link trực ảnh từ file tỉnh
     string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
 
-    string folderItem = System.IO.Path.Combine(folderPath, "7");
+    string folderItem = System.IO.Path.Combine(folderPath, Model.PContract.PContractID);
 
     string[] imageFiles = Directory.GetFiles(folderItem);
-
-    Console.WriteLine(folderItem + "/" + System.IO.Path.GetFileName(imageFiles[0]));
 }
+
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
         <nav aria-label="breadcrumb">
@@ -50,13 +49,54 @@
                             </h5>
                             <ul style="max-height:400px; overflow-y:scroll;">
                                 <li class="image-container" onclick="enableButton('button2', this)">
-                                    <img src="~/Resource/Image/img_sign.png" width="400" height="200" />
+                                    @if (Model.PFXCertificate.ImageSignature1 != null)
+                                    {
+                                        <img src="~/@Model.PFXCertificate.ImageSignature1" width="400" height="200" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Resource/Image/empty.png" width="400" height="200" />
+                                    }
                                 </li>
                                 <li class="image-container" onclick="enableButton('button2', this)">
-                                    <img src="~/Resource/Image/img_sign.png" width="400" height="200" />
+                                    @if (Model.PFXCertificate.ImageSignature2 != null)
+                                    {
+                                        <img src="~/@Model.PFXCertificate.ImageSignature2" width="400" height="200" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Resource/Image/empty.png" width="400" height="200" />
+                                    }
                                 </li>
                                 <li class="image-container" onclick="enableButton('button2', this)">
-                                    <img src="~/Resource/Image/img_sign.png" width="400" height="200" />
+                                    @if (Model.PFXCertificate.ImageSignature3 != null)
+                                    {
+                                        <img src="~/@Model.PFXCertificate.ImageSignature3" width="400" height="200" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Resource/Image/empty.png" width="400" height="200" />
+                                    }
+                                </li>
+                                <li class="image-container" onclick="enableButton('button2', this)">
+                                    @if (Model.PFXCertificate.ImageSignature4 != null)
+                                    {
+                                        <img src="~/@Model.PFXCertificate.ImageSignature4" width="400" height="200" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Resource/Image/empty.png" width="400" height="200" />
+                                    }
+                                </li>
+                                <li class="image-container" onclick="enableButton('button2', this)">
+                                    @if (Model.PFXCertificate.ImageSignature5 != null)
+                                    {
+                                        <img src="~/@Model.PFXCertificate.ImageSignature5" width="400" height="200" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Resource/Image/empty.png" width="400" height="200" />
+                                    }
                                 </li>
                             </ul>
                         </div>
@@ -90,7 +130,7 @@
                         @foreach (var imgPath in imageFiles)
                         {
                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                <img src="@Url.Content(folderItem.Replace(_hostingEnvironment.WebRootPath, "")+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                             </div>
                         }
                     </div>
@@ -112,65 +152,67 @@
             <form class="row g-3" style="max-width:950px;">
                 <div class="col-md-6">
                     <label for="inputName" class="form-label">Họ và tên</label>
-                    <input type="text" class="form-input" id="inputName" placeholder="Họ và tên">
+                    <input type="text" class="form-input" id="inputName" placeholder="Họ và tên" readonly asp-for="Customer.FullName">
                 </div>
                 <div class="col-md-3">
                     <label for="inputState" class="form-label">Giới tính</label>
-                    <select id="inputState" class="form-select">
-                        <option selected>Nam</option>
-                        <option>Nữ</option>
-                    </select>
+                    @if (Model.Customer.Gender == 1)
+                    {
+                        <input type="text" class="form-input" id="inputName" readonly value="Nam">
+                    }
+                    else
+                    {
+                        <input type="text" class="form-input" id="inputName" readonly value="Nữ">
+                    }
                 </div>
                 <div class="col-md-6">
                     <label for="inputCCCD" class="form-label">CCCD/CMND</label>
-                    <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND">
+                    <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND" readonly asp-for="Customer.Identification">
                 </div>
                 <div class="col-md-5">
                     <label for="inputPhone" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại">
+                    <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại" readonly asp-for="Customer.PhoneNumber">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email">
+                    <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email" readonly asp-for="Customer.Email">
                 </div>
                 <div class="col-md-5">
                     <label for="inputAddress" class="form-label">Nơi ở</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở">
+                    <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở" readonly asp-for="Customer.Address">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
+                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" readonly asp-for="PContract.PContractID">
                 </div>
                 <div class="col-md-5">
                     <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
+                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" readonly asp-for="PContract.TOS_ID">
+
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Ngày tạo</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
+                    <input class="form-input" id="inputEmail4" placeholder="IDxxx" readonly asp-for="PContract.DateCreated">
                 </div>
-                <div class="col-md-5">
-                    <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
-                </div>
+
                 <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
                     Thông tin nhân viên tạo hợp đồng
                 </h4>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Mã nhân viên</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
+                    <input type="text" class="form-input" id="inputEmail4" readonly asp-for="EmployeeCreated.EmployeeId">
                 </div>
                 <div class="col-md-5">
                     <label for="inputAddress" class="form-label">Họ và tên</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
+                    <input type="text" class="form-input" id="inputEmail4" readonly asp-for="EmployeeCreated.FullName">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
+                    <input type="text" class="form-input" id="inputEmail4" readonly asp-for="EmployeeCreated.Email">
                 </div>
                 <div class="col-md-5">
                     <label for="inputAddress" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
+                    <input type="text" class="form-input" id="inputEmail4" readonly asp-for="EmployeeCreated.PhoneNumber">
                 </div>
             </form>
         </div>
