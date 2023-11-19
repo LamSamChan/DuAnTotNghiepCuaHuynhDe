@@ -14,14 +14,15 @@
             </ol>
         </nav>
         <h1 class="typeHead">CHI TIẾT BIÊN BẢN LẮP</h1>
-        <div class="row">
-            <button class="col-md-2" style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
-                <a asp-action="ListInStallRecord" asp-controller="InstallStaff">
-                    <i class="ph-bold ph-arrow-left">
-                        QUAY LẠI
-                    </i>
-                </a>
-            </button>
+        <div class="row justify-content-around">
+            <a class="col-md-2 button-design" asp-action="ListInStallRecord" asp-controller="InstallStaff">
+                <i class="ph-bold ph-arrow-left"></i>
+                QUAY LẠI
+            </a>
+            <a class="col-md-2 offset-md-7 button-save" asp-action="SignByCus" asp-controller="InstallStaff">
+                KÝ DUYỆT
+                <i class="ph-bold ph-signature"></i>
+            </a>
         </div>
     </div>
     <div class="tab-container">

@@ -9,7 +9,7 @@
     // Lấy link trực ảnh từ file tỉnh
     string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
 
-    string folderItem = System.IO.Path.Combine(folderPath, "1");
+    string folderItem = System.IO.Path.Combine(folderPath, "7");
 
     string[] imageFiles = Directory.GetFiles(folderItem);
 }
@@ -18,23 +18,34 @@
 
 <!-- SuperSignature : Script (required) -->
 <script language="javascript" type="text/javascript" src="~/Scripts/ss.js"></script>
-<!-- [[[ ***********  IMPORTANT: DONOT USE THIS SS.JS ON PRODUCTION;
-     USE THE ONE AVAILABLE TO DOWNLOAD FROM YOUR DASHBOARD (POST PURCHASE) ************* ]]] -->
-<!-- BOOTSTRAP 4 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
 <div class="container-fluid">
-    <button class="create_regions">
-        <i class="ph-bold ph-arrow-left"></i>
-    </button>
-    <div class="fit_email">
-        <h5>Mã biên bản lắp</h5>
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Biên bản đã nhận lắp</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">KÝ XÁC NHẬN</h1>
+        <div class="row justify-content-around">
+            <a class="col-md-2 button-design" asp-action="ListInStallRecord" asp-controller="InstallStaff">
+                <i class="ph-bold ph-arrow-left">
+                </i>
+                QUAY LẠI
+            </a>
+            <a class="col-md-2 offset-md-7 button-save">
+                XÁC NHẬN HOÀN THÀNH
+                <i class="ph-bold ph-check"></i>
+            </a>
+        </div>
     </div>
-    <h4 style="color: #4318FF;">Xác nhận ký khách hàng</h4>
-    <div class="row justify-content-around text-center form_SignedCus">
-        <div class="col-4" style="min-width:500px;">
-            <h5 style="color: #4318FF; text-align:start; margin-top:40px;">Vùng ký cho khách hàng</h5>
+    <div class="row justify-content-around text-center mt-3">
+        <div class="col-5 bg-white rounded" style="min-width:500px;">
             <div class="signing-Zone">
                 @await Component.InvokeAsync("SignControl")
             </div>
@@ -42,18 +53,18 @@
                 <div class="form-inline">
                     <input type="button" id="btnUndo" class="btn btn-primary" onclick="UndoSignature('ctlSignature');" value="Trở lại" />&nbsp;
                     <input type="button" id="btnClear" class="btn btn-danger" onclick="ClearSignature('ctlSignature');" value="Xóa" />&nbsp;
-                    @* <input type="button" id="btnSave" class="btn btn-success" onclick="ValidateSign();" value="Save" />&nbsp; *@
+                    <input type="button" id="btnSave" class="btn btn-success" onclick="ValidateSign();" value="Ký" />&nbsp;
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-12" style="display:contents;">
-                    <button class="access" id="btnSave" onclick="ValidateSign();">
-                        XÁC NHẬN KÝ
+                <div class="col-md-6 bg-white rounded" style="display:contents;">
+                    <button class="access" id="btnSave" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        KHÁCH KÝ
                     </button>
                 </div>
             </div>
         </div>
-        <div class="col-8" style="min-width: 800px;">
+        <div class="col-6 bg-white" style="min-width: 800px;">
             <div id="myCarousel" class="carousel slide" style="width: 100%; height:100%;">
                 @*   <div class="carousel-indicators">
                 @foreach (var item in imageFiles)
@@ -83,7 +94,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <script type="text/javascript">
 
@@ -149,4 +159,5 @@
             interval: false
         });
     });
+
 </script>
