@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<QuanLyHopDongVaKySo_API.ViewModels.DContractViewModel>
 @{
 }
 <div class="container-fluid">
@@ -31,20 +29,25 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row"> </th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                        <span></span>
-                    </td>
-                    <td>
-                        <a asp-controller="" asp-action="">Chi tiết</a>
-                    </td>
-                </tr>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <th scope="row"> </th>
+                        <td>@item.Id</td>
+                        <td>@item.CustomerEmail</td>
+                        <td>@item.DateDone</td>
+                        <td>@item.CustomerName</td>
+                        <td>@item.TypeOfService</td>
+                        <td>
+                            <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                            <span>@item.Status</span>
+                        </td>
+                        <td>
+                            <a asp-controller="DetailsContractActive" asp-action="Diretor" asp-route-id="@item.Id">Chi tiết</a>
+                        </td>
+                    </tr>
+                }
+                
             </tbody>
         </table>
     </div>

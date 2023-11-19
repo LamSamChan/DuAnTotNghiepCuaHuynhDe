@@ -9,7 +9,7 @@
     // Lấy link trực ảnh từ file tỉnh
     string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
 
-    string folderItem = System.IO.Path.Combine(folderPath,Model.PendingContracts.PContractID);
+    string folderItem = System.IO.Path.Combine(folderPath, Model.PendingContracts.PContractID);
 
     string[] imageFiles = Directory.GetFiles(folderItem);
 }

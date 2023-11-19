@@ -1,4 +1,5 @@
-﻿<div class="container-fluid">
+﻿@model List<QuanLyHopDongVaKySo_API.ViewModels.PContractViewModel>
+<div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -33,38 +34,26 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
-                    <th><input type="checkbox" class="checkBox" /></th>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
-                            Chờ duyệt
-                        </div>
-                    </td>
-                    <td>
-                        <a asp-action="DetailsContractWaitSign" asp-controller="BusinessStaff" >Chi tiết</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox" class="checkBox" /></th>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
-                            Chờ duyệt
-                        </div>
-                    </td>
-                    <td>
-                        <a asp-action="DetailsContractWaitSign" asp-controller="BusinessStaff">Chi tiết</a>
-                    </td>
-                </tr>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <th><input type="checkbox" class="checkBox" /></th>
+                        <th scope="row"></th>
+                        <td>@item.PContractID</td>
+                        <td>@item.CustomerEmail</td>
+                        <td>@item.DateCreated</td>
+                        <td>@item.CustomerName</td>
+                        <td>@item.TOS_ID</td>
+                        <td>
+                            <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
+                                Chờ duyệt
+                            </div>
+                        </td>
+                        <td>
+                            <a asp-action="DetailsContractAwait" asp-controller="Director" asp-route-id="@item.PContractID">Chi tiết</a>
+                        </td>
+                    </tr>
+                }
 
             </tbody>
         </table>

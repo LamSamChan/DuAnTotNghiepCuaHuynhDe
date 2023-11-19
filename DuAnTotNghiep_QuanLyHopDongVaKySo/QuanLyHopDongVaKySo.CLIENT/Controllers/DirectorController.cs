@@ -16,6 +16,8 @@ using QuanLyHopDongVaKySo.CLIENT.Helpers;
 using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -30,13 +32,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IUploadHelper _uploadHelper;
         private readonly IPasswordService _passwordService;
         private readonly IDContractsService _dContractService;
-
+        private readonly IPContractService _pContractService;
+        private readonly ICustomerService _customerService;
         private int isAuthenticate;
         private string employeeId;
        
         public DirectorController(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices,
-            IUploadHelper uploadHelper, IPasswordService passwordService, IDContractsService dContractsService)
+            IUploadHelper uploadHelper, IPasswordService passwordService, IDContractsService dContractsService, IPContractService pContractService,
+            ICustomerService customerService)
         {
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
@@ -47,6 +51,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _uploadHelper = uploadHelper;
             _passwordService = passwordService;
             _dContractService = dContractsService;
+            _pContractService = pContractService;
+            _customerService = customerService;
         }
         public int IsAuthenticate
         {
@@ -197,34 +203,63 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ListContractActive()
         {
             List<DContractViewModel> contractList = new List<DContractViewModel>();
-            if (isAuthenticate == 2)
+            if (IsAuthenticate == 2)
             {
-                contractList = await _dContractService.getListByDirectorId(employeeId);
+                contractList = await _dContractService.getListByDirectorId(EmployeeId);
 
                 return View(contractList);
             }
             return View(contractList);
         }
-        public IActionResult ListContractAwait()
+        public async Task<IActionResult> ListContractAwait()
         {
-            return View();
+            List<PContractViewModel> pContractList = new List<PContractViewModel>();
+            if (IsAuthenticate == 2)
+            {
+                pContractList = await _pContractService.getListWaitDirectorSigns();
+                return View(pContractList);
+            }
+            return View(pContractList);
         }
         public IActionResult HistoryOperation()
         {
             return View();
         }
 
-        public IActionResult DetailsContractAwait()
+        public async Task<IActionResult> DetailsContractAwait(string id)
+        {
+            
+            VMDetailsContract viewModel = new VMDetailsContract();
+            try
+            {
+                viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
+                viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
+                viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
+            }
+            catch
+            {
+                return RedirectToAction("Index");
+            }
+            return View(viewModel);
+        }
+        public async Task<IActionResult> DetailsApprovedContract()
         {
             return View();
         }
-        public IActionResult DetailsApprovedContract()
+        public async Task<IActionResult> DetailsContractActive(string id)
         {
-            return View();
-        }
-        public IActionResult DetailsContractActive()
-        {
-            return View();
+            VMDetailsContract viewModel = new VMDetailsContract();
+            try
+            {
+                viewModel.DoneContracts = await _dContractService.getByIdAsnyc(id);
+                viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
+                viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.DoneContracts.DirectorSignedId);
+            }
+            catch
+            {
+                return RedirectToAction("Index");
+            }
+            return View(viewModel);
         }
 
         [HttpPost]

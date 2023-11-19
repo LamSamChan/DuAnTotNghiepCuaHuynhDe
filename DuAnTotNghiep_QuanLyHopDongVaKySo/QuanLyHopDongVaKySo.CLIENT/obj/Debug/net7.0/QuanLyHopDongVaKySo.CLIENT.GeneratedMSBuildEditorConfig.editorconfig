@@ -132,10 +132,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzaW5lc3NTdGFmZlxEZXRhaWxzQ3VzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/DetailsDContract.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzaW5lc3NTdGFmZlxEZXRhaWxzRENvbnRyYWN0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/EditContractFormPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzaW5lc3NTdGFmZlxFZGl0Q29udHJhY3RGb3JtUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -186,10 +182,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/Director/ChangePass.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlyZWN0b3JcQ2hhbmdlUGFzcy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/Director/DetailsApprovedContract.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlyZWN0b3JcRGV0YWlsc0FwcHJvdmVkQ29udHJhY3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/Director/DetailsContractActive.cshtml]
