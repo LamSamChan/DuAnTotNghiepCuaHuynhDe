@@ -16,6 +16,9 @@ using QuanLyHopDongVaKySo.CLIENT.Helpers;
 using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -30,13 +33,18 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IUploadHelper _uploadHelper;
         private readonly IPasswordService _passwordService;
         private readonly IDContractsService _dContractService;
+        private readonly IPContractService _pContractService;
+        private readonly ICustomerService _customerService;
+        private readonly ITOSService _tosService;
 
         private int isAuthenticate;
         private string employeeId;
        
         public DirectorController(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices,
-            IUploadHelper uploadHelper, IPasswordService passwordService, IDContractsService dContractsService)
+             IUploadHelper uploadHelper, IPasswordService passwordService, IPContractService pContractService, ICustomerService customerService, IDContractsService dContractsService,
+             ITOSService tosService)
+
         {
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
@@ -47,7 +55,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _uploadHelper = uploadHelper;
             _passwordService = passwordService;
             _dContractService = dContractsService;
+            _pContractService = pContractService;
+            _customerService = customerService;
+            _tosService = tosService;
         }
+
         public int IsAuthenticate
         {
             get
@@ -214,9 +226,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
 
-        public IActionResult DetailsContractAwait()
+        public async Task<IActionResult> DetailsContractAwait(string pContractID)
         {
-            return View();
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+
+            VMDetailsContractAwait vm = new VMDetailsContractAwait();
+            vm.PContract = await _pContractService.getByIdAsnyc(pContractID);
+            vm.EmployeeCreated = await _employeeService.GetEmployeeById(vm.PContract.EmployeeCreatedId);
+            vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
+            vm.Customer = await _customerService.GetCustomerById(vm.PContract.CustomerId);
+            return View(vm);
         }
         public IActionResult DetailsApprovedContract()
         {
