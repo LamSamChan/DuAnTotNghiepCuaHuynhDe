@@ -218,7 +218,9 @@ div[class="overlay"] {
     padding: 10px;
     opacity: 0;
 }
-
+div[class="overlay"] .row{
+    margin: auto;
+}
 .avt:hover div[class="overlay"] {
     opacity: 1;
 }
@@ -513,32 +515,6 @@ form .col-md-5 div[class="box1 row justify-content-between g-3 "] .col-md-6 inpu
     border: 1px solid;
     margin: auto 50px;
 }
-
-div[class="overlay"] {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 200px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    text-align: center;
-    transition: opacity 0.3s;
-    padding: 10px;
-    opacity: 0;
-}
-
-div[class="overlay"] input {
-    background-color: transparent;
-    color: white;
-    font-size: 10px;
-    font-weight: bold;
-    width: 180px;
-}
-
-.avt:hover div[class="overlay"] {
-    opacity: 1;
-}
-
 button[class="add_cus"] {
     border-radius: 8px;
     background: #2CDDBD;
