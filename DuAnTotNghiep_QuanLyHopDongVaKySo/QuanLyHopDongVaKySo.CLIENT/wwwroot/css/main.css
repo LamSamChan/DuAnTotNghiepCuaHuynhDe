@@ -513,7 +513,7 @@
    
         /*=======*/
         /*css button save*/
-        .button-save {
+    .button-save {
         background: #13aa52;
         border: 1px solid #13aa52;
         border-radius: 6px;
@@ -536,7 +536,7 @@
         touch-action: manipulation;
         vertical-align: middle;
         text-decoration: none;
-    }
+    }     
 
     .button-save:hover,
     .button-save:active {

@@ -199,18 +199,18 @@ input[type="file"] {
     display: inline-block;
     border: 1px solid;
     margin: 10px;
-    width: 50%;
+    width:100%;
     box-sizing: border-box;
 }
 #scrollable-list ul li img {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 100%;
 }
 div[class="overlay"] {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 200px;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     text-align: center;
@@ -221,6 +221,121 @@ div[class="overlay"] {
 
 .avt:hover div[class="overlay"] {
     opacity: 1;
+}
+
+/*css butn del*/
+.button-delete {
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    margin: auto 10px;
+    text-decoration: none;
+}
+
+.button-delete:hover,
+.button-delete:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+}
+
+.button-delete:active {
+    opacity: .5;
+}
+
+
+
+/*css btn cấu hình*/
+.button-design {
+    background: #1899D6;
+    border: 1px solid #1899D6;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    margin: auto 10px;
+    text-decoration: none;
+}
+
+.button-design:hover,
+.button-design:active {
+    background-color: white;
+    background-position: 0 0;
+    color: #1899D6;
+}
+
+.button-design:active {
+    opacity: .5;
+}
+
+
+.button-save {
+    background: #13aa52;
+    border: 1px solid #13aa52;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.button-save:hover,
+.button-save:active {
+    background-color: white;
+    background-position: 0 0;
+    color: #13aa52;
+}
+
+.button-save:active {
+    opacity: .5;
 }
 /*================*/
 /*vùng ký*/
