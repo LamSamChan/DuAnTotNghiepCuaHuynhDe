@@ -14,10 +14,11 @@ using System.Drawing.Imaging;
 using test.Models;
 using QuanLyHopDongVaKySo.CLIENT.Helpers;
 using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
-using QuanLyHopDongVaKySo_API.ViewModels;
+using VMAPI = QuanLyHopDongVaKySo_API.ViewModels;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -34,13 +35,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IDContractsService _dContractService;
         private readonly IPContractService _pContractService;
         private readonly ICustomerService _customerService;
+        private readonly ISigningService _signingService;
+
         private int isAuthenticate;
         private string employeeId;
        
         public DirectorController(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices,
             IUploadHelper uploadHelper, IPasswordService passwordService, IDContractsService dContractsService, IPContractService pContractService,
-            ICustomerService customerService)
+            ICustomerService customerService, ISigningService signingService)
         {
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
@@ -53,6 +56,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _dContractService = dContractsService;
             _pContractService = pContractService;
             _customerService = customerService;
+            _signingService = signingService;
         }
         public int IsAuthenticate
         {
@@ -137,7 +141,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ChangePassAction([FromBody] ChangePassword change)
+        public async Task<IActionResult> ChangePassAction([FromBody] VMAPI.ChangePassword change)
         {
             change.EmployeeID = EmployeeId;
             var respone = await _passwordService.ChangePasswordAsync(change);
@@ -202,7 +206,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public async Task<IActionResult> ListContractActive()
         {
-            List<DContractViewModel> contractList = new List<DContractViewModel>();
+            List<VMAPI.DContractViewModel> contractList = new List<VMAPI.DContractViewModel>();
             if (IsAuthenticate == 2)
             {
                 contractList = await _dContractService.getListByDirectorId(EmployeeId);
@@ -213,7 +217,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public async Task<IActionResult> ListContractAwait()
         {
-            List<PContractViewModel> pContractList = new List<PContractViewModel>();
+            List<VMAPI.PContractViewModel> pContractList = new List<VMAPI.PContractViewModel>();
             if (IsAuthenticate == 2)
             {
                 pContractList = await _pContractService.getListWaitDirectorSigns();
@@ -226,22 +230,38 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
 
-        public async Task<IActionResult> DetailsContractAwait(string id)
+        public async Task<IActionResult> DetailsContractAwait(string pContractId)
         {
-            
-            VMDetailsContract viewModel = new VMDetailsContract();
+
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+
+            VMDetailsContractAwait vm = new VMDetailsContractAwait();
             try
             {
-                viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
-                viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
-                viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
+                vm.PContract = await _pContractService.getByIdAsnyc(pContractId);
+                vm.EmployeeCreated = await _employeeService.GetEmployeeById(vm.PContract.EmployeeCreatedId);
+                vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
+                vm.Customer = await _customerService.GetCustomerById(vm.PContract.CustomerId);
             }
             catch
             {
                 return RedirectToAction("Index");
             }
-            return View(viewModel);
+            return View(vm);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> SignContract([FromBody] VMAPI.SigningModel signing)
+        {
+            byte[] fileBytes = System.IO.File.ReadAllBytes(Path.Combine(_hostingEnvironment.WebRootPath,signing.ImagePath));
+            signing.Base64StringFile = Convert.ToBase64String(fileBytes);
+            signing.ImagePath = null;
+            var temp = signing;
+            var respone = await _signingService.SignContractByDirector(signing);
+            return View();
+        }
+
         public async Task<IActionResult> DetailsApprovedContract()
         {
             return View();
