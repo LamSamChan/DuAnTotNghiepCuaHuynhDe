@@ -24,6 +24,6 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
         //cập nhật vô database
         Task<string> UpdateInfoToDatabase(PFXCertificate pfxCertificate);
 
-        Task<string> SignContract(string imagePath, string inputPdfPath, string outputPdfPath, string serialCerti, float xCoordinate, float yCoodinate);
+        Task<string> SignContract(string imagePath, string? imagePathStamp, string inputPdfPath, string outputPdfPath, string serialCerti, float xCoordinate, float yCoodinate);
     }
 }
