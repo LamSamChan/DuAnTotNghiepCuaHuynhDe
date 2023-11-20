@@ -28,6 +28,7 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 using Microsoft.Extensions.FileProviders;
+using QuanLyHopDongVaKySo_API.Services.StampService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,6 +67,7 @@ builder.Services.AddScoped<IOTPGeneratorHelper, OTPGeneratorHelper>();
 builder.Services.AddScoped<IContractCoordinateSvc, ContractCoordinateSvc>();
 builder.Services.AddScoped<IMinuteCoordinateSvc, MinuteCoordinateSvc>();
 builder.Services.AddScoped<IPdfToImageHelper, PdfToImageHelper>();
+builder.Services.AddScoped<IStampSvc, StampSvc>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

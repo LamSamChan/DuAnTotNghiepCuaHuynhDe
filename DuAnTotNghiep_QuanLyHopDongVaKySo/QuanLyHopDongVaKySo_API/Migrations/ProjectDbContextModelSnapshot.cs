@@ -686,6 +686,26 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.ToTable("Role", (string)null);
                 });
 
+            modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.Stamp", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("StampPath")
+                        .HasColumnType("nvarchar(250)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Stamp", (string)null);
+                });
+
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.TemplateContract", b =>
                 {
                     b.Property<int>("TContactID")
@@ -709,10 +729,12 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("jsonCustomerZone")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("jsonDirectorZone")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("TContactID");
 
@@ -743,10 +765,10 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("jsonCustomerZone")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("jsonIntallationZone")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("TMinuteID");
 

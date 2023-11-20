@@ -264,33 +264,33 @@
             alert("Bạn chưa cài đặc chữ ký mặc định!!")
         }else{
             var signingDefault = {
-            Serial : '@Model.PFXCertificate.Serial',
-            IdFile :'@Model.PContract.PContractID',
-            Base64StringFile : '',
-            ImagePath: '@Model.PFXCertificate.DefaultImageSignature.Replace(@"\",@"/")'
-        }
-
-        $.ajax({
-            url: '@Url.Action("SignContract")',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(signingDefault),
-            success: function (result) {
-                if (!result.success) {
-                    // Chuyển hướng tới trang mong muốn
-                    var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
-                    window.location.href = redirectToUrl;
-
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error('Lỗi khi gửi yêu cầu:', error);
-
-                console.log(xhr);
-                // Hiển thị thông báo lỗi
-                alert('Lỗi khi gửi yêu cầu: ' + error);
+                Serial: '@Model.PFXCertificate.Serial',
+                IdFile: '@Model.PContract.PContractID',
+                Base64StringFile: '',
+                ImagePath: '@Model.PFXCertificate.DefaultImageSignature.Replace(@"\",@"/")'
             }
-        });
+
+            $.ajax({
+                url: '@Url.Action("SignContract")',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(signingDefault),
+                success: function (result) {
+                    if (!result.success) {
+                        // Chuyển hướng tới trang mong muốn
+                        var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+                        window.location.href = redirectToUrl;
+
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu:', error);
+
+                    console.log(xhr);
+                    // Hiển thị thông báo lỗi
+                    alert('Lỗi khi gửi yêu cầu: ' + error);
+                }
+            });
         }
         
     }

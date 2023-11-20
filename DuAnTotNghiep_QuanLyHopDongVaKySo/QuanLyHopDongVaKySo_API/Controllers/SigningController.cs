@@ -560,6 +560,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             fsPContract2.Close();
 
             _uploadFileHelper.RemoveFile(imagePath);
+            _uploadFileHelper.RemoveFile(imagePathStamp);
 
             return Ok(base64String+"*"+pendingMinute.PendingMinuteId);
         }

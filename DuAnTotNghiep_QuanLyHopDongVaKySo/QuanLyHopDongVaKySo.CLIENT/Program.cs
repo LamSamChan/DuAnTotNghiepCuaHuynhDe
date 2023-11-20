@@ -16,6 +16,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
 using QuanLyHopDongVaKySo.CLIENT.Helpers;
 using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.StampService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,6 +56,7 @@ builder.Services.AddScoped<IUploadHelper, UploadHelper>();
 builder.Services.AddScoped<ISigningService, SigningService>();
 builder.Services.AddScoped<IPdfToImageHelper, PdfToImageHelper>();
 builder.Services.AddScoped<IPasswordService, PasswordService>();
+builder.Services.AddScoped<IStampSvc, StampSvc>();
 
 
 

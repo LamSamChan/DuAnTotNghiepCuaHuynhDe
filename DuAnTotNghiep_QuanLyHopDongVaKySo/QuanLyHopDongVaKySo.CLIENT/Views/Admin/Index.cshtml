@@ -1,4 +1,4 @@
-﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMPersonalPage
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMAdminIndex
 
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -105,30 +105,26 @@
                 </div>
                 <div class="tab-content" id="tab2" style="height: auto;">
                     <div style="margin:auto;">
-                        @if (Model.PFXCertificate.DefaultImageSignature != null)
+                        @if (Model.Stamps.Count > 0)
                         {
-                            <img src="~/@Model.PFXCertificate.DefaultImageSignature" alt="@Model.PFXCertificate.DefaultImageSignature" class="gallery-item" width="100%" height="300" />
+                            <img src="~/@Model.Stamps[0].StampPath" alt="@Model.Stamps[0].StampPath" class="gallery-item" width="100%" height="300" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
-                                    <a class="col button-delete" asp-action="DeleteDefaultSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.DefaultImageSignature">Xóa</a>
+                                    <a class="col button-delete" asp-action="DeleteStampImage" asp-controller="Admin" asp-route-filePath="@Model.Stamps[0].StampPath">Xóa</a>
                                 </div>
                             </div>
                         }
                         else
                         {
                             <img src="~/Resource/Image/empty.png" class="gallery-item" width="100%" height="300" />
-                            <div class="overlay">
-                                <div class="row justify-content-around">
-                                    <a class="col button-delete" asp-action="DeleteDefaultSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.DefaultImageSignature">Xóa</a>
-                                </div>
-                            </div>
                         }
                     </div>
-                    <form class="row justify-content-around" style="margin:auto;">
+                    <form class="row justify-content-around" style="margin:auto;" asp-action="UploadStampImage" asp-controller="Admin" enctype="multipart/form-data" method="post">
                         <label for="file-upload" class="custom-file-upload col-7" role="button">
                             <i class="ph-bold ph-cloud-arrow-up"></i>
                             UPLOAD
                         </label>
+                        <input id="file-upload" type="file" type="file" asp-for="Stamp.ImageFile" />
                         <button class="Save_btn col-4" role="button" type="submit">LƯU</button>
                     </form>
                 </div>

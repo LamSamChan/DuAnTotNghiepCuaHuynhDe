@@ -8,15 +8,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AppData\Avatars\**" />
+    <Compile Remove="AppData\ContractImage\**" />
     <Compile Remove="AppData\PendingContracts\**" />
     <Compile Remove="AppData\PendingMinutes\**" />
     <Compile Remove="AppData\TMinutes\**" />
+    <Content Remove="AppData\Avatars\**" />
+    <Content Remove="AppData\ContractImage\**" />
     <Content Remove="AppData\PendingContracts\**" />
     <Content Remove="AppData\PendingMinutes\**" />
     <Content Remove="AppData\TMinutes\**" />
+    <EmbeddedResource Remove="AppData\Avatars\**" />
+    <EmbeddedResource Remove="AppData\ContractImage\**" />
     <EmbeddedResource Remove="AppData\PendingContracts\**" />
     <EmbeddedResource Remove="AppData\PendingMinutes\**" />
     <EmbeddedResource Remove="AppData\TMinutes\**" />
+    <None Remove="AppData\Avatars\**" />
+    <None Remove="AppData\ContractImage\**" />
     <None Remove="AppData\PendingContracts\**" />
     <None Remove="AppData\PendingMinutes\**" />
     <None Remove="AppData\TMinutes\**" />
@@ -53,8 +61,6 @@
     <Folder Include="AppData\DContracts\" />
     <Folder Include="AppData/PFXCertificates/" />
     <Folder Include="AppData/TContracts/" />
-    <Folder Include="AppData\Avatars\" />
-    <Folder Include="AppData\ContractImage\" />
     <Folder Include="AppData\PContracts\5\" />
     <Folder Include="AppData\SignatureImages\" />
     <Folder Include="Models\ViewDeletes\" />

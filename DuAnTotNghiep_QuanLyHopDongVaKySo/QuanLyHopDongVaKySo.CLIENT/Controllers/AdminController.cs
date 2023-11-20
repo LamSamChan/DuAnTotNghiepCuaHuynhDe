@@ -31,6 +31,7 @@ using Org.BouncyCastle.Asn1.X509;
 using Org.BouncyCastle.Asn1.Pkcs;
 using static iTextSharp.text.pdf.AcroFields;
 using Org.BouncyCastle.Crypto.Tls;
+using QuanLyHopDongVaKySo.CLIENT.Services.StampService;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -50,6 +51,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly IHttpContextAccessor _contextAccessor;
         private readonly IUploadHelper _uploadHelper;
+        private readonly IStampSvc _stampSvc;
 
 
         private int isAuthenticate;
@@ -59,7 +61,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             ICustomerService customerService, IPFXCertificateServices pfxCertificateServices, IPContractService pContractService,
             IDContractsService doneContractSvc, ITOSService tosService, ITContractService tContractService, ITMinuteService tMinuteService,
             IInstallationDevicesService installationDevicesService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor,
-            IUploadHelper uploadHelper)
+            IUploadHelper uploadHelper, IStampSvc stampSvc)
         {
             _positionService = positionService;
             _employeeService = employeeService;
@@ -75,6 +77,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
             _uploadHelper = uploadHelper;
+            _stampSvc = stampSvc;
         }
 
         public int IsAuthenticate
@@ -128,18 +131,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+
         public async Task<IActionResult> Index()
         {
             string VB = ViewBag.Role;
             if (IsAuthenticate == 1)
             {
-                VMPersonalPage vm = new VMPersonalPage();
+                VMAdminIndex vm = new VMAdminIndex();
                 vm.Positions = await _positionService.GetAllPositionsAsync();
                 vm.Roles = await _roleService.GetAllRolesAsync();
                 vm.Employee = await _employeeService.GetEmployeePutById(EmployeeId);
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
                 vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
+                vm.Stamps = await _stampSvc.GetAll();
                 ViewData["Role"] = VB;
                 return View(vm);
             }
@@ -596,11 +601,33 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
             var certificate = await _pfxCertificateServices.GetById(serialPFX);
 
+            try
+            {
+                int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
+                if (fileCount == 5)
+                {
+                    //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                    return RedirectToAction("Index", "Verify");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
             var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
 
             var fileName = System.Guid.NewGuid().ToString().Substring(0,8) + ".png";
 
-            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}"), fileName);
+            string folderPath = Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}");
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            var filePath = Path.Combine(folderPath, fileName);
 
             if (certificate.ImageSignature1 == null)
             {
@@ -642,13 +669,28 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-        public async Task<ActionResult> UploadSignature(VMPersonalPage vm)
+        public async Task<ActionResult> UploadSignature(VMAdminIndex vm)
         {
             API.PFXCertificate certificate = new API.PFXCertificate();
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
 
             var temp = vm.PFXCertificate.ImageFile;
+
+            try
+            {
+                int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
+                if (fileCount == 5)
+                {
+                    //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                    return RedirectToAction("Index", "Verify");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
             if (temp != null)
             {
@@ -698,6 +740,41 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
+        public async Task<ActionResult> UploadStampImage(VMAdminIndex vm)
+        {
+
+            var temp = vm.Stamp.ImageFile;
+
+            if (temp != null)
+            {
+                if (temp.ContentType.StartsWith("image/"))
+                {
+                    string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath, "StampImage");
+                    API.Stamp stamp = new API.Stamp();
+                    stamp.StampPath = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                    var result = await _stampSvc.AddNew(stamp);
+                    if (result != null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Verify");
+                    }
+                }
+                else
+                {
+                    // ko phải file ảnh
+                    return RedirectToAction("Index", "Verify");
+                }
+            }
+            else
+            {
+                // chưa up ảnh
+                return RedirectToAction("Index");
+            }
+        }
+
         public async Task<ActionResult> DeleteSignature(string filePath)
         {
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
@@ -732,6 +809,23 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var result = await _pfxCertificateServices.Update(certificate);
 
             if (result != null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
+        }
+
+        public async Task<ActionResult> DeleteStampImage(string filePath)
+        {
+             var stamp = _stampSvc.GetAll().Result.FirstOrDefault(s => s.StampPath == filePath);
+
+            _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, filePath));
+            var respone = await _stampSvc.Delete(stamp.ID);
+
+            if (respone != 0)
             {
                 return RedirectToAction("Index");
             }

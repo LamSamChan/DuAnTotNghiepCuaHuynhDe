@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuanLyHopDongVaKySo.CLIENT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fab9faef4d60096da9a4d6fdb8ee9f0adf42c69e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuanLyHopDongVaKySo.CLIENT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuanLyHopDongVaKySo.CLIENT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
