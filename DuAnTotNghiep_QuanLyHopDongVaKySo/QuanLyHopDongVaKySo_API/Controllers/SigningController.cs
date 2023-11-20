@@ -218,6 +218,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             byte[] fileBytes = System.IO.File.ReadAllBytes(pContract.PContractFile);
             string base64String = Convert.ToBase64String(fileBytes);
 
+            var customer = await _customerSvc.GetByIdAsync(pContract.CustomerId.ToString());
+
+            
             PutPendingContract pendingContract = new PutPendingContract
             {
                 PContractId = pContract.PContractID,
@@ -236,9 +239,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Base64File = base64String,
             };
 
-            var customer = await _customerSvc.GetByIdAsync(pContract.CustomerId.ToString());
-
-            var url = GenerateUrl(pContract.PContractID,serial);
+            var url = GenerateUrl(pContract.PContractID, pContract.CustomerId.ToString());
             var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
             var sendMail = SendMailToCustomerWithImage(qrPath, url, customer);
 
@@ -694,22 +695,23 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             (int,string) contractID = DecodeToken(token);
 
             //contractID.Item1: get contractID
-            //contractID.Item2: get Serial
+            //contractID.Item2: get customerID
 
-            string url = "";
+            //url locallhost
+            var url = $"https://localhost:7063/Customer/CusToSign?pContractId={contractID.Item1}&customerId={contractID.Item2}";
+
             //test
             // Lấy thông tin hợp đồng dựa trên customerId và contractId
             //chạy với client thì truyền contractID vào link hiển thị hợp đồng và chuyển tới link đó
 
-
             return Redirect(url);
         }
 
-        private string GenerateToken(int contractID, string serial)
+        private string GenerateToken(int contractID, string customerId)
         {
             List<Claim> claims = new List<Claim>() {
                  new Claim("ContractID", contractID.ToString()),
-                 new Claim("Serial", serial)
+                 new Claim("CustomerID", customerId)
              };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
@@ -728,15 +730,19 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return jwt;
         }
 
-        private string GenerateUrl(int contractID, string serial)
+        private string GenerateUrl(int contractID, string customerId)
         {
             //Tạo token với id khách hàng và id hợp đồng + serial pfx
-            var token = GenerateToken(contractID,serial);
+            var token = GenerateToken(contractID, customerId);
 
             // Tạo đường link có chứa token
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
 
+            //url locallhost
             var url = $"https://localhost:7286/api/Signing/ReadWithToken/{token}";
+
+            //url servcer
+            //var url = $"https://techsealapi.azurewebsites.net/api/Signing/ReadWithToken/{token}";
 
             // Gửi URL cho khách hàng
             return url;
@@ -748,9 +754,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             var jsonToken = handler.ReadToken(token);
             var tokenS = jsonToken as JwtSecurityToken;
 
-            var pcontractID = int.Parse(tokenS.Claims.First(claim => claim.Type == "ContractID").Value);
-            var serial = tokenS.Claims.First(claim => claim.Type == "Serial").Value;
-            return (pcontractID, serial);
+            var pcontractId = int.Parse(tokenS.Claims.First(claim => claim.Type == "ContractID").Value);
+            var customerId = tokenS.Claims.First(claim => claim.Type == "CustomerID").Value;
+            return (pcontractId, customerId);
         }
 
 
