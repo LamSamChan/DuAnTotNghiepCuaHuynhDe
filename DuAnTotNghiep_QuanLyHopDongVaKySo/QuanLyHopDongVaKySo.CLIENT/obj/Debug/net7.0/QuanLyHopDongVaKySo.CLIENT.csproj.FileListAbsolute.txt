@@ -597,3 +597,5 @@ C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDong
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\bin\Debug\net7.0\Syncfusion.Licensing.dll
 C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\bin\Debug\net7.0\Syncfusion.EJ2.dll
 C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\bin\Debug\net7.0\Syncfusion.Licensing.dll
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\bin\Debug\net7.0\Syncfusion.EJ2.dll
+E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\bin\Debug\net7.0\Syncfusion.Licensing.dll

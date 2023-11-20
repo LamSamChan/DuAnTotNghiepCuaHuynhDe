@@ -13,6 +13,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using System.Drawing.Imaging;
+using System.IdentityModel.Tokens.Jwt;
 using test.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
@@ -44,14 +45,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> CusToSign(string pContractId, string customerId)
+
+
+        public async Task<IActionResult> CusToSign(string token)
         {
+            int pContractId = DecodeToken(token);
 
             VMDetailsContractAwait vm = new VMDetailsContractAwait();
             try
             {
-                vm.PContract = await _pContractService.getByIdAsnyc(pContractId);
-                vm.Customer = await _customerService.GetCustomerById(customerId);
+                vm.PContract = await _pContractService.getByIdAsnyc(pContractId.ToString());
+                vm.Customer = await _customerService.GetCustomerById(vm.PContract.CustomerId);
                 vm.PFXCertificate = await _pfxCertificateServices.GetById(vm.Customer.SerialPFX);
             }
             catch
@@ -60,6 +64,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             return View(vm);
         }
+        private int DecodeToken(string token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jsonToken = handler.ReadToken(token);
+            var tokenS = jsonToken as JwtSecurityToken;
+
+            var pcontractId = int.Parse(tokenS.Claims.First(claim => claim.Type == "ContractID").Value);
+            return pcontractId;
+        }
+
         public IActionResult Log()
         {
             return View();

@@ -239,7 +239,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Base64File = base64String,
             };
 
-            var url = GenerateUrl(pContract.PContractID, pContract.CustomerId.ToString());
+            var url = GenerateUrl(pContract.PContractID);
             var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
             var sendMail = SendMailToCustomerWithImage(qrPath, url, customer);
 
@@ -687,31 +687,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         }
 
-        //function test
-        [HttpGet("ReadWithToken/{token}")]
-        public async Task<ActionResult<string>> GetByToken(string token)
-        {
-            // Giải mã token để lấy id khách hàng và id hợp đồng
-            (int,string) contractID = DecodeToken(token);
+        
 
-            //contractID.Item1: get contractID
-            //contractID.Item2: get customerID
-
-            //url locallhost
-            var url = $"https://localhost:7063/Customer/CusToSign?pContractId={contractID.Item1}&customerId={contractID.Item2}";
-
-            //test
-            // Lấy thông tin hợp đồng dựa trên customerId và contractId
-            //chạy với client thì truyền contractID vào link hiển thị hợp đồng và chuyển tới link đó
-
-            return Redirect(url);
-        }
-
-        private string GenerateToken(int contractID, string customerId)
+        private string GenerateToken(int contractID)
         {
             List<Claim> claims = new List<Claim>() {
                  new Claim("ContractID", contractID.ToString()),
-                 new Claim("CustomerID", customerId)
              };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
@@ -730,35 +711,23 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return jwt;
         }
 
-        private string GenerateUrl(int contractID, string customerId)
+        private string GenerateUrl(int contractID)
         {
             //Tạo token với id khách hàng và id hợp đồng + serial pfx
-            var token = GenerateToken(contractID, customerId);
+            var token = GenerateToken(contractID);
 
             // Tạo đường link có chứa token
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
 
             //url locallhost
-            var url = $"https://localhost:7286/api/Signing/ReadWithToken/{token}";
+            var url = $"https://localhost:7063/Customer/CusToSign?token={token}";
 
             //url servcer
-            //var url = $"https://techsealapi.azurewebsites.net/api/Signing/ReadWithToken/{token}";
+            //var url = $"https://techseal.azurewebsites.net/Customer/CusToSign?token={token}";
 
             // Gửi URL cho khách hàng
             return url;
         }
-
-        private (int,string) DecodeToken(string token)
-        {
-            var handler = new JwtSecurityTokenHandler();
-            var jsonToken = handler.ReadToken(token);
-            var tokenS = jsonToken as JwtSecurityToken;
-
-            var pcontractId = int.Parse(tokenS.Claims.First(claim => claim.Type == "ContractID").Value);
-            var customerId = tokenS.Claims.First(claim => claim.Type == "CustomerID").Value;
-            return (pcontractId, customerId);
-        }
-
 
         private async Task<string> SendMailToCustomerWithImage(byte[] qrPath, string url, Customer customer)
         {
