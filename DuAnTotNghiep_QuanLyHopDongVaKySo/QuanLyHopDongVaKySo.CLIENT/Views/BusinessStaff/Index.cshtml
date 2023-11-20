@@ -24,119 +24,216 @@
         <h1 class="typeHead">THÔNG TIN CÁ NHÂN</h1>
         <div class="row">
             <button class="add_Cus col-md-2" >
-               <a asp-action="ChangePass" asp-controller="BusinessStaff">ĐỔI MẬT KHẨU</a>
+                <a asp-action="ChangePass" asp-controller="BusinessStaff">ĐỔI MẬT KHẨU</a>
             </button>
         </div>
     </div>
-    <div class="body">
-        <div class="row justify-content-around" style="height:365px;">
-            <div class="col-6 row" style="max-width:700px;">
-                <div class="box_avtr" style=" margin: auto 0 ;
-                width: 257px;
-                bottom: 30px;
-                left: 500px;
-                display: flex;
-                flex-direction: column;
-                    align-items: center;">
+    <div class="row justify-content-around mt-3">
+        <div class="col-md-4">
+            <div class="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6 rounded" style="height: 200px; display: flex;">
+                <div class="items-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4" style="display:flex;">
                     @if (Model.Employee.Image == null)
                     {
                         if (Model.Employee.Gender == 1)
                         {
-                            <img src="~/Avatars/blank_avatar_man.png" alt="Avatar" style=" width: 257px; height: 210px; border: 7px solid #FFF;" />
+                            <img class="mb-4 w-28 h-28 rounded-lg sm:mb-0 xl:mb-4 2xl:mb-0 shadow-lg shadow-gray-300" src="~/Avatars/blank_avatar_man.png" alt="Avatar">
                         }
                         else
                         {
+                            <img class="mb-4 w-28 h-28 rounded-lg sm:mb-0 xl:mb-4 2xl:mb-0 shadow-lg shadow-gray-300" src="~/Avatars/blank_avatar_woman.png" alt="Avatar">
 
-                            <img src="~/Avatars/blank_avatar_woman.png" alt="Avatar" style=" width: 257px; height: 210px; border: 7px solid #FFF;" />
                         }
                     }
                     else
                     {
-                        <img src="~/@Model.Employee.Image" alt="Avatar" style=" width: 257px; height: 210px; border: 7px solid #FFF;" />
+                        <img class="mb-4 w-28 h-28 rounded-lg sm:mb-0 xl:mb-4 2xl:mb-0 shadow-lg shadow-gray-300" src="~/@Model.Employee.Image" alt="Avatar" />
                     }
-                    <h4 style="color:#FFFFFF; padding-top:10px; ">@Model.Employee.FullName</h4>
-                    <h5 style="color:#FFFFFF; ">
-                        @foreach (var p in Model.Positions)
-                        {
-
-                            @if (p.PositionID == Model.Employee.PositionID)
+                    <div style="margin: auto 10px;">
+                        <h3 class="mb-1 text-2xl font-bold text-gray-900">
+                            @Model.Employee.FullName
+                        </h3>
+                        <div class="text-base font-normal text-gray-500">
+                            @foreach (var p in Model.Positions)
                             {
-                                @p.PositionName
+
+                                @if (p.PositionID == Model.Employee.PositionID)
+                                {
+                                    @p.PositionName
+                                }
                             }
-                        }
-                    </h5>
+                        </div>
+                        <form enctype="multipart/form-data" asp-action="UpdateInfo" asp-controller="BusinessStaff" method="post" class="row justify-content-around" style="margin:auto;">
+                            <label for="file-upload" class="custom-file-upload col-7" role="button">
+                                <i class="ph-bold ph-cloud-arrow-up"></i>
+                                UPLOAD
+                            </label>
+                            <button class="Save_btn col-4" role="button" type="submit">LƯU</button>
+                            <input id="file-upload" type="file" accept="image/*" asp-for="Employee.ImageFile" />
+                            <input type="text" class="form-input d-none" asp-for="Employee.EmployeeId" readonly>
+                            <input class="form-input d-none" asp-for="Employee.IsFirstLogin" readonly>
+                            <span class="text-danger" asp-validation-for="Employee.ImageFile"></span>
+                        </form>
+                    </div>
                 </div>
-                <div id="box_load" style="width:300px; margin:auto;">
-                    <form enctype="multipart/form-data" asp-action="UpdateInfo" asp-controller="BusinessStaff" method="post">
-                        <button class="upload" type="submit">
-                            <i class="ph-bold ph-upload-simple"></i>
-                        </button>
-                        <input type="file" class="tt" style="width:200px;" accept="image/*" asp-for="Employee.ImageFile" />
-                        <input type="text" class="form-input d-none" asp-for="Employee.EmployeeId" readonly>
-                        <input class="form-input d-none" asp-for="Employee.IsFirstLogin" readonly>
-                        <span class="text-danger" asp-validation-for="Employee.ImageFile"></span>
+            </div>
+            <div class="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6 mt-3 rounded">
+                <h4 class="typeHead">Chữ ký mặt định</h4>
+                <div style="margin:auto;">
+                    <img src="~/Resource/Image/empty.png" width="400" height="300" />
+                </div>
+            </div>
+            <div class="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6 mt-3 rounded" id="scrollable-list">
+                <div class="row">
+                    <h4 class="typeHead"> Tải ảnh chữ ký</h4>
+                    <form enctype="multipart/form-data" asp-action="UploadSignature" asp-controller="BusinessStaff" method="post" class="row">
+                        <label for="file-upload" class="custom-file-upload col-6" role="button">
+                            <i class="ph-bold ph-cloud-arrow-up" style="font-size:30px;"></i>
+                        </label>
+                        <button class="Save_btn col-2" role="button" type="submit">LƯU</button>
+                        <input id="file-upload" type="file" accept="image/*" asp-for="PFXCertificate.ImageFile" />
                     </form>
                 </div>
+                <hr />
+                <h4 class="typeHead">Danh sách chữ ký</h4>
+                <ul>
+                    @if (Model.PFXCertificate.ImageSignature1 != null)
+                    {
+                        <li class="avt">
+                            <img src="~/@Model.PFXCertificate.ImageSignature1" alt="@Model.PFXCertificate.ImageSignature1" class="gallery-item" />
+                            <div class="overlay">
+                                <div class="row justify-content-around" style="margin:auto;">
+                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Xóa</a>
+                                    <a class="col button-save" asp-action="" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Đặt mặt định</a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="avt">
+                            <img src="~/Resource/Image/empty.png" class="gallery-item" />
+                           
+                        </li>
+                    }
+                    @if (Model.PFXCertificate.ImageSignature2 != null)
+                    {
+                        <li class="avt">
+                            <img src="~/@Model.PFXCertificate.ImageSignature2" alt="@Model.PFXCertificate.ImageSignature2" class="gallery-item" />
+                            <div class="overlay">
+                                <div class="row justify-content-around" style="margin:auto;">
+                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Xóa</a>
+                                    <a class="col button-save" asp-action="" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Đặt mặt định</a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="avt">
+                            <img src="~/Resource/Image/empty.png" class="gallery-item" />
+                        </li>
+                    }
+                    @if (Model.PFXCertificate.ImageSignature3 != null)
+                    {
+                        <li class="avt">
+                            <img src="~/@Model.PFXCertificate.ImageSignature3" alt="@Model.PFXCertificate.ImageSignature3" class="gallery-item" />
+                            <div class="overlay">
+                                <div class="row justify-content-around" style="margin:auto;">
+                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Xóa</a>
+                                    <a class="col button-save" asp-action="" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Đặt mặt định</a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="avt">
+                            <img src="~/Resource/Image/empty.png" class="gallery-item" />
+                        </li>
+                    }
+                    @if (Model.PFXCertificate.ImageSignature4 != null)
+                    {
+                        <li class="avt">
+                            <img src="~/@Model.PFXCertificate.ImageSignature4" alt="@Model.PFXCertificate.ImageSignature4" class="gallery-item" />
+                            <div class="overlay">
+                                <div class="row justify-content-around" style="margin:auto;">
+                                    <a class="button-delete" asp-action="DeleteSignature" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Xóa</a>
+                                    <a class="col button-save" asp-action="" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Đặt mặt định</a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="avt">
+                            <img src="~/Resource/Image/empty.png" class="gallery-item" />
+                        </li>
+                    }
+                    @if (Model.PFXCertificate.ImageSignature5 != null)
+                    {
+                        <li class="avt">
+                            <img src="~/@Model.PFXCertificate.ImageSignature5" alt="@Model.PFXCertificate.ImageSignature5" class="gallery-item" />
+                            <div class="overlay">
+                                <div class="row justify-content-around" style="margin:auto;">
+                                    <a class="button-delete" asp-action="DeleteSignature" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Xóa</a>
+                                    <a class="col button-save" asp-action="" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Đặt mặt định</a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="avt">
+                            <img src="~/Resource/Image/empty.png" class="gallery-item" />
+                        </li>
+                    }
+                </ul>
             </div>
-            <div class="col-5" style="max-width:800px;">
-                <div class="row">
-                    <h5 class="title">Tạo chữ ký</h5>
-                    <div class="col-md-8">
-                        @await Component.InvokeAsync("SignControl")
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-inline" style="display: flex;flex-direction: column;margin-left: 150px; margin-top: 100px;">
-                            <input type="button" id="btnUndo" class="btn btn-primary" onclick="UndoSignature('ctlSignature');" value="Hoàn tác" />&nbsp;
-                            <input type="button" id="btnClear" class="btn btn-danger" onclick="ClearSignature('ctlSignature');" value="Xóa" />&nbsp;
-                            <input type="button" id="btnSave" class="btn btn-success" onclick="ValidateSign();" value="Tạo" />&nbsp;
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
-        <div class="row" style="max-height:600px;">
-            <div class="infor col-5" style="max-height: 600px; overflow-y: scroll;">
-                <h4 class="title">Thông tin cá nhân</h4>
+        <div class="col-md-8">
+            <div class="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6 rounded">
+                <h4 class="typeHead">Thông tin cá nhân</h4>
                 <form class="row justify-content-around g-3" method="post" asp-action="UpdateInfo" asp-controller="BusinessStaff">
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <label for="inputName" class="form-label">ID</label>
-                        <input type="text" class="form-input" asp-for="Employee.EmployeeId" readonly>
+                        <input type="text" class="form-control" asp-for="Employee.EmployeeId" readonly>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <label for="inputName" class="form-label">Họ tên</label>
-                        <input type="text" class="form-input" id="inputName" asp-for="Employee.FullName" readonly>
+                        <input type="text" class="form-control" id="inputName" asp-for="Employee.FullName" readonly>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <label for="inputEmail" class="form-label">Email</label>
-                        <input type="email" class="form-input" id="inputEmail" asp-for="Employee.Email" readonly>
+                        <input type="email" class="form-control" id="inputEmail" asp-for="Employee.Email" readonly>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <label for="inputPhone" class="form-label">Số điện thoại</label>
-                        <input type="text" class="form-input" id="inputPhone" maxlength="12" asp-for="Employee.PhoneNumber" required>
+                        <input type="text" class="form-control" id="inputPhone" maxlength="12" asp-for="Employee.PhoneNumber" required>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <label for="inputAddress" class="form-label">CMND / CCCD</label>
-                        <input type="text" placeholder="Add" class="form-input" id="inputAddress" asp-for="Employee.Identification" readonly>
+                        <input type="text" placeholder="Add" class="form-control" id="inputAddress" asp-for="Employee.Identification" readonly>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Địa chỉ</label>
-                        <textarea type="text" placeholder="Add" class="form-input" id="inputAddress" asp-for="Employee.Address" required></textarea>
+                        <textarea type="text" placeholder="Add" class="form-control" id="inputAddress" asp-for="Employee.Address" required></textarea>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <label for="inputDate" class="form-label">Ngày sinh</label>
-                        <input type="date" class="form-input" id="inputDate" asp-for="Employee.DateOfBirth" required>
+                        <input type="date" class="form-control" id="inputDate" asp-for="Employee.DateOfBirth" required>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <label for="inputGender" class="form-label">Giới tính</label>
                         <select id="inpuGender" class="form-select" required asp-for="Employee.Gender">
-                            <option value="" disabled selected>...chọn giới tính</option>
+                            <option value="" disabled selected>...Chọn giới tính</option>
                             <option value="1">Nam</option>
                             <option value="2">Nữ</option>
                         </select>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <label for="inputRole" class="form-label">Vai trò</label>
-                        <input type="text" class="form-input" id="inputRole" readonly value=" @foreach (var r in Model.Roles)
+                        <input type="text" class="form-control" id="inputRole" readonly value=" @foreach (var r in Model.Roles)
                                {
                                     if(r.RoleID == Model.Employee.RoleID)
                                     {
@@ -145,9 +242,9 @@
                                 }">
                         <input class="d-none" readonly asp-for="Employee.RoleID">
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <label for="inputPosition" class="form-label">Chức danh</label>
-                        <input type="text" class="form-input" id="inputPosition" readonly value="@foreach (var p in Model.Positions)
+                        <input type="text" class="form-control" id="inputPosition" readonly value="@foreach (var p in Model.Positions)
                                {
                                     if(p.PositionID == Model.Employee.PositionID)
                                     {
@@ -156,7 +253,7 @@
                                 }">
                         <input class="d-none" readonly asp-for="Employee.PositionID">
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <label for="inputPhone" class="form-label">Trạng thái tài khoản</label>
                         <div>
                             @if (!Model.Employee.IsLocked)
@@ -171,96 +268,31 @@
                             }
                         </div>
                     </div>
-                    <div class="col-md-5">
-                        <label for="inputAddress" class="form-label">Ghi chú</label>
-                        <textarea type="text" class="form-input" id="inputAddress" asp-for="Employee.Note" readonly></textarea>
+                    <div class="col-md-6">
+                        <label for="exampleFormControlTextarea1" class="form-label">Ghi chú</label>
+                        <textarea type="text" class="form-control" id="exampleFormControlTextarea1" asp-for="Employee.Note" readonly rows="3"></textarea>
                     </div>
                     <button class="add_cus" style="margin:20px auto; width:50%; padding: 20px; min-height:30px; display:flex; justify-content:center; align-items:center; " type="submit">Lưu thông tin</button>
                 </form>
             </div>
-            <div class="infor col-5" style="max-height: 600px; overflow-y: scroll;">
-                <h4 class="title">Danh sách chữ ký</h4>
-                <ul style="list-style:none; display:flex; flex-wrap:wrap; margin:auto; ">
-                    @if (Model.PFXCertificate.ImageSignature1 != null)
-                    {
-                        <li class="avt" style="width:200px;">
-                            <img src="~/@Model.PFXCertificate.ImageSignature1" alt="@Model.PFXCertificate.ImageSignature1" style="width:200px; margin: 5px;" class="gallery-item" />
-                            <div class="overlay">
-                                <a asp-action="DeleteSignature" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Xóa</a>
-                            </div>
-                        </li>
-                    }
-                    else
-                    {
-                        <img src="~/Resource/Image/empty.png" style="width:200px; margin: 5px;" class="gallery-item" />
-                    }
-                    @if (Model.PFXCertificate.ImageSignature2 != null)
-                    {
-                        <li class="avt" style="width:200px;">
-                            <img src="~/@Model.PFXCertificate.ImageSignature2" alt="@Model.PFXCertificate.ImageSignature2" style="width:200px; margin: 5px;" class="gallery-item" />
-                            <div class="overlay">
-                                <a asp-action="DeleteSignature" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature2">Xóa</a>
-                            </div>
-                        </li>
-                    }
-                    else
-                    {
-                        <img src="~/Resource/Image/empty.png" style="width:200px; margin: 5px;" class="gallery-item" />
-                    }
-                    @if (Model.PFXCertificate.ImageSignature3 != null)
-                    {
-                        <li class="avt" style="width:200px;">
-                            <img src="~/@Model.PFXCertificate.ImageSignature3" alt="@Model.PFXCertificate.ImageSignature3" style="width:200px; margin: 5px;" class="gallery-item" />
-                            <div class="overlay">
-                                <a asp-action="DeleteSignature" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature3">Xóa</a>
-                            </div>
-                        </li>
-                    }
-                    else
-                    {
-                        <img src="~/Resource/Image/empty.png" style="width:200px; margin: 5px;" class="gallery-item" />
-                    }
-                    @if (Model.PFXCertificate.ImageSignature4 != null)
-                    {
-                        <li class="avt" style="width:200px;">
-                            <img src="~/@Model.PFXCertificate.ImageSignature4" alt="@Model.PFXCertificate.ImageSignature4" style="width:200px; margin: 5px;" class="gallery-item" />
-                            <div class="overlay">
-                                <a asp-action="DeleteSignature" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature4">Xóa</a>
-                            </div>
-                        </li>
-                    }
-                    else
-                    {
-                        <img src="~/Resource/Image/empty.png" style="width:200px; margin: 5px;" class="gallery-item" />
-                    }
-                    @if (Model.PFXCertificate.ImageSignature5 != null)
-                    {
-                        <li class="avt" style="width:200px;">
-                            <img src="~/@Model.PFXCertificate.ImageSignature5" alt="@Model.PFXCertificate.ImageSignature5" style="width:200px; margin: 5px;" class="gallery-item" />
-                            <div class="overlay">
-                                <a asp-action="DeleteSignature" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature5">Xóa</a>
-                            </div>
-                        </li>
-                    }
-                    else
-                    {
-                        <img src="~/Resource/Image/empty.png" style="width:200px;" class="gallery-item margin: 5px;" />
-                    }
-                </ul>
-            </div>
-            <div class="Img_Sign col-2" style="max-width:300px;">
-                <h4 class="title">Tải ảnh chữ ký</h4>
-                <div id="box_load" style=" margin:auto; ">
-                    <form style="display:contents;" enctype="multipart/form-data" asp-action="UploadSignature" asp-controller="BusinessStaff" method="post">
-                        <button class="upload" type="submit">
-                            <i class="ph-bold ph-upload-simple"></i>
-                        </button>
-                        <input type="file" class="tt" style="width:200px;" accept="image/*" asp-for="PFXCertificate.ImageFile" />
-                    </form>
+            <div class="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6 mt-3 rounded">
+                <div class="row justify-content-around">
+                    <h4 class="typeHead">Tạo chữ ký</h4>
+                    <div class="col-md-7">
+                        @await Component.InvokeAsync("SignControl")
+                    </div>
+                    <div class="col-md-4" id="action_Sign">
+                        <div class="form-inline" style="">
+                            <input type="button" id="btnUndo" class="button-design" onclick="UndoSignature('ctlSignature');" value="Hoàn tác" />&nbsp;
+                            <input type="button" id="btnClear" class="button-delete" onclick="ClearSignature('ctlSignature');" value="Xóa" />&nbsp;
+                            <input type="button" id="btnSave" class="button-save" onclick="ValidateSign();" value="Tạo" />&nbsp;
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 <script type="text/javascript">
 
