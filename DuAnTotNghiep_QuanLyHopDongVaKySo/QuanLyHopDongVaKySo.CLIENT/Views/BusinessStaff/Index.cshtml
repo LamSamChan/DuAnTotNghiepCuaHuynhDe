@@ -79,19 +79,25 @@
             <div class="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6 mt-3 rounded">
                 <h4 class="typeHead">Chữ ký mặc định</h4>
                 <div style="margin:auto;">
-                    @if (Model.PFXCertificate.DefaultImageSignature != null)
-                    {
-                        <img src="~/@Model.PFXCertificate.DefaultImageSignature" alt="@Model.PFXCertificate.DefaultImageSignature" class="gallery-item" width="100%" height="300" />
-                        <div class="overlay">
-                            <div class="row justify-content-around">
-                                <a class="col button-delete" asp-action="DeleteDefaultSignature" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.DefaultImageSignature">Xóa</a>
-                            </div>
-                        </div>
-                    }
-                    else
-                    {
-                        <img src="~/Resource/Image/empty.png" class="gallery-item" width="100%" height="300" />
-                    }
+                    <ul style="padding:0;">
+                        @if (Model.PFXCertificate.DefaultImageSignature != null)
+                        {
+                            <li class="avt">
+                                <img src="~/@Model.PFXCertificate.DefaultImageSignature" alt="@Model.PFXCertificate.DefaultImageSignature" class="gallery-item" width="100%" height="300" />
+                                <div class="overlay">
+                                    <div class="row justify-content-around">
+                                        <a class="col button-delete" asp-action="DeleteDefaultSignature" asp-controller="BusinessStaff" asp-route-filePath="@Model.PFXCertificate.DefaultImageSignature">Xóa</a>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="avt">
+                                <img src="~/Resource/Image/empty.png" class="gallery-item" width="100%" height="300" />
+                            </li>
+                        }
+                    </ul>
                     
                 </div>
             </div>
@@ -99,11 +105,11 @@
                 <div class="row">
                     <h4 class="typeHead"> Tải ảnh chữ ký</h4>
                     <form enctype="multipart/form-data" asp-action="UploadSignature" asp-controller="BusinessStaff" method="post" class="row">
-                        <label for="file-upload" class="custom-file-upload col-6" role="button">
+                        <label for="upload-Sign" class="custom-file-upload col-6" role="button">
                             <i class="ph-bold ph-cloud-arrow-up" style="font-size:30px;"></i>
                         </label>
                         <button class="Save_btn col-2" role="button" type="submit">LƯU</button>
-                        <input id="file-upload" type="file" accept="image/*" asp-for="PFXCertificate.ImageFile" />
+                        <input id="upload-Sign" type="file" accept="image/*" asp-for="PFXCertificate.ImageFile" />
                     </form>
                 </div>
                 <hr />

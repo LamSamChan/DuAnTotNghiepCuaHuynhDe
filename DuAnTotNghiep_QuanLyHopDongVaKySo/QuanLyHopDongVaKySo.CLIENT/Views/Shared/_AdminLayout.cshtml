@@ -129,8 +129,28 @@
                     </svg> Danh sách chứng chỉ
                 </a>
             </li>
-
-
+            <li class="nav-title">GIÁM ĐỐC</li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Director" asp-action="ListContractAwait">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
+                    </svg> Hợp đồng chờ duyệt
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListEffect">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
+                    </svg> Hợp đồng đã duyệt
+                </a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" asp-controller="Director" asp-action="ListContractActive">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
+                    </svg> Hợp đồng hoạt động
+                </a>
+            </li>
             @* <li class="nav-title">GIÁM ĐỐC</li>
             <li class="nav-group">
                 <a class="nav-link nav-group-toggle" href="#">

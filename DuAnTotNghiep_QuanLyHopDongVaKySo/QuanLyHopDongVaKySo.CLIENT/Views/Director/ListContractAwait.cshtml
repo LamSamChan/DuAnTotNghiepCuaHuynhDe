@@ -1,24 +1,60 @@
 ﻿@model List<QuanLyHopDongVaKySo_API.ViewModels.PContractViewModel>
+@{
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
+
+}
+
+
+
 <div class="container-fluid">
-    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Hợp đồng chờ duyệt</li>
-            </ol>
-        </nav>
-        <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
-        <div class="row">
-            <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm hợp đồng" />
-            <button class="col-md-1" style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
-                <a>
-                    DUYỆT 
-                </a>
-                <span id="countButton" class="badge text-bg-danger">0</span>
-            </button>
+    @if (userRole == "Admin")
+    {
+        Layout = "_AdminLayOut";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng chờ duyệt</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+            <div class="row justify-content-around">
+                <input type="search" class="src" placeholder="Tìm kiếm trong danh sách" />
+                <button class="btn-addRole col-md-2 offset-md-7" type="button">
+                    <a asp-action="AddEmpAccount" asp-controller="Admin">
+                       Duyệt
+                    </a>
+                    <span id="countButton" class="badge text-bg-danger">0</span>
+                </button>
+            </div>
         </div>
-    </div>
+
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng chờ duyệt</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+            <div class="row">
+                <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm hợp đồng" />
+                <button class="col-md-1" style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
+                    <a>
+                        DUYỆT
+                    </a>
+                    <span id="countButton" class="badge text-bg-danger">0</span>
+                </button>
+            </div>
+        </div>
+
+    }
     <div class="listTable">
         <table class="table">
             <thead>

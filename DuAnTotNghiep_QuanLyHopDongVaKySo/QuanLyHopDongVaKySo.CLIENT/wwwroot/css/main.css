@@ -691,10 +691,10 @@
 .avt {
     position: relative;
     display: inline-block;
-    height: 200px;
+    height: 300px;
     border: 1px solid;
     margin: 6px 30px;
-    width: 200px;
+    width: 100%;
 }
 
 div[class="overlay"] {

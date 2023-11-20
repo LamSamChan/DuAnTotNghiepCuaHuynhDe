@@ -185,6 +185,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> ListCus()
         {
+
             List<Models.Customer> customersList = new List<Models.Customer>();
             try
             {

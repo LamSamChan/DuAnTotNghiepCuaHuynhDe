@@ -193,7 +193,7 @@ input[type="file"] {
     flex-wrap: wrap;
     margin: auto;
 }
-
+.a,
 #scrollable-list ul li {
     position: relative;
     display: inline-block;
@@ -202,6 +202,7 @@ input[type="file"] {
     width:100%;
     box-sizing: border-box;
 }
+.a,
 #scrollable-list ul li img {
     width: 100%;
     height: 100%;
@@ -220,6 +221,9 @@ div[class="overlay"] {
 }
 div[class="overlay"] .row{
     margin: auto;
+}
+.a:hover div[class="overlay"] {
+    opacity: 1;
 }
 .avt:hover div[class="overlay"] {
     opacity: 1;

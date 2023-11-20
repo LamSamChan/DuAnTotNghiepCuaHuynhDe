@@ -67,7 +67,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
 
-                    TempData["Role"] = role;
 
                     if (role == "Admin")
                     {
