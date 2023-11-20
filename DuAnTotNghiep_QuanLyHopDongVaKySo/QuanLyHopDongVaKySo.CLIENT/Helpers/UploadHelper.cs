@@ -19,12 +19,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
             {
                 Directory.CreateDirectory(rootPath);
             }
-            string dirPath = rootPath + @"/" + category;
+            string dirPath = rootPath + @"\" + category;
             if (!Directory.Exists(dirPath))
             {
                 Directory.CreateDirectory(dirPath);
             }
-            string filePath = dirPath + @"/" + file.FileName;
+            string filePath = dirPath + @"\" + file.FileName;
 
             if (!File.Exists(filePath))
             {
@@ -69,7 +69,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
             {
                 Directory.CreateDirectory(rootPath);
             }
-            string dirPath = rootPath + @"/" + category;
+            string dirPath = rootPath + @"\" + category;
             if (!Directory.Exists(dirPath))
             {
                 Directory.CreateDirectory(dirPath);
@@ -77,11 +77,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
             string filePath;
             if (extension != null)
             {
-                filePath = dirPath + @"/" + file.FileName + extension;
+                filePath = dirPath + @"\" + file.FileName + extension;
             }
             else
             {
-                filePath = dirPath + @"/" + file.FileName;
+                filePath = dirPath + @"\" + file.FileName;
             }
             if (!File.Exists(filePath))
             {
