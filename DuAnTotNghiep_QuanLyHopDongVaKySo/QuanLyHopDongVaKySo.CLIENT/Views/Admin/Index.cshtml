@@ -82,25 +82,55 @@
                 </div>
             </div>
             <div class="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6 mt-3 rounded">
-                <h4 class="typeHead">Chữ ký mặc định</h4>
-                <div style="margin:auto;">
-                    <ul style="list-style:none; display:flex; flex-wrap:wrap; margin:auto; ">
-                        <li class="avt">
-                            @if (Model.PFXCertificate.DefaultImageSignature != null)
-                            {
-                                <img src="~/@Model.PFXCertificate.DefaultImageSignature" alt="@Model.PFXCertificate.DefaultImageSignature" class="gallery-item" />
-                                <div class="overlay">
-                                    <div class="row justify-content-around">
-                                        <a class="col button-delete" asp-action="DeleteDefaultSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.DefaultImageSignature">Xóa</a>
-                                    </div>
+                <div class="tab-container">
+                    <div class="tab-button active" onclick="showTab('tab1')">Chữ ký mặc định</div>
+                    <div class="tab-button" onclick="showTab('tab2')">Mộc đóng dấu</div>
+                </div>
+                <div class="tab-content active" id="tab1" style="height: auto;">
+                    <div style="margin:auto;">
+                        @if (Model.PFXCertificate.DefaultImageSignature != null)
+                        {
+                            <img src="~/@Model.PFXCertificate.DefaultImageSignature" alt="@Model.PFXCertificate.DefaultImageSignature" class="gallery-item" width="100%" height="300" />
+                            <div class="overlay">
+                                <div class="row justify-content-around">
+                                    <a class="col button-delete" asp-action="DeleteDefaultSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.DefaultImageSignature">Xóa</a>
                                 </div>
-                            }
-                            else
-                            {
-                                <img src="~/Resource/Image/empty.png" class="gallery-item" />
-                            }
-                        </li>
-                    </ul>
+                            </div>
+                        }
+                        else
+                        {
+                            <img src="~/Resource/Image/empty.png" class="gallery-item" width="100%" height="300" />
+                        }
+                    </div>
+                </div>
+                <div class="tab-content" id="tab2" style="height: auto;">
+                    <div style="margin:auto;">
+                        @if (Model.PFXCertificate.DefaultImageSignature != null)
+                        {
+                            <img src="~/@Model.PFXCertificate.DefaultImageSignature" alt="@Model.PFXCertificate.DefaultImageSignature" class="gallery-item" width="100%" height="300" />
+                            <div class="overlay">
+                                <div class="row justify-content-around">
+                                    <a class="col button-delete" asp-action="DeleteDefaultSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.DefaultImageSignature">Xóa</a>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <img src="~/Resource/Image/empty.png" class="gallery-item" width="100%" height="300" />
+                            <div class="overlay">
+                                <div class="row justify-content-around">
+                                    <a class="col button-delete" asp-action="DeleteDefaultSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.DefaultImageSignature">Xóa</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <form class="row justify-content-around" style="margin:auto;">
+                        <label for="file-upload" class="custom-file-upload col-7" role="button">
+                            <i class="ph-bold ph-cloud-arrow-up"></i>
+                            UPLOAD
+                        </label>
+                        <button class="Save_btn col-4" role="button" type="submit">LƯU</button>
+                    </form>
                 </div>
             </div>
             <div class="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6 mt-3 rounded" id="scrollable-list">
@@ -119,8 +149,8 @@
                 <ul style="list-style:none; display:flex; flex-wrap:wrap; margin:auto; ">
                     @if (Model.PFXCertificate.ImageSignature1 != null)
                     {
-                        <li class="avt" style="width:200px;">
-                            <img src="~/@Model.PFXCertificate.ImageSignature1" alt="@Model.PFXCertificate.ImageSignature1" style="width:100%; " class="gallery-item" />
+                        <li class="avt">
+                            <img src="~/@Model.PFXCertificate.ImageSignature1" alt="@Model.PFXCertificate.ImageSignature1" width="100%" height="300" class="gallery-item" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
                                     <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Xóa</a>
@@ -132,14 +162,14 @@
                     else
                     {
 
-                        <li class="avt" style="width:200px;">
-                            <img src="~/Resource/Image/empty.png" style="width:100%" class="gallery-item margin: 5px;" />
+                        <li class="avt">
+                            <img src="~/Resource/Image/empty.png" width="100%" height="300" class="gallery-item" />
                         </li>
                     }
                     @if (Model.PFXCertificate.ImageSignature2 != null)
                     {
-                        <li class="avt" style="width:200px;">
-                            <img src="~/@Model.PFXCertificate.ImageSignature2" alt="@Model.PFXCertificate.ImageSignature2" style="width:200px; margin: 5px;" class="gallery-item" />
+                        <li class="avt">
+                            <img src="~/@Model.PFXCertificate.ImageSignature2" alt="@Model.PFXCertificate.ImageSignature2" width="100%" height="300" class="gallery-item" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
                                     <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature2">Xóa</a>
@@ -151,14 +181,14 @@
                     else
                     {
 
-                        <li class="avt" style="width:200px;">
-                            <img src="~/Resource/Image/empty.png" style="100%;" class="gallery-item margin: 5px;" />
+                        <li class="avt" >
+                            <img src="~/Resource/Image/empty.png" width="100%" height="300" class="gallery-item" />
                         </li>
                     }
                     @if (Model.PFXCertificate.ImageSignature3 != null)
                     {
-                        <li class="avt" style="width:200px;">
-                            <img src="~/@Model.PFXCertificate.ImageSignature3" alt="@Model.PFXCertificate.ImageSignature3" style="width:100%;" class="gallery-item" />
+                        <li class="avt">
+                            <img src="~/@Model.PFXCertificate.ImageSignature3" alt="@Model.PFXCertificate.ImageSignature3" width="100%" height="300" class="gallery-item" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
                                     <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature3">Xóa</a>
@@ -170,15 +200,15 @@
                     else
                     {
 
-                        <li class="avt" style="width:200px;">
-                            <img src="~/Resource/Image/empty.png" style="width:100%;" class="gallery-item margin: 5px;" />
+                        <li class="avt" >
+                            <img src="~/Resource/Image/empty.png" width="100%" height="300" class="gallery-item" />
 
                         </li>
                     }
                     @if (Model.PFXCertificate.ImageSignature4 != null)
                     {
-                        <li class="avt" style="width:200px;">
-                            <img src="~/@Model.PFXCertificate.ImageSignature4" alt="@Model.PFXCertificate.ImageSignature4" style="width:100%" class="gallery-item" />
+                        <li class="avt" >
+                            <img src="~/@Model.PFXCertificate.ImageSignature4" alt="@Model.PFXCertificate.ImageSignature4" width="100%" height="300" class="gallery-item" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
                                     <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature4">Xóa</a>
@@ -190,14 +220,14 @@
                     else
                     {
 
-                        <li class="avt" style="width:200px;">
-                            <img src="~/Resource/Image/empty.png" style="width:100%;" class="gallery-item margin: 5px;" />
+                        <li class="avt" >
+                            <img src="~/Resource/Image/empty.png" width="100%" height="300" class="gallery-item" />
                         </li>
                     }
                     @if (Model.PFXCertificate.ImageSignature5 != null)
                     {
-                        <li class="avt" style="width:200px;">
-                            <img src="~/@Model.PFXCertificate.ImageSignature5" alt="@Model.PFXCertificate.ImageSignature5" style="width:200px; margin: 5px;" class="gallery-item" />
+                        <li class="avt">
+                            <img src="~/@Model.PFXCertificate.ImageSignature5" alt="@Model.PFXCertificate.ImageSignature5" width="100%" height="300" class="gallery-item" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
                                     <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature5">Xóa</a>
@@ -209,8 +239,8 @@
                     else
                     {
 
-                        <li class="avt" style="width:200px;">
-                            <img src="~/Resource/Image/empty.png" style="width:100%" class="gallery-item margin: 5px;" />
+                        <li class="avt" >
+                            <img src="~/Resource/Image/empty.png" width="100%" height="300" class="gallery-item" />
                         </li>
                     }
                 </ul>
@@ -320,6 +350,27 @@
     </div>
 </div>
 <script type="text/javascript">
+
+    function showTab(tabId) {
+        // Ẩn tất cả các nội dung tab
+        var tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(function (content) {
+            content.classList.remove('active');
+        });
+
+        // Ẩn tất cả các tab-button
+        var tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(function (button) {
+            button.classList.remove('active');
+        });
+
+        // Hiển thị nội dung của tab được chọn và làm cho tab-button trở nên active
+        var selectedTab = document.getElementById(tabId);
+        selectedTab.classList.add('active');
+
+        var selectedButton = document.querySelector('[onclick="showTab(\'' + tabId + '\')"]');
+        selectedButton.classList.add('active');
+    }
 
     var statV = false;
 
