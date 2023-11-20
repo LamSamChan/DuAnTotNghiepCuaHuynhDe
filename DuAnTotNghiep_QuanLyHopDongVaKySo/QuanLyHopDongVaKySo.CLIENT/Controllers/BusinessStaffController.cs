@@ -1,32 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using QuanLyHopDongVaKySo.CLIENT.Constants;
+using QuanLyHopDongVaKySo.CLIENT.Helpers;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
-using API = QuanLyHopDongVaKySo_API.Models;
-using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
+using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.ViewModels;
-using QuanLyHopDongVaKySo.CLIENT.Constants;
-using QuanLyHopDongVaKySo.CLIENT.Models;
+using Spire.Pdf.Graphics;
 using System.Drawing.Imaging;
 using test.Models;
-using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
-using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
-using QuanLyHopDongVaKySo.CLIENT.Helpers;
-using QuanLyHopDongVaKySo_API.Models;
+
+using API = QuanLyHopDongVaKySo_API.Models;
+
 using Employee = QuanLyHopDongVaKySo_API.Models.Employee;
-using static QuanLyHopDongVaKySo.CLIENT.Constants.SessionKey;
-using System.Net.Http.Json;
-using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -48,7 +47,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IUploadHelper _uploadHelper;
         private readonly IPdfToImageHelper _pdfToImageHelper;
         private readonly IPasswordService _passwordService;
-
 
         private int isAuthenticate = 1;
         private string employeeId;
@@ -126,7 +124,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-       
 
         [HttpGet]
         public async Task<IActionResult> GetOTP()
@@ -152,7 +149,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (respone1 != null)
                 {
                     return RedirectToAction("Index");
-
                 }
                 else
                 {
@@ -179,15 +175,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (respone != null)
             {
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
-                pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile",".pdf");
+                pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
                 FileStream fs = null;
-                /*try
-                {*/
-                using (fs = new FileStream(pdfPath, FileMode.Open))
-                { 
-                };
+                try
+                {
+                    using (fs = new FileStream(pdfPath, FileMode.Open))
+                    {
+                    };
                     // Thực hiện các thao tác trên fs ở đây
-                /*}
+                }
                 catch (IOException ex)
                 {
                     fs?.Close();
@@ -196,10 +192,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
                     fs?.Close();
-                }*/
+                }
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
 
-                /*FileStream fs1 = null;
+                FileStream fs1 = null;
                 try
                 {
                     fs1 = new FileStream(pdfPath, FileMode.Open);
@@ -214,14 +210,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
                     fs1?.Close();
                 }
-                fs1?.Close();*/
-                System.Threading.Thread.Sleep(1000);
-                System.IO.File.Delete(pdfPath);
-
+                fs1?.Close();
+                _pdfToImageHelper.DeleteFileWithRetry(pdfPath);
                 return RedirectToAction("ListCus");
             }
             return RedirectToAction("Index");
         }
+
         public async Task<IActionResult> ListCus()
         {
             List<Models.Customer> customersList = new List<Models.Customer>();
@@ -235,6 +230,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return View(customersList);
             }
         }
+
         public async Task<IActionResult> Index()
         {
             string VB = ViewBag.Role;
@@ -255,10 +251,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index", "Verify");
             }
         }
+
         public IActionResult AddCus()
         {
             return View();
         }
+
         public async Task<IActionResult> CreateFormForCus(string id)
         {
             if (IsAuthenticate == 3)
@@ -274,6 +272,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index", "Verify");
             }
         }
+
         public async Task<IActionResult> DetailsCus(string customerID)
         {
             if (IsAuthenticate == 3)
@@ -291,7 +290,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("ListCus","BusinessStaff");
+                    return RedirectToAction("ListCus", "BusinessStaff");
                 }
             }
             else
@@ -299,10 +298,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index", "Verify");
             }
         }
+
         public IActionResult DetailsDContract()
         {
             return View();
         }
+
         public async Task<IActionResult> AddCusAction(PostCustomer customer)
         {
             customer.IsLocked = false;
@@ -325,8 +326,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index");
             }
         }
-
-      
 
         //TContract
         public IActionResult ContractFormPage()
@@ -355,7 +354,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> AddTContract(API.PostTContract tContract)
         {
-
             IFormFile temp = null;
             if (tContract.File != null)
             {
@@ -384,7 +382,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (reponse != 0)
             {
-                string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile","");
+                string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile", "");
                 _pdfToImageHelper.PdfToPng(inputFile, reponse, "tcontract");
 
                 FileStream fs = null;
@@ -405,6 +403,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 fs?.Close();
                 System.Threading.Thread.Sleep(1000);
                 System.IO.File.Delete(inputFile);
+                _pdfToImageHelper.DeleteFileWithRetry(inputFile);
 
                 //thành công
                 return RedirectToAction("ListContractFormPage");
@@ -415,13 +414,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("AddCus");
             }
         }
+
         public async Task<IActionResult> EditContractFormPage(string TContactID)
         {
-            
             TemplateContract template = await _tContractService.getByIdAsnyc(int.Parse(TContactID));
             HttpContext.Session.SetString("EditTContractID", TContactID);
             return View(template);
         }
+
         [HttpPut]
         public async Task<IActionResult> UpdateCFormPage([FromBody] PutTContract tContract)
         {
@@ -432,7 +432,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (respone != 0)
             {
                 return RedirectToAction("ListContractFormPage");
-            }else return RedirectToAction("Index");
+            }
+            else return RedirectToAction("Index");
         }
 
         public async Task<IActionResult> DeleteTContract(int tContractId)
@@ -454,8 +455,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else return RedirectToAction("Index");
         }
 
-
-        //TMinute 
+        //TMinute
 
         public IActionResult MinuteFormPage()
         {
@@ -472,23 +472,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 return RedirectToAction("Index", "Verify");
             }
-            
         }
 
         public async Task<IActionResult> EditMinuteFormPage(int tMinuteId)
         {
-
             TemplateMinute template = await _tMinuteService.GetById(tMinuteId);
             HttpContext.Session.SetString("EditTMinuteID", tMinuteId.ToString());
 
             return View(template);
-
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateMFormPage([FromBody] PutTMinute tMinute)
         {
-
             string TMinuteID = HttpContext.Session.GetString("EditTMinuteID");
             tMinute.TMinuteID = int.Parse(TMinuteID);
             var respone = await _tMinuteService.Update(tMinute);
@@ -498,10 +494,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("ListContractFormPage");
             }
             else return RedirectToAction("Index");
-
-
         }
-
 
         public async Task<IActionResult> AddTMinute(API.PostTMinute tMinute)
         {
@@ -533,7 +526,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (reponse != 0)
             {
-                string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile","");
+                string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile", "");
                 _pdfToImageHelper.PdfToPng(inputFile, reponse, "tminute");
                 FileStream fs = null;
                 try
@@ -552,7 +545,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 fs?.Close();
                 System.Threading.Thread.Sleep(1000);
-                System.IO.File.Delete(inputFile);
+                _pdfToImageHelper.DeleteFileWithRetry(inputFile);
 
                 //thành công
                 return RedirectToAction("ListMinuteFormPage");
@@ -613,7 +606,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-
         //danh sách từ chối duyệt
         public async Task<IActionResult> ContractListRefuse()
         {
@@ -668,7 +660,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
                 viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
-            
+
                 return View(viewModel);
             }
             else
@@ -686,7 +678,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
                 viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.DirectorSignedId);
-            
+
                 return View(viewModel);
             }
             else
@@ -760,7 +752,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> UpdateInfo(PutEmployee employee)
         {
-
             if (employee.ImageFile != null)
             {
                 var temp = employee.ImageFile;
@@ -770,7 +761,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     if (temp.Length > 0)
                     {
-
                         if (employee.Image != null)
                         {
                             _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, employee.Image));
@@ -865,7 +855,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 if (temp.ContentType.StartsWith("image/"))
                 {
-
                     certificate = await _pfxCertificateServices.GetById(serialPFX);
 
                     string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}");
@@ -951,7 +940,5 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index", "Verify");
             }
         }
-
-
     }
 }

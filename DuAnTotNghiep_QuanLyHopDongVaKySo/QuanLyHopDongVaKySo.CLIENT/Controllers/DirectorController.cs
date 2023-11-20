@@ -36,6 +36,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IPContractService _pContractService;
         private readonly ICustomerService _customerService;
         private readonly ISigningService _signingService;
+        private readonly IPdfToImageHelper _pdfToImageHelper;
 
         private int isAuthenticate;
         private string employeeId;
@@ -43,7 +44,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public DirectorController(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices,
             IUploadHelper uploadHelper, IPasswordService passwordService, IDContractsService dContractsService, IPContractService pContractService,
-            ICustomerService customerService, ISigningService signingService)
+            ICustomerService customerService, ISigningService signingService, IPdfToImageHelper pdfToImageHelper)
         {
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
@@ -57,6 +58,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _pContractService = pContractService;
             _customerService = customerService;
             _signingService = signingService;
+            _pdfToImageHelper = pdfToImageHelper;
         }
         public int IsAuthenticate
         {
@@ -254,11 +256,51 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPost]
         public async Task<IActionResult> SignContract([FromBody] VMAPI.SigningModel signing)
         {
-            byte[] fileBytes = System.IO.File.ReadAllBytes(Path.Combine(_hostingEnvironment.WebRootPath,signing.ImagePath));
+            byte[] fileBytes = System.IO.File.ReadAllBytes(Path.Combine(_hostingEnvironment.WebRootPath, signing.ImagePath));
             signing.Base64StringFile = Convert.ToBase64String(fileBytes);
             signing.ImagePath = null;
             var temp = signing;
             var respone = await _signingService.SignContractByDirector(signing);
+
+            string[] split = respone.Split('*');
+            string pdfPath = null;
+            if (respone != null)
+            {
+                IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
+                pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
+                FileStream fs = null;
+                try
+                {
+                    using (fs = new FileStream(pdfPath, FileMode.Open))
+                    {
+                    };
+                }
+                catch (IOException ex)
+                {
+                    fs?.Close();
+                }
+                finally
+                {
+                    fs?.Close();
+                }
+                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
+
+                FileStream fs1 = null;
+                try
+                {
+                    fs1 = new FileStream(pdfPath, FileMode.Open);
+                }
+                catch (IOException ex)
+                {
+                    fs1?.Close();
+                }
+                finally
+                {
+                    fs1?.Close();
+                }
+                fs1?.Close();
+                _pdfToImageHelper.DeleteFileWithRetry(pdfPath);
+            }
             return View();
         }
 
