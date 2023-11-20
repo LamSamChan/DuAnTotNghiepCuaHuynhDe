@@ -98,6 +98,34 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         }
                     }
 
+                    BaseFont bf2 = BaseFont.CreateFont(@"AppData/texgyretermes-bold.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                    // Thiết lập font và kích thước cho trường văn bản
+                    Font font2 = new Font(bf2, 15);
+
+
+                    foreach (var coordinate in Coordinates)
+                    {
+                        string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
+                        float x = coordinate.X + 30; // Lấy tọa độ X từ bảng toạ độ
+                        float y = 834 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                        var mappingName = ContractInternet.CustomerSignNameInfo.FirstOrDefault(id => id.Key == fieldName).Value;
+                        if (mappingName == null)
+                        {
+                            continue;
+                        }
+                        PropertyInfo property = typeof(ContractInternet).GetProperty(mappingName);
+                        if (property != null)
+                        {
+                            object value = property.GetValue(contract);
+                            if (value != null)
+                            {
+                                string contractValue = value.ToString().ToUpper();
+                                ColumnText.ShowTextAligned(pdfStamper.GetOverContent(coordinate.SignaturePage),
+                                Element.ALIGN_BASELINE, new Phrase(contractValue, font2), x, y, 0);
+                            }
+                        }
+                    }
+
                     pdfStamper.Close();
                     pdfReader.Close();
                     //outputPathContracts = _pdfToImageHelper.PdfToPng(outputPdfFile, int.Parse(id_Pcontract), "contract");

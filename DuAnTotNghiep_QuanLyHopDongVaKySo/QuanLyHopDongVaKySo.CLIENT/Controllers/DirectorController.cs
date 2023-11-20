@@ -267,44 +267,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             string[] split = respone.Split('*');
             string pdfPath = null;
+
             if (respone != null)
             {
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
-                FileStream fs = null;
-                try
-                {
-                    using (fs = new FileStream(pdfPath, FileMode.Open))
-                    {
-                    };
-                }
-                catch (IOException ex)
-                {
-                    fs?.Close();
-                }
-                finally
-                {
-                    fs?.Close();
-                }
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
-
-                FileStream fs1 = null;
-                try
-                {
-                    fs1 = new FileStream(pdfPath, FileMode.Open);
-                }
-                catch (IOException ex)
-                {
-                    fs1?.Close();
-                }
-                finally
-                {
-                    fs1?.Close();
-                }
-                fs1?.Close();
-                _pdfToImageHelper.DeleteFileWithRetry(pdfPath);
             }
-            return View();
+
+            return RedirectToAction("ListContractAwait");
         }
 
         public async Task<IActionResult> DetailsApprovedContract()

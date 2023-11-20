@@ -10,7 +10,6 @@
     string folderItem = System.IO.Path.Combine(folderPath, Model.PContract.PContractID);
 
     string[] imageFiles = Directory.GetFiles(folderItem);
-
 }
 
 <div class="container-fluid">
@@ -107,7 +106,7 @@
                         @foreach (var imgPath in imageFiles)
                         {
                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                <img src="@Url.Content(folderItem.Replace(_hostingEnvironment.WebRootPath, "")+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                <img src="@Url.Content("~/ContractImage/"+@Model.PContract.PContractID+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                             </div>
                         }
                     </div>

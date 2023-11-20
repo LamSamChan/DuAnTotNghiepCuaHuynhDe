@@ -40,7 +40,6 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
             { "29", "TariffPackage" },
             { "30", "InstallationAddress" },
             { "31", "ServiceRate" }
-
         };
 
         static public Dictionary<string, string> RepresentativeContract = new Dictionary<string, string>
@@ -50,6 +49,12 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
             { "32", "RepresentativePosition2" },
             { "33", "RepresentativePerson2" },
 
+        };
+
+        static public Dictionary<string, string> CustomerSignNameInfo = new Dictionary<string, string>
+        {
+            { "34", "CustomerSignPosition" },
+            { "35", "CustomerSignName" },
         };
 
         [Required(ErrorMessage = "Hãy điền mã khách hàng !")]
@@ -179,6 +184,8 @@ namespace QuanLyHopDongVaKySo_API.Models.ContractInfo
         [Display(Name = "Chức vụ người đại diện")]
         public string? RepresentativePosition1 { get; set; }
         public string? RepresentativePosition2 { get; set; }
+        public string? CustomerSignName { get; set; }
+        public string? CustomerSignPosition { get; set; }
     }
 }
 

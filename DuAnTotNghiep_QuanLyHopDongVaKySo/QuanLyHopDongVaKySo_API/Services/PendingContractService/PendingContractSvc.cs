@@ -189,6 +189,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 contract.RepresentativePerson2 = employee.FullName;
                 contract.RepresentativePosition1 = postion == null ? "" : postion;
                 contract.RepresentativePosition2 = postion == null ? "" : postion;
+                contract.CustomerSignName = cus.FullName;
+                contract.CustomerSignPosition = cus.Position;
             }
             return contract;
         }

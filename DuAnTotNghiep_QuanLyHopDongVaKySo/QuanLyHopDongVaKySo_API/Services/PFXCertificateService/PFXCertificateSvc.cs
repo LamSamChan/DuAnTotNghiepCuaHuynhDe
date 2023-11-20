@@ -228,8 +228,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                         PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
                         // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
                         Image signatureImage = Image.GetInstance(imagePath);
-                        signatureImage.SetAbsolutePosition(xCoordinate, yCoodinate); // Đặt vị trí của hình ảnh chữ ký
-                        signatureImage.ScaleToFit(100, 50); // Đặt kích thước của hình ảnh chữ ký
+                        signatureImage.SetAbsolutePosition(xCoordinate-100, yCoodinate-45); // Đặt vị trí của hình ảnh chữ ký
+                        signatureImage.ScaleToFit(120, 60); // Đặt kích thước của hình ảnh chữ ký
 
                         // Chèn hình ảnh chữ ký vào tài liệu PDF
                         pdfStamper.GetOverContent(lastPageNumber).AddImage(signatureImage);

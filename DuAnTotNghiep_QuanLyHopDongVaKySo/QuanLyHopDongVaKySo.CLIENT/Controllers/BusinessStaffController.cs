@@ -177,42 +177,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
-                FileStream fs = null;
-                try
-                {
-                    using (fs = new FileStream(pdfPath, FileMode.Open))
-                    {
-                    };
-                    // Thực hiện các thao tác trên fs ở đây
-                }
-                catch (IOException ex)
-                {
-                    fs?.Close();
-                }
-                finally
-                {
-                    // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
-                    fs?.Close();
-                }
-                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
-
-                FileStream fs1 = null;
-                try
-                {
-                    fs1 = new FileStream(pdfPath, FileMode.Open);
-                    // Thực hiện các thao tác trên fs ở đây
-                }
-                catch (IOException ex)
-                {
-                    fs1?.Close();
-                }
-                finally
-                {
-                    // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
-                    fs1?.Close();
-                }
-                fs1?.Close();
-                _pdfToImageHelper.DeleteFileWithRetry(pdfPath);
+                
                 return RedirectToAction("ListCus");
             }
             return RedirectToAction("Index");
@@ -386,25 +351,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile", "");
                 _pdfToImageHelper.PdfToPng(inputFile, reponse, "tcontract");
 
-                FileStream fs = null;
-                try
-                {
-                    fs = new FileStream(inputFile, FileMode.Open);
-                    // Thực hiện các thao tác trên fs ở đây
-                }
-                catch (IOException ex)
-                {
-                    // Xử lý lỗi
-                }
-                finally
-                {
-                    // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
-                    fs?.Close();
-                }
-                fs?.Close();
-                System.Threading.Thread.Sleep(1000);
-                System.IO.File.Delete(inputFile);
-                _pdfToImageHelper.DeleteFileWithRetry(inputFile);
 
                 //thành công
                 return RedirectToAction("ListContractFormPage");
@@ -529,24 +475,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile", "");
                 _pdfToImageHelper.PdfToPng(inputFile, reponse, "tminute");
-                FileStream fs = null;
-                try
-                {
-                    fs = new FileStream(inputFile, FileMode.Open);
-                    // Thực hiện các thao tác trên fs ở đây
-                }
-                catch (IOException ex)
-                {
-                    // Xử lý lỗi
-                }
-                finally
-                {
-                    // Đảm bảo rằng tệp tin được đóng dù có lỗi hay không
-                    fs?.Close();
-                }
-                fs?.Close();
-                System.Threading.Thread.Sleep(1000);
-                _pdfToImageHelper.DeleteFileWithRetry(inputFile);
 
                 //thành công
                 return RedirectToAction("ListMinuteFormPage");
@@ -581,7 +509,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListEffect()
         {
             List<DContractViewModel> contractList = new List<DContractViewModel>();
-            if (isAuthenticate == 3)
+            if (IsAuthenticate == 3)
             {
                 contractList = await _dContractService.getListIsEffect();
                 return View(contractList);
@@ -596,7 +524,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListPending()
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (isAuthenticate == 3)
+            if (IsAuthenticate == 3)
             {
                 pContractList = await _pContractService.getListWaitDirectorSigns();
                 return View(pContractList);
@@ -611,7 +539,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListRefuse()
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (isAuthenticate == 3)
+            if (IsAuthenticate == 3)
             {
                 pContractList = await _pContractService.getListRefuse();
                 return View(pContractList);
@@ -626,7 +554,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListWaitSign()
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (isAuthenticate == 3)
+            if (IsAuthenticate == 3)
             {
                 pContractList = await _pContractService.getListWaitCustomerSigns();
                 return View(pContractList);
