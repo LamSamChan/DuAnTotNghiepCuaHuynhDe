@@ -297,23 +297,23 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (certificate.ImageSignature1 == null)
             {
-                certificate.ImageSignature1 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                certificate.ImageSignature1 = filePath.Replace(_hostingEnvironment.WebRootPath + @"/", "");
             }
             else if (certificate.ImageSignature2 == null)
             {
-                certificate.ImageSignature2 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                certificate.ImageSignature2 = filePath.Replace(_hostingEnvironment.WebRootPath + @"/", "");
             }
             else if (certificate.ImageSignature3 == null)
             {
-                certificate.ImageSignature3 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                certificate.ImageSignature3 = filePath.Replace(_hostingEnvironment.WebRootPath + @"/", "");
             }
             else if (certificate.ImageSignature4 == null)
             {
-                certificate.ImageSignature4 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                certificate.ImageSignature4 = filePath.Replace(_hostingEnvironment.WebRootPath + @"/", "");
             }
             else if (certificate.ImageSignature5 == null)
             {
-                certificate.ImageSignature5 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                certificate.ImageSignature5 = filePath.Replace(_hostingEnvironment.WebRootPath + @"/", "");
             }
             else
             {
