@@ -65,7 +65,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
                 // Lưu giá trị role vào Cookie
                 Response.Cookies.Append(SessionKey.Employee.Role, role);
-                ViewData["Role"] = role;
+                TempData["Role"] = role;
                 if (role == "Admin")
                 {
                     if (reponse.IsFirstLogin)

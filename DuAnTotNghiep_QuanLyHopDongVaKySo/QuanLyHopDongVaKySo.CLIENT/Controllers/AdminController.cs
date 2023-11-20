@@ -54,7 +54,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         private int isAuthenticate;
         private string employeeId;
-
+       
         public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService,
             ICustomerService customerService, IPFXCertificateServices pfxCertificateServices, IPContractService pContractService,
             IDContractsService doneContractSvc, ITOSService tosService, ITContractService tContractService, ITMinuteService tMinuteService,
@@ -122,6 +122,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             set { this.employeeId = value; }
         }
+
+       
         public IActionResult ChangePass()
         {
             return View();

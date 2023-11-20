@@ -40,7 +40,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         private int isAuthenticate;
         private string employeeId;
-       
         public DirectorController(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices,
             IUploadHelper uploadHelper, IPasswordService passwordService, IDContractsService dContractsService, IPContractService pContractService,
@@ -67,6 +66,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (!String.IsNullOrEmpty(HttpContext.Session.GetString(SessionKey.Employee.EmployeeID)))
                 {
                     string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
+
+                    TempData["Role"] = role;
+
                     if (role == "Admin")
                     {
                         isAuthenticate = 1; //Admin
@@ -105,6 +107,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             set { this.employeeId = value; }
         }
+           
         public async Task<IActionResult> Index()
         {
             string VB = ViewBag.Role;
