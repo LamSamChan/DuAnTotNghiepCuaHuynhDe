@@ -260,18 +260,21 @@
     }
 
     function signWithDefaultImg() {
-        var signing = {
+        if (@Model.PFXCertificate.DefaultImageSignature == null){
+            alert("Bạn chưa cài đặc chữ ký mặc định!!")
+        }else{
+            var signingDefault = {
             Serial : '@Model.PFXCertificate.Serial',
             IdFile :'@Model.PContract.PContractID',
             Base64StringFile : '',
-            ImagePath : '@Model.PFXCertificate.DefaultImageSignature'
+            ImagePath: '@Model.PFXCertificate.DefaultImageSignature.Replace(@"\",@"/")'
         }
 
         $.ajax({
             url: '@Url.Action("SignContract")',
             type: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify(signing),
+            data: JSON.stringify(signingDefault),
             success: function (result) {
                 if (!result.success) {
                     // Chuyển hướng tới trang mong muốn
@@ -280,10 +283,16 @@
 
                 }
             },
-            error: function () {
-                console.error('Lỗi khi gửi yêu cầu.');
+            error: function (xhr, status, error) {
+                console.error('Lỗi khi gửi yêu cầu:', error);
+
+                console.log(xhr);
+                // Hiển thị thông báo lỗi
+                alert('Lỗi khi gửi yêu cầu: ' + error);
             }
         });
+        }
+        
     }
 
     function handleButtonClick() {

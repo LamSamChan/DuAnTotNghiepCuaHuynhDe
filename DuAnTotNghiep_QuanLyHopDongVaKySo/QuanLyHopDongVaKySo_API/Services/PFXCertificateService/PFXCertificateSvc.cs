@@ -199,7 +199,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
             }
         }
 
-        public async Task<string> SignContract(string imagePath, string inputPdfPath, string outputPdfPath, string serialCerti, float xCoordinate, float yCoodinate)
+        public async Task<string> SignContract(string imagePath, string? imagePathStamp , string inputPdfPath, string outputPdfPath, string serialCerti, float xCoordinate, float yCoodinate)
         {
 
             var certi = await GetById(serialCerti);
@@ -233,6 +233,17 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
 
                         // Chèn hình ảnh chữ ký vào tài liệu PDF
                         pdfStamper.GetOverContent(lastPageNumber).AddImage(signatureImage);
+
+                        if (certi.IsEmployee)
+                        {
+                            // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
+                            Image signatureImageStamp = Image.GetInstance(imagePathStamp);
+                            signatureImageStamp.SetAbsolutePosition(xCoordinate - 200, yCoodinate - 100); // Đặt vị trí của hình ảnh chữ ký
+                            signatureImageStamp.ScaleToFit(120, 60); // Đặt kích thước của hình ảnh chữ ký
+
+                            // Chèn hình ảnh chữ ký vào tài liệu PDF
+                            pdfStamper.GetOverContent(lastPageNumber).AddImage(signatureImageStamp);
+                        }
 
                         // Lấy khóa riêng tư từ chứng chỉ
                         ICipherParameters privateKey = store.GetKey(alias).Key;
