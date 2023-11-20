@@ -761,5 +761,25 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
+        public async Task<ActionResult> DeleteDefaultSignature(string filePath)
+        {
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var certificate = await _pfxCertificateServices.GetById(serialPFX);
+
+            certificate.DefaultImageSignature = null;
+
+            var result = await _pfxCertificateServices.Update(certificate);
+
+            if (result != null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Verify");
+            }
+        }
+
     }
 }
