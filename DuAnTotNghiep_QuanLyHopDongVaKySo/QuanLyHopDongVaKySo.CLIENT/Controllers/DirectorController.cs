@@ -67,7 +67,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
 
-                    TempData["Role"] = role;
 
                     if (role == "Admin")
                     {
@@ -121,6 +120,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
                 vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
                 ViewData["Role"] = VB;
+                TempData["Role"] = VB;
                 return View(vm);
             }
             else

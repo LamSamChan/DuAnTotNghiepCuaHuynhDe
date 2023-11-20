@@ -47,6 +47,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         private int isAuthenticate;
         private string employeeId;
+        private string employeeRole;
         public int IsAuthenticate
         {
             get
@@ -54,7 +55,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (!String.IsNullOrEmpty(HttpContext.Session.GetString(SessionKey.Employee.EmployeeID)))
                 {
                     string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
-                    TempData["Role"] = role;
                     if (role == "Admin")
                     {
                         isAuthenticate = 1; //Admin

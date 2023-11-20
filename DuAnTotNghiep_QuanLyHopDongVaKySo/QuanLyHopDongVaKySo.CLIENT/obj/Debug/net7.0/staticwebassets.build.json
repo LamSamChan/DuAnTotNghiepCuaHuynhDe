@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/Ks5PVZ1oY3pjYz6UJ51uss8c5WGwU6+phxOg+X85b0=",
+  "Hash": "cvhuknnd2IYJugC2x4iqSFxpmU5xLmFI4GItIPcLWrU=",
   "Source": "QuanLyHopDongVaKySo.CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
   "Mode": "Default",
@@ -34495,6 +34495,25 @@
       "OriginalItemSpec": "wwwroot\\Avatars\\3103 Chan.JPG"
     },
     {
+      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\4.jpg",
+      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
+      "RelativePath": "Avatars/4.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Avatars\\4.jpg"
+    },
+    {
       "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\96a71f7b.jpeg",
       "SourceId": "QuanLyHopDongVaKySo.CLIENT",
       "SourceType": "Discovered",
@@ -34569,25 +34588,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Avatars\\empty_avatar.jpg"
-    },
-    {
-      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\f774f587.jpeg",
-      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
-      "RelativePath": "Avatars/f774f587.jpeg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Avatars\\f774f587.jpeg"
     },
     {
       "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\Screenshot 2023-11-05 025007.png",
