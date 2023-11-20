@@ -85,11 +85,15 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             int idContract = int.Parse(signing.IdFile);
             string serial = signing.Serial;
             string imagePath = null;
-            if (signing.Base64StringFile != null)
+            string imagePathStamp = null;
+            if (signing.Base64StringFile != null && signing.Base64StringFileStamp != null)
             {
                 IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFile, Guid.NewGuid().ToString().Substring(0, 8), "image/jpeg");
                 imagePath = _uploadFileHelper.UploadFile(file, "AppData", "SignatureImages", ".jpeg");
-            }else
+                IFormFile fileStamp = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFileStamp, Guid.NewGuid().ToString().Substring(0, 8), "image/png");
+                imagePathStamp = _uploadFileHelper.UploadFile(fileStamp, "AppData", "SignatureImages", ".png");
+            }
+            else
             {
                 return BadRequest();
             }
@@ -213,7 +217,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             FileStream fsPContract1 = new System.IO.FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
             fsPContract1.Close();
 
-            var signedContractPath = await _pfxCertificate.SignContract(imagePath, pContract.PContractFile, pContract.PContractFile, certi.Serial, directorZone.X, directorZone.Y);
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath, imagePathStamp, pContract.PContractFile, pContract.PContractFile, certi.Serial, directorZone.X, directorZone.Y);
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(pContract.PContractFile);
             string base64String = Convert.ToBase64String(fileBytes);
@@ -247,6 +251,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             await _pendingContract.updateAsnyc(pendingContract);
             _uploadFileHelper.RemoveFile(imagePath);
+            _uploadFileHelper.RemoveFile(imagePathStamp);
 
             return Ok(base64String+"*"+pContract.PContractID);
         }
@@ -404,10 +409,14 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             int idMinute = int.Parse(signing.IdFile);
             string serial = signing.Serial;
             string imagePath = null;
-            if (signing.Base64StringFile != null)
+            string imagePathStamp = null;
+
+            if (signing.Base64StringFile != null && signing.Base64StringFileStamp != null)
             {
                 IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFile, Guid.NewGuid().ToString().Substring(0, 8), "image/jpeg");
                 imagePath = _uploadFileHelper.UploadFile(file, "AppData", "SignatureImages", ".jpeg");
+                IFormFile fileStamp = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFile, Guid.NewGuid().ToString().Substring(0, 8), "image/png");
+                imagePathStamp = _uploadFileHelper.UploadFile(fileStamp, "AppData", "SignatureImages", ".png");
             }
             else
             {
@@ -526,7 +535,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             FileStream fsPContract1 = new System.IO.FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
             fsPContract1.Close();
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, pMinute.MinuteFile, pMinute.MinuteFile, certi.Serial, signatureZone.X, signatureZone.Y);
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath,imagePathStamp, pMinute.MinuteFile, pMinute.MinuteFile, certi.Serial, signatureZone.X, signatureZone.Y);
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile);
             string base64String = Convert.ToBase64String(fileBytes);
