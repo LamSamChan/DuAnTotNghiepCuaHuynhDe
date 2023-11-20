@@ -261,7 +261,26 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             byte[] fileBytes = System.IO.File.ReadAllBytes(Path.Combine(_hostingEnvironment.WebRootPath, signing.ImagePath));
             signing.Base64StringFile = Convert.ToBase64String(fileBytes);
             signing.ImagePath = null;
-            var temp = signing;
+            try
+            {
+                string fileStamp = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, "StampImage"))[0];
+                if (fileStamp == null)
+                {
+                    //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                    return RedirectToAction("Index", "Verify");
+                }
+                else
+                {
+                    byte[] fileStampBytes = System.IO.File.ReadAllBytes(fileStamp);
+                    signing.Base64StringFileStamp = Convert.ToBase64String(fileStampBytes);
+                }
+            }
+            catch (Exception)
+            {
+                //báo lỗi ko có mộc
+                throw;
+            }
+
             var respone = await _signingService.SignContractByDirector(signing);
 
             string[] split = respone.Split('*');
@@ -367,13 +386,22 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             var temp = vm.PFXCertificate.ImageFile;
 
-            int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
-
-            if (fileCount == 5)
+            try
             {
-                //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
-                return RedirectToAction("Index", "Verify");
+                int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
+                if (fileCount == 5)
+                {
+                    //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                    return RedirectToAction("Index", "Verify");
+                }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            
             if (temp != null)
             {
                 if (temp.ContentType.StartsWith("image/"))

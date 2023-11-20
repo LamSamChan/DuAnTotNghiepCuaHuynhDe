@@ -16,6 +16,10 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         [Column(TypeName = "nvarchar(250)")]
         [Display(Name = "Tên hợp đồng")]
-        public string StampPath { get; set; }
+        public string? StampPath { get; set; }
+
+        [NotMapped]
+        public IFormFile? ImageFile { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using QuanLyHopDongVaKySo.CLIENT.Constants;
 using QuanLyHopDongVaKySo.CLIENT.Helpers;
@@ -12,6 +13,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
+using VMAPI = QuanLyHopDongVaKySo_API.ViewModels;
 using System.Drawing.Imaging;
 using System.IdentityModel.Tokens.Jwt;
 using test.Models;
@@ -57,6 +59,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 vm.PContract = await _pContractService.getByIdAsnyc(pContractId.ToString());
                 vm.Customer = await _customerService.GetCustomerById(vm.PContract.CustomerId);
                 vm.PFXCertificate = await _pfxCertificateServices.GetById(vm.Customer.SerialPFX);
+
+                HttpContext.Session.SetString(SessionKey.PedningContract.PContractID, pContractId.ToString());
+                HttpContext.Session.SetString(SessionKey.PFXCertificate.Serial, vm.Customer.SerialPFX);
             }
             catch
             {
@@ -83,18 +88,35 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPost]
         public ActionResult SaveSignature([FromBody] SignData sData)
         {
+            string pContractID = HttpContext.Session.GetString(SessionKey.PedningContract.PContractID);
+            string serial = HttpContext.Session.GetString(SessionKey.PFXCertificate.Serial);
             if (null == sData)
                 return NotFound();
 
             var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
 
-            var fileName = System.Guid.NewGuid() + ".png";
+            var fileName = System.Guid.NewGuid().ToString().Substring(0,8) + ".png";
+            string folderPath = Path.Combine(_hostingEnvironment.WebRootPath, "TempSignature");
 
-            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, "TempSignature"), fileName);
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            var filePath = Path.Combine(folderPath, fileName);
 
 
             bmpSign.Save(filePath, ImageFormat.Png);
 
+            VMAPI.SigningModel signing = new VMAPI.SigningModel();
+            signing.IdFile = pContractID;
+            signing.Serial = serial;
+
+            byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
+            signing.Base64StringFile = Convert.ToBase64String(fileBytes);
+
+            var respone = _signingService.SignContractByCustomer(signing);
+            HttpContext.Session.SetString(SessionKey.PedningContract.PContractID,"");
+            HttpContext.Session.SetString(SessionKey.PFXCertificate.Serial, "");
             return Content(fileName);
         }
     }
