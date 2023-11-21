@@ -176,6 +176,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("ListRole");
             }
             
@@ -195,6 +198,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("ListRole");
             }
 
@@ -222,6 +228,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("ListRole");
             }  
         }
@@ -290,12 +299,18 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (respone != null)
             {
                 //update thành công
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Gia hạn thành công !!";
                 return RedirectToAction("ListPFXCertificate");
 
             }
             else
             {
-                return RedirectToAction("ListPFXCertificate");
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
+                return RedirectToAction("DetailsPFXCertificate");
             }
         }
         public IActionResult DetailsPosition()
@@ -377,6 +392,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index");
             }
         }
@@ -386,7 +404,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             VMAddEmployee vm = new VMAddEmployee();
             vm.Roles = await _roleService.GetAllRolesAsync();
             vm.Positions = await _positionService.GetAllPositionsAsync();
-
             return View(vm);
         }
 
@@ -420,6 +437,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("AddEmpAccount");
             }
         }
@@ -500,6 +520,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("ListPosition");
             }
         }
@@ -516,6 +539,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index");
             }
         }
@@ -531,6 +557,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index");
             }
         }
@@ -548,6 +577,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("ListRole");
             }
         }
@@ -569,10 +601,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var update = await _roleService.UpdateRoleAsync(role);
             if (update != 0)
             {
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Cập nhật thành công !!";
                 return RedirectToAction("ListRole");
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index");
             }
         }

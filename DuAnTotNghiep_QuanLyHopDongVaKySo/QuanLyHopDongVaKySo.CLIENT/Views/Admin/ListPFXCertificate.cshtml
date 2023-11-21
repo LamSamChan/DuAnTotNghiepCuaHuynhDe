@@ -108,6 +108,27 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial">Gia hạn</a>
+                                            @if (TempData["SwalMessageType"] != null)
+                                            {
+                                                <script>
+                                                    const Toast = Swal.mixin({
+                                                        toast: true,
+                                                        position: "bottom-end",
+                                                        showConfirmButton: false,
+                                                        timer: 3000,
+                                                        timerProgressBar: true,
+                                                        didOpen: (toast) => {
+                                                            toast.onmouseenter = Swal.stopTimer;
+                                                            toast.onmouseleave = Swal.resumeTimer;
+                                                        }
+                                                    });
+                                                    Toast.fire({
+                                                        icon: '@TempData["SwalMessageIcon"]',
+                                                        title: '@TempData["SwalMessageTitle"]'
+                                                    });
+
+                                                </script>
+                                            }
                                         </div>
                                     </td>
                                 </tr>
@@ -155,6 +176,27 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial">Gia hạn</a>
+                                            @if (TempData["SwalMessageType"] != null)
+                                            {
+                                                <script>
+                                                    const Toast = Swal.mixin({
+                                                        toast: true,
+                                                        position: "bottom-end",
+                                                        showConfirmButton: false,
+                                                        timer: 3000,
+                                                        timerProgressBar: true,
+                                                        didOpen: (toast) => {
+                                                            toast.onmouseenter = Swal.stopTimer;
+                                                            toast.onmouseleave = Swal.resumeTimer;
+                                                        }
+                                                    });
+                                                    Toast.fire({
+                                                        icon: '@TempData["SwalMessageIcon"]',
+                                                        title: '@TempData["SwalMessageTitle"]'
+                                                    });
+
+                                                </script>
+                                            }
                                         </div>
                                     </td>
                                 </tr>
@@ -241,6 +283,27 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial">Gia hạn</a>
+                                            @if (TempData["SwalMessageType"] != null)
+                                            {
+                                                <script>
+                                                    const Toast = Swal.mixin({
+                                                        toast: true,
+                                                        position: "bottom-end",
+                                                        showConfirmButton: false,
+                                                        timer: 3000,
+                                                        timerProgressBar: true,
+                                                        didOpen: (toast) => {
+                                                            toast.onmouseenter = Swal.stopTimer;
+                                                            toast.onmouseleave = Swal.resumeTimer;
+                                                        }
+                                                    });
+                                                    Toast.fire({
+                                                        icon: '@TempData["SwalMessageIcon"]',
+                                                        title: '@TempData["SwalMessageTitle"]'
+                                                    });
+
+                                                </script>
+                                            }
                                         </div>
                                     </td>
                                 </tr>
@@ -283,6 +346,27 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial">Gia hạn</a>
+                                            @if (TempData["SwalMessageType"] != null)
+                                            {
+                                                <script>
+                                                    const Toast = Swal.mixin({
+                                                        toast: true,
+                                                        position: "bottom-end",
+                                                        showConfirmButton: false,
+                                                        timer: 3000,
+                                                        timerProgressBar: true,
+                                                        didOpen: (toast) => {
+                                                            toast.onmouseenter = Swal.stopTimer;
+                                                            toast.onmouseleave = Swal.resumeTimer;
+                                                        }
+                                                    });
+                                                    Toast.fire({
+                                                        icon: '@TempData["SwalMessageIcon"]',
+                                                        title: '@TempData["SwalMessageTitle"]'
+                                                    });
+
+                                                </script>
+                                            }
                                         </div>
                                     </td>
                                 </tr>
@@ -350,5 +434,14 @@
         selectedButtonChild.classList.add('active');
 
     }
+    
+        // Hàm hiển thị message
+        function showSuccessMessage() {
+            $("#msg_success_filled").ej2Message.show();
+            // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
+            setTimeout(function () {
+                $("#msg_success_filled").ej2Message.hide();
+            }, 5000);
+        }
 
 </script>

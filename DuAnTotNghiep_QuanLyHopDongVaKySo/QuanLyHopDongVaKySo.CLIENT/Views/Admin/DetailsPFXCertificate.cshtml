@@ -27,7 +27,27 @@
             <button class="btn-addRole col-md-2 offset-md-7" type="button">
                 <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@Model.Serial">
                     GIA HẠN
-                    
+                     @if (TempData["SwalMessageType"] != null)
+                    {
+                        <script>
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: "bottom-end",
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.onmouseenter = Swal.stopTimer;
+                                    toast.onmouseleave = Swal.resumeTimer;
+                                }
+                            });
+                            Toast.fire({
+                                icon: '@TempData["SwalMessageIcon"]',
+                                title: '@TempData["SwalMessageTitle"]'
+                            });
+
+                        </script>
+                    }
                 </a>
             </button>
         </div>
@@ -105,3 +125,13 @@
 <script src="~/Test/js/bootstrap.bundle.min.js"></script>
 <script src="~/Test/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Hàm hiển thị message
+    function showSuccessMessage() {
+        $("#msg_success_filled").ej2Message.show();
+        // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
+        setTimeout(function () {
+            $("#msg_success_filled").ej2Message.hide();
+        }, 5000);
+    }
+</script>

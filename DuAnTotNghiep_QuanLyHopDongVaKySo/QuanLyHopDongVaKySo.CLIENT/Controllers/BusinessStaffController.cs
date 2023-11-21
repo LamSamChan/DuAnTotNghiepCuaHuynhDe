@@ -662,6 +662,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var customer = await _customerService.GetCustomerByIdPut(respone);
             if (customer != null)
             {
+
                 return View("EditCus", customer);
             }
             else
