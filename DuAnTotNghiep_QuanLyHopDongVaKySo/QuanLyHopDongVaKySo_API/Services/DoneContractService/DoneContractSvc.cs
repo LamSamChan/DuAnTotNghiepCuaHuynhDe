@@ -29,7 +29,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     DirectorSignedId = (Guid)pContract.DirectorSignedId,
                     CustomerId = pContract.CustomerId,
                     TOS_ID = pContract.TOS_ID,
-                    Base64File = pContract.Base64File
+                    Base64File = pContract.Base64File,
                 };
                 await _context.DoneContracts.AddAsync(add);
                 await _context.SaveChangesAsync();
@@ -69,6 +69,9 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     EmployeeCreatedId = dc.EmployeeCreatedId.ToString().ToLower(),
                     DirectorSignedId = dc.DirectorSignedId.ToString().ToLower(),
                     CustomerId = dc.CustomerId.ToString().ToLower(),
+                    Base64File = dc.Base64File,
+                    DMinuteID = dc.DoneMinuteId.ToString()
+
                 }).ToListAsync();
             return viewModel;
         }
@@ -94,6 +97,9 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     EmployeeCreatedId = dc.EmployeeCreatedId.ToString().ToLower(),
                     DirectorSignedId = dc.DirectorSignedId.ToString().ToLower(),
                     CustomerId = dc.CustomerId.ToString().ToLower(),
+                    Base64File = dc.Base64File,
+                    DMinuteID = dc.DoneMinuteId.ToString()
+
                 }).FirstOrDefaultAsync();
             return viewModel;
         }
@@ -114,6 +120,9 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     EmployeeCreatedId = dc.EmployeeCreatedId.ToString().ToLower(),
                     DirectorSignedId = dc.DirectorSignedId.ToString().ToLower(),
                     CustomerId = dc.CustomerId.ToString().ToLower(),
+                    Base64File = dc.Base64File,
+                    DMinuteID = dc.DoneMinuteId.ToString()
+
                 }).ToListAsync();
             return viewModel;
         }
@@ -135,6 +144,9 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     EmployeeCreatedId = dc.EmployeeCreatedId.ToString().ToLower(),
                     DirectorSignedId= dc.DirectorSignedId.ToString().ToLower(),
                     CustomerId= dc.CustomerId.ToString().ToLower(),
+                    Base64File = dc.Base64File,
+                    DMinuteID = dc.DoneMinuteId.ToString()
+
                 }).ToListAsync();
             return viewModel;
         }
@@ -155,6 +167,9 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     EmployeeCreatedId = dc.EmployeeCreatedId.ToString().ToLower(),
                     DirectorSignedId = dc.DirectorSignedId.ToString().ToLower(),
                     CustomerId = dc.CustomerId.ToString().ToLower(),
+                    Base64File = dc.Base64File,
+                    DMinuteID = dc.DoneMinuteId.ToString()
+
                 }).ToListAsync();
             return viewModel;
         }
@@ -173,7 +188,10 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     CustomerEmail = dc.Customer.Email,
                     DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
                     TypeOfService = dc.TypeOfService.ServiceName,
-                    Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã dừng hiệu lực"
+                    Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã dừng hiệu lực",
+                    Base64File = dc.Base64File,
+                    DMinuteID = dc.DoneMinuteId.ToString()
+
                 }).ToListAsync();
             return viewModel;
         }

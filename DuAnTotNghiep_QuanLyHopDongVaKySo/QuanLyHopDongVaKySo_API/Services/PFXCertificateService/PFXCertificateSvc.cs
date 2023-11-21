@@ -238,7 +238,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                         {
                             // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
                             Image signatureImageStamp = Image.GetInstance(imagePathStamp);
-                            signatureImageStamp.SetAbsolutePosition(xCoordinate - 200, yCoodinate - 100); // Đặt vị trí của hình ảnh chữ ký
+                            signatureImageStamp.SetAbsolutePosition(xCoordinate - 200, yCoodinate - 200); // Đặt vị trí của hình ảnh chữ ký
                             signatureImageStamp.ScaleToFit(120, 120); // Đặt kích thước của hình ảnh chữ ký
 
                             // Chèn hình ảnh chữ ký vào tài liệu PDF

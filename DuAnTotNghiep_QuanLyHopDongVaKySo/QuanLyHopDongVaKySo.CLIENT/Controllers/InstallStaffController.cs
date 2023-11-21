@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using QuanLyHopDongVaKySo.CLIENT.Constants;
+using QuanLyHopDongVaKySo.CLIENT.Helpers;
 using QuanLyHopDongVaKySo.CLIENT.Models;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.IRequirementsServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
@@ -15,15 +18,10 @@ using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo_API.Models.ViewPost;
-using QuanLyHopDongVaKySo_API.Services.DoneContractService;
-using QuanLyHopDongVaKySo_API.Services.PendingMinuteService;
-using QuanLyHopDongVaKySo.CLIENT.Constants;
+using QuanLyHopDongVaKySo_API.ViewModels;
 using System.Drawing.Imaging;
 using test.Models;
 using API = QuanLyHopDongVaKySo_API.Models;
-using QuanLyHopDongVaKySo.CLIENT.Helpers;
-using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
-using QuanLyHopDongVaKySo_API.ViewModels;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -44,9 +42,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly ITContractService _tContractService;
         private readonly IUploadHelper _uploadHelper;
         private readonly IPasswordService _passwordService;
+        private readonly IPdfToImageHelper _pdfToImageHelper;
 
         private int isAuthenticate;
         private string employeeId;
+
         public int IsAuthenticate
         {
             get
@@ -96,7 +96,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public InstallStaffController(IIRequirementService iRequirementService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices, IDContractsService doneContractSvc,
             IPMinuteService pMinuteService, ITOSService tosService, ITMinuteService tMinuteService, IInstallationDevicesService installationDevicesService, ITContractService tContractService,
-            IUploadHelper uploadHelper, IPasswordService passwordService)
+            IUploadHelper uploadHelper, IPasswordService passwordService, IPdfToImageHelper pdfToImageHelper)
         {
             _iRequirementService = iRequirementService;
             _hostingEnvironment = hostingEnvironment;
@@ -113,7 +113,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _tContractService = tContractService;
             _uploadHelper = uploadHelper;
             _passwordService = passwordService;
-
+            _pdfToImageHelper = pdfToImageHelper;
         }
 
         public IActionResult ChangePass()
@@ -145,7 +145,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (respone1 != null)
                 {
                     return RedirectToAction("Index");
-
                 }
                 else
                 {
@@ -176,9 +175,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 IRequirementId = iRequirementID,
                 EmployeeID = HttpContext.Session.GetString(SessionKey.Employee.EmployeeID)
             };
-            var repone = await _pMinuteService.GetTaskFormIRequirement(task);
-            if (repone != 0)
+            var respone = await _pMinuteService.GetTaskFormIRequirement(task);
+            if (respone != null)
             {
+                string[] split = respone.Split('*');
+                string pdfPath = null;
+                IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
+                pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
+                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "minute");
+
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                System.IO.File.Delete(pdfPath);
+
                 return RedirectToAction("ListInstallRecord");
             }
             else
@@ -186,18 +195,22 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index", "Verify");
             }
         }
+
         public IActionResult DetailsRequire()
         {
             return View();
         }
+
         public IActionResult ListDevice()
         {
             return View();
         }
+
         public IActionResult DetailsDevice()
         {
             return View();
         }
+
         public async Task<IActionResult> Index()
         {
             if (IsAuthenticate == 4)
@@ -216,6 +229,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index", "Verify");
             }
         }
+
         public async Task<IActionResult> UpdateInfo(PutEmployee employee)
         {
             if (employee.ImageFile != null)
@@ -255,6 +269,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+
         public async Task<IActionResult> ListInstallRecord()
         {
             VMListIRequire vm = new VMListIRequire()
@@ -264,15 +279,87 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             };
             return View(vm);
         }
+
         public IActionResult SignByCus()
         {
             return View();
-
         }
+
         public IActionResult SignByStaff()
         {
             return View();
         }
+
+        public async Task<IActionResult> ListTypeOfService()
+        {
+            VMListTOS vm = new VMListTOS()
+            {
+                TypeOfServices = await _tosService.GetAll(),
+                TemplateMinutes = await _tMinuteService.GetAll(),
+                TemplateContracts = await _tContractService.getAllAsnyc()
+            };
+            return View(vm);
+        }
+
+        public async Task<IActionResult> DetailsTypeOfService(int tosID)
+        {
+            VMDetailsTypeOfService vm = new VMDetailsTypeOfService()
+            {
+                InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID)
+            };
+            HttpContext.Session.SetString("tosID", tosID.ToString());
+            return View(vm);
+        }
+
+        public async Task<IActionResult> AddDeviceAction(VMDetailsTypeOfService vm)
+        {
+            API.InstallationDevice device = new API.InstallationDevice();
+            device = vm.InstallationDevice;
+            var respone = await _installationDevicesService.AddNewDevice(device);
+            if (respone != null)
+            {
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Thêm dịch vụ thành công !!";
+                return RedirectToAction("DetailsTypeOfService", new { tosID = device.TOS_ID });
+            }
+            else
+            {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
+                return RedirectToAction("ListRole");
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> EditDeviceAction([FromBody] API.InstallationDevice device)
+        {
+            var respone = await _installationDevicesService.UpdateDevice(device);
+            if (respone != null)
+            {
+                return RedirectToAction("DetailsTypeOfService", device.TOS_ID);
+            }
+            else
+            {
+                return RedirectToAction("ListRole");
+            }
+        }
+
+        public async Task<IActionResult> DelDeviceAction(int deviceID)
+        {
+            var respone = await _installationDevicesService.DelectDevice(deviceID);
+            string tosID = HttpContext.Session.GetString("tosID");
+            if (respone != 0)
+            {
+                return RedirectToAction("DetailsTypeOfService", new { tosID = tosID });
+            }
+            else
+            {
+                return RedirectToAction("ListRole");
+            }
+        }
+
         [HttpPost]
         public async Task<ActionResult> SaveSignature([FromBody] SignData sData)
         {
@@ -293,7 +380,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
             }
 
@@ -367,7 +453,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
             }
 
@@ -377,7 +462,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 if (temp.ContentType.StartsWith("image/"))
                 {
-
                     certificate = await _pfxCertificateServices.GetById(serialPFX);
 
                     string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath + "\\SignatureImages", serialPFX);

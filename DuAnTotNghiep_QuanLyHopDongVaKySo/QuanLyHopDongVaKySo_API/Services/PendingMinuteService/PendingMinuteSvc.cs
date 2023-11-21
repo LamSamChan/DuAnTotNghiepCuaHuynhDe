@@ -152,7 +152,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
                 minuteInfo.InstallationPerson = emp.FullName;
                 minuteInfo.InstallationPosition = EmpPostion;
                 minuteInfo.InstallationPhone = emp.PhoneNumber;
-                minuteInfo.InstallationAddress = cus.Address;
+                minuteInfo.InstallationAddress = pMinute.DoneContract.InstallationAddress;
                 minuteInfo.InstallationDate = DateTime.Now.ToString("dd/MM/yyyy");
                 int count = 0;
                 for (int i = 0; i < device.Count; i++)

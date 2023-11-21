@@ -259,8 +259,9 @@
         });
     }
 
+    var defaultImg = '@Model.PFXCertificate.DefaultImageSignature.Replace(@"\",@"/")';
     function signWithDefaultImg() {
-        if (@Model.PFXCertificate.DefaultImageSignature == null){
+        if (defaultImg == null) {
             alert("Bạn chưa cài đặc chữ ký mặc định!!")
         }else{
             var signingDefault = {

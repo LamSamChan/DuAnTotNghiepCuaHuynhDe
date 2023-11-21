@@ -25,7 +25,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PMinuteServices
             return response;
         }
 
-        public async Task<int> GetTaskFormIRequirement(PostGetTaskFromIR task)
+        public async Task<string> GetTaskFormIRequirement(PostGetTaskFromIR task)
         {
 
             string json = JsonConvert.SerializeObject(task);
@@ -34,9 +34,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PMinuteServices
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    return 1;
+                    return await response.Content.ReadAsStringAsync();
                 }
-                return 0;
+                return null;
             }
         }
     }

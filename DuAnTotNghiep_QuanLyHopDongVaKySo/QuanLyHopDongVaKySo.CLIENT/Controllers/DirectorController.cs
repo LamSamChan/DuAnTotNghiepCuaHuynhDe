@@ -266,7 +266,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 string fileStamp = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, "StampImage"))[0];
                 if (fileStamp == null)
                 {
-                    //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                    //báo lỗi ko có ảnh mộc
                     return RedirectToAction("Index", "Verify");
                 }
                 else
@@ -278,19 +278,24 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             catch (Exception)
             {
                 //báo lỗi ko có mộc
-                throw;
+                return BadRequest();
             }
 
             var respone = await _signingService.SignContractByDirector(signing);
 
-            string[] split = respone.Split('*');
-            string pdfPath = null;
+           
 
             if (respone != null)
             {
+                string[] split = respone.Split('*');
+                string pdfPath = null;
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
+
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                System.IO.File.Delete(pdfPath);
             }
 
             return RedirectToAction("ListContractAwait");

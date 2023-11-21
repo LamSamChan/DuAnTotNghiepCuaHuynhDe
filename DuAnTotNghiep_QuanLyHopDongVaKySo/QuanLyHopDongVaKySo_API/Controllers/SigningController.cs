@@ -164,7 +164,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
                 float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
-                float y = 837 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                float y = 839 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                 var mappingName = ContractInternet.ContractFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
                 if (mappingName == null)
                 {
@@ -194,6 +194,29 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 float x = coordinate.X + 30; // Lấy tọa độ X từ bảng toạ độ
                 float y = 834 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                 var mappingName = ContractInternet.RepresentativeContract.FirstOrDefault(id => id.Key == fieldName).Value;
+                if (mappingName == null)
+                {
+                    continue;
+                }
+                PropertyInfo property = typeof(ContractInternet).GetProperty(mappingName);
+                if (property != null)
+                {
+                    object value = property.GetValue(contract);
+                    if (value != null)
+                    {
+                        string contractValue = value.ToString().ToUpper();
+                        ColumnText.ShowTextAligned(pdfStamper.GetOverContent(coordinate.SignaturePage),
+                        Element.ALIGN_BASELINE, new Phrase(contractValue, font2), x, y, 0);
+                    }
+                }
+            }
+
+            foreach (var coordinate in Coordinates)
+            {
+                string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
+                float x = coordinate.X + 30; // Lấy tọa độ X từ bảng toạ độ
+                float y = 834 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                var mappingName = ContractInternet.CustomerSignNameInfo.FirstOrDefault(id => id.Key == fieldName).Value;
                 if (mappingName == null)
                 {
                     continue;
@@ -335,7 +358,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{pContract.PContractID}");
             }
 
-            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X, customerZone.Y);
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X+20, customerZone.Y+10);
 
             FileStream fs = new FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
             fs.Close();
@@ -392,6 +415,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
           
             if (result != 0)
             {
+                var url = GenerateUrlShowDContract(dContract.DContractID);
+                var sendMail = SendMailToCustomer(customer,url);
                 //lấy PContractId xoá imagecontract của pending và tạo image của DContractID
                 return Ok(base64String +"*" + dContract.DContractID+"*"+ pendingContract.PContractId);
             }
@@ -737,6 +762,78 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             // Gửi URL cho khách hàng
             return url;
+        }
+
+        private string GenerateTokenShowDContract(int DContractID)
+        {
+            List<Claim> claims = new List<Claim>() {
+                 new Claim("DContractID", DContractID.ToString()),
+             };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+              _configuration["AppSettings:Token"]!));
+
+            var creads = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+            var token = new JwtSecurityToken(
+                    claims: claims,
+                    expires: DateTime.Now.AddDays(int.MaxValue),
+                    signingCredentials: creads
+                );
+
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return jwt;
+        }
+
+        private string GenerateUrlShowDContract(int contractID)
+        {
+            //Tạo token với id khách hàng và id hợp đồng + serial pfx
+            var token = GenerateTokenShowDContract(contractID);
+
+            // Tạo đường link có chứa token
+            // Đường dẫn đến nơi hiển thị hợp đồng (Client)
+
+            //url locallhost
+            var url = $"https://localhost:7063/Customer/ShowDContract?token={token}";
+
+            //url servcer
+            //var url = $"https://techseal.azurewebsites.net/Customer/ShowDContract?token={token}";
+
+            // Gửi URL cho khách hàng
+            return url;
+        }
+
+        private async Task<string> SendMailToCustomer(Customer customer, string url)
+        {
+            string content =
+
+    $"<p>Xin chào <b>{customer.FullName}</b>,</p>" +
+    $"<p>Chúc mừng bạn đã ký thành công hợp đồng!</p>" +
+    $"<p>Dưới đây là đường dẫn để xem hợp đồng trực tuyến của bạn (ngoài ra sau khi hoàn tất lắp đặt bạn sẽ nhận được <b>hợp đồng</b> và <b>biên bản lắp đặt</b> PDF):</p>" +
+    $"<div style=\"text-align: center;\">" +
+         $"<p><a style=\"display: inline-block; padding: 10px 20px; background-color: #33BDFE; color: #fff; text-decoration: none; border: none; border-radius: 5px;\" href=\"{url}\">Xem hợp đồng trực tuyến</a></p>" +
+    $"</div>" +                                                                                        
+    $"<p>Vui lòng lưu trữ thông tin này một cách an toàn.</p>" +
+    $"<p>Nếu bạn gặp bất kỳ vấn đề hoặc có câu hỏi, hãy liên hệ với chúng tôi tại <b>techseal.digitalsignature@gmail.com Hoặc Liên Hệ: 0339292975.</b></p>" +
+    $"<p>Chúng tôi rất trân trọng và biết ơn vì bạn đã sử dụng <b>TechSeal - Contract Management & Digital Signature</b> và chúc bạn có một ngày tốt lành!</p> " +
+    $"<p>Trân trọng,</p> " +
+    $"<p>Tech Seal.</p>";
+
+            SendMail mail = new SendMail();
+            mail.Subject = "Chúc mừng bạn đã ký hợp đồng thành công";
+            mail.ReceiverName = customer.FullName;
+            mail.ToMail = customer.Email;
+            mail.HtmlContent = content;
+            string isSuccess = await _sendMailHelper.SendMail(mail);
+            if (isSuccess != null)
+            {
+                return "Đã gửi thành công";
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private async Task<string> SendMailToCustomerWithImage(byte[] qrPath, string url, Customer customer)

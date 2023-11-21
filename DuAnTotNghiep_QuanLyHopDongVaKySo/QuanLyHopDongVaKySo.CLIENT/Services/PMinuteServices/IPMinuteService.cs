@@ -8,6 +8,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PMinuteServices
     {
         Task<List<PendingMinute>> GetAll();
         Task<PendingMinute> GetById(int pMinuteId);
-        Task<int> GetTaskFormIRequirement(PostGetTaskFromIR task);
+        Task<string> GetTaskFormIRequirement(PostGetTaskFromIR task);
     }
 }

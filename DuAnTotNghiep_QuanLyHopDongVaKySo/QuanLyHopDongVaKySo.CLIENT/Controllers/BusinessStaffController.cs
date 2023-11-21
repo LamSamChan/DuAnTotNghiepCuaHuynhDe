@@ -178,6 +178,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
+
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                System.IO.File.Delete(pdfPath);
+
                 return RedirectToAction("ListCus");
             }
             return RedirectToAction("Index");
@@ -351,7 +356,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile", "");
                 _pdfToImageHelper.PdfToPng(inputFile, reponse, "tcontract");
-
+                
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                System.IO.File.Delete(inputFile);
 
                 //thành công
                 return RedirectToAction("ListContractFormPage");
@@ -477,6 +485,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 string inputFile = _uploadHelper.UploadPDF(temp, _hostingEnvironment.WebRootPath, "TempFile", "");
                 _pdfToImageHelper.PdfToPng(inputFile, reponse, "tminute");
 
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                System.IO.File.Delete(inputFile);
                 //thành công
                 return RedirectToAction("ListMinuteFormPage");
             }

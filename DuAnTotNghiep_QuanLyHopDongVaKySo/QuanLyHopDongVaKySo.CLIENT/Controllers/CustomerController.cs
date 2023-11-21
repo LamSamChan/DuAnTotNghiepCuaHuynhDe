@@ -28,12 +28,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IPContractService _pContractService;
         private readonly ICustomerService _customerService;
         private readonly ISigningService _signingService;
+        private readonly IUploadHelper _uploadHelper;
+        private readonly IPdfToImageHelper _pdfToImageHelper;
+        private readonly IDContractsService _dContractsService;
+
 
         private int isAuthenticate;
         private string employeeId;
 
         public CustomerController(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IPContractService pContractService,
-            ICustomerService customerService, ISigningService signingService, IPFXCertificateServices pfxCertificateServices)
+            ICustomerService customerService, ISigningService signingService, IPFXCertificateServices pfxCertificateServices, IUploadHelper uploadHelper
+            ,IPdfToImageHelper pdfToImageHelper, IDContractsService dContractsService)
         {
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
@@ -42,6 +47,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _signingService = signingService;
             _pContractService = pContractService;
             _pfxCertificateServices = pfxCertificateServices;
+            _uploadHelper = uploadHelper;
+            _pdfToImageHelper = pdfToImageHelper;
+            _dContractsService = dContractsService;
         }
         public IActionResult Index()
         {
@@ -86,7 +94,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
 
         [HttpPost]
-        public ActionResult SaveSignature([FromBody] SignData sData)
+        public async Task<ActionResult> SaveSignature([FromBody] SignData sData)
         {
             string pContractID = HttpContext.Session.GetString(SessionKey.PedningContract.PContractID);
             string serial = HttpContext.Session.GetString(SessionKey.PFXCertificate.Serial);
@@ -114,10 +122,70 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
             signing.Base64StringFile = Convert.ToBase64String(fileBytes);
 
-            var respone = _signingService.SignContractByCustomer(signing);
+            var respone = await _signingService.SignContractByCustomer(signing);
+
+            if (respone != null)
+            {
+                string[] split = respone.Split('*');
+                string pdfPath = null;
+                IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
+                pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
+                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
+
+                //xoa anh pcontract
+                folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+
+                string folderItem = System.IO.Path.Combine(folderPath, split[2]);
+
+                string[] imageFiles = Directory.GetFiles(folderItem);
+
+                foreach (string imageFile in imageFiles)
+                {
+                    System.IO.File.Delete(imageFile);
+                }
+                Directory.Delete(folderItem);
+
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                System.IO.File.Delete(pdfPath);
+            }
+
             HttpContext.Session.SetString(SessionKey.PedningContract.PContractID,"");
             HttpContext.Session.SetString(SessionKey.PFXCertificate.Serial, "");
-            return Content(fileName);
+            _uploadHelper.RemoveImage(filePath);
+
+            
+
+            //xem thông tin hiển thị alert ở CusToSign hàm SaveSign(), vì dùng http nên không có trả ở return nó sẽ chạy hết hàm SaveSign(). Các action khác mà được gọi từ ajax
+            //cũng hiển thị thông báo tương tự
+            return Ok();
+        }
+        
+        //Trang cho khách hàng xem hđ và bb lắp
+        public async Task<ActionResult> ShowDContract(string token)
+        {
+           int id = DecodeTokenShowContract(token);
+           var dContract = await _dContractsService.getByIdAsnyc(id.ToString());
+            if(dContract != null)
+            {
+                return View(dContract);
+            }
+            else
+            {
+                //báo lỗi ko tìm thấy hợp dồng
+                return BadRequest();
+            }
+            
+        }
+
+        private int DecodeTokenShowContract(string token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jsonToken = handler.ReadToken(token);
+            var tokenS = jsonToken as JwtSecurityToken;
+
+            int dContractId = int.Parse(tokenS.Claims.First(claim => claim.Type == "DContractID").Value);
+            return dContractId;
         }
     }
 }
