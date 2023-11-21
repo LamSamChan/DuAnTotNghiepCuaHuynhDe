@@ -48,12 +48,14 @@
     text-decoration: none;
     color: #007bff;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 20px 30px; /* Adjusted padding to make the button larger */
     border-radius: 5px;
+    font-size: 25px;
     border: #007bff 2px solid;
     background-color: initial;
     transition: background-color 0.3s, color 0.3s;
 }
+
 
 * {
     margin: 0;
