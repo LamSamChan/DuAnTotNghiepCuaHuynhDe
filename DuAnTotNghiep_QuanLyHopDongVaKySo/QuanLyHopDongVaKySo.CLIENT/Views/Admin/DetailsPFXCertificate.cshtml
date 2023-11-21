@@ -5,7 +5,7 @@
 }
 <link rel="stylesheet" type="text/css" href="~/Test/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="~/Test/css/style.css">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -27,6 +27,7 @@
             <button class="btn-addRole col-md-2 offset-md-7" type="button">
                 <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@Model.Serial">
                     GIA HẠN
+                    
                 </a>
             </button>
         </div>
@@ -103,3 +104,4 @@
 
 <script src="~/Test/js/bootstrap.bundle.min.js"></script>
 <script src="~/Test/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

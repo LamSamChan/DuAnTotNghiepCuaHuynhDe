@@ -98,6 +98,27 @@
                                 </table>
                                 <button class="add_cus" type="submit">
                                     Thêm
+                                     @if (TempData["SwalMessageType"] != null)
+                    {
+                        <script>
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: "bottom-end",
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.onmouseenter = Swal.stopTimer;
+                                    toast.onmouseleave = Swal.resumeTimer;
+                                }
+                            });
+                            Toast.fire({
+                                icon: '@TempData["SwalMessageIcon"]',
+                                title: '@TempData["SwalMessageTitle"]'
+                            });
+
+                        </script>
+                    }
                                 </button>
                             </form>
                         </div>
@@ -143,5 +164,12 @@
     
 </div>
 <script>
-  
+    // Hàm hiển thị message
+    function showSuccessMessage() {
+        $("#msg_success_filled").ej2Message.show();
+        // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
+        setTimeout(function () {
+            $("#msg_success_filled").ej2Message.hide();
+        }, 5000);
+    }
 </script>

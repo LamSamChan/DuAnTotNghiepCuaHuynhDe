@@ -169,6 +169,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var repone = await _tosService.AddNew(tos);
             if (repone != 0)
             {
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Thêm dịch vụ thành công !!";
                 return RedirectToAction("ListTypeOfService");
             }
             else
@@ -185,6 +188,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var repone = await _tosService.Update(tos);
             if (repone != 0)
             {
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Cập nhật dịch vụ thành công !!";
                 return RedirectToAction("ListTypeOfService");
             }
             else
@@ -209,6 +215,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var respone = await _installationDevicesService.AddNewDevice(device);
             if (respone != null)
             {
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Thêm dịch vụ thành công !!";
                 return RedirectToAction("DetailsTypeOfService", new { tosID = device.TOS_ID });
             }
             else
@@ -361,6 +370,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 vm.Roles = await _roleService.GetAllRolesAsync();
                 vm.Positions = await _positionService.GetAllPositionsAsync();
                 vm.Employee = emp;
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Cập nhật thành công !!";
                 return View("EditEmpAccount", vm);
             }
             else
@@ -401,6 +413,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             
             if (reponse != 0)
             {
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Thêm nhân viên thành công !!";
                 return RedirectToAction("ListEmpAccount");
             }
             else
@@ -478,6 +493,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             int reponse = await _positionService.AddPositionAsync(position);
             if (reponse != 0)
             {
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Thêm chức danh thành công !!";
                 return RedirectToAction("ListPosition");
             }
             else
@@ -491,7 +509,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var position = await _positionService.GetPositionByIdAsync(positionId);
             if (position != null)
             {
-                return View(position);
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Cập nhật vai trò thành công !!";
+                return View("ListRole");
             }
             else
             {
@@ -503,7 +524,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var update = await _positionService.UpdatePositionAsync(position);
             if (update != 0)
             {
-
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Cập nhật chức danh thành công !!";
                 return RedirectToAction("ListPosition");
             }
             else
@@ -520,7 +543,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Thêm thành công !!";
+                TempData["SwalMessageTitle"] = "Thêm vai trò thành công !!";
                 return RedirectToAction("ListRole");
             }
             else
