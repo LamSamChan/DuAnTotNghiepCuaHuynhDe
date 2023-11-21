@@ -66,7 +66,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             else { return BadRequest(isError); }
         }
 
-        [HttpDelete("Delete")]
+        [HttpDelete("Delete/{id}")]
         public async Task<ActionResult<int>> Delete(int id)
         {
             int isError = await _stampSvc.Delete(id);

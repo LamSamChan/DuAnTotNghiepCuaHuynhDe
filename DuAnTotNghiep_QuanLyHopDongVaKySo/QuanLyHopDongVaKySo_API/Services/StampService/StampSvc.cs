@@ -89,6 +89,7 @@ namespace QuanLyHopDongVaKySo_API.Services.StampService
         {
             int result = 0;
             var existingStamp = _context.Stamps.FirstOrDefault(s => s.ID == id);
+            _context.Stamps.Remove(existingStamp);
             await _context.SaveChangesAsync();
             result = id;
             return result;

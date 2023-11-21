@@ -284,23 +284,31 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var certificate = await _pfxCertificateServices.GetById(serialPFX);
             try
             {
-                int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
+                int? fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
                 if (fileCount == 5)
                 {
                     //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
                     return RedirectToAction("Index", "Verify");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Console.WriteLine(ex.Message);
             }
+
             var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
 
             var fileName = System.Guid.NewGuid().ToString().Substring(0, 8) + ".png";
 
-            var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}"), fileName);
+            string folderPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\SignatureImages", serialPFX);
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            var filePath = Path.Combine(folderPath, fileName);
 
             if (certificate.ImageSignature1 == null)
             {
@@ -350,17 +358,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             try
             {
-                int fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
+                int? fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
                 if (fileCount == 5)
                 {
                     //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
                     return RedirectToAction("Index", "Verify");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Console.WriteLine(ex.Message);
             }
 
             var temp = vm.PFXCertificate.ImageFile;
@@ -372,7 +380,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
                     certificate = await _pfxCertificateServices.GetById(serialPFX);
 
-                    string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}");
+                    string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath + "\\SignatureImages", serialPFX);
+
                     if (certificate.ImageSignature1 == null)
                     {
                         certificate.ImageSignature1 = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
