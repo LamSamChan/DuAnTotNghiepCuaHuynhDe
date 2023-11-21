@@ -67,19 +67,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
                 rasterizer.Open(inputFile); //opens the PDF file for rasterizing
                 if (typeDoc == "minute")
                 {
-                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath,$"MinuteImage/{idContract}");
+                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath+ "\\MinuteImage",idContract.ToString());
                 }
                 else if (typeDoc == "contract")
                 {
-                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath, $"ContractImage/{idContract}");
+                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath+ "\\ContractImage", idContract.ToString());
                 }
                 else if (typeDoc == "tcontract")
                 {
-                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath, $"TContractImage/{idContract}");
+                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath+ "\\TContractImage", idContract.ToString());
                 }
                 else
                 {
-                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath, $"TMinuteImage/{idContract}");
+                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath+ "\\TMinuteImage",idContract.ToString());
                 }
 
                 //server
@@ -89,7 +89,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
                     Directory.CreateDirectory(outputDirectoryPath);
                 }
                 //set the output image(png's) complete path
-                var outputImagePath = outputDirectoryPath + @"/";
+                var outputImagePath = outputDirectoryPath + @"\";
                 //converts the PDF pages to png's 
                 for (int i = 0; i < totalPage; i++)
                 {

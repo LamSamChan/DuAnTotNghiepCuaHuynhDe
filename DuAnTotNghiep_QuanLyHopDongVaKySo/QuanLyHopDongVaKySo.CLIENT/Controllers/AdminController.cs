@@ -754,12 +754,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     API.Stamp stamp = new API.Stamp();
                     stamp.StampPath = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                     var result = await _stampSvc.AddNew(stamp);
-                    if (result != null)
+                    if (result != 0)
                     {
                         return RedirectToAction("Index");
                     }
                     else
                     {
+                        _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, imagePath));
                         return RedirectToAction("Index", "Verify");
                     }
                 }
