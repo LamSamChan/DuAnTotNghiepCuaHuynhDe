@@ -241,7 +241,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             FileStream fsPContract1 = new System.IO.FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
             fsPContract1.Close();
 
-            var signedContractPath = await _pfxCertificate.SignContract(imagePath, imagePathStamp, pContract.PContractFile, pContract.PContractFile, certi.Serial, directorZone.X, directorZone.Y);
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath, imagePathStamp, pContract.PContractFile, pContract.PContractFile, certi.Serial, directorZone.X, directorZone.Y, "contract");
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(pContract.PContractFile);
             string base64String = Convert.ToBase64String(fileBytes);
@@ -359,7 +359,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{pContract.PContractID}");
             }
 
-            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X+20, customerZone.Y+10);
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X+20, customerZone.Y+10,"contract");
 
             FileStream fs = new FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
             fs.Close();
@@ -561,7 +561,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             FileStream fsPContract1 = new System.IO.FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
             fsPContract1.Close();
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath,imagePathStamp, pMinute.MinuteFile, pMinute.MinuteFile, certi.Serial, signatureZone.X + 50, signatureZone.Y - 700);
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath,imagePathStamp, pMinute.MinuteFile, pMinute.MinuteFile, certi.Serial, signatureZone.X + 50, signatureZone.Y - 700, "minute");
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile);
             string base64String = Convert.ToBase64String(fileBytes);
@@ -663,7 +663,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContract.DContractID}");
             }
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute, certi.Serial, customerZone.X, customerZone.Y);
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute, certi.Serial, customerZone.X, customerZone.Y,"minute");
 
             FileStream fs = new FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
             fs.Close();

@@ -199,7 +199,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
             }
         }
 
-        public async Task<string> SignContract(string imagePath, string? imagePathStamp , string inputPdfPath, string outputPdfPath, string serialCerti, float xCoordinate, float yCoodinate)
+        public async Task<string> SignContract(string imagePath, string? imagePathStamp , string inputPdfPath, string outputPdfPath, string serialCerti, float xCoordinate, float yCoodinate, string typeDoc)
         {
 
             var certi = await GetById(serialCerti);
@@ -228,13 +228,20 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                         PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
                         // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
                         Image signatureImage = Image.GetInstance(imagePath);
-                        if (inputPdfPath.Replace("AppData/PMinutes/","").StartsWith("bb"))
+                        if (typeDoc == "contract")
                         {
-                            signatureImage.SetAbsolutePosition(xCoordinate - 100, yCoodinate - 45 - 110); // Đặt vị trí của hình ảnh chữ ký, biên bản
+                            signatureImage.SetAbsolutePosition(xCoordinate - 100, yCoodinate - 45);
                         }
                         else
                         {
-                            signatureImage.SetAbsolutePosition(xCoordinate - 100, yCoodinate - 45); // Đặt vị trí của hình ảnh chữ ký, hợp đồng
+                            if (lastPageNumber == 1 )
+                            {
+                                signatureImage.SetAbsolutePosition(xCoordinate - 100, yCoodinate - 45 - 110); // Đặt vị trí của hình ảnh chữ ký, biên bản
+                            }
+                            else
+                            {
+                                signatureImage.SetAbsolutePosition(xCoordinate - 100 - 50 + 60, yCoodinate - 45 + 700 + 115); // Đặt vị trí của hình ảnh chữ ký, biên bản
+                            }
                         }
                         signatureImage.ScaleToFit(130, 65); // Đặt kích thước của hình ảnh chữ ký
 
@@ -245,7 +252,22 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                         {
                             // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
                             Image signatureImageStamp = Image.GetInstance(imagePathStamp);
-                            signatureImageStamp.SetAbsolutePosition(xCoordinate - 200 , yCoodinate - 200); // Đặt vị trí của hình ảnh chữ ký
+                            
+                            if (typeDoc == "contract")
+                            {
+                                signatureImageStamp.SetAbsolutePosition(xCoordinate - 200, yCoodinate - 200); // Đặt vị trí của hình ảnh chữ ký
+                            }
+                            else
+                            {
+                                if (lastPageNumber == 1)
+                                {
+                                    signatureImageStamp.SetAbsolutePosition(xCoordinate - 200, yCoodinate - 200); // Đặt vị trí của hình ảnh chữ ký
+                                }
+                                else
+                                {
+                                    signatureImageStamp.SetAbsolutePosition(xCoordinate - 200 - 50 + 65, yCoodinate - 200 + 700 + 200); // Đặt vị trí của hình ảnh chữ ký, biên bản
+                                }
+                            }
                             signatureImageStamp.ScaleToFit(120, 120); // Đặt kích thước của hình ảnh chữ ký
 
                             // Chèn hình ảnh chữ ký vào tài liệu PDF
