@@ -228,7 +228,14 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                         PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
                         // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
                         Image signatureImage = Image.GetInstance(imagePath);
-                        signatureImage.SetAbsolutePosition(xCoordinate-100, yCoodinate-45); // Đặt vị trí của hình ảnh chữ ký
+                        if (inputPdfPath.Replace("AppData/PMinutes/","").StartsWith("bb"))
+                        {
+                            signatureImage.SetAbsolutePosition(xCoordinate - 100, yCoodinate - 45 - 110); // Đặt vị trí của hình ảnh chữ ký, biên bản
+                        }
+                        else
+                        {
+                            signatureImage.SetAbsolutePosition(xCoordinate - 100, yCoodinate - 45); // Đặt vị trí của hình ảnh chữ ký, hợp đồng
+                        }
                         signatureImage.ScaleToFit(130, 65); // Đặt kích thước của hình ảnh chữ ký
 
                         // Chèn hình ảnh chữ ký vào tài liệu PDF
@@ -238,7 +245,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                         {
                             // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
                             Image signatureImageStamp = Image.GetInstance(imagePathStamp);
-                            signatureImageStamp.SetAbsolutePosition(xCoordinate - 200, yCoodinate - 200); // Đặt vị trí của hình ảnh chữ ký
+                            signatureImageStamp.SetAbsolutePosition(xCoordinate - 200 , yCoodinate - 200); // Đặt vị trí của hình ảnh chữ ký
                             signatureImageStamp.ScaleToFit(120, 120); // Đặt kích thước của hình ảnh chữ ký
 
                             // Chèn hình ảnh chữ ký vào tài liệu PDF
