@@ -5,7 +5,7 @@
     // Lấy link trực ảnh từ file tỉnh
     string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
 
-    string folderItem = System.IO.Path.Combine(folderPath, "7");
+    string folderItem = System.IO.Path.Combine(folderPath, "8");
 
     string[] imageFiles = Directory.GetFiles(folderItem);
 }
@@ -20,34 +20,34 @@
         </nav>
         <h1 class="typeHead">CHI TIẾT HỢP ĐỒNG </h1>
         <div class="row justify-content-between">
-            <button class="col-md-2" style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
-                <a>
-                    <i class="ph-bold ph-arrow-left">
-                        QUAY LẠI
-                    </i>
-                </a>
-            </button>
-            <button class="col-md-2" style="border-radius: 12px;background: red; border:none; color: white;font-weight:bold;">
-                <a>
-                    KẾT THÚC HỢP ĐỒNG
-                </a>
-            </button>
+            <a class="col-md-2 button-design">
+                <i class="ph-bold ph-arrow-left"></i>
+                QUAY LẠI
+            </a>
+            <a class="col-md-2 button-delete">
+                KẾT THÚC HỢP ĐỒNG
+            </a>
         </div>
         
     </div>
     <div class="row" style="background-color:#FFFFFF; margin: 20px auto; height:100%; border-radius:16px;">
-        <div class="col-6" style="margin: 20px; border-radius:10px;">
+        <div class="col-6" style="margin: 20px;">
             <div class="showFile">
-                <h4 style="color: #4318FF; font-family:Source Sans Pro; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng đang hiệu lực </h4>
-                <div id="myCarousel" class="carousel slide" style="margin: 0px 50px 20px 50px; width: 500px;height: 750px; background-color:#FFFF;">
+                <div class="row justify-content-between" style="margin:auto;">
+                    <h4 style="color: #4318FF; font-family:Source Sans Pro;" class="col-5">Hợp đồng đang hiệu lực </h4>
+                    <button class="custom-file-upload col-1" data-bs-toggle="modal" data-bs-target="#ShowContract" style="width:30px; height:30px;">
+                        <i class="ph-bold ph-frame-corners" style="font-size:30px; margin: auto;"></i>
+                    </button>
+                </div>
+                <div id="myCarousel" class="carousel slide" style=" width:100%;height: 750px;">
                     <div class="carousel-inner">
-                        <div class="carousel-item active " style="width:800px;">
-                            <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" style="margin:100px auto;" />
+                        <div class="carousel-item active ">
+                            <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
                         </div>
                         @foreach (var imgPath in imageFiles)
                         {
                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
                             </div>
                         }
                     </div>
@@ -59,6 +59,41 @@
                         <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
+                </div>
+
+                <!--Show hợp đồng to-->
+                <!-- Modal -->
+                <div class="modal fade" id="ShowContract" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="myCarouselModal" class="carousel slide">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active ">
+                                            <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
+                                        </div>
+                                        @foreach (var imgPath in imageFiles)
+                                        {
+                                            <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                                <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                            </div>
+                                        }
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselModal" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarouselModal" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -137,6 +172,11 @@
 <script>
     $(document).ready(function () {
         $('#myCarousel').carousel({
+            interval: false
+        });
+    });
+    $(document).ready(function () {
+        $('#myCarouselModal').carousel({
             interval: false
         });
     });

@@ -132,6 +132,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult ListContractActive()
+        {
+            return View();
+        }
+        public IActionResult DetailsContractActive()
+        {
+            return View();
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetOTP()
@@ -208,7 +216,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index","Verify");
             }
         }
-        public async Task<IActionResult> ListContractActive()
+        public async Task<IActionResult> ListContractEffect()
         {
             List<VMAPI.DContractViewModel> contractList = new List<VMAPI.DContractViewModel>();
             if (IsAuthenticate == 2)
@@ -302,11 +310,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return RedirectToAction("ListContractAwait");
         }
 
-        public async Task<IActionResult> DetailsApprovedContract()
-        {
-            return View();
-        }
-        public async Task<IActionResult> DetailsContractActive(string id)
+   
+        public async Task<IActionResult> DetailsContractEffect(string id)
         {
             VMDetailsContract viewModel = new VMDetailsContract();
             try

@@ -1,5 +1,4 @@
-﻿@model List<QuanLyHopDongVaKySo_API.ViewModels.DContractViewModel>
-@{
+﻿@{
 }
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
@@ -7,7 +6,7 @@
             <ol class="breadcrumb">
                 <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
                 <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Hợp đồng đã duyệt</li>
+                <li class="breadcrumb-item active" aria-current="page"> Hợp đồng hoạt động</li>
             </ol>
         </nav>
         <h1 class="typeHead">TẤT CẢ DANH SÁCH </h1>
@@ -29,25 +28,21 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                @foreach(var item in Model)
-                {
-                    <tr>
-                        <th scope="row"> </th>
-                        <td>@item.Id</td>
-                        <td>@item.CustomerEmail</td>
-                        <td>@item.DateDone</td>
-                        <td>@item.CustomerName</td>
-                        <td>@item.TypeOfService</td>
-                        <td>
-                            <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                            <span>@item.Status</span>
-                        </td>
-                        <td>
-                            <a asp-controller="DetailsContractActive" asp-action="Diretor" asp-route-id="@item.Id">Chi tiết</a>
-                        </td>
-                    </tr>
-                }
-                
+                <tr>
+                    <th scope="row"> </th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                        <span></span>
+                    </td>
+                    <td>
+                        <a asp-controller="" asp-action="Diretor" asp-route-id="">Chi tiết</a>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

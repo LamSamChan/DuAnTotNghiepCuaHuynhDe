@@ -24,13 +24,36 @@
                 <div class="col-md-3 offset-md-6 d-flex justify-content-end">
                     <a class="button-save">
                         Duyệt
-                        <span id="countButton" class="badge text-danger">0</span>
+                        <span id="countButton" class="badge text-bg-danger">0</span>
                     </a>
-                    <a class="button-delete">
+                    <a class="button-delete" data-bs-toggle="modal" data-bs-target="#RefuseSign">
                         Từ chối duyệt
+                        <span id="countButton" class="badge text-bg-light">0</span>
                     </a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="RefuseSign" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="row justify-content-around" style=" margin: 0 auto;">
+                                        <div class="form-floating mb-3">
+                                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                            <label for="floatingTextarea2">Lý dô từ chối</label>
+                                        </div>
+                                        <div class="col-mb-5" style="margin: auto;">
+                                            <button class="button-save">
+                                                Xác nhận
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              
             </div>
         </div>
 
@@ -52,11 +75,35 @@
                 <div class="col-md-3 offset-md-6 d-flex justify-content-end">
                     <a class="button-save">
                         Duyệt
-                        <span id="countButton" class="badge text-bg-danger">0</span>
+                        <span id="countButton" class="badge text-danger">0</span>
                     </a>
-                    <a class="button-delete">
+                    <a class="button-delete" data-bs-toggle="modal" data-bs-target="#RefuseSign">
                         Từ chối duyệt
                     </a>
+                        <span id="countButton" class="badge text-success">0</span>
+                    <!-- Modal -->
+                    <div class="modal fade" id="RefuseSign" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="row justify-content-around" style=" margin: 0 auto;">
+                                        <div class=" mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Lý do từ chối</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
+                                        <div class="col-mb-5" style="margin: auto;">
+                                            <button class="button-save">
+                                                Xác nhận
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

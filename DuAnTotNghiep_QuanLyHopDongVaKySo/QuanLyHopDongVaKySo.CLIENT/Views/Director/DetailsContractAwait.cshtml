@@ -36,12 +36,40 @@
                     </i>
                 </a>
             </button>
-            <button class="button-save col-md-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <a>
-                    XÁC NHẬN DUYỆT
-                </a>
-            </button>
 
+            <div class="col-md-3 offset-md-6 d-flex justify-content-end">
+                <a class="button-save" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Duyệt
+                </a>
+                <a class="button-delete" data-bs-toggle="modal" data-bs-target="#RefuseSign">
+                    Từ chối duyệt
+                </a>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="RefuseSign" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row justify-content-around" style=" margin: 0 auto;">
+                                <div class="form-floating mb-3">
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Lý dô từ chối</label>
+                                </div>
+                                <div class="col-mb-5" style="margin: auto;">
+                                    <button class="button-save">
+                                        Xác nhận
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @* modal duyet *@
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
