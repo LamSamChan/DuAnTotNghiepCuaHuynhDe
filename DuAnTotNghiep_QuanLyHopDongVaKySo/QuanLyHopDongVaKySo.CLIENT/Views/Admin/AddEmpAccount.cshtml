@@ -21,7 +21,11 @@
                         <div class="avt">
                             <img src="~/Avatars/empty_avatar.jpg" alt="" style="width:200px; height:200px;" />
                             <div class="overlay">
-                                <input type="file" accept="image/*" asp-for="Employee.ImageFile"/>
+                                <label for="file-upload" class="custom-file-upload col-7" role="button">
+                                    <i class="ph-bold ph-cloud-arrow-up"></i>
+                                    UPLOAD
+                                </label>
+                                <input id="file-upload" type="file" accept="image/*" asp-for="Employee.ImageFile" />
                                 <span class="text-danger" asp-validation-for="Employee.ImageFile"></span>
                             </div>
                         </div>

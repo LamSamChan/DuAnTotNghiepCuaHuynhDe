@@ -19,14 +19,18 @@
                 </ol>
             </nav>
             <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
-            <div class="row justify-content-around">
+            <div class="row justify-content-between">
                 <input type="search" class="src" placeholder="Tìm kiếm trong danh sách" />
-                <button class="btn-addRole col-md-2 offset-md-7" type="button">
-                    <a asp-action="AddEmpAccount" asp-controller="Admin">
-                       Duyệt
+                <div class="col-md-3 offset-md-6 d-flex justify-content-end">
+                    <a class="button-save">
+                        Duyệt
+                        <span id="countButton" class="badge text-danger">0</span>
                     </a>
-                    <span id="countButton" class="badge text-bg-danger">0</span>
-                </button>
+                    <a class="button-delete">
+                        Từ chối duyệt
+                    </a>
+                </div>
+              
             </div>
         </div>
 
@@ -45,12 +49,15 @@
             <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
             <div class="row">
                 <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm hợp đồng" />
-                <button class="col-md-1" style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
-                    <a>
-                        DUYỆT
+                <div class="col-md-3 offset-md-6 d-flex justify-content-end">
+                    <a class="button-save">
+                        Duyệt
+                        <span id="countButton" class="badge text-bg-danger">0</span>
                     </a>
-                    <span id="countButton" class="badge text-bg-danger">0</span>
-                </button>
+                    <a class="button-delete">
+                        Từ chối duyệt
+                    </a>
+                </div>
             </div>
         </div>
 
