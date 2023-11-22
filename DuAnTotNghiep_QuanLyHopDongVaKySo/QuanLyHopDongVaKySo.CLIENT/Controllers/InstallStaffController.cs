@@ -290,7 +290,24 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> SignByCus(int pMinuteID)
         {
-            return View();
+            VMSignByStaff vm = new VMSignByStaff();
+            try
+            {
+                vm.PMinute = await _pMinuteService.GetById(pMinuteID);
+                var dContract = _doneContractSvc.getAll().Result.FirstOrDefault(d => d.DContractID == vm.PMinute.DoneContractId);
+                vm.Customer = await _customerService.GetCustomerById(dContract.CustomerId.ToString());
+                vm.PFXCertificate = await _pfxCertificateServices.GetById(vm.Customer.SerialPFX);
+
+                HttpContext.Session.SetString(SessionKey.PedningMinute.PMinuteID, vm.PMinute.PendingMinuteId.ToString());
+                HttpContext.Session.SetString(SessionKey.PFXCertificate.Serial, vm.Customer.SerialPFX);
+            }
+            catch (Exception)
+            {
+                //báo lỗi
+                return RedirectToAction("Index");
+            }
+
+            return View(vm);
         }
 
         public async Task<IActionResult> SignByStaff(int pMinuteID)
@@ -362,6 +379,79 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
 
             return RedirectToAction("ListInstallRecord");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CustomerSign([FromBody] SignData sData)
+        {
+
+            string pMinuteID = HttpContext.Session.GetString(SessionKey.PedningMinute.PMinuteID);
+            string serial = HttpContext.Session.GetString(SessionKey.PFXCertificate.Serial);
+
+            if (null == sData)
+                return NotFound();
+
+            var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
+
+            var fileName = System.Guid.NewGuid().ToString().Substring(0, 8) + ".png";
+
+            string folderPath = Path.Combine(_hostingEnvironment.WebRootPath, "TempSignature");
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            var filePath = Path.Combine(folderPath, fileName);
+
+
+            bmpSign.Save(filePath, ImageFormat.Png);
+
+
+            VMAPI.SigningModel signing = new VMAPI.SigningModel();
+            signing.IdFile = pMinuteID;
+            signing.Serial = serial;
+
+            byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
+            signing.Base64StringFile = Convert.ToBase64String(fileBytes);
+
+            var respone = await _signingService.SignMinuteByCustomer(signing);
+
+            if (respone != null)
+            {
+                string[] split = respone.Split('*');
+                string pdfPath = null;
+                IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
+                pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
+                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "minute");
+
+                //xoa anh pcontract
+                folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage"); // + thêm ID của contract
+
+                string folderItem = System.IO.Path.Combine(folderPath, split[2]);
+
+                string[] imageFiles = Directory.GetFiles(folderItem);
+
+                foreach (string imageFile in imageFiles)
+                {
+                    System.IO.File.Delete(imageFile);
+                }
+                Directory.Delete(folderItem);
+
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                System.IO.File.Delete(pdfPath);
+            }
+
+            HttpContext.Session.SetString(SessionKey.PedningMinute.PMinuteID, "");
+            HttpContext.Session.SetString(SessionKey.PFXCertificate.Serial, "");
+            _uploadHelper.RemoveImage(filePath);
+
+
+
+            //xem thông tin hiển thị alert ở CusToSign hàm SaveSign(), vì dùng http nên không có trả ở return nó sẽ chạy hết hàm SaveSign(). Các action khác mà được gọi từ ajax
+            //cũng hiển thị thông báo tương tự
+            return Ok();
         }
 
         public async Task<IActionResult> ListTypeOfService()
