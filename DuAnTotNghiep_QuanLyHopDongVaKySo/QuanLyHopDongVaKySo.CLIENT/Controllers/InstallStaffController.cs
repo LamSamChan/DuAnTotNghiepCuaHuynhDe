@@ -288,7 +288,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View(vm);
         }
 
-        public IActionResult SignByCus()
+        public async Task<IActionResult> SignByCus(int pMinuteID)
         {
             return View();
         }
