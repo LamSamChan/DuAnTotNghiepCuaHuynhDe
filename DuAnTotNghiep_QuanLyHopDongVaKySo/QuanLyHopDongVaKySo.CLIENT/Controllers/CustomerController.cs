@@ -55,7 +55,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-
+        public IActionResult ViewShowData()
+        {
+            return View();
+        }
 
         public async Task<IActionResult> CusToSign(string token)
         {
