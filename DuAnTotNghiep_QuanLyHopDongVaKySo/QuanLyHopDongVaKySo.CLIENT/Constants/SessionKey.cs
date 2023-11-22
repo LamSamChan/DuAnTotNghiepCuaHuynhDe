@@ -24,5 +24,10 @@
         {
             public const string PContractID = "PContractID";
         }
+
+        public static class PedningMinute
+        {
+            public const string PMinuteID = "PMinuteID";
+        }
     }
 }

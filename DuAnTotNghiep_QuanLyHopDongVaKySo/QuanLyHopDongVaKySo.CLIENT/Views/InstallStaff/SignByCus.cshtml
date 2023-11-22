@@ -3,23 +3,9 @@
 @inject IWebHostEnvironment _hostingEnvironment
 
 @{
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage"); // + thêm ID của contract
 
-    // // Lấy link trực ảnh từ file tỉnh
-    // string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage"); // + thêm ID của contract
-
-    // string folderItem = System.IO.Path.Combine(folderPath, Model.PMinute.PendingMinuteId.ToString());
-
-    // string[] imageFiles = Directory.GetFiles(folderItem);
-
-    // string defaultImg =null;
-    // if (Model.PFXCertificate.DefaultImageSignature != null)
-    // {
-    //     defaultImg = Model.PFXCertificate.DefaultImageSignature.Replace(@"\", @"/");
-    // }
-    // Lấy link trực ảnh từ file tỉnh
-    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
-
-    string folderItem = System.IO.Path.Combine(folderPath, "8");
+    string folderItem = System.IO.Path.Combine(folderPath, Model.PMinute.PendingMinuteId.ToString());
 
     string[] imageFiles = Directory.GetFiles(folderItem);
 
@@ -51,11 +37,10 @@
                     @await Component.InvokeAsync("SignControl")
                     <hr />
                     <div class="form-inline">
-                        <input type="button" id="btnUndo" class="button-design" onclick="UndoSignature('ctlSignature');" value="Trở lại" />&nbsp;
+                        <input type="button" id="btnUndo" class="button-design" onclick="UndoSignature('ctlSignature');" value="Hoàn tác" />&nbsp;
                         <input type="button" id="btnClear" class="button-delete" onclick="ClearSignature('ctlSignature');" value="Xóa" />&nbsp;
-                        <input type="button" id="btnSave" class="button-save" onclick="ValidateSign();" value="Ký" />&nbsp;
+                        <input type="button" id="btnSave" class="button-save" onclick="ValidateSign();" value="Xác Nhận Ký"/>&nbsp;
                     </div>
-                    <input type="button" id="btnSave" class="button-save" value="XÁC NHẬN" />
                 </div>
             </div>
         </div>
@@ -74,7 +59,7 @@
                         @foreach (var imgPath in imageFiles)
                         {
                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                <img src="@Url.Content("~/MinuteImage/"+Model.PMinute.PendingMinuteId+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
                             </div>
                         }
                     </div>
@@ -105,7 +90,7 @@
                                         @foreach (var imgPath in imageFiles)
                                         {
                                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                                <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                                <img src="@Url.Content("~/MinuteImage/"+Model.PMinute.PendingMinuteId+ "/" +  System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
                                             </div>
                                         }
                                     </div>
@@ -163,7 +148,7 @@
         var ctlSignature = { Data: $("#ctlSignature_data").val(), Smooth: $("#ctlSignature_data_smooth").val() };
 
         $.ajax({
-            url: "/Customer/SaveSignature/",
+            url: "/InstallStaff/CustomerSign/",
             data: JSON.stringify(ctlSignature),
             contentType: "application/json",
             type: 'POST',
@@ -177,7 +162,9 @@
         });
 
         btnSave.prop('disabled', false);
-
+        // Chuyển hướng tới trang mong muốn
+        var redirectToUrl = '@Url.Action("SignByStaff", "InstallStaff")?pMinuteID=' + @Model.PMinute.PendingMinuteId;
+        window.location.href = redirectToUrl;
     }
 
     function objctlSignature_status(success, points) {

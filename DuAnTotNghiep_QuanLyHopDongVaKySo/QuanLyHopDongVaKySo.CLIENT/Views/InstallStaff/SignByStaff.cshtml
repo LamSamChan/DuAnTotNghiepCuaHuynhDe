@@ -43,6 +43,9 @@
                 </i>
                 QUAY LẠI
             </a>
+            <a class="button-design col-md-2" asp-action="SignByCus" asp-route-pMinuteID="@Model.PMinute.PendingMinuteId">
+                    KHÁCH HÀNG KÝ
+             </a>
             <button class="button-save col-md-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <a>
                     XÁC NHẬN DUYỆT
@@ -231,7 +234,7 @@
             success: function (result) {
                 if (!result.success) {
                     // Chuyển hướng tới trang mong muốn
-                    var redirectToUrl = '@Url.Action("SignByStaff", "InstallStaff")?pMinuteID=' + @Model.PMinute.PendingMinuteId;
+                    var redirectToUrl = '@Url.Action("SignByCus", "InstallStaff")?pMinuteID=' + @Model.PMinute.PendingMinuteId;
                     window.location.href = redirectToUrl;
 
                 }
@@ -267,7 +270,7 @@
                 success: function (result) {
                     if (!result.success) {
                         // Chuyển hướng tới trang mong muốn
-                        var redirectToUrl = '@Url.Action("SignByStaff", "InstallStaff")?pMinuteID=' + @Model.PMinute.PendingMinuteId;
+                        var redirectToUrl = '@Url.Action("SignByCus", "InstallStaff")?pMinuteID=' + @Model.PMinute.PendingMinuteId;
                         window.location.href = redirectToUrl;
 
                     }
