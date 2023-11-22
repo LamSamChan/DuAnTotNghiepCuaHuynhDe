@@ -513,7 +513,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
                 float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
-                float y = 808 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                float y = 839 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                 var mappingName = MinuteInfo.MinuteFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
                 if (mappingName == null)
                 {
@@ -536,7 +536,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
                 float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
-                float y = 815 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                float y = 839 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                 var mappingName = MinuteInfo.Installation.FirstOrDefault(id => id.Key == fieldName).Value;
                 if (mappingName == null)
                 {
@@ -561,7 +561,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             FileStream fsPContract1 = new System.IO.FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
             fsPContract1.Close();
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath,imagePathStamp, pMinute.MinuteFile, pMinute.MinuteFile, certi.Serial, signatureZone.X, signatureZone.Y);
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath,imagePathStamp, pMinute.MinuteFile, pMinute.MinuteFile, certi.Serial, signatureZone.X + 50, signatureZone.Y - 700);
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile);
             string base64String = Convert.ToBase64String(fileBytes);
