@@ -441,7 +441,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFile, Guid.NewGuid().ToString().Substring(0, 8), "image/jpeg");
                 imagePath = _uploadFileHelper.UploadFile(file, "AppData", "SignatureImages", ".jpeg");
-                IFormFile fileStamp = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFile, Guid.NewGuid().ToString().Substring(0, 8), "image/png");
+                IFormFile fileStamp = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFileStamp, Guid.NewGuid().ToString().Substring(0, 8), "image/png");
                 imagePathStamp = _uploadFileHelper.UploadFile(fileStamp, "AppData", "SignatureImages", ".png");
             }
             else
@@ -512,8 +512,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             foreach (var coordinate in Coordinates)
             {
                 string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
-                float x = coordinate.X + 20; // Lấy tọa độ X từ bảng toạ độ
-                float y = 790 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
+                float y = 808 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                 var mappingName = MinuteInfo.MinuteFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
                 if (mappingName == null)
                 {
@@ -535,8 +535,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             foreach (var coordinate in Coordinates)
             {
                 string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
-                float x = coordinate.X + 20; // Lấy tọa độ X từ bảng toạ độ
-                float y = 790 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
+                float y = 815 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                 var mappingName = MinuteInfo.Installation.FirstOrDefault(id => id.Key == fieldName).Value;
                 if (mappingName == null)
                 {

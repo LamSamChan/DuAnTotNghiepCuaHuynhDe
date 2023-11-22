@@ -4,6 +4,7 @@ using QuanLyHopDongVaKySo.CLIENT.Constants;
 using QuanLyHopDongVaKySo.CLIENT.Helpers;
 using QuanLyHopDongVaKySo.CLIENT.Models;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
+using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
@@ -13,12 +14,14 @@ using QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo_API.Models.ViewPost;
-using QuanLyHopDongVaKySo_API.ViewModels;
+using VMAPI = QuanLyHopDongVaKySo_API.ViewModels;
+using Syncfusion.EJ2.Maps;
 using System.Drawing.Imaging;
 using test.Models;
 using API = QuanLyHopDongVaKySo_API.Models;
@@ -42,7 +45,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly ITContractService _tContractService;
         private readonly IUploadHelper _uploadHelper;
         private readonly IPasswordService _passwordService;
+        private readonly ICustomerService _customerService;
         private readonly IPdfToImageHelper _pdfToImageHelper;
+        private readonly ISigningService _signingService;
+
 
         private int isAuthenticate;
         private string employeeId;
@@ -96,7 +102,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public InstallStaffController(IIRequirementService iRequirementService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices, IDContractsService doneContractSvc,
             IPMinuteService pMinuteService, ITOSService tosService, ITMinuteService tMinuteService, IInstallationDevicesService installationDevicesService, ITContractService tContractService,
-            IUploadHelper uploadHelper, IPasswordService passwordService, IPdfToImageHelper pdfToImageHelper)
+            IUploadHelper uploadHelper, IPasswordService passwordService, IPdfToImageHelper pdfToImageHelper, ICustomerService customerService, ISigningService signingService)
         {
             _iRequirementService = iRequirementService;
             _hostingEnvironment = hostingEnvironment;
@@ -114,6 +120,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _uploadHelper = uploadHelper;
             _passwordService = passwordService;
             _pdfToImageHelper = pdfToImageHelper;
+            _customerService = customerService;
+            _signingService = signingService;
         }
 
         public IActionResult ChangePass()
@@ -133,7 +141,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ChangePassAction([FromBody] ChangePassword change)
+        public async Task<IActionResult> ChangePassAction([FromBody] VMAPI.ChangePassword change)
         {
             change.EmployeeID = EmployeeId;
             var respone = await _passwordService.ChangePasswordAsync(change);
@@ -285,9 +293,75 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
 
-        public IActionResult SignByStaff()
+        public async Task<IActionResult> SignByStaff(int pMinuteID)
         {
-            return View();
+
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            
+            VMSignByStaff vm = new VMSignByStaff();
+            try
+            {
+                vm.PMinute = await _pMinuteService.GetById(pMinuteID);
+                var dContract = _doneContractSvc.getAll().Result.FirstOrDefault(d => d.DContractID == vm.PMinute.DoneContractId);
+                vm.Customer = await _customerService.GetCustomerById(dContract.CustomerId.ToString());
+                vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
+                string tosName = _tosService.GetById(dContract.TOS_ID).Result.ServiceName;
+                ViewBag.DContracID = dContract.DContractID;
+                ViewBag.ServiceName = tosName;
+            }
+            catch (Exception)
+            {
+                //báo lỗi
+                return RedirectToAction("Index");
+            }
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SignContract([FromBody] VMAPI.SigningModel signing)
+        {
+            byte[] fileBytes = System.IO.File.ReadAllBytes(Path.Combine(_hostingEnvironment.WebRootPath, signing.ImagePath));
+            signing.Base64StringFile = Convert.ToBase64String(fileBytes);
+            signing.ImagePath = null;
+            try
+            {
+                string fileStamp = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, "StampImage"))[0];
+                if (fileStamp == null)
+                {
+                    //báo lỗi ko có ảnh mộc
+                    return RedirectToAction("Index", "Verify");
+                }
+                else
+                {
+                    byte[] fileStampBytes = System.IO.File.ReadAllBytes(fileStamp);
+                    signing.Base64StringFileStamp = Convert.ToBase64String(fileStampBytes);
+                }
+            }
+            catch (Exception)
+            {
+                //báo lỗi ko có mộc
+                return BadRequest();
+            }
+
+            var respone = await _signingService.SignMinuteByInstaller(signing);
+
+
+            if (respone != null)
+            {
+                string[] split = respone.Split('*');
+                string pdfPath = null;
+                IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
+                pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
+                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "minute");
+
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                System.IO.File.Delete(pdfPath);
+            }
+
+            return RedirectToAction("ListInstallRecord");
         }
 
         public async Task<IActionResult> ListTypeOfService()

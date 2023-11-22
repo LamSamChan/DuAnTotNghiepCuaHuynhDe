@@ -10,6 +10,12 @@
     string folderItem = System.IO.Path.Combine(folderPath, Model.PContract.PContractID);
 
     string[] imageFiles = Directory.GetFiles(folderItem);
+
+    string defaultImg = null;
+    if (Model.PFXCertificate.DefaultImageSignature != null)
+    {
+        defaultImg = Model.PFXCertificate.DefaultImageSignature.Replace(@"\", @"/");
+    }
 }
 
 <div class="container-fluid">
@@ -259,16 +265,16 @@
         });
     }
 
-    var defaultImg = '@Model.PFXCertificate.DefaultImageSignature.Replace(@"\",@"/")';
+    var defaultImg = '@Html.Raw(defaultImg)';
     function signWithDefaultImg() {
-        if (defaultImg == null) {
+        if (defaultImg == '') {
             alert("Bạn chưa cài đặc chữ ký mặc định!!")
         }else{
             var signingDefault = {
                 Serial: '@Model.PFXCertificate.Serial',
                 IdFile: '@Model.PContract.PContractID',
                 Base64StringFile: '',
-                ImagePath: '@Model.PFXCertificate.DefaultImageSignature.Replace(@"\",@"/")'
+                ImagePath: defaultImg
             }
 
             $.ajax({

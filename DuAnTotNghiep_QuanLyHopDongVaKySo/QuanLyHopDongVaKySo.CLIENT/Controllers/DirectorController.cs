@@ -250,6 +250,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             catch
             {
+                //báo lỗi
                 return RedirectToAction("Index");
             }
             return View(vm);
