@@ -5,6 +5,9 @@
     Console.WriteLine(ViewData["Role"]);
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 @if (@userRole == "Giám đốc")
 {
     <div class="sidebar">
