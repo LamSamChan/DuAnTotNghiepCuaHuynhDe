@@ -182,9 +182,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 System.GC.Collect();
                 System.GC.WaitForPendingFinalizers();
                 System.IO.File.Delete(pdfPath);
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Tạo hợp đồng thành công !!";
 
                 return RedirectToAction("ListCus");
             }
+            TempData["SweetType"] = "error";
+            TempData["SweetIcon"] = "error";
+            TempData["SweetTitle"] = "Xảy ra lỗi!!";
             return RedirectToAction("Index");
         }
 
@@ -291,10 +297,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (reponse != 0)
             {
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Thêm khách hàng thành công !!";
+
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index");
             }
         }
@@ -673,11 +686,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var customer = await _customerService.GetCustomerByIdPut(respone);
             if (customer != null)
             {
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Cập nhật thành công !!";
 
                 return View("EditCus", customer);
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index");
             }
         }
