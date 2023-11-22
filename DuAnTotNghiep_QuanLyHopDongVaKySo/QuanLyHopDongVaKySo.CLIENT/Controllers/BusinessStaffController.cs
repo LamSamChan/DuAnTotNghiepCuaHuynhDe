@@ -740,10 +740,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (respone != null || employee.FullName == null)
             {
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Cập nhật thành công !!";
+
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -889,10 +896,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Cập nhật thành công !!";
+
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -932,10 +946,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                TempData["SweetType"] = "warning";
+                TempData["SweetIcon"] = "warning";
+                TempData["SweetTitle"] = "Xóa chữ ký thành công !!";
+
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -952,10 +973,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                TempData["SweetType"] = "warning";
+                TempData["SweetIcon"] = "warning";
+                TempData["SweetTitle"] = "Đặt mặc định thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -972,10 +999,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Xóa thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
