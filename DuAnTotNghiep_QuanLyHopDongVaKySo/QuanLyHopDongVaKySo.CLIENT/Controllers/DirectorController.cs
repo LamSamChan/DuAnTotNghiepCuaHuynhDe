@@ -285,7 +285,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
            
 
-            if (respone != null)
+             if (respone != null)
             {
                 string[] split = respone.Split('*');
                 string pdfPath = null;

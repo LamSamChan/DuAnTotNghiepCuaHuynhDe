@@ -92,6 +92,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 imagePath = _uploadFileHelper.UploadFile(file, "AppData", "SignatureImages", ".jpeg");
                 IFormFile fileStamp = _uploadFileHelper.ConvertBase64ToIFormFile(signing.Base64StringFileStamp, Guid.NewGuid().ToString().Substring(0, 8), "image/png");
                 imagePathStamp = _uploadFileHelper.UploadFile(fileStamp, "AppData", "SignatureImages", ".png");
+            
             }
             else
             {
