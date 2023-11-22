@@ -5741,8 +5741,8 @@
       "PackagePath": "staticwebassets\\TContractImage\\6\\6.png"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TMinuteImage\\8\\1.png",
-      "PackagePath": "staticwebassets\\TMinuteImage\\8\\1.png"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TMinuteImage\\9\\1.png",
+      "PackagePath": "staticwebassets\\TMinuteImage\\9\\1.png"
     },
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TempSignature\\2c23168b.png",
@@ -8099,10 +8099,6 @@
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\css\\styleBusiness\\CreateFormContractPage.css",
       "PackagePath": "staticwebassets\\css\\styleBusiness\\CreateFormContractPage.css"
-    },
-    {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\css\\styleBusiness\\DetailsContractListPage.css",
-      "PackagePath": "staticwebassets\\css\\styleBusiness\\DetailsContractListPage.css"
     },
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\css\\styleBusiness\\DetailsCusPage.css",

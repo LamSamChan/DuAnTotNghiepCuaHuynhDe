@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hLrqpy0L6eboy3tJRZqYogthYO/tYYiR9blfV9I83yo=",
+  "Hash": "bALrGkHf3FeaohZC1NMZ1feOTztMHyyctDeNXuw1iLs=",
   "Source": "QuanLyHopDongVaKySo.CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
   "Mode": "Default",
@@ -36357,25 +36357,6 @@
       "OriginalItemSpec": "wwwroot\\css\\styleBusiness\\CreateFormContractPage.css"
     },
     {
-      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\css\\styleBusiness\\DetailsContractListPage.css",
-      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
-      "RelativePath": "css/styleBusiness/DetailsContractListPage.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleBusiness\\DetailsContractListPage.css"
-    },
-    {
       "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\css\\styleBusiness\\DetailsCusPage.css",
       "SourceId": "QuanLyHopDongVaKySo.CLIENT",
       "SourceType": "Discovered",
@@ -39929,12 +39910,12 @@
       "OriginalItemSpec": "wwwroot\\Test\\js\\main.js"
     },
     {
-      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TMinuteImage\\8\\1.png",
+      "Identity": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TMinuteImage\\9\\1.png",
       "SourceId": "QuanLyHopDongVaKySo.CLIENT",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
       "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
-      "RelativePath": "TMinuteImage/8/1.png",
+      "RelativePath": "TMinuteImage/9/1.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -39945,7 +39926,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\TMinuteImage\\8\\1.png"
+      "OriginalItemSpec": "wwwroot\\TMinuteImage\\9\\1.png"
     }
   ]
 }

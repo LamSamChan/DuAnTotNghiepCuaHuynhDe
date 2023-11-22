@@ -28,6 +28,40 @@
         margin: 0;
         padding: 0;
     }
+    /*css form details*/
+    .row > .col-7 > .showFile {
+        max-height: 833px;
+        flex-shrink: 0;
+        box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
+    }
+    .row > .col-6 > .showFile {
+        max-height: 833px;
+        flex-shrink: 0;
+        box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
+    }
+    .inforCus > .row > .col-md-6,
+    .inforCus > .row > .col-md-5 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inforCus > .form-input {
+        border: none;
+        border-bottom: 1px solid #685E5E;
+        padding: 0;
+        outline: none;
+        width: 400px;
+        background-color: transparent;
+    }
+
+    .inforCus > .row .form-label {
+        color: #685E5E;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 35px;
+    }
+    /*----------*/
     /*css typeFile*/
     input[type="file"] {
         display: none;

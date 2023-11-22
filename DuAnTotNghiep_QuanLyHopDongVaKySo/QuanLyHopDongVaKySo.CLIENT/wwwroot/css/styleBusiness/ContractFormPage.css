@@ -1,5 +1,5 @@
 ﻿@media screen and (min-width: 1366px) and (max-width: 1920px) {
-    div[class="tab-container"] {
+    .tab-container {
         display: flex;
         margin-top: 30px;
     }

@@ -1,7 +1,28 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMSignByStaff
+@using Microsoft.AspNetCore.Hosting
+@inject IWebHostEnvironment _hostingEnvironment
+
 @{
+
+    // // Lấy link trực ảnh từ file tỉnh
+    // string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage"); // + thêm ID của contract
+
+    // string folderItem = System.IO.Path.Combine(folderPath, Model.PMinute.PendingMinuteId.ToString());
+
+    // string[] imageFiles = Directory.GetFiles(folderItem);
+
+    // string defaultImg =null;
+    // if (Model.PFXCertificate.DefaultImageSignature != null)
+    // {
+    //     defaultImg = Model.PFXCertificate.DefaultImageSignature.Replace(@"\", @"/");
+    // }
+    // Lấy link trực ảnh từ file tỉnh
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+
+    string folderItem = System.IO.Path.Combine(folderPath, "8");
+
+    string[] imageFiles = Directory.GetFiles(folderItem);
+
 }
 <!-- ssss-->
 <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
@@ -22,17 +43,87 @@
         </nav>
         <h1 class="typeHead">KÝ XÁC NHẬN</h1>
     </div>
-    <div class="changPassForm">
-        <h4 class="td">Xác nhận ký của khách hàng</h4>
-        <div class="row g-3 p-3" style="margin:auto 5px;">
-            @await Component.InvokeAsync("SignControl")
-            <hr />
-            <div class="form-inline">
-                <input type="button" id="btnUndo" class="button-design" onclick="UndoSignature('ctlSignature');" value="Trở lại" />&nbsp;
-                <input type="button" id="btnClear" class="button-delete" onclick="ClearSignature('ctlSignature');" value="Xóa" />&nbsp;
-                <input type="button" id="btnSave" class="button-save" onclick="ValidateSign();" value="Ký" />&nbsp;
+    <div class="row mt-4 bg-white rounded" style="margin:auto;">
+        <div class="col-5">
+            <div class="changPassForm">
+                <h4 class="typeHead">Xác nhận ký của khách hàng</h4>
+                <div class="row g-3 p-3" style="margin:auto 5px;">
+                    @await Component.InvokeAsync("SignControl")
+                    <hr />
+                    <div class="form-inline">
+                        <input type="button" id="btnUndo" class="button-design" onclick="UndoSignature('ctlSignature');" value="Trở lại" />&nbsp;
+                        <input type="button" id="btnClear" class="button-delete" onclick="ClearSignature('ctlSignature');" value="Xóa" />&nbsp;
+                        <input type="button" id="btnSave" class="button-save" onclick="ValidateSign();" value="Ký" />&nbsp;
+                    </div>
+                    <input type="button" id="btnSave" class="button-save" value="XÁC NHẬN" />
+                </div>
             </div>
-            <input type="button" id="btnSave" class="button-save" value="XÁC NHẬN" />
+        </div>
+        <div class="col-7 bg-white" style="min-width: 800px;">
+            <div class="showFile">
+                <div class="row justify-content-between" style="margin:auto;">
+                    <button class="custom-file-upload col-1" data-bs-toggle="modal" data-bs-target="#ShowContract" style="width:30px; height:30px;">
+                        <i class="ph-bold ph-frame-corners" style="font-size:30px; margin: auto;"></i>
+                    </button>
+                </div>
+                <div id="myCarousel" class="carousel slide" style=" width:100%;height: 750px;">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active ">
+                            <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" height="750" />
+                        </div>
+                        @foreach (var imgPath in imageFiles)
+                        {
+                            <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                            </div>
+                        }
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
+                        <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                <!--Show hợp đồng to-->
+                <!-- Modal -->
+                <div class="modal fade" id="ShowContract" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="myCarouselModal" class="carousel slide">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active ">
+                                            <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
+                                        </div>
+                                        @foreach (var imgPath in imageFiles)
+                                        {
+                                            <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                                <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                            </div>
+                                        }
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselModal" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarouselModal" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
@@ -94,6 +185,8 @@
     }
 
     $(document).ready(function () { StatusBar(); });
+
+
 
     $(document).ready(function () {
         $('#myCarousel').carousel({
