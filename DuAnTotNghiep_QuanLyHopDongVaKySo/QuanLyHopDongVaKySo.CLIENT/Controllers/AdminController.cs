@@ -89,18 +89,30 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
                     if (role == "Admin")
                     {
+                        TempData["SweetType"] = "success";
+                        TempData["SweetIcon"] = "success";
+                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
                         isAuthenticate = 1; //Admin
                     }
                     else if (role == "Giám đốc")
                     {
+                        TempData["SweetType"] = "success";
+                        TempData["SweetIcon"] = "success";
+                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
                         isAuthenticate = 2; //Director
                     }
                     else if (role == "Nhân viên kinh doanh")
                     {
+                        TempData["SweetType"] = "success";
+                        TempData["SweetIcon"] = "success";
+                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
                         isAuthenticate = 3; //BusinessStaff
                     }
                     else if (role == "Nhân viên lắp đặt")
                     {
+                        TempData["SweetType"] = "success";
+                        TempData["SweetIcon"] = "success";
+                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
                         isAuthenticate = 4; //InstallStaff
                     }
                 }
@@ -348,6 +360,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index");
             }
         }
@@ -422,6 +437,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 else
                 {
                     //báo lỗi ko tải lên file ảnh
+                    TempData["SwalMessageType"] = "error";
+                    TempData["SwalMessageIcon"] = "error";
+                    TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                     RedirectToAction("AddEmpAccount");
                 }
             }
@@ -593,6 +611,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index");
             }
         }
@@ -644,10 +665,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (respone != null || employee.FullName == null)
             {
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Lưu thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -668,6 +695,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (fileCount == 5)
                 {
                     //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                    TempData["SwalMessageType"] = "error";
+                    TempData["SwalMessageIcon"] = "error";
+                    TempData["SwalMessageTitle"] = "Xóa 1 ảnh để có thể thêm mới!!";
                     return RedirectToAction("Index", "Verify");
                 }
             }
@@ -722,10 +752,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Lưu thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -744,6 +780,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (fileCount == 5)
                 {
                     //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                    TempData["SwalMessageType"] = "error";
+                    TempData["SwalMessageIcon"] = "error";
+                    TempData["SwalMessageTitle"] = "Xóa 1 ảnh để có thể thêm mới!!";
                     return RedirectToAction("Index", "Verify");
                 }
             }
@@ -794,10 +833,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                TempData["SwalMessageType"] = "success";
+                TempData["SwalMessageIcon"] = "success";
+                TempData["SwalMessageTitle"] = "Cập nhật thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -817,23 +862,35 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     var result = await _stampSvc.AddNew(stamp);
                     if (result != 0)
                     {
+                        TempData["SwalMessageType"] = "success";
+                        TempData["SwalMessageIcon"] = "success";
+                        TempData["SwalMessageTitle"] = "Lưu mộc đóng dấu thành công !!";
                         return RedirectToAction("Index");
                     }
                     else
                     {
                         _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, imagePath));
+                        TempData["SwalMessageType"] = "error";
+                        TempData["SwalMessageIcon"] = "error";
+                        TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                         return RedirectToAction("Index", "Verify");
                     }
                 }
                 else
                 {
                     // ko phải file ảnh
+                    TempData["SwalMessageType"] = "warning";
+                    TempData["SwalMessageIcon"] = "warning";
+                    TempData["SwalMessageTitle"] = "Hãy chọn file ảnh!!";
                     return RedirectToAction("Index", "Verify");
                 }
             }
             else
             {
                 // chưa up ảnh
+                TempData["SwalMessageType"] = "warning";
+                TempData["SwalMessageIcon"] = "warning";
+                TempData["SwalMessageTitle"] = "Bạn chưa tải ảnh lên!!";
                 return RedirectToAction("Index");
             }
         }
@@ -873,10 +930,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Xóa chữ ký thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -890,10 +954,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (respone != 0)
             {
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Xóa mộc đóng dấu thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -910,10 +980,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Đặt mặc định thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -930,10 +1007,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Xóa chữ ký mặc định thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
