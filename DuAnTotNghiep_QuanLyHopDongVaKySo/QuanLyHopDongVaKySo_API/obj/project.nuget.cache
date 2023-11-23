@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2FR8QROCiGuTh9xlEbhF2VataRPS+C5eBtSfYSMN4J9R84cXZlbcAAGrOCZMSfABTuZmgbvI1uvTx86NnTYucw==",
+  "dgSpecHash": "/y3phGeY6uTBNc9zc0iuorBR6L4PK558tsZGNkAsL4ZxDmoozD93yKtO6vEaDi9Zf4VIZJP3TnEjlHKRI/o0MQ==",
   "success": true,
-  "projectFilePath": "C:\\Learn\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj",
+  "projectFilePath": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo_API\\QuanLyHopDongVaKySo_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

@@ -65,34 +65,64 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
                 if (role == "Admin")
                 {
+                    TempData["SweetType"] = "success";
+                    TempData["SweetIcon"] = "success";
+                    TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
                     if (reponse.IsFirstLogin)
                     {
+
+                        TempData["SweetType"] = "info";
+                        TempData["SweetIcon"] = "info";
+                        TempData["SweetTitle"] = "Bạn hãy thay đổi mật khẩu  !!";
                         return RedirectToAction("ChangePass", "Admin");
                     }
+
+                   
                     return RedirectToAction("Index", "Admin");
                 }
                 else if (role == "Giám đốc")
                 {
+                    TempData["SweetType"] = "success";
+                    TempData["SweetIcon"] = "success";
+                    TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
                     if (reponse.IsFirstLogin)
                     {
+                        TempData["SweetType"] = "info";
+                        TempData["SweetIcon"] = "info";
+                        TempData["SweetTitle"] = "Bạn hãy thay đổi mật khẩu !!";
                         return RedirectToAction("ChangePass", "Director");
                     }
+                    
                     return RedirectToAction("Index", "Director");
                 }
                 else if (role =="Nhân viên kinh doanh")
                 {
+                    TempData["SweetType"] = "success";
+                    TempData["SweetIcon"] = "success";
+                    TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
                     if (reponse.IsFirstLogin)
                     {
+                        TempData["SweetType"] = "info";
+                        TempData["SweetIcon"] = "info";
+                        TempData["SweetTitle"] = "Bạn hãy thay đổi mật khẩu !!";
                         return RedirectToAction("ChangePass", "BusinessStaff");
                     }
+
                     return RedirectToAction("Index", "BusinessStaff");
                 }
                 else
                 {
+                    TempData["SweetType"] = "success";
+                    TempData["SweetIcon"] = "success";
+                    TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
                     if (reponse.IsFirstLogin)
                     {
+                        TempData["SweetType"] = "info";
+                        TempData["SweetIcon"] = "info";
+                        TempData["SweetTitle"] = "Bạn hãy thay đổi mật khẩu !!";
                         return RedirectToAction("ChangePass", "InstallStaff");
                     }
+
                     return RedirectToAction("Index", "InstallStaff");
                 } 
             }
