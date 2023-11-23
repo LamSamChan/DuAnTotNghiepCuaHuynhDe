@@ -4,7 +4,7 @@ FOR INSERT
 AS
 BEGIN
     DELETE FROM OperationHistoryEmp
-    WHERE Date < DATEADD(WEEK, -2, GETDATE())
+    WHERE Date < DATEADD(MONTH, -3, GETDATE())
 END
 go
 
@@ -14,5 +14,5 @@ FOR INSERT
 AS
 BEGIN
     DELETE FROM OperationHistoryCus
-    WHERE Date < DATEADD(WEEK, -2, GETDATE())
+    WHERE Date < DATEADD(MONTH, -3, GETDATE())
 END

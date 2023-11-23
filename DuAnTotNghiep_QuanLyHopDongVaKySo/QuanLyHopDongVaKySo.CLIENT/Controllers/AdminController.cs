@@ -1,37 +1,31 @@
-﻿using Azure;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
-using Org.BouncyCastle.Ocsp;
+﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using QuanLyHopDongVaKySo.CLIENT.Constants;
+using QuanLyHopDongVaKySo.CLIENT.Helpers;
+using QuanLyHopDongVaKySo.CLIENT.Models;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
-using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
-using QuanLyHopDongVaKySo.CLIENT.ViewModels;
-using API = QuanLyHopDongVaKySo_API.Models;
-using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.StampService;
 using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
-using APIPost = QuanLyHopDongVaKySo_API.Models.ViewPost;
-using APITPut = QuanLyHopDongVaKySo_API.Models.ViewPuts;
-using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
-using QuanLyHopDongVaKySo.CLIENT.Constants;
-using QuanLyHopDongVaKySo.CLIENT.Models;
-using Newtonsoft.Json;
+using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
+using QuanLyHopDongVaKySo.CLIENT.ViewModels;
+using QuanLyHopDongVaKySo_API.ViewModels;
 using System.Drawing.Imaging;
 using test.Models;
-using QuanLyHopDongVaKySo.CLIENT.Helpers;
-using Microsoft.AspNetCore.Hosting;
-using Org.BouncyCastle.Asn1.X509;
-using Org.BouncyCastle.Asn1.Pkcs;
-using static iTextSharp.text.pdf.AcroFields;
-using Org.BouncyCastle.Crypto.Tls;
-using QuanLyHopDongVaKySo.CLIENT.Services.StampService;
+using API = QuanLyHopDongVaKySo_API.Models;
+using APIPost = QuanLyHopDongVaKySo_API.Models.ViewPost;
+using APITPut = QuanLyHopDongVaKySo_API.Models.ViewPuts;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -52,32 +46,36 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IHttpContextAccessor _contextAccessor;
         private readonly IUploadHelper _uploadHelper;
         private readonly IStampSvc _stampSvc;
+        private readonly IHistoryEmpSvc _historyEmpSvc;
+        private readonly IPasswordService _passwordService;
 
 
         private int isAuthenticate;
         private string employeeId;
-       
+
         public AdminController(IPositionService positionService, IEmployeeService employeeService, IRoleService roleService,
             ICustomerService customerService, IPFXCertificateServices pfxCertificateServices, IPContractService pContractService,
             IDContractsService doneContractSvc, ITOSService tosService, ITContractService tContractService, ITMinuteService tMinuteService,
             IInstallationDevicesService installationDevicesService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor,
-            IUploadHelper uploadHelper, IStampSvc stampSvc)
+            IUploadHelper uploadHelper, IStampSvc stampSvc, IHistoryEmpSvc historyEmpSvc, IPasswordService passwordService)
         {
             _positionService = positionService;
             _employeeService = employeeService;
             _roleService = roleService;
             _customerService = customerService;
             _pfxCertificateServices = pfxCertificateServices;
-            _pContractService= pContractService;
+            _pContractService = pContractService;
             _doneContractSvc = doneContractSvc;
             _tosService = tosService;
             _tContractService = tContractService;
-            _tMinuteService = tMinuteService; 
+            _tMinuteService = tMinuteService;
             _installationDevicesService = installationDevicesService;
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
             _uploadHelper = uploadHelper;
             _stampSvc = stampSvc;
+            _historyEmpSvc = historyEmpSvc;
+            _passwordService = passwordService;
         }
 
         public int IsAuthenticate
@@ -138,10 +136,54 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             set { this.employeeId = value; }
         }
 
-       
         public IActionResult ChangePass()
         {
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetOTP()
+        {
+            var respone = await _passwordService.GetOTPChangeAsync(EmployeeId);
+            if (respone != null)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassAction([FromBody] ChangePassword change)
+        {
+            change.EmployeeID = EmployeeId;
+            var respone = await _passwordService.ChangePasswordAsync(change);
+            if (respone != null)
+            {
+                var emp = await _employeeService.GetEmployeePutById(EmployeeId);
+                emp.IsFirstLogin = false;
+                var respone1 = await _employeeService.UpdateEmployee(emp);
+                if (respone1 != null)
+                {
+                    var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                    Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    {
+                        OperationName = $"{employeeDoing.FullName} đã thay đổi mật khẩu cá nhân.",
+                        EmployeeID = employeeDoing.EmployeeId
+                    };
+                    await _historyEmpSvc.AddNew(historyEmp);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            else
+            {
+                // mk cũ không đúng
+                return BadRequest();
+            }
         }
 
         public async Task<IActionResult> Index()
@@ -165,15 +207,18 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index", "Verify");
             }
         }
+
         public async Task<IActionResult> ListTypeOfService()
         {
-            VMListTOS vm = new VMListTOS() {
+            VMListTOS vm = new VMListTOS()
+            {
                 TypeOfServices = await _tosService.GetAll(),
                 TemplateMinutes = await _tMinuteService.GetAll(),
                 TemplateContracts = await _tContractService.getAllAsnyc()
             };
             return View(vm);
         }
+
         public async Task<IActionResult> AddTOSAction(VMListTOS vm)
         {
             APIPost.PostTOS tos = new APIPost.PostTOS();
@@ -184,6 +229,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
                 TempData["SwalMessageTitle"] = "Thêm dịch vụ thành công !!";
+
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employee.FullName} đã thêm 1 dịch vụ :{tos.ServiceName}.",
+                    EmployeeID = employee.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 return RedirectToAction("ListTypeOfService");
             }
             else
@@ -193,7 +248,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("ListRole");
             }
-            
         }
 
         public async Task<IActionResult> UpdateTOSAction(VMListTOS vm)
@@ -203,6 +257,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var repone = await _tosService.Update(tos);
             if (repone != 0)
             {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employee.FullName} đã cập nhật thông tin dịch vụ {tos.ServiceName}.",
+                    EmployeeID = employee.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
                 TempData["SwalMessageTitle"] = "Cập nhật dịch vụ thành công !!";
@@ -215,14 +278,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("ListRole");
             }
-
         }
 
         public async Task<IActionResult> DetailsTypeOfService(int tosID)
         {
-            VMDetailsTypeOfService vm = new VMDetailsTypeOfService() {
-            InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID)};
-            HttpContext.Session.SetString("tosID",tosID.ToString());
+            VMDetailsTypeOfService vm = new VMDetailsTypeOfService()
+            {
+                InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID)
+            };
+            HttpContext.Session.SetString("tosID", tosID.ToString());
             return View(vm);
         }
 
@@ -233,6 +297,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var respone = await _installationDevicesService.AddNewDevice(device);
             if (respone != null)
             {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employee.FullName} đã thêm thiết bị {device.DeviceName} vào dịch vụ {_tosService.GetAll().Result.FirstOrDefault(s => s.TOS_ID == device.TOS_ID).ServiceName}.",
+                    EmployeeID = employee.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
                 TempData["SwalMessageTitle"] = "Thêm dịch vụ thành công !!";
@@ -244,15 +317,27 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SwalMessageIcon"] = "error";
                 TempData["SwalMessageTitle"] = "Xảy ra lỗi!!";
                 return RedirectToAction("ListRole");
-            }  
+            }
         }
 
         public async Task<IActionResult> DelDeviceAction(int deviceID)
         {
+            var deviceName = await _installationDevicesService.GetDeviceById(deviceID);
+            string serviceName = _tosService.GetAll().Result.FirstOrDefault(s => s.TOS_ID == deviceName.TOS_ID).ServiceName;
+
             var respone = await _installationDevicesService.DelectDevice(deviceID);
             string tosID = HttpContext.Session.GetString("tosID");
             if (respone != 0)
             {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employee.FullName} đã xoá thiết bị {deviceName.DeviceName} khỏi dịch vụ {serviceName}.",
+                    EmployeeID = employee.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 return RedirectToAction("DetailsTypeOfService", new { tosID = tosID });
             }
             else
@@ -267,6 +352,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var respone = await _installationDevicesService.UpdateDevice(device);
             if (respone != null)
             {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employee.FullName} đã cập nhật thông ting thiết bị {device.DeviceName} của dịch vụ {_tosService.GetAll().Result.FirstOrDefault(s => s.TOS_ID == device.TOS_ID).ServiceName}.",
+                    EmployeeID = employee.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
                 return RedirectToAction("DetailsTypeOfService", device.TOS_ID);
             }
             else
@@ -274,6 +367,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("ListRole");
             }
         }
+
         public async Task<IActionResult> EditTypeOfService(int tosID)
         {
             VMListTOS vm = new VMListTOS()
@@ -284,6 +378,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             };
             return View(vm);
         }
+
         public IActionResult ListDevice()
         {
             return View();
@@ -299,23 +394,32 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             vm.PFXCertificatesATE = await _pfxCertificateServices.GetAllAboutToExpire();
             return View(vm);
         }
+
         public async Task<IActionResult> DetailsPFXCertificate(string serial)
         {
             var respone = await _pfxCertificateServices.GetById(serial);
             return View(respone);
         }
-     
+
         public async Task<IActionResult> UpdateNotAfterPFX(string serial)
         {
             var respone = await _pfxCertificateServices.UpdateNotAfter(serial);
             if (respone != null)
             {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employee.FullName} đã gia hạn thời gian hiệu lực của chứng chỉ số PFX {serial}.",
+                    EmployeeID = employee.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 //update thành công
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
                 TempData["SwalMessageTitle"] = "Gia hạn thành công !!";
                 return RedirectToAction("ListPFXCertificate");
-
             }
             else
             {
@@ -325,14 +429,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("DetailsPFXCertificate");
             }
         }
-        public IActionResult DetailsPosition()
-        {
-            return View();
-        }
-        public IActionResult DetailsRole()
-        {
-            return View();
-        }
+
         public async Task<IActionResult> DetailsEmpAccount(string empId)
         {
             VMDetailsEmpAccount vm = new VMDetailsEmpAccount()
@@ -341,18 +438,18 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 Roles = await _roleService.GetAllRolesAsync(),
                 Positions = await _positionService.GetAllPositionsAsync(),
                 //truyền thêm pcontract + donecontract
-                PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId== empId).ToList(),
+                PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == empId).ToList(),
                 DoneContracts = _doneContractSvc.getAllView().Result.Where(d => d.EmployeeCreatedId == empId).ToList(),
-
-            }; 
+            };
             return View(vm);
         }
+
         public async Task<IActionResult> EditEmpAccount(string empId)
         {
             VMEditEmployee vm = new VMEditEmployee();
             vm.Roles = await _roleService.GetAllRolesAsync();
             vm.Positions = await _positionService.GetAllPositionsAsync();
-            vm.Employee= await _employeeService.GetEmployeePutById(empId);
+            vm.Employee = await _employeeService.GetEmployeePutById(empId);
 
             if (vm.Employee != null)
             {
@@ -381,7 +478,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                             _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, existEmp.Image));
                         }
                         string imagePath = _uploadHelper.UploadImage(employee.ImageFile, _hostingEnvironment.WebRootPath, "Avatars");
-                        employee.Image = imagePath.Replace(_hostingEnvironment.WebRootPath+ @"\", "");
+                        employee.Image = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                         employee.ImageFile = null;
                     }
                 }
@@ -400,6 +497,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 vm.Roles = await _roleService.GetAllRolesAsync();
                 vm.Positions = await _positionService.GetAllPositionsAsync();
                 vm.Employee = emp;
+
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContext);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã cập nhật thông tin của nhân viên {employee.FullName} - ID:{employee.EmployeeId.ToString().Substring(0,8)}.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
                 TempData["SwalMessageTitle"] = "Cập nhật thành công !!";
@@ -443,11 +550,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     RedirectToAction("AddEmpAccount");
                 }
             }
-           
+
             var reponse = await _employeeService.AddNewEmployee(employee);
-            
+
             if (reponse != 0)
             {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContext);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã thêm 1 nhân viên mới - {employee.FullName}.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
                 TempData["SwalMessageTitle"] = "Thêm nhân viên thành công !!";
@@ -474,7 +590,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             catch (Exception ex)
             {
-
                 return View(new VMAdminListUsersAccount());
             }
         }
@@ -489,11 +604,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             catch (Exception ex)
             {
-
                 return View(new VMAdminListUsersAccount());
             }
         }
-
 
         public async Task<IActionResult> ListPosition()
         {
@@ -506,10 +619,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             catch (Exception ex)
             {
-
                 return View(new VMListPosition());
             }
         }
+
         public async Task<IActionResult> ListRole()
         {
             VMListRole vm = new VMListRole();
@@ -521,7 +634,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             catch (Exception ex)
             {
-
                 return View(new VMListRole());
             }
         }
@@ -531,6 +643,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             int reponse = await _positionService.AddPositionAsync(position);
             if (reponse != 0)
             {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employee.FullName} đã thêm 1 chức vụ mới - {position.PositionName}.",
+                    EmployeeID = employee.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
                 TempData["SwalMessageTitle"] = "Thêm chức danh thành công !!";
@@ -563,11 +684,22 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index");
             }
         }
+
         public async Task<IActionResult> UpdatePosition(API.Position position)
         {
             var update = await _positionService.UpdatePositionAsync(position);
             if (update != 0)
             {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employee.FullName} đã cập nhật thông tin chức vụ {position.PositionName}.",
+                    EmployeeID = employee.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
+
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
                 TempData["SwalMessageTitle"] = "Cập nhật chức danh thành công !!";
@@ -584,10 +716,18 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> AddRole(API.Role role)
         {
-
             int reponse = await _roleService.AddRoleAsync(role);
             if (reponse != 0)
             {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employee.FullName} đã thêm 1 vai trò mới - {role.RoleName}.",
+                    EmployeeID = employee.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
                 TempData["SwalMessageTitle"] = "Thêm vai trò thành công !!";
@@ -617,11 +757,21 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index");
             }
         }
+
         public async Task<IActionResult> UpdateRole(API.Role role)
         {
             var update = await _roleService.UpdateRoleAsync(role);
             if (update != 0)
             {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employee.FullName} đã cập nhật thông tin vai trò {role.RoleName}.",
+                    EmployeeID = employee.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
                 TempData["SwalMessageTitle"] = "Cập nhật thành công !!";
@@ -635,9 +785,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index");
             }
         }
+
         public async Task<IActionResult> UpdateInfo(PutEmployee employee)
         {
-
             if (employee.ImageFile != null)
             {
                 var temp = employee.ImageFile;
@@ -652,7 +802,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                             _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, employee.Image));
                         }
                         string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath, "Avatars");
-                        employee.Image = imagePath.Replace(_hostingEnvironment.WebRootPath+@"\", "");
+                        employee.Image = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                     }
                 }
                 else
@@ -665,6 +815,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (respone != null || employee.FullName == null)
             {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContext);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã cập nhật lại thông tin của bản thân.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
                 TempData["SwalMessageTitle"] = "Lưu thành công !!";
@@ -703,13 +862,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
             }
 
             var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
 
-            var fileName = System.Guid.NewGuid().ToString().Substring(0,8) + ".png";
+            var fileName = System.Guid.NewGuid().ToString().Substring(0, 8) + ".png";
 
             string folderPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\SignatureImages", serialPFX);
 
@@ -752,6 +910,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã tạo 1 chữ ký cá nhân.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
                 TempData["SwalMessageTitle"] = "Lưu thành công !!";
@@ -788,7 +955,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
             }
 
@@ -796,10 +962,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 if (temp.ContentType.StartsWith("image/"))
                 {
-                    
                     certificate = await _pfxCertificateServices.GetById(serialPFX);
-                    
-                    string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath+ "\\SignatureImages",serialPFX);
+
+                    string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath + "\\SignatureImages", serialPFX);
 
                     if (certificate.ImageSignature1 == null)
                     {
@@ -833,6 +998,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã tải lên 1 chữ ký cá nhân.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SwalMessageType"] = "success";
                 TempData["SwalMessageIcon"] = "success";
                 TempData["SwalMessageTitle"] = "Cập nhật thành công !!";
@@ -849,7 +1023,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> UploadStampImage(VMAdminIndex vm)
         {
-
             var temp = vm.Stamp.ImageFile;
 
             if (temp != null)
@@ -862,6 +1035,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     var result = await _stampSvc.AddNew(stamp);
                     if (result != 0)
                     {
+                        var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                        Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                        API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                        {
+                            OperationName = $"{employeeDoing.FullName} đã tải lên ảnh dấu mộc công ty.",
+                            EmployeeID = employeeDoing.EmployeeId
+                        };
+                        await _historyEmpSvc.AddNew(historyEmp);
+
                         TempData["SwalMessageType"] = "success";
                         TempData["SwalMessageIcon"] = "success";
                         TempData["SwalMessageTitle"] = "Lưu mộc đóng dấu thành công !!";
@@ -930,6 +1112,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã tải lên 1 chữ ký cá nhân.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
 
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
@@ -947,13 +1137,22 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> DeleteStampImage(string filePath)
         {
-             var stamp = _stampSvc.GetAll().Result.FirstOrDefault(s => s.StampPath == filePath);
+            var stamp = _stampSvc.GetAll().Result.FirstOrDefault(s => s.StampPath == filePath);
 
             _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, filePath));
             var respone = await _stampSvc.Delete(stamp.ID);
 
             if (respone != 0)
             {
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã tải xoá ảnh dấu mộc công ty.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
                 TempData["SweetTitle"] = "Xóa mộc đóng dấu thành công !!";
@@ -980,7 +1179,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
-
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
                 TempData["SweetTitle"] = "Đặt mặc định thành công !!";
@@ -1020,6 +1218,5 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index", "Verify");
             }
         }
-
     }
 }

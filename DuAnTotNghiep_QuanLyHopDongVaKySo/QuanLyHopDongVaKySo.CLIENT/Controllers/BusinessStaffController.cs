@@ -7,6 +7,7 @@ using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
@@ -47,6 +48,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IUploadHelper _uploadHelper;
         private readonly IPdfToImageHelper _pdfToImageHelper;
         private readonly IPasswordService _passwordService;
+        private readonly IHistoryEmpSvc _historyEmpSvc;
+
 
         private int isAuthenticate = 1;
         private string employeeId;
@@ -114,7 +117,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public BusinessStaffController(ICustomerService customerService, IDContractsService dContractService, IEmployeeService employeeService,
             IPContractService pContractService, IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, ITContractService tContractService,
             ITOSService tosService, ITMinuteService tMinuteService, IInstallationDevicesService installationDevicesService, IPFXCertificateServices pfxCertificateServices,
-            IRoleService roleService, IPositionService positionSerivce, IUploadHelper uploadHelper, IPdfToImageHelper pdfToImageHelper, IPasswordService passwordService)
+            IRoleService roleService, IPositionService positionSerivce, IUploadHelper uploadHelper, IPdfToImageHelper pdfToImageHelper, IPasswordService passwordService,
+            IHistoryEmpSvc historyEmpSvc)
         {
             _customerService = customerService;
             _dContractService = dContractService;
@@ -132,6 +136,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _uploadHelper = uploadHelper;
             _pdfToImageHelper = pdfToImageHelper;
             _passwordService = passwordService;
+            _historyEmpSvc = historyEmpSvc;
         }
 
         public IActionResult ChangePass()
@@ -162,6 +167,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 var respone1 = await _employeeService.UpdateEmployee(emp);
                 if (respone1 != null)
                 {
+                    var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                    Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    {
+                        OperationName = $"{employeeDoing.FullName} đã thay đổi mật khẩu cá nhân.",
+                        EmployeeID = employeeDoing.EmployeeId
+                    };
+                    await _historyEmpSvc.AddNew(historyEmp);
+
                     return RedirectToAction("Index");
                 }
                 else
@@ -195,6 +209,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 System.GC.Collect();
                 System.GC.WaitForPendingFinalizers();
                 System.IO.File.Delete(pdfPath);
+
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                var customer = await _customerService.GetCustomerById(pContract.CustomerId.ToString());
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã tạo hợp đồng cho khách hàng {customer.FullName} - ID: {customer.CustomerId.ToString().Substring(0,8)}.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
+                return RedirectToAction("Index");
+
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
                 TempData["SweetTitle"] = "Tạo hợp đồng thành công !!";
@@ -316,6 +343,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (reponse != 0)
             {
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã thêm 1 khách hàng {customer.FullName}.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
                 TempData["SweetTitle"] = "Thêm khách hàng thành công !!";
@@ -393,6 +429,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 System.GC.WaitForPendingFinalizers();
                 System.IO.File.Delete(inputFile);
 
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã thêm 1 mẫu hợp đồng - {tContract.TContractName}.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 //thành công
                 return RedirectToAction("ListContractFormPage");
             }
@@ -419,6 +464,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             HttpContext.Session.SetString("EditTContractID", "");
             if (respone != 0)
             {
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã chỉnh sửa cấu hình 1 mẫu hợp đồng - {tContract.TContractName}.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
                 return RedirectToAction("ListContractFormPage");
             }
             else return RedirectToAction("Index");
@@ -437,6 +490,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     System.IO.File.Delete(item);
                 }
                 Directory.Delete(directoryPath);
+
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã xoá 1 mẫu hợp đồng - {tContract.Result.TContractName}.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
 
                 return RedirectToAction("ListContractFormPage");
             }
@@ -479,6 +541,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             HttpContext.Session.SetString("EditTMinuteID", "");
             if (respone != 0)
             {
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã cập nhật cấu hình 1 mẫu biên bản - {tMinute.TMinuteName}.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 return RedirectToAction("ListContractFormPage");
             }
             else return RedirectToAction("Index");
@@ -520,6 +591,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 System.GC.Collect();
                 System.GC.WaitForPendingFinalizers();
                 System.IO.File.Delete(inputFile);
+
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã thêm 1 mẫu biên bản - {tMinute.TMinuteName}.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 //thành công
                 return RedirectToAction("ListMinuteFormPage");
             }
@@ -543,6 +624,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     System.IO.File.Delete(item);
                 }
                 Directory.Delete(directoryPath);
+
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} đã xoá 1 mẫu biên bản.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
 
                 return RedirectToAction("ListMinuteFormPage");
             }
