@@ -444,6 +444,7 @@ C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong
 C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
 C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.genruntimeconfig.cache
 C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_API.dll
+D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.sourcelink.json
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.Development.json
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\appsettings.json
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\bin\Debug\net7.0\QuanLyHopDongVaKySo_API.exe
@@ -534,4 +535,3 @@ C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDong
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.pdb
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.genruntimeconfig.cache
 C:\Learn\du-an-tot-nghiep_FE\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo_API.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo_API\obj\Debug\net7.0\QuanLyHopDongVaKySo_API.sourcelink.json

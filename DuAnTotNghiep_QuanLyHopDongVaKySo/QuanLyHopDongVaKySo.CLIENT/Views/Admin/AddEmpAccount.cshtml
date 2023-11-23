@@ -133,11 +133,31 @@
     </div>
 </div>
 <script>
-    function showSuccessMessage() {
-        $("#msg_success_filled").ej2Message.show();
-        // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
-        setTimeout(function () {
-            $("#msg_success_filled").ej2Message.hide();
-        }, 5000);
-    }
+    $(document).ready(function () {
+        $('#upload-Sign').change(function () {
+            var fileName = $(this).val().split('\\').pop();
+
+            // Sử dụng SweetAlert để hiển thị thông báo
+            Swal.fire({
+                title: 'Tải tệp lên thành công!',
+                text: 'Bạn đã tải tệp lên với tên: ' + fileName,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $('#file-upload').change(function () {
+            var fileName = $(this).val().split('\\').pop();
+
+            // Sử dụng SweetAlert để hiển thị thông báo
+            Swal.fire({
+                title: 'Tải tệp lên thành công!',
+                text: 'Bạn đã tải tệp lên với tên: ' + fileName,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        });
+    });
 </script>

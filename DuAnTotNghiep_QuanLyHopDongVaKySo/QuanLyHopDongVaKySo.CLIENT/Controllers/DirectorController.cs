@@ -70,18 +70,31 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
                     if (role == "Admin")
                     {
+                        TempData["SweetType"] = "success";
+                        TempData["SweetIcon"] = "success";
+                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
                         isAuthenticate = 1; //Admin
+
                     }
                     else if (role == "Giám đốc")
                     {
+                        TempData["SweetType"] = "success";
+                        TempData["SweetIcon"] = "success";
+                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
                         isAuthenticate = 2; //Director
                     }
                     else if (role == "Nhân viên kinh doanh")
                     {
+                        TempData["SweetType"] = "success";
+                        TempData["SweetIcon"] = "success";
+                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
                         isAuthenticate = 3; //BusinessStaff
                     }
                     else if (role == "Nhân viên lắp đặt")
                     {
+                        TempData["SweetType"] = "success";
+                        TempData["SweetIcon"] = "success";
+                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
                         isAuthenticate = 4; //InstallStaff
                     }
                 }

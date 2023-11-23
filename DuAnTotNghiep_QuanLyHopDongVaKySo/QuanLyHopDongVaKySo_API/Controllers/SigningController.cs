@@ -663,7 +663,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContract.DContractID}");
             }
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute, certi.Serial, customerZone.X, customerZone.Y,"minute");
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute, certi.Serial, customerZone.X + 50, customerZone.Y - 700,"minute");
 
             FileStream fs = new FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
             fs.Close();
