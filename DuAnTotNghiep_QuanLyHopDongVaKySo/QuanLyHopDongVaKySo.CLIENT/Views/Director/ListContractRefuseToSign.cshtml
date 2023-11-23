@@ -10,7 +10,7 @@
             <ol class="breadcrumb">
                 <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
                 <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Hợp đồng từ chối duyệt</li>
+                <li class="breadcrumb-item active" aria-current="page"> Hợp đồng từ chối</li>
             </ol>
         </nav>
         <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
@@ -46,7 +46,7 @@
                             </div>
                         </td>
                         <td>
-                            <a asp-action="" asp-controller="" asp-route-id="@item.PContractID">Chi tiết</a>
+                            <a asp-action="DetailsRefuseToSign" asp-controller="Director" asp-route-id="@item.PContractID">Chi tiết</a>
                         </td>
                     </tr>
                 }

@@ -19,19 +19,25 @@
                 <ul>
                     <li>
                         <a asp-controller="Director" asp-action="ListContractAwait">
-                            <i class="ph-bold ph-list-dashes"></i>
+                            <i class="ph-bold ph-list-dashes" style="font-size:26px;"></i>
                             <span class="text">Hợp đồng chờ duyệt</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="BusinessStaff" asp-action="ContractListEffect">
-                            <i class="ph-bold ph-list-checks"></i>
+                        <a asp-controller="Director" asp-action="ListContractActive">
+                            <i class="ph-bold ph-list-checks" style="font-size:26px;"></i>
                             <span class="text">Hợp đồng đã duyệt</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="Director" asp-action="ListContractActive">
-                            <i class="ph-bold ph-list-checks"></i>
+                        <a asp-controller="Director" asp-action="ListContractRefuseToSign">
+                            <i class="ph-bold ph-list-checks" style="font-size:26px;"></i>
+                            <span class="text">Hợp đồng từ chối</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Director" asp-action="ListContractEffect">
+                            <i class="ph-bold ph-list-checks" style="font-size:26px;"></i>
                             <span class="text">Hợp đồng hoạt động</span>
                         </a>
                     </li>
@@ -44,7 +50,7 @@
                     <li>
                         <a asp-controller="Director" asp-action="HistoryOperation">
                             <i class="icon ph-bold ph-clock-counter-clockwise"></i>
-                            <span class="text">Lịch sử ký số</span>
+                            <span class="text">Lịch sử hoạt động</span>
                         </a>
                     </li>
                 </ul>

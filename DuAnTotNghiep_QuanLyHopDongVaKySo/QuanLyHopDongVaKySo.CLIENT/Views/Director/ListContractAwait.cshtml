@@ -3,9 +3,6 @@
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 
 }
-
-
-
 <div class="container-fluid">
     @if (userRole == "Admin")
     {
@@ -79,8 +76,9 @@
                     </a>
                     <a class="button-delete" data-bs-toggle="modal" data-bs-target="#RefuseSign">
                         Từ chối duyệt
-                    </a>
                         <span id="countButton" class="badge text-success">0</span>
+                    </a>
+                    
                     <!-- Modal -->
                     <div class="modal fade" id="RefuseSign" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">

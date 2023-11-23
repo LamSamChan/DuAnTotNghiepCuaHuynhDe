@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\QuanLyHopDongVaKySo.CLIENT.bundle.scp.css"
     },
     {
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\2.ico",
+      "PackagePath": "staticwebassets\\2.ico"
+    },
+    {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Admin_Resource\\assets\\brand\\coreui.svg",
       "PackagePath": "staticwebassets\\Admin_Resource\\assets\\brand\\coreui.svg"
     },
@@ -4981,10 +4985,6 @@
       "PackagePath": "staticwebassets\\Avatars\\1.png"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\258595705_401978858251653_7284105690290524588_n.png",
-      "PackagePath": "staticwebassets\\Avatars\\258595705_401978858251653_7284105690290524588_n.png"
-    },
-    {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\2b25b93d.jpeg",
       "PackagePath": "staticwebassets\\Avatars\\2b25b93d.jpeg"
     },
@@ -4997,8 +4997,8 @@
       "PackagePath": "staticwebassets\\Avatars\\345327785_946745919680031_7764581104945340445_n.jpg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\4.jpg",
-      "PackagePath": "staticwebassets\\Avatars\\4.jpg"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\5.jpg",
+      "PackagePath": "staticwebassets\\Avatars\\5.jpg"
     },
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\96a71f7b.jpeg",
@@ -5357,6 +5357,10 @@
       "PackagePath": "staticwebassets\\Images\\spacer.png"
     },
     {
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\MinuteImage\\1\\1.png",
+      "PackagePath": "staticwebassets\\MinuteImage\\1\\1.png"
+    },
+    {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\MinuteImage\\6\\1.png",
       "PackagePath": "staticwebassets\\MinuteImage\\6\\1.png"
     },
@@ -5653,12 +5657,8 @@
       "PackagePath": "staticwebassets\\SignatureImages\\638362717572560551\\4.jpg"
     },
     {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638362717572560551\\5.jpg",
-      "PackagePath": "staticwebassets\\SignatureImages\\638362717572560551\\5.jpg"
-    },
-    {
-      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\StampImage\\stamp.png",
-      "PackagePath": "staticwebassets\\StampImage\\stamp.png"
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\StampImage\\2.jpg",
+      "PackagePath": "staticwebassets\\StampImage\\2.jpg"
     },
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SuperSignature.MouseSignature.lic",
@@ -5787,6 +5787,14 @@
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TempFile\\8768380e.pdf",
       "PackagePath": "staticwebassets\\TempFile\\8768380e.pdf"
+    },
+    {
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TempFile\\b10e494c.pdf",
+      "PackagePath": "staticwebassets\\TempFile\\b10e494c.pdf"
+    },
+    {
+      "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TempSignature\\891a56cd.png",
+      "PackagePath": "staticwebassets\\TempSignature\\891a56cd.png"
     },
     {
       "Id": "D:\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Test\\css\\bootstrap.min.css",

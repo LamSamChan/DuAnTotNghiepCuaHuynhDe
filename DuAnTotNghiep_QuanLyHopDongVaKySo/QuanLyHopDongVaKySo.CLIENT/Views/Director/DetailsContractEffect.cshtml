@@ -5,7 +5,7 @@
     // Lấy link trực ảnh từ file tỉnh
     string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
 
-    string folderItem = System.IO.Path.Combine(folderPath, "7");
+    string folderItem = System.IO.Path.Combine(folderPath, "8");
 
     string[] imageFiles = Directory.GetFiles(folderItem);
 }
@@ -24,105 +24,641 @@
                 <i class="ph-bold ph-arrow-left"></i>
                 QUAY LẠI
             </a>
+            <a class="col-md-2 button-delete">
+                KẾT THÚC HỢP ĐỒNG
+            </a>
         </div>
-
+        
     </div>
-    <div class="row" style="background-color:#FFFFFF; margin: 20px auto; height:100%; border-radius:16px;">
-        <div class="col-6" style="margin: 20px; border-radius:10px;">
-            <div class="showFile">
-                <h4 style="color: #4318FF; font-family:Source Sans Pro; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng đang hiệu lực </h4>
-                <div id="myCarousel" class="carousel slide" style="margin: 0px 50px 20px 50px; width: 500px;height: 750px; background-color:#FFFF;">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active " style="width:800px;">
-                            <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" style="margin:100px auto;" />
-                        </div>
-                        @foreach (var imgPath in imageFiles)
-                        {
-                            <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+    <div class="row bg-white mt-4 rounded">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="tab-button active " id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Hợp đồng lắp đặt</button>
+                <button class="tab-button " id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Biên bản lắp đặt</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent" style="display:flex;">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                <div class="row">
+                    <div class="col-6" style="margin: 20px;">
+                        <div class="showFile">
+                            <div class="row justify-content-between" style="margin:auto;">
+                                <h4 style="color: #4318FF; font-family:Source Sans Pro;" class="col-5">Hợp đồng đang hiệu lực </h4>
+                                <button class="custom-file-upload col-1" data-bs-toggle="modal" data-bs-target="#ShowContract" style="width:30px; height:30px;">
+                                    <i class="ph-bold ph-frame-corners" style="font-size:30px; margin: auto;"></i>
+                                </button>
                             </div>
-                        }
+                            <div id="myCarousel" class="carousel slide" style=" width:100%;height: 750px;">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active ">
+                                        <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
+                                    </div>
+                                    @foreach (var imgPath in imageFiles)
+                                    {
+                                        <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                            <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                        </div>
+                                    }
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
+                            <!--Show hợp đồng to-->
+                            <!-- Modal -->
+                            <div class="modal fade" id="ShowContract" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="myCarouselModal" class="carousel slide">
+                                                <div class="carousel-inner">
+                                                    <div class="carousel-item active ">
+                                                        <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
+                                                    </div>
+                                                    @foreach (var imgPath in imageFiles)
+                                                    {
+                                                        <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                                            <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                                        </div>
+                                                    }
+                                                </div>
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselModal" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarouselModal" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
-                        <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                    <div class="inforCus col-5 mt-4" style="max-height:800px; overflow-y: scroll; ">
+                        <h4 style="color: #4318FF;font-family: Source Sans Pro;">
+                            Thông tin khách hàng
+                        </h4>
+                        <form class="row g-3" style="max-width:950px;">
+                            <div class="col-md-6">
+                                <label for="inputName" class="form-label">Họ và tên</label>
+                                <input type="text" class="form-input" id="inputName" placeholder="Họ và tên">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="inputState" class="form-label">Giới tính</label>
+                                <select id="inputState" class="form-select">
+                                    <option selected>Nam</option>
+                                    <option>Nữ</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputCCCD" class="form-label">CCCD/CMND</label>
+                                <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND">
+                            </div>
+                            <div class="col-md-5">
+                                <label for="inputPhone" class="form-label">Số điện thoại</label>
+                                <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
+                                <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email">
+                            </div>
+                            <div class="col-md-5">
+                                <label for="inputAddress" class="form-label">Nơi ở</label>
+                                <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
+                                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
+                            </div>
+                            <div class="col-md-5">
+                                <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
+                                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Ngày tạo</label>
+                                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
+                            </div>
+                            <div class="col-md-5">
+                                <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
+                                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
+                            </div>
+                            <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
+                                Thông tin nhân viên tạo hợp đồng
+                            </h4>
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Mã nhân viên</label>
+                                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
+                            </div>
+                            <div class="col-md-5">
+                                <label for="inputAddress" class="form-label">Họ và tên</label>
+                                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Email</label>
+                                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
+                            </div>
+                            <div class="col-md-5">
+                                <label for="inputAddress" class="form-label">Số điện thoại</label>
+                                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                <div class="tab-container mt-0">
+                    <div class="tab-button active" onclick="showTab('tab1')">Thông tin biên bản lắp</div>
+                    <div class="tab-button" onclick="showTab('tab2')">Thông tin khách hàng</div>
+                    <div class="tab-button" onclick="showTab('tab3')">Thông tin nhân viên tạo biên bản lắp</div>
+                    <div class="tab-button" onclick="showTab('tab4')">Thông tin nhân viên đảm nhận lắp</div>
+                </div>
+
+                <div class="tab-content active" id="tab1">
+                    <form class="row justify-content-around" style=" margin: 0 auto;">
+                        <div class="col-md-5">
+                            <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll; height:400px;">
+                                <div class="col-md-6">
+                                    <label for="inputDateEnd" class="form-label">ID biên bản</label>
+                                    <input class="form-control" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Tên biên bản</label>
+                                    <input class="form-control" id="inputName" placeholder="Họ và tên" readonly>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label">Danh sách thiết bị lắp</label>
+                                    <table class="table">
+                                        <thead>
+                                            <tr style="color: #8B909A;">
+                                                <th scope="col">ID</th>
+                                                <th scope="col">TÊN THIẾT BỊ</th>
+                                                <th scope="col">TÌNH TRẠNG</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-group-divider">
+                                            <tr>
+                                                <td scope="row">1</td>
+                                                <td>LAN</td>
+                                                <td>Đầy đủ</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                    <label class="mb-3 mr-1" for="Status">Chữ ký nhân viên lắp: </label>
+                                    <div>
+                                        <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" readonly checked>
+                                        <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Chưa ký</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                    <label class="mb-3 mr-1" for="Status">Chữ ký khách hàng: </label>
+                                    <div>
+                                        <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" readonly checked>
+                                        <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Chưa ký</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputDateOfBirth" class="form-label">Ngày tạo</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="inputEmail" class="form-label">Địa chỉ lắp cụ thể</label>
+                                    <textarea style="background-color: #F3F3F3;" class="form-control" readonly></textarea>
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                    <label class="mb-3 mr-1" for="Status">Trạng thái biên bản: </label>
+                                    <div>
+                                        <input type="radio" class="btn-check " id="false" value="false" autocomplete="off" readonly checked>
+                                        <label class="btn btn-sm btn-outline-warning text-light" id="false-label" for="false">Chờ lắp</label>
+
+                                        @*  <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" readonly checked>
+                                        <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label> *@
+                                    </div>
+                                </div>
+                                @* khi nhân viên đã lắp đặc và hoàn tất 2 chữ ký thì nút này mới mở  *@
+                                @* <div class="col-md-6">
+                                <button class="add_cus">
+                                <a class="m-4">Xác nhận hoàn tất</a>
+                                </button>
+                                </div> *@
+                            </div>
+                        </div>
+                        @**@
+                    </form>
+                </div>
+                <div class="tab-content " id="tab2">
+                    <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="UpdateInfoCustomer" asp-controller="BusinessStaff">
+                        <div class="col-md-5">
+                            <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
+                                <div class="col-md-6">
+                                    <label class="form-label">ID khách hàng</label>
+                                    <input class="form-control" id="inputName" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Họ và tên</label>
+                                    <input class="form-control" id="inputName" readonly>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Năm sinh</label>
+                                    <input class="form-control" type="date" readonly>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="inputName" class="form-label">Số điện thoại</label>
+                                    <input class="form-control" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputGender" class="form-label">Giới tính</label>
+                                    <input class="form-control" value="Nam" readonly>
+                                    @* @if (Model.Customer.Gender == 1)
+                                    {
+                                    <input class="form-control" value="Nam" readonly>
+                                    }
+                                    else
+                                    {
+
+                                    <input class="form-control" value="Nữ" readonly>
+                                    } *@
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputCCCD" class="form-label">Giấy ủy quyền</label>
+                                    <input class="form-control" readonly>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputDateStart" class="form-label">Ngày ủy quyền</label>
+                                    <input type="date" class="form-control" readonly>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputDateEnd" class="form-label">Người ủy quyền</label>
+                                    <input class="form-control" readonly>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputDateStart" class="form-label">Email</label>
+                                    <input class="form-control" placeholder="abc123@gmail.com" readonly>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputDateEnd" class="form-label">FAX</label>
+                                    <input class="form-control" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputDateStart" class="form-label">CCCD/CMND</label>
+                                    <input class="form-control" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputDateEnd" class="form-label">Ngày cấp</label>
+                                    <input type="date" class="form-control" readonly>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputDateStart" class="form-label">Nơi cấp</label>
+                                    <input class="form-control" readonly>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputNational" class="form-label">Quốc tịch</label>
+                                    <input class="form-control" readonly>
+
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
+                                    <textarea style="background-color: #F3F3F3;" class="form-control" readonly></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+                        @**@
+                        <div class="col-md-5">
+                            <div class="box2 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
+                                <div class="col-md-6">
+                                    <label for="inputTaxCode" class="form-label">Số tài khoản</label>
+                                    <input class="form-control" - readonly>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputAddress2" class="form-label">Ngân hàng</label>
+                                    <input class="form-control" - readonly>
+
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="inputPass" class="form-label">Mã số thuế</label>
+                                    <input style="background-color: #F3F3F3;" class="form-control">
+
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="adReport" class="form-label">Địa chỉ báo cước</label>
+                                    <input style="background-color: #F3F3F3;" class="form-control" readonly />
+
+                                </div>
+                                <div class="col-12">
+                                    <label for="adInvoice" class="form-label" style="color: #525252;
+        font-size: 18px;
+        font-family: Joxt;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+">Địa chỉ xuất hóa đơn</label>
+                                    <input style="background-color: #F3F3F3;" class="form-control" readonly>
+
+                                </div>
+                                @* @if (Model.Customer.typeofCustomer == "Doanh nghiệp")
+                                { *@
+                                <div class="col-12">
+                                    <div>
+                                        <label for="enable-input">Khách hàng doanh nghiệp</label>
+                                    </div>
+                                    <div class="content row" style="height: 300px;width: 95%;margin: 10px auto; ">
+                                        <div class="col-md-5" style="margin:0 auto;">
+                                            <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
+                                            <input class="form-control" id="inputNameBuss" readonly>
+
+                                        </div>
+                                        <div class="col-md-5" style="margin:0 auto;">
+                                            <label for="inputPosition" class="form-label">Chức vụ</label>
+                                            <input class="form-control" id="inputPosition" readonly>
+
+                                        </div>
+                                        <div class="col-md-5" style="margin:0 auto;">
+                                            <label for="certi" class="form-label">Số chứng nhận doanh nghiệp</label>
+                                            <input class="form-control" id="certi" readonly>
+
+                                        </div>
+                                        <div class="col-md-5" style="margin:0 auto;">
+                                            <label for="dateSDN" class="form-label">Ngày cấp SDN</label>
+                                            <input type="date" class="form-control" id="dateSDN" readonly>
+
+                                        </div>
+                                        <div class="col-md-10" style="margin:0 auto;">
+                                            <label for="adSDN" class="form-label">Nơi cấp SDN</label>
+                                            <input class="form-control" id="adSDN" readonly>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                @*  } *@
+                                <div class="col-md-6 mt-3">
+                                    <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
+                                    <div>
+                                        @*  @if (!Model.Customer.IsLocked)
+                                        { *@
+                                        <input type="radio" class="btn-check " id="false" value="false" autocomplete="off" readonly checked>
+                                        <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
+                                        @* }
+                                        else
+                                        { *@
+                                        <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" readonly checked>
+                                        <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
+                                        @*  } *@
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="note" class="form-label">Ghi chú</label>
+                                    <textarea style="background-color: #F3F3F3;" class="form-control" readonly></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-content " id="tab3">
+                    <form class="row justify-content-around" style=" margin: 0 auto;">
+                        <div class="col-md-5">
+                            <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
+                                <div class="col-md-6">
+                                    <div class="avt">
+                                        <img src="~/Avatars/blank_avatar_man.png" alt="Avatar" style="width:200px; height:200px;" />
+                                        @*  @if (Model.Employee.Image == null)
+                                        {
+                                        if (Model.Employee.Gender == 1)
+                                        {
+                                        <img src="~/Avatars/blank_avatar_man.png" alt="Avatar" style="width:200px; height:200px;" />
+                                        }
+                                        else
+                                        {
+
+                                        <img src="~/Avatars/blank_avatar_woman.png" alt="Avatar" style="width:200px; height:200px;" />
+                                        }
+                                        }
+                                        else
+                                        {
+                                        <img src="~/@Model.Employee.Image" alt="Avatar" style="width:200px; height:200px;" />
+                                        } *@
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputDateEnd" class="form-label">ID nhân viên</label>
+                                    <input class="form-control" readonly>
+
+                                    <label class="form-label" style="padding-top:60px;">Họ và tên</label>
+                                    <input class="form-control" id="inputName" placeholder="Họ và tên" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputEmail" class="form-label">Email</label>
+                                    <input class="form-control" type="email" placeholder="abc123@gmail.com" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputDateOfBirth" class="form-label">Năm sinh</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputPhone" class="form-label">Số điện thoại</label>
+                                    <input class="form-control" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputGender" class="form-label">Giới tính</label>
+                                    <input class="form-control" value="Nam" readonly>
+                                    @*  @if (Model.Employee.Gender == 1)
+                                    {
+                                    <input class="form-control" value="Nam" readonly>
+                                    }
+                                    else
+                                    {
+
+                                    <input class="form-control" value="Nữ" readonly>
+                                    } *@
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">CMND / CCCD</label>
+                                    <input class="form-control" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputRole" class="form-label">Vị trí</label>
+                                    @*  @foreach (var r in Model.Roles)
+                                    {
+                                    @if (r.RoleID == Model.Employee.RoleID)
+                                    {
+                                    <input class="form-control" readonly value="@r.RoleName">
+                                    }
+                                    } *@
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputRole" class="form-label">Chức vụ</label>
+                                    @*  @foreach (var p in Model.Positions)
+                                    {
+                                    @if (p.PositionID == Model.Employee.PositionID)
+                                    {
+                                    <input class="form-control" readonly value="@p.PositionName">
+                                    }
+                                    } *@
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
+                                    <textarea style="background-color: #F3F3F3;" class="form-control" readonly></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputSeri" class="form-label">Serial PFX</label>
+                                    <input style="background-color: #F3F3F3;" class="form-control" readonly />
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                    <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
+                                    <div>
+                                        <input type="radio" class="btn-check " id="false" value="false" autocomplete="off" readonly checked>
+                                        <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
+
+                                        <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" readonly checked>
+                                        <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="note" class="form-label">Ghi chú</label>
+                                    <textarea style="background-color: #F3F3F3;" class="form-control" readonly></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        @**@
+                    </form>
+                </div>
+                <div class="tab-content " id="tab4">
+                    <form class="row justify-content-around" style=" margin: 0 auto;">
+                        <div class="col-md-5">
+                            <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
+                                <div class="col-md-6">
+                                    <div class="avt">
+                                        <img src="~/Avatars/blank_avatar_man.png" alt="Avatar" style="width:200px; height:200px;" />
+                                        @*  @if (Model.Employee.Image == null)
+                                        {
+                                        if (Model.Employee.Gender == 1)
+                                        {
+                                        <img src="~/Avatars/blank_avatar_man.png" alt="Avatar" style="width:200px; height:200px;" />
+                                        }
+                                        else
+                                        {
+
+                                        <img src="~/Avatars/blank_avatar_woman.png" alt="Avatar" style="width:200px; height:200px;" />
+                                        }
+                                        }
+                                        else
+                                        {
+                                        <img src="~/@Model.Employee.Image" alt="Avatar" style="width:200px; height:200px;" />
+                                        } *@
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputDateEnd" class="form-label">ID nhân viên</label>
+                                    <input class="form-control" readonly>
+
+                                    <label class="form-label" style="padding-top:60px;">Họ và tên</label>
+                                    <input class="form-control" id="inputName" placeholder="Họ và tên" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputEmail" class="form-label">Email</label>
+                                    <input class="form-control" type="email" placeholder="abc123@gmail.com" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputDateOfBirth" class="form-label">Năm sinh</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputPhone" class="form-label">Số điện thoại</label>
+                                    <input class="form-control" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputGender" class="form-label">Giới tính</label>
+                                    <input class="form-control" value="Nam" readonly>
+                                    @*  @if (Model.Employee.Gender == 1)
+                                    {
+                                    <input class="form-control" value="Nam" readonly>
+                                    }
+                                    else
+                                    {
+
+                                    <input class="form-control" value="Nữ" readonly>
+                                    } *@
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">CMND / CCCD</label>
+                                    <input class="form-control" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputRole" class="form-label">Vị trí</label>
+                                    @*  @foreach (var r in Model.Roles)
+                                    {
+                                    @if (r.RoleID == Model.Employee.RoleID)
+                                    {
+                                    <input class="form-control" readonly value="@r.RoleName">
+                                    }
+                                    } *@
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputRole" class="form-label">Chức vụ</label>
+                                    @*  @foreach (var p in Model.Positions)
+                                    {
+                                    @if (p.PositionID == Model.Employee.PositionID)
+                                    {
+                                    <input class="form-control" readonly value="@p.PositionName">
+                                    }
+                                    } *@
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
+                                    <textarea style="background-color: #F3F3F3;" class="form-control" readonly></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputSeri" class="form-label">Serial PFX</label>
+                                    <input style="background-color: #F3F3F3;" class="form-control" readonly />
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                    <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
+                                    <div>
+                                        <input type="radio" class="btn-check " id="false" value="false" autocomplete="off" readonly checked>
+                                        <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
+
+                                        <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" readonly checked>
+                                        <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="note" class="form-label">Ghi chú</label>
+                                    <textarea style="background-color: #F3F3F3;" class="form-control" readonly></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        @**@
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="inforCus col-5 mt-4" style="max-height:800px; overflow-y: scroll; ">
-            <h4 style="color: #4318FF;font-family: Source Sans Pro;">
-                Thông tin khách hàng
-            </h4>
-            <form class="row g-3" style="max-width:950px;">
-                <div class="col-md-6">
-                    <label for="inputName" class="form-label">Họ và tên</label>
-                    <input type="text" class="form-input" id="inputName" placeholder="Họ và tên">
-                </div>
-                <div class="col-md-3">
-                    <label for="inputState" class="form-label">Giới tính</label>
-                    <select id="inputState" class="form-select">
-                        <option selected>Nam</option>
-                        <option>Nữ</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputCCCD" class="form-label">CCCD/CMND</label>
-                    <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND">
-                </div>
-                <div class="col-md-5">
-                    <label for="inputPhone" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email">
-                </div>
-                <div class="col-md-5">
-                    <label for="inputAddress" class="form-label">Nơi ở</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
-                </div>
-                <div class="col-md-5">
-                    <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Ngày tạo</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
-                </div>
-                <div class="col-md-5">
-                    <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
-                </div>
-                <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
-                    Thông tin nhân viên tạo hợp đồng
-                </h4>
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Mã nhân viên</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
-                </div>
-                <div class="col-md-5">
-                    <label for="inputAddress" class="form-label">Họ và tên</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx">
-                </div>
-                <div class="col-md-5">
-                    <label for="inputAddress" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI">
-                </div>
-            </form>
-        </div>
+
+      
 
     </div>
 </div>
@@ -132,6 +668,32 @@
             interval: false
         });
     });
+    $(document).ready(function () {
+        $('#myCarouselModal').carousel({
+            interval: false
+        });
+    });
+
+    function showTab(tabId) {
+        // Ẩn tất cả các nội dung tab
+        var tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(function (content) {
+            content.classList.remove('active');
+        });
+
+        // Ẩn tất cả các tab-button
+        var tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(function (button) {
+            button.classList.remove('active');
+        });
+
+        // Hiển thị nội dung của tab được chọn và làm cho tab-button trở nên active
+        var selectedTab = document.getElementById(tabId);
+        selectedTab.classList.add('active');
+
+        var selectedButton = document.querySelector('[onclick="showTab(\'' + tabId + '\')"]');
+        selectedButton.classList.add('active');
+    }
 </script>
 
 

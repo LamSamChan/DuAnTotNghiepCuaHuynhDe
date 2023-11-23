@@ -43,11 +43,16 @@
                             <span>@item.Status</span>
                         </td>
                         <td>
-                            <a asp-controller="DetailsContractActive" asp-action="Diretor" asp-route-id="@item.Id">Chi tiết</a>
+                            <a asp-controller="DetailsContractEffect" asp-action="Diretor" asp-route-id="@item.Id">Chi tiết</a>
                         </td>
                     </tr>
                 }
-
+                <tr>
+                    <td>
+                        <a asp-controller="DetailsContractEffect" asp-action="Diretor">Chi tiết</a>
+                    </td>
+                </tr>
+           
             </tbody>
         </table>
     </div>

@@ -6,12 +6,12 @@
             <ol class="breadcrumb">
                 <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
                 <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Hợp đồng hoạt động</li>
+                <li class="breadcrumb-item active" aria-current="page"> Hợp đồng đã duyệt</li>
             </ol>
         </nav>
         <h1 class="typeHead">TẤT CẢ DANH SÁCH </h1>
-        <div class="row">
-            <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm hợp đồng" />
+        <div class="row justify-content-between">
+            <input type="search" placeholder="Tìm kiếm hợp đồng" style="margin-left:10px;" />
         </div>
     </div>
     <div class="listTable">
@@ -40,7 +40,9 @@
                         <span></span>
                     </td>
                     <td>
-                        <a asp-controller="" asp-action="Diretor" asp-route-id="">Chi tiết</a>
+                        <a class="custom-file-upload" asp-controller="Director" asp-action="DetailsContractActive" asp-route-id="">
+                           Chi tiết
+                        </a>
                     </td>
                 </tr>
             </tbody>
