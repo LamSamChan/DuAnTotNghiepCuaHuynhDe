@@ -39,6 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Services\HistoryServices\" />
     <Folder Include="wwwroot\Avatars\" />
     <Folder Include="wwwroot\TempFile\" />
   </ItemGroup>
