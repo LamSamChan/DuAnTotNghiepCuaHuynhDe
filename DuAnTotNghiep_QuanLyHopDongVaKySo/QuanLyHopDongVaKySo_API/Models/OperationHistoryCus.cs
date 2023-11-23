@@ -20,7 +20,7 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         //tạo liên kết
         [ForeignKey("Customer")]
-        public Guid CustomerID { get; set; }
+        public Guid? CustomerID { get; set; }
 
         public Customer? Customer { get; set; }
     }
