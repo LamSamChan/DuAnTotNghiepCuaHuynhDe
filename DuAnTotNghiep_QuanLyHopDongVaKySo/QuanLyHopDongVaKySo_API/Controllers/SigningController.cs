@@ -350,16 +350,33 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
             var tContractID = _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.templateContractID;
             TemplateContract tContract = await _templateContractSvc.getByIdAsnyc(tContractID);
-            SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tContract.jsonCustomerZone);
+            SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tContract.jsonCustomerZone);       
 
-            string outputContract = pContract.PContractFile.Replace("PContracts", "DContracts");
-
-            if (!Directory.Exists($"AppData/DContracts/{pContract.PContractID}"))
+            PutPendingContract pendingContractFirst = new PutPendingContract
             {
-                Directory.CreateDirectory($"AppData/DContracts/{pContract.PContractID}");
+                PContractName = pContract.PContractName,
+                PContractFile = pContract.PContractFile,
+                EmployeeCreatedId = pContract.EmployeeCreatedId,
+                DirectorSignedId = pContract.DirectorSignedId,
+                CustomerId = pContract.CustomerId,
+                InstallationAddress = pContract.InstallationAddress,
+                TOS_ID = pContract.TOS_ID,
+                Base64File = null
+            };
+  
+            //_pdfToImageHelper.PdfToPng(outputContract, pendingContract.PContractId,"contract");
+
+
+            var dContractFirst = await _dContractSvc.addAsnyc(pendingContractFirst);
+
+            string outputContract = $"AppData/DContracts/{dContractFirst.DContractID}/{dContractFirst.DContractID}.pdf";
+
+            if (!Directory.Exists($"AppData/DContracts/{dContractFirst.DContractID}"))
+            {
+                Directory.CreateDirectory($"AppData/DContracts/{dContractFirst.DContractID}");
             }
 
-            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X+20, customerZone.Y+10,"contract");
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X+40, customerZone.Y+10,"contract");
 
             FileStream fs = new FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
             fs.Close();
@@ -373,34 +390,31 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             byte[] fileBytes = System.IO.File.ReadAllBytes(outputContract);
             string base64String = Convert.ToBase64String(fileBytes);
 
-            PutPendingContract pendingContract = new PutPendingContract
+            PutDContract putDContract = new PutDContract()
             {
-                PContractId = pContract.PContractID,
-                DateCreated = pContract.DateCreated,
-                PContractName = pContract.PContractName,
-                PContractFile = outputContract,
-                IsDirector = pContract.IsDirector,
-                IsCustomer = true,
-                IsRefuse = pContract.IsRefuse,
-                Reason = pContract.Reason,
+                DContractID = dContractFirst.DContractID.ToString(),
+                DateDone = DateTime.Now,
+                DContractName = pContract.PContractName,
+                DContractFile = outputContract,
+                IsInEffect = true,
+                InstallationAddress = pContract.InstallationAddress,
+                CustomerId = pContract.CustomerId,
                 EmployeeCreatedId = pContract.EmployeeCreatedId,
                 DirectorSignedId = pContract.DirectorSignedId,
-                CustomerId = pContract.CustomerId,
-                InstallationAddress = pContract.InstallationAddress,
                 TOS_ID = pContract.TOS_ID,
-                Base64File = base64String
+                Base64File = base64String,
             };
 
             //_pdfToImageHelper.PdfToPng(outputContract, pendingContract.PContractId,"contract");
 
 
-            var dContract = await _dContractSvc.addAsnyc(pendingContract);
+            var dContract = await _dContractSvc.updateAsnyc(putDContract);
 
             if (dContract == null)
             {
                 return BadRequest("Them hop dong that bai");
             };
-            await _pendingContract.deleteAsnyc(pendingContract.PContractId);
+            await _pendingContract.deleteAsnyc(pContract.PContractID);
 
             string serviceName = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.ServiceName;
             InstallationRequirement requirement = new InstallationRequirement()
@@ -413,13 +427,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             _uploadFileHelper.RemoveFile(imagePath);
 
-          
+            var url = GenerateUrlShowDContract(dContract.DContractID);
+            var _sendMail = SendMailToCustomer(customer, url);
             if (result != 0)
             {
-                var url = GenerateUrlShowDContract(dContract.DContractID);
-                var sendMail = SendMailToCustomer(customer,url);
-                //lấy PContractId xoá imagecontract của pending và tạo image của DContractID
-                return Ok(base64String +"*" + dContract.DContractID+"*"+ pendingContract.PContractId);
+                return Ok(base64String +"*" + dContract.DContractID+"*"+ pContract.PContractID);
             }
             else
             {
@@ -663,7 +675,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContract.DContractID}");
             }
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute, certi.Serial, customerZone.X + 50, customerZone.Y - 700,"minute");
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute, certi.Serial, customerZone.X + 25, customerZone.Y - 700,"minute");
 
             FileStream fs = new FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
             fs.Close();

@@ -250,6 +250,11 @@
 
         btnSave.prop('disabled', false);
         //hiển thị thông báo ký thành công và kêu ngta kiểm tra mail để xem hợp đồng
+
+        if (confirm("Bạn đã ký hoàn tất nhấn \"OK\" để đóng cửa số ")) {
+            close();
+        }
+
     }
 
     function objctlSignature_status(success, points) {

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMHistoryAdmin
+
+@{
     Layout = "_AdminLayout";
 }
 <div class="container-fluid">
@@ -31,14 +33,14 @@
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                           @*  @foreach (var item in Model)
+                             @foreach (var item in Model.HistoryEmps)
                             {
                                 <tr>
                                     <th scope="row">@item.HistoryID</th>
                                     <td>@item.Date</td>
                                     <td>@item.OperationName</td>
                                 </tr>
-                            } *@
+                            } 
                         </tbody>
                     </table>
                 </div>
@@ -54,14 +56,14 @@
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            @*  @foreach (var item in Model)
+                            @foreach (var item in Model.HistoryCus)
                             {
                             <tr>
-                            <th scope="row">@item.HistoryID</th>
-                            <td>@item.Date</td>
-                            <td>@item.OperationName</td>
+                                <th scope="row">@item.HistoryID</th>
+                                <td>@item.Date</td>
+                                <td>@item.OperationName</td>
                             </tr>
-                            } *@
+                            } 
                         </tbody>
                     </table>
                 </div>

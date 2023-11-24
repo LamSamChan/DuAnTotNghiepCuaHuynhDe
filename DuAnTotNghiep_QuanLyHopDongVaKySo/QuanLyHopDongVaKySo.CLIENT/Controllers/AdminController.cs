@@ -143,9 +143,27 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult HistoryOperation()
+        public async Task<IActionResult> HistoryOperation()
         {
-            return View();
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var employee = JsonConvert.DeserializeObject<Employee>(empContext);
+
+            var respone = await _historyEmpSvc.GetListById(employee.EmployeeId.ToString());
+
+            List<API.OperationHistoryEmp> historyEmps = new List<API.OperationHistoryEmp>();
+            historyEmps = await _historyEmpSvc.GetAll();
+
+            foreach (var item in historyEmps)
+            {
+                item.OperationName = item.OperationName.Replace($"{employee.FullName} - ID:{employee.EmployeeId.ToString().Substring(0, 8)}", "Bạn");
+            }
+
+            VMHistoryAdmin vm = new VMHistoryAdmin()
+            {
+                HistoryCus = await _historyCusSvc.GetAll(),
+                HistoryEmps = historyEmps
+            };
+            return View(vm);
         }
 
         [HttpGet]

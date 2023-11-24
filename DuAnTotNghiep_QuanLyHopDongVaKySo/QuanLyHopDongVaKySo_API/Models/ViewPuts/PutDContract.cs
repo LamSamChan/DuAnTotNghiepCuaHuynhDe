@@ -36,5 +36,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         public int TOS_ID { get; set; }
 
         public int? DoneMinuteId { get; set; }
+
+        public string? Base64File { get; set; }
     }
 }

@@ -1,15 +1,39 @@
 ﻿@using Microsoft.AspNetCore.Hosting
 @inject IWebHostEnvironment _hostingEnvironment
+@model QuanLyHopDongVaKySo_API.ViewModels.DContractViewModel
 
 @{
     Layout = "";
     // Lấy link trực ảnh từ file tỉnh
-    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+    string folderPathDContract = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
 
-    string folderItem = System.IO.Path.Combine(folderPath, "8");
+    string folderItemDContract = System.IO.Path.Combine(folderPathDContract, Model.Id.ToString());
 
-    string[] imageFiles = Directory.GetFiles(folderItem);
+    string[] imageFilesDContract = Directory.GetFiles(folderItemDContract);
 
+
+    string folderPathDMinute = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage"); // + thêm ID của minute
+
+    string? folderItemDMinute = null;
+    try
+    {
+        folderItemDMinute = System.IO.Path.Combine(folderPathDMinute, Model.DMinuteID.ToString());
+    }
+    catch (Exception ex)
+    {
+
+        Console.Write(ex.Message);
+    }
+
+    string[]? imageFilesDMinute = null;
+    if (folderItemDMinute == null)
+    {
+        imageFilesDMinute[0] = "Resource/Image/empty.png";
+    }
+    else
+    {
+       imageFilesDMinute = Directory.GetFiles(folderItemDMinute);
+    }
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -205,10 +229,10 @@
                                 <div class="carousel-item active ">
                                     <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
                                 </div>
-                                @foreach (var imgPath in imageFiles)
+                                @foreach (var imgPath in imageFilesDContract)
                                 {
                                     <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                        <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                        <img src="@Url.Content("~/ContractImage/"+@Model.Id+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
                                     </div>
                                 }
                             </div>
@@ -241,10 +265,19 @@
                                         <div class="carousel-item active ">
                                             <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
                                         </div>
-                                        @foreach (var imgPath in imageFiles)
+                                        @if (folderItemDMinute != null)
+                                        {
+                                            @foreach (var imgPath in imageFilesDMinute)
+                                            {
+                                                <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                                    <img src="@Url.Content("~/MinuteImage/"+@Model.DMinuteID+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                                </div>
+                                            }
+                                        }
+                                        else
                                         {
                                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                                <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                                <img src="~/@imageFilesDMinute[0]" alt="Hình ảnh" width="100%" />
                                             </div>
                                         }
                                     </div>
@@ -278,14 +311,22 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item active ">
                                     <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
-                                </div>
-                                @foreach (var imgPath in imageFiles)
-                                {
+                                    @if (folderItemDMinute != null)
+                                    {
+                                        @foreach (var imgPath in imageFilesDMinute)
+                                        {
+                                            <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                                <img src="@Url.Content("~/MinuteImage/"+@Model.DMinuteID+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
                                     <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                        <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                        <img src="~/@imageFilesDMinute[0]" alt="Hình ảnh" width="100%" />
                                     </div>
-                                }
-                            </div>
+                                    }
+                                </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselReCord" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
                                 <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
                                 <span class="visually-hidden">Previous</span>
@@ -314,12 +355,12 @@
                                         <div class="carousel-item active ">
                                             <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
                                         </div>
-                                        @foreach (var imgPath in imageFiles)
-                                        {
-                                            <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                                <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
-                                            </div>
-                                        }
+                                            @foreach (var imgPath in imageFilesDMinute)
+                                            {
+                                                <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                                    <img src="@Url.Content("~/MinuteImage/"+@Model.DMinuteID+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                                </div>
+                                            }
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselModalRecord" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
                                         <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>

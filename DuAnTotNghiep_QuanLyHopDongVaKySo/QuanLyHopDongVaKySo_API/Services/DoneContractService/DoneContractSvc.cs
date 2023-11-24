@@ -24,7 +24,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     DConTractName = pContract.PContractName,
                     DContractFile = pContract.PContractFile,
                     InstallationAddress = pContract.InstallationAddress,
-                    IsInEffect = true,
+                    IsInEffect = false,
                     EmployeeCreatedId = pContract.EmployeeCreatedId,
                     DirectorSignedId = (Guid)pContract.DirectorSignedId,
                     CustomerId = pContract.CustomerId,
@@ -197,7 +197,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
         }
 
 
-        public async Task<string> updateAsnyc(PutDContract dContract)
+        public async Task<string> updateAsnycDMinute(PutDContract dContract)
         {
             string ret = null;
             var update = await getByIdAsnyc(dContract.DContractID);
@@ -218,6 +218,38 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
             catch
             {
                 return ret;
+            }
+        }
+
+        public async Task<DoneContract> updateAsnyc(PutDContract dContract)
+        {
+            string ret = null;
+            var update = await getByIdAsnyc(dContract.DContractID);
+            try
+            {
+                if (update != null)
+                {
+                    if (dContract.DoneMinuteId != null)
+                    {
+                        update.DateDone = DateTime.Now;
+                        update.DConTractName = dContract.DContractName;
+                        update.DContractFile = dContract.DContractFile;
+                        update.IsInEffect = dContract.IsInEffect;
+                        update.InstallationAddress = dContract.InstallationAddress;
+                        update.CustomerId = dContract.CustomerId;
+                        update.EmployeeCreatedId = dContract.EmployeeCreatedId;
+                        update.DirectorSignedId = dContract.DirectorSignedId;
+                        update.TOS_ID = dContract.TOS_ID;
+                        update.Base64File = dContract.Base64File;
+                    }
+                }
+                _context.DoneContracts.Update(update);
+                await _context.SaveChangesAsync();
+                return update;
+            }
+            catch
+            {
+                return null;
             }
         }
     }

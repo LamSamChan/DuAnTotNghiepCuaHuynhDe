@@ -220,8 +220,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                return RedirectToAction("Index");
-
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
                 TempData["SweetTitle"] = "Tạo hợp đồng thành công !!";
