@@ -43,27 +43,33 @@
                     <div class="col-md-6" style="margin:auto;">
                         <button class="add_cus" type="submit">
                             Cập nhật
-                        @if (TempData["SwalMessageType"] != null)
+                        @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                         {
                             <script>
-                                const Toast = Swal.mixin({
-                                    toast: true,
-                                    position: "bottom-end",
-                                    showConfirmButton: false,
-                                    timer: 3000,
-                                    timerProgressBar: true,
-                                    didOpen: (toast) => {
-                                        toast.onmouseenter = Swal.stopTimer;
-                                        toast.onmouseleave = Swal.resumeTimer;
-                                    }
-                                });
-                                Toast.fire({
-                                    icon: '@TempData["SwalMessageIcon"]',
-                                    title: '@TempData["SwalMessageTitle"]'
-                                });
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    var sweetData = {
+                                        title: '@TempData["SweetTitle"]',
+                                        text: '@TempData["SweetText"]',
+                                        icon: '@TempData["SweetIcon"]'
+                                    };
 
+                                    console.log("Sweet Data:", sweetData);
+
+                                    Swal.fire({
+                                        title: sweetData.title,
+                                        text: sweetData.text,
+                                        icon: sweetData.icon,
+                                        showCancelButton: false,
+                                        allowOutsideClick: false,
+                                        confirmButtonColor: "green",
+                                        confirmButtonText: "Ok"
+                                    }).then(function () {
+                                        // Handle any additional logic after the SweetAlert is closed.
+                                    });
+                                });
                             </script>
                         }
+
                         </button>
                     </div>
                 </div>

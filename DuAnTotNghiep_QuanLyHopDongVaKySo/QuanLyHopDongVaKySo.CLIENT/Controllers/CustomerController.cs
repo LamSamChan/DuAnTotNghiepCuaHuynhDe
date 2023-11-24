@@ -156,7 +156,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                //Báo lõi 
+                //Báo lõi
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Lưu chữ ký bị lỗi!!";
                 return BadRequest();
             }
 
@@ -190,6 +193,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 //báo lỗi ko tìm thấy hợp dồng
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Không tìm thấy hợp đồng!!";
                 return BadRequest();
             }
         }

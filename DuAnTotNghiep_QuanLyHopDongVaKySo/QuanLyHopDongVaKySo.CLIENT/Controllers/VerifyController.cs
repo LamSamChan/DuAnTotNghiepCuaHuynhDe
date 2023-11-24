@@ -79,14 +79,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     };
                     await _historyEmpSvc.AddNew(historyEmp);
 
-                    TempData["SweetType"] = "success";
-                    TempData["SweetIcon"] = "success";
-                    TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
+                  
                     if (reponse.IsFirstLogin)
                     {
-                        TempData["SweetType"] = "info";
-                        TempData["SweetIcon"] = "info";
-                        TempData["SweetTitle"] = "Bạn hãy thay đổi mật khẩu  !!";
+                        TempData["SweetType"] = "success";
+                        TempData["SweetIcon"] = "success";
+                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công... Bạn hãy thay đổi mật khẩu !!";
                         return RedirectToAction("ChangePass", "Admin");
                     }
 
@@ -102,14 +100,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     };
                     await _historyEmpSvc.AddNew(historyEmp);
 
-                    TempData["SweetType"] = "success";
-                    TempData["SweetIcon"] = "success";
-                    TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
+                   
                     if (reponse.IsFirstLogin)
                     {
-                        TempData["SweetType"] = "info";
-                        TempData["SweetIcon"] = "info";
-                        TempData["SweetTitle"] = "Bạn hãy thay đổi mật khẩu !!";
+                        TempData["SweetType"] = "success";
+                        TempData["SweetIcon"] = "success";
+                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công... Bạn hãy thay đổi mật khẩu !!";
+
                         return RedirectToAction("ChangePass", "Director");
                     }
                     
@@ -124,14 +121,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     };
                     await _historyEmpSvc.AddNew(historyEmp);
 
-                    TempData["SweetType"] = "success";
-                    TempData["SweetIcon"] = "success";
-                    TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
+                   
                     if (reponse.IsFirstLogin)
                     {
-                        TempData["SweetType"] = "info";
-                        TempData["SweetIcon"] = "info";
-                        TempData["SweetTitle"] = "Bạn hãy thay đổi mật khẩu !!";
+                        TempData["SweetType"] = "success";
+                        TempData["SweetIcon"] = "success";
+                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công... Bạn hãy thay đổi mật khẩu !!";
                         return RedirectToAction("ChangePass", "BusinessStaff");
                     }
 
@@ -146,14 +141,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     };
                     await _historyEmpSvc.AddNew(historyEmp);
 
-                    TempData["SweetType"] = "success";
-                    TempData["SweetIcon"] = "success";
-                    TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
+              
                     if (reponse.IsFirstLogin)
                     {
-                        TempData["SweetType"] = "info";
-                        TempData["SweetIcon"] = "info";
-                        TempData["SweetTitle"] = "Bạn hãy thay đổi mật khẩu !!";
+                        TempData["SweetType"] = "success";
+                        TempData["SweetIcon"] = "success";
+                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công... Bạn hãy thay đổi mật khẩu !!";
                         return RedirectToAction("ChangePass", "InstallStaff");
                     }
 
@@ -162,6 +155,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Đăng nhập không thành công !!";
                 return RedirectToAction("Index");
             }
         }
@@ -186,6 +182,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             HttpContext.Session.Remove(SessionKey.PedningContract.PContractID);
             HttpContext.Session.Remove(SessionKey.PedningMinute.PMinuteID);
 
+
+            TempData["SweetType"] = "error";
+            TempData["SweetIcon"] = "error";
+            TempData["SweetTitle"] = "Đăng xuất thành công !!";
             return RedirectToAction("Index");
         }
     }
