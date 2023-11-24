@@ -95,6 +95,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
 
             return response;
         }
+        public async Task<List<PContractViewModel>> getListDirSignsEmpId(string id)
+        {
+            var response = await _httpClient.GetFromJsonAsync<List<PContractViewModel>>($"api/PContract/GetDirSignsEmpId/{id}");
+
+            return response;
+        }
         public async Task<string> updateAsnyc(PutPendingContract PContract)
         {
             string json = JsonConvert.SerializeObject(PContract);

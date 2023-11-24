@@ -522,5 +522,36 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             
             return viewModels;
         }
+        public async Task<List<PContractViewModel>> getListDirSignsByEmpId(string id)
+        {
+            List<PContractViewModel> viewModels = new List<PContractViewModel>();
+            try
+            {
+                viewModels = await _context.PendingContracts.Where(p => p.DirectorSignedId == Guid.Parse(id))
+                .Select(pc => new PContractViewModel
+                {
+                    PContractID = pc.PContractID.ToString(),
+                    PContractName = pc.PContractName,
+                    DateCreated = pc.DateCreated.ToString("dd/MM/yyyy"),
+                    CustomerName = pc.Customer.FullName,
+                    CustomerEmail = pc.Customer.Email,
+                    IsDirector = pc.IsDirector ? "Đã ký" : "Chờ ký",
+                    IsCustomer = pc.IsCustomer ? "Đã ký" : "Chờ ký",
+                    CustomerId = pc.CustomerId.ToString().ToLower(),
+                    IsRefuse = pc.IsRefuse ? "Từ chối" : "Chờ ký",
+                    DirectorSignedId = pc.DirectorSignedId.ToString().ToLower(),
+                    EmployeeCreatedId = pc.EmployeeCreatedId.ToString().ToLower(),
+                    Reason = pc.Reason,
+                    InstallationAddress = pc.InstallationAddress,
+                    TOS_ID = pc.TypeOfService.ServiceName,
+                    PContractFile = pc.PContractFile,
+                    Base64File = pc.Base64File
+
+                }).ToListAsync();
+            }
+            catch (Exception ex) { }
+
+            return viewModels;
+        }
     }
 }

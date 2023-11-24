@@ -27,6 +27,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
         Task<List<PContractViewModel>> getListWaitCusSignsByEmpId(string id);
         Task<List<PContractViewModel>> getListWaitCusSignsByDirId(string id);
         Task<List<PContractViewModel>> getListWaitDirSignsByEmpId(string id);
+        Task<List<PContractViewModel>> getListDirSignsByEmpId(string id);
 
     }
 }
