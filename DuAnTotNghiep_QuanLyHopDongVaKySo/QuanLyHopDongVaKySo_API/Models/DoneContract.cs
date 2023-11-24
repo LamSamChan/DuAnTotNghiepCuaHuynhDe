@@ -32,11 +32,11 @@ namespace QuanLyHopDongVaKySo_API.Models
 
         //tạo liên kết
         [ForeignKey("Employee")]
-        public Guid EmployeeCreatedId { get; set; }
-        public Guid DirectorSignedId { get; set; }
+        public Guid? EmployeeCreatedId { get; set; }
+        public Guid? DirectorSignedId { get; set; }
 
         [ForeignKey("Customer")]
-        public Guid CustomerId { get; set; }
+        public Guid? CustomerId { get; set; }
 
         [ForeignKey("TypeOfService")]
         public int TOS_ID { get; set; }

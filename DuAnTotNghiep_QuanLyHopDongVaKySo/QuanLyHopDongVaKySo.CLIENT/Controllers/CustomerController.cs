@@ -196,7 +196,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 //báo lỗi ko tìm thấy hợp dồng
                 return BadRequest();
             }
-            
         }
 
         private int DecodeTokenShowContract(string token)

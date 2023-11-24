@@ -181,9 +181,15 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpPut("Update")]
-        public async Task<IActionResult> Update(PutPendingContract pContract)
+        public async Task<IActionResult> Update([FromBody] PutPendingContract pContract)
         {
-            return Ok(await _PContractSvc.updateAsnyc(pContract));
+            var respone = await _PContractSvc.updateAsnyc(pContract);
+            if (respone != null)
+            {
+                return Ok();
+            }
+            return BadRequest();
+
         }
 
         [HttpGet("GetByEmpId/{id}")]
