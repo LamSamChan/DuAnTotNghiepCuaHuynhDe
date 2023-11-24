@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<QuanLyHopDongVaKySo_API.ViewModels.PContractViewModel>
+
+@{
 }
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
@@ -28,23 +30,28 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
+                @foreach(var item in Model)
+                {
+                    <tr>
+
                     <th scope="row"> </th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>@item.PContractID</td>
+                    <td>@item.CustomerEmail</td>
+                    <td>@item.DateCreated</td>
+                    <td>@item.CustomerName</td>
+                    <td>@item.TOS_ID</td>
                     <td>
                         <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                        <span></span>
+                        <span>@item.Reason</span>
                     </td>
                     <td>
-                        <a class="custom-file-upload" asp-controller="Director" asp-action="DetailsContractActive" asp-route-id="">
+                        <a class="custom-file-upload" asp-controller="Director" asp-action="DetailsContractActive" asp-route-id="@item.PContractID">
                            Chi tiết
                         </a>
                     </td>
                 </tr>
+                }
+                
             </tbody>
         </table>
     </div>

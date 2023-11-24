@@ -222,5 +222,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(await _PContractSvc.getListWaitDirSignsByEmpId(id));
         }
+        [HttpGet("GetDirSignsEmpId/{id}")]
+        public async Task<IActionResult> GetListDirSignsEmpId(string id)
+        {
+            return Ok(await _PContractSvc.getListDirSignsByEmpId(id));
+        }
     }
 }

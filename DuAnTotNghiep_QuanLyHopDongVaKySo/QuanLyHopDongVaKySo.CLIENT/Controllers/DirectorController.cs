@@ -145,13 +145,35 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult ListContractActive()
+        public async Task<IActionResult> ListContractActive()
         {
-            return View();
+            List<VMAPI.PContractViewModel> pContractList = new List<VMAPI.PContractViewModel>();
+            if (IsAuthenticate == 2)
+            {
+                pContractList = await _pContractService.getListDirSignsEmpId(EmployeeId);
+                return View(pContractList);
+            }
+            return View(pContractList);
         }
-        public IActionResult DetailsContractActive()
+        public async Task<IActionResult> DetailsContractActive(string id)
         {
-            return View();
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+
+            VMDetailsContractAwait vm = new VMDetailsContractAwait();
+            try
+            {
+                vm.PContract = await _pContractService.getByIdAsnyc(pContractId);
+                vm.EmployeeCreated = await _employeeService.GetEmployeeById(vm.PContract.EmployeeCreatedId);
+                vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
+                vm.Customer = await _customerService.GetCustomerById(vm.PContract.CustomerId);
+            }
+            catch
+            {
+                //báo lỗi
+                return RedirectToAction("Index");
+            }
+            return View(vm);
         }
 
         [HttpGet]
@@ -238,6 +260,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public async Task<IActionResult> ListContractEffect()
         {
+            
             List<VMAPI.DContractViewModel> contractList = new List<VMAPI.DContractViewModel>();
             if (IsAuthenticate == 2)
             {
@@ -257,6 +280,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             return View(pContractList);
         }
+        
         public IActionResult HistoryOperation()
         {
             return View();
