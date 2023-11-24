@@ -29,7 +29,7 @@
     <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="expires" content="0" />
-    <title>TEACHSEAL - Quản lý hợp đồng và chữ ký số</title>
+    <title>TECHSEAL - Quản lý hợp đồng và chữ ký số</title>
     <link rel="icon" href="/2.ico" type="image/x-icon">
 
     <!--css - cho từng page -->
@@ -65,7 +65,7 @@
             <div class="container-fluid">
                 <div class="logo">
                     <img style="width:40px;" src="~/Resource/Image/LOGO_WITHOUT_BG/2.png" />
-                    <a style="color:white; font-weight:bold;" class="navbar-brand" asp-area="" asp-page="/Index">TEACHSEAL</a>
+                    <a style="color:white; font-weight:bold;" class="navbar-brand" asp-area="" asp-page="/Index">TECHSEAL</a>
                 </div>
                 <div class="Search_All">
                     <i class="ph-bold ph-magnifying-glass"></i>
@@ -183,6 +183,112 @@
                     </svg> Hợp đồng hoạt động
                 </a>
             </li>
+            <li class="nav-title">NHÂN VIÊN KINH DOANH</li>
+            <li class="nav-group">
+                <a class="nav-link nav-group-toggle">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-object-group"></use>
+                    </svg> Quản lý hợp đồng
+                </a>
+                <ul class="nav-group-items">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ListPosition">
+                            <span class="nav-icon"></span>
+                           Yêu cầu lắp đặt
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ListPosition">
+                            <span class="nav-icon"></span>
+                            Hợp đồng đã duyệt
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ListPosition">
+                            <span class="nav-icon"></span>
+                            Hợp đồng chờ khách ký
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ListPosition">
+                            <span class="nav-icon"></span>
+                            Hợp đồng từ chối duyệt
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-group">
+                <a class="nav-link nav-group-toggle">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-object-group"></use>
+                    </svg> Hợp đồng - Biên bản mẫu
+                </a>
+                <ul class="nav-group-items">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ListPosition">
+                            <span class="nav-icon"></span>
+                           Danh sách mẫu hợp đồng
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ListPosition">
+                            <span class="nav-icon"></span>
+                           Danh sách mẫu biên bản
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ListPosition">
+                            <span class="nav-icon"></span>
+                           Thêm mẫu
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Director" asp-action="ListContractEffect">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
+                    </svg> Hợp đồng đã hoàn thành
+                </a>
+            </li>
+
+            <li class="nav-title">NHÂN VIÊN LẮP ĐẶT</li>
+            <li class="nav-group">
+                <a class="nav-link nav-group-toggle">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-object-group"></use>
+                    </svg> Quản lý yêu cầu lắp
+                </a>
+                <ul class="nav-group-items">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ListPosition">
+                            <span class="nav-icon"></span>
+                            Danh sách yêu cầu lắp
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ListPosition">
+                            <span class="nav-icon"></span>
+                            Biên bản đã nhận lắp
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-group">
+                <a class="nav-link nav-group-toggle">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-object-group"></use>
+                    </svg> Quản lý thiết bị lắp
+                </a>
+                <ul class="nav-group-items">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ListPosition">
+                            <span class="nav-icon"></span>
+                            Danh sách dịch vụ
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="nav-title">LỊCH SỬ </li>
             <li class="nav-item">
                 <a class="nav-link" asp-controller="Admin" asp-action="HistoryOperation">
@@ -191,163 +297,6 @@
                     </svg> Lịch sử thao tác
                 </a>
             </li>
-            @* <li class="nav-title">GIÁM ĐỐC</li>
-            <li class="nav-group">
-                <a class="nav-link nav-group-toggle" href="#">
-                    <svg class="nav-icon">
-                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-pen-alt"></use>
-                    </svg>Hợp đồng chờ ký
-                </a>
-                <ul class="nav-group-items">
-                    <li class="nav-item">
-                        <a class="nav-link" href="base/accordion.html">
-                            <span class="nav-icon"></span>
-                            Danh sách chứng chỉ đã hết hạn
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="base/accordion.html">
-                            <span class="nav-icon"></span>
-                            Danh sách chứng chỉ sắp hết hạn
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="typography.html">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-"></use>
-                    </svg> Hợp đồng đang hiệu lực
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="typography.html">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-history"></use>
-                    </svg> Lịch sử ký số
-                </a>
-            </li>
-            <li class="nav-title">NHÂN VIÊN KINH DOANH</li>
-            <li class="nav-group">
-                <a class="nav-link nav-group-toggle">
-                    <svg class="nav-icon">
-                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-storage"></use>
-                    </svg> Quản lý hợp đồng
-                </a>
-                <ul class="nav-group-items">
-                    <li class="nav-item">
-                        <a class="nav-link" href="base/accordion.html">
-                            <span class="nav-icon"></span>
-                           Thêm mẫu hợp đồng
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="base/accordion.html">
-                            <span class="nav-icon"></span>
-                            Tạo hợp đồng
-                        </a>
-                    </li>
-                    <li class="nav-group">
-                        <a class="nav-link nav-group-toggle">
-                            <span class="nav-icon"></span>
-                            Danh sách hợp đồng
-                        </a>
-                        <ul class="nav-group-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="base/accordion.html">
-                                    <span class="nav-icon"></span>
-                                   Hợp đồng chờ duyệt
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="base/accordion.html">
-                                    <span class="nav-icon"></span>
-                                    Hợp đồng chờ khách ký
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="base/accordion.html">
-                                    <span class="nav-icon"></span>
-                                    Hợp đồng từ chối duyệt
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="base/accordion.html">
-                                    <span class="nav-icon"></span>
-                                    Hợp đồng đang hiệu lực
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-group">
-                <a class="nav-link nav-group-toggle">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-storage"></use>
-                    </svg> Quản lý khách hàng
-                </a>
-                <ul class="nav-group-items">
-                    <li class="nav-item">
-                        <a class="nav-link" href="base/accordion.html">
-                            <span class="nav-icon"></span>
-                           Danh sách khách hàng
-                        </a>
-                    </li>
-                    
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="typography.html">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-send"></use>
-                    </svg> Gửi mail
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="typography.html">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-history"></use>
-                    </svg> Lịch sử thao tác
-                </a>
-            </li>
-            <li class="nav-title">NHÂN VIÊN LẮP ĐẶT</li>
-            <li class="nav-group">
-                <a class="nav-link nav-group-toggle" href="#">
-                    <svg class="nav-icon">
-                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-storage"></use>
-                    </svg> Quản lý yêu cầu lắp đặt
-                </a>
-                <ul class="nav-group-items">
-                    <li class="nav-item">
-                        <a class="nav-link" href="base/accordion.html">
-                            <span class="nav-icon"></span>
-                            Danh sách yêu cầu lắp
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="base/accordion.html">
-                            <span class="nav-icon"></span>
-                            Danh sách biên bản lắp
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-group">
-                <a class="nav-link nav-group-toggle" href="#">
-                    <svg class="nav-icon">
-                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-storage"></use>
-                    </svg> Quản lý thiết bị lắp
-                </a>
-                <ul class="nav-group-items">
-                    <li class="nav-item">
-                        <a class="nav-link" href="base/accordion.html">
-                            <span class="nav-icon"></span>
-                            Danh sách dịch vụ
-                        </a>
-                    </li>
-                </ul>
-            </li> *@
         </ul>
         <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
     </div>

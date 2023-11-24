@@ -1,19 +1,44 @@
 ﻿@{
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 <div class="container-fluid">
-    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Hợp đồng đã duyệt</li>
-            </ol>
-        </nav>
-        <h1 class="typeHead">TẤT CẢ DANH SÁCH </h1>
-        <div class="row justify-content-between">
-            <input type="search" placeholder="Tìm kiếm hợp đồng" style="margin-left:10px;" />
+    @if(userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
+
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"> <a>Giám đốc</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng đã duyệt</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH </h1>
+            <div class="row justify-content-between">
+                <input type="search" placeholder="Tìm kiếm hợp đồng" style="margin-left:10px;" />
+            </div>
         </div>
-    </div>
+
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng đã duyệt</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH </h1>
+            <div class="row justify-content-between">
+                <input type="search" placeholder="Tìm kiếm hợp đồng" style="margin-left:10px;" />
+            </div>
+        </div>
+    }
     <div class="listTable">
         <table class="table">
             <thead>
@@ -40,7 +65,7 @@
                         <span></span>
                     </td>
                     <td>
-                        <a class="custom-file-upload" asp-controller="Director" asp-action="DetailsContractActive" asp-route-id="">
+                        <a asp-controller="Director" asp-action="DetailsContractActive" asp-route-id="">
                            Chi tiết
                         </a>
                     </td>

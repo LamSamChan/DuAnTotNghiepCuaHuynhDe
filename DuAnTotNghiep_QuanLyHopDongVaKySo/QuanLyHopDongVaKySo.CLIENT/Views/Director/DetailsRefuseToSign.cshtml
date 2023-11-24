@@ -8,25 +8,52 @@
     string folderItem = System.IO.Path.Combine(folderPath, "7");
 
     string[] imageFiles = Directory.GetFiles(folderItem);
+
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 <div class="container-fluid">
-    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Hợp đồng đã duyệt</li>
-            </ol>
-        </nav>
-        <h1 class="typeHead">CHI TIẾT HỢP ĐỒNG </h1>
-        <div class="row justify-content-between">
-            <a class="col-md-2 button-design" asp-action="ListContractRefuseToSign" asp-controller="Director">
-                <i class="ph-bold ph-arrow-left"></i>
-                QUAY LẠI
-            </a>
-        </div>
+    @if (userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"> <a>Giám đốc</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng từ chối</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">CHI TIẾT HỢP ĐỒNG </h1>
+            <div class="row justify-content-between">
+                <a class="col-md-2 button-design" asp-action="ListContractRefuseToSign" asp-controller="Director">
+                    <i class="ph-bold ph-arrow-left"></i>
+                    QUAY LẠI
+                </a>
+            </div>
 
-    </div>
+        </div>
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng từ chối</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">CHI TIẾT HỢP ĐỒNG </h1>
+            <div class="row justify-content-between">
+                <a class="col-md-2 button-design" asp-action="ListContractRefuseToSign" asp-controller="Director">
+                    <i class="ph-bold ph-arrow-left"></i>
+                    QUAY LẠI
+                </a>
+            </div>
+        </div>
+    }
     <div class="row" style="background-color:#FFFFFF; margin: 20px auto; height:100%; border-radius:16px;">
         <div class="col-6" style="margin: 20px; border-radius:10px;">
             <div class="showFile">

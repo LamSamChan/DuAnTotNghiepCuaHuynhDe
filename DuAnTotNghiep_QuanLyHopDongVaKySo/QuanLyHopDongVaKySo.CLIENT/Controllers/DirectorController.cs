@@ -153,6 +153,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult ListContractRefuseToSign()
+        {
+            return View();
+        }
+        public IActionResult DetailsRefuseToSign()
+        {
+            return View();
+        }
         public IActionResult DetailsContractActive()
         {
             return View();
