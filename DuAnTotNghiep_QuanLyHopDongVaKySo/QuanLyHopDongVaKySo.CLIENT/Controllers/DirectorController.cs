@@ -381,15 +381,37 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-
-                //báo lỗi ký có nhiều cái tui sẽ nói chỉ sau
+                //báo lỗi
                 return RedirectToAction("ListContractAwait");
             }
 
            
         }
 
-   
+        public async Task<IActionResult> RefuseContract(VMDetailsContractAwait vm)
+        {
+            var pContract = await _pContractService.getByIdAsnyc(vm.PContract.PContractID);
+            
+
+                API.PutPendingContract putPendingContract = new API.PutPendingContract()
+                {
+                    PContractId = int.Parse(pContract.PContractID),
+                    IsRefuse = true,
+                    Reason = vm.PContract.Reason,
+                };
+                var respone = _pContractService.updateAsnyc(putPendingContract);
+
+                if (respone != null)
+                {
+                    return RedirectToAction("ListContractAwait");
+                }
+                else
+                {
+                    //báo lỗi
+                    return RedirectToAction("ListContractAwait");
+                }
+        }
+
         public async Task<IActionResult> DetailsContractEffect(string id)
         {
             VMDetailsContract viewModel = new VMDetailsContract();

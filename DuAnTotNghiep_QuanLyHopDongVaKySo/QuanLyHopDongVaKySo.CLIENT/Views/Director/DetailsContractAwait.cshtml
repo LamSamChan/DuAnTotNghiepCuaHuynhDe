@@ -50,13 +50,14 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="row justify-content-around" style=" margin: 0 auto;">
+                            <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="RefuseContract">
                                 <div class="form-floating mb-3">
-                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                                    <label for="floatingTextarea2">Lý dô từ chối</label>
+                                    <input asp-for="PContract.PContractID" class="d-none"/>
+                                    <textarea asp-for="PContract.Reason" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Lý do từ chối</label>
                                 </div>
                                 <div class="col-mb-5" style="margin: auto;">
-                                    <button class="button-save">
+                                    <button class="button-save" type="submit">
                                         Xác nhận
                                     </button>
                                 </div>

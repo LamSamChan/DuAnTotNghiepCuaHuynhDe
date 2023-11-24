@@ -123,12 +123,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             try{
                 if(update != null)
                 {
-                    update.DirectorSignedId = PContract.DirectorSignedId;
-                    update.IsDirector = PContract.IsDirector;
-                    update.IsCustomer = PContract.IsCustomer;
                     update.IsRefuse = PContract.IsRefuse;
                     update.Reason = PContract.Reason;
-                    update.Base64File = PContract.Base64File;
                 }
                 _context.PendingContracts.Update(update);
                 await _context.SaveChangesAsync();
@@ -200,7 +196,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
             List<PContractViewModel> viewModels = new List<PContractViewModel>();
             try
             {
-                viewModels = await _context.PendingContracts.Where(p => p.IsDirector == false && p.IsCustomer == false)
+                viewModels = await _context.PendingContracts.Where(p => p.IsDirector == false && p.IsCustomer == false && !p.IsRefuse)
                 .Select(pc => new PContractViewModel
                 {
                     PContractID = pc.PContractID.ToString(),

@@ -28,10 +28,10 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string InstallationAddress { get; set; }
 
         //tạo liên kết
-        public Guid EmployeeCreatedId { get; set; }
-        public Guid DirectorSignedId { get; set; }
+        public Guid? EmployeeCreatedId { get; set; }
+        public Guid? DirectorSignedId { get; set; }
 
-        public Guid CustomerId { get; set; }
+        public Guid? CustomerId { get; set; }
 
         public int TOS_ID { get; set; }
 
