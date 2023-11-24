@@ -15,7 +15,7 @@ namespace QuanLyHopDongVaKySo_API.Services.OperationHistoryCusService
         public async Task<int> AddNew(OperationHistoryCus oHistoryCus)
         {
             int isSuccess = 0;
-            _context.OperationHistoryCuss.Add(oHistoryCus);
+            _context.OperationHistoryCus.Add(oHistoryCus);
             await _context.SaveChangesAsync();
             isSuccess = oHistoryCus.HistoryID;
             return isSuccess;
@@ -25,7 +25,7 @@ namespace QuanLyHopDongVaKySo_API.Services.OperationHistoryCusService
         {
             try
             {
-                return await _context.OperationHistoryCuss.ToListAsync();
+                return await _context.OperationHistoryCus.ToListAsync();
             }
             catch (Exception ex)
             {
@@ -38,7 +38,7 @@ namespace QuanLyHopDongVaKySo_API.Services.OperationHistoryCusService
         {
             try
             {
-                return await _context.OperationHistoryCuss.Where(c => c.CustomerID == Guid.Parse(customer_ID)).ToListAsync();
+                return await _context.OperationHistoryCus.Where(c => c.CustomerID == Guid.Parse(customer_ID)).ToListAsync();
             }
             catch (Exception ex)
             {

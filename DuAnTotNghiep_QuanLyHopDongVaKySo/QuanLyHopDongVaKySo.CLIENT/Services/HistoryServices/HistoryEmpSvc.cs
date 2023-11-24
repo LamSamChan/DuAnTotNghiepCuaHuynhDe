@@ -46,7 +46,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices
 
         public async Task<List<OperationHistoryEmp>> GetListById(string emp_ID)
         {
-            var reponse = await _httpClient.GetFromJsonAsync<List<OperationHistoryEmp>>($"api/HistoryCus/{emp_ID}");
+            var reponse = await _httpClient.GetFromJsonAsync<List<OperationHistoryEmp>>($"api/HistoryEmp/{emp_ID}");
             return reponse;
         }
     }

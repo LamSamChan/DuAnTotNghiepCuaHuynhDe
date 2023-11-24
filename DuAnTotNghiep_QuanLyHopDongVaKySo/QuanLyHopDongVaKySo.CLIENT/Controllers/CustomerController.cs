@@ -17,6 +17,9 @@ using VMAPI = QuanLyHopDongVaKySo_API.ViewModels;
 using System.Drawing.Imaging;
 using System.IdentityModel.Tokens.Jwt;
 using test.Models;
+using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
+using QuanLyHopDongVaKySo.CLIENT.Models;
+using API = QuanLyHopDongVaKySo_API.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -31,14 +34,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IUploadHelper _uploadHelper;
         private readonly IPdfToImageHelper _pdfToImageHelper;
         private readonly IDContractsService _dContractsService;
-
+        private readonly IHistoryCusSvc _historyCusSvc;
 
         private int isAuthenticate;
         private string employeeId;
 
         public CustomerController(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IPContractService pContractService,
             ICustomerService customerService, ISigningService signingService, IPFXCertificateServices pfxCertificateServices, IUploadHelper uploadHelper
-            ,IPdfToImageHelper pdfToImageHelper, IDContractsService dContractsService)
+            ,IPdfToImageHelper pdfToImageHelper, IDContractsService dContractsService, IHistoryCusSvc historyCusSvc)
         {
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
@@ -50,6 +53,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _uploadHelper = uploadHelper;
             _pdfToImageHelper = pdfToImageHelper;
             _dContractsService = dContractsService;
+            _historyCusSvc = historyCusSvc;
         }
         public IActionResult Index()
         {
@@ -73,6 +77,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
                 HttpContext.Session.SetString(SessionKey.PedningContract.PContractID, pContractId.ToString());
                 HttpContext.Session.SetString(SessionKey.PFXCertificate.Serial, vm.Customer.SerialPFX);
+                HttpContext.Session.SetString(SessionKey.Customer.CustomerID, vm.PContract.CustomerId);
+
             }
             catch
             {
@@ -152,13 +158,25 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 System.GC.WaitForPendingFinalizers();
                 System.IO.File.Delete(pdfPath);
             }
+            else
+            {
+                //Báo lõi 
+                return BadRequest();
+            }
 
-            HttpContext.Session.SetString(SessionKey.PedningContract.PContractID,"");
+            Customer customerDoing = await _customerService.GetCustomerById(HttpContext.Session.GetString(SessionKey.Customer.CustomerID));
+            API.OperationHistoryCus historyCus = new API.OperationHistoryCus()
+            {
+                OperationName = $"{customerDoing.FullName} - ID:{customerDoing.CustomerId.ToString().Substring(0, 8)} đã ký hợp đồng - ID:{pContractID}.",
+                CustomerID = customerDoing.CustomerId
+            };
+            await _historyCusSvc.AddNew(historyCus);
+
+            HttpContext.Session.SetString(SessionKey.Customer.CustomerID, "");
+            HttpContext.Session.SetString(SessionKey.PedningContract.PContractID, "");
             HttpContext.Session.SetString(SessionKey.PFXCertificate.Serial, "");
+
             _uploadHelper.RemoveImage(filePath);
-
-            
-
             //xem thông tin hiển thị alert ở CusToSign hàm SaveSign(), vì dùng http nên không có trả ở return nó sẽ chạy hết hàm SaveSign(). Các action khác mà được gọi từ ajax
             //cũng hiển thị thông báo tương tự
             return Ok();
