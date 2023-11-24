@@ -1,4 +1,27 @@
-﻿<!DOCTYPE html>
+﻿@using Newtonsoft.Json;
+@{
+    string employeeContext = Context.Request.HttpContext.Session.GetString("EmployeeContext");
+    Employee employee = JsonConvert.DeserializeObject<Employee>(employeeContext);
+    string avatar;
+    if (employee.Image == null)
+    {
+        if (employee.Gender == 1)
+        {
+            avatar = "Avatars/blank_avatar_man.png";
+        }
+        else
+        {
+            avatar = "Avatars/blank_avatar_woman.png";
+        }
+    }
+    else
+    {
+        avatar = employee.Image;
+    }
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -62,7 +85,7 @@
                     </a>
                 </li>
                 <li>
-                    <img src="/Resource/Image/Avatar.jpg" style="width: 40px; height: 40px; border-radius: 100%;" />
+                    <img src="~/@Html.Raw(avatar) style="width: 40px; height: 40px; border-radius: 100%;" />
                 </li>
             </ul>
         </nav>
