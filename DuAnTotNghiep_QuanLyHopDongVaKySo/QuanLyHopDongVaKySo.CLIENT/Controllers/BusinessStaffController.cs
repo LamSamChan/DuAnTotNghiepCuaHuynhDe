@@ -64,31 +64,23 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     TempData["Role"] = role;
                     if (role == "Admin")
                     {
-                        TempData["SweetType"] = "success";
-                        TempData["SweetIcon"] = "success";
-                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
+                   
                         isAuthenticate = 1; //Admin
 
                     }
                     else if (role == "Giám đốc")
                     {
-                        TempData["SweetType"] = "success";
-                        TempData["SweetIcon"] = "success";
-                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
+                       
                         isAuthenticate = 2; //Director
                     }
                     else if (role == "Nhân viên kinh doanh")
                     {
-                        TempData["SweetType"] = "success";
-                        TempData["SweetIcon"] = "success";
-                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
+                    
                         isAuthenticate = 3; //BusinessStaff
                     }
                     else if (role == "Nhân viên lắp đặt")
                     {
-                        TempData["SweetType"] = "success";
-                        TempData["SweetIcon"] = "success";
-                        TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
+                       
                         isAuthenticate = 4; //InstallStaff
                     }
                 }
@@ -176,6 +168,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     };
                     await _historyEmpSvc.AddNew(historyEmp);
 
+
+                    TempData["SwalMessageType"] = "success";
+                    TempData["SwalMessageIcon"] = "success";
+                    TempData["SwalMessageTitle"] = $"{employeeDoing.FullName} thay đổi mật khẩu thành công !!";
                     return RedirectToAction("Index");
                 }
                 else
@@ -186,6 +182,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 // mk cũ không đúng
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Mật khẩu cũ không đúng!!";
                 return BadRequest();
             }
         }
