@@ -128,6 +128,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Bạn chưa đăng nhập !!";
                 return RedirectToAction("Index","Verify");
             }
         }
@@ -162,6 +165,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             catch
             {
                 //báo lỗi
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Không tìm thấy hợp đồng !!";
                 return RedirectToAction("Index");
             }
             return View(vm);
@@ -190,9 +196,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 var respone1 = await _employeeService.UpdateEmployee(emp);
                 if(respone1 != null)
                 {
-                    TempData["SwalMessageType"] = "success";
-                    TempData["SwalMessageIcon"] = "success";
-                    TempData["SwalMessageTitle"] = "Thay đổi mật khẩu thành công !!";
+                    TempData["SweetType"] = "success";
+                    TempData["SweetIcon"] = "success";
+                    TempData["SweetTitle"] = "Thay đổi mật khẩu thành công !!";
                     return RedirectToAction("Index");
 
                 }
@@ -204,9 +210,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 // mk cũ không đúng
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Mật khẩu cũ không đúng!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Mật khẩu cũ không đúng!!";
                 return BadRequest();
             }
         }
@@ -234,6 +240,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 else
                 {
                     //báo lỗi ko tải lên file ảnh
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Tải lên file ảnh bị lỗi!!";
                     RedirectToAction("AddEmpAccount");
                 }
             }
@@ -243,7 +252,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
-                TempData["SweetTitle"] = "Lưu thành công !!";
+                TempData["SweetTitle"] = "Cập nhật thành công !!";
 
                 return RedirectToAction("Index");
             }
@@ -251,7 +260,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Xảy ra lỗi!!";
+                TempData["SweetTitle"] = "Cập nhật bị lỗi!!";
                 return RedirectToAction("Index","Verify");
             }
         }
@@ -300,6 +309,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             catch
             {
                 //báo lỗi
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Không tìm thấy hợp đồng !!";
                 return RedirectToAction("Index");
             }
             return View(vm);
@@ -317,6 +329,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (fileStamp == null)
                 {
                     //báo lỗi ko có ảnh mộc
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Không có ảnh mộc nào cả!!";
                     return RedirectToAction("Index", "Verify");
                 }
                 else
@@ -328,6 +343,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             catch (Exception)
             {
                 //báo lỗi ko có mộc
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Không có ảnh mộc nào cả!!";
                 return BadRequest();
             }
 
@@ -383,6 +401,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (fileCount == 5)
                 {
                     //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Xóa 1 ảnh để có thể thêm mới!!";
                     return RedirectToAction("Index", "Verify");
                 }
             }
@@ -427,6 +448,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 //tt hết slot chữ ký
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Đã hết lượt thêm chữ ký!!";
                 return View("Index");
             }
 
@@ -436,10 +460,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Thêm chữ ký thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Thêm chữ ký bị lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -458,6 +488,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (fileCount == 5)
                 {
                     //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Xóa 1 ảnh để có thể thêm mới!!";
                     return RedirectToAction("Index", "Verify");
                 }
             }
@@ -499,6 +532,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     else
                     {
                         //tt hết slot chữ ký
+                        TempData["SweetType"] = "error";
+                        TempData["SweetIcon"] = "error";
+                        TempData["SweetTitle"] = "Đã hết lượt thêm chữ ký!!";
                         return View("Index");
                     }
                 }
@@ -510,14 +546,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
-                TempData["SweetTitle"] = "Lưu thành công !!";
+                TempData["SweetTitle"] = "Cập nhật chữ ký thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Xảy ra lỗi!!";
+                TempData["SweetTitle"] = "Cập nhật chữ ký bị lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -567,7 +603,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Xảy ra lỗi!!";
+                TempData["SweetTitle"] = "Xóa chữ ký bị lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -593,7 +629,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Xảy ra lỗi!!";
+                TempData["SweetTitle"] = "Đặt mặt định bị lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -619,7 +655,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Xảy ra lỗi!!";
+                TempData["SweetTitle"] = "Xóa chữ ký bị lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }

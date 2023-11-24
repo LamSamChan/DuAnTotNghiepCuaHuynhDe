@@ -190,9 +190,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     };
                     await _historyEmpSvc.AddNew(historyEmp);
 
-                    TempData["SwalMessageType"] = "success";
-                    TempData["SwalMessageIcon"] = "success";
-                    TempData["SwalMessageTitle"] = $"{employeeDoing.FullName} thay đổi mật khẩu thành công !!";
+                    TempData["SwalType"] = "success";
+                    TempData["SwalIcon"] = "success";
+                    TempData["SwalTitle"] = $"{employeeDoing.FullName} hay đổi mật khẩu thành công !!";
                     return RedirectToAction("Index");
                 }
                 else
@@ -203,9 +203,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 // mk cũ không đúng
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Mật khẩu cũ không đúng!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Mật khẩu cũ không đúng!!";
                 return BadRequest();
             }
         }
@@ -228,9 +228,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Bạn chưa đăng nhập !!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Bạn chưa đăng nhập !!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -263,16 +263,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Thêm dịch vụ thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Thêm dịch vụ thành công !!";
                 return RedirectToAction("ListTypeOfService");
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Thêm dịch vụ bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Thêm dịch vụ bị lỗi!!";
                 return RedirectToAction("ListRole");
             }
         }
@@ -293,16 +293,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Cập nhật dịch vụ thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Cập nhật dịch vụ thành công !!";
                 return RedirectToAction("ListTypeOfService");
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Thêm dịch vụ bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Thêm dịch vụ bị lỗi!!";
                 return RedirectToAction("ListRole");
             }
         }
@@ -333,16 +333,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Thêm thiết bị thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Thêm thiết bị thành công !!";
                 return RedirectToAction("DetailsTypeOfService", new { tosID = device.TOS_ID });
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Thêm thiết bị bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Thêm thiết bị bị lỗi!!";
                 return RedirectToAction("ListRole");
             }
         }
@@ -365,16 +365,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Xóa thiết bị thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Xóa thiết bị thành công !!";
                 return RedirectToAction("DetailsTypeOfService", new { tosID = tosID });
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Xóa thiết bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Xóa thiết bị lỗi!!";
                 return RedirectToAction("ListRole");
             }
         }
@@ -394,16 +394,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Cập nhật thiết bị thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Cập nhật thiết bị thành công !!";
                 return RedirectToAction("DetailsTypeOfService", device.TOS_ID);
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Cập nhật thiết bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Cập nhật thiết bị lỗi!!";
                 return RedirectToAction("ListRole");
             }
         }
@@ -456,16 +456,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 await _historyEmpSvc.AddNew(historyEmp);
 
                 //update thành công
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Gia hạn thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Gia hạn thành công !!";
                 return RedirectToAction("ListPFXCertificate");
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Gia hạn bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Gia hạn bị lỗi!!";
                 return RedirectToAction("DetailsPFXCertificate");
             }
         }
@@ -497,9 +497,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Cập nhật tài khoản bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Cập nhật tài khoản bị lỗi!!";
                 return RedirectToAction("Index");
             }
         }
@@ -525,9 +525,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 else
                 {
                     //báo lỗi ko tải lên file ảnh
-                    TempData["SwalMessageType"] = "error";
-                    TempData["SwalMessageIcon"] = "error";
-                    TempData["SwalMessageTitle"] = "Tải lên file ảnh bị lỗi!!";
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Tải lên file ảnh bị lỗi!!";
                     RedirectToAction("AddEmpAccount");
                 }
             }
@@ -550,16 +550,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Cập nhật nhân viên thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Cập nhật nhân viên thành công !!";
                 return View("EditEmpAccount", vm);
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Cập nhật nhân viên bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Cập nhật nhân viên bị lỗi!!";
                 return RedirectToAction("Index");
             }
         }
@@ -587,9 +587,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 else
                 {
                     //báo lỗi ko tải lên file ảnh
-                    TempData["SwalMessageType"] = "error";
-                    TempData["SwalMessageIcon"] = "error";
-                    TempData["SwalMessageTitle"] = "Tải lên file ảnh bị lỗi!!";
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Tải lên file ảnh bị lỗi!!";
                     RedirectToAction("AddEmpAccount");
                 }
             }
@@ -607,16 +607,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Thêm nhân viên thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Thêm nhân viên thành công !!";
                 return RedirectToAction("ListEmpAccount");
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Thêm nhân viên bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Thêm nhân viên bị lỗi!!";
                 return RedirectToAction("AddEmpAccount");
             }
         }
@@ -695,16 +695,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Thêm chức danh thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Thêm chức danh thành công !!";
                 return RedirectToAction("ListPosition");
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Thêm chức danh bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Thêm chức danh bị lỗi!!";
                 return RedirectToAction("ListPosition");
             }
         }
@@ -714,16 +714,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var position = await _positionService.GetPositionByIdAsync(positionId);
             if (position != null)
             {
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Cập nhật vai trò thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Cập nhật vai trò thành công !!";
                 return View("ListRole");
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Cập nhật vai trò bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Cập nhật vai trò bị lỗi!!";
                 return RedirectToAction("Index");
             }
         }
@@ -743,16 +743,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 await _historyEmpSvc.AddNew(historyEmp);
 
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Cập nhật chức danh thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Cập nhật chức danh thành công !!";
                 return RedirectToAction("ListPosition");
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Cập nhật chức danh bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Cập nhật chức danh bị lỗi!!";
                 return RedirectToAction("Index");
             }
         }
@@ -771,16 +771,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Thêm vai trò thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Thêm vai trò thành công !!";
                 return RedirectToAction("ListRole");
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Thêm vai trò bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Thêm vai trò bị lỗi!!";
                 return RedirectToAction("ListRole");
             }
         }
@@ -794,9 +794,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Cập nhật vai trò bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Cập nhật vai trò bị lỗi!!";
                 return RedirectToAction("Index");
             }
         }
@@ -815,16 +815,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Cập nhật vai trò thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Cập nhật vai trò thành công !!";
                 return RedirectToAction("ListRole");
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Cập nhật vai trò bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Cập nhật vai trò bị lỗi!!";
                 return RedirectToAction("Index");
             }
         }
@@ -851,9 +851,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 else
                 {
                     //báo lỗi ko tải lên file ảnh
-                    TempData["SwalMessageType"] = "error";
-                    TempData["SwalMessageIcon"] = "error";
-                    TempData["SwalMessageTitle"] = "Tải lên file ảnh bị lỗi!!";
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Tải lên file ảnh bị lỗi!!";
                     RedirectToAction("AddEmpAccount");
                 }
             }
@@ -870,16 +870,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Cập nhật bản thân thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Cập nhật bản thân thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Cập nhật bản thân bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Cập nhật bản thân bị lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -900,9 +900,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (fileCount == 5)
                 {
                     //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
-                    TempData["SwalMessageType"] = "error";
-                    TempData["SwalMessageIcon"] = "error";
-                    TempData["SwalMessageTitle"] = "Xóa 1 ảnh để có thể thêm mới!!";
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Xóa 1 ảnh để có thể thêm mới!!";
                     return RedirectToAction("Index", "Verify");
                 }
             }
@@ -947,9 +947,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 //tt hết slot chữ ký
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Đã hết lượt thêm chữ ký!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Đã hết lượt thêm chữ ký!!";
                 return View("Index");
             }
 
@@ -968,16 +968,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Tạo chữ ký thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Tạo chữ ký thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Tạo chữ ký bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Tạo chữ ký bị lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -996,9 +996,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (fileCount == 5)
                 {
                     //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
-                    TempData["SwalMessageType"] = "error";
-                    TempData["SwalMessageIcon"] = "error";
-                    TempData["SwalMessageTitle"] = "Xóa 1 ảnh để có thể thêm mới!!";
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Xóa 1 ảnh để có thể thêm mới!!";
                     return RedirectToAction("Index", "Verify");
                 }
             }
@@ -1038,9 +1038,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     else
                     {
                         //tt hết slot chữ ký
-                        TempData["SwalMessageType"] = "error";
-                        TempData["SwalMessageIcon"] = "error";
-                        TempData["SwalMessageTitle"] = "Đã hết lượt thêm chữ ký!!";
+                        TempData["SweetType"] = "error";
+                        TempData["SweetIcon"] = "error";
+                        TempData["SweetTitle"] = "Đã hết lượt thêm chữ ký!!";
                         return View("Index");
                     }
                 }
@@ -1059,16 +1059,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SwalMessageType"] = "success";
-                TempData["SwalMessageIcon"] = "success";
-                TempData["SwalMessageTitle"] = "Cập nhật chữ ký thành công !!";
+                TempData["SweetType"] = "success";
+                TempData["SweetIcon"] = "success";
+                TempData["SweetTitle"] = "Cập nhật chữ ký thành công !!";
                 return RedirectToAction("Index");
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Cập nhật chữ ký bị lỗi!!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Cập nhật chữ ký bị lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -1096,35 +1096,35 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                         };
                         await _historyEmpSvc.AddNew(historyEmp);
 
-                        TempData["SwalMessageType"] = "success";
-                        TempData["SwalMessageIcon"] = "success";
-                        TempData["SwalMessageTitle"] = "Lưu mộc đóng dấu thành công !!";
+                        TempData["SweetType"] = "success";
+                        TempData["SweetIcon"] = "success";
+                        TempData["SweetTitle"] = "Lưu mộc đóng dấu thành công !!";
                         return RedirectToAction("Index");
                     }
                     else
                     {
                         _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, imagePath));
-                        TempData["SwalMessageType"] = "error";
-                        TempData["SwalMessageIcon"] = "error";
-                        TempData["SwalMessageTitle"] = "Lưu mộc đóng dấu bị lỗi!!";
+                        TempData["SweetType"] = "error";
+                        TempData["SweetIcon"] = "error";
+                        TempData["SweetTitle"] = "Lưu mộc đóng dấu bị lỗi!!";
                         return RedirectToAction("Index", "Verify");
                     }
                 }
                 else
                 {
                     // ko phải file ảnh
-                    TempData["SwalMessageType"] = "warning";
-                    TempData["SwalMessageIcon"] = "warning";
-                    TempData["SwalMessageTitle"] = "Hãy chọn file ảnh!!";
+                    TempData["SweetType"] = "warning";
+                    TempData["SweetIcon"] = "warning";
+                    TempData["SweetTitle"] = "Hãy chọn file ảnh!!";
                     return RedirectToAction("Index", "Verify");
                 }
             }
             else
             {
                 // chưa up ảnh
-                TempData["SwalMessageType"] = "warning";
-                TempData["SwalMessageIcon"] = "warning";
-                TempData["SwalMessageTitle"] = "Bạn chưa tải ảnh lên!!";
+                TempData["SweetType"] = "warning";
+                TempData["SweetIcon"] = "warning";
+                TempData["SweetTitle"] = "Bạn chưa tải ảnh lên!!";
                 return RedirectToAction("Index");
             }
         }

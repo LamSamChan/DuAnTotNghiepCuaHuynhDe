@@ -155,9 +155,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SwalMessageType"] = "error";
-                TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Đăng nhập không thành công !!";
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Đăng nhập không thành công !!";
                 return RedirectToAction("Index");
             }
         }
@@ -182,6 +182,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             HttpContext.Session.Remove(SessionKey.PedningContract.PContractID);
             HttpContext.Session.Remove(SessionKey.PedningMinute.PMinuteID);
 
+
+            TempData["SweetType"] = "error";
+            TempData["SweetIcon"] = "error";
+            TempData["SweetTitle"] = "Đăng xuất thành công !!";
             return RedirectToAction("Index");
         }
     }

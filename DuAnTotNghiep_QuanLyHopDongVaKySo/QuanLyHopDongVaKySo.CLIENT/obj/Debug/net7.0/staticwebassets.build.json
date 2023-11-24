@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Qgg7IitPOM8u+9X+9c34KICyLxJXZz40Ss0gajYBmPU=",
+  "Hash": "/CFaOfo/JycQBpF58QJWN8+lD2q91+xTvQFeVJJ0fVI=",
   "Source": "QuanLyHopDongVaKySo.CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
   "Mode": "Default",
@@ -30848,23 +30848,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Avatars\\1.png"
-    },
-    {
-      "Identity": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\2.jpg",
-      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
-      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
-      "RelativePath": "Avatars/2.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Avatars\\2.jpg"
     },
     {
       "Identity": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\2b25b93d.jpeg",
