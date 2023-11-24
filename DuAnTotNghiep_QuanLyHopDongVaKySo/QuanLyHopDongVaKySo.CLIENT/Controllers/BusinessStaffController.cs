@@ -171,7 +171,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
                     API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                     {
-                        OperationName = $"{employeeDoing.FullName} đã thay đổi mật khẩu cá nhân.",
+                        OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã thay đổi mật khẩu cá nhân.",
                         EmployeeID = employeeDoing.EmployeeId
                     };
                     await _historyEmpSvc.AddNew(historyEmp);
@@ -215,7 +215,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 var customer = await _customerService.GetCustomerById(pContract.CustomerId.ToString());
                 API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
-                    OperationName = $"{employeeDoing.FullName} đã tạo hợp đồng cho khách hàng {customer.FullName} - ID: {customer.CustomerId.ToString().Substring(0,8)}.",
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã tạo hợp đồng cho khách hàng {customer.FullName} - ID:{customer.CustomerId.ToString().Substring(0,8)}.",
                     EmployeeID = employeeDoing.EmployeeId
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
@@ -347,7 +347,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
                 API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
-                    OperationName = $"{employeeDoing.FullName} đã thêm 1 khách hàng {customer.FullName}.",
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã thêm 1 khách hàng {customer.FullName}.",
                     EmployeeID = employeeDoing.EmployeeId
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
@@ -433,7 +433,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
                 API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
-                    OperationName = $"{employeeDoing.FullName} đã thêm 1 mẫu hợp đồng - {tContract.TContractName}.",
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã thêm 1 mẫu hợp đồng - {tContract.TContractName}.",
                     EmployeeID = employeeDoing.EmployeeId
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
@@ -468,10 +468,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
                 API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
-                    OperationName = $"{employeeDoing.FullName} đã chỉnh sửa cấu hình 1 mẫu hợp đồng - {tContract.TContractName}.",
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã chỉnh sửa cấu hình 1 mẫu hợp đồng - {tContract.TContractName}.",
                     EmployeeID = employeeDoing.EmployeeId
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
+
                 return RedirectToAction("ListContractFormPage");
             }
             else return RedirectToAction("Index");
@@ -495,7 +496,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
                 API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
-                    OperationName = $"{employeeDoing.FullName} đã xoá 1 mẫu hợp đồng - {tContract.Result.TContractName}.",
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã xoá 1 mẫu hợp đồng - {tContract.Result.TContractName}.",
                     EmployeeID = employeeDoing.EmployeeId
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
@@ -545,7 +546,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
                 API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
-                    OperationName = $"{employeeDoing.FullName} đã cập nhật cấu hình 1 mẫu biên bản - {tMinute.TMinuteName}.",
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã cập nhật cấu hình 1 mẫu biên bản - {tMinute.TMinuteName}.",
                     EmployeeID = employeeDoing.EmployeeId
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
@@ -596,7 +597,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
                 API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
-                    OperationName = $"{employeeDoing.FullName} đã thêm 1 mẫu biên bản - {tMinute.TMinuteName}.",
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã thêm 1 mẫu biên bản - {tMinute.TMinuteName}.",
                     EmployeeID = employeeDoing.EmployeeId
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
@@ -629,7 +630,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
                 API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
-                    OperationName = $"{employeeDoing.FullName} đã xoá 1 mẫu biên bản.",
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã xoá 1 mẫu biên bản.",
                     EmployeeID = employeeDoing.EmployeeId
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
@@ -795,6 +796,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var customer = await _customerService.GetCustomerByIdPut(respone);
             if (customer != null)
             {
+
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã cập nhật thông tin khách hàng {putCustomer.FullName}  - ID:{putCustomer.CustomerId.ToString().Substring(0,8)}.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
                 TempData["SweetTitle"] = "Cập nhật thành công !!";
@@ -810,9 +821,28 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-        public IActionResult HistoryOperation()
+        public async Task<IActionResult> HistoryOperation()
         {
-            return View();
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var employee = JsonConvert.DeserializeObject<Employee>(empContext);
+
+            var respone = await _historyEmpSvc.GetListById(employee.EmployeeId.ToString());
+
+            foreach (var name in respone)
+            {
+                name.OperationName = name.OperationName.Replace($"{employee.FullName} - ID:{employee.EmployeeId.ToString().Substring(0, 8)}", "Bạn");
+            }
+
+            if (respone != null)
+            {
+                return View(respone);
+            }
+            else
+            {
+                //báo lỗi
+                return View();
+            }
+
         }
 
         public IActionResult SendMail()
@@ -849,6 +879,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (respone != null || employee.FullName == null)
             {
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã cập nhật thông tin cá nhân.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
                 TempData["SweetTitle"] = "Cập nhật thành công !!";
@@ -934,6 +973,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã tạo 1 chữ ký cá nhân.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 return RedirectToAction("Index");
             }
             else
@@ -1005,6 +1053,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã tải lên 1 chữ ký cá nhân.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
                 TempData["SweetTitle"] = "Cập nhật thành công !!";
@@ -1055,6 +1112,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             if (result != null)
             {
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã xoá 1 chữ ký cá nhân.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+
                 TempData["SweetType"] = "warning";
                 TempData["SweetIcon"] = "warning";
                 TempData["SweetTitle"] = "Xóa chữ ký thành công !!";

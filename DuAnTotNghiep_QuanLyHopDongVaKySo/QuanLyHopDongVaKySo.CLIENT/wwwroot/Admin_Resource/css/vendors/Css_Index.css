@@ -1,6 +1,15 @@
 ﻿
 /*@import url("ListUser.css");
 */
+#nav-home,
+#nav-profile {
+    width: 100%;
+}
+
+.row{
+    margin: auto;
+}
+
 .otp-container {
     display: flex;
     justify-content: center;
@@ -400,15 +409,6 @@ div[class="overlay"] .row{
     margin: 10px 0;
 }
 
-div[class="row action"] {
-    display: contents;
-    font-size: 20px;
-}
-
-div[class="row action"] a {
-    text-decoration: none;
-    color: #8B909A;
-}
 
 .SearchBox {
     height: 61px;
@@ -634,8 +634,5 @@ div[class="row action"] a {
 }
 /*css - listTable*/
 .listTable {
-    background-color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     min-height: 700px;
-    margin-top: 20px;
 }

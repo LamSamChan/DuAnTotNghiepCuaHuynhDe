@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+<div class="container-fluid">
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Lịch sử thao tác</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">TẤT CẢ LỊCH SỬ</h1>
+    </div>
+    <div class="row bg-whit mt-3 rounded">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="tab-button active " id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Lịch sử thao tác nhân viên</button>
+                <button class="tab-button " id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Lịch sử thao tác khách hàng</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent" style="display:flex;">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                <div class="listTable">
+                    <table class="table">
+                        <thead>
+                            <tr style="color: #8B909A;">
+                                <th scope="col">ID</th>
+                                <th scope="col">NGÀY</th>
+                                <th scope="col">THAO TÁC</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                           @*  @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.HistoryID</th>
+                                    <td>@item.Date</td>
+                                    <td>@item.OperationName</td>
+                                </tr>
+                            } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade show " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                <div class="listTable">
+                    <table class="table">
+                        <thead>
+                            <tr style="color: #8B909A;">
+                                <th scope="col">ID</th>
+                                <th scope="col">NGÀY</th>
+                                <th scope="col">THAO TÁC</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            @*  @foreach (var item in Model)
+                            {
+                            <tr>
+                            <th scope="row">@item.HistoryID</th>
+                            <td>@item.Date</td>
+                            <td>@item.OperationName</td>
+                            </tr>
+                            } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

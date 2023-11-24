@@ -16,8 +16,8 @@ namespace QuanLyHopDongVaKySo_API.Database
         public DbSet<InstallationRequirement> InstallationRequirements { get; set; }
         public DbSet<InstallationDevice> InstallationDevices { get; set; }
 
-        public DbSet<OperationHistoryEmp> OperationHistoryEmps { get; set; }
-        public DbSet<OperationHistoryCus> OperationHistoryCuss { get; set; }
+        public DbSet<OperationHistoryEmp> OperationHistoryEmp { get; set; }
+        public DbSet<OperationHistoryCus> OperationHistoryCus { get; set; }
         public DbSet<PendingContract> PendingContracts { get; set; }
         public DbSet<PendingMinute> PendingMinutes { get; set; }
         public DbSet<PFXCertificate> PFXCertificates { get; set; }
@@ -38,8 +38,8 @@ namespace QuanLyHopDongVaKySo_API.Database
             modelBuilder.Entity<Employee>().ToTable("Employee");
             modelBuilder.Entity<Customer>().ToTable("Customer");
             modelBuilder.Entity<InstallationRequirement>().ToTable("InstallationRequirement");
-            modelBuilder.Entity<OperationHistoryEmp>().ToTable("OperationHistoryEmp");
-            modelBuilder.Entity<OperationHistoryCus>().ToTable("OperationHistoryCus");
+            modelBuilder.Entity<OperationHistoryEmp>().ToTable(tb => tb.HasTrigger("tr_DeleteOldEmpHistoryRecords"));
+            modelBuilder.Entity<OperationHistoryCus>().ToTable(tb => tb.HasTrigger("tr_DeleteOldCusHistoryRecords"));
             modelBuilder.Entity<Employee>().ToTable("Employee");
             modelBuilder.Entity<PendingContract>().ToTable("PendingContract");
             modelBuilder.Entity<PendingMinute>().ToTable("PendingMinute");
@@ -53,7 +53,6 @@ namespace QuanLyHopDongVaKySo_API.Database
             modelBuilder.Entity<MinuteCoordinate>().ToTable("MinuteCoordinate");
             modelBuilder.Entity<InstallationDevice>().ToTable("InstallationDevice");
             modelBuilder.Entity<Stamp>().ToTable("Stamp");
-
         }
 
     }

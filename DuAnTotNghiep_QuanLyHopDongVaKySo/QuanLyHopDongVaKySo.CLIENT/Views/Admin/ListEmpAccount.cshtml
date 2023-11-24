@@ -18,18 +18,13 @@
         <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
         <div class="row justify-content-around">
             <input type="search" class="src" placeholder="Tìm kiếm trong danh sách" />
-            <button class="btn-addRole col-md-2 offset-md-7" type="button">
-                <a asp-action ="AddEmpAccount" asp-controller="Admin">
-                    THÊM NHÂN VIÊN
-                    <i class="ph-bold ph-plus"></i>
-                </a>
-            </button>
+            <a class="button-save col-md-2 offset-md-7" asp-action="AddEmpAccount" asp-controller="Admin">
+                THÊM NHÂN VIÊN
+                <i class="ph-bold ph-plus"></i>
+            </a>
         </div>
     </div>
-    <div class="tab-container">
-        <div class="tab-button active" onclick="showTab('tab1')">Danh sách nhân viên </div>
-    </div>
-    <div class="tab-content active" id="tab1">
+    <div class="row bg-white mt-3 rounded">
         <div class="listTable">
             <table class="table">
                 <thead>
@@ -46,7 +41,7 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    
+
                     @foreach (var emp in Model.Employees)
                     {
                         <tr>
@@ -55,7 +50,7 @@
                                     <a asp-action="EditEmpAccount" asp-controller="Admin" asp-route-empId="@emp.EmployeeId"><i class="ph-bold ph-note-pencil"></i></a>
                                 </div>
                             </td>
-                            <th scope="row">@emp.EmployeeId.ToString().Substring(0,8)</th>
+                            <th scope="row">@emp.EmployeeId.ToString().Substring(0, 8)</th>
                             <td>@emp.FullName</td>
                             <td>@emp.Email</td>
                             <td>@emp.PhoneNumber</td>
@@ -99,29 +94,6 @@
                 </tbody>
             </table>
         </div>
+
     </div>
-
-    
 </div>
-<script>
-    function showTab(tabId) {
-        // Ẩn tất cả các nội dung tab
-        var tabContents = document.querySelectorAll('.tab-content');
-        tabContents.forEach(function (content) {
-            content.classList.remove('active');
-        });
-
-        // Ẩn tất cả các tab-button
-        var tabButtons = document.querySelectorAll('.tab-button');
-        tabButtons.forEach(function (button) {
-            button.classList.remove('active');
-        });
-
-        // Hiển thị nội dung của tab được chọn và làm cho tab-button trở nên active
-        var selectedTab = document.getElementById(tabId);
-        selectedTab.classList.add('active');
-
-        var selectedButton = document.querySelector('[onclick="showTab(\'' + tabId + '\')"]');
-        selectedButton.classList.add('active');
-    }
-</script>

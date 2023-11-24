@@ -2,7 +2,6 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    Console.WriteLine(ViewData["Role"]);
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
@@ -59,7 +58,7 @@
         <div class="menu">
             <ul style="padding-left:10px;">
                 <li>
-                    <a href="#">
+                    <a asp-controller="Verify" asp-action="Logout">
                         <i class="icon ph-bold ph-sign-out"></i>
                         <span class="text">Đăng xuất</span>
                     </a>
@@ -185,7 +184,7 @@ else if (@userRole == "Nhân viên kinh doanh")
         <div class="menu">
             <ul style="padding-left:10px;">
                 <li>
-                    <a href="#">
+                    <a asp-controller="Verify" asp-action="Logout">
                         <i class="icon ph-bold ph-sign-out"></i>
                         <span class="text">Đăng xuất</span>
                     </a>
@@ -251,7 +250,7 @@ else
 
             <ul style="padding-left:10px;">
                 <li>
-                    <a href="#">
+                    <a asp-controller="Verify" asp-action="Logout">
                         <i class="icon ph-bold ph-sign-out"></i>
                         <span class="text">Đăng xuất</span>
                     </a>

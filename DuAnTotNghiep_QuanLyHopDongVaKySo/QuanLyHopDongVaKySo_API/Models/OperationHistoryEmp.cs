@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace QuanLyHopDongVaKySo_API.Models
 {
@@ -22,6 +23,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         [ForeignKey("Employee")]
         public Guid? EmployeeID { get; set; }
 
+        [JsonIgnore]
         public Employee? Employee { get; set; }
     }
 }

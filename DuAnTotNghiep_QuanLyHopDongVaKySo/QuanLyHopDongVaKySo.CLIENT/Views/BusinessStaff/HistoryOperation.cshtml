@@ -1,52 +1,34 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<div class="container-fluid">
-    <div class="header">
-        <div class="SearchBox">
-            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
-                <li>
-                    <div class="Search">
-                        <i class="ph-bold ph-magnifying-glass"></i>
-                        <input type="text" placeholder="Search.." />
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-bell"></i>
-                    </a>
+﻿@model List<QuanLyHopDongVaKySo_API.Models.OperationHistoryEmp>
 
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-moon"></i>
-                    </a>
-                </li>
-                <li>
-                    <img src="o.jpg" />
-                </li>
-            </ul>
-        </div>
+<div class="container-fluid">
+    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Lịch sử thao tác</li>
+            </ol>
+        </nav>
+        <h1 class="typeHead">Tất cả lịch sử thao tác</h1>
     </div>
-    <div class="Table_History">
+    <div class="listTable">
         <table class="table">
             <thead>
-                <tr>
+                <tr style="color: #8B909A;">
                     <th scope="col">ID</th>
-                    <th scope="col">NGÀY THAO TÁC</th>
-                    <th scope="col">NGƯỜI THAO TÁC</th>
-                    <th scope="col">VAI TRÒ</th>
+                    <th scope="col">NGÀY</th>
+                    <th scope="col">THAO TÁC</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td></td>
-                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.HistoryID</th>
+                        <td>@item.Date</td>
+                        <td>@item.OperationName</td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

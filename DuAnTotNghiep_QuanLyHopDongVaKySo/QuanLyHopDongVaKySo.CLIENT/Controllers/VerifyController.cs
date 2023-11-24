@@ -8,6 +8,10 @@ using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo.CLIENT.Constants;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
+using API= QuanLyHopDongVaKySo_API.Models;
+using Azure;
+using QuanLyHopDongVaKySo.CLIENT.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -16,11 +20,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IAuthServices _authServices;
         private readonly IRoleService _roleService;
         private readonly IPasswordService _passwordService;
-        public VerifyController(IAuthServices authServices, IRoleService roleService, IPasswordService passwordService)
+        private readonly IHistoryEmpSvc _historyEmpSvc;
+
+        public VerifyController(IAuthServices authServices, IRoleService roleService, IPasswordService passwordService, IHistoryEmpSvc historyEmpSvc)
         {
             _authServices = authServices;
             _roleService = roleService;
             _passwordService = passwordService;
+            _historyEmpSvc = historyEmpSvc;
         }
         public IActionResult Index()
         {
@@ -65,12 +72,18 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
                 if (role == "Admin")
                 {
+                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    {
+                        OperationName = $"{reponse.FullName} - ID:{reponse.EmployeeId.ToString().Substring(0, 8)} đã đăng nhập vào hệ thống.",
+                        EmployeeID = reponse.EmployeeId
+                    };
+                    await _historyEmpSvc.AddNew(historyEmp);
+
                     TempData["SweetType"] = "success";
                     TempData["SweetIcon"] = "success";
                     TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
                     if (reponse.IsFirstLogin)
                     {
-
                         TempData["SweetType"] = "info";
                         TempData["SweetIcon"] = "info";
                         TempData["SweetTitle"] = "Bạn hãy thay đổi mật khẩu  !!";
@@ -82,6 +95,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 else if (role == "Giám đốc")
                 {
+                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    {
+                        OperationName = $"{reponse.FullName} - ID:{reponse.EmployeeId.ToString().Substring(0, 8)} đã đăng nhập vào hệ thống.",
+                        EmployeeID = reponse.EmployeeId
+                    };
+                    await _historyEmpSvc.AddNew(historyEmp);
+
                     TempData["SweetType"] = "success";
                     TempData["SweetIcon"] = "success";
                     TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
@@ -97,6 +117,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 else if (role =="Nhân viên kinh doanh")
                 {
+                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    {
+                        OperationName = $"{reponse.FullName} - ID:{reponse.EmployeeId.ToString().Substring(0, 8)} đã đăng nhập vào hệ thống.",
+                        EmployeeID = reponse.EmployeeId
+                    };
+                    await _historyEmpSvc.AddNew(historyEmp);
+
                     TempData["SweetType"] = "success";
                     TempData["SweetIcon"] = "success";
                     TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
@@ -112,6 +139,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 else
                 {
+                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    {
+                        OperationName = $"{reponse.FullName} - ID:{reponse.EmployeeId.ToString().Substring(0, 8)} đã đăng nhập vào hệ thống.",
+                        EmployeeID = reponse.EmployeeId
+                    };
+                    await _historyEmpSvc.AddNew(historyEmp);
+
                     TempData["SweetType"] = "success";
                     TempData["SweetIcon"] = "success";
                     TempData["SweetTitle"] = $"Đăng nhập {role} thành công !!";
@@ -130,6 +164,29 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 return RedirectToAction("Index");
             }
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+            API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+            {
+                OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã đăng xuất khỏi hệ thống.",
+                EmployeeID = employeeDoing.EmployeeId
+            };
+            await _historyEmpSvc.AddNew(historyEmp);
+
+            HttpContext.Session.Remove(SessionKey.Employee.EmployeeID);
+            HttpContext.Session.Remove(SessionKey.Employee.EmployeeContext);
+            HttpContext.Session.Remove(SessionKey.Employee.Role);
+            HttpContext.Session.Remove(SessionKey.Customer.CustomerID);
+            HttpContext.Session.Remove(SessionKey.Customer.CustomerContext);
+            HttpContext.Session.Remove(SessionKey.PFXCertificate.Serial);
+            HttpContext.Session.Remove(SessionKey.PedningContract.PContractID);
+            HttpContext.Session.Remove(SessionKey.PedningMinute.PMinuteID);
+
+            return RedirectToAction("Index");
         }
     }
 }

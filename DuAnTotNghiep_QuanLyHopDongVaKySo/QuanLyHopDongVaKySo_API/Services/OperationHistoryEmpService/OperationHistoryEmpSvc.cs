@@ -15,7 +15,7 @@ namespace QuanLyHopDongVaKySo_API.Services.OperationHistoryEmpService
         public async Task<int> AddNew(OperationHistoryEmp oHistoryEmp)
         {
             int isSuccess = 0;
-            _context.OperationHistoryEmps.Add(oHistoryEmp);
+            _context.OperationHistoryEmp.Add(oHistoryEmp);
             await _context.SaveChangesAsync();
             isSuccess = oHistoryEmp.HistoryID;
             return isSuccess;
@@ -25,7 +25,7 @@ namespace QuanLyHopDongVaKySo_API.Services.OperationHistoryEmpService
         {
             try
             {
-                return await _context.OperationHistoryEmps.ToListAsync();
+                return await _context.OperationHistoryEmp.ToListAsync();
             }
             catch (Exception ex)
             {
@@ -38,7 +38,7 @@ namespace QuanLyHopDongVaKySo_API.Services.OperationHistoryEmpService
         {
             try
             {
-                return await _context.OperationHistoryEmps.Where(e => e.EmployeeID == Guid.Parse(emp_ID)).ToListAsync();
+                return await _context.OperationHistoryEmp.Where(e => e.EmployeeID == Guid.Parse(emp_ID)).ToListAsync();
             }
             catch (Exception ex)
             {
