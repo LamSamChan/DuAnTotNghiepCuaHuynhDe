@@ -143,6 +143,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult HistoryOperation()
+        {
+            return View();
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetOTP()

@@ -163,17 +163,32 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListEffect">
+                <a class="nav-link" asp-controller="Director" asp-action="ListContractActive">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Hợp đồng đã duyệt
                 </a>
             </li>
-             <li class="nav-item">
-                <a class="nav-link" asp-controller="Director" asp-action="ListContractActive">
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Director" asp-action="ListContractRefuseToSign">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
+                    </svg> Hợp đồng từ chối
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Director" asp-action="ListContractEffect">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Hợp đồng hoạt động
+                </a>
+            </li>
+            <li class="nav-title">LỊCH SỬ </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Admin" asp-action="HistoryOperation">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-history "></use>
+                    </svg> Lịch sử thao tác
                 </a>
             </li>
             @* <li class="nav-title">GIÁM ĐỐC</li>
