@@ -790,7 +790,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var token = new JwtSecurityToken(
                     claims: claims,
-                    expires: DateTime.Now.AddDays(int.MaxValue),
+                    expires: DateTime.Now.AddYears(10),
                     signingCredentials: creads
                 );
 

@@ -15,25 +15,17 @@
     string folderPathDMinute = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage"); // + thêm ID của minute
 
     string? folderItemDMinute = null;
-    try
+    if (!String.IsNullOrEmpty(Model.DMinuteID))
     {
         folderItemDMinute = System.IO.Path.Combine(folderPathDMinute, Model.DMinuteID.ToString());
     }
-    catch (Exception ex)
+    List<string> imageFilesDMinute = new List<string>();
+    string fileDMinuteNull = "Resource/Image/empty.png";
+    if(folderItemDMinute != null)
     {
-
-        Console.Write(ex.Message);
+        imageFilesDMinute = Directory.GetFiles(folderItemDMinute).ToList();
     }
 
-    string[]? imageFilesDMinute = null;
-    if (folderItemDMinute == null)
-    {
-        imageFilesDMinute[0] = "Resource/Image/empty.png";
-    }
-    else
-    {
-       imageFilesDMinute = Directory.GetFiles(folderItemDMinute);
-    }
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -277,7 +269,7 @@
                                         else
                                         {
                                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                                <img src="~/@imageFilesDMinute[0]" alt="Hình ảnh" width="100%" />
+                                                <img src="~/@fileDMinuteNull" alt="Hình ảnh" width="100%" />
                                             </div>
                                         }
                                     </div>
@@ -323,7 +315,7 @@
                                     else
                                     {
                                     <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                        <img src="~/@imageFilesDMinute[0]" alt="Hình ảnh" width="100%" />
+                                            <img src="~/@fileDMinuteNull" alt="Hình ảnh" width="100%" />
                                     </div>
                                     }
                                 </div>

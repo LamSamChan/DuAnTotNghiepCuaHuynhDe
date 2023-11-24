@@ -12,35 +12,66 @@
     string folderItem = System.IO.Path.Combine(folderPath, Model.PendingContracts.PContractID);
 
     string[] imageFiles = Directory.GetFiles(folderItem);
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
+
 }
 <div class="container-fluid">
-    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item"><a>Quản lý hợp đồng</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Hợp đồng chờ khách ký</li>
-            </ol>
-        </nav>
-        <h1 class="typeHead">DANH SÁCH HỢP ĐỒNG CHỜ KHÁCH KÝ</h1>
-        <div class="row">
-            <button class="col-md-2" style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
-                <a asp-action="ContractListWaitSign" asp-controller="BusinessStaff">
+    @if (userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Nhân viên kinh doanh</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý hợp đồng</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng chờ khách ký</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">DANH SÁCH HỢP ĐỒNG CHỜ KHÁCH KÝ</h1>
+            <div class="row">
+                <a class="col-md-2 button-design" asp-action="ContractListWaitSign" asp-controller="BusinessStaff">
                     <i class="ph-bold ph-arrow-left">
-                        QUAY LẠI
                     </i>
+                    QUAY LẠI
                 </a>
-            </button>
-            <button class="col-md-2 offset-md-7" style="border-radius: 12px;background: rgba(29, 194, 46, 0.58); border:none; color: white;font-weight:bold;">
-                <a>
+                <a class="col-md-2 offset-md-7 button-save">
                     GỬI THÔNG BÁO
                     <i class="ph-bold ph-share-fat"></i>
                 </a>
-            </button>
+            </div>
         </div>
-    </div>
-    <div class="row" style="background-color:#FFFFFF; margin: 20px auto; height:100%; border-radius:16px;">
+
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý hợp đồng</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng chờ khách ký</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">DANH SÁCH HỢP ĐỒNG CHỜ KHÁCH KÝ</h1>
+            <div class="row">
+                <a class="col-md-2 button-design" asp-action="ContractListWaitSign" asp-controller="BusinessStaff">
+                    <i class="ph-bold ph-arrow-left">
+                    </i>
+                    QUAY LẠI
+                </a>
+                <a class="col-md-2 offset-md-7 button-save">
+                    GỬI THÔNG BÁO
+                    <i class="ph-bold ph-share-fat"></i>
+                </a>
+            </div>
+        </div>
+
+    }
+    <div class="row bg-white mt-3 rounded">
         <div class="col-6" style="margin: 20px; border-radius:10px;">
             <div class="showFile">
                 <h4 style="color: #4318FF; font-family:Source Sans Pro; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng chờ khách ký </h4>

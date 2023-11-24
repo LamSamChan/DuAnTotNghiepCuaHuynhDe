@@ -2,28 +2,57 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
+
 <div class="container-fluid">
-    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Danh sách yêu cầu lắp</li>
-            </ol>
-        </nav>
-        <h1 class="typeHead">CHI TIẾT BIÊN BẢN LẮP</h1>
-        <div class="row">
-            <button class="col-md-2" style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
-                <a asp-action="ListInStallRequire" asp-controller="InstallStaff">
+    @if (userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
+
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Nhân viên lắp đặt</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Danh sách yêu cầu lắp</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">CHI TIẾT BIÊN BẢN YÊU CẦU LẮP</h1>
+            <div class="row">
+                <a class="col-md-2 button-design" asp-action="ListInStallRequire" asp-controller="InstallStaff">
                     <i class="ph-bold ph-arrow-left">
                         QUAY LẠI
                     </i>
                 </a>
-            </button>
+            </div>
         </div>
-    </div>
+
+    }
+    else
+    {
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Danh sách yêu cầu lắp</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">CHI TIẾT BIÊN BẢN LẮP</h1>
+            <div class="row">
+                <a class="col-md-2 button-design" asp-action="ListInStallRequire" asp-controller="InstallStaff">
+                    <i class="ph-bold ph-arrow-left">
+                        QUAY LẠI
+                    </i>
+                </a>
+            </div>
+        </div>
+
+    }
     <div class="tab-container">
         <div class="tab-button active" onclick="showTab('tab1')">Thông tin biên bản lắp</div>
         <div class="tab-button" onclick="showTab('tab2')">Thông tin khách hàng</div>

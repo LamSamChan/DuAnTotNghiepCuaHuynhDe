@@ -1,22 +1,47 @@
 ﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListTOS
 @{
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 <div class="container-fluid">
-    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item"><a>Quản lý thiết bị</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Danh sách dịch vụ</li>
-            </ol>
-        </nav>
-        <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
-        <div class="row">
-            <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
+    @if(userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
+
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Nhân viên lắp đặt</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý thiết bị</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Danh sách dịch vụ</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+            <div class="row">
+                <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
+            </div>
         </div>
-    </div>
-    <div class="listTable" style="background-color:white; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); min-height:700px">
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý thiết bị</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Danh sách dịch vụ</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+            <div class="row">
+                <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
+            </div>
+        </div>
+    }
+    <div class="listTable bg-white mt-3 rounded ">
         <table class="table">
             <thead>
                 <tr style="color: #8B909A;">
