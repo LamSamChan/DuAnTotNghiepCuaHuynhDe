@@ -12,44 +12,41 @@
             <ol class="breadcrumb">
                 <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
                 <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item"> <a>Quản lý thông tin ký số</a></li>
                 <li class="breadcrumb-item active" aria-current="page"> Danh sách chứng chỉ</li>
             </ol>
         </nav>
         <h1 class="typeHead">CHI TIẾT CHỨNG CHỈ</h1>
         <div class="row justify-contens-around">
-            <button class="return col-md-2" style="">
-                <a asp-action="ListPFXCertificate" asp-controller="Admin">
-                    <i class="ph-bold ph-arrow-left">
-                        QUAY LẠI
-                    </i>
-                </a>
-            </button>
-            <button class="btn-addRole col-md-2 offset-md-7" type="button">
-                <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@Model.Serial">
-                    GIA HẠN
-                     @if (TempData["SwalMessageType"] != null)
-                    {
-                        <script>
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: "bottom-end",
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                                didOpen: (toast) => {
-                                    toast.onmouseenter = Swal.stopTimer;
-                                    toast.onmouseleave = Swal.resumeTimer;
-                                }
-                            });
-                            Toast.fire({
-                                icon: '@TempData["SwalMessageIcon"]',
-                                title: '@TempData["SwalMessageTitle"]'
-                            });
+            <a class="button-design col-md-2" asp-action="ListPFXCertificate" asp-controller="Admin">
+                <i class="ph-bold ph-arrow-left">
+                    QUAY LẠI
+                </i>
+            </a>
+            <a class="button-save col-md-2 offset-md-8" asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@Model.Serial">
+                GIA HẠN
+                @if (TempData["SwalMessageType"] != null)
+                {
+                    <script>
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "bottom-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.onmouseenter = Swal.stopTimer;
+                                toast.onmouseleave = Swal.resumeTimer;
+                            }
+                        });
+                        Toast.fire({
+                            icon: '@TempData["SwalMessageIcon"]',
+                            title: '@TempData["SwalMessageTitle"]'
+                        });
 
-                        </script>
-                    }
-                </a>
-            </button>
+                    </script>
+                }
+            </a>
         </div>
     </div>
     <div style="margin-top: 40px;">

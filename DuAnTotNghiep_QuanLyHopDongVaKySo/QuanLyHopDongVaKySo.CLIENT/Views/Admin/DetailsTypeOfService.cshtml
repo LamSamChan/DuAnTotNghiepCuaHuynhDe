@@ -45,20 +45,20 @@
             <ol class="breadcrumb">
                 <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
                 <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item"> <a>Quản lý loại dịch vụ và kĩ thuật</a></li>
                 <li class="breadcrumb-item active" aria-current="page"> Danh sách dịch vụ</li>
             </ol>
         </nav>
         <h1 class="typeHead">CHI TIẾT DỊCH VỤ</h1>
         <div class="row justify-contens-around">
-            <button class="return col-md-2" style="">
-                <a asp-action="ListTypeOfService" asp-controller="Admin">
-                    <i class="ph-bold ph-arrow-left">
-                        QUAY LẠI
-                    </i>
-                </a>
-            </button>
-            <button class="btn-addRole col-md-2 offset-md-7" type="button" data-bs-toggle="modal" data-bs-target="#addEquid">
+            <a class="button-design col-md-2" asp-action="ListTypeOfService" asp-controller="Admin">
+                <i class="ph-bold ph-arrow-left">
+                    QUAY LẠI
+                </i>
+            </a>
+            <button class="button-save col-md-2 offset-md-8" type="button" data-bs-toggle="modal" data-bs-target="#addEquid">
                THÊM THIẾT BỊ
+                <i class="ph-bold ph-plus"></i>
             </button>
             <!--modal-->
             <div class="modal fade" id="addEquid" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -69,7 +69,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="AddDeviceAction" asp-controller="Admin">
+                            <form class="row justify-content-around mx-auto my-auto" method="post" asp-action="AddDeviceAction" asp-controller="Admin">
                                 <table class="table">
                                     <thead>
                                         <tr style="color: #8B909A;">
@@ -152,10 +152,8 @@
                         <input class="form-control" required asp-for="@item.TOS_ID" id="tosId_@item.Device_ID">
                     </td>
                     <td>
-                        <button class="add_cus" type="button" onclick="saveDevice('@item.Device_ID')">Lưu</button>
-                    </td>
-                    <td>
-                        <a class="btn btn-danger" style="height: 30px;" asp-action="DelDeviceAction" asp-controller="Admin" asp-route-deviceID="@item.Device_ID">Xoá</a>
+                        <button class="button-save" type="button" onclick="saveDevice('@item.Device_ID')">Lưu</button>
+                        <a class="button-delete" asp-action="DelDeviceAction" asp-controller="Admin" asp-route-deviceID="@item.Device_ID">Xoá</a>
                     </td>
                 </tr>
                 }
@@ -163,7 +161,7 @@
     </table>
     
 </div>
-<script>
+@* <script>
     // Hàm hiển thị message
     function showSuccessMessage() {
         $("#msg_success_filled").ej2Message.show();
@@ -172,4 +170,4 @@
             $("#msg_success_filled").ej2Message.hide();
         }, 5000);
     }
-</script>
+</script> *@

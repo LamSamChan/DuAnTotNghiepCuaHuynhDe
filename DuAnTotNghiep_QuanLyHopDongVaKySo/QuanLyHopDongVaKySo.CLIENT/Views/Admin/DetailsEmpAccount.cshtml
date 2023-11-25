@@ -8,18 +8,17 @@
             <ol class="breadcrumb">
                 <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
                 <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item"> <a>Quản lý tài khoản người dùng</a></li>
                 <li class="breadcrumb-item active" aria-current="page"> Danh sách nhân viên</li>
             </ol>
         </nav>
         <h1 class="typeHead">CHI TIẾT NHÂN VIÊN</h1>
         <div class="row">
-            <button class="return col-md-2"  style="">
-                <a asp-action="ListEmpAccount" asp-controller="Admin">
-                    <i class="ph-bold ph-arrow-left">
-                        QUAY LẠI
-                    </i>
-                </a>
-            </button>
+            <a class="button-design col-md-2" asp-action="ListEmpAccount" asp-controller="Admin">
+                <i class="ph-bold ph-arrow-left">
+                    QUAY LẠI
+                </i>
+            </a>
         </div>
     </div>
     <div class="tab-container">

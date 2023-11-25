@@ -1,35 +1,63 @@
 ﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMDetailsCus;
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+@{
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
+
+}
 <div class="container-fluid">
-    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item"><a>Quản lý khách hàng</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Danh sách khách hàng</li>
-            </ol>
-        </nav>
-        <h1 class="typeHead">CHI TIẾT KHÁCH HÀNG</h1>
-        <div class="row">
-            <button class="col-md-2" style="border-radius: 12px;background: rgba(44, 168, 221, 0.58); border:none; color: white;font-weight:bold;">
-                <a asp-action="ListCus" asp-controller="BusinessStaff">
+
+
+    @if (userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý tài khoản người dùng</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Danh sách khách hàng</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">CHI TIẾT KHÁCH HÀNG</h1>
+            <div class="row">
+                <a class="col-md-2 button-design" asp-action="ListCus" asp-controller="BusinessStaff">
                     <i class="ph-bold ph-arrow-left">
                         QUAY LẠI
                     </i>
                 </a>
-            </button>
+            </div>
         </div>
-    </div>
+
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý khách hàng</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Danh sách khách hàng</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">CHI TIẾT KHÁCH HÀNG</h1>
+            <div class="row">
+                <a class="col-md-2 button-design" asp-action="ListCus" asp-controller="BusinessStaff">
+                    <i class="ph-bold ph-arrow-left">
+                        QUAY LẠI
+                    </i>
+                </a>
+            </div>
+        </div>
+    }
     <div class="tab-container">
         <div class="tab-button active" onclick="showTab('tab1')">Thông tin chi tiết</div>
         <div class="tab-button" onclick="showTab('tab2')">Danh sách hợp đồng chờ ký</div>
         <div class="tab-button" onclick="showTab('tab3')">Danh sách hợp đồng đã ký</div>
-        <button class="add_cus" style="width:300px; margin: auto 20px;">
-            <a asp-action="CreateFormForCus" asp-controller="BusinessStaff" asp-route-id="@Model.Customer.CustomerId">
-                Tạo hợp đồng
-            </a>
-        </button>
+        <a class="button-save" asp-action="CreateFormForCus" asp-controller="BusinessStaff" asp-route-id="@Model.Customer.CustomerId">
+            Tạo hợp đồng
+        </a>
     </div>
     <div class="tab-content active" id="tab1">
         <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="UpdateInfoCustomer" asp-controller="BusinessStaff">

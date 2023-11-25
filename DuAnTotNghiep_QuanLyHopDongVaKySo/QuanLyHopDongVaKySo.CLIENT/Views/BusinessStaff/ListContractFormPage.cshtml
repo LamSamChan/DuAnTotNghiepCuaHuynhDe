@@ -2,28 +2,63 @@
 
 @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+@{
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
 
+}
 <div class="container-fluid">
-   
-    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Danh sách mẫu hợp đồng</li>
-            </ol>
-        </nav>
-        <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
-        <div class="row">
-            <input type="search" class="src" placeholder="Tìm kiếm khách hàng" />
-            <button class="add_Cus col-md-2 offset-md-7">
-                <a asp-controller="BusinessStaff" asp-action="ContractFormPage">
-                    THÊM MẪU
-                    <i class="ph-bold ph-plus"></i>
-                </a>
-            </button>
+
+
+    @if (userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"> <a>Nhân viên kinh doanh</a></li>
+                    <li class="breadcrumb-item"> <a>Hợp đồng - Biên bản mẫu</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Danh sách mẫu hợp đồng</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+            <div class="row">
+                <input type="search" class="src" placeholder="Tìm kiếm khách hàng" />
+                <button class="add_Cus col-md-2 offset-md-7">
+                    <a asp-controller="BusinessStaff" asp-action="ContractFormPage">
+                        THÊM MẪU
+                        <i class="ph-bold ph-plus"></i>
+                    </a>
+                </button>
+            </div>
         </div>
-    </div>
+
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"> <a>Hợp đồng - Biên bản mẫu</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Danh sách mẫu hợp đồng</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+            <div class="row">
+                <input type="search" class="src" placeholder="Tìm kiếm khách hàng" />
+                <button class="add_Cus col-md-2 offset-md-7">
+                    <a asp-controller="BusinessStaff" asp-action="ContractFormPage">
+                        THÊM MẪU
+                        <i class="ph-bold ph-plus"></i>
+                    </a>
+                </button>
+            </div>
+        </div>
+    }
     <div class="listTable">
         <table class="table">
             <thead>
