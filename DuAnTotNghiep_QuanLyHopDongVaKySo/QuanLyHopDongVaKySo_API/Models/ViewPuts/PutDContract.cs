@@ -10,7 +10,6 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column("Id")]
         public string DContractID { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
         [Display(Name = "Ngày hoàn thành")]
         public DateTime DateDone { get; set; }
 

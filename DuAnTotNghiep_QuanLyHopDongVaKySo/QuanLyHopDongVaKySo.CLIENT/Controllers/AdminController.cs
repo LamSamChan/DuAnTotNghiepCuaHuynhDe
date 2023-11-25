@@ -1076,7 +1076,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<ActionResult> UploadStampImage(VMAdminIndex vm)
         {
             var temp = vm.Stamp.ImageFile;
-
             if (temp != null)
             {
                 if (temp.ContentType.StartsWith("image/"))
@@ -1106,7 +1105,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                         _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, imagePath));
                         TempData["SweetType"] = "error";
                         TempData["SweetIcon"] = "error";
-                        TempData["SweetTitle"] = "Lưu mộc đóng dấu bị lỗi!!";
+                        TempData["SweetTitle"] = "Hiện tại đang có dấu mộc tồn tại hãy xoá để có thể tải ảnh mộc mới!!";
                         return RedirectToAction("Index", "Verify");
                     }
                 }

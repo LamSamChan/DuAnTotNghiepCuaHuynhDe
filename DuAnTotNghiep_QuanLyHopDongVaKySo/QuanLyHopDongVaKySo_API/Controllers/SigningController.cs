@@ -161,6 +161,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             // Thiết lập font và kích thước cho trường văn bản
             Font font1 = new Font(bf1, 10);
             var contract = await _pendingContract.ExportContract(pContract, director);
+
             foreach (var coordinate in Coordinates)
             {
                 string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
@@ -187,7 +188,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             BaseFont bf2 = BaseFont.CreateFont(@"AppData/texgyretermes-bold.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
             // Thiết lập font và kích thước cho trường văn bản
             Font font2 = new Font(bf2, 15);
-
 
             foreach (var coordinate in Coordinates)
             {
