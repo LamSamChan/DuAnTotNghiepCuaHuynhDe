@@ -50,6 +50,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(await _pMinuteSvc.GetById(int.Parse(id)));
         }
 
+        [HttpGet("Employee/{id}")]
+        public async Task<IActionResult> GetByEmpId(string id)
+        {
+            return Ok(await _pMinuteSvc.GetListByEmpId(id));
+        }
+
         [HttpPost]
         public async Task<IActionResult> GetTaskFormIRequirement([FromBody] PostGetTaskFromIR task)
         {

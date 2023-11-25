@@ -18,6 +18,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.StampService;
 using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.DMinuteServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -60,6 +61,7 @@ builder.Services.AddScoped<IPasswordService, PasswordService>();
 builder.Services.AddScoped<IStampSvc, StampSvc>();
 builder.Services.AddScoped<IHistoryEmpSvc, HistoryEmpSvc>();
 builder.Services.AddScoped<IHistoryCusSvc, HistoryCusSvc>();
+builder.Services.AddScoped<IDMinuteService, DMinuteService>();
 
 
 

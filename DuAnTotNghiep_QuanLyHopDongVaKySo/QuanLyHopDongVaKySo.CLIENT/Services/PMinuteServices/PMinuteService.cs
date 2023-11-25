@@ -19,6 +19,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PMinuteServices
             return response;
         }
 
+        public async Task<List<PendingMinute>> GetByEmpId(string id)
+        {
+            var response = await _httpClient.GetFromJsonAsync<List<PendingMinute>>($"api/PMinute/Employee/{id}");
+            return response;
+        }
+
         public async Task<PendingMinute> GetById(int pMinuteId)
         {
             var response = await _httpClient.GetFromJsonAsync<PendingMinute>($"api/PMinute/{pMinuteId}");
