@@ -28,7 +28,7 @@
                         Từ chối duyệt
                         <span id="countButton" class="badge text-bg-light">0</span>
                     </a>
-                    <!-- Modal -->
+                    @* <!-- Modal --> *@
                     <div class="modal fade" id="RefuseSign" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -37,9 +37,9 @@
                                 </div>
                                 <div class="modal-body">
                                     <form class="row justify-content-around" style=" margin: 0 auto;">
-                                        <div class="form-floating mb-3">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="floatingTextarea2">Lý dô từ chối</label>
                                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                                            <label for="floatingTextarea2">Lý dô từ chối</label>
                                         </div>
                                         <div class="col-mb-5" style="margin: auto;">
                                             <button class="button-save">
@@ -80,7 +80,7 @@
                         <span id="countButton" class="badge text-success">0</span>
                     </a>
                     
-                    <!-- Modal -->
+                    @* <!-- Modal --> *@
                     <div class="modal fade" id="RefuseSign" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -108,43 +108,46 @@
         </div>
 
     }
-    <div class="listTable">
-        <table class="table">
-            <thead>
-                <tr style="color: #8B909A;">
-                    <th> <input type="checkbox" id="checkAll" /></th>
-                    <th scope="col">ID</th>
-                    <th scope="col">EMAIL</th>
-                    <th scope="col">NGÀY ĐĂNG KÝ DỊCH VỤ</th>
-                    <th scope="col">HỌ VÀ TÊN</th>
-                    <th scope="col">LOẠI HỢP ĐỒNG ĐĂNG KÝ</th>
-                    <th scope="col">TRẠNG THÁI</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                @foreach(var item in Model)
-                {
-                    <tr>
-                        <th><input type="checkbox" class="checkBox" /></th>
-                        <td>@item.PContractID</td>
-                        <td>@item.CustomerEmail</td>
-                        <td>@item.DateCreated</td>
-                        <td>@item.CustomerName</td>
-                        <td>@item.TOS_ID</td>
-                        <td>
-                            <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
-                                Chờ duyệt
-                            </div>
-                        </td>
-                        <td>
-                            <a asp-action="DetailsContractAwait" asp-controller="Director" asp-route-pContractId="@item.PContractID">Chi tiết</a>
-                        </td>
+    <div class="row bg-white mt-4 mx-auto my-auto rounded">
+        <div class="listTable">
+            <table class="table">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th> <input type="checkbox" id="checkAll" /></th>
+                        <th scope="col">ID</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">NGÀY ĐĂNG KÝ DỊCH VỤ</th>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">LOẠI HỢP ĐỒNG ĐĂNG KÝ</th>
+                        <th scope="col">TRẠNG THÁI</th>
+                        <th scope="col"></th>
                     </tr>
-                }
+                </thead>
+                <tbody class="table-group-divider">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th><input type="checkbox" class="checkBox" /></th>
+                            <td>@item.PContractID</td>
+                            <td>@item.CustomerEmail</td>
+                            <td>@item.DateCreated</td>
+                            <td>@item.CustomerName</td>
+                            <td>@item.TOS_ID</td>
+                            <td>
+                                <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
+                                    Chờ duyệt
+                                </div>
+                            </td>
+                            <td>
+                                <a asp-action="DetailsContractAwait" asp-controller="Director" asp-route-pContractId="@item.PContractID">Chi tiết</a>
+                            </td>
+                        </tr>
+                    }
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </div>
 <script>

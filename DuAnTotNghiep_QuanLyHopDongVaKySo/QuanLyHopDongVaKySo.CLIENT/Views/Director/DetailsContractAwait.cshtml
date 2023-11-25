@@ -56,10 +56,10 @@
                             </div>
                             <div class="modal-body">
                                 <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="RefuseContract">
-                                    <div class="form-floating mb-3">
+                                    <div class=" mb-3">
+                                        <label class="form-label" for="floatingTextarea2">Lý do từ chối</label>
                                         <input asp-for="PContract.PContractID" class="d-none" />
                                         <textarea asp-for="PContract.Reason" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                                        <label for="floatingTextarea2">Lý do từ chối</label>
                                     </div>
                                     <div class="col-mb-5" style="margin: auto;">
                                         <button class="button-save" type="submit">
@@ -166,10 +166,10 @@
                             </div>
                             <div class="modal-body">
                                 <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="RefuseContract">
-                                    <div class="form-floating mb-3">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="floatingTextarea2">Lý do từ chối</label>
                                         <input asp-for="PContract.PContractID" class="d-none" />
                                         <textarea asp-for="PContract.Reason" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                                        <label for="floatingTextarea2">Lý do từ chối</label>
                                     </div>
                                     <div class="col-mb-5" style="margin: auto;">
                                         <button class="button-save" type="submit">
@@ -243,8 +243,7 @@
         </div>
 
     }
-
-    <div class="row" style="background-color:#FFFFFF; margin: 20px auto; height:100%; border-radius:16px;">
+    <div class="row bg-white mx-auto my-auto rounded mt-4">
         <div class="col-6" style="margin: 20px; border-radius:10px;">
             <div class="showFile">
                 <h4 style="color: #4318FF; font-family:Source Sans Pro; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng đang chờ duyệt </h4>

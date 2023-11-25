@@ -142,6 +142,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult DetailsRefuseToSign()
+        {
+            return View();
+        }
         public async Task<IActionResult> ListContractActive()
         {
             List<VMAPI.PContractViewModel> pContractList = new List<VMAPI.PContractViewModel>();
