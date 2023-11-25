@@ -1,21 +1,46 @@
 ﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListIRequire
 @{
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 <div class="container-fluid">
-    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Danh sách yêu cầu lắp</li>
-            </ol>
-        </nav>
-        <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
-        <div class="row">
-            <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
+    @if(userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Nhân viên lắp đặt</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Danh sách yêu cầu lắp</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+            <div class="row">
+                <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
+            </div>
         </div>
-    </div>
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Danh sách yêu cầu lắp</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+            <div class="row">
+                <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
+            </div>
+        </div>
+
+    }
 
     <div class="listTable_Record mt-4 bg-white" >
         <table class="table">

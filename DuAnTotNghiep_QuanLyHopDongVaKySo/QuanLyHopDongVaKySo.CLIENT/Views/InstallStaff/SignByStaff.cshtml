@@ -17,6 +17,7 @@
         defaultImg = Model.PFXCertificate.DefaultImageSignature.Replace(@"\", @"/");
     }
 
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 <!-- ssss-->
 <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
@@ -27,88 +28,180 @@
 
 
 <div class="container-fluid">
-    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Biên bản đã nhận lắp</li>
-            </ol>
-        </nav>
-        <h1 class="typeHead">KÝ XÁC NHẬN</h1>
-        <div class="row justify-content-around">
-            <a class="col-md-2 button-design" asp-action="ListInStallRecord" asp-controller="InstallStaff">
-                <i class="ph-bold ph-arrow-left">
-                </i>
-                QUAY LẠI
-            </a>
-            <a class="button-design col-md-2" asp-action="SignByCus" asp-route-pMinuteID="@Model.PMinute.PendingMinuteId">
-                    KHÁCH HÀNG KÝ
-             </a>
-            <button class="button-save col-md-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <a>
-                    XÁC NHẬN DUYỆT
+    @if(userRole == "Admin")
+    {
+        Layout = "_AdminLayout"; 
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Nhân viên lắp đặt</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Biên bản đã nhận lắp</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">KÝ XÁC NHẬN</h1>
+            <div class="row justify-content-around">
+                <a class="col-md-2 button-design" asp-action="ListInStallRecord" asp-controller="InstallStaff">
+                    <i class="ph-bold ph-arrow-left">
+                    </i>
+                    QUAY LẠI
                 </a>
-            </button>
-
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">KÝ BIÊN BẢN</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <h5>
-                                Chọn chữ ký khác
-                            </h5>
-                            <ul style="max-height:400px; overflow-y:scroll;">
-                                @if (Model.PFXCertificate.ImageSignature1 != null)
-                                {
-                                    <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")')">
-                                        <img src="~/@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")" width="400" height="200" />
-                                    </li>
-                                }
-                                @if (Model.PFXCertificate.ImageSignature2 != null)
-                                {
-                                    <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")')">
-                                        <img src="~/@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")" width="400" height="200" />
-                                    </li>
-                                }
-                                @if (Model.PFXCertificate.ImageSignature3 != null)
-                                {
-                                    <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")')">
-                                        <img src="~/@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")" width="400" height="200" />
-                                    </li>
-                                }
-                                @if (Model.PFXCertificate.ImageSignature4 != null)
-                                {
-                                    <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")')">
-                                        <img src="~/@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")" width="400" height="200" />
-                                    </li>
-                                }
-                                @if (Model.PFXCertificate.ImageSignature5 != null)
-                                {
-                                    <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")')">
-                                        <img src="~/@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")" width="400" height="200" />
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-primary" id="button2" disabled onclick="signWithSelectedImg()">
-                                KÝ
-                            </button>
-                            <button class="button-save" id="button1" onclick="signWithDefaultImg()">
-                                KÝ BẰNG CHỮ KÝ MẶT ĐỊNH
-                            </button>
+                <div class="col-md-3 offset-md-6 d-flex justify-content-end">
+                    <a class="button-design col-md-2" asp-action="SignByCus" asp-route-pMinuteID="@Model.PMinute.PendingMinuteId">
+                        CHUYỂN VÙNG KHÁCH KÝ
+                    </a>
+                    <a class="button-save col-md-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        KÝ XÁC NHẬN
+                    </a>
+                </div>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">KÝ BIÊN BẢN</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>
+                                    Chọn chữ ký khác
+                                </h5>
+                                <ul style="max-height:400px; overflow-y:scroll;">
+                                    @if (Model.PFXCertificate.ImageSignature1 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")" width="400" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature2 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")" width="400" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature3 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")" width="400" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature4 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")" width="400" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature5 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")" width="400" height="200" />
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" id="button2" disabled onclick="signWithSelectedImg()">
+                                    KÝ
+                                </button>
+                                <button class="button-save" id="button1" onclick="signWithDefaultImg()">
+                                    KÝ BẰNG CHỮ KÝ MẶT ĐỊNH
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Biên bản đã nhận lắp</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">KÝ XÁC NHẬN</h1>
+            <div class="row justify-content-around">
+                <a class="col-md-2 button-design" asp-action="ListInStallRecord" asp-controller="InstallStaff">
+                    <i class="ph-bold ph-arrow-left">
+                    </i>
+                    QUAY LẠI
+                </a>
+                <div class="col-md-3 offset-md-6 d-flex justify-content-end">
+                    <a class="button-design col-md-2" asp-action="SignByCus" asp-route-pMinuteID="@Model.PMinute.PendingMinuteId">
+                        CHUYỂN VÙNG KHÁCH KÝ
+                    </a>
+                    <a class="button-save col-md-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        KÝ XÁC NHẬN
+                    </a>
+                </div>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">KÝ BIÊN BẢN</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>
+                                    Chọn chữ ký khác
+                                </h5>
+                                <ul style="max-height:400px; overflow-y:scroll;">
+                                    @if (Model.PFXCertificate.ImageSignature1 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")" width="400" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature2 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")" width="400" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature3 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")" width="400" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature4 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")" width="400" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature5 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")" width="400" height="200" />
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" id="button2" disabled onclick="signWithSelectedImg()">
+                                    KÝ
+                                </button>
+                                <button class="button-save" id="button1" onclick="signWithDefaultImg()">
+                                    KÝ BẰNG CHỮ KÝ MẶT ĐỊNH
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
     <div class="row mt-4 bg-white rounded">
         <div class="col-6 bg-white" style="min-width: 800px;">
             <div id="myCarousel" class="carousel slide" style="width: 100%; height:100%;">

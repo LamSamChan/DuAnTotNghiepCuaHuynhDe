@@ -240,8 +240,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbFN0YWZmXENoYW5nZVBhc3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/InstallStaff/DetailsInstall.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbFN0YWZmXERldGFpbHNJbnN0YWxsLmNzaHRtbA==
+[C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/InstallStaff/DetailsInstallAwait.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbFN0YWZmXERldGFpbHNJbnN0YWxsQXdhaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/InstallStaff/DetailsInstallComplete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbFN0YWZmXERldGFpbHNJbnN0YWxsQ29tcGxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/InstallStaff/DetailsRequire.cshtml]

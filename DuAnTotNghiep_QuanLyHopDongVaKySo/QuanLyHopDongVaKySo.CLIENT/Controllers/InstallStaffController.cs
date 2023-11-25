@@ -254,16 +254,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
 
-        public IActionResult ListDevice()
+        public IActionResult DetailsInstallComplete()
         {
             return View();
         }
 
-        public IActionResult DetailsDevice()
+        public IActionResult DetailsInstallAwait()
         {
             return View();
         }
-
+    
         public async Task<IActionResult> Index()
         {
             if (IsAuthenticate == 4)
@@ -339,10 +339,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-        public IActionResult DetailsInstall()
-        {
-            return View();
-        }
+      
 
         public async Task<IActionResult> ListInstallRecord()
         {

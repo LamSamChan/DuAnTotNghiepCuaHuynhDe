@@ -1,162 +1,337 @@
-﻿@{
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMDetailsContractAwait
+
+@using Microsoft.AspNetCore.Hosting
+@inject IWebHostEnvironment _hostingEnvironment
+
+@{
+    // Lấy link trực ảnh từ file tỉnh
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+
+    string folderItem = System.IO.Path.Combine(folderPath, Model.PContract.PContractID);
+
+    string[] imageFiles = Directory.GetFiles(folderItem);
+
+    string defaultImg = null;
+    if (Model.PFXCertificate.DefaultImageSignature != null)
+    {
+        defaultImg = Model.PFXCertificate.DefaultImageSignature.Replace(@"\", @"/");
+    }
+
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
+
 <div class="container-fluid">
-    <div class="header">
-        <div class="SearchBox">
-            <ul class="horizontal-list" style="list-style: none; display:flex; padding: 0.5rem;">
-                <li>
-                    <div class="Search">
-                        <i class="ph-bold ph-magnifying-glass"></i>
-                        <input type="text" placeholder="Search.." />
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-bell"></i>
+    @if (userRole == "Admin")
+    {
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"> <a>Giám đốc</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng chờ duyệt </li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">CHI TIẾT HỢP ĐỒNG </h1>
+            <div class="row justify-content-between">
+                <a class="col-md-2 button-design" asp-action="ListContractAwait" asp-controller="Director">
+                    <i class="ph-bold ph-arrow-left">
+                    </i>
+                    QUAY LẠI
+                </a>
+                <div class="col-md-3 offset-md-6 d-flex justify-content-end">
+                    <a class="button-save" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Duyệt
                     </a>
-
-                </li>
-                <li>
-                    <a>
-                        <i class="ph-bold ph-moon"></i>
+                    <a class="button-delete" data-bs-toggle="modal" data-bs-target="#RefuseSign">
+                        Từ chối duyệt
                     </a>
-                </li>
-                <li>
-                    <img src="o.jpg" />
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="row justify-content-around" style="margin-top: 100px;">
-        <div class="col-md-5">
-            <div class="box1">
-                <form class="row justify-content-between g-3 " style=" margin: 0 auto;" method="post">
-                    <div class="col-md-6">
-                        <label class="form-label">Họ và tên</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="Họ và tên">
-                        <span class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Năm sinh</label>
-                        <input type="date" class="form-control" id="inputName">
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="inputName" class="form-label">Số điện thoại</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="Họ và tên">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputGender" class="form-label">Giới tính</label>
-                        <select id="inputGender" class="form-select">
-                            <option selected>Nam</option>
-                            <option>Nữ</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="abc@gmail.com">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputCCCD" class="form-label">Giấy ủy quyền</label>
-                        <input type="text" class="form-control" id="inputCCCD" placeholder="CCCD/CMND">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Ngày ủy quyền</label>
-                        <input type="date" class="form-control" id="inputDateStart">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">Người ủy quyền</label>
-                        <input type="date" class="form-control" id="inputDateEnd">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Email</label>
-                        <input type="date" class="form-control" id="inputDateStart">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">FAX</label>
-                        <input type="date" class="form-control" id="inputDateEnd">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">CCCD/CMND</label>
-                        <input type="date" class="form-control" id="inputDateStart">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">Ngày cấp</label>
-                        <input type="date" class="form-control" id="inputDateEnd">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Nơi cấp</label>
-                        <input type="date" class="form-control" id="inputDateStart">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputNational" class="form-label">Quốc tịch</label>
-                        <select id="inputNational" class="form-select">
-                            <option selected>Việt Nam</option>
-                            <option>...</option>
-                        </select>
-                    </div>
-                </form>
+                </div>
+               
             </div>
-        </div>
-        <div class="col-md-5">
-            <div class="box2">
-                <form class="row justify-content-between g-3" style=" margin: 0 auto;">
-                    <div class="col-md-6">
-                        <label for="inputTaxCode" class="form-label">Số tài khoản</label>
-                        <input type="text" class="form-control" id="inputTaxCode" placeholder="123145xxx2132">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputAddress2" class="form-label">Ngân hàng</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputPass" class="form-label">Mã số thuế</label>
-                        <input type="password" class="form-control" id="inputPass" placeholder="******">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputPass" class="form-label">Địa chỉ báo cước</label>
-                        <input type="password" class="form-control" id="inputPass" placeholder="******">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputCertificate" class="form-label">Địa chỉ xuất hóa đơn</label>
-                        <input type="text" class="form-control" id="inputCertificate" placeholder="12313">
-                    </div>
-                    <div class="col-12">
-                        <input type="checkbox" id="disable-checkbox"> khách hàng doanh nghiệp
-                        <div class="content row " style="margin-top:10px;">
-                            <div class="col-md-5" style="margin:0 auto;">
-                                <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
-                                <input type="text" class="form-control" id="inputNameBuss">
-                            </div>
-                            <div class="col-md-5" style="margin:0 auto;">
-                                <label for="inputPosition" class="form-label">Chức vụ</label>
-                                <input type="text" class="form-control" id="inputPosition">
-                            </div>
+            <div class="modal fade" id="RefuseSign" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="RefuseContract">
+                                <div class="form-floating mb-3">
+                                    <input asp-for="PContract.PContractID" class="d-none" />
+                                    <textarea asp-for="PContract.Reason" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Lý do từ chối</label>
+                                </div>
+                                <div class="col-mb-5" style="margin: auto;">
+                                    <button class="button-save" type="submit">
+                                        Xác nhận
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Hoạt động</label>
-                        <input type="date" class="form-control" id="inputDateStart">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">Ghi chú</label>
-                        <input type="date" class="form-control" id="inputDateEnd">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Số chứng chỉ Seri</label>
-                        <input type="date" class="form-control" id="inputDateStart">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">Mã loại khách hàng</label>
-                        <input type="date" class="form-control" id="inputDateEnd">
-                    </div>
-                    <div class="col-md-5" style="margin: 40px auto;">
-                        <button class="add_cus" type="submit">
-                            THÊM KHÁCH HÀNG
-                        </button>
-                    </div>
-                </form>
+                </div>
             </div>
+
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">DUYỆT HỢP ĐỒNG</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h5>
+                                Chọn chữ ký khác
+                            </h5>
+                            <ul style="max-height:400px; overflow-y:scroll;">
+                                @if (Model.PFXCertificate.ImageSignature1 != null)
+                                {
+                                    <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")')">
+                                        <img src="~/@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")" width="400" height="200" />
+                                    </li>
+                                }
+                                @if (Model.PFXCertificate.ImageSignature2 != null)
+                                {
+                                    <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")')">
+                                        <img src="~/@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")" width="400" height="200" />
+                                    </li>
+                                }
+                                @if (Model.PFXCertificate.ImageSignature3 != null)
+                                {
+                                    <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")')">
+                                        <img src="~/@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")" width="400" height="200" />
+                                    </li>
+                                }
+                                @if (Model.PFXCertificate.ImageSignature4 != null)
+                                {
+                                    <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")')">
+                                        <img src="~/@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")" width="400" height="200" />
+                                    </li>
+                                }
+                                @if (Model.PFXCertificate.ImageSignature5 != null)
+                                {
+                                    <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")')">
+                                        <img src="~/@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")" width="400" height="200" />
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" id="button2" disabled onclick="signWithSelectedImg()">
+                                DUYỆT
+                            </button>
+                            <button class="button-save" id="button1" onclick="signWithDefaultImg()">
+                                DUYỆT BẰNG CHỮ KÝ MẶC ĐỊNH
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+    }
+    <div class="row" style="background-color:#FFFFFF; margin: 20px auto; height:100%; border-radius:16px;">
+        <div class="col-6" style="margin: 20px; border-radius:10px;">
+            <div class="showFile">
+                <h4 style="color: #4318FF; font-family:Source Sans Pro; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng đang chờ duyệt </h4>
+                <div id="myCarousel" class="carousel slide" style="margin: 0px 50px 20px 50px; width: 500px;height: 750px; background-color:#FFFF;">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active " style="width:800px;">
+                            <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" style="margin:100px auto;" />
+                        </div>
+                        @foreach (var imgPath in imageFiles)
+                        {
+                            <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                <img src="@Url.Content("~/ContractImage/"+@Model.PContract.PContractID+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                            </div>
+                        }
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
+                        <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="inforCus col-5 mt-4" style="max-height:800px; overflow-y: scroll; ">
+            <h4 style="color: #4318FF;font-family: Source Sans Pro;">
+                Thông tin khách hàng
+            </h4>
+            <form class="row g-3" style="max-width:950px;">
+                <div class="col-md-6">
+                    <label for="inputName" class="form-label">Họ và tên</label>
+                    <input type="text" class="form-input" id="inputName" placeholder="Họ và tên" readonly asp-for="Customer.FullName">
+                </div>
+                <div class="col-md-3">
+                    <label for="inputState" class="form-label">Giới tính</label>
+                    @if (Model.Customer.Gender == 1)
+                    {
+                        <input type="text" class="form-input" id="inputName" readonly value="Nam">
+                    }
+                    else
+                    {
+                        <input type="text" class="form-input" id="inputName" readonly value="Nữ">
+                    }
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCCCD" class="form-label">CCCD/CMND</label>
+                    <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND" readonly asp-for="Customer.Identification">
+                </div>
+                <div class="col-md-5">
+                    <label for="inputPhone" class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại" readonly asp-for="Customer.PhoneNumber">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
+                    <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email" readonly asp-for="Customer.Email">
+                </div>
+                <div class="col-md-5">
+                    <label for="inputAddress" class="form-label">Nơi ở</label>
+                    <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở" readonly asp-for="Customer.Address">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
+                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" readonly asp-for="PContract.PContractID">
+                </div>
+                <div class="col-md-5">
+                    <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
+                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" readonly asp-for="PContract.TOS_ID">
+
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Ngày tạo</label>
+                    <input class="form-input" id="inputEmail4" placeholder="IDxxx" readonly asp-for="PContract.DateCreated">
+                </div>
+                <div class="col-md-5">
+                    <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
+                    <input class="form-input" id="inputEmail4" placeholder="IDxxx" readonly asp-for="PContract.PContractID">
+
+                </div>
+
+                <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
+                    Thông tin nhân viên tạo hợp đồng
+                </h4>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Mã nhân viên</label>
+                    <input type="text" class="form-input" id="inputEmail4" readonly asp-for="EmployeeCreated.EmployeeId">
+                </div>
+                <div class="col-md-5">
+                    <label for="inputAddress" class="form-label">Họ và tên</label>
+                    <input type="text" class="form-input" id="inputEmail4" readonly asp-for="EmployeeCreated.FullName">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="text" class="form-input" id="inputEmail4" readonly asp-for="EmployeeCreated.Email">
+                </div>
+                <div class="col-md-5">
+                    <label for="inputAddress" class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-input" id="inputEmail4" readonly asp-for="EmployeeCreated.PhoneNumber">
+                </div>
+            </form>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var imagePath;
+
+    $(document).ready(function () {
+        $('#myCarousel').carousel({
+            interval: false
+        });
+    });
+
+    function enableButton(buttonId, imageContainer, imageSelected) {
+        imagePath = imageSelected;
+
+        // Lấy button và hình ảnh được chọn
+        var button = document.getElementById(buttonId);
+
+        // Loại bỏ thuộc tính disabled nếu hình ảnh được chọn
+        button.removeAttribute('disabled');
+
+        // Loại bỏ lớp 'selected' từ tất cả các hình ảnh khác
+        var allImageContainers = document.querySelectorAll('.image-container');
+        allImageContainers.forEach(function (container) {
+            container.classList.remove('selected');
+        });
+
+        // Thêm lớp 'selected' cho hình ảnh được chọn để tạo hiệu ứng
+        imageContainer.classList.add('selected');
+    }
+
+    function signWithSelectedImg() {
+        var signing = {
+            Serial: '@Model.PFXCertificate.Serial',
+            IdFile: '@Model.PContract.PContractID',
+            Base64StringFile: '',
+            ImagePath: imagePath
+        };
+
+        $.ajax({
+            url: '@Url.Action("SignContract")',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(signing),
+            success: function (result) {
+                if (!result.success) {
+                    // Chuyển hướng tới trang mong muốn
+                    var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+                    window.location.href = redirectToUrl;
+
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Lỗi khi gửi yêu cầu:', error);
+
+                console.log(xhr);
+                // Hiển thị thông báo lỗi
+                alert('Lỗi khi gửi yêu cầu: ' + error);
+            }
+        });
+    }
+
+    var defaultImg = '@Html.Raw(defaultImg)';
+    function signWithDefaultImg() {
+        if (defaultImg == '') {
+            alert("Bạn chưa cài đặc chữ ký mặc định!!")
+        } else {
+            var signingDefault = {
+                Serial: '@Model.PFXCertificate.Serial',
+                IdFile: '@Model.PContract.PContractID',
+                Base64StringFile: '',
+                ImagePath: defaultImg
+            }
+
+            $.ajax({
+                url: '@Url.Action("SignContract")',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(signingDefault),
+                success: function (result) {
+                    if (!result.success) {
+                        // Chuyển hướng tới trang mong muốn
+                        var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+                        window.location.href = redirectToUrl;
+
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu:', error);
+
+                    console.log(xhr);
+                    // Hiển thị thông báo lỗi
+                    alert('Lỗi khi gửi yêu cầu: ' + error);
+                }
+            });
+        }
+
+    }
+
+</script>
+
+
