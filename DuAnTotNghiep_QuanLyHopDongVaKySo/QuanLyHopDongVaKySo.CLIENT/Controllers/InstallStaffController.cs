@@ -26,6 +26,7 @@ using System.Drawing.Imaging;
 using test.Models;
 using API = QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.DMinuteServices;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -51,6 +52,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly ISigningService _signingService;
         private readonly IHistoryEmpSvc _historyEmpSvc;
         private readonly IHistoryCusSvc _historyCusSvc;
+        private readonly IDMinuteService _dMinuteService;
 
 
         private int isAuthenticate;
@@ -111,7 +113,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices, IDContractsService doneContractSvc,
             IPMinuteService pMinuteService, ITOSService tosService, ITMinuteService tMinuteService, IInstallationDevicesService installationDevicesService, ITContractService tContractService,
             IUploadHelper uploadHelper, IPasswordService passwordService, IPdfToImageHelper pdfToImageHelper, ICustomerService customerService, ISigningService signingService,
-            IHistoryEmpSvc historyEmpSvc, IHistoryCusSvc historyCusSvc)
+            IHistoryEmpSvc historyEmpSvc, IHistoryCusSvc historyCusSvc, IDMinuteService dMinuteService)
         {
             _iRequirementService = iRequirementService;
             _hostingEnvironment = hostingEnvironment;
@@ -133,7 +135,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _signingService = signingService;
             _historyEmpSvc = historyEmpSvc;
             _historyCusSvc = historyCusSvc;
-
+            _dMinuteService = dMinuteService;
         }
 
         public IActionResult ChangePass()
@@ -343,10 +345,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> ListInstallRecord()
         {
-            VMListIRequire vm = new VMListIRequire()
+            VMListInstallRecord vm = new VMListInstallRecord()
             {
-                PMinutes = _pMinuteService.GetAll().Result.Where(e => e.EmployeeId.ToString() == EmployeeId).ToList(),
-                DContracts = await _doneContractSvc.getAll()
+                pendingMinutes = await _pMinuteService.GetByEmpId(EmployeeId),
+                DContracts = await _doneContractSvc.getAll(),
+                doneMinutes = await _dMinuteService.GetListByEmpId(EmployeeId)
             };
             return View(vm);
         }

@@ -1,4 +1,4 @@
-﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListIRequire
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListInstallRecord
 
 @{
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
@@ -50,7 +50,7 @@
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            @foreach (var p in Model.PMinutes)
+                            @foreach (var p in Model.pendingMinutes)
                             {
                                 <tr>
                                     <th scope="row">@p.PendingMinuteId</th>
@@ -64,7 +64,10 @@
                                         }
                                     }
                                     <td>
-                                        <!--Trạng thái-->
+                                        <div class="d-flex align-items-center">
+                                            <div style="width: 5px; height: 5px; background-color: #FFCA2C; border-radius: 50%; margin-right: 10px;"></div>
+                                            <span>Đang chờ lắp đặt</span>
+                                        </div>
                                     </td>
                                     <td> <a class="button-save" onclick="confirmDownload('@p.Base64File','@p.MinuteName')"><i class="ph-bold ph-download-simple"></i></a></td>
                                     <td>
@@ -82,34 +85,29 @@
                         <thead>
                             <tr style="color: #8B909A;">
                                 <th scope="col">MÃ BIÊN BẢN</th>
-                                <th scope="col">NGÀY NHẬN</th>
+                                <th scope="col">NGÀY HOÀN THÀNH</th>
                                 <th scope="col">TÊM BIÊN BẢN</th>
-                                <th scope="col">ĐỊA CHỈ LẮP ĐẶT</th>
                                 <th scope="col">TRẠNG THÁI</th>
                                 <th scope="col">BIÊN BẢN</th>
                                 <th scope="col">HOẠT ĐỘNG</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            @foreach (var p in Model.PMinutes)
+                            @foreach (var p in Model.doneMinutes)
                             {
                                 <tr>
-                                    <th scope="row">@p.PendingMinuteId</th>
-                                    <td>@p.DateCreated.ToString("dd/MM/yyyy")</td>
+                                    <th scope="row">@p.DoneMinuteID</th>
+                                    <td>@p.DateDone.ToString("dd/MM/yyyy")</td>
                                     <td>@p.MinuteName</td>
-                                    @foreach (var add in Model.DContracts)
-                                    {
-                                        if (p.DoneContractId == add.DContractID)
-                                        {
-                                            <td>@add.InstallationAddress</td>
-                                        }
-                                    }
                                     <td>
-                                        <!--Trạng thái-->
+                                        <div class="d-flex align-items-center">
+                                            <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                            <span>Đã lắp đặt</span>
+                                        </div>
                                     </td>
                                     <td> <a class="button-save" onclick="confirmDownload('@p.Base64File','@p.MinuteName')"><i class="ph-bold ph-download-simple"></i></a></td>
                                     <td>
-                                        <a asp-action="DetailsInstallComplete" asp-controller="InstallStaff" asp-route-pMinuteID="@p.PendingMinuteId">Chi tiết</a>
+                                        <a asp-action="DetailsInstallComplete" asp-controller="InstallStaff" asp-route-pMinuteID="@p.DoneMinuteID">Chi tiết</a>
                                     </td>
                                 </tr>
                             }
