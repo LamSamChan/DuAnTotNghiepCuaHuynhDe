@@ -244,16 +244,16 @@
                 $("#imgSign").attr("src", "/Signs/" + data);
             },
             error: function (textStatus, errorThrown) {
-                alert("Unable to save signatures : " + JSON.stringify(textStatus) + " : " + errorThrown);
+                if (confirm("Bạn đã ký hoàn tất nhấn \"OK\" để đóng cửa số ")) {
+                    close();
+                }
             }
         });
 
         btnSave.prop('disabled', false);
         //hiển thị thông báo ký thành công và kêu ngta kiểm tra mail để xem hợp đồng
 
-        if (confirm("Bạn đã ký hoàn tất nhấn \"OK\" để đóng cửa số ")) {
-            close();
-        }
+        
 
     }
 

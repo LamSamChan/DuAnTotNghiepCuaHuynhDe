@@ -24,7 +24,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
             {
                 Directory.CreateDirectory(dirPath);
             }
-            string filePath = dirPath + @"\" + file.FileName;
+            string filePath;
+            string[] extension = file.FileName.Split('.');
+            if (category == "StampImage")
+            {
+
+                 filePath = dirPath + @"\" + Guid.NewGuid().ToString().Substring(0,8)+"."+extension[1];
+            }
+
+             filePath = dirPath + @"\" + file.FileName;
 
             if (!File.Exists(filePath))
             {

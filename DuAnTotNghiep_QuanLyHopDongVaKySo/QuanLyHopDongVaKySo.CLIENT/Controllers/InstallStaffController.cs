@@ -415,7 +415,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             signing.ImagePath = null;
             try
             {
-                string fileStamp = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, "StampImage"))[0];
+                string stampPath = Path.Combine(_hostingEnvironment.WebRootPath, "StampImage");
+
+                if (!Directory.Exists(stampPath))
+                {
+                    Directory.CreateDirectory(stampPath);
+                }
+
+                string fileStamp = Directory.GetFiles(stampPath)[0];
                 if (fileStamp == null)
                 {
                     //báo lỗi ko có ảnh mộc
