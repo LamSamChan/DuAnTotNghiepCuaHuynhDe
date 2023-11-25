@@ -1,12 +1,36 @@
-﻿
+﻿@using Newtonsoft.Json;
+@using QuanLyHopDongVaKySo_API.Models;
+
 @model QuanLyHopDongVaKySo_API.Models.TemplateContract
 @{
+
+    SignatureZone customerZone = new SignatureZone();
+    SignatureZone directorZone = new SignatureZone();
+    float xCustomer, yCustomer, xDirector, yDirector;
+    if (Model.jsonCustomerZone != null && Model.jsonDirectorZone != null)
+    {
+        customerZone = JsonConvert.DeserializeObject<SignatureZone>(Model.jsonCustomerZone);
+        directorZone = JsonConvert.DeserializeObject<SignatureZone>(Model.jsonDirectorZone);
+        xCustomer = customerZone.X;
+        yCustomer = customerZone.Y;
+        xDirector = directorZone.X;
+        yDirector = directorZone.Y;
+    }
+    else
+    {
+        xCustomer = 0;
+        yCustomer = 0;
+        xDirector = 0;
+        yDirector = 0;
+    }
+
     string directoryPath = "wwwroot\\TContractImage\\" + Model.TContactID;
     List<string> imagePath = new List<string>();
     int tContractId = Model.TContactID;
     string tContractName = Model.TContractName;
     string? tContractFile = Model.TContractFile;
     imagePath = Directory.GetFiles(directoryPath).ToList();
+
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <link href="~/php/style.css" rel="stylesheet" />
@@ -28,11 +52,11 @@
         <h6 class="typeHead">Mã hợp đồng:_ @Model.TContactID</h6>
     </div>
     <div style="display: flex; justify-content: space-evenly; gap: 20px;">
-        <button id="addDirectorSignatureButton" class="button-22">
+        <button id="addDirectorSignatureButton" class="button-22 d-none">
             Thêm vùng ký Giám đốc (ĐỎ)
         </button>
         <button id="getCoordinatesButton" class="number">Lưu</button>
-        <button id="addCustomerSignatureButton" class="button-22">
+        <button id="addCustomerSignatureButton" class="button-22 d-none">
             Thêm vùng ký Khách hàng (XANH)
         </button>
     </div>
@@ -164,47 +188,137 @@
 
         const strokeColor = role === "Director" ? "red" : "blue";
         const labelText = role === "Director" ? "Giám đốc" : "Khách hàng";
+        if (@Html.Raw(yCustomer) == 0 && @Html.Raw(xCustomer) == 0 && @Html.Raw(yDirector) == 0 && @Html.Raw(xDirector) == 0) {
+            // Create a group to hold the background rectangle and text label
+            const signatureGroup = new Konva.Group({
+                x: 50,
+                y: 50,
+                width: 150,
+                height: 70,
+                draggable: draggable,
+            });
 
-        // Create a group to hold the background rectangle and text label
-        const signatureGroup = new Konva.Group({
-            x: 50,
-            y: 50,
-            width: 150,
-            height: 70,
-            draggable: draggable,
-        });
+            const backgroundRect = new Konva.Rect({
+                width: 150,
+                height: 70,
+                fill: "white", // Set the background color
+                stroke: strokeColor,
+                strokeWidth: 2,
+                dash: [5, 5],
+                draggable: draggable,
+            });
 
-        const backgroundRect = new Konva.Rect({
-            width: 150,
-            height: 70,
-            fill: "white", // Set the background color
-            stroke: strokeColor,
-            strokeWidth: 2,
-            dash: [5, 5],
-            draggable: draggable,
-        });
+            const signatureText = new Konva.Text({
+                width: 150,
+                height: 70,
+                text: labelText,
+                fill: strokeColor,
+                fontSize: 24,
+                align: 'center',
+                verticalAlign: 'middle',
+            });
 
-        const signatureText = new Konva.Text({
-            width: 150,
-            height: 70,
-            text: labelText,
-            fill: strokeColor,
-            fontSize: 24,
-            align: 'center',
-            verticalAlign: 'middle',
-        });
+            // Add the background rectangle and text to the signatureGroup
+            signatureGroup.add(backgroundRect, signatureText);
 
-        // Add the background rectangle and text to the signatureGroup
-        signatureGroup.add(backgroundRect, signatureText);
+            // Add the group to the signatureLayer
+            signatureLayer.add(signatureGroup);
+            signatureLayer.batchDraw();
 
-        // Add the group to the signatureLayer
-        signatureLayer.add(signatureGroup);
-        signatureLayer.batchDraw();
+            signatureAreas.push({
+                role,
+                element: signatureGroup,
+            });
+        }else{
+            if (role == "Director"){
+                // Create a group to hold the background rectangle and text label
+                xDirector = @Html.Raw(xDirector);
+                yDirector = @Html.Raw(yDirector);
+                const signatureGroup = new Konva.Group({
+                    x: xDirector,
+                    y: yDirector,
+                    width: 150,
+                    height: 70,
+                    draggable: draggable,
+                });
 
-        signatureAreas.push({
-            role,
-            element: signatureGroup,
-        });
+                const backgroundRect = new Konva.Rect({
+                    width: 150,
+                    height: 70,
+                    fill: "white", // Set the background color
+                    stroke: strokeColor,
+                    strokeWidth: 2,
+                    dash: [5, 5],
+                    draggable: draggable,
+                });
+
+                const signatureText = new Konva.Text({
+                    width: 150,
+                    height: 70,
+                    text: labelText,
+                    fill: strokeColor,
+                    fontSize: 24,
+                    align: 'center',
+                    verticalAlign: 'middle',
+                });
+
+                // Add the background rectangle and text to the signatureGroup
+                signatureGroup.add(backgroundRect, signatureText);
+
+                // Add the group to the signatureLayer
+                signatureLayer.add(signatureGroup);
+                signatureLayer.batchDraw();
+
+                signatureAreas.push({
+                    role,
+                    element: signatureGroup,
+                });
+            }else{
+                // Create a group to hold the background rectangle and text label
+                xCustomer = @Html.Raw(xCustomer);
+                yCustomer = @Html.Raw(yCustomer);
+                const signatureGroup = new Konva.Group({
+                    x: xCustomer,
+                    y: yCustomer,
+                    width: 150,
+                    height: 70,
+                    draggable: draggable,
+                });
+
+                const backgroundRect = new Konva.Rect({
+                    width: 150,
+                    height: 70,
+                    fill: "white", // Set the background color
+                    stroke: strokeColor,
+                    strokeWidth: 2,
+                    dash: [5, 5],
+                    draggable: draggable,
+                });
+
+                const signatureText = new Konva.Text({
+                    width: 150,
+                    height: 70,
+                    text: labelText,
+                    fill: strokeColor,
+                    fontSize: 24,
+                    align: 'center',
+                    verticalAlign: 'middle',
+                });
+
+                // Add the background rectangle and text to the signatureGroup
+                signatureGroup.add(backgroundRect, signatureText);
+
+                // Add the group to the signatureLayer
+                signatureLayer.add(signatureGroup);
+                signatureLayer.batchDraw();
+
+                signatureAreas.push({
+                    role,
+                    element: signatureGroup,
+                });
+            }
+        }
+        
     }
 
     function getSignatureAreasCoordinates() {
@@ -280,6 +394,9 @@
 
     document.addEventListener("DOMContentLoaded", function () {
         showPage(currentPageIndex);
+        draggable = true;
+        createSignatureArea("Director");
+        createSignatureArea("Customer");
     });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
