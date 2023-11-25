@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<QuanLyHopDongVaKySo_API.ViewModels.PContractViewModel>
+@{
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 <div class="container-fluid">
@@ -53,23 +54,29 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row"> </th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                        <span></span>
-                    </td>
-                    <td>
-                        <a asp-controller="Director" asp-action="DetailsContractActive" asp-route-id="">
-                           Chi tiết
-                        </a>
-                    </td>
-                </tr>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <th scope="row"> </th>
+                        <td>@item.PContractID</td>
+                        <td>@item.CustomerEmail</td>
+                        <td>@item.DateCreated</td>
+                        <td>@item.CustomerName</td>
+                        <td></td>
+                        <td>
+                            @if(@item.IsDirector == "Đã ký")
+                            {
+                                <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"><span>Đã duyệt</span></div>    
+                            }                           
+                        </td>
+                        <td>
+                            <a asp-controller="Director" asp-action="DetailsContractActive" asp-route-id="@item.PContractID">
+                                Chi tiết
+                            </a>
+                        </td>
+                    </tr>
+                }
+                
             </tbody>
         </table>
     </div>

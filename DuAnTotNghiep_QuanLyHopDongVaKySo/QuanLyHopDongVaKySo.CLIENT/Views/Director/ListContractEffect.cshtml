@@ -63,15 +63,15 @@
                         <td>@item.CustomerName</td>
                         <td>@item.TypeOfService</td>
                         <td>
-                            <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                            <span>@item.Status</span>
+                            <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"><span>@item.Status</span></div>
                         </td>
                         <td>
-                            <a asp-controller="DetailsContractEffect" asp-action="Diretor" asp-route-id="@item.Id">Chi tiết</a>
+                            <a asp-controller="Director" asp-action="DetailsContractEffect" asp-route-id="@item.Id">
+                                Chi tiết
+                            </a>
                         </td>
                     </tr>
                 }
-           
             </tbody>
         </table>
     </div>

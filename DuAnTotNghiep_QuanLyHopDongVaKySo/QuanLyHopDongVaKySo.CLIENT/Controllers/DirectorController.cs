@@ -20,6 +20,8 @@ using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
+using QuanLyHopDongVaKySo_API.ViewModels;
+
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
     public class DirectorController : Controller
@@ -282,6 +284,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index","Verify");
             }
         }
+        public async Task<IActionResult> ListContractRefuseToSign()
+        {
+            List<VMAPI.PContractViewModel> pContractList = new List<VMAPI.PContractViewModel>();
+            if (IsAuthenticate == 2)
+            {
+                pContractList = await _pContractService.getListRefuse();
+                return View(pContractList);
+            }
+            return View(pContractList);
+        }
         public async Task<IActionResult> ListContractEffect()
         {
             
@@ -417,12 +429,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
    
-        public async Task<IActionResult> DetailsContractEffect(string id)
+        public async Task<IActionResult> DetailsContractEffect(string Id)
         {
             VMDetailsContract viewModel = new VMDetailsContract();
             try
             {
-                viewModel.DoneContracts = await _dContractService.getByIdAsnyc(id);
+                viewModel.DoneContracts = await _dContractService.getByIdAsnyc(Id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
                 viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.DoneContracts.DirectorSignedId);
             }
