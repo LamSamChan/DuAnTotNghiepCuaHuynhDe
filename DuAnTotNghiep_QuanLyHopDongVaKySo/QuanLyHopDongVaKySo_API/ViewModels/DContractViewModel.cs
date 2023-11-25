@@ -12,7 +12,7 @@
         public string DirectorSignedId { get; set; }
         public string CustomerId { get; set; }
         public string TOS_id { get; set; }
-        public string? DMinuteID;
+        public string? DMinuteID { get; set; }
         public string? Base64File { get; set; }
 
     }

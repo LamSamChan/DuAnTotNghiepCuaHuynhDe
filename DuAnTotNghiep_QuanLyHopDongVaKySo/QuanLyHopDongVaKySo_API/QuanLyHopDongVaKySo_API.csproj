@@ -13,21 +13,25 @@
     <Compile Remove="AppData\PendingContracts\**" />
     <Compile Remove="AppData\PendingMinutes\**" />
     <Compile Remove="AppData\TMinutes\**" />
+    <Compile Remove="Models\ViewDeletes\**" />
     <Content Remove="AppData\Avatars\**" />
     <Content Remove="AppData\ContractImage\**" />
     <Content Remove="AppData\PendingContracts\**" />
     <Content Remove="AppData\PendingMinutes\**" />
     <Content Remove="AppData\TMinutes\**" />
+    <Content Remove="Models\ViewDeletes\**" />
     <EmbeddedResource Remove="AppData\Avatars\**" />
     <EmbeddedResource Remove="AppData\ContractImage\**" />
     <EmbeddedResource Remove="AppData\PendingContracts\**" />
     <EmbeddedResource Remove="AppData\PendingMinutes\**" />
     <EmbeddedResource Remove="AppData\TMinutes\**" />
+    <EmbeddedResource Remove="Models\ViewDeletes\**" />
     <None Remove="AppData\Avatars\**" />
     <None Remove="AppData\ContractImage\**" />
     <None Remove="AppData\PendingContracts\**" />
     <None Remove="AppData\PendingMinutes\**" />
     <None Remove="AppData\TMinutes\**" />
+    <None Remove="Models\ViewDeletes\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -63,7 +67,6 @@
     <Folder Include="AppData/TContracts/" />
     <Folder Include="AppData\PContracts\5\" />
     <Folder Include="AppData\SignatureImages\" />
-    <Folder Include="Models\ViewDeletes\" />
   </ItemGroup>
 
 </Project>

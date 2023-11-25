@@ -242,6 +242,9 @@
             cache: false,
             success: function (data) {
                 $("#imgSign").attr("src", "/Signs/" + data);
+                if (confirm("Bạn đã ký hoàn tất nhấn \"OK\" để đóng cửa số ")) {
+                    close();
+                }
             },
             error: function (textStatus, errorThrown) {
                 if (confirm("Bạn đã ký hoàn tất nhấn \"OK\" để đóng cửa số ")) {
@@ -252,7 +255,9 @@
 
         btnSave.prop('disabled', false);
         //hiển thị thông báo ký thành công và kêu ngta kiểm tra mail để xem hợp đồng
-
+        if (confirm("Bạn đã ký hoàn tất nhấn \"OK\" để đóng cửa số ")) {
+            close();
+        }
         
 
     }

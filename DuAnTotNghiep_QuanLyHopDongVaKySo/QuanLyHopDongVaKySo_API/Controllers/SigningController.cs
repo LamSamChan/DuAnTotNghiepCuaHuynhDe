@@ -675,7 +675,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContract.DContractID}");
             }
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute, certi.Serial, customerZone.X + 25, customerZone.Y - 700,"minute");
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute, certi.Serial, customerZone.X, customerZone.Y - 700,"minute");
 
             FileStream fs = new FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
             fs.Close();
@@ -701,19 +701,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             PutDContract putDContract = new PutDContract()
             {
                 DContractID = dContract.DContractID.ToString(),
-                DateDone = dContract.DateDone,
-                DContractName = dContract.DConTractName,
-                DContractFile = dContract.DContractFile,
-                IsInEffect = dContract.IsInEffect,
-                InstallationAddress = dContract.InstallationAddress,
-                EmployeeCreatedId = dContract.EmployeeCreatedId,
-                DirectorSignedId = dContract.DirectorSignedId,
-                CustomerId = dContract.CustomerId,
-                TOS_ID = dContract.TOS_ID,
                 DoneMinuteId = dContract.DoneMinuteId,
             };
 
-            var updatedContract = await _dContractSvc.updateAsnyc(putDContract);
+            var updatedContract = await _dContractSvc.updateAsnycDMinute(putDContract);
 
             int resutl = await _pendingMinuteSvc.DeletePMinute(pMinute.PendingMinuteId);
 

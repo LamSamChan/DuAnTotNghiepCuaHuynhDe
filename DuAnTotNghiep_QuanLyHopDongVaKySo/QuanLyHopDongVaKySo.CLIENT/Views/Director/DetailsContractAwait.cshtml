@@ -428,14 +428,16 @@
                         var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
                         window.location.href = redirectToUrl;
 
+                        setTimeout(function () {
+                            location.reload(true); 
+                        }, 3000);
+
                     }
                 },
                 error: function (xhr, status, error) {
                     console.error('Lỗi khi gửi yêu cầu:', error);
 
                     console.log(xhr);
-                    // Hiển thị thông báo lỗi
-                    alert('Lỗi khi gửi yêu cầu: ' + error);
                 }
             });
         }
