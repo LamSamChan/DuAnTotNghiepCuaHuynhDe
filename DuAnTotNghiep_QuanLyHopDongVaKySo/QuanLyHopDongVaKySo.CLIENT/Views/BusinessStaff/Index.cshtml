@@ -61,7 +61,7 @@
                             }
                         </div>
                         <form enctype="multipart/form-data" asp-action="UpdateInfo" asp-controller="BusinessStaff" method="post" class="row justify-content-around" style="margin:auto;">
-                            <label for="file-upload" class="custom-file-upload col-7" role="button">
+                            <label for="file-upload-avt" class="custom-file-upload col-7" role="button">
                                 <i class="ph-bold ph-cloud-arrow-up"></i>
                                 UPLOAD
                             </label>
@@ -95,10 +95,10 @@
                                 }
 
                             </button>
-                            <input id="file-upload" type="file" accept="image/*" asp-for="Employee.ImageFile" />
-                            <input type="text" class="form-input d-none" asp-for="Employee.EmployeeId" readonly>
-                            <input class="form-input d-none" asp-for="Employee.IsFirstLogin" readonly>
-                            <span class="text-danger" asp-validation-for="Employee.ImageFile"></span>
+                            <input id="file-upload-avt" type="file" accept="image/*" asp-for="@Model.Employee.ImageFile" />
+                            <input type="text" class="form-input d-none" asp-for="@Model.Employee.EmployeeId" readonly>
+                            <input class="form-input d-none" asp-for="@Model.Employee.IsFirstLogin" readonly>
+                            <span class="text-danger" asp-validation-for="@Model.Employee.ImageFile"></span>
                         </form>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
                 <div class="row">
                     <h4 class="typeHead"> Tải ảnh chữ ký</h4>
                     <form enctype="multipart/form-data" asp-action="UploadSignature" asp-controller="BusinessStaff" method="post" class="row">
-                        <label for="file-upload" class="custom-file-upload col-6" role="button">
+                        <label for="file-upload-image" class="custom-file-upload col-6" role="button">
                             <i class="ph-bold ph-cloud-arrow-up" style="font-size:30px;"></i>
                         </label>
                         <button class="Save_btn col-2" role="button" type="submit">LƯU
@@ -193,7 +193,7 @@
                 }
 
                         </button>
-                        <input id="file-upload" type="file" accept="image/*" asp-for="PFXCertificate.ImageFile" />
+                        <input id="file-upload-image" type="file" accept="image/*" asp-for="@Model.PFXCertificate.ImageFile" />
                     </form>
                 </div>
                 <hr />
