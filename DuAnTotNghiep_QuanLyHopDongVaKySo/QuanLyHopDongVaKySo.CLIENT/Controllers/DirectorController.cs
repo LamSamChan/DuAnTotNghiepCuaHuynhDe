@@ -21,7 +21,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
 using QuanLyHopDongVaKySo_API.ViewModels;
-
+using QuanLyHopDongVaKySo.CLIENT.Services.DMinuteServices;
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
     public class DirectorController : Controller
@@ -40,12 +40,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly ISigningService _signingService;
         private readonly IPdfToImageHelper _pdfToImageHelper;
         private readonly IHistoryEmpSvc _historyEmpSvc;
+        private readonly IDMinuteService _dMinuteService;
         private int isAuthenticate;
         private string employeeId;
         public DirectorController(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IRoleService roleService,
             IPositionService positionSerivce, IEmployeeService employeeService, IPFXCertificateServices pfxCertificateServices,
             IUploadHelper uploadHelper, IPasswordService passwordService, IDContractsService dContractsService, IPContractService pContractService,
-            ICustomerService customerService, ISigningService signingService, IPdfToImageHelper pdfToImageHelper, IHistoryEmpSvc historyEmpSvc)
+            ICustomerService customerService, ISigningService signingService, IPdfToImageHelper pdfToImageHelper, IHistoryEmpSvc historyEmpSvc, IDMinuteService dMinuteService)
         {
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
@@ -61,6 +62,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _signingService = signingService;
             _pdfToImageHelper = pdfToImageHelper;
             _historyEmpSvc = historyEmpSvc;
+            _dMinuteService = dMinuteService;
         }
         public int IsAuthenticate
         {
@@ -154,6 +156,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 pContractList = await _pContractService.getListDirSignsEmpId(EmployeeId);
                 return View(pContractList);
             }
+            if(IsAuthenticate == 1)
+            {
+                pContractList = await _pContractService.getListWaitCustomerSigns();
+            }
             return View(pContractList);
         }
         public async Task<IActionResult> DetailsContractActive(string id)
@@ -231,7 +237,27 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return BadRequest();
             }
         }
+        public async Task<IActionResult> RefuseContract(VMDetailsContractAwait vm)
+        {
+            var pContract = await _pContractService.getByIdAsnyc(vm.PContract.PContractID);
 
+            API.PutPendingContract putPendingContract = new API.PutPendingContract()
+            {
+                PContractId = int.Parse(pContract.PContractID),
+                IsRefuse = true,
+                Reason = vm.PContract.Reason,
+            };
+            var respone = _pContractService.updateAsnyc(putPendingContract);
+            if (respone != null)
+            {
+                return RedirectToAction("ListContractAwait");
+            }
+            else
+            {
+                //báo lỗi
+                return RedirectToAction("ListContractAwait");
+            }
+        }
         public async Task<IActionResult> UpdateInfo(PutEmployee employee)
         {
 
@@ -291,7 +317,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ListContractRefuseToSign()
         {
             List<VMAPI.PContractViewModel> pContractList = new List<VMAPI.PContractViewModel>();
-            if (IsAuthenticate == 2)
+            if (IsAuthenticate == 2 || IsAuthenticate == 1)
             {
                 pContractList = await _pContractService.getListRefuse();
                 return View(pContractList);
@@ -308,12 +334,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
                 return View(contractList);
             }
+            if(IsAuthenticate == 1)
+            {
+                contractList = await _dContractService.getAllView();
+            }
             return View(contractList);
         }
         public async Task<IActionResult> ListContractAwait()
         {
             List<VMAPI.PContractViewModel> pContractList = new List<VMAPI.PContractViewModel>();
-            if (IsAuthenticate == 2)
+            if (IsAuthenticate == 2 || IsAuthenticate == 1)
             {
                 pContractList = await _pContractService.getListWaitDirectorSigns();
                 return View(pContractList);
@@ -448,6 +478,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 viewModel.DoneContracts = await _dContractService.getByIdAsnyc(Id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
                 viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.DoneContracts.DirectorSignedId);
+                //viewModel.doneMinutes = await _dMinuteService.GetById(int.Parse(viewModel.DoneContracts.DMinuteID));
             }
             catch
             {
