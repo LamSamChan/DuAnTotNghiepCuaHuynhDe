@@ -29,10 +29,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _passwordService = passwordService;
             _historyEmpSvc = historyEmpSvc;
         }
+
         public IActionResult Index()
         {
+            ViewBag.SweetType = TempData["SweetType"];
+            ViewBag.SweetIcon = TempData["SweetIcon"];
+            ViewBag.SweetTitle = TempData["SweetTitle"];
             return View();
         }
+
+        
 
         public IActionResult ResetPass()
         {
@@ -183,9 +189,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             HttpContext.Session.Remove(SessionKey.PedningMinute.PMinuteID);
 
 
-            TempData["SweetType"] = "error";
-            TempData["SweetIcon"] = "error";
-            TempData["SweetTitle"] = "Đăng xuất thành công !!";
+            TempData["SweetType"] = "success";
+            TempData["SweetIcon"] = "success";
+            TempData["SweetTitle"] = "Bạn đã đăng xuất thành công.";
             return RedirectToAction("Index");
         }
     }

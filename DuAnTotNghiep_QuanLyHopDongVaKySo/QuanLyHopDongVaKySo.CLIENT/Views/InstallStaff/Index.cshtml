@@ -164,8 +164,9 @@
                 <div class="row">
                     <h4 class="typeHead"> Tải ảnh chữ ký</h4>
                     <form enctype="multipart/form-data" asp-action="UploadSignature" asp-controller="InstallStaff" method="post" class="row">
-                        <label for="upload-Sign" class="custom-file-upload col-6" role="button">
-                            <i class="ph-bold ph-cloud-arrow-up" style="font-size:30px;"></i>
+                        <label for="file-upload" class="custom-file-upload col-6" role="button">
+                            <i class="ph-bold ph-cloud-arrow-up"></i>
+                            UPLOAD
                         </label>
                         <button class="Save_btn col-2" role="button" type="submit">LƯU
                              @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
@@ -196,7 +197,7 @@
                 }
 
                         </button>
-                        <input id="upload-Sign" type="file" accept="image/*" asp-for="PFXCertificate.ImageFile" />
+                        <input id="file-upload" type="file" accept="image/*" asp-for="PFXCertificate.ImageFile" />
                     </form>
                 </div>
                 <hr />
@@ -715,33 +716,33 @@
 <script type="text/javascript">
 
 
-    $(document).ready(function () {
-        $('#upload_Sign').change(function () {
-            var fileName = $(this).val().split('\\').pop();
 
-            // Sử dụng SweetAlert để hiển thị thông báo
-            Swal.fire({
-                title: 'Tải tệp lên thành công!',
-                text: 'Bạn đã tải tệp lên với tên: ' + fileName,
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-        });
-    });
 
     $(document).ready(function () {
         $('#file-upload').change(function () {
             var fileName = $(this).val().split('\\').pop();
 
-            // Sử dụng SweetAlert để hiển thị thông báo
-            Swal.fire({
-                title: 'Tải tệp lên thành công!',
-                text: 'Bạn đã tải tệp lên với tên: ' + fileName,
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
+            // Kiểm tra xem người dùng đã chọn tệp hay chưa
+            if (fileName) {
+                // Nếu có giá trị, hiển thị thông báo thành công
+                Swal.fire({
+                    title: 'Tải tệp lên thành công!',
+                    text: 'Bạn đã tải tệp lên với tên: ' + fileName,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            } else {
+                // Nếu không có giá trị, hiển thị thông báo lỗi
+                Swal.fire({
+                    title: 'Lỗi!',
+                    text: 'Vui lòng chọn một tệp để tải lên.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
         });
     });
+
 
     var statV = false;
 

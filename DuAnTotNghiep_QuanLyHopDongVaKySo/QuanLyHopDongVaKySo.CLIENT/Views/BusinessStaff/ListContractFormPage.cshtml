@@ -82,7 +82,35 @@
                         <td class="action">
                             <a class="button-design" asp-controller="BusinessStaff" asp-action="EditContractFormPage" asp-route-TContactID="@item.TContactID"><i class="ph-bold ph-pencil-simple-line"></i></a>
                             <a class="button-save" onclick="confirmDownload('@item.Base64File','@item.TContractName')"><i class="ph-bold ph-download-simple"></i></a>
-                            <a class="button-delete" asp-controller="BusinessStaff" asp-action="DeleteTContract" asp-route-tContractId="@item.TContactID" onclick="confirmDelete(event)"><i class="ph-bold ph-trash"></i></a>
+                            <a class="button-delete" asp-controller="BusinessStaff" asp-action="DeleteTContract" asp-route-tContractId="@item.TContactID">
+                                @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+                                {
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function () {
+                                            var sweetData = {
+                                                title: '@TempData["SweetTitle"]',
+                                                text: '@TempData["SweetText"]',
+                                                icon: '@TempData["SweetIcon"]'
+                                            };
+
+                                            console.log("Sweet Data:", sweetData);
+
+                                            Swal.fire({
+                                                title: sweetData.title,
+                                                text: sweetData.text,
+                                                icon: sweetData.icon,
+                                                showCancelButton: false,
+                                                allowOutsideClick: false,
+                                                confirmButtonColor: "green",
+                                                confirmButtonText: "Ok"
+                                            }).then(function () {
+                                                // Handle any additional logic after the SweetAlert is closed.
+                                            });
+                                        });
+                                    </script>
+                                }
+                                <i class="ph-bold ph-trash"></i>
+                            </a>
                         </td>
                     </tr>
                 }
@@ -129,69 +157,7 @@
         });
     }
 
-    function confirmDelete(event) {
-        event.preventDefault(); // Ngăn chặn chuyển hướng ngầm khi nhấp vào liên kết
-
-        // Sử dụng SweetAlert để xác nhận xóa
-        Swal.fire({
-            title: 'Bạn chắc chắn muốn xóa?',
-            text: 'Hành động này sẽ xóa vĩnh viễn.',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Xóa',
-            cancelButtonText: 'Hủy'
-        }).then((result) => {
-            if (result.isConfirmed) {
-
-                $.ajax({
-                    url: event.target.href, // Lấy đường dẫn từ thuộc tính href của liên kết
-                    type: 'DELETE',
-                    success: function (response) {
-                        if (!response.success) {
-                            // Nếu xóa thành công, hiển thị SweetAlert thông báo
-                            showDeleteSuccessAlert();
-                        } else {
-                            // Nếu xóa không thành công, hiển thị SweetAlert thông báo lỗi
-                            showDeleteErrorAlert();
-                        }
-                    },
-                    error: function () {
-                        // Nếu có lỗi trong quá trình xóa, hiển thị SweetAlert thông báo lỗi
-                        showDeleteErrorAlert();
-                    }
-                });
-            }
-        });
-    }
-
-    function showDeleteSuccessAlert() {
-        // Hiển thị SweetAlert với thông báo xóa thành công
-        Swal.fire({
-            icon: 'success',
-            title: 'Thành công!',
-            text: 'Dữ liệu đã được xóa thành công.',
-            confirmButtonText: 'OK'
-        }).then((result) => {
-            // Chuyển hướng tới trang mong muốn sau khi người dùng nhấp OK
-            var redirectToUrl = '@Url.Action("ListContractFormPage")';
-            window.location.href = redirectToUrl;
-        });
-    }
-
-    function showDeleteErrorAlert() {
-        // Hiển thị SweetAlert với thông báo xóa không thành công
-        Swal.fire({
-            icon: 'error',
-            title: 'Lỗi!',
-            text: 'Đã xảy ra lỗi khi xóa dữ liệu.',
-            confirmButtonText: 'OK'
-        }).then((result) => {
-            // Chuyển hướng tới trang mong muốn sau khi người dùng nhấp OK
-            window.location.reload();
-        });
-    }
+   
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

@@ -213,7 +213,7 @@
                         </ul>   
                     </div>
                     <form class="row justify-content-around" style="margin:auto;" asp-action="UploadStampImage" asp-controller="Admin" enctype="multipart/form-data" method="post">
-                        <label for="upload-Sign" class="custom-file-upload col-7" role="button">
+                        <label for="file-upload" class="custom-file-upload col-7" role="button">
                             <i class="ph-bold ph-cloud-arrow-up"></i>
                             UPLOAD
                         </label>
@@ -245,7 +245,7 @@
                             </script>
                         }
                         </button>
-                        <input id="upload-Sign" type="file" asp-for="Stamp.ImageFile" />
+                        <input id="file-upload" type="file" asp-for="Stamp.ImageFile" />
                     </form>
                 </div>
             </div>
@@ -253,7 +253,7 @@
                 <div class="row">
                     <h4 class="typeHead"> Tải ảnh chữ ký</h4>
                     <form enctype="multipart/form-data" asp-action="UploadSignature" asp-controller="Admin" method="post" class="row">
-                        <label for="upload-Sign" class="custom-file-upload col-6" role="button">
+                        <label for="file-upload" class="custom-file-upload col-6" role="button">
                             <i class="ph-bold ph-cloud-arrow-up" style="font-size:30px;"></i>
                         </label>
                         <button class="Save_btn col-2" role="button" type="submit">LƯU
@@ -281,7 +281,7 @@
                                 </script>
                             }
                         </button>
-                        <input id="upload-Sign" type="file" accept="image/*" asp-for="PFXCertificate.ImageFile" />
+                        <input id="file-upload" type="file" accept="image/*" asp-for="PFXCertificate.ImageFile" />
                     </form>
                 </div>
                 <hr />
@@ -873,33 +873,31 @@
         });
     });
 
-         $(document).ready(function () {
-            $('#upload-Sign').change(function () {
-                var fileName = $(this).val().split('\\').pop();
 
-                // Sử dụng SweetAlert để hiển thị thông báo
+    $(document).ready(function () {
+        $('#file-upload').change(function () {
+            var fileName = $(this).val().split('\\').pop();
+
+            // Kiểm tra xem người dùng đã chọn tệp hay chưa
+            if (fileName) {
+                // Nếu có giá trị, hiển thị thông báo thành công
                 Swal.fire({
                     title: 'Tải tệp lên thành công!',
                     text: 'Bạn đã tải tệp lên với tên: ' + fileName,
                     icon: 'success',
                     confirmButtonText: 'OK'
                 });
-            });
-        });
-
-         $(document).ready(function () {
-            $('#file-upload').change(function () {
-                var fileName = $(this).val().split('\\').pop();
-
-                // Sử dụng SweetAlert để hiển thị thông báo
+            } else {
+                // Nếu không có giá trị, hiển thị thông báo lỗi
                 Swal.fire({
-                    title: 'Tải tệp lên thành công!',
-                    text: 'Bạn đã tải tệp lên với tên: ' + fileName,
-                    icon: 'success',
+                    title: 'Lỗi!',
+                    text: 'Vui lòng chọn một tệp để tải lên.',
+                    icon: 'error',
                     confirmButtonText: 'OK'
                 });
-            });
+            }
         });
+    });
 
 
 </script>

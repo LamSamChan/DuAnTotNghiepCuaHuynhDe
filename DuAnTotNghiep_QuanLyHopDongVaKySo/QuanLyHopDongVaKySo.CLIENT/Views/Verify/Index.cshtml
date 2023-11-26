@@ -162,9 +162,7 @@
                     </div>
                     <div class="mb-3">
                         <button type="submit">
-                            ĐĂNG NHẬP
-                     
-
+                            ĐĂNG NHẬP                    
                         </button>
                     </div>
 
@@ -177,3 +175,15 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </html>
+@if (ViewBag.SweetType != null)
+{
+    <script>
+        Swal.fire({
+            icon: '@ViewBag.SweetIcon',
+            title: '@ViewBag.SweetTitle',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>
+}
+
