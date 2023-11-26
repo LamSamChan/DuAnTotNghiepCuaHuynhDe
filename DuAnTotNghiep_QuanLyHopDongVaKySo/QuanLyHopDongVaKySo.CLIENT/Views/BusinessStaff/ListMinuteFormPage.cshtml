@@ -25,7 +25,7 @@
             </nav>
             <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
             <div class="row">
-                <input type="search" class="src" placeholder="Tìm kiếm khách hàng" />
+                <input type="search" class="src" id="searchInput" placeholder="Tìm kiếm khách hàng" />
                 <button class="add_Cus col-md-2 offset-md-7">
                     <a asp-controller="BusinessStaff" asp-action="MinuteFormPage">
                         THÊM MẪU
@@ -50,7 +50,7 @@
             </nav>
             <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
             <div class="row">
-                <input type="search" class="src" placeholder="Tìm kiếm khách hàng" />
+                <input type="search" class="src" id="searchInput" placeholder="Tìm kiếm khách hàng" />
                 <button class="add_Cus col-md-2 offset-md-7">
                     <a asp-controller="BusinessStaff" asp-action="MinuteFormPage">
                         THÊM MẪU
@@ -63,7 +63,7 @@
     }
  
     <div class="listTable">
-        <table class="table">
+        <table class="table" id="myTable">
             <thead>
                 <tr style="color: #8B909A;">
 
@@ -163,6 +163,36 @@
         });
     }
 
+    // tìm kiếm
+    document.addEventListener('DOMContentLoaded', function () {
+        // Lấy đối tượng ô tìm kiếm và bảng
+        var input = document.getElementById('searchInput');
+        var table = document.getElementById('myTable');
+
+        // Thêm sự kiện 'input' cho ô tìm kiếm
+        input.addEventListener('input', function () {
+            // Gọi hàm filterTable khi người dùng nhập liệu
+            filterTable();
+        });
+
+        function filterTable() {
+            // Lấy giá trị từ ô tìm kiếm và chuyển đổi thành chữ thường
+            var filter = input.value.toLowerCase();
+
+            // Lấy tất cả các dòng trong tbody của bảng
+            var rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            // Lặp qua từng dòng và ẩn hoặc hiển thị dựa trên từ khóa tìm kiếm
+            for (var i = 0; i < rows.length; i++) {
+                var rowData = rows[i].innerText.toLowerCase();
+                if (rowData.includes(filter)) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+    });
    
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -14,7 +14,7 @@
         </nav>
         <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
         <div class="row justify-content-around">
-            <input type="search" class="src" placeholder="Tìm kiếm trong danh sách" />
+            <input type="search" id="searchInput" class="src" placeholder="Tìm kiếm trong danh sách" />
             <button class="button-save col-md-2 offset-md-7" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 THÊM DỊCH VỤ
                 <i class="ph-bold ph-plus"></i>
@@ -108,8 +108,8 @@
         </div>
     </div>
     <div class="row bg-white mx-auto my-auto mt-5 rounded">
-        <div class="listTable">
-            <table class="table">
+        <div class="listTable" >
+            <table class="table" id="myTable">
                 <thead>
                     <tr style="color: #8B909A;">
                         <th scope="col">HÀNH ĐỘNG</th>
@@ -172,13 +172,35 @@
    
    
 </div>
-@* <script>
-    // Hàm hiển thị message
-    function showSuccessMessage() {
-        $("#msg_success_filled").ej2Message.show();
-        // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
-        setTimeout(function () {
-            $("#msg_success_filled").ej2Message.hide();
-        }, 5000);
-    }
-</script> *@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Lấy đối tượng ô tìm kiếm và bảng
+        var input = document.getElementById('searchInput');
+        var table = document.getElementById('myTable');
+
+        // Thêm sự kiện 'input' cho ô tìm kiếm
+        input.addEventListener('input', function () {
+            // Gọi hàm filterTable khi người dùng nhập liệu
+            filterTable();
+        });
+
+        function filterTable() {
+            // Lấy giá trị từ ô tìm kiếm và chuyển đổi thành chữ thường
+            var filter = input.value.toLowerCase();
+
+            // Lấy tất cả các dòng trong tbody của bảng
+            var rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            // Lặp qua từng dòng và ẩn hoặc hiển thị dựa trên từ khóa tìm kiếm
+            for (var i = 0; i < rows.length; i++) {
+                var rowData = rows[i].innerText.toLowerCase();
+                if (rowData.includes(filter)) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+    });
+
+</script>

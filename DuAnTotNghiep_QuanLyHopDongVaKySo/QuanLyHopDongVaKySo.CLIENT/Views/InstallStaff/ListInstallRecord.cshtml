@@ -22,10 +22,28 @@
             </nav>
             <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
             <div class="row">
-                <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
+                <input type="search" id="searchInput" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
             </div>
         </div>
 
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Biên bản đã nhận lắp</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+            <div class="row">
+                <input type="search" id="searchInput" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
+            </div>
+        </div>
     }
     <div class="row mt-3 bg-white rounded">
         <nav>
@@ -37,7 +55,7 @@
         <div class="tab-content" id="nav-tabContent" style="display:flex;">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                 <div class="row" style="margin: auto;">
-                    <table class="table">
+                    <table class="table" id="myTable1">
                         <thead>
                             <tr style="color: #8B909A;">
                                 <th scope="col">MÃ BIÊN BẢN</th>
@@ -81,7 +99,7 @@
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
                 <div class="row" style="margin: auto;">
-                    <table class="table">
+                    <table class="table" id="myTable2">
                         <thead>
                             <tr style="color: #8B909A;">
                                 <th scope="col">MÃ BIÊN BẢN</th>
@@ -121,6 +139,48 @@
     </div>
 </div>
 <script>
+
+
+    // tìm kiếm
+    document.addEventListener('DOMContentLoaded', function () {
+        // Lấy đối tượng ô tìm kiếm chung
+        var searchInput = document.getElementById('searchInput');
+
+        // Thêm sự kiện 'input' cho ô tìm kiếm chung
+        searchInput.addEventListener('input', function () {
+            filterAllTables(searchInput);
+        });
+
+        // Lấy đối tượng bảng và ô tìm kiếm cho Tab 1
+        var table1 = document.getElementById('myTable1');
+
+        // Lấy đối tượng bảng và ô tìm kiếm cho Tab 2
+        var table2 = document.getElementById('myTable2');
+
+        // Mặc định hiển thị Tab 1
+        changeTab(0);
+    });
+
+    function filterAllTables(input) {
+        var filter = input.value.toLowerCase();
+
+        // Lấy tất cả các bảng trong tất cả các tab
+        var tables = document.getElementsByClassName('table');
+
+        for (var t = 0; t < tables.length; t++) {
+            var rows = tables[t].getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            for (var i = 0; i < rows.length; i++) {
+                var rowData = rows[i].innerText.toLowerCase();
+                if (rowData.includes(filter)) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+    }
+
     function downloadPDF(base64String, fileName) {
         var byteCharacters = atob(base64String);
         var byteNumbers = new Array(byteCharacters.length);
