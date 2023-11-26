@@ -18,7 +18,7 @@
             </nav>
             <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
             <div class="row">
-                <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
+                <input type="search" id="searchInput" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
             </div>
         </div>
     }
@@ -36,14 +36,14 @@
             </nav>
             <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
             <div class="row">
-                <input type="search" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
+                <input type="search" id="searchInput" style="margin-left: 10px;" placeholder="Tìm kiếm biên bản nhận lắp" />
             </div>
         </div>
 
     }
 
     <div class="listTable_Record mt-4 bg-white" >
-        <table class="table">
+        <table class="table" id="myTable">
             <thead>
                 <tr style="color: #8B909A;">
                     <th scope="col">ID</th>
@@ -108,3 +108,35 @@
         </table>
     </div>
 </div>
+<script>
+    // tìm kiếm
+    document.addEventListener('DOMContentLoaded', function () {
+        // Lấy đối tượng ô tìm kiếm và bảng
+        var input = document.getElementById('searchInput');
+        var table = document.getElementById('myTable');
+
+        // Thêm sự kiện 'input' cho ô tìm kiếm
+        input.addEventListener('input', function () {
+            // Gọi hàm filterTable khi người dùng nhập liệu
+            filterTable();
+        });
+
+        function filterTable() {
+            // Lấy giá trị từ ô tìm kiếm và chuyển đổi thành chữ thường
+            var filter = input.value.toLowerCase();
+
+            // Lấy tất cả các dòng trong tbody của bảng
+            var rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            // Lặp qua từng dòng và ẩn hoặc hiển thị dựa trên từ khóa tìm kiếm
+            for (var i = 0; i < rows.length; i++) {
+                var rowData = rows[i].innerText.toLowerCase();
+                if (rowData.includes(filter)) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+    });
+</script>

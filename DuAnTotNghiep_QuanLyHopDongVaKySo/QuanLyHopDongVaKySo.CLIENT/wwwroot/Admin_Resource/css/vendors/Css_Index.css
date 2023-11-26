@@ -634,5 +634,7 @@ div[class="row action"] a {
 }
 /*css - listTable*/
 .listTable {
-    min-height: 700px;
+    max-height: 800px;
+    overflow-y: scroll;
+
 }
