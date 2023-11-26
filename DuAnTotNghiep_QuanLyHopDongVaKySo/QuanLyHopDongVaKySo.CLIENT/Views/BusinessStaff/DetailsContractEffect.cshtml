@@ -75,7 +75,7 @@
                         @foreach (var imgPath in imageFiles)
                         {
                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                <img src="@Url.Content("~/ContractImage/"+Model.DoneContracts.Id+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                             </div>
                         }
                     </div>

@@ -119,7 +119,7 @@
                                                     @foreach (var imgPath in imageFiles)
                                                     {
                                                         <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                                            <img src="@Url.Content(folderItem+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                                            <img src="@Url.Content("~/ContractImage/"+Model.DoneContracts.Id+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                                                         </div>
                                                     }
                                                 </div>
@@ -303,27 +303,26 @@
                             <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
                                 <div class="col-md-6">
                                     <label class="form-label">ID khách hàng</label>
-                                    <input class="form-control" id="inputName" readonly>
+                                    <input class="form-control" id="inputName" readonly asp-for="@Model.Customer.CustomerId">
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Họ và tên</label>
-                                    <input class="form-control" id="inputName" readonly>
+                                    <input class="form-control" id="inputName" readonly asp-for="@Model.Customer.FullName">
 
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Năm sinh</label>
-                                    <input class="form-control" type="date" readonly>
+                                    <input class="form-control" type="date" readonly asp-for="@Model.Customer.DateOfBirth">
 
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="inputName" class="form-label">Số điện thoại</label>
-                                    <input class="form-control" readonly>
+                                    <label for="inputName" class="form-label">Số điện thoại</label >
+                                    <input class="form-control" readonly asp-for="@Model.Customer.PhoneNumber">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputGender" class="form-label">Giới tính</label>
-                                    <input class="form-control" value="Nam" readonly>
-                                    @* @if (Model.Customer.Gender == 1)
+                                     @if (Model.Customer.Gender == 1)
                                     {
                                     <input class="form-control" value="Nam" readonly>
                                     }
@@ -331,54 +330,54 @@
                                     {
 
                                     <input class="form-control" value="Nữ" readonly>
-                                    } *@
+                                    } 
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputCCCD" class="form-label">Giấy ủy quyền</label>
-                                    <input class="form-control" readonly>
+                                    <input class="form-control" readonly asp-for="@Model.Customer.PowerOfAttorneyNum">
 
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputDateStart" class="form-label">Ngày ủy quyền</label>
-                                    <input type="date" class="form-control" readonly>
+                                    <input type="date" class="form-control" readonly asp-for="@Model.Customer.DatePOA">
 
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputDateEnd" class="form-label">Người ủy quyền</label>
-                                    <input class="form-control" readonly>
+                                    <input class="form-control" readonly asp-for="@Model.Customer.WhoPOA">
 
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputDateStart" class="form-label">Email</label>
-                                    <input class="form-control" placeholder="abc123@gmail.com" readonly>
+                                    <input class="form-control" placeholder="abc123@gmail.com" readonly asp-for="@Model.Customer.Email">
 
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputDateEnd" class="form-label">FAX</label>
-                                    <input class="form-control" readonly>
+                                    <input class="form-control" readonly asp-for="@Model.Customer.FAX">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputDateStart" class="form-label">CCCD/CMND</label>
-                                    <input class="form-control" readonly>
+                                    <input class="form-control" readonly asp-for="@Model.Customer.Identification">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputDateEnd" class="form-label">Ngày cấp</label>
-                                    <input type="date" class="form-control" readonly>
+                                    <input type="date" class="form-control" readonly asp-for="@Model.Customer.IssuedDate">
 
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputDateStart" class="form-label">Nơi cấp</label>
-                                    <input class="form-control" readonly>
+                                    <input class="form-control" readonly asp-for="@Model.Customer.IssuedPlace">
 
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputNational" class="form-label">Quốc tịch</label>
-                                    <input class="form-control" readonly>
+                                    <input class="form-control" readonly asp-for="@Model.Customer.Nationality">
 
                                 </div>
                                 <div class="col-md-12">
                                     <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
-                                    <textarea style="background-color: #F3F3F3;" class="form-control" readonly></textarea>
+                                    <textarea style="background-color: #F3F3F3;" class="form-control" readonly asp-for="@Model.Customer.Address"></textarea>
 
                                 </div>
                             </div>
@@ -388,33 +387,27 @@
                             <div class="box2 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
                                 <div class="col-md-6">
                                     <label for="inputTaxCode" class="form-label">Số tài khoản</label>
-                                    <input class="form-control" - readonly>
+                                    <input class="form-control" - readonly asp-for="@Model.Customer.BankAccount">
 
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress2" class="form-label">Ngân hàng</label>
-                                    <input class="form-control" - readonly>
+                                    <input class="form-control" - readonly asp-for="@Model.Customer.BankName">
 
                                 </div>
                                 <div class="col-md-12">
                                     <label for="inputPass" class="form-label">Mã số thuế</label>
-                                    <input style="background-color: #F3F3F3;" class="form-control">
+                                    <input style="background-color: #F3F3F3;" class="form-control" asp-for="@Model.Customer.TaxIDNumber">
 
                                 </div>
                                 <div class="col-md-12">
                                     <label for="adReport" class="form-label">Địa chỉ báo cước</label>
-                                    <input style="background-color: #F3F3F3;" class="form-control" readonly />
+                                    <input style="background-color: #F3F3F3;" class="form-control" readonly  asp-for="@Model.Customer.ChargeNoticeAddress">
 
                                 </div>
                                 <div class="col-12">
-                                    <label for="adInvoice" class="form-label" style="color: #525252;
-        font-size: 18px;
-        font-family: Joxt;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-">Địa chỉ xuất hóa đơn</label>
-                                    <input style="background-color: #F3F3F3;" class="form-control" readonly>
+                                    <label for="adInvoice" class="form-label" style="color: #525252;font-size: 18px;font-family: Joxt; font-style: normal;font-weight: 400;line-height: normal;">Địa chỉ xuất hóa đơn</label>
+                                    <input style="background-color: #F3F3F3;" class="form-control" readonly asp-for="@Model.Customer.BillingAddress">
 
                                 </div>
                                 @* @if (Model.Customer.typeofCustomer == "Doanh nghiệp")
@@ -426,27 +419,27 @@
                                     <div class="content row" style="height: 300px;width: 95%;margin: 10px auto; ">
                                         <div class="col-md-5" style="margin:0 auto;">
                                             <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
-                                            <input class="form-control" id="inputNameBuss" readonly>
+                                            <input class="form-control" id="inputNameBuss" readonly asp-for="@Model.Customer.BuisinessName">
 
                                         </div>
                                         <div class="col-md-5" style="margin:0 auto;">
                                             <label for="inputPosition" class="form-label">Chức vụ</label>
-                                            <input class="form-control" id="inputPosition" readonly>
+                                            <input class="form-control" id="inputPosition" readonly asp-for="@Model.Customer.Position">
 
                                         </div>
                                         <div class="col-md-5" style="margin:0 auto;">
                                             <label for="certi" class="form-label">Số chứng nhận doanh nghiệp</label>
-                                            <input class="form-control" id="certi" readonly>
+                                            <input class="form-control" id="certi" readonly asp-for="@Model.Customer.BuisinessNumber">
 
                                         </div>
                                         <div class="col-md-5" style="margin:0 auto;">
                                             <label for="dateSDN" class="form-label">Ngày cấp SDN</label>
-                                            <input type="date" class="form-control" id="dateSDN" readonly>
+                                            <input type="date" class="form-control" id="dateSDN" readonly asp-for="@Model.Customer.BNDate">
 
                                         </div>
                                         <div class="col-md-10" style="margin:0 auto;">
                                             <label for="adSDN" class="form-label">Nơi cấp SDN</label>
-                                            <input class="form-control" id="adSDN" readonly>
+                                            <input class="form-control" id="adSDN" readonly asp-for="@Model.Customer.BNPlace">
 
                                         </div>
                                     </div>
@@ -455,21 +448,21 @@
                                 <div class="col-md-6 mt-3">
                                     <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
                                     <div>
-                                        @*  @if (!Model.Customer.IsLocked)
-                                        { *@
+                                          @if (!Model.Customer.IsLocked)
+                                        { 
                                         <input type="radio" class="btn-check " id="false" value="false" autocomplete="off" readonly checked>
                                         <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
-                                        @* }
+                                        }
                                         else
-                                        { *@
+                                        { 
                                         <input type="radio" class="btn-check " id="true" value="true" autocomplete="off" readonly checked>
                                         <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Khoá</label>
-                                        @*  } *@
+                                         } 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="note" class="form-label">Ghi chú</label>
-                                    <textarea style="background-color: #F3F3F3;" class="form-control" readonly></textarea>
+                                    <textarea style="background-color: #F3F3F3;" class="form-control" readonly asp-for="@Model.Customer.Note"></textarea>
                                 </div>
                             </div>
                         </div>
