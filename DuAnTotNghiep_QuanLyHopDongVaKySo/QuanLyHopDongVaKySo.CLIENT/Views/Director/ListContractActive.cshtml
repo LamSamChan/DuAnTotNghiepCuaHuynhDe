@@ -58,12 +58,10 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <th scope="row"> </th>
                             <td>@item.PContractID</td>
                             <td>@item.CustomerEmail</td>
                             <td>@item.DateCreated</td>
                             <td>@item.CustomerName</td>
-                            <td></td>
                             <td>
                                 @if (@item.IsDirector == "Đã ký")
                                 {
@@ -77,7 +75,6 @@
                             </td>
                         </tr>
                     }
-
                 </tbody>
             </table>
         </div>

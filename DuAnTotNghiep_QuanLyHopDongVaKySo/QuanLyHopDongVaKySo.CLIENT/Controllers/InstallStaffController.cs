@@ -199,11 +199,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> ListInstallRequire()
         {
-            VMListIRequire vm = new VMListIRequire()
+            VMListIRequire vm = new VMListIRequire();
+            if (IsAuthenticate == 1 || IsAuthenticate == 4)
             {
-                IRequirements = await _iRequirementService.GetAll(),
-                DContracts = await _doneContractSvc.getAll(),
-            };
+
+
+                vm.IRequirements = await _iRequirementService.GetAll();
+                vm.DContracts = await _doneContractSvc.getAll();
+                
+            }
+            
             return View(vm);
         }
 
