@@ -65,11 +65,11 @@
         </div>
 
     }
-    <div class="row" style="background-color:#FFFFFF; margin: 20px auto; height:100%; border-radius:16px;">
-        <div class="col-6" style="margin: 20px; border-radius:10px;">
+    <div class="row bg-white mt-4 rounded mx-auto my-auto">
+        <div class="col-md-6">
             <div class="showFile">
-                <h4 style="color: #4318FF; font-family:Source Sans Pro; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng chờ duyệt </h4>
-                <div id="myCarousel" class="carousel slide" style="margin: 0px 50px 20px 50px; width: 500px;height: 750px; background-color:#FFFF;">
+                <h4 style="color: #4318FF; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng chờ duyệt </h4>
+                <div id="myCarousel" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active " style="width:800px;">
                             <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" style="margin:100px auto;" />
@@ -94,14 +94,14 @@
         </div>
 
 
-        <div class="inforCus col-5 mt-4"  style=" max-height:800px; overflow-y: scroll; ">
-            <h4 style="color: #4318FF;font-family: Source Sans Pro;">
+        <div class="inforCus col-md-6 mt-4"  style=" max-height:700px; overflow-y: scroll; ">
+            <h4 style="color: #4318FF;">
                 Thông tin khách hàng
             </h4>
             <form class="row g-3" style="max-width:950px;">
                 <div class="col-md-6">
                     <label for="inputName" class="form-label">Họ và tên</label>
-                    <input type="text" class="form-input" id="inputName" placeholder="Họ và tên" asp-for="@Model.Customer.FullName">
+                    <input type="text" class="form-control" id="inputName" placeholder="Họ và tên" asp-for="@Model.Customer.FullName">
                 </div>
                 <div class="col-md-3">
                     <label for="inputState" class="form-label">Giới tính</label>
@@ -112,27 +112,27 @@
                 </div>
                 <div class="col-md-6">
                     <label for="inputCCCD" class="form-label">CCCD/CMND</label>
-                    <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND" asp-for="@Model.Customer.Identification">
+                    <input type="text" class="form-control" id="inputCCCD" placeholder="CCCD/CMND" asp-for="@Model.Customer.Identification">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="inputPhone" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại" asp-for="@Model.Customer.PhoneNumber">
+                    <input type="text" class="form-control" id="inputPhone" placeholder="Số điện thoại" asp-for="@Model.Customer.PhoneNumber">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email" asp-for="@Model.Customer.Email">
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Địa chỉ Email" asp-for="@Model.Customer.Email">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="inputAddress" class="form-label">Nơi ở</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở" asp-for="@Model.Customer.Address">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Địa chỉ nơi ở" asp-for="@Model.Customer.Address">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.PContractID">
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.PContractID">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.TOS_ID">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.TOS_ID">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Chữ ký khách hàng</label>
@@ -142,7 +142,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="inputAddress" class="form-label">Chữ ký giám đốc</label>
                     <div class="d-flex align-items-center">
                         <div style="width: 5px; height: 5px; background-color: yellow; border-radius: 50%; margin-right: 10px;">
@@ -152,30 +152,30 @@
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Ngày tạo</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.DateCreated">
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.DateCreated">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.DateCreated">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.DateCreated">
                 </div>
                 <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
                     Thông tin nhân viên tạo hợp đồng
                 </h4>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Mã nhân viên</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.EmployeeCreatedId">
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.EmployeeCreatedId">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="inputAddress" class="form-label">Họ và tên</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.FullName">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.FullName">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.Email">
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.Email">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="inputAddress" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.PhoneNumber">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.PhoneNumber">
                 </div>
             </form>
         </div>

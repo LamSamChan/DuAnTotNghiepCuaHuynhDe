@@ -62,10 +62,11 @@
                             <td>@item.CustomerEmail</td>
                             <td>@item.DateCreated</td>
                             <td>@item.CustomerName</td>
-                            <td>
+                            <td style="display:flex; flex-direction:row; align-items:center;">
                                 @if (@item.IsDirector == "Đã ký")
                                 {
-                                    <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"><span>Đã duyệt</span></div>
+                                    <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 20px;"></div>
+                                    <span>Đã duyệt</span>
                                 }
                             </td>
                             <td>

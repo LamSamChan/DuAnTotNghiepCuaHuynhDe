@@ -27,7 +27,7 @@
             </nav>
             <h1 class="typeHead">CHI TIẾT HỢP ĐỒNG </h1>
             <div class="row justify-content-between">
-                <a class="col-md-2 button-design">
+                <a asp-controller ="Director" asp-action="ListContractEffect" class="col-md-2 button-design">
                     <i class="ph-bold ph-arrow-left"></i>
                     QUAY LẠI
                 </a>
@@ -214,14 +214,14 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-                <div class="tab-container mt-0">
+                <div class="tab-container mt-0" style="width:auto; display:flex;">
                     <div class="tab-button active" onclick="showTab('tab1')">Thông tin biên bản lắp</div>
                     <div class="tab-button" onclick="showTab('tab2')">Thông tin khách hàng</div>
                     @*<div class="tab-button" onclick="showTab('tab3')">Thông tin nhân viên tạo biên bản lắp</div>*@
                     <div class="tab-button" onclick="showTab('tab4')">Thông tin nhân viên đảm nhận lắp</div>
                 </div>
 
-                <div class="tab-content active" id="tab1">
+                <div class="tab-content active mt-5" id="tab1">
                     <form class="row justify-content-around" style=" margin: 0 auto;">
                         <div class="col-md-5">
                             <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll; height:400px;">
@@ -297,7 +297,7 @@
                         @**@
                     </form>
                 </div>
-                <div class="tab-content " id="tab2">
+                <div class="tab-content mt-5" id="tab2">
                     <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="UpdateInfoCustomer" asp-controller="BusinessStaff">
                         <div class="col-md-5">
                             <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
@@ -468,7 +468,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="tab-content " id="tab3">
+                <div class="tab-content mt-5 " id="tab3">
                     <form class="row justify-content-around" style=" margin: 0 auto;">
                         <div class="col-md-5">
                             <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
@@ -576,7 +576,7 @@
                         @**@
                     </form>
                 </div>
-                <div class="tab-content " id="tab4">
+                <div class="tab-content mt-5 " id="tab4">
                     <form class="row justify-content-around" style=" margin: 0 auto;">
                         <div class="col-md-5">
                             <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
