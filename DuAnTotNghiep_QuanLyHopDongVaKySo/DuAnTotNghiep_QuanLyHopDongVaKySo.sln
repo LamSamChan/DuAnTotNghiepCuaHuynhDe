@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuanLyHopDongVaKySo_API", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuanLyHopDongVaKySo.CLIENT", "QuanLyHopDongVaKySo.CLIENT\QuanLyHopDongVaKySo.CLIENT.csproj", "{63453605-2089-4D9B-B91A-D26B87CA745A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyHopDongVaKySo.SigningWithUsbToken", "QuanLyHopDongVaKySo.SigningWithUsbToken\QuanLyHopDongVaKySo.SigningWithUsbToken.csproj", "{2339A279-A9F8-4CE7-A44D-1E770B4C7BD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{63453605-2089-4D9B-B91A-D26B87CA745A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63453605-2089-4D9B-B91A-D26B87CA745A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63453605-2089-4D9B-B91A-D26B87CA745A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2339A279-A9F8-4CE7-A44D-1E770B4C7BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2339A279-A9F8-4CE7-A44D-1E770B4C7BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2339A279-A9F8-4CE7-A44D-1E770B4C7BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2339A279-A9F8-4CE7-A44D-1E770B4C7BD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
