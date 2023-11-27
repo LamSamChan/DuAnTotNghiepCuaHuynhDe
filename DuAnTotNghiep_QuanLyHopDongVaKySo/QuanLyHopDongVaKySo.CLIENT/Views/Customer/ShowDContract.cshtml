@@ -223,7 +223,7 @@
                                 </div>
                                 @foreach (var imgPath in imageFilesDContract)
                                 {
-                                    <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                    <div class="carousel-item">
                                         <img src="@Url.Content("~/ContractImage/"+@Model.Id+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
                                     </div>
                                 }
@@ -303,65 +303,66 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item active ">
                                     <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
-                                    @if (folderItemDMinute != null)
-                                    {
-                                        @foreach (var imgPath in imageFilesDMinute)
-                                        {
-                                            <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                                <img src="@Url.Content("~/MinuteImage/"+@Model.DMinuteID+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
-                                            </div>
-                                        }
-                                    }
-                                    else
-                                    {
-                                    <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                            <img src="~/@fileDMinuteNull" alt="Hình ảnh" width="100%" />
-                                    </div>
-                                    }
                                 </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselReCord" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
-                                <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarouselReCord" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+                                @if (folderItemDMinute != null)
+                                {
+                                    @foreach (var imgPath in imageFilesDMinute)
+                                    {
+                                        <div class="carousel-item">
+                                            <img src="@Url.Content("~/MinuteImage/"+@Model.DMinuteID+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="carousel-item">
+                                        <img src="~/@fileDMinuteNull" alt="Hình ảnh" width="100%" />
+                                    </div>
+                                }
+                                <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselReCord" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarouselReCord" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body btn">
+                            <h5 class="card-title">Hợp đồng lắp đặt wifi</h5>
+                            <p class="card-text">Nội dung </p>
                         </div>
                     </div>
-                    <div class="card-body btn">
-                        <h5 class="card-title">Hợp đồng lắp đặt wifi</h5>
-                        <p class="card-text">Nội dung </p>
-                    </div>
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="ShowRecord" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div id="myCarouselModalRecord" class="carousel slide">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active ">
-                                            <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
-                                        </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="ShowRecord" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="myCarouselModalRecord" class="carousel slide">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active ">
+                                                <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
+                                            </div>
                                             @foreach (var imgPath in imageFilesDMinute)
                                             {
                                                 <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
                                                     <img src="@Url.Content("~/MinuteImage/"+@Model.DMinuteID+ "/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" width="100%" />
                                                 </div>
                                             }
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselModalRecord" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarouselModalRecord" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
                                     </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselModalRecord" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarouselModalRecord" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -370,6 +371,7 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>
 <!-- Thư viện Popper.js -->
