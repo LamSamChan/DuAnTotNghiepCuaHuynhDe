@@ -61,7 +61,7 @@
                 <div class="col-md-6">
                     <label for="inputGender" class="form-label">Giới tính</label>
                     <select style="background-color: #F3F3F3;" required asp-for="Gender" class="form-control">
-                        <option value="" disabled selected>...chọn giới tính</option>
+                        <option value="" disabled selected>...Chọn giới tính</option>
                         <option value="1">Nam</option>
                         <option value="2">Nữ</option>
                     </select>
@@ -115,8 +115,10 @@
                     <label for="inputAddress" class="form-label">Địa chỉ thường trú</label>
                     <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Address" required id="inputAddress"></textarea>
                     <span class="text-danger" asp-validation-for="Address"></span>
-                    <label for="checkbox">Sao chép địa chỉ thường trú đến địa chỉ báo cước và xuất hóa đơn</label>
-                    <input type="checkbox" id="checkbox" />
+                    <div class="checkbox-container">
+                        <label class="checkbox-label" for="checkbox">Sao chép địa chỉ thường trú đến địa chỉ báo cước và xuất hóa đơn</label>
+                        <input type="checkbox" id="checkbox" />
+                    </div>
                 </div>
             </div>
         </div>

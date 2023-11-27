@@ -187,7 +187,7 @@
                     <th>TÊN THIẾT BỊ</th>
                     <th>TRẠNG THÁI</th>
                     <th>SỐ LƯỢNG</th>
-                    <th colspan="2">HÀNH ĐỘNG</th>
+                    <th>HÀNH ĐỘNG</th>
                 </tr>
             </thead>
             <tbody>
@@ -204,11 +204,10 @@
                             <input class="form-control" required asp-for="@item.TOS_ID" id="tosId_@item.Device_ID">
                         </td>
                         <td>
-                            <button class="add_cus" type="button" onclick="saveDevice('@item.Device_ID')">Lưu</button>
+                            <button class="button-save" type="button" onclick="saveDevice('@item.Device_ID')">Lưu</button>
+                            <a class="button-delete" style="height: 30px;" asp-action="DelDeviceAction" asp-controller="InstallStaff" asp-route-deviceID="@item.Device_ID">Xoá</a>
                         </td>
-                        <td>
-                            <a class="btn btn-danger" style="height: 30px;" asp-action="DelDeviceAction" asp-controller="InstallStaff" asp-route-deviceID="@item.Device_ID">Xoá</a>
-                        </td>
+                      
                     </tr>
                 }
             </tbody>
