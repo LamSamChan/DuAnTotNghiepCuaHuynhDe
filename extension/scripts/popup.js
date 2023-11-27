@@ -12,68 +12,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Lấy base64 từ đối tượng
       const base64Pdf = contractObject.pdfBase64;
-      console.log(base64Pdf);
-      // Chuyển base64 thành file PDF và hiển thị
-      //await showContractPdf(base64Pdf);
+
+      // Chuyển base64 thành blob
+      var byteCharacters = atob(base64Pdf);
+      var byteNumbers = new Array(byteCharacters.length);
+      for (var i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      var byteArray = new Uint8Array(byteNumbers);
+      var blob = new Blob([byteArray], { type: "application/pdf" });
+
+      // Hiển thị PDF dưới dạng hình ảnh bằng pdf.js
+      displayPdfAsImage(blob);
     } catch (error) {
       console.error("Error loading contract:", error);
     }
   });
 
-  async function callContractApi(contractCode) {
-    let urlContract = "https://localhost:7286/api/PContract/" + contractCode;
-    $.ajax({
-      url: urlContract,
-      type: "GET",
-      success: function (data) {
-        return {
-          pdfBase64: data.base64File,
-        };
-      },
-      error: function (error) {
-        console.log(`Error ${error}`);
-      },
-    });
+  async function displayPdfAsImage(pdfBlob) {
+    // Sử dụng pdf.js để chuyển đổi PDF thành hình ảnh
+    const pdfData = await pdfjsLib.getDocument({ data: pdfBlob }).promise;
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+
+    // Chọn trang đầu tiên của PDF
+    const pdfPage = await pdfData.getPage(1);
+
+    // Thiết lập kích thước của canvas dựa trên kích thước của trang PDF
+    canvas.width = pdfPage.view[2];
+    canvas.height = pdfPage.view[3];
+
+    // Vẽ hình ảnh PDF lên canvas
+    const renderContext = {
+      canvasContext: context,
+      viewport: pdfPage.view,
+    };
+    await pdfPage.render(renderContext).promise;
+
+    // Hiển thị hình ảnh trong container
+    contractImageContainer.html("");
+    contractImageContainer.append(canvas);
   }
 
-  async function showContractPdf(base64Pdf) {
-    // Chuyển base64 thành blob
-    const byteCharacters = atob(base64Pdf);
-    const byteArrays = [];
-    for (let offset = 0; offset < byteCharacters.length; offset += 512) {
-      const slice = byteCharacters.slice(offset, offset + 512);
-      const byteNumbers = new Array(slice.length);
-      for (let i = 0; i < slice.length; i++) {
-        byteNumbers[i] = slice.charCodeAt(i);
-      }
-      const byteArray = new Uint8Array(byteNumbers);
-      byteArrays.push(byteArray);
-    }
-    const blob = new Blob(byteArrays, { type: "application/pdf" });
-
-    // Hiển thị nội dung PDF bằng PDF.js
-    const pdfUrl = URL.createObjectURL(blob);
-    const loadingTask = pdfjsLib.getDocument(pdfUrl);
-    try {
-      const pdfDoc = await loadingTask.promise;
-      const [page] = await pdfDoc.getPage(1);
-
-      // Xóa ảnh cũ và thêm ảnh mới
-      contractImageContainer.html("");
-      const canvas = document.createElement("canvas");
-      const scale = 1.5;
-      const viewport = page.getViewport({ scale });
-      canvas.width = viewport.width;
-      canvas.height = viewport.height;
-      const context = canvas.getContext("2d");
-      const renderContext = {
-        canvasContext: context,
-        viewport: viewport,
-      };
-      await page.render(renderContext).promise;
-      contractImageContainer.append(canvas);
-    } catch (error) {
-      console.error("Error rendering PDF:", error);
-    }
+  async function callContractApi(contractCode) {
+    return new Promise((resolve, reject) => {
+      let urlContract = "https://localhost:7286/api/PContract/" + contractCode;
+      $.ajax({
+        url: urlContract,
+        type: "GET",
+        success: function (data) {
+          resolve({
+            pdfBase64: data.base64File,
+          });
+        },
+        error: function (error) {
+          reject(error);
+        },
+      });
+    });
   }
 });

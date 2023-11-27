@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signing With USB Token</title>
     <link rel="stylesheet" href="/styles/style.css" />
     <script src="/scripts/jquery-3.6.0.min.js"></script>
-    <script src="/scripts/build/pdf.mjs"></script>
+    <script src="/scripts/build/pdf.js"></script>
+    <script src="/scripts/build/pdf.worker.js"></script>
     <script src="/scripts/background.js"></script>
   </head>
   <body>
@@ -12,7 +15,9 @@
     <label for="contractCode">Contract Code:</label>
     <input type="text" id="contractCode" />
     <button id="loadContract">Load Contract</button>
-    <div id="contractImageContainer"></div>
+    <div id="contractImageContainer">
+      <div id="pdfViewer"></div>
+    </div>
   </body>
   <script src="/scripts/popup.js"></script>
 </html>
