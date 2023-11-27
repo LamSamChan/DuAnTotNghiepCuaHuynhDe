@@ -135,6 +135,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+
+        
         public async Task<IActionResult> HistoryOperation()
         {
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
@@ -212,6 +214,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> Index()
         {
+            
             string VB = ViewBag.Role;
             if (IsAuthenticate == 1)
             {

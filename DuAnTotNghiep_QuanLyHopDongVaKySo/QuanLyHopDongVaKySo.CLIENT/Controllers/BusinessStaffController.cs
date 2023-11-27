@@ -289,7 +289,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "tạo hợp đồng bị lỗi!!";
+                TempData["SweetTitle"] = "Tạo hợp đồng bị lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -693,9 +693,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Không thấy hợp đồng nào cả !!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -711,9 +708,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Không thấy hợp đồng nào cả !!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -729,9 +723,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Không thấy hợp đồng nào cả !!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -747,9 +738,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Không thấy hợp đồng nào cả !!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -766,9 +754,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Không thấy hợp đồng nào cả !!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -786,9 +771,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Không thấy hợp đồng nào cả !!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -807,9 +789,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Không thấy hợp đồng nào cả !!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -826,9 +805,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             catch
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Không thấy hợp đồng nào cả !!";
                 return RedirectToAction("Index");
             }
             return View(viewModel);
