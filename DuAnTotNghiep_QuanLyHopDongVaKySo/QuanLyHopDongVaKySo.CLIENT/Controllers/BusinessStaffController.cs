@@ -377,9 +377,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Thao tác bị lỗi!!";
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -392,9 +389,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Không thấy danh sách hợp đồng!!";
                 return RedirectToAction("Index", "Verify");
             }
         }

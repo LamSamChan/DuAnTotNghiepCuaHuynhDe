@@ -719,14 +719,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
-                TempData["SweetTitle"] = "Cập nhật vai trò thành công !!";
+                TempData["SweetTitle"] = "Cập nhật chức danh thành công !!";
                 return View("ListRole");
             }
             else
             {
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Cập nhật vai trò bị lỗi!!";
+                TempData["SweetTitle"] = "Cập nhật chức danh bị lỗi!!";
                 return RedirectToAction("Index");
             }
         }
