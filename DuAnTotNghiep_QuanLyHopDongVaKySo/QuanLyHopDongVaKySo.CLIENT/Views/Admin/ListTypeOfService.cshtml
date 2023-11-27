@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="col-12">
                                     <label for="inputRole" class="form-label">Mẫu hợp đồng</label>
-                                    <select style="background-color: #F3F3F3;" required class="form-control" asp-for="PostTOS.TContractID">
+                                    <select  required class="form-select" asp-for="PostTOS.TContractID">
                                         <option value="" disabled selected>...Chọn mẫu hợp đồng</option>
                                         @foreach (var c in Model.TemplateContracts)
                                         {
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="col-12">
                                     <label for="inputRole" class="form-label">Mẫu biên bản lắp đặt</label>
-                                    <select style="background-color: #F3F3F3;" required class="form-control" asp-for="PostTOS.TMinuteID">
+                                    <selec required class="form-select" asp-for="PostTOS.TMinuteID">
                                         <option value="" disabled selected>...Chọn mẫu biên bản lắp đặt</option>
                                         @foreach (var m in Model.TemplateMinutes)
                                         {
@@ -66,15 +66,6 @@
                                     </select>
                                     <span class="text-danger" asp-validation-for="PostTOS.TMinuteID"></span>
                                 </div>
-                                @* <div class="col-12">
-                                    <input class="form-control d-none">
-                                    
-                                    <div class="row">
-                                        
-                                    </div>
-                                    
-                                    
-                                </div> *@
                                 <div class="col-md-5" style="margin:auto;">
                                     <button class="btn-addRole" type="submit" style="width: 100%;">
                                         THÊM

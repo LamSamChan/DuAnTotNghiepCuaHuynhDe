@@ -20,7 +20,7 @@
             </nav>
             <h1 class="typeHead">CHI TIẾT KHÁCH HÀNG</h1>
             <div class="row">
-                <a class="col-md-2 button-design" asp-action="ListCus" asp-controller="BusinessStaff">
+                <a class="col-md-2 button-design" asp-action="ListCusAccount" asp-controller="Admin">
                     <i class="ph-bold ph-arrow-left">
                         QUAY LẠI
                     </i>
@@ -55,11 +55,11 @@
         <div class="tab-button active" onclick="showTab('tab1')">Thông tin chi tiết</div>
         <div class="tab-button" onclick="showTab('tab2')">Danh sách hợp đồng chờ ký</div>
         <div class="tab-button" onclick="showTab('tab3')">Danh sách hợp đồng đã ký</div>
-        <a class="button-save" asp-action="CreateFormForCus" asp-controller="BusinessStaff" asp-route-id="@Model.Customer.CustomerId">
+        <a class="button-save d-flex align-items-center ms-3" asp-action="CreateFormForCus" asp-controller="BusinessStaff" asp-route-id="@Model.Customer.CustomerId">
             Tạo hợp đồng
         </a>
     </div>
-    <div class="tab-content active" id="tab1">
+    <div class="tab-content active mt-4" id="tab1">
         <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="UpdateInfoCustomer" asp-controller="BusinessStaff">
             <div class="col-md-5">
                 <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
@@ -266,7 +266,7 @@
                             </div>
                         </td>
                             <td>
-                                <button onclick="downloadPDF('@item.Base64File','@item.PContractName')"><i class="ph-bold ph-download-simple"></i></button>
+                                <button class="button-save" onclick="downloadPDF('@item.Base64File','@item.PContractName')"><i class="ph-bold ph-download-simple"></i></button>
                             </td>
                         <td>
                             <a asp-action="DetailsContractWaitSign" asp-controller="BusinessStaff" asp-route-id="@item.PContractID">Chi tiết</a>

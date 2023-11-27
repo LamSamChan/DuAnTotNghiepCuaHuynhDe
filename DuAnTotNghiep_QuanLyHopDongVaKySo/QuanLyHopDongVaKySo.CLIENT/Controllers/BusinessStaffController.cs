@@ -277,7 +277,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> CreateFormForCus(string id)
         {
-            if (IsAuthenticate == 3)
+            if (IsAuthenticate == 3 || IsAuthenticate == 1)
             {
                 HttpContext.Session.SetString(SessionKey.Customer.CustomerID, id);
                 VMCreateFormForCus vm = new VMCreateFormForCus();
@@ -296,7 +296,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> DetailsCus(string customerID)
         {
-            if (IsAuthenticate == 3)
+            if (IsAuthenticate == 3 || IsAuthenticate == 1)
             {
                 var respone = await _customerService.GetCustomerById(customerID);
                 if (respone != null)
@@ -371,7 +371,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         //TContract
         public IActionResult ContractFormPage()
         {
-            if (IsAuthenticate == 3)
+            if (IsAuthenticate == 3 || IsAuthenticate == 1)
             {
                 return View();
             }
@@ -386,7 +386,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> ListContractFormPage()
         {
-            if (IsAuthenticate == 3)
+            if (IsAuthenticate == 3 )
             {
                 return View(await _tContractService.getAllAsnyc());
             }
@@ -539,7 +539,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> ListMinuteFormPage()
         {
-            if (IsAuthenticate == 3)
+            if (IsAuthenticate == 3 || IsAuthenticate == 1)
             {
                 return View(await _tMinuteService.GetAll());
             }
@@ -686,7 +686,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListEffect()
         {
             List<DContractViewModel> contractList = new List<DContractViewModel>();
-            if (IsAuthenticate == 3)
+            if (IsAuthenticate == 3 || IsAuthenticate == 1)
             {
                 contractList = await _dContractService.getListIsEffect();
                 return View(contractList);
@@ -701,7 +701,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListPending()
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (IsAuthenticate == 3)
+            if (IsAuthenticate == 3 || IsAuthenticate == 1)
             {
                 pContractList = await _pContractService.getListWaitDirectorSigns();
                 return View(pContractList);
@@ -716,7 +716,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListRefuse()
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (IsAuthenticate == 3)
+            if (IsAuthenticate == 3 || IsAuthenticate == 1 )
             {
                 pContractList = await _pContractService.getListRefuse();
                 return View(pContractList);
@@ -731,7 +731,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListWaitSign()
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (IsAuthenticate == 3)
+            if (IsAuthenticate == 3 || IsAuthenticate == 1 )
             {
                 pContractList = await _pContractService.getListWaitCustomerSigns();
                 return View(pContractList);
@@ -745,7 +745,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> DetailsContractEffect(string id)
         {
             VMDetailsContract viewModel = new VMDetailsContract();
-            if (IsAuthenticate == 3)
+            if (IsAuthenticate == 3 || IsAuthenticate == 1)
             {
                 viewModel.DoneContracts = await _dContractService.getByIdAsnyc(id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
@@ -761,7 +761,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> DetailsContractPending(string id)
         {
             VMDetailsContract viewModel = new VMDetailsContract();
-            if (IsAuthenticate == 3)
+            if (IsAuthenticate == 3 || IsAuthenticate == 1)
             {
                 viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
@@ -779,7 +779,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             VMDetailsContract viewModel = new VMDetailsContract();
 
-            if (IsAuthenticate == 3)
+            if (IsAuthenticate == 3 || IsAuthenticate == 1)
             {
                 viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
