@@ -112,9 +112,11 @@
                     <span class="text-danger" asp-validation-for="Nationality"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
-                    <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Address" required></textarea>
+                    <label for="inputAddress" class="form-label">Địa chỉ thường trú</label>
+                    <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Address" required id="inputAddress"></textarea>
                     <span class="text-danger" asp-validation-for="Address"></span>
+                    <label for="checkbox">Sao chép địa chỉ thường trú đến địa chỉ báo cước và xuất hóa đơn</label>
+                    <input type="checkbox" id="checkbox" />
                 </div>
             </div>
         </div>
@@ -137,19 +139,19 @@
                     <span class="text-danger" asp-validation-for="TaxIDNumber"></span>
                 </div>
                 <div class="col-md-12">
-                    <label for="adReport" class="form-label">Địa chỉ báo cước</label>
-                    <input style="background-color: #F3F3F3;" class="form-control" asp-for="ChargeNoticeAddress" required>
+                    <label for="ChargeNoticeAddress" class="form-label">Địa chỉ báo cước</label>
+                    <input style="background-color: #F3F3F3;" class="form-control" id="ChargeNoticeAddress" asp-for="ChargeNoticeAddress" required>
                     <span class="text-danger" asp-validation-for="ChargeNoticeAddress"></span>
                 </div>
                 <div class="col-12">
-                    <label for="adInvoice" class="form-label" style="color: #525252;
-        font-size: 18px;
-        font-family: Joxt;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-">Địa chỉ xuất hóa đơn</label>
-                    <input style="background-color: #F3F3F3;" class="form-control" asp-for="BillingAddress" required>
+                    <label for="BillingAddress" class="form-label" style="color: #525252;
+                    font-size: 18px;
+                    font-family: Joxt;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    ">Địa chỉ xuất hóa đơn</label>
+                    <input style="background-color: #F3F3F3;" class="form-control" asp-for="BillingAddress" id="BillingAddress" required>
                     <span class="text-danger" asp-validation-for="BillingAddress"></span>
                 </div>
                 <div class="col-12">
@@ -240,3 +242,24 @@
 
 </div>
 <script src="~/js/AddCus.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        // Lắng nghe sự kiện khi checkbox được thay đổi
+        $("#checkbox").change(function () {
+            if ($(this).is(":checked")) {
+                // Nếu checkbox được chọn, gán giá trị từ input 1 vào input 2 và 3
+                var inputValue = $("#inputAddress").val();
+                $("#ChargeNoticeAddress").val(inputValue);
+                $("#BillingAddress").val(inputValue);
+            }
+        });
+
+        // Lắng nghe sự kiện khi giá trị của input 2 hoặc input 3 thay đổi
+        $("#ChargeNoticeAddress, #BillingAddress").on("input", function () {
+            // Nếu giá trị khác với input 1, làm cho checkbox không được chọn
+            if ($(this).val() !== $("#inputAddress").val()) {
+                $("#checkbox").prop("checked", false);
+            }
+        });
+    });
+</script>

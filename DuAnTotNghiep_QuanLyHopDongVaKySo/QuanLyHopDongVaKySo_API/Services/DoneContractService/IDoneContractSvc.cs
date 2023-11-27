@@ -8,6 +8,8 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
         Task<DoneContract> getByIdAsnyc(string id);
         Task<DoneContract> addAsnyc(PutPendingContract Pcontract);
         Task<DoneContract> updateAsnyc(PutDContract dContract);
+        Task<DoneContract> updateIsEffect(PutDContract dContract);
+
         Task<string> updateAsnycDMinute(PutDContract dContract);
         Task<List<DoneContract>> GetAll();
         Task<DContractViewModel> getByIView(int id);

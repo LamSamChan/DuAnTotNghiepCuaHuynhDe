@@ -31,6 +31,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
             return response;
         }
 
+        public async Task<PutDContract> getByIdUnEffect(string id)
+        {
+            var response = await _httpClient.GetFromJsonAsync<PutDContract>($"api/DContract/getByIdUnEffect/{id}");
+            return response;
+        }
+
         public async Task<List<DContractViewModel>> getListByCusId(string id)
         {
             var response = await _httpClient.GetFromJsonAsync<List<DContractViewModel>>($"api/DContract/getByCustomerId/{id}");
@@ -55,6 +61,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
             return response;
         }
 
+        public async Task<string> UnEffectContract(int id)
+        {
+            var response = await _httpClient.GetAsync($"api/DContract/UnEffectContract/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                return id.ToString();
+            }
+            else
+            {
+                return null;
+            }
+           
+        }
+
         public async Task<string> updateAsnyc(PutDContract dContract)
         {
             var content = new StringContent(JsonConvert.SerializeObject(dContract), Encoding.UTF8, "application/json");
@@ -76,5 +96,27 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
                 return null;
             }
         }
+        public async Task<PutDContract> updateIsEffect(PutDContract dContract)
+        {
+            var content = new StringContent(JsonConvert.SerializeObject(dContract), Encoding.UTF8, "application/json");
+            try
+            {
+                var reponse = await _httpClient.PutAsync("api/DContract/UpdateIsEffect", content);
+                if (reponse.IsSuccessStatusCode)
+                {
+                    return dContract;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
     }
 }

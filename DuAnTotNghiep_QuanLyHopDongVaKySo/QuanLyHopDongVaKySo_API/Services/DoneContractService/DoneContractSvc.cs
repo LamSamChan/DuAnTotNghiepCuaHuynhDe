@@ -249,5 +249,25 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                 return null;
             }
         }
+
+        public async Task<DoneContract> updateIsEffect(PutDContract dContract)
+        {
+            string ret = null;
+            var update = await getByIdAsnyc(dContract.DContractID);
+            try
+            {
+                if (update != null)
+                {
+                    update.IsInEffect = false;                    
+                }
+                _context.DoneContracts.Update(update);
+                await _context.SaveChangesAsync();
+                return update;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

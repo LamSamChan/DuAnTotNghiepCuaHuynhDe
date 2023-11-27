@@ -31,7 +31,7 @@
                     <i class="ph-bold ph-arrow-left"></i>
                     QUAY LẠI
                 </a>
-                <a class="col-md-2 button-delete">
+                <a class="col-md-2 button-delete" asp-controller="Director" asp-action="UnEffectContract" asp-route-Id="@Model.DoneContracts.Id">
                     KẾT THÚC HỢP ĐỒNG
                 </a>
             </div>
@@ -55,7 +55,7 @@
                     <i class="ph-bold ph-arrow-left"></i>
                     QUAY LẠI
                 </a>
-                <a class="col-md-2 button-delete">
+                <a class="col-md-2 button-delete" asp-controller="Director" asp-action="UnEffectContract" asp-route-Id="@Model.DoneContracts.Id">
                     KẾT THÚC HỢP ĐỒNG
                 </a>
             </div>
@@ -183,12 +183,12 @@
                                 <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.DoneContracts.TypeOfService">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Ngày tạo</label>
-                                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" >
+                                <label for="inputEmail4" class="form-label">Ngày hiệu lực</label>
+                                <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContracts.DateDone">
                             </div>
                             <div class="col-md-5">
                                 <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
-                                <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.DoneContracts.DMinuteID">
+                                <input type="text" class="form-input" id="inputAddress" placeholder="ID" asp-for="@Model.DoneContracts.DMinuteID">
                             </div>
                             <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
                                 Thông tin nhân viên tạo hợp đồng

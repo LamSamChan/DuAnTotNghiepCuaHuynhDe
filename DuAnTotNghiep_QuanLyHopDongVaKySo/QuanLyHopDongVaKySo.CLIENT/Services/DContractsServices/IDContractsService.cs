@@ -8,6 +8,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
         Task<List<DContractViewModel>> getAllView();
         Task<DContractViewModel> getByIdAsnyc(string id);
         Task<string> updateAsnyc(PutDContract dContract);
+        Task<PutDContract> updateIsEffect(PutDContract dContract);
+        Task<PutDContract> getByIdUnEffect(string id);
+        Task<string> UnEffectContract(int id);
 
         Task<List<DContractViewModel>> getListIsEffect();
         Task<List<DContractViewModel>> getListByCusId(string id);

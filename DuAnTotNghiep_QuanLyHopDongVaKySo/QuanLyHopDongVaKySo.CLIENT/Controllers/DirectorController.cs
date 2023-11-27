@@ -326,7 +326,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public async Task<IActionResult> ListContractEffect()
         {
-            
             List<VMAPI.DContractViewModel> contractList = new List<VMAPI.DContractViewModel>();
             if (IsAuthenticate == 2)
             {
@@ -485,6 +484,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index");
             }
             return View(viewModel);
+        }
+
+        public async Task<IActionResult> UnEffectContract(int Id)
+        {
+            var respone = await _dContractService.UnEffectContract(Id);
+            if (respone != null)
+            {
+                return View("DetailsContractEffect", Id.ToString());
+            }
+            else
+            {
+                //lỗi
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpPost]

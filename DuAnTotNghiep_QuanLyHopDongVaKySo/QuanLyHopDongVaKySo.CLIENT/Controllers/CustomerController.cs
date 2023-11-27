@@ -184,7 +184,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         //Trang cho khách hàng xem hđ và bb lắp
         public async Task<ActionResult> ShowDContract(string token)
         {
-           int id = DecodeTokenShowContract(token);
+           int id = DecodeTokenDContract(token);
            var dContract = await _dContractsService.getByIdAsnyc(id.ToString());
             if(dContract != null)
             {
@@ -200,7 +200,30 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-        private int DecodeTokenShowContract(string token)
+
+        public async Task<ActionResult> UnEffectDContract(string token)
+        {
+            int id = DecodeTokenDContract(token);
+            var dContract = await _dContractsService.getByIdUnEffect(id.ToString());
+            if (dContract != null)
+            {
+                dContract.IsInEffect = false;
+                await _dContractsService.updateIsEffect(dContract);
+                return View("Index");
+            }
+            else
+            {
+                //báo lỗi ko tìm thấy hợp dồng
+                TempData["SwalMessageType"] = "error";
+                TempData["SwalMessageIcon"] = "error";
+                TempData["SwalMessageTitle"] = "Không tìm thấy hợp đồng!!";
+                return BadRequest();
+            }
+
+
+        }
+
+        private int DecodeTokenDContract(string token)
         {
             var handler = new JwtSecurityTokenHandler();
             var jsonToken = handler.ReadToken(token);
