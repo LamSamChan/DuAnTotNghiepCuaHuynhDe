@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QYWTJaoGXei6d9nfPCGDZJTSx8EKxT7Eo+6OKcKUDGw=",
+  "Hash": "o6syvxrsggn2ZXPyzzYbpYncZcFTYU+KVRXbclBcyI0=",
   "Source": "QuanLyHopDongVaKySo.CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
   "Mode": "Default",
@@ -33434,6 +33434,23 @@
       "OriginalItemSpec": "wwwroot\\css\\stylesInstaller\\SignedByStaff.css"
     },
     {
+      "Identity": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Cssloading\\style.css",
+      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
+      "RelativePath": "Cssloading/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Cssloading\\style.css"
+    },
+    {
       "Identity": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Images\\clear.png",
       "SourceId": "QuanLyHopDongVaKySo.CLIENT",
       "SourceType": "Discovered",
@@ -36101,6 +36118,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\SignatureImages\\638365933710560384\\ChiTietHopDong.png"
+    },
+    {
+      "Identity": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638365947183445832\\z4886846313558_eca3423d3013635e1552a554dd3523a7.jpg",
+      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
+      "RelativePath": "SignatureImages/638365947183445832/z4886846313558_eca3423d3013635e1552a554dd3523a7.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\SignatureImages\\638365947183445832\\z4886846313558_eca3423d3013635e1552a554dd3523a7.jpg"
     },
     {
       "Identity": "C:\\Learn\\du-an-tot-nghiep_FE\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\StampImage\\stamp.png",
