@@ -2,11 +2,17 @@
 <html>
   <head>
     <title>Signing With USB Token</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="popup.js"></script>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script src="/scripts/jquery-3.6.0.min.js"></script>
+    <script src="/scripts/build/pdf.mjs"></script>
+    <script src="/scripts/background.js"></script>
   </head>
   <body>
     <h1>TECH SEAL - Signing With USB Token</h1>
-    <button id="readToken">Read Token</button>
+    <label for="contractCode">Contract Code:</label>
+    <input type="text" id="contractCode" />
+    <button id="loadContract">Load Contract</button>
+    <div id="contractImageContainer"></div>
   </body>
+  <script src="/scripts/popup.js"></script>
 </html>

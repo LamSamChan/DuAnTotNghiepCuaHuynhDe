@@ -91,7 +91,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpPut("Update")]
         public async Task<IActionResult> Update(PutDContract dContract)
         {
-            return Ok (await _doneContractSvc.updateAsnyc(dContract));
+            return Ok(await _doneContractSvc.updateAsnyc(dContract));
         }
 
         [HttpPut("UpdateIsEffect")]
@@ -133,12 +133,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
    $"<p>Trân trọng,</p> " +
    $"<p>Tech Seal.</p>";
 
-              
+
                 SendMail mail = new SendMail();
                 string subject = "Xác nhận kết thúc hợp đồng từ yêu cầu của bạn";
                 byte[] bytes1 = Encoding.Convert(Encoding.Unicode, Encoding.UTF8, Encoding.Unicode.GetBytes(subject));
                 mail.Subject = Encoding.UTF8.GetString(bytes1);
-                mail.Subject = "Xác nhận kết thúc hợp đồng";
                 mail.ReceiverName = customer.FullName;
                 mail.ToMail = customer.Email;
                 mail.HtmlContent = content;
