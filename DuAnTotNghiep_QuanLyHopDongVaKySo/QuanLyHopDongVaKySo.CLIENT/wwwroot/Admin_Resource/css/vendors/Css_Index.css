@@ -1,6 +1,28 @@
 ﻿
 /*@import url("ListUser.css");
 */
+
+@font-face {
+    font-family: "YourCustomFont";
+    src: url("/holligate-signature-demo/HolligateSignatureDemo.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+#imageContainer {
+    margin-top: 20px;
+    font-family: "YourCustomFont", Arial, sans-serif;
+}
+#imageContainer img{
+    width:100%;
+    border:1px dotted;
+}
+
+#fontSelect {
+    width: 220px;
+    margin-left: 10px;
+}
+
 #nav-home,
 #nav-profile {
     width: 100%;

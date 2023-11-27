@@ -28,6 +28,32 @@
         margin: 0;
         padding: 0;
     }
+
+/*chuyển đổi tụ động chữ ký số*/
+
+    @font-face {
+        font-family: "YourCustomFont";
+        src: url("/holligate-signature-demo/HolligateSignatureDemo.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    #imageContainer {
+        margin-top: 20px;
+        font-family: "YourCustomFont", Arial, sans-serif;
+    }
+
+    #imageContainer img {
+        width: 100%;
+        border: 1px dotted;
+    }
+
+    #fontSelect {
+        width: 220px;
+        margin-left: 10px;
+    }
+
+    /**/
     .checkbox-container {
         display: flex;
         align-items: center;

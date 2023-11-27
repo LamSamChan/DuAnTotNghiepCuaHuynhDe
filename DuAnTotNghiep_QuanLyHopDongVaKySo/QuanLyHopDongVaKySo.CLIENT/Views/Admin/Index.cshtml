@@ -106,6 +106,31 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6 mt-3 rounded">
+                <h4 class="typeHead">Tạo chữ ký tự động</h4>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon3">
+                            <input type="color" id="textColorPicker" value="#000000" />
+                        </span>
+                        <input type="text" class="form-control" id="textInput" placeholder="Nhập chữ vào đây">
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="button-design col-3" onclick="convertToImage()">Chuyển đổi</button>
+                    <button class="button-save col-2">Lưu</button>
+                    <select id="fontSelect" class="form-select col-5" onchange="applySelectedFont()">
+                        <option value="YourCustomFont">Your Custom Font</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Tahoma">Tahoma</option>
+                        <!-- Thêm các font khác vào đây nếu cần -->
+                    </select>
+                </div>
+                <div id="imageContainer"></div>
+            </div>
+
             <div class="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6 mt-3 rounded">
                 <div class="tab-container">
                     <div class="tab-button active" onclick="showTab('tab1')">Chữ ký mặc định</div>
@@ -122,31 +147,31 @@
                                         <div class="row justify-content-around">
                                             <a class="col button-delete" asp-action="DeleteDefaultSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.DefaultImageSignature">Xóa
                                                    @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                            {
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function () {
-                                    var sweetData = {
-                                        title: '@TempData["SweetTitle"]',
-                                        text: '@TempData["SweetText"]',
-                                        icon: '@TempData["SweetIcon"]'
-                                    };
+                                                   {
+                                                        <script>
+                                                            document.addEventListener('DOMContentLoaded', function () {
+                                                                var sweetData = {
+                                                                    title: '@TempData["SweetTitle"]',
+                                                                    text: '@TempData["SweetText"]',
+                                                                    icon: '@TempData["SweetIcon"]'
+                                                                };
 
                                    
 
-                                    Swal.fire({
-                                        title: sweetData.title,
-                                        text: sweetData.text,
-                                        icon: sweetData.icon,
-                                        showCancelButton: false,
-                                        allowOutsideClick: false,
-                                        confirmButtonColor: "green",
-                                        confirmButtonText: "Ok"
-                                    }).then(function () {
-                                        // Handle any additional logic after the SweetAlert is closed.
-                                    });
-                                });
-                            </script>
-                        }
+                                                                Swal.fire({
+                                                                    title: sweetData.title,
+                                                                    text: sweetData.text,
+                                                                    icon: sweetData.icon,
+                                                                    showCancelButton: false,
+                                                                    allowOutsideClick: false,
+                                                                    confirmButtonColor: "green",
+                                                                    confirmButtonText: "Ok"
+                                                                }).then(function () {
+                                                                    // Handle any additional logic after the SweetAlert is closed.
+                                                                });
+                                                            });
+                                                        </script>
+                                                   }
                                             </a>
                                         </div>
                                     </div>
@@ -766,6 +791,7 @@
                     </button>
                 </form>
             </div>
+
             <div class="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6 mt-3 rounded">
                 <div class="row justify-content-around">
                     <h4 class="typeHead">Tạo chữ ký</h4>
@@ -784,7 +810,100 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script type="text/javascript">
+
+
+    // Biến để kiểm tra xem đã có lần chuyển đổi nào được thực hiện chưa
+    var conversionDone = false;
+
+    function applySelectedFont() {
+        // Lấy giá trị font đã chọn
+        var selectedFont = document.getElementById("fontSelect").value;
+
+        // Nếu chưa có lần chuyển đổi nào được thực hiện, áp dụng font mặc định
+        if (!conversionDone) {
+            selectedFont = "YourCustomFont"; // Đặt lại font mặc định
+            conversionDone = true; // Đánh dấu là đã thực hiện chuyển đổi
+        }
+
+        // Gọi hàm áp dụng font
+        applyFont(selectedFont);
+    }
+
+    function applyFont(font) {
+        var textInput = $("#textInput").val();
+        var textColor = $("#textColorPicker").val();
+
+        if (textInput) {
+            var div = document.createElement("div");
+            div.style.fontFamily = font;
+            div.style.fontSize = "300px";
+            div.innerText = textInput;
+            div.style.color = textColor;
+            div.style.backgroundColor = "transparent"; // Set màu nền trong suốt
+
+            document.body.appendChild(div);
+
+            html2canvas(div, { backgroundColor: null }).then((canvas) => {
+                var newCanvas = document.createElement("canvas");
+                var newContext = newCanvas.getContext("2d");
+
+                newCanvas.width = canvas.width + 10;
+                newCanvas.height = canvas.height + 10;
+
+                newContext.drawImage(
+                    canvas,
+                    0,
+                    0,
+                    newCanvas.width,
+                    newCanvas.height
+                );
+
+                var imageData = newContext.getImageData(
+                    0,
+                    0,
+                    newCanvas.width,
+                    newCanvas.height
+                );
+
+                for (var i = 0; i < imageData.data.length; i += 4) {
+                    var isWhite =
+                        imageData.data[i] === 255 &&
+                        imageData.data[i + 1] === 255 &&
+                        imageData.data[i + 2] === 255;
+                    if (isWhite) {
+                        imageData.data[i + 3] = 0;
+                    }
+                }
+
+                newContext.putImageData(imageData, 0, 0);
+
+                var img = new Image();
+                img.src = newCanvas.toDataURL();
+                img.classList.add("nobg");
+                var imageOutput = document.getElementById("imageContainer");
+                imageOutput.innerHTML = "";
+                imageOutput.appendChild(img);
+
+                document.body.removeChild(div);
+            });
+        } else {
+            alert("Vui lòng nhập văn bản.");
+        }
+    }
+
+    function convertToImage() {
+        // Lấy giá trị font đã chọn từ dropdown
+        var selectedFont = document.getElementById("fontSelect").value;
+
+        // Gọi hàm áp dụng font
+        applyFont(selectedFont);
+    }
+
+
+
 
     function showTab(tabId) {
         // Ẩn tất cả các nội dung tab
