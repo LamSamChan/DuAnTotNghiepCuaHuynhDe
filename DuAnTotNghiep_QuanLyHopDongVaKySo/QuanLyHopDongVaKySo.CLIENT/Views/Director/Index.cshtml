@@ -480,7 +480,7 @@
 
 
     $(document).ready(function () {
-        $('#file-upload').change(function () {
+        $('#file-upload-avt').change(function () {
             var fileName = $(this).val().split('\\').pop();
 
             // Kiểm tra xem người dùng đã chọn tệp hay chưa
@@ -504,6 +504,30 @@
         });
     });
 
+    $(document).ready(function () {
+        $('#file-upload-id').change(function () {
+            var fileName = $(this).val().split('\\').pop();
+
+            // Kiểm tra xem người dùng đã chọn tệp hay chưa
+            if (fileName) {
+                // Nếu có giá trị, hiển thị thông báo thành công
+                Swal.fire({
+                    title: 'Tải tệp lên thành công!',
+                    text: 'Bạn đã tải tệp lên với tên: ' + fileName,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            } else {
+                // Nếu không có giá trị, hiển thị thông báo lỗi
+                Swal.fire({
+                    title: 'Lỗi!',
+                    text: 'Vui lòng chọn một tệp để tải lên.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    });
 
     var statV = false;
 

@@ -170,6 +170,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> Logout()
         {
+            string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
             var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
             API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
@@ -191,7 +192,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             TempData["SweetType"] = "success";
             TempData["SweetIcon"] = "success";
-            TempData["SweetTitle"] = "Bạn đã đăng xuất thành công.";
+            TempData["SweetTitle"] = $"{role} đã đăng xuất thành công.";
             return RedirectToAction("Index");
         }
     }
