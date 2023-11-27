@@ -1,13 +1,13 @@
-﻿@* @using Microsoft.AspNetCore.Hosting
+﻿ @using Microsoft.AspNetCore.Hosting
 @inject IWebHostEnvironment _hostingEnvironment
-@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMDetailsContractAwait *@
+@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMDetailsContractAwait 
 @{
     // Lấy link trực ảnh từ file tỉnh
-    // string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+     string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
 
     //string folderItem = System.IO.Path.Combine(folderPath, "7");
-    // string folderItem = System.IO.Path.Combine(folderPath, Model.PContract.PContractID);
-    // string[] imageFiles = Directory.GetFiles(folderItem);
+     string folderItem = System.IO.Path.Combine(folderPath, Model.PContract.PContractID);
+     string[] imageFiles = Directory.GetFiles(folderItem);
 
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
@@ -62,12 +62,12 @@
                         <div class="carousel-item active " style="width:800px;">
                             <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" style="margin:100px auto;" />
                         </div>
-                        @* @foreach (var imgPath in imageFiles)
+                         @foreach (var imgPath in imageFiles)
                         {
                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
                                 <img src="@Url.Content("~/ContractImage/"+Model.PContract.PContractID+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                             </div>
-                        } *@
+                        } 
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
                         <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
@@ -87,7 +87,7 @@
             @* form khách hàng *@
 
 
-          @*  <form class="row g-3" style="max-width:950px;">
+            <form class="row g-3" style="max-width:950px;">
                 <div class="col-md-6">
                     <label for="inputName" class="form-label">Họ và tên</label>
                     <input type="text" class="form-control" id="inputName" placeholder="Họ và tên" asp-for="@Model.Customer.FullName">
@@ -156,10 +156,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Lý do từ chối duyệt</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" asp-for="@Model.PContract.Reason"></textarea>
                 </div>
             </form>
-            *@
+            
         </div>
 
     </div>

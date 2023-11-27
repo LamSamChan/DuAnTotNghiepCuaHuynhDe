@@ -144,10 +144,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-        public IActionResult DetailsRefuseToSign()
-        {
-            return View();
-        }
+        
         public async Task<IActionResult> ListContractActive()
         {
             List<VMAPI.PContractViewModel> pContractList = new List<VMAPI.PContractViewModel>();
@@ -161,6 +158,29 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 pContractList = await _pContractService.getListWaitCustomerSigns();
             }
             return View(pContractList);
+        }
+        public async Task<IActionResult> DetailsRefuseToSign(string id)
+        {
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+
+            VMDetailsContractAwait vm = new VMDetailsContractAwait();
+            try
+            {
+                vm.PContract = await _pContractService.getByIdAsnyc(id);
+                vm.EmployeeCreated = await _employeeService.GetEmployeeById(vm.PContract.EmployeeCreatedId);
+                vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
+                vm.Customer = await _customerService.GetCustomerById(vm.PContract.CustomerId);
+            }
+            catch
+            {
+                //báo lỗi
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Không tìm thấy hợp đồng !!";
+                return RedirectToAction("Index");
+            }
+            return View(vm);
         }
         public async Task<IActionResult> DetailsContractActive(string id)
         {
