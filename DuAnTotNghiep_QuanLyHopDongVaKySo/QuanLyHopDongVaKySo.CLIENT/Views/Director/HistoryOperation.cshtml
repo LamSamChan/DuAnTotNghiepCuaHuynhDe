@@ -11,25 +11,28 @@
         </nav>
         <h1 class="typeHead">Tất cả lịch sử thao tác</h1>
     </div>
-    <div class="listTable">
-        <table class="table">
-            <thead>
-                <tr style="color: #8B909A;">
-                    <th scope="col">ID</th>
-                    <th scope="col">NGÀY</th>
-                    <th scope="col">THAO TÁC</th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <th scope="row">@item.HistoryID</th>
-                        <td>@item.Date</td>
-                        <td>@item.OperationName</td>
+    <div class="row bg-white mt-4 mx-auto my-auto">
+        <div class="listTable" style="max-height: 700px;overflow-y: scroll;">
+            <table class="table">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th scope="col">ID</th>
+                        <th scope="col">NGÀY</th>
+                        <th scope="col">THAO TÁC</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="table-group-divider">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.HistoryID</th>
+                            <td>@item.Date</td>
+                            <td>@item.OperationName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
+   
 </div>
