@@ -494,7 +494,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var pMinute = await _pendingMinuteSvc.GetById(idMinute);
 
-            if (pMinute.IsIntallation)
+            if (pMinute != null || pMinute.IsIntallation)
             {
                 return BadRequest("Biên bản này đã được nhân viên lắp đặt ký !");
             }
