@@ -27,6 +27,7 @@ using test.Models;
 using API = QuanLyHopDongVaKySo_API.Models;
 using APIPost = QuanLyHopDongVaKySo_API.Models.ViewPost;
 using APITPut = QuanLyHopDongVaKySo_API.Models.ViewPuts;
+using PutEmployee = QuanLyHopDongVaKySo.CLIENT.Models.ModelPut.PutEmployee;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -518,7 +519,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> EditEmpAction(PutEmployee employee)
         {
-            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var existEmp = await _employeeService.GetEmployeeById(employee.EmployeeId.ToString());
             if (employee.ImageFile != null)
             {
