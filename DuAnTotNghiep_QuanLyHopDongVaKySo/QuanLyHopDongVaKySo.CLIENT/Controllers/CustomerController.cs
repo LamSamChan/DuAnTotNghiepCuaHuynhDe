@@ -142,7 +142,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
 
                 //xoa anh pcontract
-                folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+                folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
 
                 string folderItem = System.IO.Path.Combine(folderPath, split[2]);
 
@@ -203,7 +203,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
 
                 //xoa anh pcontract
-                var folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+                var folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
 
                 string folderItem = System.IO.Path.Combine(folderPath, split[2]);
 

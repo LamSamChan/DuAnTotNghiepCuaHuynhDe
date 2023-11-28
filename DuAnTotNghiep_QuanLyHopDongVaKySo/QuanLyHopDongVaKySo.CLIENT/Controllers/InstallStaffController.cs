@@ -226,7 +226,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 string pdfPath = null;
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
-                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "minute");
+                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "pminute");
 
                 System.GC.Collect();
                 System.GC.WaitForPendingFinalizers();
@@ -463,7 +463,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 string pdfPath = null;
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
-                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "minute");
+                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "pminute");
 
                 System.GC.Collect();
                 System.GC.WaitForPendingFinalizers();
@@ -532,7 +532,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "minute");
 
                 //xoa anh pcontract
-                folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage"); // + thêm ID của contract
+                folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PMinuteImage"); // + thêm ID của contract
 
                 string folderItem = System.IO.Path.Combine(folderPath, split[2]);
 

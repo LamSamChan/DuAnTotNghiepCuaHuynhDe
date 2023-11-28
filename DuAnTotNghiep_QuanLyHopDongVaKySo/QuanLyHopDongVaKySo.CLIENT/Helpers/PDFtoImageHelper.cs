@@ -73,6 +73,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
                 {
                     outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath+ "\\ContractImage", idContract.ToString());
                 }
+                else if (typeDoc == "pminute")
+                {
+                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\PMinuteImage", idContract.ToString());
+                }
+                else if (typeDoc == "pcontract")
+                {
+                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\PContractImage", idContract.ToString());
+                }
                 else if (typeDoc == "tcontract")
                 {
                     outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath+ "\\TContractImage", idContract.ToString());
