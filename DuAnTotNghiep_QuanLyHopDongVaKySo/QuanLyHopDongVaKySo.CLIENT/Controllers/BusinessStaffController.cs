@@ -233,17 +233,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> ListCus()
         {
-
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             List<Models.Customer> customersList = new List<Models.Customer>();
-            try
-            {
-                customersList = await _customerService.GetAllCustomers();
-                return View(customersList);
-            }
-            catch (Exception ex)
-            {
-                return View(customersList);
-            }
+            
+            customersList = await _customerService.GetAllCustomers();
+            return View(customersList);
+            
         }
 
         public async Task<IActionResult> Index()
@@ -395,6 +390,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> AddTContract(API.PostTContract tContract)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             IFormFile temp = null;
             if (tContract.File != null)
             {
@@ -460,6 +456,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> EditContractFormPage(string TContactID)
         {
+
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             TemplateContract template = await _tContractService.getByIdAsnyc(int.Parse(TContactID));
             HttpContext.Session.SetString("EditTContractID", TContactID);
             return View(template);
@@ -468,6 +466,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateCFormPage([FromBody] PutTContract tContract)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             string TContactID = HttpContext.Session.GetString("EditTContractID");
             tContract.TContractID = int.Parse(TContactID);
             var respone = await _tContractService.updateAsnyc(tContract);
@@ -496,6 +495,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> DeleteTContract(int tContractId)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             var tContract = _tContractService.getByIdAsnyc(tContractId);
             var respone = await _tContractService.DeleteTContract(tContractId);
             if (respone != 0)
@@ -548,6 +548,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> EditMinuteFormPage(int tMinuteId)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             TemplateMinute template = await _tMinuteService.GetById(tMinuteId);
             HttpContext.Session.SetString("EditTMinuteID", tMinuteId.ToString());
 
@@ -557,6 +558,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateMFormPage([FromBody] PutTMinute tMinute)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             string TMinuteID = HttpContext.Session.GetString("EditTMinuteID");
             tMinute.TMinuteID = int.Parse(TMinuteID);
             var respone = await _tMinuteService.Update(tMinute);
@@ -582,6 +584,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> AddTMinute(API.PostTMinute tMinute)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             IFormFile temp = null;
             if (tMinute.File != null)
             {
@@ -647,6 +650,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> DeleteTMinute(int tMinuteId)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             var tMinute = _tMinuteService.GetById(tMinuteId);
             var respone = await _tMinuteService.DeleteTMinute(tMinuteId);
             if (respone != 0)
@@ -789,6 +793,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> DetailsContractWaitSign(string id)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             VMDetailsContract viewModel = new VMDetailsContract();
 
             try
@@ -806,6 +811,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> EditCus(string customerID)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             var customer = await _customerService.GetCustomerByIdPut(customerID);
             if (customer != null)
             {
@@ -891,6 +897,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> UpdateInfo(PutEmployee employee)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             if (employee.ImageFile != null)
             {
                 var temp = employee.ImageFile;
@@ -948,6 +955,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPost]
         public async Task<ActionResult> SaveSignature([FromBody] SignData sData)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             if (null == sData)
                 return NotFound();
 
@@ -1046,6 +1054,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> UploadSignature(VMPersonalPage vm)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             API.PFXCertificate certificate = new API.PFXCertificate();
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
@@ -1140,6 +1149,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPost]
         public async Task<IActionResult> SaveTextSignature(string imageData)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             if (imageData == null)
                 return NotFound();
 
@@ -1247,6 +1257,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> DeleteSignature(string filePath)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
             var certificate = await _pfxCertificateServices.GetById(serialPFX);
@@ -1306,6 +1317,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> SetDefaultImageSignature(string filePath)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
             var certificate = await _pfxCertificateServices.GetById(serialPFX);
@@ -1332,6 +1344,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> DeleteDefaultSignature(string filePath)
         {
+            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
             var certificate = await _pfxCertificateServices.GetById(serialPFX);

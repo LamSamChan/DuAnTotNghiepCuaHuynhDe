@@ -20,6 +20,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
+using QuanLyHopDongVaKySo_API.Models.ViewPuts;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using System.Drawing.Imaging;
 using test.Models;
@@ -240,13 +241,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> ListTypeOfService()
         {
-            VMListTOS vm = new VMListTOS()
+
+            VMListTOS vm = new VMListTOS();
+            if(IsAuthenticate == 1)
             {
-                TypeOfServices = await _tosService.GetAll(),
-                TemplateMinutes = await _tMinuteService.GetAll(),
-                TemplateContracts = await _tContractService.getAllAsnyc()
+                vm.TypeOfServices = await _tosService.GetAll();
+                vm.TemplateMinutes = await _tMinuteService.GetAll();
+                vm.TemplateContracts = await _tContractService.getAllAsnyc();
+                return View(vm);
             };
-            return View(vm);
+            
+            return RedirectToAction("Index", "Verify");
         }
 
         public async Task<IActionResult> AddTOSAction(VMListTOS vm)
@@ -312,12 +317,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> DetailsTypeOfService(int tosID)
         {
-            VMDetailsTypeOfService vm = new VMDetailsTypeOfService()
+            VMDetailsTypeOfService vm = new VMDetailsTypeOfService();
+            if(IsAuthenticate == 1)
             {
-                InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID)
+                vm.InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID);
+                HttpContext.Session.SetString("tosID", tosID.ToString());
+                return View(vm);
             };
-            HttpContext.Session.SetString("tosID", tosID.ToString());
-            return View(vm);
+            return RedirectToAction("Index", "Verify");
         }
 
         public async Task<IActionResult> AddDeviceAction(VMDetailsTypeOfService vm)
@@ -413,13 +420,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> EditTypeOfService(int tosID)
         {
-            VMListTOS vm = new VMListTOS()
-            {
-                PutTOS = await _tosService.GetByPutId(tosID),
-                TemplateMinutes = await _tMinuteService.GetAll(),
-                TemplateContracts = await _tContractService.getAllAsnyc()
-            };
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
+            VMListTOS vm = new VMListTOS();
+            
+            vm.PutTOS = await _tosService.GetByPutId(tosID);
+            vm.TemplateMinutes = await _tMinuteService.GetAll();
+            vm.TemplateContracts = await _tContractService.getAllAsnyc();
             return View(vm);
+            
         }
 
         public IActionResult ListDevice()
@@ -429,23 +437,29 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> ListPFXCertificate()
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             VMListPFX vm = new VMListPFX();
+            
             vm.Customers = await _customerService.GetAllCustomers();
             vm.Employees = await _employeeService.GetAllEmployees();
             vm.PFXCertificates = await _pfxCertificateServices.GetAll();
             vm.PFXCertificatesE = await _pfxCertificateServices.GetAllExpire();
             vm.PFXCertificatesATE = await _pfxCertificateServices.GetAllAboutToExpire();
             return View(vm);
+            
         }
 
         public async Task<IActionResult> DetailsPFXCertificate(string serial)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var respone = await _pfxCertificateServices.GetById(serial);
-            return View(respone);
+                return View(respone);
+            
         }
 
         public async Task<IActionResult> UpdateNotAfterPFX(string serial)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var respone = await _pfxCertificateServices.UpdateNotAfter(serial);
             if (respone != null)
             {
@@ -475,40 +489,36 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> DetailsEmpAccount(string empId)
         {
-            VMDetailsEmpAccount vm = new VMDetailsEmpAccount()
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
+            VMDetailsEmpAccount vm = new VMDetailsEmpAccount();
+            if(IsAuthenticate == 1)
             {
-                Employee = await _employeeService.GetEmployeeById(empId),
-                Roles = await _roleService.GetAllRolesAsync(),
-                Positions = await _positionService.GetAllPositionsAsync(),
+                vm.Employee = await _employeeService.GetEmployeeById(empId);
+                vm.Roles = await _roleService.GetAllRolesAsync();
+                vm.Positions = await _positionService.GetAllPositionsAsync();
                 //truyền thêm pcontract + donecontract
-                PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == empId).ToList(),
-                DoneContracts = _doneContractSvc.getAllView().Result.Where(d => d.EmployeeCreatedId == empId).ToList(),
+                vm.PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == empId).ToList();
+                vm.DoneContracts = _doneContractSvc.getAllView().Result.Where(d => d.EmployeeCreatedId == empId).ToList();
+                return View(vm);
             };
-            return View(vm);
+            return RedirectToAction("Index", "Verify");
         }
 
         public async Task<IActionResult> EditEmpAccount(string empId)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             VMEditEmployee vm = new VMEditEmployee();
+            
             vm.Roles = await _roleService.GetAllRolesAsync();
             vm.Positions = await _positionService.GetAllPositionsAsync();
             vm.Employee = await _employeeService.GetEmployeePutById(empId);
-
-            if (vm.Employee != null)
-            {
-                return View(vm);
-            }
-            else
-            {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Cập nhật tài khoản bị lỗi!!";
-                return RedirectToAction("Index");
-            }
+            return View(vm);
+            
         }
 
         public async Task<IActionResult> EditEmpAction(PutEmployee employee)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var existEmp = await _employeeService.GetEmployeeById(employee.EmployeeId.ToString());
             if (employee.ImageFile != null)
             {
@@ -569,14 +579,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> AddEmpAccount()
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             VMAddEmployee vm = new VMAddEmployee();
             vm.Roles = await _roleService.GetAllRolesAsync();
             vm.Positions = await _positionService.GetAllPositionsAsync();
             return View(vm);
+            
         }
 
         public async Task<IActionResult> AddEmpAction(PostEmployee employee)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             if (employee.ImageFile != null)
             {
                 if (employee.ImageFile.ContentType.StartsWith("image/"))
@@ -626,66 +639,52 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> ListEmpAccount()
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             VMAdminListUsersAccount vm = new VMAdminListUsersAccount();
-            try
-            {
-                vm.Employees = await _employeeService.GetAllEmployees();
-                vm.Positions = await _positionService.GetAllPositionsAsync();
-                vm.Roles = await _roleService.GetAllRolesAsync();
-                return View(vm);
-            }
-            catch (Exception ex)
-            {
-                return View(new VMAdminListUsersAccount());
-            }
+            
+            vm.Employees = await _employeeService.GetAllEmployees();
+            vm.Positions = await _positionService.GetAllPositionsAsync();
+            vm.Roles = await _roleService.GetAllRolesAsync();
+            return View(vm);
+            
         }
 
         public async Task<IActionResult> ListCusAccount()
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             VMAdminListUsersAccount vm = new VMAdminListUsersAccount();
-            try
-            {
-                vm.Customers = await _customerService.GetAllCustomers();
-                return View(vm);
-            }
-            catch (Exception ex)
-            {
-                return View(new VMAdminListUsersAccount());
-            }
+             
+            vm.Customers = await _customerService.GetAllCustomers();
+            return View(vm);
+            
         }
 
         public async Task<IActionResult> ListPosition()
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             VMListPosition vm = new VMListPosition();
-            try
-            {
-                vm.Positions = await _positionService.GetAllPositionsAsync();
-                vm.Employees = await _employeeService.GetAllEmployees();
-                return View(vm);
-            }
-            catch (Exception ex)
-            {
-                return View(new VMListPosition());
-            }
+            
+            vm.Positions = await _positionService.GetAllPositionsAsync();
+            vm.Employees = await _employeeService.GetAllEmployees();
+            return View(vm);
+            
         }
 
         public async Task<IActionResult> ListRole()
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
+
             VMListRole vm = new VMListRole();
-            try
-            {
-                vm.Roles = await _roleService.GetAllRolesAsync();
-                vm.Employees = await _employeeService.GetAllEmployees();
-                return View(vm);
-            }
-            catch (Exception ex)
-            {
-                return View(new VMListRole());
-            }
+            
+            vm.Roles = await _roleService.GetAllRolesAsync();
+            vm.Employees = await _employeeService.GetAllEmployees();
+            return View(vm);
+            
         }
 
         public async Task<IActionResult> AddPosition(API.Position position)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             int reponse = await _positionService.AddPositionAsync(position);
             if (reponse != 0)
             {
@@ -714,25 +713,29 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> EditPosition(int positionId)
         {
+            if (IsAuthenticate != 1){ return RedirectToAction("Index", "Verify"); }
+            
             var position = await _positionService.GetPositionByIdAsync(positionId);
-            if (position != null)
-            {
-                TempData["SweetType"] = "success";
-                TempData["SweetIcon"] = "success";
-                TempData["SweetTitle"] = "Cập nhật chức danh thành công !!";
-                return View("ListRole");
-            }
-            else
-            {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Cập nhật chức danh bị lỗi!!";
-                return RedirectToAction("Index");
-            }
+                if (position != null)
+                {
+                    TempData["SweetType"] = "success";
+                    TempData["SweetIcon"] = "success";
+                    TempData["SweetTitle"] = "Cập nhật chức danh thành công !!";
+                    return View("ListRole");
+                }
+                else
+                {
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Cập nhật chức danh bị lỗi!!";
+                    return RedirectToAction("Index");
+                }
+            
         }
 
         public async Task<IActionResult> UpdatePosition(API.Position position)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var update = await _positionService.UpdatePositionAsync(position);
             if (update != 0)
             {
@@ -762,6 +765,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> AddRole(API.Role role)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             int reponse = await _roleService.AddRoleAsync(role);
             if (reponse != 0)
             {
@@ -790,6 +794,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> EditRole(int roleId)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var role = await _roleService.GetRoleByIdAsync(roleId);
             if (role != null)
             {
@@ -806,6 +811,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> UpdateRole(API.Role role)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var update = await _roleService.UpdateRoleAsync(role);
             if (update != 0)
             {
@@ -834,6 +840,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> UpdateInfo(PutEmployee employee)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             if (employee.ImageFile != null)
             {
                 var temp = employee.ImageFile;
@@ -890,6 +897,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPost]
         public async Task<ActionResult> SaveSignature([FromBody] SignData sData)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             if (null == sData)
                 return NotFound();
 
@@ -987,6 +995,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> UploadSignature(VMAdminIndex vm)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             API.PFXCertificate certificate = new API.PFXCertificate();
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
@@ -1079,6 +1088,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPost]
         public async Task<IActionResult> SaveTextSignature(string imageData)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             if (imageData == null)
                 return NotFound();
 
@@ -1187,6 +1197,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> UploadStampImage(VMAdminIndex vm)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var temp = vm.Stamp.ImageFile;
             if (temp != null)
             {
@@ -1242,6 +1253,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> DeleteSignature(string filePath)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
             var certificate = await _pfxCertificateServices.GetById(serialPFX);
@@ -1300,6 +1312,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> DeleteStampImage(string filePath)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var stamp = _stampSvc.GetAll().Result.FirstOrDefault(s => s.StampPath == filePath);
 
             _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, filePath));
@@ -1332,6 +1345,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> SetDefaultImageSignature(string filePath)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
             var certificate = await _pfxCertificateServices.GetById(serialPFX);
@@ -1358,6 +1372,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> DeleteDefaultSignature(string filePath)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
             var certificate = await _pfxCertificateServices.GetById(serialPFX);
