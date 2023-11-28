@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <!-- ICONS -->
     <script src="https://unpkg.com/@@phosphor-icons/web"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
@@ -99,7 +99,7 @@
             opacity: 0.3;
         }
 
-        div[class="mb-3"] > button {
+        .mb-3 > button {
             width: 400px;
             margin: 0 auto;
             height: 50px;
@@ -111,17 +111,16 @@
             border: none;
         }
 
-        div[class="mb-3"] > label {
+        .mb-3 > label {
             opacity: 0.3;
         }
 
-        div[class="mb-3"] input {
+        .mb-3 input {
             border-radius: 15px;
             background: #D9D9D9;
             height: 50px;
         }
-    </style>
-    <style>
+
         .loading {
             position: absolute;
             z-index: 1;
@@ -133,11 +132,37 @@
             background: rgba(0, 0, 0, 0.479);
         }
 
-            .loading img {
-                width: 7rem;
-            }
+        .loading img {
+            width: 7rem;
+        }
+
+
+        .password-container {
+            position: relative;
+            width: 400px;
+            margin: auto;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        #password {
+            padding-right: 30px; 
+        }
+
+        .eye-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        #eyeIcon{
+            font-size: 25px;
+        }
     </style>
-  
 </head>
 <body>
     <div class="loading" id="loading">
@@ -156,20 +181,26 @@
                 <div class="form">
                     <h3>ĐĂNG NHẬP</h3>
                     <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">EMAIL</label>
-                        <input type="email" class="form-control" id="formGroupExampleInput" asp-for="Email" placeholder="abc123@gmail.com" required>
+                        <label for="email" class="form-label">EMAIL</label>
+                        <input type="email" class="form-control" id="email" asp-for="Email"  required>
                         <span class="text-danger" asp-validation-for="Email"></span>
                     </div>
-                    <div class="mb-3">
-                        <label for="formGroupExampleInput2" class="form-label">MẬT KHẨU</label>
-                        <input type="password" class="form-control" asp-for="Password" id="formGroupExampleInput2" placeholder="***********" required>
+                    <div class="mb-3 password-container">
+                        <label for="password" class="form-label" style="font-weight:bold;">MẬT KHẨU</label>
+                        <div class="input-container">
+                            <input type="password" class="form-control" asp-for="Password" id="password" required>
+                            <div class="eye-icon" onclick="togglePasswordVisibility()">
+                                <i class="ph-bold ph-eye-slash" id="eyeIcon"></i>
+                            </div>
+                        </div>
                         <span class="text-danger" asp-validation-for="Password"></span>
                     </div>
+
                     <div class="row justify-content-between">
                         <div class="col-md-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                <input onclick="login()" class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
                                     Ghi nhớ tôi
                                 </label>
                             </div>
@@ -195,16 +226,53 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </html>
-@if (ViewBag.SweetType != null)
-{
-    <script>
+<script type="text/javascript">
+  
+    function login() {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
 
-        Swal.fire({
-            icon: '@ViewBag.SweetIcon',
-            title: '@ViewBag.SweetTitle',
-            showConfirmButton: false,
-            timer: 1500
-        });
-    </script>
-}
+        var rememberMeCheckbox = document.getElementById('rememberMe');
+        var rememberMe = rememberMeCheckbox.checked;
+
+      
+        if (rememberMe) {
+            localStorage.setItem('savedEmail', email);
+            localStorage.setItem('savedPassword', password);
+        } else {
+           
+            localStorage.removeItem('savedEmail');
+            localStorage.removeItem('savedPassword');
+        }
+
+        
+        console.log('Email: ' + email);
+        console.log('Password: ' + password);
+    }
+    window.onload = function () {
+        var savedEmail = localStorage.getItem('savedEmail');
+        var savedPassword = localStorage.getItem('savedPassword');
+
+        if (savedEmail && savedPassword) {
+            document.getElementById('email').value = savedEmail;
+            document.getElementById('password').value = savedPassword;
+        }
+    };
+
+
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("password");
+        var eyeIcon = document.getElementById("eyeIcon");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeIcon.classList.remove("ph-eye-slash");
+            eyeIcon.classList.add("ph-eye");
+        } else {
+            passwordInput.type = "password";
+            eyeIcon.classList.remove("ph-eye");
+            eyeIcon.classList.add("ph-eye-slash");
+        }
+    }
+</script>
 
