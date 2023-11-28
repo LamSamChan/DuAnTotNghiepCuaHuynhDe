@@ -20,7 +20,7 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string DConTractName { get; set; }
 
         [Display(Name = "Tệp hợp đồng")]
-        public string DContractFile { get; set; }
+        public string? DContractFile { get; set; }
 
         [Display(Name = "Trạng thái")]
         public bool IsInEffect { get; set; }

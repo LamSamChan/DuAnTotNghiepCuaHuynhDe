@@ -240,6 +240,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             FileStream fsPContract1 = new System.IO.FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
             fsPContract1.Close();
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
 
             var signedContractPath = await _pfxCertificate.SignContract(imagePath, imagePathStamp, pContract.PContractFile, pContract.PContractFile, certi.Serial, directorZone.X, directorZone.Y, "contract");
 
@@ -269,7 +271,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var url = GenerateUrl(pContract.PContractID);
             var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
-            var sendMail = SendMailToCustomerWithImage(qrPath, url, customer);
+            var sendMail = SendMailToCustomerWithImage(qrPath, url, customer, pContract.PContractID);
 
             //_pdfToImageHelper.PdfToPng(pContract.PContractFile, pendingContract.PContractId,"contract");
 
@@ -492,7 +494,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var pMinute = await _pendingMinuteSvc.GetById(idMinute);
 
-            if (pMinute.IsIntallation)
+            if (pMinute != null || pMinute.IsIntallation)
             {
                 return BadRequest("Biên bản này đã được nhân viên lắp đặt ký !");
             }
@@ -768,8 +770,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return url;
         }
 
-        private string GenerateTokenShowDContract(int DContractID)
-        {
+         private string GenerateTokenShowDContract(int DContractID)
+         {
             List<Claim> claims = new List<Claim>() {
                  new Claim("DContractID", DContractID.ToString()),
              };
@@ -790,8 +792,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return jwt;
         }
 
-        private string GenerateUrlShowDContract(int contractID)
-        {
+         private string GenerateUrlShowDContract(int contractID)
+         {
             //Tạo token với id khách hàng và id hợp đồng + serial pfx
             var token = GenerateTokenShowDContract(contractID);
 
@@ -840,14 +842,15 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
         }
 
-        private async Task<string> SendMailToCustomerWithImage(byte[] qrPath, string url, Customer customer)
+        private async Task<string> SendMailToCustomerWithImage(byte[] qrPath, string url, Customer customer, int idContract)
         {
             string imageBase64 = Convert.ToBase64String(qrPath);
             string content = $"<body>" +
                                  $"<div style=\"font-family: Arial, sans-serif; background-color: #f2f2f2; margin: 0; padding: 0;\"" +
                                     $"<div style=\"background-color: #fff; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1;\"" +
                                         $"<h1 style=\"color: #653AFE;\">Chào {customer.FullName}, cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h1>" +
-                                            $"<p style=\"color: #333;\">Dưới đây là đường dẫn để xem và ký hợp đồng:</p>" +
+                                            $"<p style=\"color: #333;\">Mã hợp đồng: {idContract}</p>" +
+                                        $"<p style=\"color: #333;\">Dưới đây là đường dẫn để xem và ký hợp đồng:</p>" +
                                                 $"<div style=\"text-align: center;\">" +
                                                       $"<p><a style=\"display: inline-block; padding: 10px 20px; background-color: #33BDFE; color: #fff; text-decoration: none; border: none; border-radius: 5px;\" href=\"{url}\">Ký Hợp Đồng</a></p>" +
                                                 $"</div>" +

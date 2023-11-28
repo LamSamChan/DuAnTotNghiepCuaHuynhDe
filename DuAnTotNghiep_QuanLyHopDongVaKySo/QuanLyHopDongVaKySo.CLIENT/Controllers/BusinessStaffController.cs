@@ -203,7 +203,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
-                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
+                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "pcontract");
 
                 System.GC.Collect();
                 System.GC.WaitForPendingFinalizers();
@@ -1134,6 +1134,114 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetIcon"] = "error";
                 TempData["SweetTitle"] = "Cập nhật chữ ký bị lỗi!!";
                 return RedirectToAction("Index", "Verify");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SaveTextSignature(string imageData)
+        {
+            if (imageData == null)
+                return NotFound();
+
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            var certificate = await _pfxCertificateServices.GetById(serialPFX);
+
+            try
+            {
+                int? fileCount = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, $"SignatureImages/{serialPFX}")).Length;
+                if (fileCount == 5)
+                {
+                    //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Xóa 1 ảnh để có thể thêm mới!!";
+                    return RedirectToAction("Index", "Verify");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+
+            try
+            {
+                // Chuyển đổi base64 thành byte array
+                byte[] bytes = Convert.FromBase64String(imageData.Split(',')[1]);
+
+                // Đặt tên cho ảnh
+                var fileName = Guid.NewGuid().ToString().Substring(0, 8) + ".png";
+
+                string folderPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\SignatureImages", serialPFX);
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                var filePath = Path.Combine(folderPath, fileName);
+
+                if (certificate.ImageSignature1 == null)
+                {
+                    certificate.ImageSignature1 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                }
+                else if (certificate.ImageSignature2 == null)
+                {
+                    certificate.ImageSignature2 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                }
+                else if (certificate.ImageSignature3 == null)
+                {
+                    certificate.ImageSignature3 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                }
+                else if (certificate.ImageSignature4 == null)
+                {
+                    certificate.ImageSignature4 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                }
+                else if (certificate.ImageSignature5 == null)
+                {
+                    certificate.ImageSignature5 = filePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
+                }
+                else
+                {
+                    //tt hết slot chữ ký
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Đã hết lượt thêm chữ ký!!";
+                    return View("Index");
+                }
+
+                System.IO.File.WriteAllBytes(filePath, bytes);
+
+                var result = await _pfxCertificateServices.Update(certificate);
+
+                if (result != null)
+                {
+                    var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                    Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    {
+                        OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã tạo 1 chữ ký cá nhân.",
+                        EmployeeID = employeeDoing.EmployeeId
+                    };
+                    await _historyEmpSvc.AddNew(historyEmp);
+
+                    TempData["SweetType"] = "success";
+                    TempData["SweetIcon"] = "success";
+                    TempData["SweetTitle"] = "Tạo chữ ký thành công !!";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Tạo chữ ký bị lỗi!!";
+                    return RedirectToAction("Index", "Verify");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
             }
         }
 

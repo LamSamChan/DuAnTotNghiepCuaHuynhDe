@@ -62,23 +62,63 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
             string outputDirectoryPath = null;
             using (var rasterizer = new GhostscriptRasterizer()) //create an instance for GhostscriptRasterizer
             {
-
+                string categoryPath = null;
                 //locallhost
                 rasterizer.Open(inputFile); //opens the PDF file for rasterizing
                 if (typeDoc == "minute")
                 {
+                    categoryPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\MinuteImage");
+                    if (!Directory.Exists(categoryPath))
+                    {
+                        Directory.CreateDirectory(categoryPath);
+                    }
+
                     outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath+ "\\MinuteImage",idContract.ToString());
                 }
                 else if (typeDoc == "contract")
                 {
+                    categoryPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\ContractImage");
+                    if (!Directory.Exists(categoryPath))
+                    {
+                        Directory.CreateDirectory(categoryPath);
+                    }
                     outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath+ "\\ContractImage", idContract.ToString());
+                }
+                else if (typeDoc == "pminute")
+                {
+                    categoryPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\PMinuteImage");
+                    if (!Directory.Exists(categoryPath))
+                    {
+                        Directory.CreateDirectory(categoryPath);
+                    }
+                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\PMinuteImage", idContract.ToString());
+                }
+                else if (typeDoc == "pcontract")
+                {
+                    categoryPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\PContractImage");
+                    if (!Directory.Exists(categoryPath))
+                    {
+                        Directory.CreateDirectory(categoryPath);
+                    }
+                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\PContractImage", idContract.ToString());
                 }
                 else if (typeDoc == "tcontract")
                 {
+
+                    categoryPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\TContractImage");
+                    if (!Directory.Exists(categoryPath))
+                    {
+                        Directory.CreateDirectory(categoryPath);
+                    }
                     outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath+ "\\TContractImage", idContract.ToString());
                 }
                 else
                 {
+                    categoryPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\TMinuteImage");
+                    if (!Directory.Exists(categoryPath))
+                    {
+                        Directory.CreateDirectory(categoryPath);
+                    }
                     outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath+ "\\TMinuteImage",idContract.ToString());
                 }
 
