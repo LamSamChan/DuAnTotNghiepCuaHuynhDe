@@ -19,6 +19,7 @@ using System.IdentityModel.Tokens.Jwt;
 using test.Models;
 using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
 using QuanLyHopDongVaKySo.CLIENT.Models;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using API = QuanLyHopDongVaKySo_API.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
@@ -41,7 +42,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public CustomerController(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IPContractService pContractService,
             ICustomerService customerService, ISigningService signingService, IPFXCertificateServices pfxCertificateServices, IUploadHelper uploadHelper
-            ,IPdfToImageHelper pdfToImageHelper, IDContractsService dContractsService, IHistoryCusSvc historyCusSvc)
+            , IPdfToImageHelper pdfToImageHelper, IDContractsService dContractsService, IHistoryCusSvc historyCusSvc)
         {
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
@@ -108,7 +109,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             var bmpSign = SignUtility.GetSignatureBitmap(sData.Data, sData.Smooth, _contextAccessor, _hostingEnvironment);
 
-            var fileName = System.Guid.NewGuid().ToString().Substring(0,8) + ".png";
+            var fileName = System.Guid.NewGuid().ToString().Substring(0, 8) + ".png";
             string folderPath = Path.Combine(_hostingEnvironment.WebRootPath, "TempSignature");
 
             if (!Directory.Exists(folderPath))
@@ -129,9 +130,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             var respone = await _signingService.SignContractByCustomer(signing);
 
+            string idDContract = null;
+
             if (respone != null)
             {
                 string[] split = respone.Split('*');
+                idDContract = split[1];
                 string pdfPath = null;
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
@@ -143,15 +147,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 string folderItem = System.IO.Path.Combine(folderPath, split[2]);
 
                 string[] imageFiles = Directory.GetFiles(folderItem);
-
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
                 foreach (string imageFile in imageFiles)
                 {
                     System.IO.File.Delete(imageFile);
                 }
                 Directory.Delete(folderItem);
-
-                System.GC.Collect();
-                System.GC.WaitForPendingFinalizers();
                 System.IO.File.Delete(pdfPath);
             }
             else
@@ -159,14 +161,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 //Báo lõi
                 TempData["SwalMessageType"] = "error";
                 TempData["SwalMessageIcon"] = "error";
-                TempData["SwalMessageTitle"] = "Lưu chữ ký bị lỗi!!";
+                TempData["SwalMessageTitle"] = "Ký không thành công !!";
                 return BadRequest();
             }
 
             Customer customerDoing = await _customerService.GetCustomerById(HttpContext.Session.GetString(SessionKey.Customer.CustomerID));
             API.OperationHistoryCus historyCus = new API.OperationHistoryCus()
             {
-                OperationName = $"{customerDoing.FullName} - ID:{customerDoing.CustomerId.ToString().Substring(0, 8)} đã ký hợp đồng - ID:{pContractID}.",
+                OperationName = $"{customerDoing.FullName} - ID:{customerDoing.CustomerId.ToString().Substring(0, 8)} đã ký hợp đồng - ID:{idDContract[1]}.",
                 CustomerID = customerDoing.CustomerId
             };
             await _historyCusSvc.AddNew(historyCus);
@@ -180,7 +182,57 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             //cũng hiển thị thông báo tương tự
             return Ok();
         }
-        
+
+        [HttpPost("SignContractWithUsbToken")]
+        public async Task<ActionResult> SignContractWithUsbToken([FromBody] DoneContract dContract)
+        {
+            if (dContract.Base64File != null)
+            {
+                var customerID = _pContractService.getByIdAsnyc(dContract.PContractID.ToString()).Result.CustomerId;
+                var customerDoing = await _customerService.GetCustomerById(customerID);
+                var result = await _dContractsService.SignContractWithUSBToken(dContract);
+
+                if (result == null)
+                {
+                    return BadRequest();
+                }
+                string[] split = result.Split('*');
+                string pdfPath = null;
+                IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
+                pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
+                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
+
+                //xoa anh pcontract
+                var folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+
+                string folderItem = System.IO.Path.Combine(folderPath, split[2]);
+
+                string[] imageFiles = Directory.GetFiles(folderItem);
+
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                foreach (string imageFile in imageFiles)
+                {
+                    System.IO.File.Delete(imageFile);
+                }
+                Directory.Delete(folderItem);
+                System.IO.File.Delete(pdfPath);
+
+
+                API.OperationHistoryCus historyCus = new API.OperationHistoryCus()
+                {
+                    OperationName = $"{customerDoing.FullName} - ID:{customerDoing.CustomerId.ToString().Substring(0, 8)} đã ký hợp đồng bằng USBToken - ID:{split[1]}.",
+                    CustomerID = customerDoing.CustomerId
+                };
+                await _historyCusSvc.AddNew(historyCus);
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
         //Trang cho khách hàng xem hđ và bb lắp
         public async Task<ActionResult> ShowDContract(string token)
         {

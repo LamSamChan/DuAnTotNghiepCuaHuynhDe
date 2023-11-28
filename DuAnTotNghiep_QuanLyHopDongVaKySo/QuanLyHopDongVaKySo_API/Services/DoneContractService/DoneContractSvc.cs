@@ -3,6 +3,7 @@ using QuanLyHopDongVaKySo_API.Database;
 using Microsoft.EntityFrameworkCore;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using Microsoft.EntityFrameworkCore.Metadata;
+using System.Data;
 
 namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
 {
@@ -265,6 +266,34 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                 return update;
             }
             catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<DoneContract> AddDContractFromSignByUSBToken(DoneContract dContract)
+        {
+            try
+            {
+                _context.DoneContracts.Add(dContract);
+                await _context.SaveChangesAsync();
+                return dContract;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<DoneContract> UpdateContractFromSignByUSBToken(DoneContract dContract)
+        {
+            try
+            {
+                _context.DoneContracts.Update(dContract);
+                await _context.SaveChangesAsync();
+                return dContract;
+            }
+            catch (Exception)
             {
                 return null;
             }
