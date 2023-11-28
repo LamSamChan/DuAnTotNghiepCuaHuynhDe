@@ -383,7 +383,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> ListContractFormPage()
         {
-            if (IsAuthenticate == 3 )
+            if (IsAuthenticate == 3 || IsAuthenticate == 1)
             {
                 return View(await _tContractService.getAllAsnyc());
             }

@@ -62,62 +62,65 @@
 
     }
  
-    <div class="listTable">
-        <table class="table" id="myTable">
-            <thead>
-                <tr style="color: #8B909A;">
 
-                    <th scope="col">ID</th>
-                    <th scope="col">Ngày cập nhật</th>
-                    <th scope="col">Tên biên bản</th>
-                    <th scope="col" style="text-align:center;">Hành động</th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
+    <div class="row bg-white mx-auto my-auto mt-4 rounded">
+        <div class="listTable">
+            <table class="table" id="myTable">
+                <thead>
+                    <tr style="color: #8B909A;">
 
-
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <th scope="row">@item.TMinuteID </th>
-                        <td>@item.DateAdded</td>
-                        <td>@item.TMinuteName</td>
-                        <td class="action">
-                            <a class="button-design" asp-controller="BusinessStaff" asp-action="EditMinuteFormPage" asp-route-tMinuteId="@item.TMinuteID"><i class="ph-bold ph-pencil-simple-line"></i></a>
-                            <a class="button-save" onclick="confirmDownload('@item.Base64File','@item.TMinuteName')"><i class="ph-bold ph-download-simple"></i></a>
-                            <a class="button-delete" asp-controller="BusinessStaff" asp-action="DeleteTMinute" asp-route-tMinuteId="@item.TMinuteID">
-                                @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                {
-                                    <script>
-                                        document.addEventListener('DOMContentLoaded', function () {
-                                            var sweetData = {
-                                                title: '@TempData["SweetTitle"]',
-                                                text: '@TempData["SweetText"]',
-                                                icon: '@TempData["SweetIcon"]'
-                                            };
-                                            Swal.fire({
-                                                title: sweetData.title,
-                                                text: sweetData.text,
-                                                icon: sweetData.icon,
-                                                showCancelButton: false,
-                                                allowOutsideClick: false,
-                                                confirmButtonColor: "green",
-                                                confirmButtonText: "Ok"
-                                            }).then(function () {
-                                                // Handle any additional logic after the SweetAlert is closed.
-                                            });
-                                        });
-                                    </script>
-                                }
-                                <i class="ph-bold ph-trash"></i>
-                            </a>
-                        </td>
+                        <th scope="col">ID</th>
+                        <th scope="col">Ngày cập nhật</th>
+                        <th scope="col">Tên biên bản</th>
+                        <th scope="col" style="text-align:center;">Hành động</th>
                     </tr>
-                }
+                </thead>
+                <tbody class="table-group-divider">
 
 
-            </tbody>
-        </table>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.TMinuteID </th>
+                            <td>@item.DateAdded</td>
+                            <td>@item.TMinuteName</td>
+                            <td class="action">
+                                <a class="button-design" asp-controller="BusinessStaff" asp-action="EditMinuteFormPage" asp-route-tMinuteId="@item.TMinuteID"><i class="ph-bold ph-pencil-simple-line"></i></a>
+                                <a class="button-save" onclick="confirmDownload('@item.Base64File','@item.TMinuteName')"><i class="ph-bold ph-download-simple"></i></a>
+                                <a class="button-delete" asp-controller="BusinessStaff" asp-action="DeleteTMinute" asp-route-tMinuteId="@item.TMinuteID">
+                                    @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+                                    {
+                                        <script>
+                                            document.addEventListener('DOMContentLoaded', function () {
+                                                var sweetData = {
+                                                    title: '@TempData["SweetTitle"]',
+                                                    text: '@TempData["SweetText"]',
+                                                    icon: '@TempData["SweetIcon"]'
+                                                };
+                                                Swal.fire({
+                                                    title: sweetData.title,
+                                                    text: sweetData.text,
+                                                    icon: sweetData.icon,
+                                                    showCancelButton: false,
+                                                    allowOutsideClick: false,
+                                                    confirmButtonColor: "green",
+                                                    confirmButtonText: "Ok"
+                                                }).then(function () {
+                                                    // Handle any additional logic after the SweetAlert is closed.
+                                                });
+                                            });
+                                        </script>
+                                    }
+                                    <i class="ph-bold ph-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 <script>

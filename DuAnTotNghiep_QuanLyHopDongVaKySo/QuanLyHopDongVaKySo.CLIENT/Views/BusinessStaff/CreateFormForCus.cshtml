@@ -1,5 +1,4 @@
 ﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMCreateFormForCus
-
 <link rel="stylesheet" href="~/lib/libs/select2/select2.css" />
 <script src="~/lib/libs/jquery/jquery-3.6.0.min.js"></script>
 <script src="~/lib/libs/select2/select2.full.min.js"></script>
@@ -8,12 +7,10 @@
 }
 
 <div class="container-fluid">
-   
 
-
- @if(userRole == "Admin")
- {
-     Layout ="_AdminLayout";
+    @if (userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
         <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -26,10 +23,12 @@
             <h1 class="typeHead">TẠO HỢP ĐỒNG</h1>
         </div>
 
- }
- else
- {
-     Layout ="_Layout";
+    }
+    else
+    {
+       
+
+        Layout = "_Layout";
         <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -42,7 +41,7 @@
             <h1 class="typeHead">TẠO HỢP ĐỒNG</h1>
         </div>
 
- }
+    }
     <form method="post" asp-action="CreatePContract">
         <div style="margin-top: 30px;" class="row justify-content-center">
             <div class="col-4 bg-white rounded">

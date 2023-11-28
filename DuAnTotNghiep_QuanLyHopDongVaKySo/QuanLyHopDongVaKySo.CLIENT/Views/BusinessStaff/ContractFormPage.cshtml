@@ -3,27 +3,32 @@
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-<link href="~/php/style.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
 
-<div class="container-fluid" style="height: 20vh;">
+<div class="container-fluid">
     @if (userRole == "Admin")
     {
         Layout = "_AdminLayout";
-        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
             <nav aria-label="breadcrumb">
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item"> <a>Nhân viên kinh doanh</a></li>
-                <li class="breadcrumb-item"> <a>Hợp đồng - Biên bản mẫu</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Thêm mẫu hợp đồng</li>
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"> <a>Nhân viên kinh doanh</a></li>
+                    <li class="breadcrumb-item"> <a>Hợp đồng - Biên bản mẫu</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Thêm mẫu hợp đồng</li>
+                </ol>
             </nav>
             <h1 class="typeHead">TẢI HỢP ĐỒNG MẪU</h1>
         </div>
     }
     else
     {
+        <link href="~/php/style.css" rel="stylesheet" />
         Layout = "_Layout";
+
         <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -36,45 +41,45 @@
             <h1 class="typeHead">TẢI HỢP ĐỒNG MẪU</h1>
         </div>
     }
-    
-</div>
-<div class="wrapper">
-    <form method="post" enctype="multipart/form-data" id="FormPostTContract" asp-action="AddTContract" asp-controller="BusinessStaff">
-        <input asp-for="File" type="file" accept=".pdf" id="pdfInput" style="display:none;" required>
-        <img width="64" height="64" style="margin-bottom:15px" src="~/Images/pdf_icon.png" alt="external-pdf-file-types-others-iconmarket" />
-        <button type="button" class="button-22" id="uploadIcon">TẢI PDF</button>
-        <br />
-        <section>
-            <div style="display: flex; justify-content: space-evenly;">
-                <button type="submit" class="button-22" id="saveButton" style="display:none;">
-                    Lưu  @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                    {
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function () {
-                                var sweetData = {
-                                    title: '@TempData["SweetTitle"]',
-                                    text: '@TempData["SweetText"]',
-                                    icon: '@TempData["SweetIcon"]'
-                                };
+    <div class="row mt-4">
+            <form class="form" method="post" enctype="multipart/form-data" id="FormPostTContract" asp-action="AddTContract" asp-controller="BusinessStaff">
+                <input asp-for="File" type="file" accept=".pdf" id="pdfInput" style="display:none;" required>
+                <img width="64" height="64" style="margin-bottom:15px" src="~/Images/pdf_icon.png" alt="external-pdf-file-types-others-iconmarket" />
+                <button type="button" class="button-22" id="uploadIcon">TẢI PDF</button>
+                <br />
+                <section>
+                    <div style="display: flex; justify-content: space-evenly;">
+                        <button type="submit" class="button-22" id="saveButton" style="display:none;">
+                            Lưu  @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+                            {
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        var sweetData = {
+                                            title: '@TempData["SweetTitle"]',
+                                            text: '@TempData["SweetText"]',
+                                            icon: '@TempData["SweetIcon"]'
+                                        };
 
-                                Swal.fire({
-                                    title: sweetData.title,
-                                    text: sweetData.text,
-                                    icon: sweetData.icon,
-                                    showCancelButton: false,
-                                    allowOutsideClick: false,
-                                    confirmButtonColor: "green",
-                                    confirmButtonText: "Ok"
-                                }).then(function () {
-                                    // Handle any additional logic after the SweetAlert is closed.
-                                });
-                            });
-                        </script>
-                    }
-                </button>
-            </div>
-        </section>
-    </form>
+                                        Swal.fire({
+                                            title: sweetData.title,
+                                            text: sweetData.text,
+                                            icon: sweetData.icon,
+                                            showCancelButton: false,
+                                            allowOutsideClick: false,
+                                            confirmButtonColor: "green",
+                                            confirmButtonText: "Ok"
+                                        }).then(function () {
+                                            // Handle any additional logic after the SweetAlert is closed.
+                                        });
+                                    });
+                                </script>
+                            }
+                        </button>
+                    </div>
+                </section>
+            </form>
+
+    </div>
 </div>
 
 

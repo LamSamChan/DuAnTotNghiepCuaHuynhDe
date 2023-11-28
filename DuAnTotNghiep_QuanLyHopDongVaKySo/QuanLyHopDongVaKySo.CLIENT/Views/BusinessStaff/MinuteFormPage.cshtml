@@ -4,7 +4,6 @@
 
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-<link href="~/php/style.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
 
@@ -16,16 +15,21 @@
         Layout = "_AdminLayout";
         <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
             <nav aria-label="breadcrumb">
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item"> <a>Nhân viên kinh doanh</a></li>
-                <li class="breadcrumb-item"> <a>Hợp đồng - Biên bản mẫu</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Thêm mẫu biên bản</li>
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"> <a>Nhân viên kinh doanh</a></li>
+                    <li class="breadcrumb-item"> <a>Hợp đồng - Biên bản mẫu</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Thêm mẫu biên bản</li>
+                </ol>
             </nav>
             <h1 class="typeHead">TẢI BIÊN BẲN LẮP ĐẶT MẪU</h1>
         </div>
     }
     else
     {
+        <link href="~/php/style.css" rel="stylesheet" />
+
         Layout = "_Layout";
         <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
             <nav aria-label="breadcrumb">
@@ -41,7 +45,7 @@
     }
    
 </div>
-<div class="wrapper">
+<div class="row mt-4">
     <form method="post" enctype="multipart/form-data" id="FormPostTContract" asp-action="AddTMinute" asp-controller="BusinessStaff">
         <input asp-for="File" type="file" accept=".pdf" id="pdfInput" style="display:none;" required>
         <img width="64" height="64" style="margin-bottom:15px" src="~/Images/pdf_icon.png" alt="external-pdf-file-types-others-iconmarket" />
