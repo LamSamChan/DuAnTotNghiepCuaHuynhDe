@@ -69,6 +69,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 {
                     if(tMinute.Base64StringFile != null)
                     {
+                        var tMinuteExist = _TMinuteSvc.getAllAsnyc().Result.FirstOrDefault(t => t.TMinuteName == tMinute.TMinuteName);
+                        if (tMinuteExist != null)
+                        {
+                            return BadRequest();
+                        }    
                         IFormFile file = _helpers.ConvertBase64ToIFormFile(tMinute.Base64StringFile, tMinute.TMinuteName, "application/pdf");
                         filePath = _helpers.UploadFile(file, "AppData", "TMinutes", ".pdf");
                         int pageNum = 0;
