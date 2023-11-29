@@ -96,7 +96,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <button class="add_cus" type="submit">
+                                <button class="add_cus" type="submit" >
                                     Thêm
                                     @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                     {
@@ -156,7 +156,8 @@
                         <input class="form-control" required asp-for="@item.TOS_ID" id="tosId_@item.Device_ID">
                     </td>
                     <td>
-                        <button class="button-save" type="button" onclick="saveDevice('@item.Device_ID')">Lưu  @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+                        <button class="button-save" type="button" onclick="saveDevice('@item.Device_ID')">Lưu  
+                            @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                     {
                                         <script>
                                             document.addEventListener('DOMContentLoaded', function () {
@@ -188,13 +189,3 @@
     </table>
     
 </div>
-@* <script>
-    // Hàm hiển thị message
-    function showSuccessMessage() {
-        $("#msg_success_filled").ej2Message.show();
-        // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
-        setTimeout(function () {
-            $("#msg_success_filled").ej2Message.hide();
-        }, 5000);
-    }
-</script> *@

@@ -33,7 +33,7 @@
     <link rel="icon" href="/2.ico" type="image/x-icon">
 
     <!--css - cho từng page -->
-    <link href="~/Admin_Resource/css/vendors/Css_Index.css?v=2" rel="stylesheet" type="text/css" >
+    <link href="~/Admin_Resource/css/vendors/Css_Index.css?v=2" rel="stylesheet" type="text/css">
 
     <!-- Vendors styles-->
     <link rel="stylesheet" href="~/Admin_Resource/vendors/simplebar/css/simplebar.css">
@@ -46,24 +46,45 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-   
+
     <script src="https://unpkg.com/@@phosphor-icons/web"></script>
-   
+
     <!-- Sử dụng SweetAlert2 từ CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script src="~/lib/libs/jquery/jquery-3.6.0.min.js"></script>
+    <style>
+        .loading {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.479);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
+            .loading img {
+                width: 7rem;
+            }
+    </style>
 
 </head>
 <body style="font-family: 'Roboto', sans-serif;  background-color: #dbe2f4;">
-   
+    <div class="loading" id="loading">
+        <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+    </div>
     <header style="background-color:#001529; position:fixed; width:100%;z-index:9999; top:auto;">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
             <div class="container-fluid">
                 <div class="logo">
                     <img style="width:40px;" src="~/Resource/Image/LOGO_WITHOUT_BG/2.png" />
-                    <a style="color:white; font-weight:bold;" class="navbar-brand" asp-area="" asp-page="/Index">TECHSEAL</a>
+                    <a style="color:white; font-weight:bold;" class="navbar-brand" asp-area="" asp-page="/Index" onclick="Loading()">TECHSEAL</a>
                 </div>
                 <div class="Search_All">
                     <i class="ph-bold ph-magnifying-glass"></i>
@@ -88,18 +109,18 @@
             </ul>
         </nav>
     </header>
-    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar" style="margin-top:50px;" >
+    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar" style="margin-top:50px;">
         <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
             <li class="nav-title">QUẢN LÝ TÀI KHOẢN NGƯỜI DÙNG</li>
             <li class="nav-item">
-                <a class="nav-link" asp-action="ListCusAccount" asp-controller="Admin">
-                    <svg class="nav-icon" >
+                <a class="nav-link" asp-action="ListCusAccount" asp-controller="Admin" onclick="Loading()">
+                    <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Danh sách khách hàng
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-action="ListEmpAccount" asp-controller="Admin">
+                <a class="nav-link" asp-action="ListEmpAccount" asp-controller="Admin" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Danh sách nhân viên
@@ -107,16 +128,16 @@
             </li>
             <li class="nav-title">QUẢN LÝ VỊ TRÍ</li>
             <li class="nav-group">
-                <a class="nav-link nav-group-toggle" >
+                <a class="nav-link nav-group-toggle">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-object-group"></use>
                     </svg> Quản lý vai trò
                 </a>
                 <ul class="nav-group-items">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Admin" asp-action="ListRole">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ListRole" onclick="Loading()">
                             <span class="nav-icon"></span>
-                           Danh sách vai trò
+                            Danh sách vai trò
                         </a>
                     </li>
                 </ul>
@@ -129,7 +150,7 @@
                 </a>
                 <ul class="nav-group-items">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Admin" asp-action="ListPosition">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ListPosition" onclick="Loading()">
                             <span class="nav-icon"></span>
                             Danh sách chức danh
                         </a>
@@ -138,7 +159,7 @@
             </li>
             <li class="nav-title">QUẢN LÝ LOẠI DỊCH VỤ VÀ KĨ THUẬT</li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Admin" asp-action="ListTypeOfService">
+                <a class="nav-link" asp-controller="Admin" asp-action="ListTypeOfService" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Danh sách dịch vụ
@@ -146,7 +167,7 @@
             </li>
             <li class="nav-title">QUẢN LÝ THÔNG TIN KÝ SỐ</li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Admin" asp-action="ListPFXCertificate">
+                <a class="nav-link" asp-controller="Admin" asp-action="ListPFXCertificate" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Danh sách chứng chỉ
@@ -154,28 +175,28 @@
             </li>
             <li class="nav-title">GIÁM ĐỐC</li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Director" asp-action="ListContractAwait">
+                <a class="nav-link" asp-controller="Director" asp-action="ListContractAwait" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Hợp đồng chờ duyệt
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Director" asp-action="ListContractActive">
+                <a class="nav-link" asp-controller="Director" asp-action="ListContractActive" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Hợp đồng đã duyệt
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Director" asp-action="ListContractRefuseToSign">
+                <a class="nav-link" asp-controller="Director" asp-action="ListContractRefuseToSign" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Hợp đồng từ chối
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Director" asp-action="ListContractEffect">
+                <a class="nav-link" asp-controller="Director" asp-action="ListContractEffect" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Hợp đồng hoạt động
@@ -190,25 +211,25 @@
                 </a>
                 <ul class="nav-group-items">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListPending">
+                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListPending" onclick="Loading()">
                             <span class="nav-icon"></span>
-                           Yêu cầu lắp đặt
+                            Yêu cầu lắp đặt
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListEffect">
+                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListEffect" onclick="Loading()">
                             <span class="nav-icon"></span>
                             Hợp đồng đã duyệt
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListWaitSign">
+                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListWaitSign" onclick="Loading()">
                             <span class="nav-icon"></span>
                             Hợp đồng chờ khách ký
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListRefuse">
+                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListRefuse" onclick="Loading()">
                             <span class="nav-icon"></span>
                             Hợp đồng từ chối duyệt
                         </a>
@@ -223,25 +244,25 @@
                 </a>
                 <ul class="nav-group-items">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ListContractFormPage">
+                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ListContractFormPage" onclick="Loading()">
                             <span class="nav-icon"></span>
-                           Danh sách mẫu hợp đồng
+                            Danh sách mẫu hợp đồng
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ListMinuteFormPage">
+                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ListMinuteFormPage" onclick="Loading()">
                             <span class="nav-icon"></span>
-                           Danh sách mẫu biên bản
+                            Danh sách mẫu biên bản
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractFormPage">
+                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractFormPage" onclick="Loading()">
                             <span class="nav-icon"></span>
-                           Thêm mẫu hợp đồng
+                            Thêm mẫu hợp đồng
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="MinuteFormPage">
+                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="MinuteFormPage" onclick="Loading()">
                             <span class="nav-icon"></span>
                             Thêm mẫu biên bản
                         </a>
@@ -249,7 +270,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Director" asp-action="ListContractEffect">
+                <a class="nav-link" asp-controller="Director" asp-action="ListContractEffect" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Hợp đồng hoạt động
@@ -265,13 +286,13 @@
                 </a>
                 <ul class="nav-group-items">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="InstallStaff" asp-action="ListInstallRequire">
+                        <a class="nav-link" asp-controller="InstallStaff" asp-action="ListInstallRequire" onclick="Loading()">
                             <span class="nav-icon"></span>
                             Danh sách yêu cầu lắp
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="InstallStaff" asp-action="ListInstallRecord">
+                        <a class="nav-link" asp-controller="InstallStaff" asp-action="ListInstallRecord" onclick="Loading()">
                             <span class="nav-icon"></span>
                             Biên bản đã nhận lắp
                         </a>
@@ -286,7 +307,7 @@
                 </a>
                 <ul class="nav-group-items">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="InstallStaff" asp-action="ListTypeOfService">
+                        <a class="nav-link" asp-controller="InstallStaff" asp-action="ListTypeOfService" onclick="Loading()">
                             <span class="nav-icon"></span>
                             Danh sách dịch vụ
                         </a>
@@ -295,7 +316,7 @@
             </li>
             <li class="nav-title">LỊCH SỬ </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Admin" asp-action="HistoryOperation">
+                <a class="nav-link" asp-controller="Admin" asp-action="HistoryOperation" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-history "></use>
                     </svg> Lịch sử thao tác
@@ -303,14 +324,14 @@
             </li>
             <li class="nav-title">TÀI KHOẢN</li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Admin" asp-action="Index">
+                <a class="nav-link" asp-controller="Admin" asp-action="Index" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-user"></use>
                     </svg> Cá nhân
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Verify" asp-action="Logout">
+                <a class="nav-link" asp-controller="Verify" asp-action="Logout" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-account-logout"></use>
                     </svg> Đăng xuất
@@ -324,12 +345,38 @@
             <div class="container-fluid">
                 <main role="main" class="pb-3">
                     @RenderBody()
-                   
+
                 </main>
-               
+
             </div>
         </div>
     </div>
+    <script>
+        const iconLoading = document.getElementById("loading");
+
+        const showLoading = () => {
+            iconLoading.style.display = "flex";
+        };
+
+        const hideLoading = () => {
+            iconLoading.style.display = "none";
+        };
+
+        const Loading = () => {
+            showLoading(); // Show loading spinner when the button is clicked
+
+            // You can perform additional logic here before or after the form submission
+            // For example, submit the form programmatically
+            document.querySelector('form').submit();
+
+            // If you want to prevent the form from submitting immediately, you can remove the form submission line
+
+            // Hide loading spinner after the form submission is complete
+            setTimeout(() => {
+                hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+            }, 1000);
+        };
+    </script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- CoreUI and necessary plugins-->
     <script src="~/Admin_Resource/vendors/_coreui/coreui/js/coreui.bundle.min.js"></script>
@@ -340,8 +387,8 @@
     <script src="~/Admin_Resource/vendors/_coreui/utils/js/coreui-utils.js"></script>
     <script src="~/Admin_Resource/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-  
+
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
