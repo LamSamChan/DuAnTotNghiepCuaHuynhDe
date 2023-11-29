@@ -961,7 +961,14 @@
                 $("#imgSign").attr("src", "/Signs/" + data);
             },
             error: function (textStatus, errorThrown) {
-                alert("Unable to save signatures : " + JSON.stringify(textStatus) + " : " + errorThrown);
+                Swal.fire({
+                    icon: 'error',
+                    title: "Không thể lưu chữ ký : " + JSON.stringify(textStatus) + " : " + errorThrown,
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+
+                });
             }
 
         });
