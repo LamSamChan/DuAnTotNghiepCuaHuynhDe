@@ -557,5 +557,10 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
 
             return viewModels;
         }
+
+        public async Task<PendingContract> getByIdForWinformAsnyc(int id, string cusId)
+        {
+            return await _context.PendingContracts.Where(c => c.CustomerId == Guid.Parse(cusId)).FirstOrDefaultAsync(p => p.PContractID == id);
+        }
     }
 }

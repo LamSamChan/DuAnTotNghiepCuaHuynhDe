@@ -9,6 +9,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
     {
         
         Task<PendingContract> getByIdAsnyc(int id);
+        Task<PendingContract> getByIdForWinformAsnyc(int id, string cusId);
+
         Task<string> addAsnyc(PostPendingContract PContract);
         Task<string> updateAsnyc(PutPendingContract PContract);
         Task<bool> deleteAsnyc(int id);

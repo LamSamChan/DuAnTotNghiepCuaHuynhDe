@@ -160,6 +160,17 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(await _PContractSvc.geByIdView(id));
             
         }
+
+        [HttpGet("GetForWinForm/{customerId}/{id}")]
+        public async Task<IActionResult> GetPContractAsync(string customerId, int id)
+        {
+            var result = await _PContractSvc.getByIdForWinformAsnyc(id,customerId);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
         /// <summary>
         ///
         /// </summary>
