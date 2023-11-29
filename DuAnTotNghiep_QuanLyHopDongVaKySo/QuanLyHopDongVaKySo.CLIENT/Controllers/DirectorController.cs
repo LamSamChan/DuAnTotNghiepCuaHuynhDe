@@ -581,7 +581,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
                 TempData["SweetTitle"] = "Không có hợp đồng được chọn!!";
-                return View("ListContractAwait");
+                return RedirectToAction("ListContractAwait");
             }
             foreach (var item in signing)
             {
@@ -592,20 +592,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     TempData["SweetType"] = "error";
                     TempData["SweetIcon"] = "error";
                     TempData["SweetTitle"] = "Không có ảnh mộc nào cả!!";
-                    return View("ListContractAwait");
+                    return RedirectToAction("ListContractAwait");
                 }else if (respone == 3)
                 {
                     //báo lỗi ko có mộc
                     TempData["SweetType"] = "error";
                     TempData["SweetIcon"] = "error";
                     TempData["SweetTitle"] = "Ký thất bại!!";
-                    return View("ListContractAwait");
+                    return RedirectToAction("ListContractAwait");
                 }
             }
             TempData["SweetType"] = "success";
             TempData["SweetIcon"] = "success";
             TempData["SweetTitle"] = "Ký hợp đồng thành công!!";
-            return View("ListContractAwait");
+            return RedirectToAction("ListContractAwait");
         }
 
 
