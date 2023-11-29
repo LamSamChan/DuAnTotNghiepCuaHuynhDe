@@ -51,7 +51,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IHistoryEmpSvc _historyEmpSvc;
 
 
-        private int isAuthenticate = 1;
+        private int isAuthenticate = 0;
         private string employeeId;
 
         public int IsAuthenticate
@@ -92,7 +92,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             set { this.isAuthenticate = value; }
         }
-
+        
         public string EmployeeId
         {
             get
@@ -150,6 +150,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangePassAction([FromBody] ChangePassword change)
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             change.EmployeeID = EmployeeId;
             var respone = await _passwordService.ChangePasswordAsync(change);
             if (respone != null)
@@ -191,6 +192,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> CreatePContract(VMCreateFormForCus vm)
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             PostPendingContract pContract = new PostPendingContract();
             pContract = vm.PostPendingContract;
             pContract.CustomerId = Guid.Parse(HttpContext.Session.GetString(SessionKey.Customer.CustomerID));
@@ -263,70 +265,61 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 ViewData["Role"] = VB;
                 return View(vm);
             }
-            else
+            else if (IsAuthenticate == 0) { }
             {
-               /* TempData["SweetType"] = "error";
+                TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Bạn chưa đăng nhập !!";*/
-                return RedirectToAction("Index", "Verify");
+                TempData["SweetTitle"] = "Bạn chưa đăng nhập !!";          
             }
+            return RedirectToAction("Index", "Verify");
         }
 
         public IActionResult AddCus()
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             return View();
         }
 
         public async Task<IActionResult> CreateFormForCus(string id)
         {
-            if (IsAuthenticate == 3 || IsAuthenticate == 1)
-            {
-                HttpContext.Session.SetString(SessionKey.Customer.CustomerID, id);
-                VMCreateFormForCus vm = new VMCreateFormForCus();
-                vm.TypeOfServices = await _tosService.GetAll();
-
-                return View(vm);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Verify");
-            }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            HttpContext.Session.SetString(SessionKey.Customer.CustomerID, id);
+            VMCreateFormForCus vm = new VMCreateFormForCus();
+            vm.TypeOfServices = await _tosService.GetAll();
+            return View(vm);
+            
         }
 
         public async Task<IActionResult> DetailsCus(string customerID)
         {
-            if (IsAuthenticate == 3 || IsAuthenticate == 1)
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            var respone = await _customerService.GetCustomerById(customerID);
+            if (respone != null)
             {
-                var respone = await _customerService.GetCustomerById(customerID);
-                if (respone != null)
-                {
-                    VMDetailsCus vm = new VMDetailsCus();
-                    vm.Customer = respone;
+                VMDetailsCus vm = new VMDetailsCus();
+                vm.Customer = respone;
 
-                    //truyền thêm
-                    vm.PendingContracts = await _pContractService.getListCusId(customerID); ;
-                    vm.DoneContracts = await _dContractService.getListByCusId(customerID);
-                    return View(vm);
-                }
-                else
-                {
-                  
-                    return RedirectToAction("ListCus", "BusinessStaff");
-                }
+                //truyền thêm
+                vm.PendingContracts = await _pContractService.getListCusId(customerID); ;
+                vm.DoneContracts = await _dContractService.getListByCusId(customerID);
+                return View(vm);
             }
             else
             {
-                return RedirectToAction("Index", "Verify");
+                  
+                return RedirectToAction("ListCus", "BusinessStaff");
             }
         }
 
         public IActionResult DetailsDContract()
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             return View();
         }
 
         public async Task<IActionResult> AddCusAction(PostCustomer customer)
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             customer.IsLocked = false;
             if (customer.BuisinessName != null)
             {
@@ -367,31 +360,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         //TContract
         public IActionResult ContractFormPage()
         {
-            if (IsAuthenticate == 3 || IsAuthenticate == 1)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Index", "Verify");
-            }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            return View();
         }
 
         public async Task<IActionResult> ListContractFormPage()
         {
-            if (IsAuthenticate == 3 || IsAuthenticate == 1)
-            {
-                return View(await _tContractService.getAllAsnyc());
-            }
-            else
-            {
-                return RedirectToAction("Index", "Verify");
-            }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            return View(await _tContractService.getAllAsnyc());
         }
 
         public async Task<IActionResult> AddTContract(API.PostTContract tContract)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             IFormFile temp = null;
             if (tContract.File != null)
             {
@@ -458,7 +439,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> EditContractFormPage(string TContactID)
         {
 
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             TemplateContract template = await _tContractService.getByIdAsnyc(int.Parse(TContactID));
             HttpContext.Session.SetString("EditTContractID", TContactID);
             return View(template);
@@ -467,7 +448,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateCFormPage([FromBody] PutTContract tContract)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             string TContactID = HttpContext.Session.GetString("EditTContractID");
             tContract.TContractID = int.Parse(TContactID);
             var respone = await _tContractService.updateAsnyc(tContract);
@@ -496,7 +477,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> DeleteTContract(int tContractId)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             var tContract = _tContractService.getByIdAsnyc(tContractId);
             var respone = await _tContractService.DeleteTContract(tContractId);
             if (respone != 0)
@@ -529,24 +510,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public IActionResult MinuteFormPage()
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             return View();
         }
 
         public async Task<IActionResult> ListMinuteFormPage()
         {
-            if (IsAuthenticate == 3 || IsAuthenticate == 1)
-            {
-                return View(await _tMinuteService.GetAll());
-            }
-            else
-            {
-                return RedirectToAction("Index", "Verify");
-            }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            return View(await _tMinuteService.GetAll());
         }
 
         public async Task<IActionResult> EditMinuteFormPage(int tMinuteId)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             TemplateMinute template = await _tMinuteService.GetById(tMinuteId);
             HttpContext.Session.SetString("EditTMinuteID", tMinuteId.ToString());
 
@@ -556,7 +532,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateMFormPage([FromBody] PutTMinute tMinute)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             string TMinuteID = HttpContext.Session.GetString("EditTMinuteID");
             tMinute.TMinuteID = int.Parse(TMinuteID);
             var respone = await _tMinuteService.Update(tMinute);
@@ -582,7 +558,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> AddTMinute(API.PostTMinute tMinute)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             IFormFile temp = null;
             if (tMinute.File != null)
             {
@@ -648,7 +624,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> DeleteTMinute(int tMinuteId)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             var tMinute = _tMinuteService.GetById(tMinuteId);
             var respone = await _tMinuteService.DeleteTMinute(tMinuteId);
             if (respone != 0)
@@ -681,148 +657,106 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         //done contract
         public async Task<IActionResult> ContractListEffect()
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             List<DContractViewModel> contractList = new List<DContractViewModel>();
-            if (IsAuthenticate == 3 || IsAuthenticate == 1)
-            {
-                contractList = await _dContractService.getListIsEffect();
-                return View(contractList);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Verify");
-            }
+            
+            contractList = await _dContractService.getListIsEffect();
+            return View(contractList);
+            
         }
 
         // hiển thị list chờ duyệt theo role và id ng tạo
         public async Task<IActionResult> ContractListPending()
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (IsAuthenticate == 3 || IsAuthenticate == 1)
-            {
-                pContractList = await _pContractService.getListWaitDirectorSigns();
-                return View(pContractList);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Verify");
-            }
+            
+            pContractList = await _pContractService.getListWaitDirectorSigns();
+            return View(pContractList);
+            
         }
 
         //danh sách từ chối duyệt
         public async Task<IActionResult> ContractListRefuse()
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (IsAuthenticate == 3 || IsAuthenticate == 1 )
-            {
-                pContractList = await _pContractService.getListRefuse();
-                return View(pContractList);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Verify");
-            }
+            
+            pContractList = await _pContractService.getListRefuse();
+            return View(pContractList);
+            
         }
 
         //hiển thị danh sách chờ kh ký theo role và theo nhân viên tạo hoặc ng ký
         public async Task<IActionResult> ContractListWaitSign()
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            if (IsAuthenticate == 3 || IsAuthenticate == 1 )
-            {
-                pContractList = await _pContractService.getListWaitCustomerSigns();
-                return View(pContractList);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Verify");
-            }
+            pContractList = await _pContractService.getListWaitCustomerSigns();
+            return View(pContractList);
+            
+            
         }
 
         public async Task<IActionResult> DetailsContractEffect(string id)
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             VMDetailsContract viewModel = new VMDetailsContract();
-            if (IsAuthenticate == 3 || IsAuthenticate == 1)
-            {
-                viewModel.DoneContracts = await _dContractService.getByIdAsnyc(id);
-                viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
-                viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.DoneContracts.DirectorSignedId);
-                return View(viewModel);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Verify");
-            }
+            viewModel.DoneContracts = await _dContractService.getByIdAsnyc(id);
+            viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
+            viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.DoneContracts.DirectorSignedId);
+            return View(viewModel);
+            
         }
 
         public async Task<IActionResult> DetailsContractPending(string id)
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             VMDetailsContract viewModel = new VMDetailsContract();
-            if (IsAuthenticate == 3 || IsAuthenticate == 1)
-            {
-                viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
-                viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
-                viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
+            viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
+            viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
+            viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
 
-                return View(viewModel);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Verify");
-            }
+            return View(viewModel);
+            
         }
 
         public async Task<IActionResult> DetailsContractRefuse(string id)
         {
             VMDetailsContract viewModel = new VMDetailsContract();
 
-            if (IsAuthenticate == 3 || IsAuthenticate == 1)
-            {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            
                 viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
                 viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.DirectorSignedId);
 
                 return View(viewModel);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Verify");
-            }
+            
         }
 
         public async Task<IActionResult> DetailsContractWaitSign(string id)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             VMDetailsContract viewModel = new VMDetailsContract();
-
-            try
-            {
-                viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
-                viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
-                viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
-            }
-            catch
-            {
-                return RedirectToAction("Index");
-            }
+            viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
+            viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
+            viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
+            
             return View(viewModel);
         }
 
         public async Task<IActionResult> EditCus(string customerID)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             var customer = await _customerService.GetCustomerByIdPut(customerID);
-            if (customer != null)
-            {
-                return View(customer);
-            }
-            else
-            {
-                return RedirectToAction("Index");
-            }
+            return View(customer);
+            
         }
 
         public async Task<IActionResult> UpdateInfoCustomer(PutCustomer putCustomer)
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             if (putCustomer.BuisinessName != null)
             {
                 putCustomer.typeofCustomer = "Doanh nghiệp";
@@ -863,6 +797,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> HistoryOperation()
         {
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var employee = JsonConvert.DeserializeObject<Employee>(empContext);
 
@@ -895,7 +830,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> UpdateInfo(PutEmployee employee)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             if (employee.ImageFile != null)
             {
                 var temp = employee.ImageFile;
@@ -950,7 +885,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPost]
         public async Task<ActionResult> SaveSignature([FromBody] SignData sData)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             if (null == sData)
                 return NotFound();
 
@@ -1043,7 +978,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> UploadSignature(VMPersonalPage vm)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             API.PFXCertificate certificate = new API.PFXCertificate();
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
@@ -1132,7 +1067,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPost]
         public async Task<IActionResult> SaveTextSignature(string imageData)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             if (imageData == null)
                 return NotFound();
 
@@ -1234,7 +1169,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> DeleteSignature(string filePath)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
             var certificate = await _pfxCertificateServices.GetById(serialPFX);
@@ -1291,7 +1226,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> SetDefaultImageSignature(string filePath)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
             var certificate = await _pfxCertificateServices.GetById(serialPFX);
@@ -1315,7 +1250,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> DeleteDefaultSignature(string filePath)
         {
-            if (IsAuthenticate != 1 || IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
             var certificate = await _pfxCertificateServices.GetById(serialPFX);

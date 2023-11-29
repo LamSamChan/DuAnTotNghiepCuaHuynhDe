@@ -39,6 +39,26 @@
 
     <!-- ICONS -->
     <script src="https://unpkg.com/@@phosphor-icons/web"></script>
+    <style>
+        .loading {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.479);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+            .loading img {
+                width: 7rem;
+            }
+    </style>
 </head>
 <body>
     <header style="background-color:#001529; position:fixed; width:100%; top:0; left:0; z-index:9999;">
@@ -46,7 +66,7 @@
             <div class="container-fluid">
                 <div class="logo">
                     <img style="width:40px;" src="~/Resource/Image/LOGO_WITHOUT_BG/2.png" />
-                    <a style="color:white; font-weight:bold;" class="navbar-brand" >TEACHSEAL</a>
+                    <a style="color:white; font-weight:bold;" class="navbar-brand">TEACHSEAL</a>
                 </div>
                 <div class="Search_All">
                     <i class="ph-bold ph-magnifying-glass"></i>
@@ -66,16 +86,19 @@
                     </a>
                 </li>
                 <li>
-                    <img src="~/@Html.Raw(avatar)"  style="width: 40px; height: 40px; border-radius: 100%;"/>
+                    <img src="~/@Html.Raw(avatar)" style="width: 40px; height: 40px; border-radius: 100%;" />
                 </li>
             </ul>
         </nav>
     </header>
     <div class="contai">
-      @Html.Partial("_SidebarPartialView")
-      <main style="margin-left:270px; margin-top:50px;" role="main" class="pb-3" >
+        <div class="loading" id="loading">
+            <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+        </div>
+        @Html.Partial("_SidebarPartialView")
+        <main style="margin-left:270px; margin-top:50px;" role="main" class="pb-3">
             @RenderBody()
-      </main>
+        </main>
     </div>
     <!-- Thư viện Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
@@ -84,7 +107,32 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        const iconLoading = document.getElementById("loading");
 
+        const showLoading = () => {
+            iconLoading.style.display = "flex";
+        };
+
+        const hideLoading = () => {
+            iconLoading.style.display = "none";
+        };
+
+        const updatePosition = () => {
+            showLoading(); // Show loading spinner when the button is clicked
+
+            // You can perform additional logic here before or after the form submission
+            // For example, submit the form programmatically
+            document.querySelector('form').submit();
+
+            // If you want to prevent the form from submitting immediately, you can remove the form submission line
+
+            // Hide loading spinner after the form submission is complete
+            setTimeout(() => {
+                hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+            }, 1000);
+        };
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

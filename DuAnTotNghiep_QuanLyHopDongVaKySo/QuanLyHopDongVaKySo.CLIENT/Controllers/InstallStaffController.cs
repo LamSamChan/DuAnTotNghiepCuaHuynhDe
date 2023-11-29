@@ -206,54 +206,54 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
                 vm.IRequirements = await _iRequirementService.GetAll();
                 vm.DContracts = await _doneContractSvc.getAll();
-                
+                return View(vm);
             }
-            
-            return View(vm);
+            return RedirectToAction("Index", "Verify");
+
         }
 
         public async Task<IActionResult> GetTaskFormIR(int iRequirementID)
         {
-            PostGetTaskFromIR task = new PostGetTaskFromIR()
+            if (IsAuthenticate == 1 || IsAuthenticate == 4)
             {
-                IRequirementId = iRequirementID,
-                EmployeeID = HttpContext.Session.GetString(SessionKey.Employee.EmployeeID)
-            };
-            var respone = await _pMinuteService.GetTaskFormIRequirement(task);
-            if (respone != null)
-            {
-                string[] split = respone.Split('*');
-                string pdfPath = null;
-                IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
-                pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
-                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "pminute");
-
-                System.GC.Collect();
-                System.GC.WaitForPendingFinalizers();
-                System.IO.File.Delete(pdfPath);
-
-                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
-                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                PostGetTaskFromIR task = new PostGetTaskFromIR()
                 {
-                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã nhận 1 yêu cầu lắp đặt - ID Biên Bản: {split[1]}.",
-                    EmployeeID = employeeDoing.EmployeeId
+                    IRequirementId = iRequirementID,
+                    EmployeeID = HttpContext.Session.GetString(SessionKey.Employee.EmployeeID)
                 };
-                await _historyEmpSvc.AddNew(historyEmp);
+                var respone = await _pMinuteService.GetTaskFormIRequirement(task);
+                if (respone != null)
+                {
+                    string[] split = respone.Split('*');
+                    string pdfPath = null;
+                    IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
+                    pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
+                    _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "pminute");
 
-                TempData["SweetType"] = "success";
-                TempData["SweetIcon"] = "success";
-                TempData["SweetTitle"] = "Đã nhận yêu cầu lắp đặt !!";
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
+                    System.IO.File.Delete(pdfPath);
+
+                    var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                    Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    {
+                        OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã nhận 1 yêu cầu lắp đặt - ID Biên Bản: {split[1]}.",
+                        EmployeeID = employeeDoing.EmployeeId
+                    };
+                    await _historyEmpSvc.AddNew(historyEmp);
+
+                    TempData["SweetType"] = "success";
+                    TempData["SweetIcon"] = "success";
+                    TempData["SweetTitle"] = "Đã nhận yêu cầu lắp đặt !!";
+                    return RedirectToAction("ListInstallRecord");
+                }
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "loi he thong !!";
                 return RedirectToAction("ListInstallRecord");
             }
-            else
-            {
-                // báo lỗi
-       /*         TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Bạn chưa đăng nhập !!";*/
-                return RedirectToAction("Index", "Verify");
-            }
+            return RedirectToAction("Index", "Verify");
         }
 
         public IActionResult DetailsRequire()
@@ -284,11 +284,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
                 return View(vm);
             }
-            else
-            {
-
                 return RedirectToAction("Index", "Verify");
-            }
+            
         }
 
         public async Task<IActionResult> UpdateInfo(PutEmployee employee)
@@ -346,13 +343,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> ListInstallRecord()
         {
-            VMListInstallRecord vm = new VMListInstallRecord()
+            if (IsAuthenticate == 1 || IsAuthenticate == 4)
             {
-                pendingMinutes = await _pMinuteService.GetByEmpId(EmployeeId),
-                DContracts = await _doneContractSvc.getAll(),
-                doneMinutes = await _dMinuteService.GetListByEmpId(EmployeeId)
-            };
-            return View(vm);
+                VMListInstallRecord vm = new VMListInstallRecord()
+                {
+                    pendingMinutes = await _pMinuteService.GetByEmpId(EmployeeId),
+                    DContracts = await _doneContractSvc.getAll(),
+                    doneMinutes = await _dMinuteService.GetListByEmpId(EmployeeId)
+                };
+                return View(vm);
+            }
+             return RedirectToAction("Index", "Verify");
         }
 
         public async Task<IActionResult> SignByCus(int pMinuteID)
@@ -384,31 +385,32 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> SignByStaff(int pMinuteID)
         {
-
-            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
-            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            if (IsAuthenticate == 1 || IsAuthenticate == 4)
+            {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
             
-            VMSignByStaff vm = new VMSignByStaff();
-            try
-            {
-                vm.PMinute = await _pMinuteService.GetById(pMinuteID);
-                var dContract = _doneContractSvc.getAll().Result.FirstOrDefault(d => d.DContractID == vm.PMinute.DoneContractId);
-                vm.Customer = await _customerService.GetCustomerById(dContract.CustomerId.ToString());
-                vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
-                string tosName = _tosService.GetById(dContract.TOS_ID).Result.ServiceName;
-                ViewBag.DContracID = dContract.DContractID;
-                ViewBag.ServiceName = tosName;
+                VMSignByStaff vm = new VMSignByStaff();
+                try
+                {
+                    vm.PMinute = await _pMinuteService.GetById(pMinuteID);
+                    var dContract = _doneContractSvc.getAll().Result.FirstOrDefault(d => d.DContractID == vm.PMinute.DoneContractId);
+                    vm.Customer = await _customerService.GetCustomerById(dContract.CustomerId.ToString());
+                    vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
+                    string tosName = _tosService.GetById(dContract.TOS_ID).Result.ServiceName;
+                    ViewBag.DContracID = dContract.DContractID;
+                    ViewBag.ServiceName = tosName;
+                }
+                catch (Exception)
+                {
+                    //báo lỗi
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Nhân viên ký bị lỗi!!";
+                }
+                return View(vm);
             }
-            catch (Exception)
-            {
-                //báo lỗi
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Nhân viên ký bị lỗi!!";
-                return RedirectToAction("Index");
-            }
-
-            return View(vm);
+            return RedirectToAction("Index", "Verify");
         }
 
         [HttpPost]
@@ -611,43 +613,51 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> DetailsTypeOfService(int tosID)
         {
-            VMDetailsTypeOfService vm = new VMDetailsTypeOfService()
+            if (IsAuthenticate == 1 || IsAuthenticate == 4)
             {
-                InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID)
-            };
-            HttpContext.Session.SetString("tosID", tosID.ToString());
-            return View(vm);
+                VMDetailsTypeOfService vm = new VMDetailsTypeOfService()
+                {
+                    InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID)
+                };
+                HttpContext.Session.SetString("tosID", tosID.ToString());
+                return View(vm);
+            }
+            return RedirectToAction("Index", "Verify");
         }
 
         public async Task<IActionResult> AddDeviceAction(VMDetailsTypeOfService vm)
         {
-            API.InstallationDevice device = new API.InstallationDevice();
-            device = vm.InstallationDevice;
-            var respone = await _installationDevicesService.AddNewDevice(device);
-            if (respone != null)
+            if (IsAuthenticate == 1 || IsAuthenticate == 4)
             {
-                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
-                Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                API.InstallationDevice device = new API.InstallationDevice();
+                device = vm.InstallationDevice;
+                var respone = await _installationDevicesService.AddNewDevice(device);
+                if (respone != null)
                 {
-                    OperationName = $"{employee.FullName} đã thêm thiết bị {device.DeviceName} vào dịch vụ {_tosService.GetAll().Result.FirstOrDefault(s => s.TOS_ID == device.TOS_ID).ServiceName}.",
-                    EmployeeID = employee.EmployeeId
-                };
-                await _historyEmpSvc.AddNew(historyEmp);
+                    var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                    Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
+                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    {
+                        OperationName = $"{employee.FullName} đã thêm thiết bị {device.DeviceName} vào dịch vụ {_tosService.GetAll().Result.FirstOrDefault(s => s.TOS_ID == device.TOS_ID).ServiceName}.",
+                        EmployeeID = employee.EmployeeId
+                    };
+                    await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SweetType"] = "success";
-                TempData["SweetIcon"] = "success";
-                TempData["SweetTitle"] = "Thêm dịch vụ thành công !!";
+                    TempData["SweetType"] = "success";
+                    TempData["SweetIcon"] = "success";
+                    TempData["SweetTitle"] = "Thêm dịch vụ thành công !!";
 
-                return RedirectToAction("DetailsTypeOfService", new { tosID = device.TOS_ID });
+                    return RedirectToAction("DetailsTypeOfService", new { tosID = device.TOS_ID });
+                }
+                else
+                {
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Thêm dịch vụ bị lỗi!!";
+                    return RedirectToAction("index");
+                }
             }
-            else
-            {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Thêm dịch vụ bị lỗi!!";
-                return RedirectToAction("ListRole");
-            }
+            return RedirectToAction("Index", "Verify");
         }
 
         [HttpPut]
@@ -674,7 +684,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
                 TempData["SweetTitle"] = "Cập nhật bị lỗi!!";
-                return RedirectToAction("ListRole");
+                return RedirectToAction("Index");
             }
         }
 
