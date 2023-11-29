@@ -156,7 +156,30 @@
                         <input class="form-control" required asp-for="@item.TOS_ID" id="tosId_@item.Device_ID">
                     </td>
                     <td>
-                        <button class="button-save" type="button" onclick="saveDevice('@item.Device_ID')">Lưu</button>
+                        <button class="button-save" type="button" onclick="saveDevice('@item.Device_ID')">Lưu  @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+                                    {
+                                        <script>
+                                            document.addEventListener('DOMContentLoaded', function () {
+                                                var sweetData = {
+                                                    title: '@TempData["SweetTitle"]',
+                                                    text: '@TempData["SweetText"]',
+                                                    icon: '@TempData["SweetIcon"]'
+                                                };
+
+                                                Swal.fire({
+                                                    title: sweetData.title,
+                                                    text: sweetData.text,
+                                                    icon: sweetData.icon,
+                                                    showCancelButton: false,
+                                                    allowOutsideClick: false,
+                                                    confirmButtonColor: "green",
+                                                    confirmButtonText: "Ok"
+                                                }).then(function () {
+                                                    // Handle any additional logic after the SweetAlert is closed.
+                                                });
+                                            });
+                                        </script>
+                                    }</button>
                         <a class="button-delete" asp-action="DelDeviceAction" asp-controller="Admin" asp-route-deviceID="@item.Device_ID">Xoá</a>
                     </td>
                 </tr>

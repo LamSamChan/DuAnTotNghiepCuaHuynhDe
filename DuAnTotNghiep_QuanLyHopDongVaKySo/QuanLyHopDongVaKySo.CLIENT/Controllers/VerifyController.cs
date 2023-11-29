@@ -61,10 +61,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
             }
         }
-        public IActionResult Loading()
-        {
-            return View();
-        }
+      
 
         public IActionResult ResetPass()
         {

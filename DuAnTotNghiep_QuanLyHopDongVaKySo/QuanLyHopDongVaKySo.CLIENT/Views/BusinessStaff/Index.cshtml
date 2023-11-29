@@ -511,6 +511,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script type="text/javascript">
+
     function convertToImage() {
         var textInput = $("#textInput").val();
         var textColor = $("#textColorPicker").val();
@@ -576,7 +577,12 @@
                 document.body.removeChild(div);
             });
         } else {
-            alert("Vui lòng nhập văn bản.");
+            Swal.fire({
+                icon: 'warning',
+                title: 'Vui lòng nhập văn bản.',
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     }
 
@@ -605,24 +611,42 @@
                     url: "/BusinessStaff/SaveTextSignature",
                     data: { imageData: imageData },
                     success: function (result) {
-                        console.log(result);
-                        var redirectToUrl = '@Url.Action("Index", "BusinessStaff")';
-                        window.location.href = redirectToUrl;
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Lưu thành công!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(() => {
+                            var redirectToUrl = '@Url.Action("Index", "BusinessStaff")';
+                            window.location.href = redirectToUrl;
+                        });
                     },
                     error: function (error) {
-                        console.error(error);
-                        alert("Đã xảy ra lỗi khi lưu ảnh.");
-                        var redirectToUrl = '@Url.Action("Index", "BusinessStaff")';
-                        window.location.href = redirectToUrl;
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Lỗi!',
+                            text: 'Đã xảy ra lỗi khi lưu ảnh.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(() => {
+                            var redirectToUrl = '@Url.Action("Index", "BusinessStaff")';
+                            window.location.href = redirectToUrl;
+                        });
                     }
                 });
 
                 document.body.removeChild(div);
             });
         } else {
-            alert("Vui lòng nhập văn bản.");
+            Swal.fire({
+                icon: 'warning',
+                title: 'Vui lòng nhập văn bản.',
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     }
+
 
 
 
