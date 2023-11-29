@@ -2,6 +2,80 @@
 
 /*@import url("ListUser.css");
 */
+/*hide and show pass*/
+.password-container {
+    position: relative;
+    width: 400px;
+    margin: auto;
+}
+
+.input-container {
+    position: relative;
+}
+
+
+#ConfirmPassNew,
+#passNew,
+#passOld{
+    padding-right: 30px;
+}
+
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+#eyeIcon,
+#eyeIcon1,
+#eyeIcon2 {
+    font-size: 20px;
+}
+/*=========*/
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-label {
+    font-size: 16px;
+    color: #333;
+    margin-right: 8px;
+}
+
+#checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 40px; 
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 10px; 
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+#checkbox:checked {
+    background-color: #333; /* Màu nền khi checkbox được chọn */
+    border-color: #333; /* Màu viền khi checkbox được chọn */
+}
+
+#checkbox:checked::before {
+    content: '\2713'; /* Unicode character for checkmark */
+    font-size: 14px;
+    color: #fff; /* Màu của dấu tích khi checkbox được chọn */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/**/
 .form {
     height: 467px;
     display: flex;

@@ -135,7 +135,7 @@
                         <ul style="padding:0; list-style:none;">
                             @if (Model.PFXCertificate.DefaultImageSignature != null)
                             {
-                                <li class="a">
+                                <li class="a mx-auto">
                                     <img src="~/@Model.PFXCertificate.DefaultImageSignature" alt="@Model.PFXCertificate.DefaultImageSignature" class="gallery-item" width="100%" height="300" />
                                     <div class="overlay">
                                         <div class="row justify-content-around">
@@ -173,7 +173,7 @@
                             }
                             else
                             {
-                                <li class="a">
+                                <li class="a mx-auto">
                                     <img src="~/Resource/Image/empty.png" class="gallery-item" width="100%" height="300" />
                                 </li>
                             }
@@ -185,7 +185,7 @@
                         <ul style="padding:0; list-style:none;">
                             @if (Model.Stamps.Count > 0)
                             {
-                                <li class="a">
+                                <li class="a mx-auto">
                                     <img src="~/@Model.Stamps[0].StampPath" alt="@Model.Stamps[0].StampPath" class="gallery-item" width="100%" height="300" />
                                     <div class="overlay">
                                         <div class="row justify-content-around">
@@ -223,7 +223,7 @@
                             }
                             else
                             {
-                                <li class="a">
+                                <li class="a mx-auto">
                                     <img src="~/Resource/Image/empty.png" class="gallery-item" width="100%" height="300" />
                                 </li>
                             }
@@ -303,7 +303,7 @@
                 </div>
                 <hr />
                 <h4 class="typeHead">Danh sách chữ ký</h4>
-                <ul style="list-style:none; display:flex; flex-wrap:wrap; margin:auto; ">
+                <ul class="list-unstyled d-flex flex-wrap justify-content-center p-0">
                     @if (Model.PFXCertificate.ImageSignature1 != null)
                     {
                         <li class="avt">

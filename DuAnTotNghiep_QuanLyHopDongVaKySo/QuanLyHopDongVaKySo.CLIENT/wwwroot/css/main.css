@@ -31,7 +31,38 @@
 
 
 
+    /*hide and show pass*/
+    .password-container {
+        position: relative;
+        width: 400px;
+        margin: auto;
+    }
 
+    .input-container {
+        position: relative;
+    }
+
+
+    #ConfirmPassNew,
+    #passNew,
+    #passOld {
+        padding-right: 30px;
+    }
+
+    .eye-icon {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    #eyeIcon,
+    #eyeIcon1,
+    #eyeIcon2 {
+        font-size: 20px;
+    }
+    /*=========*/
 
 /*chuyển đổi tụ động chữ ký số*/
 
