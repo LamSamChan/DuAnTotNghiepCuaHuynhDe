@@ -93,16 +93,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     if (role == "Admin")
                     {
                         isAuthenticate = 1; //Admin
-                     
                     }
                     else if (role == "Giám đốc")
                     {
-                      
                         isAuthenticate = 2; //Director
+                        RedirectToAction("Index", "Director");
                     }
                     else if (role == "Nhân viên kinh doanh")
                     {
-                      
                         isAuthenticate = 3; //BusinessStaff
                     }
                     else if (role == "Nhân viên lắp đặt")
@@ -114,6 +112,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 else
                 {
                     isAuthenticate = 0; // chưa login
+                    RedirectToAction("Index", "Verify");
                 }
                 return isAuthenticate;
             }
@@ -231,32 +230,30 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 ViewData["Role"] = VB;
                 return View(vm);
             }
-            else
+             else if (IsAuthenticate == 0) { }
             {
-            /*    TempData["SweetType"] = "error";
+                TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Bạn chưa đăng nhập !!";*/
-                return RedirectToAction("Index", "Verify");
+                TempData["SweetTitle"] = "Bạn chưa đăng nhập !!";              
             }
+            return RedirectToAction("Index", "Verify");
         }
 
         public async Task<IActionResult> ListTypeOfService()
         {
-
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             VMListTOS vm = new VMListTOS();
-            if(IsAuthenticate == 1)
-            {
-                vm.TypeOfServices = await _tosService.GetAll();
-                vm.TemplateMinutes = await _tMinuteService.GetAll();
-                vm.TemplateContracts = await _tContractService.getAllAsnyc();
-                return View(vm);
-            };
             
-            return RedirectToAction("Index", "Verify");
+            vm.TypeOfServices = await _tosService.GetAll();
+            vm.TemplateMinutes = await _tMinuteService.GetAll();
+            vm.TemplateContracts = await _tContractService.getAllAsnyc();
+            return View(vm);
+            
         }
 
         public async Task<IActionResult> AddTOSAction(VMListTOS vm)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             APIPost.PostTOS tos = new APIPost.PostTOS();
             tos = vm.PostTOS;
             var repone = await _tosService.AddNew(tos);
@@ -288,6 +285,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> UpdateTOSAction(VMListTOS vm)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             APITPut.PutTOS tos = new APITPut.PutTOS();
             tos = vm.PutTOS;
             var repone = await _tosService.Update(tos);
@@ -318,18 +316,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> DetailsTypeOfService(int tosID)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             VMDetailsTypeOfService vm = new VMDetailsTypeOfService();
-            if(IsAuthenticate == 1)
-            {
-                vm.InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID);
-                HttpContext.Session.SetString("tosID", tosID.ToString());
-                return View(vm);
-            };
-            return RedirectToAction("Index", "Verify");
+            
+            vm.InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID);
+            HttpContext.Session.SetString("tosID", tosID.ToString());
+            return View(vm);
+            
+            
         }
 
         public async Task<IActionResult> AddDeviceAction(VMDetailsTypeOfService vm)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             API.InstallationDevice device = new API.InstallationDevice();
             device = vm.InstallationDevice;
             var respone = await _installationDevicesService.AddNewDevice(device);
@@ -360,6 +359,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> DelDeviceAction(int deviceID)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var deviceName = await _installationDevicesService.GetDeviceById(deviceID);
             string serviceName = _tosService.GetAll().Result.FirstOrDefault(s => s.TOS_ID == deviceName.TOS_ID).ServiceName;
 
@@ -393,6 +393,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPut]
         public async Task<IActionResult> EditDeviceAction([FromBody] API.InstallationDevice device)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var respone = await _installationDevicesService.UpdateDevice(device);
             if (respone != null)
             {
@@ -519,6 +520,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> EditEmpAction(PutEmployee employee)
         {
+            if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var existEmp = await _employeeService.GetEmployeeById(employee.EmployeeId.ToString());
             if (employee.ImageFile != null)
             {
@@ -671,6 +673,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         public async Task<IActionResult> ListRole()
+        
         {
             if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
 
@@ -1327,6 +1330,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> SetDefaultImageSignature(string filePath)
         {
+
             if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
