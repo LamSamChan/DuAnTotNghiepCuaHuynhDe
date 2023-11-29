@@ -223,7 +223,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetIcon"] = "success";
                 TempData["SweetTitle"] = "Tạo hợp đồng thành công !!";
 
-                return RedirectToAction("ListCus");
+                if (IsAuthenticate == 1)
+                {
+                    return RedirectToAction("ListCusAccount", "Admin");
+                }
+                else
+                {
+                    return RedirectToAction("ListCus");
+                }
             }
             TempData["SweetType"] = "error";
             TempData["SweetIcon"] = "error";

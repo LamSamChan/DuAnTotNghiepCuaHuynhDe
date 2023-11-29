@@ -379,7 +379,9 @@
             Serial : '@Model.PFXCertificate.Serial',
             IdFile :'@Model.PContract.PContractID',
             Base64StringFile : '',
-            ImagePath: imagePath
+            ImagePath: imagePath,
+            Base64StringFileStamp: '',
+            ImagePathStamp: ''
         };
 
         $.ajax({
@@ -410,7 +412,9 @@
                 Serial: '@Model.PFXCertificate.Serial',
                 IdFile: '@Model.PContract.PContractID',
                 Base64StringFile: '',
-                ImagePath: defaultImg
+                ImagePath: defaultImg,
+                Base64StringFileStamp: '',
+                ImagePathStamp: ''
             }
 
             $.ajax({

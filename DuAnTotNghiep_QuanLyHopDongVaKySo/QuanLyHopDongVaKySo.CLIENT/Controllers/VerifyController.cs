@@ -12,6 +12,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
 using API= QuanLyHopDongVaKySo_API.Models;
 using Azure;
 using QuanLyHopDongVaKySo.CLIENT.Models;
+using RestSharp.Serializers;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -32,12 +33,34 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.SweetType = TempData["SweetType"];
-            ViewBag.SweetIcon = TempData["SweetIcon"];
-            ViewBag.SweetTitle = TempData["SweetTitle"];
-            return View();
+            string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
+            if (String.IsNullOrEmpty(role))
+            {
+                ViewBag.SweetType = TempData["SweetType"];
+                ViewBag.SweetIcon = TempData["SweetIcon"];
+                ViewBag.SweetTitle = TempData["SweetTitle"];
+                return View();
+            }
+            else
+            {
+                if (role == "Admin")
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
+                else if (role == "Giám đốc")
+                {
+                    return RedirectToAction("Index", "Director");
+                }
+                else if (role == "Nhân viên kinh doanh")
+                {
+                    return RedirectToAction("Index", "BusinessStaff");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "InstallStaff");
+                }
+            }
         }
-
         public IActionResult Loading()
         {
             return View();

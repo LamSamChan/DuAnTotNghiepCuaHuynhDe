@@ -359,13 +359,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public async Task<IActionResult> ListContractAwait()
         {
-            List<VMAPI.PContractViewModel> pContractList = new List<VMAPI.PContractViewModel>();
+            var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+            var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+            VMListContractAwait vm = new VMListContractAwait();
             if (IsAuthenticate == 2 || IsAuthenticate == 1)
             {
-                pContractList = await _pContractService.getListWaitDirectorSigns();
-                return View(pContractList);
+                vm.PContracts = await _pContractService.getListWaitDirectorSigns();
+                vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
+                return View(vm);
             }
-            return View(pContractList);
+            return View("Index");
         }
 
         public async Task<IActionResult> HistoryOperation()
@@ -449,7 +452,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
                 TempData["SweetTitle"] = "Không có ảnh mộc nào cả!!";
-                return BadRequest();
+                return View("DetailsContractAwait", signing.IdFile);
             }
 
             var respone = await _signingService.SignContractByDirector(signing);
@@ -486,7 +489,105 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-   
+        private async Task<int> SignForList([FromBody] VMAPI.SigningModel signing)
+        {
+            byte[] fileBytes = System.IO.File.ReadAllBytes(Path.Combine(_hostingEnvironment.WebRootPath, signing.ImagePath));
+            signing.Base64StringFile = Convert.ToBase64String(fileBytes);
+            signing.ImagePath = null;
+            try
+            {
+                string stampPath = Path.Combine(_hostingEnvironment.WebRootPath, "StampImage");
+
+                if (!Directory.Exists(stampPath))
+                {
+                    Directory.CreateDirectory(stampPath);
+                }
+
+                string fileStamp = Directory.GetFiles(stampPath)[0];
+                if (fileStamp == null)
+                {
+                    return 1;
+                }
+                else
+                {
+                    byte[] fileStampBytes = System.IO.File.ReadAllBytes(fileStamp);
+                    signing.Base64StringFileStamp = Convert.ToBase64String(fileStampBytes);
+                }
+            }
+            catch (Exception)
+            {
+                return 2;
+            }
+
+            var respone = await _signingService.SignContractByDirector(signing);
+
+
+
+            if (respone != null)
+            {
+                string[] split = respone.Split('*');
+                string pdfPath = null;
+                IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
+                pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
+                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "pcontract");
+
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                System.IO.File.Delete(pdfPath);
+
+                var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                {
+                    OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã ký duyệt hợp đồng - ID: {signing.IdFile}.",
+                    EmployeeID = employeeDoing.EmployeeId
+                };
+                await _historyEmpSvc.AddNew(historyEmp);
+                return 0;
+            }
+            else
+            {
+
+                return 3;
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> SignListContract([FromBody] List<VMAPI.SigningModel> signing)
+        {
+            if (signing == null)
+            {
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Không có hợp đồng được chọn!!";
+                return View("ListContractAwait");
+            }
+            foreach (var item in signing)
+            {
+                int respone = await SignForList(item);
+                if (respone == 1 || respone == 2)
+                {
+                    //báo lỗi ko có ảnh mộc
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Không có ảnh mộc nào cả!!";
+                    return View("ListContractAwait");
+                }else if (respone == 3)
+                {
+                    //báo lỗi ko có mộc
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Ký thất bại!!";
+                    return View("ListContractAwait");
+                }
+            }
+            TempData["SweetType"] = "success";
+            TempData["SweetIcon"] = "success";
+            TempData["SweetTitle"] = "Ký hợp đồng thành công!!";
+            return View("ListContractAwait");
+        }
+
+
         public async Task<IActionResult> DetailsContractEffect(string Id)
         {
             VMDetailsContract viewModel = new VMDetailsContract();

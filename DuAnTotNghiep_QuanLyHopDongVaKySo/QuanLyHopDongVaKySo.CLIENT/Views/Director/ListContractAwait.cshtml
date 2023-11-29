@@ -1,7 +1,12 @@
-﻿@model List<QuanLyHopDongVaKySo_API.ViewModels.PContractViewModel>
+﻿
+@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListContractAwait
 @{
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
-
+    string defaultImg = null;
+    if (Model.PFXCertificate.DefaultImageSignature != null)
+    {
+        defaultImg = Model.PFXCertificate.DefaultImageSignature.Replace(@"\", @"/");
+    }
 }
 <div class="container-fluid">
     @if (userRole == "Admin")
@@ -71,15 +76,72 @@
             <div class="row">
                 <input type="search" id="searchInput" style="margin-left: 10px;" placeholder="Tìm kiếm hợp đồng" />
                 <div class="col-md-3 offset-md-6 d-flex justify-content-end">
-                    <a class="button-save">
+                    <a class="button-save" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         Duyệt
-                        <span id="countButton" class="badge text-danger">0</span>
+                        <span id="countButton" class="badge text-light">0</span>
                     </a>
                     <a class="button-delete" data-bs-toggle="modal" data-bs-target="#RefuseSign">
                         Từ chối duyệt
-                        <span id="countButton" class="badge text-success">0</span>
+                        <span id="countButtonRefuse" class="badge text-light">0</span>
                     </a>
-                    
+
+                    @* <!-- Modal --> *@
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">DUYỆT HỢP ĐỒNG</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h5>
+                                        Chọn chữ ký khác
+                                    </h5>
+                                    <ul style="max-height:400px; overflow-y:scroll;">
+                                        @if (Model.PFXCertificate.ImageSignature1 != null)
+                                        {
+                                            <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")')">
+                                                <img src="~/@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")" width="400" height="200" />
+                                            </li>
+                                        }
+                                        @if (Model.PFXCertificate.ImageSignature2 != null)
+                                        {
+                                            <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")')">
+                                                <img src="~/@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")" width="400" height="200" />
+                                            </li>
+                                        }
+                                        @if (Model.PFXCertificate.ImageSignature3 != null)
+                                        {
+                                            <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")')">
+                                                <img src="~/@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")" width="400" height="200" />
+                                            </li>
+                                        }
+                                        @if (Model.PFXCertificate.ImageSignature4 != null)
+                                        {
+                                            <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")')">
+                                                <img src="~/@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")" width="400" height="200" />
+                                            </li>
+                                        }
+                                        @if (Model.PFXCertificate.ImageSignature5 != null)
+                                        {
+                                            <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")')">
+                                                <img src="~/@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")" width="400" height="200" />
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" id="signBtn" disabled>
+                                        DUYỆT
+                                    </button>
+                                    <button class="button-save" id="signDefaultBtn">
+                                        DUYỆT BẰNG CHỮ KÝ MẶT ĐỊNH
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     @* <!-- Modal --> *@
                     <div class="modal fade" id="RefuseSign" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -124,10 +186,10 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.PContracts)
                     {
                         <tr>
-                            <th><input type="checkbox" class="checkBox" /></th>
+                            <th><input type="checkbox" class="checkbox" data-index="@item.PContractID" /></th>
                             <td>@item.PContractID</td>
                             <td>@item.CustomerEmail</td>
                             <td>@item.DateCreated</td>
@@ -180,30 +242,145 @@
             }
         }
     });
+    var imagePath='';
+    function enableButton(buttonId, imageContainer, imageSelected) {
+        imagePath = imageSelected;
 
+        // Lấy button và hình ảnh được chọn
+        var button = document.getElementById(buttonId);
 
+        // Loại bỏ thuộc tính disabled nếu hình ảnh được chọn
+        button.removeAttribute('disabled');
+
+        // Loại bỏ lớp 'selected' từ tất cả các hình ảnh khác
+        var allImageContainers = document.querySelectorAll('.image-container');
+        allImageContainers.forEach(function (container) {
+            container.classList.remove('selected');
+        });
+
+        // Thêm lớp 'selected' cho hình ảnh được chọn để tạo hiệu ứng
+        imageContainer.classList.add('selected');
+    }
 
     $(document).ready(function () {
         var checkedCount = 0; // Biến để lưu trữ số lượng checkbox đã được chọn
 
         // Xử lý sự kiện khi checkbox all được click
         $('#checkAll').click(function () {
-            $('.checkBox').prop('checked', $(this).prop('checked'));
+            $('.checkbox').prop('checked', $(this).prop('checked'));
             updateCheckedCount();
+            updateCheckedCountRefuse();
         });
 
         // Xử lý sự kiện khi checkbox con được click
-        $('.checkBox').click(function () {
+        $('.checkbox').click(function () {
             if (!$(this).prop('checked')) {
                 $('#checkAll').prop('checked', false);
             }
             updateCheckedCount();
+            updateCheckedCountRefuse();
         });
 
         // Hàm cập nhật số lượng checkbox đã được chọn và hiển thị trên button
         function updateCheckedCount() {
-            checkedCount = $('.checkBox:checked').length;
+            checkedCount = $('.checkbox:checked').length;
             $('#countButton').text(checkedCount);
         }
+        function updateCheckedCountRefuse() {
+            checkedCount = $('.checkbox:checked').length;
+            $('#countButtonRefuse').text(checkedCount);
+        }
+
+        var selectedObjects = [];
+
+        // Xử lý sự kiện khi checkbox được chọn hoặc bỏ chọn
+        $(".checkbox").on("change", function () {
+            var id = $(this).attr("data-index");
+            var isChecked = $(this).prop("checked");
+            // Tạo đối tượng mới từ ID và thêm hoặc xoá đối tượng từ danh sách
+            if (isChecked) {
+                var newObject = createObjectFromId(id);
+                selectedObjects.push(newObject);
+            } else {
+                selectedObjects = selectedObjects.filter(function (obj) {
+                    return obj.id !== id;
+                });
+            }
+        });
+
+        // Hàm tạo đối tượng mới từ ID (Thay thế logic này bằng logic của bạn)
+        function createObjectFromId(id) {
+            // Thực hiện tạo signing model 
+            return {
+                Serial: '@Model.PFXCertificate.Serial',
+                IdFile: id,
+                Base64StringFile: '',
+                ImagePath: '',
+                Base64StringFileStamp: '',
+                ImagePathStamp: ''
+            };
+            
+        }
+
+        // Xử lý sự kiện khi nút Gửi được nhấn
+        $("#signBtn").on("click", function () {
+            // Gửi danh sách đối tượng đã chọn lên server qua Ajax
+            if(imagePath != ''){
+                selectedObjects.forEach(function (obj) {
+                    obj.ImagePath = imagePath; // Thay thế bằng giá trị mới của ImagePath
+                });
+            }else{
+                alert("Bạn chưa chọn chữ ký!!")
+            }
+            console.log(JSON.stringify(selectedObjects));
+            $.ajax({
+                url: '/Director/SignListContract',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(selectedObjects),
+                success: function (result) {
+                    // Chuyển hướng tới trang mong muốn
+                    var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
+                    window.location.href = redirectToUrl;
+                },
+                error: function (error) {
+                    // Chuyển hướng tới trang mong muốn
+                    var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
+                    window.location.href = redirectToUrl;
+                    console.error('Error:', error);
+
+                }
+            });
+        });
+
+        $("#signDefaultBtn").on("click", function () {
+            // Gửi danh sách đối tượng đã chọn lên server qua Ajax
+            var defaultImg = '@Html.Raw(defaultImg)';
+            if(defaultImg == ''){
+                alert("Bạn chưa cài đặt chữ ký mặc định!!")
+            }else{
+                selectedObjects.forEach(function (obj) {
+                    obj.ImagePath = defaultImg; // Thay thế bằng giá trị mới của ImagePath
+                });
+            }
+            $.ajax({
+                url: '/Director/SignListContract',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(selectedObjects),
+                success: function (result) {
+                    // Chuyển hướng tới trang mong muốn
+                    var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
+                    window.location.href = redirectToUrl;
+                    // Xử lý kết quả từ server nếu cần
+                },
+                error: function (error) {
+                    // Chuyển hướng tới trang mong muốn
+                    var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
+                    window.location.href = redirectToUrl;
+                    console.error('Error:', error);
+                }
+            });
+        });
     });
 </script>
