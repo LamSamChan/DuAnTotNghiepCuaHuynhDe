@@ -233,9 +233,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
+            /*    TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Bạn chưa đăng nhập !!";
+                TempData["SweetTitle"] = "Bạn chưa đăng nhập !!";*/
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -887,9 +887,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Cập nhật bản thân bị lỗi!!";
+               
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -911,9 +909,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (fileCount == 5)
                 {
                     //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
-                    TempData["SweetType"] = "error";
-                    TempData["SweetIcon"] = "error";
-                    TempData["SweetTitle"] = "Xóa 1 ảnh để có thể thêm mới!!";
+                 
                     return RedirectToAction("Index", "Verify");
                 }
             }
@@ -986,9 +982,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Tạo chữ ký bị lỗi!!";
+             
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -1008,9 +1002,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (fileCount == 5)
                 {
                     //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
-                    TempData["SweetType"] = "error";
-                    TempData["SweetIcon"] = "error";
-                    TempData["SweetTitle"] = "Xóa 1 ảnh để có thể thêm mới!!";
+                 
                     return RedirectToAction("Index", "Verify");
                 }
             }
@@ -1078,9 +1070,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Cập nhật chữ ký bị lỗi!!";
+            
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -1102,9 +1092,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (fileCount == 5)
                 {
                     //đã đủ 5 ảnh trong dtb, yêu cầu xóa 1 ảnh để có thể thêm mới
-                    TempData["SweetType"] = "error";
-                    TempData["SweetIcon"] = "error";
-                    TempData["SweetTitle"] = "Xóa 1 ảnh để có thể thêm mới!!";
+                   
                     return RedirectToAction("Index", "Verify");
                 }
             }
@@ -1182,9 +1170,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 else
                 {
-                    TempData["SweetType"] = "error";
-                    TempData["SweetIcon"] = "error";
-                    TempData["SweetTitle"] = "Tạo chữ ký bị lỗi!!";
+                  
                     return RedirectToAction("Index", "Verify");
                 }
             }
@@ -1226,18 +1212,18 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     else
                     {
                         _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, imagePath));
-                        TempData["SweetType"] = "error";
+                   /*     TempData["SweetType"] = "error";
                         TempData["SweetIcon"] = "error";
-                        TempData["SweetTitle"] = "Hiện tại đang có dấu mộc tồn tại hãy xoá để có thể tải ảnh mộc mới!!";
+                        TempData["SweetTitle"] = "Hiện tại đang có dấu mộc tồn tại hãy xoá để có thể tải ảnh mộc mới!!";*/
                         return RedirectToAction("Index", "Verify");
                     }
                 }
                 else
                 {
                     // ko phải file ảnh
-                    TempData["SweetType"] = "warning";
+/*                    TempData["SweetType"] = "warning";
                     TempData["SweetIcon"] = "warning";
-                    TempData["SweetTitle"] = "Hãy chọn file ảnh!!";
+                    TempData["SweetTitle"] = "Hãy chọn file ảnh!!";*/
                     return RedirectToAction("Index", "Verify");
                 }
             }
@@ -1303,9 +1289,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Xóa chữ ký bị lỗi!!";
+               
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -1336,9 +1320,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Xóa mộc đóng dấu bị lỗi!!";
+               
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -1363,9 +1345,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Đặt mặc đinh bị lỗi!!";
+       
                 return RedirectToAction("Index", "Verify");
             }
         }
@@ -1390,9 +1370,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             else
             {
-                TempData["SweetType"] = "error";
-                TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Xóa chữ ký bị lỗi!!";
+            
                 return RedirectToAction("Index", "Verify");
             }
         }
