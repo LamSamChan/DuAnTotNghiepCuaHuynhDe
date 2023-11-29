@@ -1,5 +1,4 @@
-﻿
-@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListContractAwait
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListContractAwait
 @{
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
     string defaultImg = null;
@@ -265,13 +264,6 @@
     $(document).ready(function () {
         var checkedCount = 0; // Biến để lưu trữ số lượng checkbox đã được chọn
 
-        // Xử lý sự kiện khi checkbox all được click
-        $('#checkAll').click(function () {
-            $('.checkbox').prop('checked', $(this).prop('checked'));
-            updateCheckedCount();
-            updateCheckedCountRefuse();
-        });
-
         // Xử lý sự kiện khi checkbox con được click
         $('.checkbox').click(function () {
             if (!$(this).prop('checked')) {
@@ -293,24 +285,63 @@
 
         var selectedObjects = [];
 
+        // Xử lý sự kiện khi checkbox all được click
+        $('#checkAll').click(function () {
+            $('.checkbox').prop('checked', $(this).prop('checked'));
+            var isChecked = $(this).prop('checked');
+            updateCheckedCount();
+            updateCheckedCountRefuse();
+            // Nếu checkbox all được check, thêm tất cả đối tượng vào danh sách
+            if (isChecked) {
+                $('.checkbox').each(function () {
+                    var id = $(this).attr('data-index');
+                    var existingObject = selectedObjects.find(function (obj) {
+                        return obj.IdFile === id;
+                    });
+
+                    // Nếu đối tượng chưa tồn tại, thêm vào danh sách
+                    if (!existingObject) {
+                        var newObject = createObjectFromId(id);
+                        selectedObjects.push(newObject);
+                    }
+                });
+            } else {
+                // Nếu checkbox all được uncheck, xoá tất cả đối tượng khỏi danh sách
+                selectedObjects = [];
+            }
+
+            // Hiển thị danh sách đối tượng (để kiểm tra)
+            console.log(selectedObjects);
+        });
+
         // Xử lý sự kiện khi checkbox được chọn hoặc bỏ chọn
         $(".checkbox").on("change", function () {
             var id = $(this).attr("data-index");
             var isChecked = $(this).prop("checked");
-            // Tạo đối tượng mới từ ID và thêm hoặc xoá đối tượng từ danh sách
-            if (isChecked) {
+
+            // Tìm đối tượng trong danh sách với ID tương ứng
+            var existingObject = selectedObjects.find(function (obj) {
+                return obj.IdFile === id;
+            });
+
+            // Nếu checkbox được check và đối tượng không tồn tại, thêm đối tượng mới
+            if (isChecked && !existingObject) {
                 var newObject = createObjectFromId(id);
                 selectedObjects.push(newObject);
-            } else {
+            } else if (!isChecked && existingObject) {
+                // Nếu checkbox được uncheck và đối tượng tồn tại, xoá đối tượng từ danh sách
                 selectedObjects = selectedObjects.filter(function (obj) {
-                    return obj.id !== id;
+                    return obj.IdFile !== id;
                 });
             }
+
+            // Hiển thị danh sách đối tượng (để kiểm tra)
+            console.log(selectedObjects);
         });
 
         // Hàm tạo đối tượng mới từ ID (Thay thế logic này bằng logic của bạn)
         function createObjectFromId(id) {
-            // Thực hiện tạo signing model 
+            // Thực hiện tạo signing model
             return {
                 Serial: '@Model.PFXCertificate.Serial',
                 IdFile: id,
@@ -319,7 +350,6 @@
                 Base64StringFileStamp: '',
                 ImagePathStamp: ''
             };
-            
         }
 
         // Xử lý sự kiện khi nút Gửi được nhấn
@@ -332,6 +362,10 @@
             }else{
                 alert("Bạn chưa chọn chữ ký!!")
             }
+            if (selectedObjects.length === 0) {
+                alert("Danh sách hợp đồng trống. Vui lòng thêm ít nhất một hợp đồng để ký.");
+                return; // Ngừng thực hiện nếu danh sách trống
+            }
             console.log(JSON.stringify(selectedObjects));
             $.ajax({
                 url: '/Director/SignListContract',
@@ -340,11 +374,13 @@
                 data: JSON.stringify(selectedObjects),
                 success: function (result) {
                     // Chuyển hướng tới trang mong muốn
+                    //thông báo
                     var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
                     window.location.href = redirectToUrl;
                 },
                 error: function (error) {
                     // Chuyển hướng tới trang mong muốn
+                    //thông báo
                     var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
                     window.location.href = redirectToUrl;
                     console.error('Error:', error);
@@ -363,6 +399,11 @@
                     obj.ImagePath = defaultImg; // Thay thế bằng giá trị mới của ImagePath
                 });
             }
+
+            if (selectedObjects.length === 0) {
+                alert("Danh sách hợp đồng trống. Vui lòng thêm ít nhất một hợp đồng để ký.");
+                return; // Ngừng thực hiện nếu danh sách trống
+            }
             $.ajax({
                 url: '/Director/SignListContract',
                 type: 'POST',
@@ -370,12 +411,14 @@
                 data: JSON.stringify(selectedObjects),
                 success: function (result) {
                     // Chuyển hướng tới trang mong muốn
+                    //thông báo
                     var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
                     window.location.href = redirectToUrl;
                     // Xử lý kết quả từ server nếu cần
                 },
                 error: function (error) {
                     // Chuyển hướng tới trang mong muốn
+                    //thông báo
                     var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
                     window.location.href = redirectToUrl;
                     console.error('Error:', error);
