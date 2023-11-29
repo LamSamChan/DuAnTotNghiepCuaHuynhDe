@@ -2,11 +2,14 @@
 using Microsoft.AspNetCore.Http;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services.OperationHistoryEmpService;
+using Microsoft.AspNetCore.Authorization;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class HistoryEmpController : ControllerBase
     {
         private readonly IOperationHistoryEmpSvc _operationHistoryEmpSvc;

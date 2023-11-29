@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
@@ -15,6 +16,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class DContractController : ControllerBase
     {
         private readonly IDoneContractSvc _doneContractSvc;

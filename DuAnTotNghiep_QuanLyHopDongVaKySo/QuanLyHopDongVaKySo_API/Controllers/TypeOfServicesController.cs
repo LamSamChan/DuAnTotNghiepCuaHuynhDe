@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Models.ViewPost;
@@ -10,6 +11,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TypeOfServicesController : ControllerBase
     {
         private readonly ITypeOfServiceSvc _typeOfServiceSvc;

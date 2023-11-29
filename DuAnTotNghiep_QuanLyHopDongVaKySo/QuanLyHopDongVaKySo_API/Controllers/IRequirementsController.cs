@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo_API.Services.InstallationRequirementService;
 
@@ -6,6 +7,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class IRequirementsController : ControllerBase
     {
         private readonly IInstallationRequirementSvc _service;

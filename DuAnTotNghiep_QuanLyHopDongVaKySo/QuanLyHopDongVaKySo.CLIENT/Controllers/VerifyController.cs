@@ -13,6 +13,7 @@ using API= QuanLyHopDongVaKySo_API.Models;
 using Azure;
 using QuanLyHopDongVaKySo.CLIENT.Models;
 using RestSharp.Serializers;
+using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -22,13 +23,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IRoleService _roleService;
         private readonly IPasswordService _passwordService;
         private readonly IHistoryEmpSvc _historyEmpSvc;
+        private readonly IEmployeeService _employeeSvc;
 
-        public VerifyController(IAuthServices authServices, IRoleService roleService, IPasswordService passwordService, IHistoryEmpSvc historyEmpSvc)
+        public VerifyController(IAuthServices authServices, IRoleService roleService, IPasswordService passwordService, IHistoryEmpSvc historyEmpSvc, IEmployeeService employeeSvc)
         {
             _authServices = authServices;
             _roleService = roleService;
             _passwordService = passwordService;
             _historyEmpSvc = historyEmpSvc;
+            _employeeSvc = employeeSvc;
         }
 
         public IActionResult Index()
@@ -92,9 +95,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> Login(VMLogin login)
         {
-            var reponse = await _authServices.Login(login);
-            if (reponse != null)
+            var result = await _authServices.Login(login);
+
+
+            if (result != null)
             {
+                HttpContext.Session.SetString("token", result);
+                var reponse = await _employeeSvc.GetEmployeeByEmail(login.Email);
                 HttpContext.Session.SetString(SessionKey.Employee.EmployeeContext,JsonConvert.SerializeObject(reponse));
                 HttpContext.Session.SetString(SessionKey.Employee.EmployeeID, reponse.EmployeeId.ToString());
                 HttpContext.Session.SetString(SessionKey.Employee.Role, _roleService.GetRoleByIdAsync(reponse.RoleID).Result.RoleName);
@@ -211,6 +218,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             HttpContext.Session.Remove(SessionKey.PFXCertificate.Serial);
             HttpContext.Session.Remove(SessionKey.PedningContract.PContractID);
             HttpContext.Session.Remove(SessionKey.PedningMinute.PMinuteID);
+            HttpContext.Session.Remove("token");
 
 
             TempData["SweetType"] = "success";

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services.PositionService;
@@ -7,6 +8,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class PositionsController : ControllerBase
     {
         private readonly IPositionSvc _positionSvc;

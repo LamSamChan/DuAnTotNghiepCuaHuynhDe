@@ -10,6 +10,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class CustomersController : ControllerBase
     {
         private readonly ICustomerSvc _customerSvc;

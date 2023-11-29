@@ -97,7 +97,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     else if (role == "Giám đốc")
                     {
                         isAuthenticate = 2; //Director
-                        RedirectToAction("Index", "Director");
                     }
                     else if (role == "Nhân viên kinh doanh")
                     {
@@ -112,7 +111,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 else
                 {
                     isAuthenticate = 0; // chưa login
-                    RedirectToAction("Index", "Verify");
                 }
                 return isAuthenticate;
             }

@@ -1,4 +1,4 @@
-using QuanLyHopDongVaKySo.CLIENT.Services;
+﻿using QuanLyHopDongVaKySo.CLIENT.Services;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
@@ -89,6 +89,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -96,10 +97,13 @@ app.UseSession();
 app.UseRouting();
 
 
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Verify}/{action=Index}/{id?}");
+
+
 
 app.Run();

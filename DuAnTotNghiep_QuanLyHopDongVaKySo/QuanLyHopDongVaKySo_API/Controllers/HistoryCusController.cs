@@ -2,11 +2,14 @@
 using Microsoft.AspNetCore.Http;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Services.OperationHistoryCusService;
+using Microsoft.AspNetCore.Authorization;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class HistoryCusController : ControllerBase
     {
         private readonly IOperationHistoryCusSvc _operationHistoryCusSvc;

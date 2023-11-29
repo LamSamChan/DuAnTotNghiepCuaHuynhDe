@@ -12,11 +12,14 @@ using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
 using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
 using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 using System.Reflection;
+using Microsoft.AspNetCore.Authorization;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class PContractController : ControllerBase
     {
         private readonly IPendingContractSvc _PContractSvc;

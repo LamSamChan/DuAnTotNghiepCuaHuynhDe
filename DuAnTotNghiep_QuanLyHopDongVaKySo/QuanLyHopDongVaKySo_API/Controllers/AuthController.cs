@@ -3,6 +3,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Linq;
 using QuanLyHopDongVaKySo_API.Database;
 using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
@@ -44,6 +45,16 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
             var role = _roleSvc.GetById(login.RoleID).Result.RoleName;
             token = CreateToken(viewLogin, role);
+            // Tạo một cookie HTTP Only và gửi về trình duyệt
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,  // Lựa chọn: sử dụng khi bạn sử dụng HTTPS
+                SameSite = SameSiteMode.Strict  // Lựa chọn: sử dụng khi bạn muốn chặn cookie từ việc được gửi cùng các yêu cầu Cross-Site
+            };
+
+            Response.Cookies.Append("jwtToken", token, cookieOptions);
+
             return Ok(token);
         }
 

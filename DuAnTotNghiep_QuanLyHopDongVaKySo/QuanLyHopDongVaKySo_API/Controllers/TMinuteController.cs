@@ -9,11 +9,13 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Spire.Pdf.General.Find;
 using Spire.Pdf;
 using System.Drawing;
+using Microsoft.AspNetCore.Authorization;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TMinuteController:ControllerBase
     {
         private readonly ITemplateMinuteSvc _TMinuteSvc;
