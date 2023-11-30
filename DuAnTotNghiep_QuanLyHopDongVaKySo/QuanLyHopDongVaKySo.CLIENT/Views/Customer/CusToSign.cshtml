@@ -131,6 +131,7 @@
             justify-content: center;
         }
     </style>
+
 </head>
 <body>
     <header style="background-color:#001529;">
@@ -162,6 +163,7 @@
                         </div>
                     </div>
                     <div class="row justify-content-center">
+                     
                         <div class="col-12" style="display:contents;">
                             <button class="access" id="btnSave" onclick="ValidateSign();">
                                 XÁC NHẬN KÝ
@@ -212,6 +214,8 @@
     }
 
     function ValidateSign() {
+       
+
         var isValid = ValidateSignature('ctlSignature');
 
         if (!isValid) {
@@ -233,7 +237,6 @@
         btnSave.prop('disabled', true);
 
         var ctlSignature = { Data: $("#ctlSignature_data").val(), Smooth: $("#ctlSignature_data_smooth").val() };
-
         $.ajax({
             url: "/Customer/SaveSignature/",
             data: JSON.stringify(ctlSignature),
@@ -242,22 +245,48 @@
             cache: false,
             success: function (data) {
                 $("#imgSign").attr("src", "/Signs/" + data);
-                if (confirm("Bạn đã ký hoàn tất nhấn \"OK\" để đóng cửa số ")) {
-                    close();
-                }
+                // Replace confirm with SweetAlert success message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Ký thành công!',
+                    text: 'Bạn đã ký hoàn tất. Vui lòng kiểm tra mail để xem hợp đồng.',
+                }).then((result) => {
+                    if (result.value) {
+                        close();
+                    }
+                });
             },
             error: function (textStatus, errorThrown) {
-                if (confirm("Bạn đã ký hoàn tất nhấn \"OK\" để đóng cửa số ")) {
-                    close();
-                }
+                // Replace confirm with SweetAlert error message
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi khi ký',
+                    text: 'Đã xảy ra lỗi khi ký. Vui lòng thử lại sau.',
+                }).then((result) => {
+                    if (result.value) {
+                        close();
+                    }
+                });
             }
         });
 
         btnSave.prop('disabled', false);
-        //hiển thị thông báo ký thành công và kêu ngta kiểm tra mail để xem hợp đồng
-        if (confirm("Bạn đã ký hoàn tất nhấn \"OK\" để đóng cửa số ")) {
-            close();
-        }
+
+        // Remove the following confirm block, as it duplicates the success message in the AJAX success callback
+        // if (confirm("Bạn đã ký hoàn tất nhấn \"OK\" để đóng cửa số ")) {
+        //     close();
+        // }
+
+        // Replace the confirm block with SweetAlert message
+        Swal.fire({
+            title: 'Ký hoàn tất',
+            text: 'Bạn đã ký hoàn tất. Vui lòng kiểm tra mail để xem hợp đồng.',
+        }).then((result) => {
+            if (result.value) {
+                close();
+            }
+        });
+
         
 
     }

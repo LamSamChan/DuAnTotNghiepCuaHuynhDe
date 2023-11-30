@@ -279,9 +279,15 @@
     }
 
 
-    function resetPassword(){
-        var comfirmOTP = $('#inputOtp1').val() + $('#inputOtp2').val() + $('#inputOtp3').val() + $('#inputOtp4').val() + $('#inputOtp5').val() + $('#inputOtp6').val();
-        
+    function resetPassword() {
+        var comfirmOTP =
+            $('#inputOtp1').val() +
+            $('#inputOtp2').val() +
+            $('#inputOtp3').val() +
+            $('#inputOtp4').val() +
+            $('#inputOtp5').val() +
+            $('#inputOtp6').val();
+
         $.ajax({
             url: '@Url.Action("ResetPassword")',
             type: 'POST',
@@ -289,18 +295,29 @@
             data: JSON.stringify(comfirmOTP),
             success: function (result) {
                 if (!result.success) {
-                    alert("Chúng tôi đã tạo 1 mật khẩu mới, và đang gửi đến email của bạn.");
-                    setTimeout(function(){
+                    // Replace alert with SweetAlert success message
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Mật khẩu mới đã được tạo',
+                        text: 'Chúng tôi đã tạo một mật khẩu mới và đang gửi đến email của bạn.',
+                        timer: 3000,
+                        showConfirmButton: false
+                    }).then(function () {
                         var redirectToUrl = '@Url.Action("Index", "Verify")';
                         window.location.href = redirectToUrl;
-                    }, 3000);
+                    });
                 }
             },
             error: function () {
-                console.error('Lỗi khi gửi yêu cầu.');
+                // Replace alert with SweetAlert error message
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi khi gửi yêu cầu',
+                    text: 'Đã xảy ra lỗi khi gửi yêu cầu. Vui lòng thử lại sau.'
+                });
             }
         });
-    
     }
+
 
 </script>
