@@ -160,7 +160,7 @@
                             <td>@item.CustomerName</td>
                             <td>@item.TOS_ID</td>
                             <td>
-                                <a>Chi tiết</a>
+                                <a asp-action="DetailsContractPending" asp-controller="BusinessStaff" asp-route-id="@item.PContractID">Chi tiết</a>
                             </td>
                         </tr>
                     }
@@ -195,11 +195,11 @@
                             <td>@item.TypeOfService</td>
                             <td>
                                 <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
-                                    Chờ ký
+                                    Dang hoat dong
                                 </div>
                             </td>
                             <td>
-                                <a>Chi tiết</a>
+                                <a asp-controller="BusinessStaff" asp-action="DetailsContractEffect" asp-route-id="@item.Id">Chi tiết</a>
                             </td>
                         </tr>
                     }

@@ -497,8 +497,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 vm.Roles = await _roleService.GetAllRolesAsync();
                 vm.Positions = await _positionService.GetAllPositionsAsync();
                 //truyền thêm pcontract + donecontract
-                vm.PendingContracts = _pContractService.getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == empId).ToList();
-                vm.DoneContracts = _doneContractSvc.getAllView().Result.Where(d => d.EmployeeCreatedId == empId).ToList();
+                vm.PendingContracts = await _pContractService.getListEmpId(empId); //getAllAsnyc().Result.Where(p => p.EmployeeCreatedId == empId).ToList();
+                vm.DoneContracts =await _doneContractSvc.getListByEmpId(empId); //getAllView().Result.Where(d => d.EmployeeCreatedId == empId).ToList();
                 return View(vm);
             };
             return RedirectToAction("Index", "Verify");

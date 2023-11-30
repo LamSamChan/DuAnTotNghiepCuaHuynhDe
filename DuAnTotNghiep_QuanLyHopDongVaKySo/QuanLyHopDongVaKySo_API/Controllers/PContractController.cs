@@ -18,8 +18,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
-
+    //[Authorize]
     public class PContractController : ControllerBase
     {
         private readonly IPendingContractSvc _PContractSvc;
