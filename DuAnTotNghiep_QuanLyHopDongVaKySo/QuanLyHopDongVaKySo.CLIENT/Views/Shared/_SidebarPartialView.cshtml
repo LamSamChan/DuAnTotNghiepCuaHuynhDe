@@ -40,7 +40,7 @@
                             <span class="text">Hợp đồng hoạt động</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a asp-controller="Director" asp-action="Index">
                             <i class="icon ph-bold ph-user"></i>
                             <span class="text">Cá nhân</span>
@@ -66,6 +66,7 @@
             </ul>
         </div>
     </div>
+
 }
 else if (@userRole == "Nhân viên kinh doanh")
 {
@@ -75,7 +76,7 @@ else if (@userRole == "Nhân viên kinh doanh")
         </div>
         <div class="nav">
             <div class="menu" style="width:100%;">
-                <ul>
+                <ul class="sub-menu">
                     <li>
                         <a href="#">
                             <i class="icon ph-bold ph-user-list"></i>
@@ -155,7 +156,7 @@ else if (@userRole == "Nhân viên kinh doanh")
                             <span class="text">Hợp đồng đã hoàn thành</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a asp-controller="BusinessStaff" asp-action="Index">
                             <i class="icon ph-bold ph-user"></i>
                             <span class="text">Cá nhân</span>
@@ -180,7 +181,8 @@ else if (@userRole == "Nhân viên kinh doanh")
                 </li>
             </ul>
         </div>
-    </div>
+    </div> 
+
 }
 else
 {
@@ -226,7 +228,7 @@ else
 
                         </ul>
                     </li>
-                    <li class="active">
+                    <li>
                         <a asp-controller="InstallStaff" asp-action="Index">
                             <i class="icon ph-bold ph-user"></i>
                             <span class="text">Cá nhân</span>

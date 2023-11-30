@@ -106,33 +106,80 @@
     <!-- Thư viện Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
 
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script>
-        const iconLoading = document.getElementById("loading");
-
-        const showLoading = () => {
-            iconLoading.style.display = "flex";
-        };
-
-        const hideLoading = () => {
-            iconLoading.style.display = "none";
-        };
-
-        const updatePosition = () => {
-            showLoading(); // Show loading spinner when the button is clicked
-
-            // You can perform additional logic here before or after the form submission
-            // For example, submit the form programmatically
-            document.querySelector('form').submit();
-
-            // If you want to prevent the form from submitting immediately, you can remove the form submission line
-
-            // Hide loading spinner after the form submission is complete
-            setTimeout(() => {
-                hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-            }, 1000);
-        };
-    </script>
+    <@* script src="~/js/site.js" asp-append-version="true"></script> *@    
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<script>
+    const iconLoading = document.getElementById("loading");
+
+    const showLoading = () => {
+        iconLoading.style.display = "flex";
+    };
+
+    const hideLoading = () => {
+        iconLoading.style.display = "none";
+    };
+
+    const updatePosition = () => {
+        showLoading(); // Show loading spinner when the button is clicked
+
+        // You can perform additional logic here before or after the form submission
+        // For example, submit the form programmatically
+        document.querySelector('form').submit();
+
+        // If you want to prevent the form from submitting immediately, you can remove the form submission line
+
+        // Hide loading spinner after the form submission is complete
+        setTimeout(() => {
+            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+        }, 1000);
+    };
+
+
+    $(document).ready(function () {
+        // Handle menu button click
+        $(".menu-btn").click(function () {
+            $(".sidebar").toggleClass("active");
+        });
+
+        // Handle menu item click
+        $(".menu > ul > li").click(function (e) {
+            // Remove active from already active
+            $(".menu > ul > li.active").removeClass("active");
+            // Add active to clicked
+            $(this).addClass("active");
+
+            // Toggle the sub-menu
+            $(this).find("ul").slideToggle();
+            // Close other sub menus if any are open
+            $(this).siblings().find("ul").slideUp();
+            // Remove active class from sub-menu items
+            $(this).siblings().find("ul").find("li").removeClass("active");
+            $(this).siblings().find("ul").removeClass("active");
+            // Save active menu item to localStorage
+            localStorage.setItem("activeMenuItem", $(this).index().toString());
+
+            e.stopPropagation();
+        });
+
+        // Handle sub-menu item click
+        $(".menu .sub-menu li").click(function (e) {
+            // Xử lý sự kiện khi menu con cấp 3 được chọn
+            // Ví dụ: Cập nhật lớp "active" cho menu con cấp 3
+            $(this).siblings().removeClass("active");
+            $(this).toggleClass("active");
+            e.stopPropagation();
+        });
+
+        
+        var activeMenuItemIndex = localStorage.getItem("activeMenuItem");
+        if (activeMenuItemIndex !== null) {
+            $(".menu > ul > li").eq(parseInt(activeMenuItemIndex)).addClass("active");
+            $(".menu > ul > li").eq(parseInt(activeMenuItemIndex)).find("ul").slideDown();
+        }
+    });
+
+
+</script>
