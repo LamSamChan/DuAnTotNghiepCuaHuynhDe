@@ -615,8 +615,7 @@
                             showConfirmButton: false,
                             timer: 1500
                         }).then(() => {
-                            var redirectToUrl = '@Url.Action("Index", "BusinessStaff")';
-                            window.location.href = redirectToUrl;
+                            window.location.reload();
                         });
                     },
                     error: function (error) {
@@ -627,8 +626,7 @@
                             showConfirmButton: false,
                             timer: 1500
                         }).then(() => {
-                            var redirectToUrl = '@Url.Action("Index", "BusinessStaff")';
-                            window.location.href = redirectToUrl;
+                            window.location.reload();
                         });
                     }
                 });
@@ -752,14 +750,13 @@
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-                  
+                    window.location.reload();
                 });
             }
         });
 
         btnSave.prop('disabled', false);
-        var redirectToUrl = '@Url.Action("Index", "BusinessStaff")';
-        window.location.href = redirectToUrl;
+        window.location.reload();
     }
 
     function objctlSignature_status(success, points) {

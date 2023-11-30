@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PdfiumViewer;
+using QuanLyHopDongVaKySo.SigningWithUsbToken.Repository;
+using QuanLyHopDongVaKySo.SigningWithUsbToken.InstanceData;
 
 namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
 {
@@ -31,9 +33,10 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
             {
                 if (TypeDocument.SelectedItem.ToString() == "Hợp đồng")
                 {
+                    string customerId = DataStore.Instance.Customer.CustomerId.ToString();
                     int contractId = Convert.ToInt32(inputContractId.Text);
-                    var pContract = await contractRepository.GetPContractById(contractId);
-                    if (pContract != null)
+                    var pContract = await contractRepository.GetPContractById(customerId, contractId);
+                    if (pContract.PContractID != null)
                     {
                         byte[] pdfBytes = Convert.FromBase64String(pContract.Base64File);
                         string savePath = Path.Combine(Application.StartupPath, "AppData", $"{pContract.PContractName}.pdf");

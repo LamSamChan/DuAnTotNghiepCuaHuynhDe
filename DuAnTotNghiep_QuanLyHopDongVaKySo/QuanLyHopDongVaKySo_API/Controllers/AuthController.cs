@@ -45,16 +45,20 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
             var role = _roleSvc.GetById(login.RoleID).Result.RoleName;
             token = CreateToken(viewLogin, role);
-            // Tạo một cookie HTTP Only và gửi về trình duyệt
-            var cookieOptions = new CookieOptions
+
+            return Ok(token);
+        }
+
+        [HttpGet("CustomerVerify/{identification}")]
+        public async Task<ActionResult> CustomerVerify(string identification)
+        {
+            string token = null;
+            var login = await _authService.CustomerVerify(identification);
+            if (login == null)
             {
-                HttpOnly = true,
-                Secure = true,  // Lựa chọn: sử dụng khi bạn sử dụng HTTPS
-                SameSite = SameSiteMode.Strict  // Lựa chọn: sử dụng khi bạn muốn chặn cookie từ việc được gửi cùng các yêu cầu Cross-Site
-            };
-
-            Response.Cookies.Append("jwtToken", token, cookieOptions);
-
+                return BadRequest(null);
+            }
+            token = CreateTokenForCustomer(login.CustomerId.ToString());
             return Ok(token);
         }
 
@@ -63,6 +67,28 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             List<Claim> claims = new List<Claim>() {
                 new Claim(ClaimTypes.Name, viewLogin.Email),
                 new Claim(ClaimTypes.Role, role),
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                _configuration["AppSettings:Token"]!));
+
+            var creads = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+            var token = new JwtSecurityToken(
+                    claims: claims,
+                    expires: DateTime.Now.AddDays(1),
+                    signingCredentials: creads
+                );
+
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return jwt;
+        }
+
+        private string CreateTokenForCustomer(string idCustomer)
+        {
+            List<Claim> claims = new List<Claim>() {
+                new Claim(ClaimTypes.NameIdentifier, idCustomer),
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(

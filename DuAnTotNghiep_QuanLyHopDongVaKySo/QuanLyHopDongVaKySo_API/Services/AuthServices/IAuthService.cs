@@ -6,5 +6,6 @@ namespace QuanLyHopDongVaKySo_API.Services.AuthServices
     public interface IAuthService
     {
         Task<Employee> Login(ViewLogin viewLogin);
+        Task<Customer> CustomerVerify(string identification);
     }
 }

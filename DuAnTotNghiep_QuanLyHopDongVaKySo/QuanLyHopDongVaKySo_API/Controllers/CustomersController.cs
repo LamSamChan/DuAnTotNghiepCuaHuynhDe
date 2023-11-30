@@ -41,6 +41,20 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
         }
 
+        [HttpGet("Identification/{identification}")]
+        public async Task<ActionResult<Customer>> GetByIdentification(string identification)
+        {
+            Customer cus = await _customerSvc.GetByIdentificationAsync(identification);
+            if (cus != null)
+            {
+                return Ok(cus);
+            }
+            else
+            {
+                return BadRequest(cus);
+            }
+        }
+
         [HttpPost("AddNew")]
         public async Task<ActionResult<string>> AddNew(PostCustomer postCustomer)
         {

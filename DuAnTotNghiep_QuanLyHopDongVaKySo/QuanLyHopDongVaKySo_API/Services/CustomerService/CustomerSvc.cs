@@ -74,6 +74,18 @@ namespace QuanLyHopDongVaKySo_API.Services.CustomerService
             }
         }
 
+        public async Task<Customer> GetByIdentificationAsync(string identification)
+        {
+            try
+            {
+                return _context.Customers.FirstOrDefault(e => e.Identification == identification);
+            }
+            catch (Exception ex)
+            {
+                return new Customer();
+            }
+        }
+
         public async Task<Customer> GetBySerialPFXAsync(string serial)
         {
             try

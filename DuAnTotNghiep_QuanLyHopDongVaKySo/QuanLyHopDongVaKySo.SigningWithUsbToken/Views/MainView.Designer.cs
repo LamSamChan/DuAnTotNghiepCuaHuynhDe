@@ -34,11 +34,12 @@
             idContractLabel = new Label();
             pdfViewer = new PdfiumViewer.PdfViewer();
             TypeDocument = new ComboBox();
+            typeDocLabel = new Label();
             SuspendLayout();
             // 
             // getContractButton
             // 
-            getContractButton.Location = new Point(424, 5);
+            getContractButton.Location = new Point(496, 5);
             getContractButton.Name = "getContractButton";
             getContractButton.Size = new Size(169, 23);
             getContractButton.TabIndex = 0;
@@ -48,7 +49,7 @@
             // 
             // inputContractId
             // 
-            inputContractId.Location = new Point(301, 6);
+            inputContractId.Location = new Point(390, 6);
             inputContractId.Name = "inputContractId";
             inputContractId.Size = new Size(100, 23);
             inputContractId.TabIndex = 1;
@@ -56,7 +57,7 @@
             // idContractLabel
             // 
             idContractLabel.AutoSize = true;
-            idContractLabel.Location = new Point(156, 9);
+            idContractLabel.Location = new Point(245, 9);
             idContractLabel.Name = "idContractLabel";
             idContractLabel.Size = new Size(139, 15);
             idContractLabel.TabIndex = 2;
@@ -74,16 +75,26 @@
             // 
             TypeDocument.FormattingEnabled = true;
             TypeDocument.Items.AddRange(new object[] { "Hợp đồng", "Biên bản" });
-            TypeDocument.Location = new Point(13, 6);
+            TypeDocument.Location = new Point(85, 6);
             TypeDocument.Name = "TypeDocument";
             TypeDocument.Size = new Size(137, 23);
             TypeDocument.TabIndex = 5;
+            // 
+            // typeDocLabel
+            // 
+            typeDocLabel.AutoSize = true;
+            typeDocLabel.Location = new Point(13, 9);
+            typeDocLabel.Name = "typeDocLabel";
+            typeDocLabel.Size = new Size(70, 15);
+            typeDocLabel.TabIndex = 6;
+            typeDocLabel.Text = "Loại tài liệu:";
             // 
             // MainView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1184, 961);
+            Controls.Add(typeDocLabel);
             Controls.Add(TypeDocument);
             Controls.Add(pdfViewer);
             Controls.Add(idContractLabel);
@@ -91,6 +102,7 @@
             Controls.Add(getContractButton);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "TECHSEAL";
             ResumeLayout(false);
             PerformLayout();
@@ -103,5 +115,6 @@
         private Label idContractLabel;
         private PdfiumViewer.PdfViewer pdfViewer;
         private ComboBox TypeDocument;
+        private Label typeDocLabel;
     }
 }

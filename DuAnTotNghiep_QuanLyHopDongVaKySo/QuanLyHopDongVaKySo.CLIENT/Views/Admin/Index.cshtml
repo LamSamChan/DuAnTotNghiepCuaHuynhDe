@@ -974,8 +974,7 @@
                             showConfirmButton: false,
                             timer: 1500
                         }).then(() => {
-                            var redirectToUrl = '@Url.Action("Index", "Admin")';
-                            window.location.href = redirectToUrl;
+                            window.location.reload();
                         });
                     },
                     error: function (error) {
@@ -986,8 +985,7 @@
                             showConfirmButton: false,
                             timer: 1500
                         }).then(() => {
-                            var redirectToUrl = '@Url.Action("Index", "Admin")';
-                            window.location.href = redirectToUrl;
+                            window.location.reload();
                         });
                     }
                 });
@@ -1077,6 +1075,7 @@
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
+                    window.location.reload();
 
                 });
             }

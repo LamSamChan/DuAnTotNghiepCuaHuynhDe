@@ -161,7 +161,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
         [HttpGet("GetForWinForm/{customerId}/{id}")]
-        public async Task<IActionResult> GetPContractAsync(string customerId, int id)
+        public async Task<IActionResult> GetPContractWinForm(string customerId, int id)
         {
             var result = await _PContractSvc.getByIdForWinformAsnyc(id,customerId);
             if (result != null)
