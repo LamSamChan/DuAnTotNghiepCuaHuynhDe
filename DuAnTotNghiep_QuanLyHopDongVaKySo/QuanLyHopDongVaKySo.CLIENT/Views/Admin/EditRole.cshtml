@@ -3,6 +3,26 @@
 @{
     Layout = "_AdminLayout";
 }
+<style>
+    .loading {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.479);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+        .loading img {
+            width: 7rem;
+        }
+</style>
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -15,34 +35,37 @@
         </nav>
         <h1 class="typeHead">CHỈNH SỬA VAI TRÒ</h1>
     </div>
-    </div>
-    <div style="margin-top: 40px;">
-        <form class="row justify-content-around" style=" margin: 0 auto;" asp-action="UpdateRole" asp-controller="Admin">
-            <div class="col-md-5">
-                <div class="box1 row justify-content-between g-3 " style="max-height: 800px;overflow-y: scroll; height: 300px; margin: 40px auto;">
-                    <div class="col-md-12">
-                        <label class="form-label" asp-for="RoleID">Id</label>
-                        <input class="form-control" readonly asp-for="RoleID">
-                        <span class="text-danger" asp-validation-for="RoleID"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label" asp-for="RoleName">Tên vai trò</label>
-                        <input class="form-control" id="inputName" asp-for="RoleName" required>
-                        <span class="text-danger" asp-validation-for="RoleName"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="mb-3 mr-1" for="Status" asp-for="isHidden">Trạng thái: </label>
-                        <div>
-                            <input type="radio" class="btn-check " id="false" asp-for="isHidden" value="false" autocomplete="off" required>
-                            <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hiển thị</label>
+</div>
+<div style="margin-top: 40px;">
+    <form class="row justify-content-around" style=" margin: 0 auto;" asp-action="UpdateRole" asp-controller="Admin">
+        <div class="col-md-5">
+            <div class="box1 row justify-content-between g-3 " style="max-height: 800px;overflow-y: scroll; height: 300px; margin: 40px auto;">
+                <div class="col-md-12">
+                    <label class="form-label" asp-for="RoleID">Id</label>
+                    <input class="form-control" readonly asp-for="RoleID">
+                    <span class="text-danger" asp-validation-for="RoleID"></span>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" asp-for="RoleName">Tên vai trò</label>
+                    <input class="form-control" id="inputName" asp-for="RoleName" required>
+                    <span class="text-danger" asp-validation-for="RoleName"></span>
+                </div>
+                <div class="col-md-6">
+                    <label class="mb-3 mr-1" for="Status" asp-for="isHidden">Trạng thái: </label>
+                    <div>
+                        <input type="radio" class="btn-check " id="false" asp-for="isHidden" value="false" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hiển thị</label>
 
-                            <input type="radio" class="btn-check " id="true" asp-for="isHidden" value="true" autocomplete="off" required>
-                            <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Ẩn</label>
-                        </div>
+                        <input type="radio" class="btn-check " id="true" asp-for="isHidden" value="true" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-danger text-light" id="true-label" for="true">Ẩn</label>
                     </div>
-                    <div class="col-md-6" style="margin:auto;">
-                        <button class="add_cus" type="submit">
-                            Cập nhật
+                </div>
+                <div class="col-md-6" style="margin:auto;">
+                    <div class="loading" id="loading">
+                        <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+                    </div>
+                    <button class="add_cus" type="submit" onclick="updatePosition()">
+                        Cập nhật
                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                         {
                             <script>
@@ -53,7 +76,7 @@
                                         icon: '@TempData["SweetIcon"]'
                                     };
 
-                                 
+
                                     Swal.fire({
                                         title: sweetData.title,
                                         text: sweetData.text,
@@ -69,21 +92,37 @@
                             </script>
                         }
 
-                        </button>
-                    </div>
+                    </button>
                 </div>
             </div>
-            @**@
-        </form>
-    </div>
+        </div>
+        @**@
+    </form>
+</div>
 
 <script>
-    // Hàm hiển thị message
-    function showSuccessMessage() {
-        $("#msg_success_filled").ej2Message.show();
-        // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
-        setTimeout(function () {
-            $("#msg_success_filled").ej2Message.hide();
-        }, 5000);
-    }
+    const iconLoading = document.getElementById("loading");
+
+    const showLoading = () => {
+        iconLoading.style.display = "flex";
+    };
+
+    const hideLoading = () => {
+        iconLoading.style.display = "none";
+    };
+
+    const updatePosition = () => {
+        showLoading(); // Show loading spinner when the button is clicked
+
+        // You can perform additional logic here before or after the form submission
+        // For example, submit the form programmatically
+        document.querySelector('form').submit();
+
+        // If you want to prevent the form from submitting immediately, you can remove the form submission line
+
+        // Hide loading spinner after the form submission is complete
+        setTimeout(() => {
+            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+        }, 1000);
+    };
 </script>

@@ -52,6 +52,13 @@
                 },
                 error: function () {
                     console.error('Lỗi khi gửi yêu cầu.');
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'An unexpected error occurred.',
+                        icon: 'error',
+                        confirmButtonColor: '#d33',
+                        confirmButtonText: 'OK'
+                    });
                 }
             });
         }

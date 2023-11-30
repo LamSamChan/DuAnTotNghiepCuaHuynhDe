@@ -2,6 +2,26 @@
 @{
     Layout = "_AdminLayout";
 }
+<style>
+    .loading {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.479);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+        .loading img {
+            width: 7rem;
+        }
+</style>
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -28,7 +48,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="row g-3 mx-auto my-auto"  asp-action="AddTOSAction" asp-controller="Admin">
+                            <form class="row g-3 mx-auto my-auto" asp-action="AddTOSAction" asp-controller="Admin">
                                 <div class="col-12">
                                     <label for="inputName" class="form-label">Tên dịch vụ</label>
                                     <input class="form-control" required asp-for="PostTOS.ServiceName">
@@ -46,7 +66,7 @@
                                 </div>
                                 <div class="col-12">
                                     <label for="inputRole" class="form-label">Mẫu hợp đồng</label>
-                                    <select  required class="form-select" asp-for="PostTOS.TContractID">
+                                    <select required class="form-select" asp-for="PostTOS.TContractID">
                                         <option value="" disabled selected>...Chọn mẫu hợp đồng</option>
                                         @foreach (var c in Model.TemplateContracts)
                                         {
@@ -63,11 +83,14 @@
                                         {
                                             <option value="@m.TMinuteID">@m.TMinuteName</option>
                                         }
-                                    </select>
-                                    <span class="text-danger" asp-validation-for="PostTOS.TMinuteID"></span>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="PostTOS.TMinuteID"></span>
                                 </div>
                                 <div class="col-md-5" style="margin:auto;">
-                                    <button class="btn-addRole" type="submit" style="width: 100%;">
+                                    <div class="loading" id="loading">
+                                        <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+                                    </div>
+                                    <button class="btn-addRole" type="submit" style="width: 100%;" onclick="updatePosition()">
                                         THÊM
                                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
@@ -104,7 +127,7 @@
         </div>
     </div>
     <div class="row bg-white mx-auto my-auto mt-5 rounded">
-        <div class="listTable" >
+        <div class="listTable">
             <table class="table" id="myTable">
                 <thead>
                     <tr style="color: #8B909A;">
@@ -165,10 +188,35 @@
         </div>
 
     </div>
-   
-   
+
+
 </div>
 <script>
+    const iconLoading = document.getElementById("loading");
+
+    const showLoading = () => {
+        iconLoading.style.display = "flex";
+    };
+
+    const hideLoading = () => {
+        iconLoading.style.display = "none";
+    };
+
+    const updatePosition = () => {
+        showLoading(); // Show loading spinner when the button is clicked
+
+        // You can perform additional logic here before or after the form submission
+        // For example, submit the form programmatically
+        document.querySelector('form').submit();
+
+        // If you want to prevent the form from submitting immediately, you can remove the form submission line
+
+        // Hide loading spinner after the form submission is complete
+        setTimeout(() => {
+            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+        }, 1000);
+    };
+
     document.addEventListener('DOMContentLoaded', function () {
         // Lấy đối tượng ô tìm kiếm và bảng
         var input = document.getElementById('searchInput');

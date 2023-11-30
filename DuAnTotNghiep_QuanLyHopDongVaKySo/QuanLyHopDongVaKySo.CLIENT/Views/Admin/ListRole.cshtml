@@ -2,7 +2,25 @@
 @{
     Layout = "_AdminLayout";
 }
+<style>
+    .loading {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
+        .loading img {
+            width: 7rem;
+        }
+</style>
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -49,7 +67,10 @@
                                     </div>
                                 </div>
                                 <div class="col-md-5" style="margin:auto;">
-                                    <button class="btn-addRole" type="submit" style="width: 100%;">
+                                    <div class="loading" id="loading">
+                                        <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+                                    </div>
+                                    <button class="btn-addRole" type="submit" style="width: 100%;" onclick="updatePosition()">
                                         THÊM
                                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
@@ -160,11 +181,11 @@
         </div>
     </div>
     <div class="tab-content" id="tab2">
-        <div class="listTable" style="width:50%; height:300px;" >
+        <div class="listTable" style="width:50%; height:300px;">
             <table class="table" id="myTable2">
                 <thead>
                     <tr style="color: #8B909A;">
-                        <th scope ="col">HÀNH ĐỘNG</th>
+                        <th scope="col">HÀNH ĐỘNG</th>
                         <th scope="col">ID</th>
                         <th scope="col">VAI TRÒ</th>
                         <th scope="col">TRẠNG THÁI</th>
@@ -208,10 +229,34 @@
                 </tbody>
             </table>
         </div>
-       
+
     </div>
 </div>
 <script>
+    const iconLoading = document.getElementById("loading");
+
+    const showLoading = () => {
+        iconLoading.style.display = "flex";
+    };
+
+    const hideLoading = () => {
+        iconLoading.style.display = "none";
+    };
+
+    const updatePosition = () => {
+        showLoading(); // Show loading spinner when the button is clicked
+
+        // You can perform additional logic here before or after the form submission
+        // For example, submit the form programmatically
+        document.querySelector('form').submit();
+
+        // If you want to prevent the form from submitting immediately, you can remove the form submission line
+
+        // Hide loading spinner after the form submission is complete
+        setTimeout(() => {
+            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+        }, 1000);
+    };
 
     // tìm kiếm
     document.addEventListener('DOMContentLoaded', function () {
@@ -275,6 +320,6 @@
     }
 
 
- 
+
 
 </script>

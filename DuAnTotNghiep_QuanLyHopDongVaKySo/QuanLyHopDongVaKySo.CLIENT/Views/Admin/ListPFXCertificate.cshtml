@@ -3,7 +3,26 @@
 @{
     Layout = "_AdminLayout";
 }
+<style>
+    .loading {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.479);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
+        .loading img {
+            width: 7rem;
+        }
+</style>
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -108,7 +127,10 @@
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial">Gia hạn</a>
+                                            <div class="loading" id="loading">
+                                                <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+                                            </div>
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial" onclick="updatePosition()">Gia hạn</a>
                                             @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                             {
                                                 <script>
@@ -153,7 +175,7 @@
                             <th scope="col">Tổ chức cung cấp</th>
                             <th scope="col">Ngày hiệu lực</th>
                             <th scope="col">Ngày hết hạn</th>
-                            <th scope="col" colspan="2" >Hành động</th>
+                            <th scope="col" colspan="2">Hành động</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
@@ -180,7 +202,10 @@
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial">Gia hạn</a>
+                                            <div class="loading" id="loading">
+                                                <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+                                            </div>
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial" onclick="updatePosition()">Gia hạn</a>
                                             @if (TempData["SwalMessageType"] != null)
                                             {
                                                 <script>
@@ -213,7 +238,7 @@
         </div>
     </div>
     <div class="tab-content" id="tab2">
-        
+
         <div class="tab-container">
             <div class="tab-button" onclick="showTabChild('tab2-1')">Danh sách chứng chỉ số</div>
             <div class="tab-button" onclick="showTabChild('tab2-2')">Danh sách chứng chỉ số sắp hết hạn</div>
@@ -287,7 +312,10 @@
                                     <td>@kh.ValidUntil.ToString("dd/MM/yyyy")</td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial">Gia hạn</a>
+                                            <div class="loading" id="loading">
+                                                <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+                                            </div>
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial" onclick="updatePosition()">Gia hạn</a>
                                             @if (TempData["SwalMessageType"] != null)
                                             {
                                                 <script>
@@ -350,7 +378,10 @@
                                     <td>@kh.ValidUntil.ToString("dd/MM/yyyy")</td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial">Gia hạn</a>
+                                            <div class="loading" id="loading">
+                                                <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+                                            </div>
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial" onclick="updatePosition()">Gia hạn</a>
                                             @if (TempData["SwalMessageType"] != null)
                                             {
                                                 <script>
@@ -387,6 +418,31 @@
 
 <script>
 
+    const iconLoading = document.getElementById("loading");
+
+    const showLoading = () => {
+        iconLoading.style.display = "flex";
+    };
+
+    const hideLoading = () => {
+        iconLoading.style.display = "none";
+    };
+
+    const updatePosition = () => {
+        showLoading(); // Show loading spinner when the button is clicked
+
+        // You can perform additional logic here before or after the form submission
+        // For example, submit the form programmatically
+        document.querySelector('form').submit();
+
+        // If you want to prevent the form from submitting immediately, you can remove the form submission line
+
+        // Hide loading spinner after the form submission is complete
+        setTimeout(() => {
+            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+        }, 1000);
+    };
+
     // tìm kiếm
     document.addEventListener('DOMContentLoaded', function () {
         // Lấy đối tượng ô tìm kiếm chung
@@ -405,7 +461,7 @@
         var table5 = document.getElementById('myTable5');
         var table6 = document.getElementById('myTable6');
 
-      
+
     });
 
     function filterAllTables(input) {
@@ -451,7 +507,7 @@
 
         var selectedTab = document.getElementById(tabId);
         selectedTab.classList.add('active');
-        var selectedTabChild = document.getElementById(tabId+"-1");
+        var selectedTabChild = document.getElementById(tabId + "-1");
         selectedTabChild.classList.add('active');
     }
 
@@ -475,21 +531,21 @@
         selectedTab.classList.add('active');
         var selectedTabChild = document.getElementById(tabChildId);
         selectedTabChild.classList.add('active');
-        
+
         var selectedButton = document.querySelector('[onclick="showTab(\'' + tabId + '\')"]');
         selectedButton.classList.add('active');
         var selectedButtonChild = document.querySelector('[onclick="showTabChild(\'' + tabChildId + '\')"]');
         selectedButtonChild.classList.add('active');
 
     }
-    
-        // Hàm hiển thị message
-        function showSuccessMessage() {
-            $("#msg_success_filled").ej2Message.show();
-            // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
-            setTimeout(function () {
-                $("#msg_success_filled").ej2Message.hide();
-            }, 5000);
-        }
+
+    // Hàm hiển thị message
+    function showSuccessMessage() {
+        $("#msg_success_filled").ej2Message.show();
+        // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
+        setTimeout(function () {
+            $("#msg_success_filled").ej2Message.hide();
+        }, 5000);
+    }
 
 </script>
