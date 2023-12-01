@@ -24,12 +24,6 @@
         pointer-events: none;
     }
 
-    button[class="return"] {
-        border: none;
-        font-size: 30px;
-        background-color: transparent;
-    }
-
     button[class="add_cus"] {
         border-radius: 8px;
         background: #2CDDBD;

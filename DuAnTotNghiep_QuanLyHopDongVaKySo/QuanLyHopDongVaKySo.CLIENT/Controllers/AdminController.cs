@@ -135,7 +135,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
 
-        
+        public IActionResult Index1()
+        {
+            return View();
+        }
         public async Task<IActionResult> HistoryOperation()
         {
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);

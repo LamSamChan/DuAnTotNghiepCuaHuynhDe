@@ -147,7 +147,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         
         public async Task<IActionResult> ListContractActive()
         {
-            if (IsAuthenticate == 2 && IsAuthenticate == 1)
+            if (IsAuthenticate == 2 || IsAuthenticate == 1)
             {
                 List<VMAPI.PContractViewModel> pContractList = new List<VMAPI.PContractViewModel>();
                 if (IsAuthenticate == 2)

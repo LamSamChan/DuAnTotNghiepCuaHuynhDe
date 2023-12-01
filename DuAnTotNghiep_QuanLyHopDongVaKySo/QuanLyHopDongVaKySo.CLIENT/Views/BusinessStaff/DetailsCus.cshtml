@@ -21,9 +21,8 @@
             <h1 class="typeHead">CHI TIẾT KHÁCH HÀNG</h1>
             <div class="row">
                 <a class="col-md-2 button-design" asp-action="ListCusAccount" asp-controller="Admin">
-                    <i class="ph-bold ph-arrow-left">
-                        QUAY LẠI
-                    </i>
+                    <i class="ph-bold ph-arrow-left"></i>
+                    QUAY LẠI
                 </a>
             </div>
         </div>
@@ -44,9 +43,8 @@
             <h1 class="typeHead">CHI TIẾT KHÁCH HÀNG</h1>
             <div class="row">
                 <a class="col-md-2 button-design" asp-action="ListCus" asp-controller="BusinessStaff">
-                    <i class="ph-bold ph-arrow-left">
-                        QUAY LẠI
-                    </i>
+                    <i class="ph-bold ph-arrow-left"></i>
+                    QUAY LẠI
                 </a>
             </div>
         </div>
@@ -261,12 +259,14 @@
                         <td>@item.CustomerName</td>
                         <td>@item.TOS_ID</td>
                         <td>
-                            <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
-                                CHỜ KÝ
-                            </div>
+                                <div class="d-flex align-items-center">
+                                    <div style="width: 5px; height: 5px; background-color: #FFC600; border-radius: 50%; margin-right: 10px;"></div>
+                                    <span>Chờ ký</span>
+                                </div>
+
                         </td>
                             <td>
-                                <button class="button-save" onclick="downloadPDF('@item.Base64File','@item.PContractName')"><i class="ph-bold ph-download-simple"></i></button>
+                                <button class="button-design" onclick="downloadPDF('@item.Base64File','@item.PContractName')"><i class="ph-bold ph-download-simple"></i></button>
                             </td>
                         <td>
                             <a asp-action="DetailsContractWaitSign" asp-controller="BusinessStaff" asp-route-id="@item.PContractID">Chi tiết</a>
@@ -303,10 +303,10 @@
                         <td>@item.CustomerName</td>
                         <td>@item.TypeOfService</td>
                         <td>
-                            <div style="background-color: #00C9A7; color:white; font-weight:bold;display: flex;align-items: center;justify-content: center;">
-                                ĐÃ KÝ
-                            </div>
-
+                                <div class="d-flex align-items-center">
+                                    <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                    <span>Đã ký</span>
+                                </div>
                         </td>
                         <td>
                                 <a asp-controller="BusinessStaff" asp-action="DetailsContractEffect" asp-route-id="@item.Id">Chi tiết</a>

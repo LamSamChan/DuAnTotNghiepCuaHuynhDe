@@ -211,7 +211,7 @@
                 </div>
                 <hr />
                 <h4 class="typeHead">Danh sách chữ ký</h4>
-                <ul style="list-style:none; display:flex; flex-wrap:wrap; margin:auto; ">
+                <ul class ="d-flex flex-wrap justify-content-center" style="list-style: none;">
                     @if (Model.PFXCertificate.ImageSignature1 != null)
                     {
                         <li class="avt">
@@ -408,7 +408,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputRole" class="form-label">Vai trò</label>
-                        <input type="text" class="form-control" id="inputRole" readonly value=" @foreach (var r in Model.Roles)
+                        <input type="text" class="form-control text-info border-info" id="inputRole" readonly value=" @foreach (var r in Model.Roles)
                                {
                                     if(r.RoleID == Model.Employee.RoleID)
                                     {
@@ -419,7 +419,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputPosition" class="form-label">Chức danh</label>
-                        <input type="text" class="form-control" id="inputPosition" readonly value="@foreach (var p in Model.Positions)
+                        <input type="text" class="form-control text-info border-info" id="inputPosition" readonly value="@foreach (var p in Model.Positions)
                                {
                                     if(p.PositionID == Model.Employee.PositionID)
                                     {

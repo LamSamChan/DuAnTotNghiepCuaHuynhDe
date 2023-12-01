@@ -292,7 +292,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> DetailsCus(string customerID)
         {
-            if (IsAuthenticate != 3 || IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3 && IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var respone = await _customerService.GetCustomerById(customerID);
             if (respone != null)
             {
