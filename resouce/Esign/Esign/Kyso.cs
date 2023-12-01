@@ -112,8 +112,13 @@ namespace Esign
             //Params.KeyContainerName = "KeyContainer";
             //RSACryptoServiceProvider RSA = new RSACryptoServiceProvider(Params);
 
-            var rsaPrivateKey = cert.GetRSAPrivateKey();
-            cert.PrivateKey = rsaPrivateKey;
+            var privateKey = cert.PrivateKey as RSACryptoServiceProvider;
+            CspParameters cspParameters = new CspParameters(privateKey.CspKeyContainerInfo.ProviderType,
+                privateKey.CspKeyContainerInfo.ProviderName, privateKey.CspKeyContainerInfo.KeyContainerName,
+                new System.Security.AccessControl.CryptoKeySecurity(), pass);
+            var rsaCsp = new RSACryptoServiceProvider(cspParameters);
+            // set modified RSA crypto provider back
+            cert.PrivateKey = rsaCsp;
             return cert;
         }
     }

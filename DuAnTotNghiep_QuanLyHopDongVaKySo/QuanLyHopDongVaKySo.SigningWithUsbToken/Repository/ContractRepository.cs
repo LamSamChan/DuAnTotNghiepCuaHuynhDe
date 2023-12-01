@@ -32,6 +32,10 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Repository
             _httpResponseMessage = await _httpClient.GetAsync($"api/PContract/GetForWinForm/{customerId}/{id}");
             var json = await _httpResponseMessage.Content.ReadAsStringAsync();
             var pContract = JsonConvert.DeserializeObject<PendingContract>(json);
+
+            if (pContract.DirectorSignedId == null) {
+                return new PendingContract();
+            }
             return pContract;
         }
 

@@ -227,26 +227,28 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                         int lastPageNumber = pdfReader.NumberOfPages;
                         PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
                         // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
-                        Image signatureImage = Image.GetInstance(imagePath);
+                        signatureAppearance.SignatureGraphic = iTextSharp.text.Image.GetInstance(imagePath);
+                        
                         if (typeDoc == "contract")
                         {
-                            signatureImage.SetAbsolutePosition(xCoordinate - 100, yCoodinate - 45);
+                            signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100, yCoodinate - 45, xCoordinate - 100 + 150, yCoodinate - 45 + 150), pdfReader.NumberOfPages, "Signature");
+  
                         }
                         else
                         {
                             if (lastPageNumber == 1 )
                             {
-                                signatureImage.SetAbsolutePosition(xCoordinate - 100, yCoodinate - 45 - 110); // Đặt vị trí của hình ảnh chữ ký, biên bản
+                                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100, yCoodinate - 45 -110, xCoordinate - 100 + 150, yCoodinate - 45 -110 + 150), pdfReader.NumberOfPages, "Signature");
+                               
                             }
                             else
                             {
-                                signatureImage.SetAbsolutePosition(xCoordinate - 100 - 50 + 60, yCoodinate - 45 + 700 + 115); // Đặt vị trí của hình ảnh chữ ký, biên bản
+                                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 50 + 60, yCoodinate - 45 + 700 + 115, xCoordinate -100 - 50 + 60 + 150, yCoodinate - 45 + 700 + 115 + 150), pdfReader.NumberOfPages, "Signature");
+                                
                             }
                         }
-                        signatureImage.ScaleToFit(130, 65); // Đặt kích thước của hình ảnh chữ ký
+                        signatureAppearance.SignatureRenderingMode = PdfSignatureAppearance.RenderingMode.GRAPHIC;
 
-                        // Chèn hình ảnh chữ ký vào tài liệu PDF
-                        pdfStamper.GetOverContent(lastPageNumber).AddImage(signatureImage);
 
                         if (certi.IsEmployee)
                         {

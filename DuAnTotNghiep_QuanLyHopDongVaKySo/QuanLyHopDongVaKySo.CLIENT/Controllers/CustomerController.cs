@@ -183,7 +183,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return Ok();
         }
 
-        [HttpPost("SignContractWithUsbToken")]
+        /*[HttpPost("SignContractWithUsbToken")]
         public async Task<ActionResult> SignContractWithUsbToken([FromBody] DoneContract dContract)
         {
             if (dContract.Base64File != null)
@@ -231,7 +231,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 return BadRequest();
             }
-        }
+        }*/
 
         //Trang cho khách hàng xem hđ và bb lắp
         public async Task<ActionResult> ShowDContract(string token)

@@ -15,7 +15,10 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.InstanceData
         public string Token { get; set; }
         public PendingContract PendingContract { get; set; }
         public PendingMinute PendingMinute { get; set; }
-
+        public TemplateContract TemplateContract { get; set; }
+        public TypeOfService TypeOfService { get; set; }
+        public string SavePath { get; set; }
+        public string SavePathSign { get; set; }
         private DataStore() { }
 
         public static DataStore Instance
