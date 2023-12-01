@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using QuanLyHopDongVaKySo.CLIENT.Constants;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Models.ContractInfo;
 using QuanLyHopDongVaKySo_API.ViewModels;
@@ -29,8 +30,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
                     token = _httpContextAccessor.HttpContext.Session.GetString("token");
 
                 }
+                else
+                {
+                    token = _httpContextAccessor.HttpContext.Session.GetString(SessionKey.Customer.CustomerToken);
+                }
                 return token;
             }
+
             set { this.token = value; }
         }
 

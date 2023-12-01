@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using QuanLyHopDongVaKySo.CLIENT.Constants;
 using QuanLyHopDongVaKySo.CLIENT.Models;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
@@ -29,6 +30,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices
                 {
                     token = _httpContextAccessor.HttpContext.Session.GetString("token");
 
+                }
+                else
+                {
+                    token = _httpContextAccessor.HttpContext.Session.GetString(SessionKey.Customer.CustomerToken);
                 }
                 return token;
             }

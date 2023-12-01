@@ -206,87 +206,81 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
 
             try
             {
-                Pkcs12Store store = new Pkcs12StoreBuilder().Build();
-                using (FileStream pfxFile = new FileStream(certi.PfxFilePath, FileMode.Open, FileAccess.Read))
-                {
-                    store.Load(pfxFile, certi.PfxPassword.ToCharArray());
-                }
+                PdfReader pdfReader = new PdfReader(inputPdfPath);
+                Pkcs12Store pfxKeyStore = new Pkcs12Store(new FileStream(certi.PfxFilePath, FileMode.Open, FileAccess.Read), certi.PfxPassword.ToCharArray());
+                int lastPageNumber = pdfReader.NumberOfPages;
+                // Step 4: Initialize the PDF Stamper And Creating the Signature Appearance
+                PdfStamper pdfStamper = PdfStamper.CreateSignature(pdfReader, new FileStream(outputPdfPath, FileMode.Create), '\0', null, true);
 
-                // Lấy danh sách alias từ kho lưu trữ
-                var alias = store.Aliases.Cast<string>().FirstOrDefault(entryAlias => store.IsKeyEntry(entryAlias));
-
-                X509CertificateEntry certificateEntry = store.GetCertificate(alias.ToString());
-                
-                // Đọc tệp PDF đầu vào
-                using (FileStream pdfFile = new FileStream(inputPdfPath, FileMode.Open, FileAccess.Read))
+                if (certi.IsEmployee)
                 {
-                    PdfReader pdfReader = new PdfReader(pdfFile);
-                    using (FileStream signedPdfFile = new FileStream(outputPdfPath, FileMode.Create, FileAccess.Write))
+                    // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
+                    Image signatureImageStamp = Image.GetInstance(imagePathStamp);
+
+                    if (typeDoc == "contract")
                     {
-                        PdfStamper pdfStamper = PdfStamper.CreateSignature(pdfReader, signedPdfFile, '\0');
-                        int lastPageNumber = pdfReader.NumberOfPages;
-                        PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
-                        // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
-                        signatureAppearance.SignatureGraphic = iTextSharp.text.Image.GetInstance(imagePath);
-                        
-                        if (typeDoc == "contract")
+                        signatureImageStamp.SetAbsolutePosition(xCoordinate - 200, yCoodinate - 200); // Đặt vị trí của hình ảnh chữ ký
+                    }
+                    else
+                    {
+                        if (lastPageNumber == 1)
                         {
-                            signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100, yCoodinate - 45, xCoordinate - 100 + 150, yCoodinate - 45 + 150), pdfReader.NumberOfPages, "Signature");
-  
+                            signatureImageStamp.SetAbsolutePosition(xCoordinate - 200, yCoodinate - 200); // Đặt vị trí của hình ảnh chữ ký
                         }
                         else
                         {
-                            if (lastPageNumber == 1 )
-                            {
-                                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100, yCoodinate - 45 -110, xCoordinate - 100 + 150, yCoodinate - 45 -110 + 150), pdfReader.NumberOfPages, "Signature");
-                               
-                            }
-                            else
-                            {
-                                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 50 + 60, yCoodinate - 45 + 700 + 115, xCoordinate -100 - 50 + 60 + 150, yCoodinate - 45 + 700 + 115 + 150), pdfReader.NumberOfPages, "Signature");
-                                
-                            }
+                            signatureImageStamp.SetAbsolutePosition(xCoordinate - 200 - 50 + 65, yCoodinate - 200 + 700 + 200); // Đặt vị trí của hình ảnh chữ ký, biên bản
                         }
-                        signatureAppearance.SignatureRenderingMode = PdfSignatureAppearance.RenderingMode.GRAPHIC;
+                    }
+                    signatureImageStamp.ScaleToFit(120, 120); // Đặt kích thước của hình ảnh chữ ký
 
+                    // Chèn hình ảnh chữ ký vào tài liệu PDF
+                    pdfStamper.GetOverContent(lastPageNumber).AddImage(signatureImageStamp);
+                }
 
-                        if (certi.IsEmployee)
-                        {
-                            // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
-                            Image signatureImageStamp = Image.GetInstance(imagePathStamp);
-                            
-                            if (typeDoc == "contract")
-                            {
-                                signatureImageStamp.SetAbsolutePosition(xCoordinate - 200, yCoodinate - 200); // Đặt vị trí của hình ảnh chữ ký
-                            }
-                            else
-                            {
-                                if (lastPageNumber == 1)
-                                {
-                                    signatureImageStamp.SetAbsolutePosition(xCoordinate - 200, yCoodinate - 200); // Đặt vị trí của hình ảnh chữ ký
-                                }
-                                else
-                                {
-                                    signatureImageStamp.SetAbsolutePosition(xCoordinate - 200 - 50 + 65, yCoodinate - 200 + 700 + 200); // Đặt vị trí của hình ảnh chữ ký, biên bản
-                                }
-                            }
-                            signatureImageStamp.ScaleToFit(120, 120); // Đặt kích thước của hình ảnh chữ ký
+                PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
+                signatureAppearance.Reason = "Ký hợp đồng";   
+                signatureAppearance.SignDate = DateTime.Now;
+                signatureAppearance.Acro6Layers = false;
+                // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
+                signatureAppearance.SignatureGraphic = iTextSharp.text.Image.GetInstance(imagePath);
 
-                            // Chèn hình ảnh chữ ký vào tài liệu PDF
-                            pdfStamper.GetOverContent(lastPageNumber).AddImage(signatureImageStamp);
-                        }
+                if (typeDoc == "contract")
+                {
+                    signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 35, yCoodinate - 45 - 35, xCoordinate - 100 + 50, yCoodinate - 45 + 50), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
-                        // Lấy khóa riêng tư từ chứng chỉ
-                        ICipherParameters privateKey = store.GetKey(alias).Key;
+                }
+                else
+                {
+                    if (lastPageNumber == 1)
+                    {
+                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100, yCoodinate - 45 - 110, xCoordinate - 100 + 100, yCoodinate - 45 - 110 + 100), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
-                        // Thực hiện ký
-                        IExternalSignature pks = new PrivateKeySignature(privateKey, "SHA-256");
-                        MakeSignature.SignDetached(signatureAppearance, pks, new X509Certificate[] { certificateEntry.Certificate }, null, null, null, 0, CryptoStandard.CMS);
+                    }
+                    else
+                    {
+                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 50 + 60, yCoodinate - 45 + 700 + 115, xCoordinate - 100 - 50 + 60 + 100, yCoodinate - 45 + 700 + 115 + 100), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
-                        pdfStamper.Close();
-                        pdfReader.Close();
                     }
                 }
+                signatureAppearance.SignatureRenderingMode = PdfSignatureAppearance.RenderingMode.GRAPHIC;
+                string alias = pfxKeyStore.Aliases.Cast<string>().FirstOrDefault(entryAlias => pfxKeyStore.IsKeyEntry(entryAlias));
+
+                if (alias != null)
+                {
+                    ICipherParameters privateKey = pfxKeyStore.GetKey(alias).Key;
+                    IExternalSignature pks = new PrivateKeySignature(privateKey, DigestAlgorithms.SHA256);
+                    MakeSignature.SignDetached(signatureAppearance, pks, new Org.BouncyCastle.X509.X509Certificate[] { pfxKeyStore.GetCertificate(alias).Certificate }, null, null, null, 0, CryptoStandard.CMS);
+                }
+
+                
+
+                pdfStamper.Close();
+                pdfReader.Close();
+
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                System.IO.File.Delete(inputPdfPath);
             }
             catch (Exception ex)
             {

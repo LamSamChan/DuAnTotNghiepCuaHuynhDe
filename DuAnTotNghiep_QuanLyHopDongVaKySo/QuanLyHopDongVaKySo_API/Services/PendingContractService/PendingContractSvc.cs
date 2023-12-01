@@ -125,6 +125,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingContractService
                 {
                     update.DirectorSignedId = PContract.DirectorSignedId;
                     update.IsDirector = PContract.IsDirector;
+                    update.PContractFile = PContract.PContractFile;
                     update.IsRefuse = PContract.IsRefuse;
                     update.Reason = PContract.Reason;
                     update.IsCustomer = PContract.IsCustomer;

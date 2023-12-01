@@ -243,9 +243,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             System.GC.Collect();
             System.GC.WaitForPendingFinalizers();
 
-            var signedContractPath = await _pfxCertificate.SignContract(imagePath, imagePathStamp, pContract.PContractFile, pContract.PContractFile, certi.Serial, directorZone.X, directorZone.Y, "contract");
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath, imagePathStamp, pContract.PContractFile, pContract.PContractFile.Replace(".pdf", "_director_signed.pdf"), certi.Serial, directorZone.X, directorZone.Y, "contract");
 
-            byte[] fileBytes = System.IO.File.ReadAllBytes(pContract.PContractFile);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(pContract.PContractFile.Replace(".pdf", "_director_signed.pdf"));
             string base64String = Convert.ToBase64String(fileBytes);
 
             var customer = await _customerSvc.GetByIdAsync(pContract.CustomerId.ToString());
@@ -256,7 +256,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 PContractId = pContract.PContractID,
                 DateCreated = pContract.DateCreated,
                 PContractName = pContract.PContractName,
-                PContractFile = pContract.PContractFile,
+                PContractFile = pContract.PContractFile.Replace(".pdf", "_director_signed.pdf"),
                 IsDirector = true,
                 IsCustomer = false,
                 IsRefuse = pContract.IsRefuse,
@@ -380,10 +380,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X+40, customerZone.Y+10,"contract");
 
-            FileStream fs = new FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
-            fs.Close();
-            System.IO.File.Delete(pContract.PContractFile);
-            string qrCodePath = pContract.PContractFile.Replace(".pdf", ".png");
+            string qrCodePath = pContract.PContractFile.Replace("_director_signed.pdf", ".png");
             FileStream fs1 = new FileStream(qrCodePath, FileMode.Open, FileAccess.Read);
             fs1.Close();
             System.IO.File.Delete(qrCodePath);
@@ -494,7 +491,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var pMinute = await _pendingMinuteSvc.GetById(idMinute);
 
-            if (pMinute != null || pMinute.IsIntallation)
+            if (pMinute == null || pMinute.IsIntallation)
             {
                 return BadRequest("Biên bản này đã được nhân viên lắp đặt ký !");
             }
@@ -575,9 +572,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             FileStream fsPContract1 = new System.IO.FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
             fsPContract1.Close();
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath,imagePathStamp, pMinute.MinuteFile, pMinute.MinuteFile, certi.Serial, signatureZone.X + 50, signatureZone.Y - 700, "minute");
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath,imagePathStamp, pMinute.MinuteFile, pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"), certi.Serial, signatureZone.X + 50, signatureZone.Y - 700, "minute");
 
-            byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"));
             string base64String = Convert.ToBase64String(fileBytes);
 
             PutPMinute pendingMinute = new PutPMinute
@@ -589,14 +586,14 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 IsCustomer = false,
                 EmployeeId = pMinute.EmployeeId,
                 DoneContractId = pMinute.DoneContractId,
-                MinuteFile = pMinute.MinuteFile,
+                MinuteFile = pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"),
                 Base64File = base64String
             };
 
            //_pdfToImageHelper.PdfToPng(pMinute.MinuteFile, pMinute.PendingMinuteId,"minute");
             await _pendingMinuteSvc.updateAsnyc(pendingMinute);
 
-            FileStream fsPContract2 = new System.IO.FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
+            FileStream fsPContract2 = new System.IO.FileStream(pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"), FileMode.Open, FileAccess.Read);
             fsPContract2.Close();
 
             _uploadFileHelper.RemoveFile(imagePath);
@@ -677,20 +674,16 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContract.DContractID}");
             }
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute, certi.Serial, customerZone.X, customerZone.Y - 700,"minute");
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute.Replace("_installer_signed.pdf",".pdf"), certi.Serial, customerZone.X - 50, customerZone.Y - 700 - 50,"minute");
 
-            FileStream fs = new FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
-            fs.Close();
-            System.IO.File.Delete(pMinute.MinuteFile);
-
-            byte[] fileBytes = System.IO.File.ReadAllBytes(outputMinute);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(outputMinute.Replace("_installer_signed.pdf", ".pdf"));
             string base64String = Convert.ToBase64String(fileBytes);
 
             DoneMinute doneMinute = new DoneMinute()
             {
                 DateDone = DateTime.Now,
                 MinuteName = pMinute.MinuteName,
-                MinuteFile = outputMinute,
+                MinuteFile = outputMinute.Replace("_installer_signed.pdf", ".pdf"),
                 EmployeeId = pMinute.EmployeeId,
                 Base64File = base64String
             };
@@ -710,16 +703,16 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             int resutl = await _pendingMinuteSvc.DeletePMinute(pMinute.PendingMinuteId);
 
-            var sendMail = SendMailToCustomerWithFile(System.IO.File.ReadAllBytes(dContract.DContractFile), System.IO.File.ReadAllBytes(outputMinute),customer);
+            var sendMail = SendMailToCustomerWithFile(System.IO.File.ReadAllBytes(dContract.DContractFile), System.IO.File.ReadAllBytes(outputMinute.Replace("_installer_signed.pdf", ".pdf")),customer);
 
-            FileStream fsMinute = new System.IO.FileStream(outputMinute, FileMode.Open, FileAccess.Read);
+            FileStream fsMinute = new System.IO.FileStream(outputMinute.Replace("_installer_signed.pdf", ".pdf"), FileMode.Open, FileAccess.Read);
             fsMinute.Close();
-
+            
             _uploadFileHelper.RemoveFile(imagePath);
 
             if (resutl != 0)
             {
-                return Ok(base64String +"*"+ dMinute + "*"+pMinute);
+                return Ok(base64String +"*"+ dMinute + "*"+pMinute.PendingMinuteId);
             }
             else
             {

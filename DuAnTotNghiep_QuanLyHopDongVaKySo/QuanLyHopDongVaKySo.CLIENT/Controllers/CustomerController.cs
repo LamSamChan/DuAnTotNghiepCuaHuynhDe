@@ -63,6 +63,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> CusToSign(string token)
         {
+            HttpContext.Session.SetString(SessionKey.Customer.CustomerToken, token);
             int pContractId = DecodeToken(token);
 
             VMDetailsContractAwait vm = new VMDetailsContractAwait();
@@ -236,7 +237,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         //Trang cho khách hàng xem hđ và bb lắp
         public async Task<ActionResult> ShowDContract(string token)
         {
-           int id = DecodeTokenDContract(token);
+            HttpContext.Session.SetString(SessionKey.Customer.CustomerToken, token);
+            int id = DecodeTokenDContract(token);
            var dContract = await _dContractsService.getByIdAsnyc(id.ToString());
             if(dContract != null)
             {
@@ -255,6 +257,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> UnEffectDContract(string token)
         {
+            HttpContext.Session.SetString(SessionKey.Customer.CustomerToken, token);
             int id = DecodeTokenDContract(token);
             var dContract = await _dContractsService.getByIdUnEffect(id.ToString());
             if (dContract != null)

@@ -244,17 +244,18 @@
             type: 'POST',
             cache: false,
             success: function (data) {
-                $("#imgSign").attr("src", "/Signs/" + data);
-                // Replace confirm with SweetAlert success message
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Ký thành công!',
-                    text: 'Bạn đã ký hoàn tất. Vui lòng kiểm tra mail để xem hợp đồng.',
-                }).then((result) => {
-                    if (result.value) {
-                        close();
-                    }
-                });
+                if (!data.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Ký thành công!',
+                        text: 'Bạn đã ký hoàn tất. Vui lòng kiểm tra mail để xem hợp đồng.',
+                    }).then((result) => {
+                        if (result.value) {
+                            close();
+                        }
+                    });
+                }
+                
             },
             error: function (textStatus, errorThrown) {
                 // Replace confirm with SweetAlert error message
@@ -286,9 +287,6 @@
                 close();
             }
         });
-
-        
-
     }
 
     function objctlSignature_status(success, points) {
