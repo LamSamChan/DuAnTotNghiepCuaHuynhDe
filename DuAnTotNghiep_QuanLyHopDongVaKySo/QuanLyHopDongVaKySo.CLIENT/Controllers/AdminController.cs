@@ -722,10 +722,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var position = await _positionService.GetPositionByIdAsync(positionId);
                 if (position != null)
                 {
-                    TempData["SweetType"] = "success";
-                    TempData["SweetIcon"] = "success";
-                    TempData["SweetTitle"] = "Cập nhật chức danh thành công !!";
-                    return View("ListRole");
+                    return View(position);
                 }
                 else
                 {

@@ -550,6 +550,7 @@
         width: 300px;
         border-radius:5px;
         opacity: 0.6;
+        height:45px;
     }
     .add_Cus {
         font-weight: bold;

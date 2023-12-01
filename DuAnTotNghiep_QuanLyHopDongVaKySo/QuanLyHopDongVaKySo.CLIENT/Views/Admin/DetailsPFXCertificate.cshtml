@@ -17,13 +17,12 @@
             </ol>
         </nav>
         <h1 class="typeHead">CHI TIẾT CHỨNG CHỈ</h1>
-        <div class="row justify-contens-around">
-            <a class="button-design col-md-2" asp-action="ListPFXCertificate" asp-controller="Admin">
-                <i class="ph-bold ph-arrow-left">
-                    QUAY LẠI
-                </i>
+        <div class="row justify-content-between mx-auto ">
+            <a class="button-design col-md-2 mx-0" asp-action="ListPFXCertificate" asp-controller="Admin">
+                <i class="ph-bold ph-arrow-left"></i>
+                QUAY LẠI
             </a>
-            <a class="button-save col-md-2 offset-md-8" asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@Model.Serial">
+            <a class="button-save col-md-2 offset-md-7" asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@Model.Serial">
                 GIA HẠN
                 @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                 {

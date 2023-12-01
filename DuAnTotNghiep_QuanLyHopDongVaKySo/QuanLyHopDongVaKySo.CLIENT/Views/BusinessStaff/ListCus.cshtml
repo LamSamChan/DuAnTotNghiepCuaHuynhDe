@@ -20,61 +20,63 @@
             </a>
         </div>
     </div>
-    <div class="listTable_Cus">
-        <table class="table" id="myTable">
-            <thead>
-                <tr style="color: #8B909A;">
-                    <th></th>
-                    <th scope="col">ID</th>
-                    <th scope="col">HỌ VÀ TÊN</th>
-                    <th scope="col">SĐT</th>
-                    <th scope="col">EMAIL</th>
-                    <th scope="col">ĐỊA CHỈ</th>
-                    <th scope="col">TRẠNG THÁI HOẠT ĐỘNG</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                 @foreach (var cus in Model)
-                {
-                    <tr>
-                        <td>
-                            <div class="row action">
-                                <a asp-action="EditCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId"><i class="ph-bold ph-note-pencil"></i></a>
-                            </div>
-                        </td>
-                        <th scope="row">@cus.CustomerId.ToString().Substring(0,8)</th>
-                        <td>@cus.FullName</td>
-                        <td>@cus.PhoneNumber</td>
-                        <td>@cus.Email</td>
-                        <td>@cus.Address</td>
-                        @if (@cus.IsLocked)
-                        {
-                           <td>
-                                <div class="d-flex align-items-center">
-                                    <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
-                                    <div>Khóa</div>
-                                </div>
-                            </td>
-                            
-                        }
-                        else
-                        {
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                                    <div>Bình thường</div>
-                                </div>
-                            </td>
-                           
-                        }
-                        <td>
-                            <a asp-action="DetailsCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId">Chi tiết</a>
-                        </td>
+    <div class="row mx-auto bg-white mt-4 rounded">
+        <div class="listTable">
+            <table class="table" id="myTable">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th></th>
+                        <th scope="col">ID</th>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">SĐT</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">ĐỊA CHỈ</th>
+                        <th scope="col">TRẠNG THÁI HOẠT ĐỘNG</th>
+                        <th scope="col"></th>
                     </tr>
-                } 
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="table-group-divider">
+                     @foreach (var cus in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="row action">
+                                    <a asp-action="EditCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId"><i class="ph-bold ph-note-pencil"></i></a>
+                                </div>
+                            </td>
+                            <th scope="row">@cus.CustomerId.ToString().Substring(0,8)</th>
+                            <td>@cus.FullName</td>
+                            <td>@cus.PhoneNumber</td>
+                            <td>@cus.Email</td>
+                            <td>@cus.Address</td>
+                            @if (@cus.IsLocked)
+                            {
+                               <td>
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                        <div>Khóa</div>
+                                    </div>
+                                </td>
+                            
+                            }
+                            else
+                            {
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                        <div>Bình thường</div>
+                                    </div>
+                                </td>
+                           
+                            }
+                            <td>
+                                <a asp-action="DetailsCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId">Chi tiết</a>
+                            </td>
+                        </tr>
+                    } 
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 <script>

@@ -47,40 +47,43 @@
         </div>
 
     }
-    <div class="listTable">
-        <table class="table" id="myTable">
-            <thead>
-                <tr style="color: #8B909A;">
-                    <th scope="col">ID</th>
-                    <th scope="col">EMAIL</th>
-                    <th scope="col">NGÀY ĐĂNG KÝ DỊCH VỤ</th>
-                    <th scope="col">HỌ VÀ TÊN</th>
-                    <th scope="col">LOẠI HỢP ĐỒNG ĐĂNG KÝ</th>
-                    <th scope="col">TRẠNG THÁI</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                @foreach(var item in Model)
-                {
-                    <tr>
-                        <th scope="row">@item.PContractID</th>
-                        <td>@item.CustomerEmail</td>
-                        <td>@item.DateCreated</td>
-                        <td>@item.CustomerName</td>
-                        <td>@item.TOS_ID</td>
-                        <td>
-                            <div style="background: rgba(250, 44, 44, 0.16); color:#FF000F;display: flex;align-items: center;justify-content: center;">
-                                Từ chối
-                            </div>
-                        </td>
-                        <td>
-                            <a asp-action="DetailsContractRefuse" asp-controller="BusinessStaff" asp-route-id="@item.PContractID">Chi tiết</a>
-                        </td>
+    <div class="row bg-white mx-auto my-auto rounded mt-4">
+        <div class="listTable">
+            <table class="table" id="myTable">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th scope="col">ID</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">NGÀY ĐĂNG KÝ DỊCH VỤ</th>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">LOẠI HỢP ĐỒNG ĐĂNG KÝ</th>
+                        <th scope="col">TRẠNG THÁI</th>
+                        <th scope="col"></th>
                     </tr>
-                }  
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="table-group-divider">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.PContractID</th>
+                            <td>@item.CustomerEmail</td>
+                            <td>@item.DateCreated</td>
+                            <td>@item.CustomerName</td>
+                            <td>@item.TOS_ID</td>
+                            <td>
+                                <div style="background: rgba(250, 44, 44, 0.16); color:#FF000F;display: flex;align-items: center;justify-content: center;">
+                                    Từ chối
+                                </div>
+                            </td>
+                            <td>
+                                <a asp-action="DetailsContractRefuse" asp-controller="BusinessStaff" asp-route-id="@item.PContractID">Chi tiết</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </div>
 <script>

@@ -48,7 +48,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="row g-3 mx-auto my-auto" asp-action="AddTOSAction" asp-controller="Admin">
+                            <form class="row g-3" asp-action="AddTOSAction" asp-controller="Admin">
                                 <div class="col-12">
                                     <label for="inputName" class="form-label">Tên dịch vụ</label>
                                     <input class="form-control" required asp-for="PostTOS.ServiceName">
@@ -64,6 +64,7 @@
                                     <input class="form-control" required asp-for="PostTOS.PerTime">
                                     <span class="text-danger" asp-validation-for="PostTOS.PerTime"></span>
                                 </div>
+                              
                                 <div class="col-12">
                                     <label for="inputRole" class="form-label">Mẫu hợp đồng</label>
                                     <select required class="form-select" asp-for="PostTOS.TContractID">
@@ -90,7 +91,7 @@
                                     <div class="loading" id="loading">
                                         <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
                                     </div>
-                                    <button class="btn-addRole" type="submit" style="width: 100%;" onclick="updatePosition()">
+                                    <button class="btn-addRole mx-auto my-auto mt-3" type="submit" style="width: 100%;" onclick="updatePosition()">
                                         THÊM
                                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
@@ -139,7 +140,7 @@
                         <th scope="col">GIÁ</th>
                         <th scope="col">ĐƠN VỊ THỜI GIAN</th>
                         <th scope="col">TRẠNG THÁI</th>
-                        <th scope="col">HÀNH ĐỘNG</th>
+                        <th scope="col"></th>
                         <th></th>
                     </tr>
                 </thead>

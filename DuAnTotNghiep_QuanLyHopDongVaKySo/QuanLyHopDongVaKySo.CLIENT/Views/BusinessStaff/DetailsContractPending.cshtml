@@ -30,12 +30,13 @@
                     <li class="breadcrumb-item active" aria-current="page"> Yêu cầu lắp đặt</li>
                 </ol>
             </nav>
-            <h1 class="typeHead">CHI TIẾT HỢP ĐỒNG CHỜ DUYỆT</h1>
+            <h1 class="typeHead">CHI TIẾT YÊU CẦU LẮP</h1>
             <div class="row">
                 <a class="col-md-2 button-design" asp-action="ContractListPending" asp-controller="BusinessStaff">
                     <i class="ph-bold ph-arrow-left">
-                        QUAY LẠI
+                        
                     </i>
+                    QUAY LẠI
                 </a>
             </div>
         </div>
@@ -54,12 +55,12 @@
                     <li class="breadcrumb-item active" aria-current="page"> Yêu cầu lắp đặt</li>
                 </ol>
             </nav>
-            <h1 class="typeHead">DANH SÁCH HỢP ĐỒNG CHỜ DUYỆT</h1>
+            <h1 class="typeHead">CHI TIẾT YÊU CẦU LẮP</h1>
             <div class="row">
                 <a class="col-md-2 button-design" asp-action="ContractListPending" asp-controller="BusinessStaff">
                     <i class="ph-bold ph-arrow-left">
-                        QUAY LẠI
                     </i>
+                    QUAY LẠI
                 </a>
             </div>
         </div>
@@ -95,7 +96,7 @@
 
 
         <div class="inforCus col-md-6 mt-4"  style=" max-height:700px; overflow-y: scroll; ">
-            <h4 style="color: #4318FF;">
+            <h4 class="typeHead">
                 Thông tin khách hàng
             </h4>
             <form class="row g-3" style="max-width:950px;">
@@ -158,7 +159,7 @@
                     <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
                     <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.DateCreated">
                 </div>
-                <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
+                <h4 class="typeHead mt-3">
                     Thông tin nhân viên tạo hợp đồng
                 </h4>
                 <div class="col-md-6">
