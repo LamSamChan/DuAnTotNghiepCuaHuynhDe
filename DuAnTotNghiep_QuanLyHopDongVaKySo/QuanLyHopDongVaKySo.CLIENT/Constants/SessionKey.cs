@@ -13,6 +13,8 @@
         {
             public const string CustomerID = "CustomerID";
             public const string CustomerContext = "CusContext";
+            public const string CustomerToken = "CustomerToken";
+
         }
 
         public static class PFXCertificate

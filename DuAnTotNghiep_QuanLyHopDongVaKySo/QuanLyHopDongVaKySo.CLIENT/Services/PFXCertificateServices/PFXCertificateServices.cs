@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using QuanLyHopDongVaKySo.CLIENT.Constants;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Models.ViewPost;
 using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
@@ -29,6 +30,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices
                 {
                     token = _httpContextAccessor.HttpContext.Session.GetString("token");
 
+                }
+                else
+                {
+                    token = _httpContextAccessor.HttpContext.Session.GetString(SessionKey.Customer.CustomerToken);
                 }
                 return token;
             }

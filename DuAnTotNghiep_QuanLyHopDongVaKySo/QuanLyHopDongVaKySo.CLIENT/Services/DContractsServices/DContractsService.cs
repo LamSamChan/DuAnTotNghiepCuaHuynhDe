@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using System.Net.Http.Headers;
+using QuanLyHopDongVaKySo.CLIENT.Constants;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
 {
@@ -29,6 +30,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
                 {
                     token = _httpContextAccessor.HttpContext.Session.GetString("token");
 
+                }
+                else
+                {
+                    token = _httpContextAccessor.HttpContext.Session.GetString(SessionKey.Customer.CustomerToken);
                 }
                 return token;
             }
