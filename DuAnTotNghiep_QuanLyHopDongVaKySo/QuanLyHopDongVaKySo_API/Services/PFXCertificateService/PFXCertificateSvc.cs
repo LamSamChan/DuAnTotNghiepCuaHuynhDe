@@ -282,6 +282,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                         MakeSignature.SignDetached(signatureAppearance, pks, new X509Certificate[] { certificateEntry.Certificate }, null, null, null, 0, CryptoStandard.CMS);
 
                         pdfStamper.Close();
+                        pdfReader.Close();
                     }
                 }
             }

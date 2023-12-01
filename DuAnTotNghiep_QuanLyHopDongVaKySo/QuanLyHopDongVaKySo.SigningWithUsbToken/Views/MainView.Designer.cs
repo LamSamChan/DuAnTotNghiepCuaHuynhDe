@@ -35,6 +35,9 @@
             pdfViewer = new PdfiumViewer.PdfViewer();
             TypeDocument = new ComboBox();
             typeDocLabel = new Label();
+            label1 = new Label();
+            tokenPassword = new TextBox();
+            signContract = new Button();
             SuspendLayout();
             // 
             // getContractButton
@@ -89,11 +92,41 @@
             typeDocLabel.TabIndex = 6;
             typeDocLabel.Text = "Loại tài liệu:";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(710, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(93, 15);
+            label1.TabIndex = 9;
+            label1.Text = "Mật khẩu token:";
+            // 
+            // tokenPassword
+            // 
+            tokenPassword.Location = new Point(809, 6);
+            tokenPassword.Name = "tokenPassword";
+            tokenPassword.PasswordChar = '*';
+            tokenPassword.Size = new Size(146, 23);
+            tokenPassword.TabIndex = 8;
+            // 
+            // signContract
+            // 
+            signContract.Location = new Point(961, 5);
+            signContract.Name = "signContract";
+            signContract.Size = new Size(169, 23);
+            signContract.TabIndex = 7;
+            signContract.Text = "Ký hợp đồng / biên bản";
+            signContract.UseVisualStyleBackColor = true;
+            signContract.Click += signContract_Click;
+            // 
             // MainView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1184, 961);
+            Controls.Add(label1);
+            Controls.Add(tokenPassword);
+            Controls.Add(signContract);
             Controls.Add(typeDocLabel);
             Controls.Add(TypeDocument);
             Controls.Add(pdfViewer);
@@ -116,5 +149,8 @@
         private PdfiumViewer.PdfViewer pdfViewer;
         private ComboBox TypeDocument;
         private Label typeDocLabel;
+        private Label label1;
+        private TextBox tokenPassword;
+        private Button signContract;
     }
 }

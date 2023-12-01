@@ -36,7 +36,8 @@
             // 
             // verifyButton
             // 
-            verifyButton.Location = new Point(115, 160);
+            verifyButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            verifyButton.Location = new Point(133, 158);
             verifyButton.Name = "verifyButton";
             verifyButton.Size = new Size(106, 37);
             verifyButton.TabIndex = 0;
@@ -46,9 +47,10 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(103, 67);
+            label1.Location = new Point(119, 74);
             label1.Name = "label1";
             label1.Size = new Size(155, 20);
             label1.TabIndex = 1;
@@ -56,8 +58,9 @@
             // 
             // identification
             // 
+            identification.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             identification.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            identification.Location = new Point(65, 109);
+            identification.Location = new Point(93, 113);
             identification.Name = "identification";
             identification.PasswordChar = '*';
             identification.PlaceholderText = "Nhập số CMND/CCCD";
