@@ -102,3 +102,6 @@ D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.SigningWithUsbToken\bin\Debug\net6.0-windows\itextsharp.dll
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.SigningWithUsbToken\obj\Debug\net6.0-windows\QuanLyHopDongVaKySo.SigningWithUsbToken.Views.InfoSign.resources
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.SigningWithUsbToken\obj\Debug\net6.0-windows\QuanLyHopDongVaKySo.SigningWithUsbToken.Views.VerifyCustomerView.resources
+C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.SigningWithUsbToken\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.SigningWithUsbToken\bin\Debug\net6.0-windows\itextsharp.dll
+C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.SigningWithUsbToken\obj\Debug\net6.0-windows\QuanLyHopDongVaKySo.SigningWithUsbToken.Views.VerifyCustomerView.resources

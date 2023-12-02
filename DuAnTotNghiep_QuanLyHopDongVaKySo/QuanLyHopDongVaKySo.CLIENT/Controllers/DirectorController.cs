@@ -617,8 +617,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 viewModel.DoneContracts = await _dContractService.getByIdAsnyc(Id);
                 viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
                 viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.DoneContracts.DirectorSignedId);
-                viewModel.DoneMinutes = await _dMinuteService.GetById(int.Parse(viewModel.DoneContracts.DMinuteID));
-
+                if(viewModel.DoneContracts.DMinuteID != null)
+                {
+                    viewModel.DoneMinutes = await _dMinuteService.GetById(int.Parse(viewModel.DoneContracts.DMinuteID));
+                }
+                
             }
             catch
             {

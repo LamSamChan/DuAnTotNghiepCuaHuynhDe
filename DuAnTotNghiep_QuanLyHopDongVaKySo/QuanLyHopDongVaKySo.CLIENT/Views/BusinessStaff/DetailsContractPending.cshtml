@@ -7,11 +7,16 @@
 
 @{
     // Lấy link trực ảnh từ file tỉnh
-    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
+    List<string> imageFilesContract = new List<string>();
+    string fileDMinuteNull = "Resource/Image/empty.png";
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
 
-    string folderItem = System.IO.Path.Combine(folderPath, Model.PendingContracts.PContractID);
+    string? folderItemContract = System.IO.Path.Combine(folderPath, Model.PendingContracts.PContractID);
 
-    string[] imageFiles = Directory.GetFiles(folderItem);
+    if (folderItemContract != null)
+    {
+        imageFilesContract = Directory.GetFiles(folderItemContract).ToList();
+    }
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 
 }
@@ -75,10 +80,17 @@
                         <div class="carousel-item active " style="width:800px;">
                             <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" style="margin:100px auto;" />
                         </div>
-                        @foreach (var imgPath in imageFiles)
+                        @if (folderItemContract != null)
+                            @foreach (var imgPath in imageFilesContract)
+                            {
+                                <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                    <img src="@Url.Content("~/ContractImage/"+Model.PendingContracts.PContractID+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                </div>
+                            }
+                        else
                         {
                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                <img src="@Url.Content("~/PContractImage/"+Model.PendingContracts.PContractID+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                <img src="~/@fileDMinuteNull" alt="Hình ảnh" width="100%" />
                             </div>
                         }
                     </div>
