@@ -236,7 +236,8 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 int isSuccess = await sendDContractRepository.PostContract(doneContract);
                 if (isSuccess != 0)
                 {
-                    MessageBox.Show("Đã đã hoàn tất.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Đã hoàn tất.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
