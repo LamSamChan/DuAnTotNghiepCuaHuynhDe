@@ -483,6 +483,22 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
              if (respone != null)
             {
                 string[] split = respone.Split('*');
+
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
+
+                string folderItem = System.IO.Path.Combine(folderPath, split[1]);
+
+                string[] imageFiles = Directory.GetFiles(folderItem);
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                foreach (string imageFile in imageFiles)
+                {
+                    System.IO.File.Delete(imageFile);
+                }
+                Directory.Delete(folderItem);
+
                 string pdfPath = null;
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
@@ -547,7 +563,23 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (respone != null)
             {
                 string[] split = respone.Split('*');
+
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
+
+                string folderItem = System.IO.Path.Combine(folderPath, split[1]);
+
+                string[] imageFiles = Directory.GetFiles(folderItem);
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                foreach (string imageFile in imageFiles)
+                {
+                    System.IO.File.Delete(imageFile);
+                }
+                Directory.Delete(folderItem);
                 string pdfPath = null;
+
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "pcontract");

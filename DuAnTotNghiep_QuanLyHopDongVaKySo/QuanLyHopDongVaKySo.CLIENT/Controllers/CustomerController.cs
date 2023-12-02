@@ -103,6 +103,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         [HttpPost]
         public async Task<ActionResult> SaveSignature([FromBody] SignData sData)
         {
+
             string pContractID = HttpContext.Session.GetString(SessionKey.PedningContract.PContractID);
             string serial = HttpContext.Session.GetString(SessionKey.PFXCertificate.Serial);
             if (null == sData)
@@ -142,6 +143,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
 
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
                 //xoa anh pcontract
                 folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
 

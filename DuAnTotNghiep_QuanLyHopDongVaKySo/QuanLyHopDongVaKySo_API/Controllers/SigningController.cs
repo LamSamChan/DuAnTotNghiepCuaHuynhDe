@@ -26,11 +26,13 @@ using QuanLyHopDongVaKySo_API.Services.DoneMinuteService;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using static QRCoder.PayloadGenerator.SwissQrCode;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using Microsoft.AspNetCore.Authorization;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class SigningController : ControllerBase
     {
         private readonly IPFXCertificateSvc _pfxCertificate;
@@ -576,7 +578,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var signedMinutePath = await _pfxCertificate.SignContract(imagePath,imagePathStamp, pMinute.MinuteFile, pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"), certi.Serial, signatureZone.X + 50, signatureZone.Y - 700, "minute");
 
-            byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"));
+          byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"));
             string base64String = Convert.ToBase64String(fileBytes);
 
             PutPMinute pendingMinute = new PutPMinute
@@ -595,8 +597,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
            //_pdfToImageHelper.PdfToPng(pMinute.MinuteFile, pMinute.PendingMinuteId,"minute");
             await _pendingMinuteSvc.updateAsnyc(pendingMinute);
 
-            FileStream fsPContract2 = new System.IO.FileStream(pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"), FileMode.Open, FileAccess.Read);
-            fsPContract2.Close();
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
 
             _uploadFileHelper.RemoveFile(imagePath);
             _uploadFileHelper.RemoveFile(imagePathStamp);
@@ -707,9 +709,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var sendMail = SendMailToCustomerWithFile(System.IO.File.ReadAllBytes(dContract.DContractFile), System.IO.File.ReadAllBytes(outputMinute.Replace("_installer_signed.pdf", ".pdf")),customer);
 
-            FileStream fsMinute = new System.IO.FileStream(outputMinute.Replace("_installer_signed.pdf", ".pdf"), FileMode.Open, FileAccess.Read);
-            fsMinute.Close();
-            
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
+
             _uploadFileHelper.RemoveFile(imagePath);
 
             if (resutl != 0)
@@ -756,10 +758,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
 
             //url locallhost
-            var url = $"https://localhost:7063/Customer/CusToSign?token={token}";
+           // var url = $"https://localhost:7063/Customer/CusToSign?token={token}";
 
             //url servcer
-            //var url = $"https://techseal.azurewebsites.net/Customer/CusToSign?token={token}";
+            var url = $"https://techseal.azurewebsites.net/Customer/CusToSign?token={token}";
 
             // Gửi URL cho khách hàng
             return url;
@@ -796,10 +798,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
 
             //url locallhost
-            var url = $"https://localhost:7063/Customer/ShowDContract?token={token}";
+            //var url = $"https://localhost:7063/Customer/ShowDContract?token={token}";
 
             //url servcer
-            //var url = $"https://techseal.azurewebsites.net/Customer/ShowDContract?token={token}";
+            var url = $"https://techseal.azurewebsites.net/Customer/ShowDContract?token={token}";
 
             // Gửi URL cho khách hàng
             return url;

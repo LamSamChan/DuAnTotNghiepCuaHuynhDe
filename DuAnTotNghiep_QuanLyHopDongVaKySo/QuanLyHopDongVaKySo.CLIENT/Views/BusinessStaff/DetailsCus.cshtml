@@ -53,7 +53,7 @@
         <div class="tab-button active" onclick="showTab('tab1')">Thông tin chi tiết</div>
         <div class="tab-button" onclick="showTab('tab2')">Danh sách hợp đồng chờ ký</div>
         <div class="tab-button" onclick="showTab('tab3')">Danh sách hợp đồng đã ký</div>
-        <a class="button-save d-flex align-items-center ms-3" asp-action="CreateFormForCus" asp-controller="BusinessStaff" asp-route-id="@Model.Customer.CustomerId">
+        <a class="button-save d-flex align-items-center ms-3 @ViewBag.block" asp-action="CreateFormForCus" asp-controller="BusinessStaff" asp-route-id="@Model.Customer.CustomerId">
             Tạo hợp đồng
         </a>
     </div>
@@ -283,47 +283,46 @@
     
     </div>
     <div class="tab-content " id="tab3">
-        <div class="row mx-auto bg-white mt-1 rounded">
-            <div class="listTable" style="margin-top:0;">
-                <table class="table">
-                    <thead>
-                        <tr style="color: #8B909A;">
-                            <th scope="col">ID</th>
-                            <th scope="col">NGÀY HOÀN THÀNH</th>
-                            <th scope="col">TÊN HỢP ĐỒNG</th>
-                            <th scope="col">HỌ VÀ TÊN</th>
-                            <th scope="col">ĐỊA CHỈ LẮP ĐẶT</th>
-                            <th scope="col">TRẠNG THÁI</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
-                        @foreach (var item in Model.DoneContracts)
-                        {
-                            <tr>
-                                <th scope="row">@item.Id</th>
-                                <td>@item.DateDone</td>
-                                <td>@item.CustomerName</td>
-                                <td>@item.CustomerName</td>
-                                <td>@item.TypeOfService</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
-                                        <span>Đã ký</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <a asp-controller="BusinessStaff" asp-action="DetailsContractEffect" asp-route-id="@item.Id">Chi tiết</a>
-                                </td>
-                            </tr>
-                        }
-
-                    </tbody>
-                </table>
-            </div>
-
+         <div class="listTable" style="margin-top:0;">
+            <table class="table">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th scope="col">ID</th>
+                        <th scope="col">NGÀY HOÀN THÀNH</th>
+                        <th scope="col">TÊN HỢP ĐỒNG</th>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">ĐỊA CHỈ LẮP ĐẶT</th>
+                        <th scope="col">TRẠNG THÁI</th>
+                        <th scope="col" colspan="2">HÀNH ĐỘNG</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @foreach(var item in Model.DoneContracts)
+                    {
+                        <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.DateDone</td>
+                        <td>@item.CustomerName</td>
+                        <td>@item.CustomerName</td>
+                        <td>@item.TypeOfService</td>
+                        <td>
+                                <div class="d-flex align-items-center">
+                                    <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                    <span>Đã ký</span>
+                                </div>
+                        </td>
+                            <td>
+                                <button class="button-design" onclick="downloadPDF('@item.Base64File','Hợp đồng @item.TypeOfService')"><i class="ph-bold ph-download-simple"></i></button>
+                            </td>
+                        <td>
+                                <a asp-controller="BusinessStaff" asp-action="DetailsContractEffect" asp-route-id="@item.Id">Chi tiết</a>
+                        </td>
+                    </tr>
+                    }
+                    
+                </tbody>
+            </table>
         </div>
-
     </div>
 </div>
 <script>

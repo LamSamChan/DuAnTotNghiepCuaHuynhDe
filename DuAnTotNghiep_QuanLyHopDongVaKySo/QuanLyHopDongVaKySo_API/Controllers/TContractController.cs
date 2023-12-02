@@ -132,8 +132,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                                 break;
                             }
                         }
-
-                        _pdfToImgHelpers.PdfToPng(filePath, id_Tcontract, "tcontract");
                         return Ok(id_Tcontract);
                     }
                 }

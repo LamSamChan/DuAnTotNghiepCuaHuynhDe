@@ -300,8 +300,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 vm.Customer = respone;
 
                 //truyền thêm
-                vm.PendingContracts = await _pContractService.getListCusId(customerID); ;
+                vm.PendingContracts = await _pContractService.getListCusId(customerID);
                 vm.DoneContracts = await _dContractService.getListByCusId(customerID);
+                if (vm.Customer.IsLocked)
+                {
+                    ViewBag.block = "disable";
+                }
+                ViewBag.block = "";
                 return View(vm);
             }
             else

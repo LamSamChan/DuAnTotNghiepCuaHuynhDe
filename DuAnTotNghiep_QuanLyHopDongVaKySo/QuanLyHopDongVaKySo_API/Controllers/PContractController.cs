@@ -45,6 +45,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPContractAsnyc(PostPendingContract pContract)
         {
+            if (_CustomerSvc.GetByIdAsync(pContract.CustomerId.ToString()).Result.IsLocked)
+            {
+                return BadRequest("Khác hàng đang bị chặn!!");
+            }
+
             var tContractID = _typeOfServiceSvc.GetById(pContract.TOS_ID).Result.templateContractID;
             //lây thông tin mẫu hợp đồng
             var tContract = await _TContractSvc.getByIdAsnyc(tContractID);

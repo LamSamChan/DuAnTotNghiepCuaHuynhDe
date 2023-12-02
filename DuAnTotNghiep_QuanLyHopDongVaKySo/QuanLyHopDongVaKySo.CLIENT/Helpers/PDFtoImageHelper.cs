@@ -73,7 +73,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
                         Directory.CreateDirectory(categoryPath);
                     }
 
-                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath+ "\\MinuteImage",idContract.ToString());
+                    outputDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath+ "\\MinuteImage", idContract.ToString());
                 }
                 else if (typeDoc == "contract")
                 {

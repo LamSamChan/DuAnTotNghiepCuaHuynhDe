@@ -60,7 +60,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices
 
         public async Task<string> ForgotPasswordAsync(string comfirmOTP)
         {
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             try
             {
                 var content = new StringContent(JsonConvert.SerializeObject(comfirmOTP), Encoding.UTF8, "application/json");
@@ -110,7 +109,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices
 
         public async Task<string> GetOTPForgotAsync(ForgotPassword forgotPassword)
         {
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             try
             {
                 var content = new StringContent(JsonConvert.SerializeObject(forgotPassword), Encoding.UTF8, "application/json");

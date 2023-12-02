@@ -9,7 +9,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
     public class PasswordController : ControllerBase
     {
         private static string otpChange = String.Empty;
@@ -28,6 +27,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _randomPasswordHelper = randomPasswordHelper;
         }
 
+        [Authorize]
         [HttpPost("ChangePassword")]
         public async Task<ActionResult<string>> ChangePassword([FromBody] ChangePassword changePassword)
         {
@@ -55,6 +55,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 return BadRequest("Mã xác nhận OTP không đúng!");
             }
         }
+
 
         [HttpPost("ForgotPassword")]
         public async Task<ActionResult<string>> ForgotPassword([FromBody] string comfirmOTP)
@@ -109,6 +110,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
         }
 
+        [Authorize]
         [HttpPost("GetOTPChange")]
         public async Task<ActionResult<string>> GetOTPChange([FromBody] string employeeId)
         {

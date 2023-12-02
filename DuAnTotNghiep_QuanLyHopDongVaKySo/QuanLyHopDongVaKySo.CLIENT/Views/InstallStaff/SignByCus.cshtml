@@ -157,27 +157,35 @@
             type: 'POST',
             cache: false,
             success: function (data) {
-                $("#imgSign").attr("src", "/Signs/" + data);
+                 if (!result.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Thành công!',
+                            text: 'Ký biên bản thành công!!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(() => {
+                           @* var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+                            window.location.href = redirectToUrl; *@
+                        });
+                 }
             },
             error: function (textStatus, errorThrown) {
                 alert();
                 Swal.fire({
                     icon: 'error',
                     title: 'Lỗi!',
-                    text: "Unable to save signatures : " + JSON.stringify(textStatus) + " : " + errorThrown,
+                    text: "Có lỗi xảy ra: " + JSON.stringify(textStatus) + " : " + errorThrown,
                     showConfirmButton: false,
                     timer: 1500
-                }).then(() => {
-                    var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
-                    window.location.href = redirectToUrl;
                 });
             }
         });
 
         btnSave.prop('disabled', false);
         // Chuyển hướng tới trang mong muốn
-        var redirectToUrl = '@Url.Action("SignByStaff", "InstallStaff")?pMinuteID=' + @Model.PMinute.PendingMinuteId;
-        window.location.href = redirectToUrl;
+       @* var redirectToUrl = '@Url.Action("SignByStaff", "InstallStaff")?pMinuteID=' + @Model.PMinute.PendingMinuteId;
+        window.location.href = redirectToUrl; *@
     }
 
     function objctlSignature_status(success, points) {
