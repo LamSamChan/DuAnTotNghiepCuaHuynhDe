@@ -75,6 +75,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             Spire.Pdf.PdfDocument doc = new Spire.Pdf.PdfDocument();
             if (ModelState.IsValid)
             {
+                var tContractExist = _TContractSvc.getAllAsnyc().Result.FirstOrDefault(t => t.TContractName == tContract.TContractName);
+                if (tContractExist != null)
+                {
+                    return BadRequest();
+                }
                 int id_Tcontract = await _TContractSvc.addAsnyc(tContract);
                 string filePath = null;
                 float X = 0; float Y = 0;
@@ -82,12 +87,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 {
                     if (tContract.Base64StringFile != null)
                     {
-                        var tContractExist = _TContractSvc.getAllAsnyc().Result.FirstOrDefault(t => t.TContractName == tContract.TContractName);
-                        if (tContractExist != null)
-                        {
-                            return BadRequest();
-                        }
-
                         IFormFile file = _helpers.ConvertBase64ToIFormFile(tContract.Base64StringFile, tContract.TContractName, "application/pdf");
                         filePath = _helpers.UploadFile(file, "AppData", "TContracts", ".pdf");
                         int pageNum = 0;

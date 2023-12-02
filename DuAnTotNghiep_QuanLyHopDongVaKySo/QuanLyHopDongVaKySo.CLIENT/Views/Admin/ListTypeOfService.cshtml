@@ -78,13 +78,13 @@
                                 </div>
                                 <div class="col-12">
                                     <label for="inputRole" class="form-label">Mẫu biên bản lắp đặt</label>
-                                    <selec required class="form-select" asp-for="PostTOS.TMinuteID">
+                                    <select required class="form-select" asp-for="PostTOS.TMinuteID">
                                         <option value="" disabled selected>...Chọn mẫu biên bản lắp đặt</option>
                                         @foreach (var m in Model.TemplateMinutes)
                                         {
                                             <option value="@m.TMinuteID">@m.TMinuteName</option>
                                         }
-                                        </select>
+                                    </select>
                                         <span class="text-danger" asp-validation-for="PostTOS.TMinuteID"></span>
                                 </div>
                                 <div class="col-md-5" style="margin:auto;">

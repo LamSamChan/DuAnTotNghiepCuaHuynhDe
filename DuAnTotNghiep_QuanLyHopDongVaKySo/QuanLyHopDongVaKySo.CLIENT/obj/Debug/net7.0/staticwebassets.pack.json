@@ -4985,6 +4985,10 @@
       "PackagePath": "staticwebassets\\Avatars\\1.png"
     },
     {
+      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\2.png",
+      "PackagePath": "staticwebassets\\Avatars\\2.png"
+    },
+    {
       "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\2b25b93d.jpeg",
       "PackagePath": "staticwebassets\\Avatars\\2b25b93d.jpeg"
     },
@@ -6065,6 +6069,14 @@
       "PackagePath": "staticwebassets\\SignatureImages\\638351720736683994\\2.png"
     },
     {
+      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638354308898674562\\001a4f3f.png",
+      "PackagePath": "staticwebassets\\SignatureImages\\638354308898674562\\001a4f3f.png"
+    },
+    {
+      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638354308898674562\\c90010e7.png",
+      "PackagePath": "staticwebassets\\SignatureImages\\638354308898674562\\c90010e7.png"
+    },
+    {
       "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\SignatureImages\\638360897229882892\\1.png",
       "PackagePath": "staticwebassets\\SignatureImages\\638360897229882892\\1.png"
     },
@@ -6165,6 +6177,10 @@
       "PackagePath": "staticwebassets\\SignatureImages\\638368532744594367\\eb01dbee.png"
     },
     {
+      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\StampImage\\2.png",
+      "PackagePath": "staticwebassets\\StampImage\\2.png"
+    },
+    {
       "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\StampImage\\stamp.png",
       "PackagePath": "staticwebassets\\StampImage\\stamp.png"
     },
@@ -6201,30 +6217,6 @@
       "PackagePath": "staticwebassets\\TContractImage\\13\\7.png"
     },
     {
-      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\4\\1.png",
-      "PackagePath": "staticwebassets\\TContractImage\\4\\1.png"
-    },
-    {
-      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\4\\2.png",
-      "PackagePath": "staticwebassets\\TContractImage\\4\\2.png"
-    },
-    {
-      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\4\\3.png",
-      "PackagePath": "staticwebassets\\TContractImage\\4\\3.png"
-    },
-    {
-      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\4\\4.png",
-      "PackagePath": "staticwebassets\\TContractImage\\4\\4.png"
-    },
-    {
-      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\4\\5.png",
-      "PackagePath": "staticwebassets\\TContractImage\\4\\5.png"
-    },
-    {
-      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\4\\6.png",
-      "PackagePath": "staticwebassets\\TContractImage\\4\\6.png"
-    },
-    {
       "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\5\\1.png",
       "PackagePath": "staticwebassets\\TContractImage\\5\\1.png"
     },
@@ -6247,30 +6239,6 @@
     {
       "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\5\\6.png",
       "PackagePath": "staticwebassets\\TContractImage\\5\\6.png"
-    },
-    {
-      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\6\\1.png",
-      "PackagePath": "staticwebassets\\TContractImage\\6\\1.png"
-    },
-    {
-      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\6\\2.png",
-      "PackagePath": "staticwebassets\\TContractImage\\6\\2.png"
-    },
-    {
-      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\6\\3.png",
-      "PackagePath": "staticwebassets\\TContractImage\\6\\3.png"
-    },
-    {
-      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\6\\4.png",
-      "PackagePath": "staticwebassets\\TContractImage\\6\\4.png"
-    },
-    {
-      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\6\\5.png",
-      "PackagePath": "staticwebassets\\TContractImage\\6\\5.png"
-    },
-    {
-      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TContractImage\\6\\6.png",
-      "PackagePath": "staticwebassets\\TContractImage\\6\\6.png"
     },
     {
       "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\TMinuteImage\\11\\1.png",
