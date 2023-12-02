@@ -118,12 +118,13 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
             else
             {
-                
+
                 DoneContract dContract = new DoneContract()
                 {
                     DateDone = DateTime.Now,
                     DConTractName = pContract.PContractName,
                     IsInEffect = true,
+                    DContractFile = "",
                     InstallationAddress = pContract.InstallationAddress,
                     EmployeeCreatedId = pContract.EmployeeCreatedId,
                     DirectorSignedId = pContract.DirectorSignedId,
@@ -158,7 +159,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                             return BadRequest();
                         }
 
-                        string qrCodePath = pContract.PContractFile.Replace(".pdf", ".png");
+                        string qrCodePath = pContract.PContractFile.Replace("_director_signed.pdf", ".png");
                         FileStream fs = new FileStream(pContract.PContractFile, FileMode.Open, FileAccess.Read);
                         fs.Close();
                         FileStream fs1 = new FileStream(qrCodePath, FileMode.Open, FileAccess.Read);

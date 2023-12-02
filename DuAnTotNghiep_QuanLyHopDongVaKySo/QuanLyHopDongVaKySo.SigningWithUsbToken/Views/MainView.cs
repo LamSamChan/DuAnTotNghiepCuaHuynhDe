@@ -231,7 +231,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 DoneContract doneContract = new DoneContract() { 
                     DConTractName = DataStore.Instance.PendingContract.PContractName,
                     PContractID = int.Parse(DataStore.Instance.PendingContract.PContractID),
-                    Base64File = base64String,
+                    Base64File = base64String+"*"+DataStore.Instance.Token,
                 };
                 int isSuccess = await sendDContractRepository.PostContract(doneContract);
                 if (isSuccess != 0)
