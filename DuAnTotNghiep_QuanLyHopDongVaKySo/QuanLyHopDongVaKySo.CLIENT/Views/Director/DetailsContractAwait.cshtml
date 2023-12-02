@@ -172,7 +172,7 @@
                                         <textarea asp-for="PContract.Reason" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                                     </div>
                                     <div class="col-mb-5" style="margin: auto;">
-                                        <button class="button-save" type="submit">
+                                        <button class="button-save" type="submit" onclick="loading()">
                                             Xác nhận
                                         </button>
                                     </div>
@@ -347,6 +347,24 @@
     </div>
 </div>
 <script>
+
+    const iconLoading = document.getElementById("loading");
+
+    const showLoading = () => {
+        iconLoading.style.display = "flex";
+    };
+
+    const hideLoading = () => {
+        iconLoading.style.display = "none";
+    };
+
+    const loading = () => {
+        showLoading(); // Show loading spinner when the button is clicked
+
+        setTimeout(() => {
+            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+        }, 1000);
+    };
     var imagePath;
 
     $(document).ready(function () {
@@ -375,6 +393,7 @@
     }
 
     function signWithSelectedImg(){
+       
         var signing = {
             Serial : '@Model.PFXCertificate.Serial',
             IdFile :'@Model.PContract.PContractID',
@@ -390,19 +409,31 @@
             contentType: 'application/json',
             data: JSON.stringify(signing),
             success: function (result) {
+                
                 if (!result.success) {
                     // Chuyển hướng tới trang mong muốn
                
                     Swal.fire({
                         icon: 'success',
-                        title: 'Lưu thành công!',
+                        title: 'Duyệt chữ ký thành công!',
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => {
                         var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
                         window.location.href = redirectToUrl;
                     });
+
                 }
+             else {
+                // SweetAlert for failure
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Duyệt chữ ký thất bại.',
+                    icon: 'error',
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'OK'
+                });
+            }
             },
             error: function (xhr, textStatus, error) {
 
@@ -423,6 +454,7 @@
 
     var defaultImg = '@Html.Raw(defaultImg)';
     function signWithDefaultImg() {
+     
         if (defaultImg == '') {
             Swal.fire({
                 icon: 'error',
@@ -450,9 +482,27 @@
                 data: JSON.stringify(signingDefault),
                 success: function (result) {
                     if (!result.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Thành công!',
+                            text: 'Duyệt chữ ký mặc định thành công!!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(() => {
+                            var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+                            window.location.href = redirectToUrl;
+                        });
                         // Chuyển hướng tới trang mong muốn
-                        var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
-                        window.location.href = redirectToUrl;
+                             else {
+                        // SweetAlert for failure
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Duyệt chữ ký mặc định thất bại.',
+                            icon: 'error',
+                            confirmButtonColor: '#d33',
+                            confirmButtonText: 'OK'
+                        });
+                    }
 
                         setTimeout(function () {
                             location.reload(true); 
@@ -461,9 +511,18 @@
                     }
                 },
                 error: function (xhr, status, error) {
-                    console.error('Lỗi khi gửi yêu cầu:', error);
+                    //console.error('Lỗi khi gửi yêu cầu:', error);
 
                     console.log(xhr);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Lỗi!',
+                        text: 'Lỗi khi gửi yêu cầu:', error,
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                       
+                    });
                 }
             });
         }
