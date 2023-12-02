@@ -384,6 +384,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             FileStream fs1 = new FileStream(qrCodePath, FileMode.Open, FileAccess.Read);
             fs1.Close();
             System.IO.File.Delete(qrCodePath);
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
             Directory.Delete($"AppData/PContracts/{pContract.PContractID}");
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(outputContract);

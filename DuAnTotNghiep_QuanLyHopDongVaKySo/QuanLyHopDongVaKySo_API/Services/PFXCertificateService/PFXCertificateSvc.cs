@@ -241,13 +241,12 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
                 signatureAppearance.Reason = "Ký hợp đồng";   
                 signatureAppearance.SignDate = DateTime.Now;
-                signatureAppearance.Acro6Layers = false;
                 // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
                 signatureAppearance.SignatureGraphic = iTextSharp.text.Image.GetInstance(imagePath);
 
                 if (typeDoc == "contract")
                 {
-                    signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 35, yCoodinate - 45 - 35, xCoordinate - 100 + 50, yCoodinate - 45 + 50), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
+                    signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 15 , yCoodinate - 45 - 15, xCoordinate - 100 + 70 +15, yCoodinate - 45 + 70 + 15), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
                 }
                 else
