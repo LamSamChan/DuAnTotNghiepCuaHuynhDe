@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+    var isFirstRun = true; // Biến để kiểm tra lần đầu chạy
+
     // Handle menu button click
     $(".menu-btn").click(function () {
         $(".sidebar").toggleClass("active");
@@ -32,10 +34,21 @@
         e.stopPropagation();
     });
 
-
     var activeMenuItemIndex = localStorage.getItem("activeMenuItem");
-    if (activeMenuItemIndex !== null) {
+    if (activeMenuItemIndex !== null && isFirstRun) {
+        // Remove the "active" class from all menu items
+        $(".menu > ul > li").removeClass("active");
+        // Remove the "active" class from all sub-menu items
+        $(".menu .sub-menu li").removeClass("active");
+
+        // Add the "active" class only to the specified menu item
         $(".menu > ul > li").eq(parseInt(activeMenuItemIndex)).addClass("active");
         $(".menu > ul > li").eq(parseInt(activeMenuItemIndex)).find("ul").slideDown();
+
+        isFirstRun = false; // Đánh dấu đã chạy lần đầu
     }
+    // Add a function to clear localStorage on beforeunload
+    $(window).on("beforeunload", function () {
+        localStorage.removeItem("activeMenuItem");
+    });
 });
