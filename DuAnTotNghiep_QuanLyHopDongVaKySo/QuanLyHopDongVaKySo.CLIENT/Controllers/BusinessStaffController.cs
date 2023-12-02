@@ -372,7 +372,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<IActionResult> AddTContract(API.PostTContract tContract)
         {
-            if (IsAuthenticate != 3 || IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
+            if (IsAuthenticate != 3 && IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             IFormFile temp = null;
             if (tContract.File != null)
             {
@@ -432,7 +432,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
                 TempData["SweetTitle"] = "Thêm mẫu hợp đồng bị lỗi!!";
-                return RedirectToAction("AddCus");
+                return RedirectToAction("ListContractFormPage");
             }
         }
 
