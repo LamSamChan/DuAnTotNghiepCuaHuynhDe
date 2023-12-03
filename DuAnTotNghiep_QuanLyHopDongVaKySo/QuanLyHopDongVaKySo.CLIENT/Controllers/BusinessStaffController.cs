@@ -199,10 +199,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             pContract.EmployeeCreatedId = Guid.Parse(HttpContext.Session.GetString(SessionKey.Employee.EmployeeID));
 
             var respone = await _pContractService.addAsnyc(pContract);
-            string[] split = respone.Split('*');
-            string pdfPath = null;
+            
             if (respone != null)
             {
+                string[] split = respone.Split('*');
+                string pdfPath = null;
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "pcontract");
