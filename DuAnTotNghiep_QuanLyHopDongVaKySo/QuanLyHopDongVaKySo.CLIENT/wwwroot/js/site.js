@@ -19,8 +19,8 @@
         $(this).siblings().find("ul").slideUp();
         // Remove active class from sub-menu items
         $(this).siblings().find("ul").find("li").removeClass("active");
-        // Save active menu item to localStorage
-        localStorage.setItem("activeMenuItem", $(this).index().toString());
+        // Save active menu item to sessionStorage
+        sessionStorage.setItem("activeMenuItem", $(this).index().toString());
 
         e.stopPropagation();
     });
@@ -34,7 +34,7 @@
         e.stopPropagation();
     });
 
-    var activeMenuItemIndex = localStorage.getItem("activeMenuItem");
+    var activeMenuItemIndex = sessionStorage.getItem("activeMenuItem");
     if (activeMenuItemIndex !== null && isFirstRun) {
         // Remove the "active" class from all menu items
         $(".menu > ul > li").removeClass("active");
@@ -47,8 +47,4 @@
 
         isFirstRun = false; // Đánh dấu đã chạy lần đầu
     }
-    // Add a function to clear localStorage on beforeunload
-    $(window).on("beforeunload", function () {
-        localStorage.removeItem("activeMenuItem");
-    });
 });

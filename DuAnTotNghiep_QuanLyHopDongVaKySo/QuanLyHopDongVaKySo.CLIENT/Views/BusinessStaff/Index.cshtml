@@ -416,7 +416,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputRole" class="form-label">Vai trò</label>
-                        <input type="text" class="form-control text-info border-info" id="inputRole" readonly value=" @foreach (var r in Model.Roles)
+                        <input type="text" class="form-control border border-2 border-primary  outline-0 shadow-lg" id="inputRole" readonly value=" @foreach (var r in Model.Roles)
                                {
                                     if(r.RoleID == Model.Employee.RoleID)
                                     {
@@ -427,7 +427,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputPosition" class="form-label">Chức danh</label>
-                        <input type="text" class="form-control text-info border-info" id="inputPosition" readonly value="@foreach (var p in Model.Positions)
+                        <input type="text" class="form-control " id="inputPosition" readonly value="@foreach (var p in Model.Positions)
                                {
                                     if(p.PositionID == Model.Employee.PositionID)
                                     {
@@ -493,11 +493,11 @@
                     <div class="col-md-7">
                         @await Component.InvokeAsync("SignControl")
                     </div>
-                    <div class="col-md-4" id="action_Sign">
+                    <div class="col-md-4 d-flex flex-column" id="action_Sign">
                         <div class="form-inline" style="">
-                            <input type="button" id="btnUndo" class="button-design" onclick="UndoSignature('ctlSignature');" value="Hoàn tác" />&nbsp;
-                            <input type="button" id="btnClear" class="button-delete" onclick="ClearSignature('ctlSignature');" value="Xóa" />&nbsp;
-                            <input type="button" id="btnSave" class="button-save" onclick="ValidateSign();" value="Tạo" />&nbsp;
+                            <input type="button" id="btnUndo" class="btn btn-primary" onclick="UndoSignature('ctlSignature');" value="Hoàn tác" />&nbsp;
+                            <input type="button" id="btnClear" class="btn btn-danger" onclick="ClearSignature('ctlSignature');" value="Xóa" />&nbsp;
+                            <input type="button" id="btnSave" class="btn btn-success" onclick="ValidateSign();" value="Tạo" />&nbsp;
                         </div>
                     </div>
                 </div>
