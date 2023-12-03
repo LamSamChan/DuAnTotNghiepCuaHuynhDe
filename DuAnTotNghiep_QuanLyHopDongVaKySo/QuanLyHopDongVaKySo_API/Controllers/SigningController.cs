@@ -678,7 +678,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContract.DContractID}");
             }
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute.Replace("_installer_signed.pdf",".pdf"), certi.Serial, customerZone.X - 50, customerZone.Y - 700 - 50,"minute");
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute.Replace("_installer_signed.pdf",".pdf"), certi.Serial, customerZone.X - 20, customerZone.Y - 700 - 20,"minute");
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(outputMinute.Replace("_installer_signed.pdf", ".pdf"));
             string base64String = Convert.ToBase64String(fileBytes);
@@ -758,7 +758,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
 
             //url locallhost
-           // var url = $"https://localhost:7063/Customer/CusToSign?token={token}";
+            //var url = $"https://localhost:7063/Customer/CusToSign?token={token}";
 
             //url servcer
             var url = $"https://techseal.azurewebsites.net/Customer/CusToSign?token={token}";

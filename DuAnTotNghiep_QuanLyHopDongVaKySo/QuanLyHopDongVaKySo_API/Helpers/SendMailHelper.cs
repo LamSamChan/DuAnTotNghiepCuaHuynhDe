@@ -192,7 +192,7 @@ namespace QuanLyHopDongVaKySo_API.Helpers
 
                 var response = await client.ExecuteAsync(request);
 
-                var json = JObject.Parse(response.Content);
+               var json = JObject.Parse(response.Content);
 
                 return json.ToString();
             }

@@ -10,6 +10,7 @@ using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
 using VMAPI = QuanLyHopDongVaKySo_API.ViewModels;
 using API = QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using QuanLyHopDongVaKySo.CLIENT.Constants;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -49,9 +50,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             if (dContract.Base64File != null)
             {
+                string[] splitBase64 = dContract.Base64File.Split('*');
+                HttpContext.Session.SetString(SessionKey.Customer.CustomerToken, splitBase64[1]);
+
                 var customerID = _pContractService.getByIdAsnyc(dContract.PContractID.ToString()).Result.CustomerId;
                 var customerDoing = await _customerService.GetCustomerById(customerID);
-                var result = await _dContractsService.SignContractWithUSBToken(dContract);
+
+                DoneContract dContract2 = new DoneContract()
+                {
+                    PContractID = dContract.PContractID,
+                    DConTractName = dContract.DConTractName,
+                    Base64File = splitBase64[0]
+                };
+                var result = await _dContractsService.SignContractWithUSBToken(dContract2);
 
                 if (result == null)
                 {
