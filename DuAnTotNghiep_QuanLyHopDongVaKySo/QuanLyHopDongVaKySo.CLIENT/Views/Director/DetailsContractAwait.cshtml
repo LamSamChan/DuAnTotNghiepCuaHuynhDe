@@ -133,6 +133,29 @@
                             </div>
                         </div>
                     </div>
+                    <script type="text/javascript">
+                        var imagePath = '';
+
+                        function enableButton(buttonId, imageContainer, imageSelected) {
+                            imagePath = imageSelected;
+
+                            // Lấy button và hình ảnh được chọn
+                            var button = document.getElementById(buttonId);
+
+                            // Loại bỏ thuộc tính disabled nếu hình ảnh được chọn
+                            button.removeAttribute('disabled');
+
+                            // Loại bỏ lớp 'selected' từ tất cả các hình ảnh khác
+                            var allImageContainers = document.querySelectorAll('.image-container');
+                            allImageContainers.forEach(function (container) {
+                                container.classList.remove('selected');
+                            });
+
+                            // Thêm lớp 'selected' cho hình ảnh được chọn để tạo hiệu ứng
+                            imageContainer.classList.add('selected');
+                        }
+
+                    </script>
                 </div>
             </div>
         </div>

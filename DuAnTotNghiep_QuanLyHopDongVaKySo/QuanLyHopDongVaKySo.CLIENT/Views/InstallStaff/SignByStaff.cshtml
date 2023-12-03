@@ -128,17 +128,17 @@
                 </ol>
             </nav>
             <h1 class="typeHead">KÝ XÁC NHẬN</h1>
-            <div class="row justify-content-around">
+            <div class="row justify-content-between">
                 <a class="col-md-2 button-design" asp-action="ListInStallRecord" asp-controller="InstallStaff">
                     <i class="ph-bold ph-arrow-left">
                     </i>
                     QUAY LẠI
                 </a>
                 <div class="col-md-3 offset-md-6 d-flex justify-content-end">
-                    <a class="button-design col-md-2" asp-action="SignByCus" asp-route-pMinuteID="@Model.PMinute.PendingMinuteId">
+                    <a class="button-design col-md-8" asp-action="SignByCus" asp-route-pMinuteID="@Model.PMinute.PendingMinuteId">
                         CHUYỂN VÙNG KHÁCH KÝ
                     </a>
-                    <a class="button-save col-md-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <a class="button-save col-md-6" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         KÝ XÁC NHẬN
                     </a>
                 </div>
@@ -157,31 +157,31 @@
                                     @if (Model.PFXCertificate.ImageSignature1 != null)
                                     {
                                         <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")')">
-                                            <img src="~/@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")" width="400" height="200" />
+                                            <img src="~/@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")" width="390" height="200" />
                                         </li>
                                     }
                                     @if (Model.PFXCertificate.ImageSignature2 != null)
                                     {
                                         <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")')">
-                                            <img src="~/@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")" width="400" height="200" />
+                                            <img src="~/@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")" width="390" height="200" />
                                         </li>
                                     }
                                     @if (Model.PFXCertificate.ImageSignature3 != null)
                                     {
                                         <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")')">
-                                            <img src="~/@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")" width="400" height="200" />
+                                            <img src="~/@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")" width="390" height="200" />
                                         </li>
                                     }
                                     @if (Model.PFXCertificate.ImageSignature4 != null)
                                     {
                                         <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")')">
-                                            <img src="~/@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")" width="400" height="200" />
+                                            <img src="~/@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")" width="390" height="200" />
                                         </li>
                                     }
                                     @if (Model.PFXCertificate.ImageSignature5 != null)
                                     {
                                         <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")')">
-                                            <img src="~/@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")" width="400" height="200" />
+                                            <img src="~/@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")" width="390" height="200" />
                                         </li>
                                     }
                                 </ul>
@@ -233,51 +233,51 @@
             <form class="row g-3" style="max-width:950px;">
                 <div class="col-md-6">
                     <label for="inputName" class="form-label">Họ và tên</label>
-                    <input type="text" class="form-input" id="inputName" placeholder="Họ và tên" readonly asp-for="Customer.FullName">
+                    <input type="text" class="form-control" id="inputName" placeholder="Họ và tên" readonly asp-for="Customer.FullName">
                 </div>
                 <div class="col-md-3">
                     <label for="inputState" class="form-label">Giới tính</label>
                     @if (Model.Customer.Gender == 1)
                     {
-                        <input type="text" class="form-input" id="inputName" readonly value="Nam">
+                        <input type="text" class="form-control" id="inputName" readonly value="Nam">
                     }
                     else
                     {
-                        <input type="text" class="form-input" id="inputName" readonly value="Nữ">
+                        <input type="text" class="form-control" id="inputName" readonly value="Nữ">
                     }
                 </div>
                 <div class="col-md-6">
                     <label for="inputCCCD" class="form-label">CCCD/CMND</label>
-                    <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND" readonly asp-for="Customer.Identification">
+                    <input type="text" class="form-control" id="inputCCCD" placeholder="CCCD/CMND" readonly asp-for="Customer.Identification">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="inputPhone" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại" readonly asp-for="Customer.PhoneNumber">
+                    <input type="text" class="form-control" id="inputPhone" placeholder="Số điện thoại" readonly asp-for="Customer.PhoneNumber">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email" readonly asp-for="Customer.Email">
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Địa chỉ Email" readonly asp-for="Customer.Email">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="inputAddress" class="form-label">Nơi ở</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở" readonly asp-for="Customer.Address">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Địa chỉ nơi ở" readonly asp-for="Customer.Address">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" readonly value="@ViewBag.DContracID">
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" readonly value="@ViewBag.DContracID">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" readonly value="@ViewBag.ServiceName">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" readonly value="@ViewBag.ServiceName">
 
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Ngày tạo</label>
-                    <input class="form-input" id="inputEmail4" placeholder="IDxxx" readonly asp-for="PMinute.DateCreated">
+                    <input class="form-control" id="inputEmail4" placeholder="IDxxx" readonly asp-for="PMinute.DateCreated">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
-                    <input class="form-input" id="inputEmail4" placeholder="IDxxx" readonly asp-for="PMinute.PendingMinuteId">
+                    <input class="form-control" id="inputEmail4" placeholder="IDxxx" readonly asp-for="PMinute.PendingMinuteId">
                 </div>
             </form>
         </div>
