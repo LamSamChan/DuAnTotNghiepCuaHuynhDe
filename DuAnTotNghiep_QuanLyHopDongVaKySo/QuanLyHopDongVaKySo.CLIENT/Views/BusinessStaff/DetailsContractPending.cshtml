@@ -9,7 +9,7 @@
     // Lấy link trực ảnh từ file tỉnh
     List<string> imageFilesContract = new List<string>();
     string fileDMinuteNull = "Resource/Image/empty.png";
-    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
 
     string? folderItemContract = System.IO.Path.Combine(folderPath, Model.PendingContracts.PContractID);
 

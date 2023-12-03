@@ -7,8 +7,8 @@
     List<string> imageFilesContract = new List<string>();
     string fileDMinuteNull = "Resource/Image/empty.png";
 
-    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
-    string folderPathDMinute = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage"); // + thêm ID của minute
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
+    string folderPathDMinute = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PMinuteImage"); // + thêm ID của minute
     string? folderItemDMinute = null;
     if (Model.DoneMinutes != null)
     {
@@ -104,7 +104,7 @@
                                         @foreach (var imgPath in imageFilesContract)
                                         {
                                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                                <img src="@Url.Content("~/ContractImage/"+Model.DoneContracts.Id+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                                <img src="@Url.Content("~/PContractImage/"+Model.DoneContracts.Id+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                                             </div>
                                         }
                                     else

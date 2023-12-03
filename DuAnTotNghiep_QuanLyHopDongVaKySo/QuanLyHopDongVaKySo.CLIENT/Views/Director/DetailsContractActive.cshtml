@@ -7,7 +7,7 @@
     // Lấy link trực ảnh từ file tỉnh
     List<string> imageFilesContract = new List<string>();
     string fileDMinuteNull = "Resource/Image/empty.png";
-    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
 
     string? folderItemContract = System.IO.Path.Combine(folderPath, Model.PContract.PContractID);
 
@@ -18,7 +18,7 @@
 
 
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
-
+    
 }
 <div class="container-fluid">
     @if(userRole == "Admin")
@@ -77,7 +77,7 @@
                             @foreach (var imgPath in imageFilesContract)
                             {
                                 <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                    <img src="@Url.Content("~/ContractImage/"+Model.PContract.PContractID+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                    <img src="@Url.Content("~/PContractImage/"+Model.PContract.PContractID+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                                 </div>
                             }
                         else
