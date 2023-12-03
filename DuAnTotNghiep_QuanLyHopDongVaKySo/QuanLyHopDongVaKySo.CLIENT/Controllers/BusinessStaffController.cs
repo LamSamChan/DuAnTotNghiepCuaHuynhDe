@@ -488,7 +488,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var respone = await _tContractService.DeleteTContract(tContractId);
             if (respone != 0)
             {
-                string directoryPath = Path.Combine(_hostingEnvironment.WebRootPath, "TContractImage", tContractId.ToString());
+                string directoryPath = Path.Combine(_hostingEnvironment.WebRootPath +"\\" + "TContractImage", tContractId.ToString());
                 string[] filePaths = Directory.GetFiles(directoryPath);
                 foreach (var item in filePaths)
                 {
@@ -635,7 +635,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var respone = await _tMinuteService.DeleteTMinute(tMinuteId);
             if (respone != 0)
             {
-                string directoryPath = Path.Combine(_hostingEnvironment.WebRootPath, "TMinuteImage", tMinuteId.ToString());
+                string directoryPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\" + "TMinuteImage", tMinuteId.ToString());
                 string[] filePaths = Directory.GetFiles(directoryPath);
                 foreach (var item in filePaths)
                 {
