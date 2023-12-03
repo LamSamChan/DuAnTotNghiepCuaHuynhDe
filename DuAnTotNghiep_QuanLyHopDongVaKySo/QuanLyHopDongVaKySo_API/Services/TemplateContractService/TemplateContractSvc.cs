@@ -15,14 +15,14 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
             _context = context;
             _uploadFileHelper = uploadFileHelper;
         }
-        public async Task<int> addAsnyc(PostTContract tContract,string filePath)
+        public async Task<int> addAsnyc(PostTContract tContract)
         {
             try{
                 TemplateContract add = new TemplateContract()
                 {
                     DateAdded = DateTime.Now,
                     TContractName = tContract.TContractName,
-                    TContractFile = filePath,
+                    TContractFile = @"AppData/TContracts/"+tContract.TContractName + ".pdf",
                     jsonCustomerZone = null,
                     jsonDirectorZone = null,
                     Base64File = tContract.Base64StringFile

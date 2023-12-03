@@ -5,7 +5,7 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateContractService
     {
         Task<List<TemplateContract>> getAllAsnyc();
         Task<TemplateContract> getByIdAsnyc(int id);
-        Task<int> addAsnyc(PostTContract tContract,string filePath);
+        Task<int> addAsnyc(PostTContract tContract);
         Task<int> updateAsnyc (PutTContract tContract);
         Task<bool> deleteAsnyc (int id);
     }

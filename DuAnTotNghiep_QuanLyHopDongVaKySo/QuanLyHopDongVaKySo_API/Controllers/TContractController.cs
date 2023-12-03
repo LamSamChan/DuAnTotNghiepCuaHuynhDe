@@ -80,24 +80,17 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 {
                     return BadRequest();
                 }
+                int id_Tcontract = await _TContractSvc.addAsnyc(tContract);
                 string filePath = null;
-
-                IFormFile file = _helpers.ConvertBase64ToIFormFile(tContract.Base64StringFile, tContract.TContractName, "application/pdf");
-                filePath = _helpers.UploadFile(file, "AppData", "TContracts", ".pdf");
-                int pageNum = 0;
-                doc.LoadFromFile(filePath);
-
-                int id_Tcontract = await _TContractSvc.addAsnyc(tContract,filePath);
-               
                 float X = 0; float Y = 0;
                 if (id_Tcontract > 0)
                 {
                     if (tContract.Base64StringFile != null)
                     {
-                        /*IFormFile file = _helpers.ConvertBase64ToIFormFile(tContract.Base64StringFile, tContract.TContractName, "application/pdf");
+                        IFormFile file = _helpers.ConvertBase64ToIFormFile(tContract.Base64StringFile, tContract.TContractName, "application/pdf");
                         filePath = _helpers.UploadFile(file, "AppData", "TContracts", ".pdf");
                         int pageNum = 0;
-                        doc.LoadFromFile(filePath);*/
+                        doc.LoadFromFile(filePath);
 
                         int i = 1;
                         bool bearkForeach = false;
