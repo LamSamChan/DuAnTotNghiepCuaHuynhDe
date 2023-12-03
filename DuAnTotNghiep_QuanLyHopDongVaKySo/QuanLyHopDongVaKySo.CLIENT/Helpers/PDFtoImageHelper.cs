@@ -1,4 +1,5 @@
-﻿using Ghostscript.NET.Rasterizer;
+﻿using Ghostscript.NET;
+using Ghostscript.NET.Rasterizer;
 using iTextSharp.text.pdf;
 using Spire.Pdf.Graphics;
 using System.Drawing.Imaging;
@@ -60,11 +61,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
 
             List<string> output = new List<string>();
             string outputDirectoryPath = null;
+
+            string ghostScriptVer = Path.Combine(_hostingEnvironment.WebRootPath, "Resource", "gsdll32.dll");
+            //string ghostScriptVer = Path.Combine(_hostingEnvironment.WebRootPath, "Resource", "gsdll64.dll");
+
+            GhostscriptVersionInfo gvi = new GhostscriptVersionInfo(ghostScriptVer);
+
             using (var rasterizer = new GhostscriptRasterizer()) //create an instance for GhostscriptRasterizer
             {
                 string categoryPath = null;
                 //locallhost
-                rasterizer.Open(inputFile); //opens the PDF file for rasterizing
+                rasterizer.Open(inputFile, gvi,true); //opens the PDF file for rasterizing
                 if (typeDoc == "minute")
                 {
                     categoryPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\MinuteImage");
