@@ -193,7 +193,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Đăng nhập không thành công !!";
+                TempData["SweetTitle"] = "Đăng nhập thất bại, kiểm tra lại thông tin đăng nhập !!";
                 return RedirectToAction("Index");
             }
         }
