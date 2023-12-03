@@ -319,7 +319,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     //báo lỗi ko tải lên file ảnh
                     TempData["SweetType"] = "error";
                     TempData["SweetIcon"] = "error";
-                    TempData["SweetTitle"] = "Tải lên file ảnh bị lỗi!!";
+                    TempData["SweetTitle"] = "Tải lên file ảnh thất bại, kiểm tra lại thông tin file ảnh!!";
                     RedirectToAction("AddEmpAccount");
                 }
             }
@@ -630,7 +630,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     //báo lỗi ko có mộc
                     TempData["SweetType"] = "error";
                     TempData["SweetIcon"] = "error";
-                    TempData["SweetTitle"] = "Ký thất bại!!";
+                    TempData["SweetTitle"] = "Ký thất bại, kiểm tra lại thông tin ký!!";
                     return RedirectToAction("ListContractAwait");
                 }
             }
