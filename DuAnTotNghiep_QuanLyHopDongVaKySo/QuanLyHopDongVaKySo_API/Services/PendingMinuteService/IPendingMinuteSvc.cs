@@ -12,5 +12,8 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
         Task<MinuteInfo> ExportMinute(PendingMinute pMinute,string empId);
         Task<int> updatePMinuteFile(int id, string File,string base64String);
         Task<string> updateAsnyc(PutPMinute pMinute);
+
+        Task<PendingMinute> getByIdForWinformAsnyc(int id, string cusId);
+
     }
 }

@@ -10,5 +10,6 @@ namespace QuanLyHopDongVaKySo_API.Services.TemplateMinuteService
         Task<int> addAsnyc(PostTMinute tMinute);
         Task<int> updateAsnyc(PutTMinute tMinute);
         Task<bool> deleteAsnyc(int id);
+
     }
 }

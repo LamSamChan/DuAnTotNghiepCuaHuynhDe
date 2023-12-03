@@ -199,10 +199,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             pContract.EmployeeCreatedId = Guid.Parse(HttpContext.Session.GetString(SessionKey.Employee.EmployeeID));
 
             var respone = await _pContractService.addAsnyc(pContract);
-            string[] split = respone.Split('*');
-            string pdfPath = null;
+            
             if (respone != null)
             {
+                string[] split = respone.Split('*');
+                string pdfPath = null;
                 IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "pcontract");
@@ -487,7 +488,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var respone = await _tContractService.DeleteTContract(tContractId);
             if (respone != 0)
             {
-                string directoryPath = Path.Combine(_hostingEnvironment.WebRootPath, "TContractImage", tContractId.ToString());
+                string directoryPath = Path.Combine(_hostingEnvironment.WebRootPath +"\\" + "TContractImage", tContractId.ToString());
                 string[] filePaths = Directory.GetFiles(directoryPath);
                 foreach (var item in filePaths)
                 {
@@ -634,7 +635,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             var respone = await _tMinuteService.DeleteTMinute(tMinuteId);
             if (respone != 0)
             {
-                string directoryPath = Path.Combine(_hostingEnvironment.WebRootPath, "TMinuteImage", tMinuteId.ToString());
+                string directoryPath = Path.Combine(_hostingEnvironment.WebRootPath + "\\" + "TMinuteImage", tMinuteId.ToString());
                 string[] filePaths = Directory.GetFiles(directoryPath);
                 foreach (var item in filePaths)
                 {

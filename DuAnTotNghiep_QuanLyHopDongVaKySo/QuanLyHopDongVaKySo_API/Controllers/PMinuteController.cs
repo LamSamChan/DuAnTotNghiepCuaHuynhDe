@@ -59,6 +59,17 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(await _pMinuteSvc.GetListByEmpId(id));
         }
 
+        [HttpGet("GetForWinForm/{customerId}/{id}")]
+        public async Task<IActionResult> GetPContractWinForm(string customerId, int id)
+        {
+            var result = await _pMinuteSvc.getByIdForWinformAsnyc(id, customerId);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
         [HttpPost]
         public async Task<IActionResult> GetTaskFormIRequirement([FromBody] PostGetTaskFromIR task)
         {
