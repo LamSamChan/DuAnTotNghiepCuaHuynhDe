@@ -1,4 +1,5 @@
-﻿using Ghostscript.NET.Rasterizer;
+﻿using Ghostscript.NET;
+using Ghostscript.NET.Rasterizer;
 using iTextSharp.text.pdf;
 using Microsoft.AspNetCore.Http;
 using System.Drawing.Imaging;
@@ -25,6 +26,7 @@ namespace QuanLyHopDongVaKySo_API.Helpers
             fs.Close();
             List<string> output = new List<string>();
             string outputDirectoryPath = null;
+            
             using (var rasterizer = new GhostscriptRasterizer()) //create an instance for GhostscriptRasterizer
             {
 

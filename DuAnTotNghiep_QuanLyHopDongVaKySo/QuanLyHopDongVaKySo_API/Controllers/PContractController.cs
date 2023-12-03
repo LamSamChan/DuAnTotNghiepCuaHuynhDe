@@ -11,6 +11,7 @@ using QuanLyHopDongVaKySo_API.Services.PendingContractService;
 using QuanLyHopDongVaKySo_API.Services.TemplateContractService;
 using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
 using QuanLyHopDongVaKySo_API.Services.DoneContractService;
+
 using System.Reflection;
 using Microsoft.AspNetCore.Authorization;
 
@@ -30,9 +31,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IDoneContractSvc _doneContractSvc;
         public PContractController(IPendingContractSvc PContractSvc, ICustomerSvc CustomerSvc,
          ITemplateContractSvc TContractSvc, IContractCoordinateSvc CCoordinateSvc, IPdfToImageHelper pdfToImageHelper,
-         ITypeOfServiceSvc typeOfServiceSvc, IDoneContractSvc doneContractSvc
-            )
+         ITypeOfServiceSvc typeOfServiceSvc, IDoneContractSvc doneContractSvc)
         {
+            
             _PContractSvc = PContractSvc;
             _CustomerSvc = CustomerSvc;
             _TContractSvc = TContractSvc;
@@ -64,7 +65,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 string id_Pcontract = await _PContractSvc.addAsnyc(pContract);
 
                 var contractById = await _PContractSvc.getByIdAsnyc(int.Parse(id_Pcontract));
-
+                
                 var contract = await _PContractSvc.ExportContract(contractById, emp);
                 if (contract != null)
                 {
