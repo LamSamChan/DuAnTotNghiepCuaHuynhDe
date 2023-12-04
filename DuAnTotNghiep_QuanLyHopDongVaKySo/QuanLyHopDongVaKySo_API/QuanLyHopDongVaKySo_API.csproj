@@ -63,6 +63,7 @@
     <Folder Include="AppData\TContracts\" />
     <Folder Include="AppData\PContracts\" />
     <Folder Include="AppData\SignatureImages\" />
-	<Folder Include="AppData\Font\" />
+	  <Folder Include="AppData\Font\" />
+
   </ItemGroup>
 </Project>
