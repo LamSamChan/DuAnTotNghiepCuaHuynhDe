@@ -157,7 +157,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             PdfReader pdfReader = new PdfReader(tContract.TContractFile);
             PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(pContract.PContractFile, FileMode.Create));
             // Tạo một font cho trường văn bản
-            BaseFont bf1 = BaseFont.CreateFont(@"AppData/Font/texgyretermes-regular.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            BaseFont bf1 = BaseFont.CreateFont(@"bin\Debug\net7.0\texgyretermes-regular.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
             // Thiết lập font và kích thước cho trường văn bản
             Font font1 = new Font(bf1, 10);
             var contract = await _pendingContract.ExportContract(pContract, director);
@@ -185,7 +185,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 }
             }
 
-            BaseFont bf2 = BaseFont.CreateFont(@"AppData/Font/texgyretermes-bold.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            BaseFont bf2 = BaseFont.CreateFont(@"bin\Debug\net7.0\texgyretermes-bold.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
             // Thiết lập font và kích thước cho trường văn bản
             Font font2 = new Font(bf2, 15);
 
@@ -516,7 +516,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             PdfReader pdfReader = new PdfReader(tMinute.TMinuteFile);
             PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(pMinute.MinuteFile, FileMode.Create));
             // Tạo một font cho trường văn bản
-            BaseFont bf1 = BaseFont.CreateFont(@"AppData/Font/texgyretermes-regular.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            BaseFont bf1 = BaseFont.CreateFont(@"bin\Debug\net7.0\texgyretermes-regular.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
             // Thiết lập font và kích thước cho trường văn bản
             Font font1 = new Font(bf1, 10);
             var minute = await _pendingMinuteSvc.ExportMinute(pMinute, installer.EmployeeId.ToString());
