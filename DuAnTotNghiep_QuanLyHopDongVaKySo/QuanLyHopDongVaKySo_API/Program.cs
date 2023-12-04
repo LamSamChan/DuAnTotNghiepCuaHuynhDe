@@ -66,7 +66,6 @@ builder.Services.AddScoped<IRandomPasswordHelper, RandomPasswordHelper>();
 builder.Services.AddScoped<IOTPGeneratorHelper, OTPGeneratorHelper>();
 builder.Services.AddScoped<IContractCoordinateSvc, ContractCoordinateSvc>();
 builder.Services.AddScoped<IMinuteCoordinateSvc, MinuteCoordinateSvc>();
-builder.Services.AddScoped<IPdfToImageHelper, PdfToImageHelper>();
 builder.Services.AddScoped<IStampSvc, StampSvc>();
 
 

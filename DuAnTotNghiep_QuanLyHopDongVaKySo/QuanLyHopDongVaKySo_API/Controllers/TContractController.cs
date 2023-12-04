@@ -18,14 +18,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly ITemplateContractSvc _TContractSvc;
         private readonly IContractCoordinateSvc _contractCoordinateSvc;
         private readonly IUploadFileHelper _helpers;
-        private readonly IPdfToImageHelper _pdfToImgHelpers;
 
-        public TContractController(ITemplateContractSvc TContractSvc, IUploadFileHelper helpers, IContractCoordinateSvc contractCoordinateSvc, IPdfToImageHelper pdfToImgHelpers)
+        public TContractController(ITemplateContractSvc TContractSvc, IUploadFileHelper helpers, IContractCoordinateSvc contractCoordinateSvc)
         {
             _TContractSvc = TContractSvc;
             _helpers = helpers;
             _contractCoordinateSvc = contractCoordinateSvc;
-            _pdfToImgHelpers = pdfToImgHelpers;
         }
 
         /// <summary>

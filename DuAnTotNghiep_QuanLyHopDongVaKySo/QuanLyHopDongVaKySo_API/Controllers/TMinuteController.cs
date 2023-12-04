@@ -21,13 +21,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly ITemplateMinuteSvc _TMinuteSvc;
         private readonly IUploadFileHelper _helpers;
         private readonly IMinuteCoordinateSvc _mCoordinateSvc;
-        private readonly IPdfToImageHelper _pdfToImageHelper;
-        public TMinuteController(ITemplateMinuteSvc TMinuteSvc,IUploadFileHelper helpers, IMinuteCoordinateSvc mCoordinateSvc, IPdfToImageHelper pdfToImageHelper)
+        public TMinuteController(ITemplateMinuteSvc TMinuteSvc,IUploadFileHelper helpers, IMinuteCoordinateSvc mCoordinateSvc)
         {
             _TMinuteSvc = TMinuteSvc;
             _helpers = helpers;
             _mCoordinateSvc = mCoordinateSvc;
-            _pdfToImageHelper = pdfToImageHelper;
         }
 
         /// <summary>
@@ -122,7 +120,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                                 break;
                             }
                         }
-                        _pdfToImageHelper.PdfToPng(filePath, id_Tminute, "tminute");
                         return Ok(id_Tminute);
                     }
                 }

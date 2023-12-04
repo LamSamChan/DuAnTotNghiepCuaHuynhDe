@@ -27,10 +27,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly ITypeOfServiceSvc _typeOfServiceSvc;
         private readonly IDoneContractSvc _doneContractSvc;
         private readonly IInstallationRequirementSvc _installationRequirementSvc;
-        private readonly IPdfToImageHelper _pdfToImageHelper;
 
         public PMinuteController(IPendingMinuteSvc pMinuteSvc, ITemplateMinuteSvc tMinuteSvc, IMinuteCoordinateSvc mCoordinateSvc,
-            ITypeOfServiceSvc typeOfServiceSvc, IDoneContractSvc doneContractSvc, IInstallationRequirementSvc installationRequirementSvc, IPdfToImageHelper pdfToImageHelper)
+            ITypeOfServiceSvc typeOfServiceSvc, IDoneContractSvc doneContractSvc, IInstallationRequirementSvc installationRequirementSvc)
         {
             _pMinuteSvc = pMinuteSvc;
             _tMinuteSvc = tMinuteSvc;
@@ -38,7 +37,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _typeOfServiceSvc = typeOfServiceSvc;
             _doneContractSvc = doneContractSvc;
             _installationRequirementSvc = installationRequirementSvc;
-            _pdfToImageHelper = pdfToImageHelper;
         }
 
         [HttpGet]

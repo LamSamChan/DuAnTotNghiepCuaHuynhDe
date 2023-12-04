@@ -47,7 +47,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IInstallationRequirementSvc _requirementSvc;
         private readonly IConfiguration _configuration;
         private readonly IGenerateQRCodeHelper _generateQRCodeHelper;
-        private readonly IPdfToImageHelper _pdfToImageHelper;
         private readonly IUploadFileHelper _uploadFileHelper;
         private readonly ISendMailHelper _sendMailHelper;
         private readonly ITypeOfServiceSvc _typeOfServiceSvc;
@@ -57,7 +56,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         public SigningController(IPFXCertificateSvc pfxCertificate, IInstallationRequirementSvc requirementSvc, IDoneContractSvc dContractSvc,
             IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc,
-            IGenerateQRCodeHelper generateQRCodeHelper, IConfiguration configuration, IPdfToImageHelper pdfToImageHelper, IUploadFileHelper uploadFileHelper,
+            IGenerateQRCodeHelper generateQRCodeHelper, IConfiguration configuration,  IUploadFileHelper uploadFileHelper,
             ISendMailHelper sendMailHelper, IContractCoordinateSvc contractCoordinateSvc, ITypeOfServiceSvc typeOfServiceSvc, 
             IPendingMinuteSvc pendingMinuteSvc, ITemplateMinuteSvc templateMinuteSvc, IMinuteCoordinateSvc minuteCoordinateSvc, IDoneMinuteSvc doneMinuteSvc)
         {
@@ -70,7 +69,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _requirementSvc = requirementSvc;
             _configuration = configuration;
             _generateQRCodeHelper = generateQRCodeHelper;
-            _pdfToImageHelper = pdfToImageHelper;
             _uploadFileHelper = uploadFileHelper;
             _sendMailHelper = sendMailHelper;
             _contractCoordinateSvc = contractCoordinateSvc;

@@ -26,11 +26,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly ICustomerSvc _CustomerSvc;
         private readonly ITemplateContractSvc _TContractSvc;
         private readonly IContractCoordinateSvc _CCoordinateSvc;
-        private readonly IPdfToImageHelper _pdfToImageHelper;
         private readonly ITypeOfServiceSvc _typeOfServiceSvc;
         private readonly IDoneContractSvc _doneContractSvc;
         public PContractController(IPendingContractSvc PContractSvc, ICustomerSvc CustomerSvc,
-         ITemplateContractSvc TContractSvc, IContractCoordinateSvc CCoordinateSvc, IPdfToImageHelper pdfToImageHelper,
+         ITemplateContractSvc TContractSvc, IContractCoordinateSvc CCoordinateSvc,  
          ITypeOfServiceSvc typeOfServiceSvc, IDoneContractSvc doneContractSvc)
         {
             
@@ -38,7 +37,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _CustomerSvc = CustomerSvc;
             _TContractSvc = TContractSvc;
             _CCoordinateSvc = CCoordinateSvc;
-            _pdfToImageHelper = pdfToImageHelper;
             _typeOfServiceSvc = typeOfServiceSvc;
             _doneContractSvc = doneContractSvc;
         }
