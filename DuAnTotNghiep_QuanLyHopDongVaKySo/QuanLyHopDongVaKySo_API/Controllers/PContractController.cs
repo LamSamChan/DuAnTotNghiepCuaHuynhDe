@@ -82,7 +82,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     PdfReader pdfReader = new PdfReader(pdfFilePath);
                     PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(outputPdfFile, FileMode.Create));
                     // Tạo một font cho trường văn bản
-                    BaseFont bf = BaseFont.CreateFont(@"AppData/Font/texgyretermes-regular.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                    //BaseFont bf = BaseFont.CreateFont(@"AppData/Font/texgyretermes-regular.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                    BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
                     // Thiết lập font và kích thước cho trường văn bản
                     Font font = new Font(bf, 10);
 
