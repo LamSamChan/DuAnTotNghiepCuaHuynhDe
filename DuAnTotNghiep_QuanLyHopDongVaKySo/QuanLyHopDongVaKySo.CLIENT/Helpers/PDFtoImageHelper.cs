@@ -62,8 +62,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Helpers
             List<string> output = new List<string>();
             string outputDirectoryPath = null;
 
-            string ghostScriptVer = Path.Combine(_hostingEnvironment.WebRootPath, "Resource", "gsdll32.dll");
-            //string ghostScriptVer = Path.Combine(_hostingEnvironment.WebRootPath, "Resource", "gsdll64.dll");
+            //string ghostScriptVer = Path.Combine(_hostingEnvironment.WebRootPath, "Resource", "gsdll32.dll");
+            string ghostScriptVer = Path.Combine(_hostingEnvironment.WebRootPath, "Resource", "gsdll64.dll");
 
             GhostscriptVersionInfo gvi = new GhostscriptVersionInfo(ghostScriptVer);
 

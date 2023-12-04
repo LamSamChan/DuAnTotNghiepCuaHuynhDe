@@ -52,13 +52,15 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly ITypeOfServiceSvc _typeOfServiceSvc;
         private readonly ITemplateMinuteSvc _templateMinuteSvc;
         private readonly IDoneMinuteSvc _doneMinuteSvc;
+        private readonly IShortLinkHelper _shortLinkHelper;
 
 
         public SigningController(IPFXCertificateSvc pfxCertificate, IInstallationRequirementSvc requirementSvc, IDoneContractSvc dContractSvc,
             IPendingContractSvc pendingContract, ITemplateContractSvc templateContractSvc, IEmployeeSvc employeeSvc, ICustomerSvc customerSvc,
             IGenerateQRCodeHelper generateQRCodeHelper, IConfiguration configuration,  IUploadFileHelper uploadFileHelper,
             ISendMailHelper sendMailHelper, IContractCoordinateSvc contractCoordinateSvc, ITypeOfServiceSvc typeOfServiceSvc, 
-            IPendingMinuteSvc pendingMinuteSvc, ITemplateMinuteSvc templateMinuteSvc, IMinuteCoordinateSvc minuteCoordinateSvc, IDoneMinuteSvc doneMinuteSvc)
+            IPendingMinuteSvc pendingMinuteSvc, ITemplateMinuteSvc templateMinuteSvc, IMinuteCoordinateSvc minuteCoordinateSvc, IDoneMinuteSvc doneMinuteSvc,
+            IShortLinkHelper shortLinkHelper)
         {
             _pfxCertificate = pfxCertificate;
             _pendingContract = pendingContract;
@@ -77,6 +79,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _templateMinuteSvc = templateMinuteSvc;
             _minuteCoordinateSvc = minuteCoordinateSvc;
             _doneMinuteSvc = doneMinuteSvc;
+            _shortLinkHelper = shortLinkHelper;
         }
 
         [HttpPost("DirectorSignContract")]
@@ -269,9 +272,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Base64File = base64String,
             };
 
-            var url = GenerateUrl(pContract.PContractID);
+            var url = await GenerateUrl(pContract.PContractID);
             var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
-            var sendMail = SendMailToCustomerWithImage(qrPath, url, customer, pContract.PContractID);
+            var sendMail = SendMailToCustomerWithImage(qrPath,url, customer, pContract.PContractID);
 
             //_pdfToImageHelper.PdfToPng(pContract.PContractFile, pendingContract.PContractId,"contract");
 
@@ -747,7 +750,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return jwt;
         }
 
-        private string GenerateUrl(int contractID)
+        private async Task<string> GenerateUrl(int contractID)
         {
             //Tạo token với id khách hàng và id hợp đồng + serial pfx
             var token = GenerateToken(contractID);
@@ -761,8 +764,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             //url servcer
             var url = $"https://techseal.azurewebsites.net/Customer/CusToSign?token={token}";
 
+            string urlShort = await _shortLinkHelper.GenerateShortUrl(url);
+
             // Gửi URL cho khách hàng
-            return url;
+            return urlShort;
         }
 
          private string GenerateTokenShowDContract(int DContractID)
