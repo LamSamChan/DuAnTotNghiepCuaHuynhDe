@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="AppData\Avatars\**" />
-    <Compile Remove="AppData\ContractImage\**" />
-    <Compile Remove="AppData\PendingContracts\**" />
-    <Compile Remove="AppData\PendingMinutes\**" />
     <Compile Remove="AppData\TMinutes\**" />
     <Compile Remove="Models\ViewDeletes\**" />
     <Content Remove="AppData\Avatars\**" />
@@ -63,10 +59,10 @@
 
   <ItemGroup>
     <Folder Include="AppData\DContracts\" />
-    <Folder Include="AppData/PFXCertificates/" />
-    <Folder Include="AppData/TContracts/" />
-    <Folder Include="AppData\PContracts\5\" />
+    <Folder Include="AppData\PFXCertificates\" />
+    <Folder Include="AppData\TContracts\" />
+    <Folder Include="AppData\PContracts\" />
     <Folder Include="AppData\SignatureImages\" />
+	<Folder Include="AppData\Font\" />
   </ItemGroup>
-
 </Project>
