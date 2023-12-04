@@ -24,7 +24,7 @@ using VMAPI = QuanLyHopDongVaKySo_API.ViewModels;
 using Syncfusion.EJ2.Maps;
 using System.Drawing.Imaging;
 using test.Models;
-using API = QuanLyHopDongVaKySo_API.Models;
+using API = QuanLyHopDongVaKySo_API.Models; 
 using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DMinuteServices;
 
@@ -256,19 +256,37 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return RedirectToAction("Index", "Verify");
         }
 
-        public IActionResult DetailsRequire()
+        public async Task<IActionResult> DetailsRequire(string id)
         {
-            return View();
+            VMDeitalsMinute vm = new VMDeitalsMinute();
+
+            vm.Requirement = _iRequirementService.GetAll().Result.Where(r => r.InstallRequireID == int.Parse(id)).FirstOrDefault();
+            vm.DoneContract = await _doneContractSvc.getByIdAsnyc(vm.Requirement.DoneContractId.ToString());
+            vm.Customer = await _customerService.GetCustomerById(vm.DoneContract.CustomerId.ToString());
+            vm.Employee = await _employeeService.GetEmployeeById(vm.PendingMinute.EmployeeId.ToString());
+            return View(vm);
         }
 
-        public IActionResult DetailsInstallComplete()
+        public async Task<IActionResult> DetailsInstallComplete(string id)
         {
-            return View();
+            VMDeitalsMinute vm = new VMDeitalsMinute();
+
+            vm.DoneMinute = await _dMinuteService.GetById(int.Parse(id));
+            vm.DoneContract = _doneContractSvc.getAll().Result.Where(d => d.DoneMinuteId == int.Parse(id)).FirstOrDefault();
+            vm.Customer = await _customerService.GetCustomerById(vm.DoneContract.CustomerId.ToString());
+            vm.Employee = await _employeeService.GetEmployeeById(vm.PendingMinute.EmployeeId.ToString());
+            return View(vm);
         }
 
-        public IActionResult DetailsInstallAwait()
+        public async Task<IActionResult> DetailsInstallAwait(string id)
         {
-            return View();
+            VMDeitalsMinute vm = new VMDeitalsMinute();
+
+            vm.PendingMinute = await _pMinuteService.GetById(int.Parse(id));
+            vm.DoneContract = await _doneContractSvc.getByIdAsnyc(vm.PendingMinute.DoneContractId.ToString());
+            vm.Customer = await _customerService.GetCustomerById(vm.DoneContract.CustomerId.ToString());
+            vm.Employee = await _employeeService.GetEmployeeById(vm.PendingMinute.EmployeeId.ToString());
+            return View(vm);
         }
     
         public async Task<IActionResult> Index()

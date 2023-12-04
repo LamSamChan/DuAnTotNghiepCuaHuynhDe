@@ -1,7 +1,19 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@inject IWebHostEnvironment _hostingEnvironment
+@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMDeitalsMinute;
 @{
+    List<string> imageFilesMinute = new List<string>();
+    string fileDMinuteNull = "Resource/Image/empty.png";
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PMinuteImage"); // + thêm ID của contract
+
+    string? folderItemMinute = System.IO.Path.Combine(folderPath, Model.PendingMinute.PendingMinuteId.ToString());
+
+    if (folderItemMinute != null)
+    {
+        imageFilesMinute = Directory.GetFiles(folderItemMinute).ToList();
+    }
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 <div class="container-fluid">
@@ -72,21 +84,21 @@
                         <div class="carousel-item active ">
                             <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
                         </div>
-                        @*   @if (folderItemDMinute != null)
+                        @if (folderItemMinute != null)
                         {
-                        @foreach (var imgPath in imageFilesDMinute)
-                        {
-                        <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                        <img src="@Url.Content("~/MinuteImage/"+Model.DoneMinutes.DoneMinuteID+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
-                        </div>
-                        }
+                            @foreach (var imgPath in imageFilesMinute)
+                            {
+                                <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                    <img src="@Url.Content("~/MinuteImage/"+ Model.PendingMinute.PendingMinuteId.ToString() +"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                </div>
+                            }
                         }
                         else
                         {
-                        <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                        <img src="~/@fileDMinuteNull" alt="Hình ảnh" width="100%" />
-                        </div>
-                        } *@
+                            <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                            <img src="~/@fileDMinuteNull" alt="Hình ảnh" width="100%" />
+                            </div>
+                        } 
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel1" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
                         <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
@@ -112,22 +124,21 @@
                                         <div class="carousel-item active ">
                                             <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
                                         </div>
-                                        @*   @if (folderItemContract != null)
+                                        @if (folderItemMinute != null)
                                         {
-                                        @foreach (var imgPath in imageFilesContract)
-                                        {
-                                        <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                        <img src="@Url.Content("~/ContractImage/"+Model.DoneContracts.Id+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
-                                        </div>
+                                            @foreach (var imgPath in imageFilesMinute)
+                                            {
+                                                <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                                    <img src="@Url.Content("~/MinuteImage/"+ Model.PendingMinute.PendingMinuteId.ToString() +"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                                </div>
+                                            }
                                         }
-                                        }
-
                                         else
                                         {
-                                        <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                        <img src="~/@fileDMinuteNull" alt="Hình ảnh" width="100%" />
-                                        </div>
-                                        } *@
+                                            <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                                <img src="~/@fileDMinuteNull" alt="Hình ảnh" width="100%" />
+                                            </div>
+                                        }
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselModal1" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
                                         <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
@@ -148,74 +159,74 @@
             <h4 class="typeHead">
                 Thông tin khách hàng
             </h4>
-            @*   <form class="row g-3" style="max-width:950px;">
-            <div class="col-md-6">
-            <label for="inputName" class="form-label">Họ và tên</label>
-            <input type="text" class="form-input" id="inputName" placeholder="Họ và tên" asp-for="@Model.Customer.FullName">
-            </div>
-            <div class="col-md-3">
-            <label for="inputState" class="form-label">Giới tính</label>
-            @if (Model.Customer.Gender == 1)
-            {
-            <input type="text" class="form-input" id="inputName" readonly value="Nam">
-            }
-            else
-            {
-            <input type="text" class="form-input" id="inputName" readonly value="Nữ">
-            }
-            </div>
-            <div class="col-md-6">
-            <label for="inputCCCD" class="form-label">CCCD/CMND</label>
-            <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND" asp-for="@Model.Customer.Identification">
-            </div>
-            <div class="col-md-5">
-            <label for="inputPhone" class="form-label">Số điện thoại</label>
-            <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại" asp-for="@Model.Customer.PhoneNumber">
-            </div>
-            <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
-            <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email" asp-for="@Model.Customer.Email">
-            </div>
-            <div class="col-md-5">
-            <label for="inputAddress" class="form-label">Nơi ở</label>
-            <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở" asp-for="@Model.Customer.Address">
-            </div>
-            <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
-            <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContracts.Id">
-            </div>
-            <div class="col-md-5">
-            <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
-            <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.DoneContracts.TypeOfService">
-            </div>
-            <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Ngày hiệu lực</label>
-            <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContracts.DateDone">
-            </div>
-            <div class="col-md-5">
-            <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
-            <input type="text" class="form-input" id="inputAddress" placeholder="ID" asp-for="@Model.DoneContracts.DMinuteID">
-            </div>
-            <h4 class="typeHead mt-3">
-            Thông tin nhân viên lắp đặt
-            </h4>
-            <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Mã nhân viên</label>
-            <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.EmployeeId">
-            </div>
-            <div class="col-md-5">
-            <label for="inputAddress" class="form-label">Họ và tên</label>
-            <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Customer.FullName">
-            </div>
-            <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Customer.Email">
-            </div>
-            <div class="col-md-5">
-            <label for="inputAddress" class="form-label">Số điện thoại</label>
-            <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Customer.PhoneNumber">
-            </div>
-            </form> *@
+               <form class="row g-3" style="max-width:950px;">
+                    <div class="col-md-6">
+                        <label for="inputName" class="form-label">Họ và tên</label>
+                        <input type="text" class="form-input" id="inputName" placeholder="Họ và tên" asp-for="@Model.Customer.FullName">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputState" class="form-label">Giới tính</label>
+                        @if (Model.Customer.Gender == 1)
+                        {
+                        <input type="text" class="form-input" id="inputName" readonly value="Nam">
+                        }
+                        else
+                        {
+                        <input type="text" class="form-input" id="inputName" readonly value="Nữ">
+                        }
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputCCCD" class="form-label">CCCD/CMND</label>
+                        <input type="text" class="form-input" id="inputCCCD" placeholder="CCCD/CMND" asp-for="@Model.Customer.Identification">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputPhone" class="form-label">Số điện thoại</label>
+                        <input type="text" class="form-input" id="inputPhone" placeholder="Số điện thoại" asp-for="@Model.Customer.PhoneNumber">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
+                        <input type="email" class="form-input" id="inputEmail4" placeholder="Địa chỉ Email" asp-for="@Model.Customer.Email">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputAddress" class="form-label">Nơi ở</label>
+                        <input type="text" class="form-input" id="inputAddress" placeholder="Địa chỉ nơi ở" asp-for="@Model.Customer.Address">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
+                        <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContract.DContractID">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
+                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.DoneContract.TypeOfService">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Ngày hiệu lực</label>
+                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContract.DateDone">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
+                        <input type="text" class="form-input" id="inputAddress" placeholder="ID" asp-for="@Model.PendingMinute.PendingMinuteId">
+                    </div>
+                    <h4 class="typeHead mt-3">
+                    Thông tin nhân viên lắp đặt
+                    </h4>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Mã nhân viên</label>
+                        <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.EmployeeId">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputAddress" class="form-label">Họ và tên</label>
+                        <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Customer.FullName">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Customer.Email">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputAddress" class="form-label">Số điện thoại</label>
+                        <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Customer.PhoneNumber">
+                    </div>
+            </form> 
         </div>
     </div>
 

@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
+using QuanLyHopDongVaKySo_API.ViewModels;
 
 namespace QuanLyHopDongVaKySo_API.Models
 {
@@ -55,5 +56,9 @@ namespace QuanLyHopDongVaKySo_API.Models
         [JsonIgnore]
         public DoneMinute? DoneMinute { get; set; }
 
+        public static implicit operator DoneContract(DContractViewModel v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
