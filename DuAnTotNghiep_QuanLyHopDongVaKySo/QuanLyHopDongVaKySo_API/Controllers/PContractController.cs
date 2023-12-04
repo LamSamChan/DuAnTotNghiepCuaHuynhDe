@@ -67,6 +67,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 var contract = await _PContractSvc.ExportContract(contractById, emp);
                 if (contract != null)
                 {
+                    if (!Directory.Exists($"AppData/PContracts"))
+                    {
+                        Directory.CreateDirectory($"AppData/PContracts");
+                    }
+
                     if (!Directory.Exists($"AppData/PContracts/{id_Pcontract}"))
                     {
                         Directory.CreateDirectory($"AppData/PContracts/{id_Pcontract}");
@@ -134,7 +139,6 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
                     pdfStamper.Close();
                     pdfReader.Close();
-                    //outputPathContracts = _pdfToImageHelper.PdfToPng(outputPdfFile, int.Parse(id_Pcontract), "contract");
 
                     FileStream fsPContract = new System.IO.FileStream(outputPdfFile, FileMode.Open);
                     fsPContract.Close();
