@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8Ctog+h6bBTh9mqlxRMoct87YxmSYXneSSSmcz8W0m4=",
+  "Hash": "Xh+lj8YsgFt2APrQcXNfqE+Gbqtn+xXisRMeZBm+ffw=",
   "Source": "QuanLyHopDongVaKySo.CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
   "Mode": "Default",
@@ -11,10 +11,10 @@
       "Version": 2,
       "Source": "QuanLyHopDongVaKySo_API",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
     }
   ],
