@@ -24,12 +24,10 @@
 
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
-
 <div class="container-fluid">
     @if(userRole == "Admin")
     {
-        Layout = "_AdminLayout"; 
-
+        Layout = "_AdminLayout";
         <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -90,7 +88,7 @@
                                 <h5>
                                     Chọn chữ ký khác
                                 </h5>
-                                <ul style="max-height:400px; overflow-y:scroll;">
+                                <ul class="p-0 mx-auto " style="max-height:400px; overflow-y:scroll;">
                                     @if (Model.PFXCertificate.ImageSignature1 != null)
                                     {
                                         <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")')">
@@ -132,33 +130,170 @@
                                 </button>
                             </div>
                         </div>
+                        <script type="text/javascript">
+                            var imagePath = '';
+
+                            function enableButton(buttonId, imageContainer, imageSelected) {
+                                imagePath = imageSelected;
+
+                                // Lấy button và hình ảnh được chọn
+                                var button = document.getElementById(buttonId);
+
+                                // Loại bỏ thuộc tính disabled nếu hình ảnh được chọn
+                                button.removeAttribute('disabled');
+
+                                // Loại bỏ lớp 'selected' từ tất cả các hình ảnh khác
+                                var allImageContainers = document.querySelectorAll('.image-container');
+                                allImageContainers.forEach(function (container) {
+                                    container.classList.remove('selected');
+                                });
+
+                                // Thêm lớp 'selected' cho hình ảnh được chọn để tạo hiệu ứng
+                                imageContainer.classList.add('selected');
+                            }
+                            function signWithSelectedImg() {
+
+                                var signing = {
+                                    Serial: '@Model.PFXCertificate.Serial',
+                                    IdFile: '@Model.PContract.PContractID',
+                                    Base64StringFile: '',
+                                    ImagePath: imagePath,
+                                    Base64StringFileStamp: '',
+                                    ImagePathStamp: ''
+                                };
+
+                                $.ajax({
+                                    url: '@Url.Action("SignContract")',
+                                    type: 'POST',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify(signing),
+                                    success: function (result) {
+
+                                        if (!result.success) {
+                                            // Chuyển hướng tới trang mong muốn
+
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: 'Duyệt chữ ký thành công!',
+                                                showConfirmButton: false,
+                                                timer: 1500
+                                            }).then(() => {
+                                                var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+                                                window.location.href = redirectToUrl;
+                                            });
+
+                                        }
+                                        else {
+                                            // SweetAlert for failure
+                                            Swal.fire({
+                                                title: 'Error!',
+                                                text: 'Duyệt chữ ký thất bại.',
+                                                icon: 'error',
+                                                confirmButtonColor: '#d33',
+                                                confirmButtonText: 'OK'
+                                            });
+                                        }
+                                    },
+                                    error: function (xhr, textStatus, error) {
+
+                                        console.error(xhr);
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Lỗi!',
+                                            text: 'Lỗi khi gửi yêu cầu:', error,
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        }).then(() => {
+                                            var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
+                                            window.location.href = redirectToUrl;
+                                        });
+                                    }
+                                });
+                            }
+
+                            var defaultImg = '@Html.Raw(defaultImg)';
+                            function signWithDefaultImg() {
+
+                                if (defaultImg == '') {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Lỗi!',
+                                        text: 'Bạn chưa cài đặt chữ ký mặc định!!',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    }).then(() => {
+
+                                    });
+                                } else {
+                                    var signingDefault = {
+                                        Serial: '@Model.PFXCertificate.Serial',
+                                        IdFile: '@Model.PContract.PContractID',
+                                        Base64StringFile: '',
+                                        ImagePath: defaultImg,
+                                        Base64StringFileStamp: '',
+                                        ImagePathStamp: ''
+                                    };
+                                    $.ajax({
+                                        url: '@Url.Action("SignContract")',
+                                        type: 'POST',
+                                        contentType: 'application/json',
+                                        data: JSON.stringify(signingDefault),
+                                        success: function (result) {
+                                            if (!result.success) {
+                                                Swal.fire({
+                                                    icon: 'success',
+                                                    title: 'Thành công!',
+                                                    text: 'Duyệt chữ ký mặc định thành công!!',
+                                                    showConfirmButton: false,
+                                                    timer: 1500
+                                                }).then(() => {
+                                                    var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+                                                    window.location.href = redirectToUrl;
+                                                });
+                                                // Chuyển hướng tới trang mong muốn
+                                            }
+                                            else {
+                                                // SweetAlert for failure
+                                                Swal.fire({
+                                                    title: 'Error!',
+                                                    text: 'Duyệt chữ ký mặc định thất bại.',
+                                                    icon: 'error',
+                                                    confirmButtonColor: '#d33',
+                                                    confirmButtonText: 'OK'
+                                                });
+                                            }
+
+                                            setTimeout(function () {
+                                                location.reload(true);
+                                            }, 3000);
+
+                                        },
+                                        error: function (xhr, status, error) {
+                                            //console.error('Lỗi khi gửi yêu cầu:', error);
+
+                                            console.log(xhr);
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Lỗi!',
+                                                text: 'Lỗi khi gửi yêu cầu:', error,
+                                                showConfirmButton: false,
+                                                timer: 1500
+                                            }).then(() => {
+
+                                            });
+                                        }
+
+
+                                    });
+                                }
+                            }
+                        </script>
+
                     </div>
-                    <script type="text/javascript">
-                        var imagePath = '';
-
-                        function enableButton(buttonId, imageContainer, imageSelected) {
-                            imagePath = imageSelected;
-
-                            // Lấy button và hình ảnh được chọn
-                            var button = document.getElementById(buttonId);
-
-                            // Loại bỏ thuộc tính disabled nếu hình ảnh được chọn
-                            button.removeAttribute('disabled');
-
-                            // Loại bỏ lớp 'selected' từ tất cả các hình ảnh khác
-                            var allImageContainers = document.querySelectorAll('.image-container');
-                            allImageContainers.forEach(function (container) {
-                                container.classList.remove('selected');
-                            });
-
-                            // Thêm lớp 'selected' cho hình ảnh được chọn để tạo hiệu ứng
-                            imageContainer.classList.add('selected');
-                        }
-
-                    </script>
                 </div>
             </div>
         </div>
+
     }
     else
     {
@@ -226,38 +361,38 @@
                                 <ul style="max-height:400px; overflow-y:scroll;">
                                     @if (Model.PFXCertificate.ImageSignature1 != null)
                                     {
-                                        <li class="image-container" onclick="enableButton1('signBtn', this,'@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")')">
+                                        <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")')">
                                             <img src="~/@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")" width="390" height="200" />
                                         </li>
                                     }
                                     @if (Model.PFXCertificate.ImageSignature2 != null)
                                     {
-                                        <li class="image-container" onclick="enableButton1('signBtn', this,'@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")')">
+                                        <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")')">
                                             <img src="~/@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")" width="390" height="200" />
                                         </li>
                                     }
                                     @if (Model.PFXCertificate.ImageSignature3 != null)
                                     {
-                                        <li class="image-container" onclick="enableButton1('signBtn', this,'@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")')">
+                                        <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")')">
                                             <img src="~/@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")" width="390" height="200" />
                                         </li>
                                     }
                                     @if (Model.PFXCertificate.ImageSignature4 != null)
                                     {
-                                        <li class="image-container" onclick="enableButton1('signBtn', this,'@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")')">
+                                        <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")')">
                                             <img src="~/@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")" width="390" height="200" />
                                         </li>
                                     }
                                     @if (Model.PFXCertificate.ImageSignature5 != null)
                                     {
-                                        <li class="image-container" onclick="enableButton1('signBtn', this,'@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")')">
+                                        <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")')">
                                             <img src="~/@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")" width="390" height="200" />
                                         </li>
                                     }
                                 </ul>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-primary" id="signBtn" disabled >
+                                <button class="btn btn-primary" id="signBtn" disabled onclick="signWithSelectedImg()">
                                     DUYỆT
                                 </button>
                                 <button class="button-save" id="button1" onclick="signWithDefaultImg()">
@@ -265,34 +400,167 @@
                                 </button>
                             </div>
                         </div>
+                        <script type="text/javascript">
+                            var imagePath = '';
+
+                            function enableButton(buttonId, imageContainer, imageSelected) {
+                                imagePath = imageSelected;
+
+                                // Lấy button và hình ảnh được chọn
+                                var button = document.getElementById(buttonId);
+
+                                // Loại bỏ thuộc tính disabled nếu hình ảnh được chọn
+                                button.removeAttribute('disabled');
+
+                                // Loại bỏ lớp 'selected' từ tất cả các hình ảnh khác
+                                var allImageContainers = document.querySelectorAll('.image-container');
+                                allImageContainers.forEach(function (container) {
+                                    container.classList.remove('selected');
+                                });
+
+                                // Thêm lớp 'selected' cho hình ảnh được chọn để tạo hiệu ứng
+                                imageContainer.classList.add('selected');
+                            }
+                            function signWithSelectedImg() {
+
+                                var signing = {
+                                    Serial: '@Model.PFXCertificate.Serial',
+                                    IdFile: '@Model.PContract.PContractID',
+                                    Base64StringFile: '',
+                                    ImagePath: imagePath,
+                                    Base64StringFileStamp: '',
+                                    ImagePathStamp: ''
+                                };
+
+                                $.ajax({
+                                    url: '@Url.Action("SignContract")',
+                                    type: 'POST',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify(signing),
+                                    success: function (result) {
+
+                                        if (!result.success) {
+                                            // Chuyển hướng tới trang mong muốn
+
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: 'Duyệt chữ ký thành công!',
+                                                showConfirmButton: false,
+                                                timer: 1500
+                                            }).then(() => {
+                                                var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+                                                window.location.href = redirectToUrl;
+                                            });
+
+                                        }
+                                        else {
+                                            // SweetAlert for failure
+                                            Swal.fire({
+                                                title: 'Error!',
+                                                text: 'Duyệt chữ ký thất bại.',
+                                                icon: 'error',
+                                                confirmButtonColor: '#d33',
+                                                confirmButtonText: 'OK'
+                                            });
+                                        }
+                                    },
+                                    error: function (xhr, textStatus, error) {
+
+                                        console.error(xhr);
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Lỗi!',
+                                            text: 'Lỗi khi gửi yêu cầu:', error,
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        }).then(() => {
+                                            var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
+                                            window.location.href = redirectToUrl;
+                                        });
+                                    }
+                                });
+                            }
+
+                            var defaultImg = '@Html.Raw(defaultImg)';
+                            function signWithDefaultImg() {
+
+                                if (defaultImg == '') {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Lỗi!',
+                                        text: 'Bạn chưa cài đặt chữ ký mặc định!!',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    }).then(() => {
+
+                                    });
+                                } else {
+                                    var signingDefault = {
+                                        Serial: '@Model.PFXCertificate.Serial',
+                                        IdFile: '@Model.PContract.PContractID',
+                                        Base64StringFile: '',
+                                        ImagePath: defaultImg,
+                                        Base64StringFileStamp: '',
+                                        ImagePathStamp: ''
+                                    };
+                                    $.ajax({
+                                        url: '@Url.Action("SignContract")',
+                                        type: 'POST',
+                                        contentType: 'application/json',
+                                        data: JSON.stringify(signingDefault),
+                                        success: function (result) {
+                                            if (!result.success) {
+                                                Swal.fire({
+                                                    icon: 'success',
+                                                    title: 'Thành công!',
+                                                    text: 'Duyệt chữ ký mặc định thành công!!',
+                                                    showConfirmButton: false,
+                                                    timer: 1500
+                                                }).then(() => {
+                                                    var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+                                                    window.location.href = redirectToUrl;
+                                                });
+                                                // Chuyển hướng tới trang mong muốn
+                                            }
+                                            else {
+                                                // SweetAlert for failure
+                                                Swal.fire({
+                                                    title: 'Error!',
+                                                    text: 'Duyệt chữ ký mặc định thất bại.',
+                                                    icon: 'error',
+                                                    confirmButtonColor: '#d33',
+                                                    confirmButtonText: 'OK'
+                                                });
+                                            }
+
+                                            setTimeout(function () {
+                                                location.reload(true);
+                                            }, 3000);
+
+                                        },
+                                        error: function (xhr, status, error) {
+                                            //console.error('Lỗi khi gửi yêu cầu:', error);
+
+                                            console.log(xhr);
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Lỗi!',
+                                                text: 'Lỗi khi gửi yêu cầu:', error,
+                                                showConfirmButton: false,
+                                                timer: 1500
+                                            }).then(() => {
+
+                                            });
+                                        }
+
+
+                                    });
+                                }
+                            }
+                        </script>
                     </div>
-                    <script type="text/javascript">
-                        var imagePath = '';
-
-                        function enableButton1(buttonId, imageContainer, imageSelected) {
-                            imagePath = imageSelected;
-
-                            // Lấy button và hình ảnh được chọn
-                            var button = document.getElementById(buttonId);
-
-                            // Loại bỏ thuộc tính disabled nếu hình ảnh được chọn
-                            button.removeAttribute('disabled');
-
-                            // Loại bỏ lớp 'selected' từ tất cả các hình ảnh khác
-                            var allImageContainers = document.querySelectorAll('.image-container');
-                            allImageContainers.forEach(function (container) {
-                                container.classList.remove('selected');
-                            });
-
-                            // Thêm lớp 'selected' cho hình ảnh được chọn để tạo hiệu ứng
-                            imageContainer.classList.add('selected');
-                        }
-
-                    </script>
                 </div>
-
             </div>
-            
         </div>
 
     }
@@ -409,169 +677,8 @@
 
     </div>
 </div>
-<script>
-   
+<script type="text/javascript">
 
-
-    const iconLoading = document.getElementById("loading");
-
-    const showLoading = () => {
-        iconLoading.style.display = "flex";
-    };
-
-    const hideLoading = () => {
-        iconLoading.style.display = "none";
-    };
-
-    const loading = () => {
-        showLoading(); // Show loading spinner when the button is clicked
-
-        setTimeout(() => {
-            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-        }, 1000);
-    };
-
-
-
-  
-
-    function signWithSelectedImg(){
-       
-        var signing = {
-            Serial : '@Model.PFXCertificate.Serial',
-            IdFile :'@Model.PContract.PContractID',
-            Base64StringFile : '',
-            ImagePath: imagePath,
-            Base64StringFileStamp: '',
-            ImagePathStamp: ''
-        };
-
-        $.ajax({
-            url: '@Url.Action("SignContract")',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(signing),
-            success: function (result) {
-                
-                if (!result.success) {
-                    // Chuyển hướng tới trang mong muốn
-               
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Duyệt chữ ký thành công!',
-                        showConfirmButton: false,
-                        timer: 1500
-                    }).then(() => {
-                        var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
-                        window.location.href = redirectToUrl;
-                    });
-
-                }
-             else {
-                // SweetAlert for failure
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Duyệt chữ ký thất bại.',
-                    icon: 'error',
-                    confirmButtonColor: '#d33',
-                    confirmButtonText: 'OK'
-                });
-            }
-            },
-            error: function (xhr, textStatus, error) {
-
-                console.error(xhr);
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Lỗi!',
-                    text: 'Lỗi khi gửi yêu cầu:', error,
-                    showConfirmButton: false,
-                    timer: 1500
-                }).then(() => {
-                    var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
-                    window.location.href = redirectToUrl;
-                });
-            }
-        });
-    }
-
-    var defaultImg = '@Html.Raw(defaultImg)';
-    function signWithDefaultImg() {
-     
-        if (defaultImg == '') {
-            Swal.fire({
-                icon: 'error',
-                title: 'Lỗi!',
-                text: 'Bạn chưa cài đặt chữ ký mặc định!!',
-                showConfirmButton: false,
-                timer: 1500
-            }).then(() => {
-
-            });
-        }else{
-            var signingDefault = {
-                Serial: '@Model.PFXCertificate.Serial',
-                IdFile: '@Model.PContract.PContractID',
-                Base64StringFile: '',
-                ImagePath: defaultImg,
-                Base64StringFileStamp: '',
-                ImagePathStamp: ''
-            }
-
-            $.ajax({
-                url: '@Url.Action("SignContract")',
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(signingDefault),
-                success: function (result) {
-                    if (!result.success) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Thành công!',
-                            text: 'Duyệt chữ ký mặc định thành công!!',
-                            showConfirmButton: false,
-                            timer: 1500
-                        }).then(() => {
-                            var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
-                            window.location.href = redirectToUrl;
-                        });
-                        // Chuyển hướng tới trang mong muốn
-                             else {
-                        // SweetAlert for failure
-                        Swal.fire({
-                            title: 'Error!',
-                            text: 'Duyệt chữ ký mặc định thất bại.',
-                            icon: 'error',
-                            confirmButtonColor: '#d33',
-                            confirmButtonText: 'OK'
-                        });
-                    }
-
-                        setTimeout(function () {
-                            location.reload(true); 
-                        }, 3000);
-
-                    }
-                },
-                error: function (xhr, status, error) {
-                    //console.error('Lỗi khi gửi yêu cầu:', error);
-
-                    console.log(xhr);
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Lỗi!',
-                        text: 'Lỗi khi gửi yêu cầu:', error,
-                        showConfirmButton: false,
-                        timer: 1500
-                    }).then(() => {
-                       
-                    });
-                }
-            });
-        }
-        
-    }
+ 
 
 </script>
-
-

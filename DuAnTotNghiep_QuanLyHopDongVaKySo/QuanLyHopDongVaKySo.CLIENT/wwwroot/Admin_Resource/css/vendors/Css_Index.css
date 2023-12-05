@@ -3,6 +3,9 @@
 /*@import url("ListUser.css");
 */
 /*hide and show pass*/
+.selected {
+    border: 2px solid blue;
+}
 .password-container {
     position: relative;
     width: 400px;
