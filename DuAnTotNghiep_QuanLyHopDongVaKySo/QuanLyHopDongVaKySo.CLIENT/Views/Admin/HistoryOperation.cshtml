@@ -13,6 +13,9 @@
             </ol>
         </nav>
         <h1 class="typeHead">TẤT CẢ LỊCH SỬ</h1>
+        <div class="row mx-auto">
+            <input type="search" id="searchInput" class="src" placeholder="Tìm kiếm trong danh sách" />
+        </div>
     </div>
     <div class="row bg-whit mt-3 rounded">
         <nav>
@@ -22,9 +25,9 @@
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent" style="display:flex;">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+            <div class="tab-pane fade show active mt-2 " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                 <div class="listTable">
-                    <table class="table">
+                    <table class="table display" id="myTable" >
                         <thead>
                             <tr style="color: #8B909A;">
                                 <th scope="col">ID</th>
@@ -45,9 +48,9 @@
                     </table>
                 </div>
             </div>
-            <div class="tab-pane fade show " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+            <div class="tab-pane fade show mt-2" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
                 <div class="listTable">
-                    <table class="table">
+                    <table class="table display" id="myTable1">
                         <thead>
                             <tr style="color: #8B909A;">
                                 <th scope="col">ID</th>
@@ -71,3 +74,57 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Khởi tạo DataTable
+        $('#myTable').DataTable({
+            "searching": false,
+            "lengthMenu": [10, 25, 50, 100], 
+            "pageLength": 25 
+        });
+
+        $('#myTable1').DataTable({
+            "searching": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+    });
+
+
+    // tìm kiếm
+    document.addEventListener('DOMContentLoaded', function () {
+        // Lấy đối tượng ô tìm kiếm chung
+        var searchInput = document.getElementById('searchInput');
+
+        // Thêm sự kiện 'input' cho ô tìm kiếm chung
+        searchInput.addEventListener('input', function () {
+            filterAllTables(searchInput);
+        });
+
+        // Lấy đối tượng bảng và ô tìm kiếm cho Tab 1
+        var table = document.getElementById('myTable');
+
+        // Lấy đối tượng bảng và ô tìm kiếm cho Tab 2
+        var table2 = document.getElementById('myTable1');
+    });
+
+    function filterAllTables(input) {
+        var filter = input.value.toLowerCase();
+
+        // Lấy tất cả các bảng trong tất cả các tab
+        var tables = document.getElementsByClassName('table');
+
+        for (var t = 0; t < tables.length; t++) {
+            var rows = tables[t].getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            for (var i = 0; i < rows.length; i++) {
+                var rowData = rows[i].innerText.toLowerCase();
+                if (rowData.includes(filter)) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+    }
+</script>
