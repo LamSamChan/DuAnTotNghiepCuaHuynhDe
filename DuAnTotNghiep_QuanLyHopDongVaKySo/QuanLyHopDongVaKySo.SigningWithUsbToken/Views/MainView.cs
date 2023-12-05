@@ -38,9 +38,9 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
         {
             try
             {
+                string customerId = DataStore.Instance.Customer.CustomerId.ToString();
                 if (TypeDocument.SelectedItem.ToString() == "Hợp đồng")
                 {
-                    string customerId = DataStore.Instance.Customer.CustomerId.ToString();
                     int contractId = Convert.ToInt32(inputContractId.Text);
                     var pContract = await contractRepository.GetPContractById(customerId, contractId);
 
@@ -49,6 +49,12 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                         DataStore.Instance.PendingContract = pContract;
                         byte[] pdfBytes = Convert.FromBase64String(pContract.Base64File);
                         DataStore.Instance.SavePath = Path.Combine(Application.StartupPath, "AppData", $"{pContract.PContractName}.pdf");
+
+                        if (!Directory.Exists(Path.Combine(Application.StartupPath, "AppData")))
+                        {
+                            Directory.CreateDirectory(Path.Combine(Application.StartupPath, "AppData"));
+                        }
+
                         SaveByteArrayToFile(DataStore.Instance.SavePath, pdfBytes);
 
                         DataStore.Instance.SavePathSign = Path.Combine(Application.StartupPath, "AppData", $"{pContract.PContractName}_sign.pdf");
@@ -66,13 +72,24 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 }
                 else
                 {
+                   
                     int minuteId = Convert.ToInt32(inputContractId.Text);
-                    var pMinute = await minuteRepository.GetPMinuteById(minuteId);
-                    if (pMinute != null)
+                    var pMinute = await minuteRepository.GetPMinuteById(customerId,minuteId);
+                    if (pMinute.PendingMinuteId != null)
                     {
+                        DataStore.Instance.PendingMinute = pMinute;
                         byte[] pdfBytes = Convert.FromBase64String(pMinute.Base64File);
                         DataStore.Instance.SavePath = Path.Combine(Application.StartupPath, "AppData", $"{pMinute.MinuteName}.pdf");
+
+                        if (!Directory.Exists(Path.Combine(Application.StartupPath, "AppData")))
+                        {
+                            Directory.CreateDirectory(Path.Combine(Application.StartupPath, "AppData"));
+                        }
+
                         SaveByteArrayToFile(DataStore.Instance.SavePath, pdfBytes);
+
+                        DataStore.Instance.SavePathSign = Path.Combine(Application.StartupPath, "AppData", $"{pMinute.MinuteName}_sign.pdf");
+                        SaveByteArrayToFile(DataStore.Instance.SavePathSign, pdfBytes);
 
                         var stream = new MemoryStream(pdfBytes);
                         PdfiumViewer.PdfDocument pdfDocument = PdfiumViewer.PdfDocument.Load(stream);
@@ -80,14 +97,14 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                     }
                     else
                     {
-                        MessageBox.Show("Không tìm thấy hợp đồng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Không tìm thấy biên bản !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Mã hợp đồng phải là số !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Mã biên bản phải là số !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -138,9 +155,9 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 signatureAppearance.SignDate = DateTime.Now;
                 signatureAppearance.SignatureCreator = DataStore.Instance.Customer.FullName;
 
-                float x = customerZone.X - 60;
-                float y = customerZone.Y - 100;
-                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + 170, y + 170), pdfReader.NumberOfPages, "Signature");
+                float x = customerZone.X - 20;
+                float y = customerZone.Y - 60;
+                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + 130, y + 130), pdfReader.NumberOfPages, "Signature");
 
                 signatureAppearance.SignatureRenderingMode = PdfSignatureAppearance.RenderingMode.DESCRIPTION;
 
@@ -194,9 +211,9 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                         PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
 
                         signatureAppearance.SignatureGraphic = iTextSharp.text.Image.GetInstance(selectedFilePath);
-                        float x = customerZone.X - 60;
-                        float y = customerZone.Y - 100;
-                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + 170, y + 170), pdfReader.NumberOfPages, "Signature");
+                        float x = customerZone.X - 20;
+                        float y = customerZone.Y - 60;
+                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + 130, y + 130), pdfReader.NumberOfPages, "Signature");
                         signatureAppearance.SignatureRenderingMode = PdfSignatureAppearance.RenderingMode.GRAPHIC;
 
                         MakeSignature.SignDetached(signatureAppearance, externalSignature, chain, null, null, null, 0, CryptoStandard.CMS);
@@ -233,6 +250,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                     PContractID = int.Parse(DataStore.Instance.PendingContract.PContractID),
                     Base64File = base64String+"*"+DataStore.Instance.Token,
                 };
+                MessageBox.Show("Quá trình ký số đang diễn ra, vui lòng chờ cho đến khi có thông báo tiếp theo. Xin cảm ơn !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 int isSuccess = await sendDContractRepository.PostContract(doneContract);
                 if (isSuccess != 0)
                 {

@@ -431,7 +431,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             _uploadFileHelper.RemoveFile(imagePath);
 
-            var url = GenerateUrlShowDContract(dContract.DContractID);
+            var url = await GenerateUrlShowDContract(dContract.DContractID);
             var _sendMail = SendMailToCustomer(customer, url);
             if (result != 0)
             {
@@ -759,10 +759,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
 
             //url locallhost
-            //var url = $"https://localhost:7063/Customer/CusToSign?token={token}";
+            var url = $"https://localhost:7063/Customer/CusToSign?token={token}";
 
             //url servcer
-            var url = $"https://techseal.azurewebsites.net/Customer/CusToSign?token={token}";
+            //var url = $"https://techseal.azurewebsites.net/Customer/CusToSign?token={token}";
 
             string urlShort = await _shortLinkHelper.GenerateShortUrl(url);
 
@@ -792,7 +792,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return jwt;
         }
 
-         private string GenerateUrlShowDContract(int contractID)
+         private async Task<string> GenerateUrlShowDContract(int contractID)
          {
             //Tạo token với id khách hàng và id hợp đồng + serial pfx
             var token = GenerateTokenShowDContract(contractID);
@@ -806,8 +806,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             //url servcer
             //var url = $"https://techseal.azurewebsites.net/Customer/ShowDContract?token={token}";
 
+            string urlShort = await _shortLinkHelper.GenerateShortUrl(url);
             // Gửi URL cho khách hàng
-            return url;
+            return urlShort;
         }
 
         private async Task<string> SendMailToCustomer(Customer customer, string url)

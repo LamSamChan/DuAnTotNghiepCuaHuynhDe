@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using QuanLyHopDongVaKySo_API.Models;
+using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 
@@ -63,6 +64,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             var reponse = await _httpClient.GetFromJsonAsync<List<OperationHistoryEmp>>("api/HistoryEmp");
+            if (reponse != null)
+            {
+                reponse.Reverse();
+            }
             return reponse;
         }
 
@@ -70,6 +75,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             var reponse = await _httpClient.GetFromJsonAsync<List<OperationHistoryEmp>>($"api/HistoryEmp/{emp_ID}");
+            if (reponse != null)
+            {
+                reponse.Reverse();
+            }
             return reponse;
         }
     }

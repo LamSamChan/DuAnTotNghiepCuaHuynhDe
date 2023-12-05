@@ -64,6 +64,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             var reponse = await _httpClient.GetFromJsonAsync<List<OperationHistoryCus>>("api/HistoryCus");
+            if (reponse != null)
+            {
+                reponse.Reverse();
+            }
             return reponse;
         }
 
@@ -71,6 +75,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             var reponse = await _httpClient.GetFromJsonAsync<List<OperationHistoryCus>>($"api/HistoryCus/{customer_ID}");
+            if (reponse != null)
+            {
+                reponse.Reverse();
+            }
             return reponse;
         }
     }

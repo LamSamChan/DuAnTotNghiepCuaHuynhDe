@@ -55,10 +55,5 @@ namespace QuanLyHopDongVaKySo_API.Models
         public TypeOfService? TypeOfService { get; set; }
         [JsonIgnore]
         public DoneMinute? DoneMinute { get; set; }
-
-        public static implicit operator DoneContract(DContractViewModel v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

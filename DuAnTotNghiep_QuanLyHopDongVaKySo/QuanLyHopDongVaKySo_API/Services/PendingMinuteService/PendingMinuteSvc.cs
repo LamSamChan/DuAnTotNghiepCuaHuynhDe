@@ -210,8 +210,13 @@ namespace QuanLyHopDongVaKySo_API.Services.PendingMinuteService
 
         public async Task<PendingMinute> getByIdForWinformAsnyc(int id, string cusId)
         {
-            var dContract = _context.DoneContracts.FirstOrDefault(d => d.CustomerId.ToString() == cusId);
-            return _context.PendingMinutes.FirstOrDefault(p => p.DoneContractId == dContract.DContractID);
+            var pMinute = _context.PendingMinutes.FirstOrDefault(p => p.PendingMinuteId == id);
+            var dContract = _context.DoneContracts.FirstOrDefault(d => d.DContractID == pMinute.DoneContractId);
+            if (cusId == dContract.CustomerId.ToString())
+            {
+                return pMinute;
+            }
+            return null;
         }
     }
 }
