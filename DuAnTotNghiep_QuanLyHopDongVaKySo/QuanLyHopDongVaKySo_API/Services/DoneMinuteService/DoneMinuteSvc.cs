@@ -14,6 +14,20 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneMinuteService
             _context = context;
         }
 
+        public async Task<DoneMinute> AddDMinuteFromSignByUSBToken(DoneMinute doneMinute)
+        {
+            try
+            {
+                _context.DoneMinutes.Add(doneMinute);
+                await _context.SaveChangesAsync();
+                return doneMinute;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public async Task<int> AddNew(DoneMinute doneMinute)
         {
             int isSuccess = 0;
@@ -66,6 +80,20 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneMinuteService
             {
 
                 return new List<DoneMinute>();
+            }
+        }
+
+        public async Task<DoneMinute> UpdateMinuteFromSignByUSBToken(DoneMinute doneMinute)
+        {
+            try
+            {
+                _context.DoneMinutes.Update(doneMinute);
+                await _context.SaveChangesAsync();
+                return doneMinute;
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
     }

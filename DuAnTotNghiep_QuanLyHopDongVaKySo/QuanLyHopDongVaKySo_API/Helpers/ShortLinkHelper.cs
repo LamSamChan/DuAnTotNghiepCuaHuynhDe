@@ -33,7 +33,7 @@ namespace QuanLyHopDongVaKySo_API.Helpers
             request.AddHeader("Content-Type", "application/json");
 
             // Thêm đối tượng truyền vào yêu cầu
-            request.AddJsonBody(new { url = "url" });
+            request.AddJsonBody(new { url = $"{url}" });
 
             // Thực hiện yêu cầu và nhận phản hồi
             var response = await client.ExecuteAsync(request);

@@ -28,10 +28,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private readonly IUploadFileHelper _uploadFileHelper;
         private readonly IInstallationRequirementSvc _requirementSvc;
         private readonly ITypeOfServiceSvc _typeOfServiceSvc;
+        private readonly IShortLinkHelper _shortLinkHelper;
+
 
         public DContractController(IDoneContractSvc doneContractSvc, IConfiguration configuration, ICustomerSvc customerSvc,
             ISendMailHelper sendMailHelper, IPendingContractSvc pendingContractSvc, IUploadFileHelper uploadFileHelper,
-            IInstallationRequirementSvc requirementSvc, ITypeOfServiceSvc typeOfServiceSvc)
+            IInstallationRequirementSvc requirementSvc, ITypeOfServiceSvc typeOfServiceSvc, IShortLinkHelper shortLinkHelper)
         {
             _doneContractSvc = doneContractSvc;
             _configuration = configuration;
@@ -41,6 +43,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _uploadFileHelper = uploadFileHelper;
             _requirementSvc = requirementSvc;
             _typeOfServiceSvc = typeOfServiceSvc;
+            _shortLinkHelper = shortLinkHelper;
+
         }
 
         [HttpGet("getAllEffect")]
@@ -173,7 +177,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         await _pendingContractSvc.deleteAsnyc(pContract.PContractID);
 
                         var customer = await _customerSvc.GetByIdAsync(pContract.CustomerId.ToString());
-                        var url = GenerateUrlShowDContract(dContract.DContractID);
+                        var url = await GenerateUrlShowDContract(dContract.DContractID);
                         var _sendMail = SendMailToCustomer(customer, url);
 
                         return Ok(postDContract.Base64File + "*" + updateResult.DContractID + "*" + pContract.PContractID);
@@ -208,7 +212,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
             else
             {
-                string url = GenerateUrl(dContractId);
+                string url = await GenerateUrl(dContractId);
 
                 string content =
 
@@ -272,7 +276,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return jwt;
         }
 
-        private string GenerateUrl(int contractID)
+        private async Task<string> GenerateUrl(int contractID)
         {
             //Tạo token với id khách hàng và id hợp đồng + serial pfx
             var token = GenerateToken(contractID);
@@ -281,13 +285,14 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
 
             //url locallhost
-            //var url = $"https://localhost:7063/Customer/UnEffectDContract?token={token}";
+            var url = $"https://localhost:7063/Customer/UnEffectDContract?token={token}";
 
             //url servcer
-            var url = $"https://techseal.azurewebsites.net/Customer/UnEffectDContract?token={token}";
+            //var url = $"https://techseal.azurewebsites.net/Customer/UnEffectDContract?token={token}";
 
+            string urlShort = await _shortLinkHelper.GenerateShortUrl(url);
             // Gửi URL cho khách hàng
-            return url;
+            return urlShort;
         }
 
         private string GenerateTokenShowDContract(int DContractID)
@@ -312,7 +317,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return jwt;
         }
 
-        private string GenerateUrlShowDContract(int contractID)
+        private async Task<string> GenerateUrlShowDContract(int contractID)
         {
             //Tạo token với id khách hàng và id hợp đồng + serial pfx
             var token = GenerateTokenShowDContract(contractID);
@@ -321,10 +326,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
 
             //url locallhost
-                //var url = $"https://localhost:7063/Customer/ShowDContract?token={token}";
+             var url = $"https://localhost:7063/Customer/ShowDContract?token={token}";
 
             //url servcer
-            var url = $"https://techseal.azurewebsites.net/Customer/ShowDContract?token={token}";
+            //var url = $"https://techseal.azurewebsites.net/Customer/ShowDContract?token={token}";
+            string urlShort = await _shortLinkHelper.GenerateShortUrl(url);
 
             // Gửi URL cho khách hàng
             return url;
