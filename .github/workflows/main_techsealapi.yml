@@ -1,3 +1,6 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: Build and deploy ASP.Net Core app to Azure Web App - techsealapi
 
 on:
@@ -19,10 +22,12 @@ jobs:
           dotnet-version: '7.x'
           include-prerelease: true
 
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
+
       - name: dotnet publish
-        working-directory: DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
-        
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
@@ -37,25 +42,6 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Delete Old Artifacts
-        uses: actions/github-script@v6
-        id: artifact
-        with:
-          script: |
-            const res = await github.rest.actions.listArtifactsForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-            })
-
-            res.data.artifacts
-              .forEach(({ id }) => {
-                github.rest.actions.deleteArtifact({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  artifact_id: id,
-                })
-              })
-            
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
@@ -67,5 +53,5 @@ jobs:
         with:
           app-name: 'techsealapi'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FBFCF0B2D0384A6B9999CA87A68CA5BA }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2C3B0867859B45AD818AC5B71F40A53F }}
           package: .
