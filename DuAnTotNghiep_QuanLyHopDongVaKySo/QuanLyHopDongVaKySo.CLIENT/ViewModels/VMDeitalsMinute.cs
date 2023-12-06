@@ -8,8 +8,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.ViewModels
         public Models.Employee Employee { get; set; }
         public Models.Customer Customer { get; set; }
         public API.DoneMinute DoneMinute { get; set; }
-        public API.DoneContract DoneContract { get; set; }
         public API.PendingMinute PendingMinute { get; set; }
         public API.InstallationRequirement Requirement { get; set; }
+        public ViewModel.DContractViewModel DoneContract { get; set; }
     }
 }
