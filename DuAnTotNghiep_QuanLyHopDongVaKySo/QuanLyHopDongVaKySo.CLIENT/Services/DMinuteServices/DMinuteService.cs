@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using QuanLyHopDongVaKySo.CLIENT.Constants;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Models.ViewPost;
 using System.Net.Http;
@@ -29,6 +31,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DMinuteServices
                     token = _httpContextAccessor.HttpContext.Session.GetString("token");
 
                 }
+                else
+                {
+                    token = _httpContextAccessor.HttpContext.Session.GetString(SessionKey.Customer.CustomerToken);
+                }
                 return token;
             }
             set { this.token = value; }
@@ -53,6 +59,21 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DMinuteServices
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             var response = await _httpClient.GetFromJsonAsync<DoneMinute>($"api/DMinute/{dMinuteId}");
             return response;
+        }
+
+        public async Task<string> SignMinuteWithUSBToken(PostDMinute_Usb dMinute)
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+            string json = JsonConvert.SerializeObject(dMinute);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            using (var response = await _httpClient.PostAsync("api/DMinute/SignMinuteWithUSBToken", content))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadAsStringAsync();
+                }
+                return null;
+            }
         }
     }
 }

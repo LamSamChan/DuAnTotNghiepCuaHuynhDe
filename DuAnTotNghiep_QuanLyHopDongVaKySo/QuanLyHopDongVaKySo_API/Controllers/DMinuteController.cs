@@ -6,6 +6,7 @@ using QuanLyHopDongVaKySo_API.Helpers;
 using QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo_API.Models.ViewPost;
 using QuanLyHopDongVaKySo_API.Services;
+using QuanLyHopDongVaKySo_API.Services.CustomerService;
 using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 using QuanLyHopDongVaKySo_API.Services.DoneMinuteService;
 using QuanLyHopDongVaKySo_API.Services.InstallationRequirementService;
@@ -23,10 +24,22 @@ namespace QuanLyHopDongVaKySo_API.Controllers
     public class DMinuteController : ControllerBase
     {
         private readonly IDoneMinuteSvc _doneMinuteSvc;
+        private readonly IPendingMinuteSvc _pendingMinuteSvc;
+        private readonly IUploadFileHelper _uploadFileHelper;
+        private readonly IDoneContractSvc _doneContractSvc;
+        private readonly ICustomerSvc _customerSvc;
+        private readonly ISendMailHelper _sendMailHelper;
 
-        public DMinuteController(IDoneMinuteSvc doneMinuteSvc)
+
+        public DMinuteController(IDoneMinuteSvc doneMinuteSvc, IPendingMinuteSvc pendingMinuteSvc, IUploadFileHelper uploadFileHelper,
+            IDoneContractSvc doneContractSvc, ICustomerSvc customerSvc, ISendMailHelper sendMailHelper)
         {
             _doneMinuteSvc = doneMinuteSvc;
+            _pendingMinuteSvc = pendingMinuteSvc;
+            _uploadFileHelper = uploadFileHelper;
+            _doneContractSvc = doneContractSvc;
+            _customerSvc = customerSvc;
+            _sendMailHelper = sendMailHelper;
         }
 
         [HttpGet]
@@ -45,6 +58,106 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         public async Task<IActionResult> GetByEmployeeId(string id)
         {
             return Ok(await _doneMinuteSvc.GetListByEmpId(id));
+        }
+
+        [HttpPost("SignMinuteWithUSBToken")]
+        public async Task<IActionResult> SignByUSBToken([FromBody] PostDMinute postDMinute)
+        {
+            if (postDMinute.Base64File == null)
+            {
+                return BadRequest();
+            }
+            var pMinute = await _pendingMinuteSvc.GetById(postDMinute.PMinuteID);
+
+            if (pMinute == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var dContract = await _doneContractSvc.getByIdAsnyc(pMinute.DoneContractId.ToString());
+                DoneMinute doneMinute = new DoneMinute()
+                {
+                    DateDone = DateTime.Now,
+                    MinuteName = postDMinute.DMinuteName,
+                    Base64File = postDMinute.Base64File,
+                    EmployeeId = pMinute.EmployeeId,
+                    MinuteFile ="",
+                };
+                var result = await _doneMinuteSvc.AddDMinuteFromSignByUSBToken(doneMinute);
+                string minutePath = null;
+
+                if (result != null)
+                {
+                    IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(postDMinute.Base64File, "bb"+result.DoneMinuteID.ToString()+"_SignedByUsbToken", "application/pdf");
+                    minutePath = _uploadFileHelper.UploadFile(file, $"AppData/DContracts", dContract.DContractID.ToString(), ".pdf");
+                    result.MinuteFile = minutePath;
+
+                    var updateResult = await _doneMinuteSvc.UpdateMinuteFromSignByUSBToken(result);
+                    if (updateResult != null)
+                    {
+                        PutDContract putDContract = new PutDContract()
+                        {
+                            DContractID = dContract.DContractID.ToString(),
+                            DoneMinuteId = dContract.DoneMinuteId,
+                        };
+
+                        var updatedContract = await _doneContractSvc.updateAsnycDMinute(putDContract);
+
+                        if (updatedContract == null)
+                        {
+                            return BadRequest();
+                        }
+
+                        FileStream fs = new FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
+                        fs.Close();
+                        System.GC.Collect();
+                        System.GC.WaitForPendingFinalizers();
+                        System.IO.File.Delete(pMinute.MinuteFile);
+
+
+                        await _pendingMinuteSvc.DeletePMinute(pMinute.PendingMinuteId);
+
+                        var customer = await _customerSvc.GetByIdAsync(dContract.CustomerId.ToString());
+                        string sendmail = await SendMailToCustomerWithFile(System.IO.File.ReadAllBytes(dContract.DContractFile), System.IO.File.ReadAllBytes(result.MinuteFile),customer);
+
+                        return Ok(doneMinute.DoneMinuteID + "*" + pMinute.PendingMinuteId);
+                    }
+                    return BadRequest();
+                }
+                return BadRequest();
+            }
+
+        }
+
+        private async Task<string> SendMailToCustomerWithFile(byte[] bytesContract, byte[] bytesMinute, Customer customer)
+        {
+
+            string content = $"<body>" +
+                $"<div class=\"container\" style=\"max-width: 600px; margin: 0 auto; padding: 20px; text-align: center; background-color: #f7f7f7;\">" +
+                $"<p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Kính gửi khách hàng {customer.FullName},</p>" +
+                $"<p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Xin mời tải hợp đồng của bạn</p>" +
+                $" <p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Nếu bạn có bất kỳ câu hỏi hoặc cần thêm thông tin, xin vui lòng liên hệ với chúng tôi.</p>" +
+                $" <p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Xin cảm ơn!</p>" +
+                $" <p style=\"font-size: 16px; line-height: 1.6; color: #333;\">TechSeal</p>" +
+                $"</div>" +
+                $"<body>";
+
+
+            SendMail mail = new SendMail();
+            mail.Subject = "Hợp đồng Từ TechSeal";
+            mail.ReceiverName = customer.FullName;
+            mail.ToMail = customer.Email;
+            mail.HtmlContent = content;
+            string isSuccess = await _sendMailHelper.SendMailWithFile(mail, bytesContract, bytesMinute);
+            if (isSuccess != null)
+            {
+                return "Đã gửi thành công";
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

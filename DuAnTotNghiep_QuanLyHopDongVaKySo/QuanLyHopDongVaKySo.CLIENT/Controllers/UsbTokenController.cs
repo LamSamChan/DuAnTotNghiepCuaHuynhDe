@@ -11,6 +11,8 @@ using VMAPI = QuanLyHopDongVaKySo_API.ViewModels;
 using API = QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo.CLIENT.Constants;
+using QuanLyHopDongVaKySo.CLIENT.Services.PMinuteServices;
+using QuanLyHopDongVaKySo.CLIENT.Services.DMinuteServices;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -22,6 +24,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         private readonly IHttpContextAccessor _contextAccessor;
         private readonly IPFXCertificateServices _pfxCertificateServices;
         private readonly IPContractService _pContractService;
+        private readonly IPMinuteService _pMinuteService;
+        private readonly IDMinuteService _dMinuteService;
         private readonly ICustomerService _customerService;
         private readonly ISigningService _signingService;
         private readonly IUploadHelper _uploadHelper;
@@ -31,7 +35,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public UsbTokenController(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor, IPContractService pContractService,
             ICustomerService customerService, ISigningService signingService, IPFXCertificateServices pfxCertificateServices, IUploadHelper uploadHelper
-            , IPdfToImageHelper pdfToImageHelper, IDContractsService dContractsService, IHistoryCusSvc historyCusSvc)
+            , IPdfToImageHelper pdfToImageHelper, IDContractsService dContractsService, IHistoryCusSvc historyCusSvc, IPMinuteService pMinuteService, IDMinuteService dMinuteService)
         {
             _hostingEnvironment = hostingEnvironment;
             _contextAccessor = contextAccessor;
@@ -44,9 +48,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             _pdfToImageHelper = pdfToImageHelper;
             _dContractsService = dContractsService;
             _historyCusSvc = historyCusSvc;
+            _pMinuteService = pMinuteService;
+            _dMinuteService = dMinuteService;
         }
         [HttpPost("SignContractWithUsbToken")]
-        public async Task<ActionResult> SignContractWithUsbToken([FromBody] DoneContract dContract)
+        public async Task<ActionResult> SignContractWithUsbToken([FromBody] PostDContract_Usb dContract)
         {
             if (dContract.Base64File != null)
             {
@@ -56,7 +62,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 var customerID = _pContractService.getByIdAsnyc(dContract.PContractID.ToString()).Result.CustomerId;
                 var customerDoing = await _customerService.GetCustomerById(customerID);
 
-                DoneContract dContract2 = new DoneContract()
+                PostDContract_Usb dContract2 = new PostDContract_Usb()
                 {
                     PContractID = dContract.PContractID,
                     DConTractName = dContract.DConTractName+"_SignedByUSBToken",
@@ -70,14 +76,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 string[] split = result.Split('*');
                 string pdfPath = null;
-                IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
+                IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(splitBase64[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
-                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
+                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[0]), "contract");
 
                 //xoa anh pcontract
                 var folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
 
-                string folderItem = System.IO.Path.Combine(folderPath, split[2]);
+                string folderItem = System.IO.Path.Combine(folderPath, split[1]);
 
                 string[] imageFiles = Directory.GetFiles(folderItem);
 
@@ -106,23 +112,24 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         [HttpPost("SignMinuteWithUsbToken")]
-        public async Task<ActionResult> SignMinuteWithUsbToken([FromBody] DoneContract dContract)
+        public async Task<ActionResult> SignMinuteWithUsbToken([FromBody] PostDMinute_Usb dMinute)
         {
-            if (dContract.Base64File != null)
+            if (dMinute.Base64File != null)
             {
-                string[] splitBase64 = dContract.Base64File.Split('*');
+                string[] splitBase64 = dMinute.Base64File.Split('*');
                 HttpContext.Session.SetString(SessionKey.Customer.CustomerToken, splitBase64[1]);
 
-                var customerID = _pContractService.getByIdAsnyc(dContract.PContractID.ToString()).Result.CustomerId;
-                var customerDoing = await _customerService.GetCustomerById(customerID);
+                var pMinute = await _pMinuteService.GetById(dMinute.PMinuteID);
+                var dContract = await _dContractsService.getByIdAsnyc(pMinute.DoneContractId.ToString());
+                var customerDoing = await _customerService.GetCustomerById(dContract.CustomerId);
 
-                DoneContract dContract2 = new DoneContract()
+                PostDMinute_Usb postDMinute = new PostDMinute_Usb()
                 {
-                    PContractID = dContract.PContractID,
-                    DConTractName = dContract.DConTractName + "_SignedByUSBToken",
+                    PMinuteID = dMinute.PMinuteID,
+                    DMinuteName = dMinute.DMinuteName + "_SignedByUSBToken",
                     Base64File = splitBase64[0]
                 };
-                var result = await _dContractsService.SignContractWithUSBToken(dContract2);
+                var result = await _dMinuteService.SignMinuteWithUSBToken(postDMinute);
 
                 if (result == null)
                 {
@@ -130,14 +137,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 string[] split = result.Split('*');
                 string pdfPath = null;
-                IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(split[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
+                IFormFile file = _uploadHelper.ConvertBase64ToIFormFile(splitBase64[0], Guid.NewGuid().ToString().Substring(0, 8), "application/pdf");
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
-                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[1]), "contract");
+                _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[0]), "minute");
 
                 //xoa anh pcontract
                 var folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
 
-                string folderItem = System.IO.Path.Combine(folderPath, split[2]);
+                string folderItem = System.IO.Path.Combine(folderPath, split[1]);
 
                 string[] imageFiles = Directory.GetFiles(folderItem);
 
@@ -153,7 +160,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
                 API.OperationHistoryCus historyCus = new API.OperationHistoryCus()
                 {
-                    OperationName = $"{customerDoing.FullName} - ID:{customerDoing.CustomerId.ToString().Substring(0, 8)} đã ký hợp đồng bằng USBToken - ID:{split[1]}.",
+                    OperationName = $"{customerDoing.FullName} - ID:{customerDoing.CustomerId.ToString().Substring(0, 8)} đã ký biên bản lắp đặt bằng USBToken - ID:{split[1]}.",
                     CustomerID = customerDoing.CustomerId
                 };
                 await _historyCusSvc.AddNew(historyCus);

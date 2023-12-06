@@ -11,7 +11,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
         Task<API.PutDContract> updateIsEffect(API.PutDContract dContract);
         Task<API.PutDContract> getByIdUnEffect(string id);
         Task<string> UnEffectContract(int id);
-        Task<string> SignContractWithUSBToken(DoneContract dContract);
+        Task<string> SignContractWithUSBToken(PostDContract_Usb dContract);
         Task<List<APIVM.DContractViewModel>> getListIsEffect();
         Task<List<APIVM.DContractViewModel>> getListByCusId(string id);
         Task<List<APIVM.DContractViewModel>> getListByEmpId(string id);

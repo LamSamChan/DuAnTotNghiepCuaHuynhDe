@@ -96,7 +96,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
             return response;
         }
 
-        public async Task<string> SignContractWithUSBToken(DoneContract dContract)
+        public async Task<string> SignContractWithUSBToken(PostDContract_Usb dContract)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             string json = JsonConvert.SerializeObject(dContract);

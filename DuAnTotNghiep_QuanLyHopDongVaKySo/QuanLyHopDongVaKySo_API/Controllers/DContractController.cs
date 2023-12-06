@@ -140,7 +140,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 
                 if (result != null)
                 {
-                    IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(postDContract.Base64File, dContract.DContractID.ToString(), "application/pdf");
+                    IFormFile file = _uploadFileHelper.ConvertBase64ToIFormFile(postDContract.Base64File, dContract.DContractID.ToString()+"_SignedByUsbToken", "application/pdf");
                     contractPath = _uploadFileHelper.UploadFile(file, "AppData/DContracts", result.DContractID.ToString(), ".pdf");
                     result.Base64File = postDContract.Base64File;
                     result.DContractFile = contractPath;
@@ -180,7 +180,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         var url = await GenerateUrlShowDContract(dContract.DContractID);
                         var _sendMail = SendMailToCustomer(customer, url);
 
-                        return Ok(postDContract.Base64File + "*" + updateResult.DContractID + "*" + pContract.PContractID);
+                        return Ok(updateResult.DContractID + "*" + pContract.PContractID);
                     }
                      return BadRequest();            
                 }
