@@ -34,7 +34,7 @@
                 <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
                 <li class="breadcrumb-item"> <a>Trang chủ</a></li>
                 <li class="breadcrumb-item"><a>Quản lý hợp đồng</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Yêu cầu lắp đặt</li>
+                <li class="breadcrumb-item active" aria-current="page">@ViewData["Tille"]</li>
             </ol>
         </nav>
         <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
@@ -67,13 +67,21 @@
                             <td>@item.CustomerName</td>
                             <td>@item.TOS_ID</td>
                             <td>
-                                <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
-                                    Chờ ký
-                                </div>
-
+                                @if (item.IsRefuse == "Từ chối")
+                                {
+                                    <div style="background: rgba(250, 44, 44, 0.16); color:#FF000F;display: flex;align-items: center;justify-content: center;">
+                                        @item.IsRefuse
+                                    </div>
+                                }
+                                else if (item.IsDirector == "Chờ ký" || item.IsCustomer == "Chờ ký")
+                                {
+                                    <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
+                                        Chờ ký
+                                    </div>
+                                }
                             </td>
                             <td>
-                                <a asp-action="DetailsContractPending" asp-controller="BusinessStaff" asp-route-id="@item.PContractID">Chi tiết</a>
+                                <a asp-action="DetailsContractPending" asp-controller="BusinessStaff" asp-route-id="@item.PContractID" asp-route-tille="@ViewData["Tille"]">Chi tiết</a>
                             </td>
                         </tr>
                     }
