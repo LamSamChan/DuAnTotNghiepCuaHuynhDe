@@ -129,11 +129,34 @@
             justify-items: center;
             align-items: center;
             justify-content: center;
+
         }
+
+        .loading {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.479);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+            .loading img {
+                width: 7rem;
+            }
     </style>
 
 </head>
 <body>
+    <div class="loading" id="loading">
+        <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+    </div>
     <header style="background-color:#001529;">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
             <div class="container-fluid">
@@ -251,6 +274,10 @@
                         text: 'Bạn đã ký hoàn tất. Vui lòng kiểm tra mail để xem hợp đồng.',
                     }).then((result) => {
                         if (result.value) {
+                              showLoading(); // Show loading icon
+                        setTimeout(() => {
+                            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+                        }, 1000); // Adjust the time as needed
                             close();
                         }
                     });
@@ -265,6 +292,10 @@
                     text: 'Đã xảy ra lỗi khi ký. Vui lòng thử lại sau.',
                 }).then((result) => {
                     if (result.value) {
+                          showLoading(); // Show loading icon
+                        setTimeout(() => {
+                            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+                        }, 1000); // Adjust the time as needed
                         close();
                     }
                 });
@@ -300,4 +331,28 @@
             interval: false
         });
     });
+        z const iconLoading = document.getElementById("loading");
+
+    const showLoading = () => {
+        iconLoading.style.display = "flex";
+    };
+
+    const hideLoading = () => {
+        iconLoading.style.display = "none";
+    };
+
+    const updatePosition = () => {
+        showLoading(); // Show loading spinner when the button is clicked
+
+        // You can perform additional logic here before or after the form submission
+        // For example, submit the form programmatically
+        document.querySelector('form').submit();
+
+        // If you want to prevent the form from submitting immediately, you can remove the form submission line
+
+        // Hide loading spinner after the form submission is complete
+        setTimeout(() => {
+            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+        }, 1000);
+    };
 </script>

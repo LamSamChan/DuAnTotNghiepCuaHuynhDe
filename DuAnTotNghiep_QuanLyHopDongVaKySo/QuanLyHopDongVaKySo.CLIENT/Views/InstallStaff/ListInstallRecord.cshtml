@@ -4,8 +4,29 @@
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<style>
+    .loading {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.479);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-
+        .loading img {
+            width: 7rem;
+        }
+</style>
+<div class="loading" id="loading">
+    <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+</div>
 <div class="container-fluid">
     @if(userRole == "Admin")
     {
@@ -125,7 +146,7 @@
                                     </td>
                                     <td> <a class="button-save" onclick="confirmDownload('@p.Base64File','@p.MinuteName')"><i class="ph-bold ph-download-simple"></i></a></td>
                                     <td>
-                                        <a asp-action="DetailsInstallComplete" asp-controller="InstallStaff" asp-route-pMinuteID="@p.DoneMinuteID">Chi tiết</a>
+                                        <a asp-action="DetailsInstallComplete" asp-controller="InstallStaff" asp-route-pMinuteID="@p.DoneMinuteID" onclick="updatePosition()">Chi tiết</a>
                                     </td>
                                 </tr>
                             }
@@ -215,5 +236,29 @@
             }
         });
     }
+    const iconLoading = document.getElementById("loading");
+
+    const showLoading = () => {
+        iconLoading.style.display = "flex";
+    };
+
+    const hideLoading = () => {
+        iconLoading.style.display = "none";
+    };
+
+    const updatePosition = () => {
+        showLoading(); // Show loading spinner when the button is clicked
+
+        // You can perform additional logic here before or after the form submission
+        // For example, submit the form programmatically
+        document.querySelector('form').submit();
+
+        // If you want to prevent the form from submitting immediately, you can remove the form submission line
+
+        // Hide loading spinner after the form submission is complete
+        setTimeout(() => {
+            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+        }, 1000);
+    };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
