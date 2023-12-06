@@ -15,6 +15,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 @* <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
  *@
+
+<div class="loading" id="loading">
+    <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+</div>
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -142,7 +146,7 @@
                                                             icon: '@TempData["SweetIcon"]'
                                                         };
 
-                                                        console.log("Sweet Data:", sweetData);
+                                                     
 
                                                         Swal.fire({
                                                             title: sweetData.title,
@@ -191,8 +195,6 @@
                                             icon: '@TempData["SweetIcon"]'
                                         };
 
-                                        console.log("Sweet Data:", sweetData);
-
                                         Swal.fire({
                                             title: sweetData.title,
                                             text: sweetData.text,
@@ -232,7 +234,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                    console.log("Sweet Data:", sweetData);
+                                                   
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -261,7 +263,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                    console.log("Sweet Data:", sweetData);
+                                                   
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -307,7 +309,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                    console.log("Sweet Data:", sweetData);
+                                                   
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -336,7 +338,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                    console.log("Sweet Data:", sweetData);
+                                                   
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -382,7 +384,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                    console.log("Sweet Data:", sweetData);
+                                                   
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -411,7 +413,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                    console.log("Sweet Data:", sweetData);
+                                                   
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -458,7 +460,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                    console.log("Sweet Data:", sweetData);
+                                                  
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -487,7 +489,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                    console.log("Sweet Data:", sweetData);
+                                              
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -533,7 +535,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                    console.log("Sweet Data:", sweetData);
+                                     
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -562,7 +564,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                    console.log("Sweet Data:", sweetData);
+                                          
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -687,7 +689,7 @@
                                 icon: '@TempData["SweetIcon"]'
                             };
 
-                            console.log("Sweet Data:", sweetData);
+                    
 
                             Swal.fire({
                                 title: sweetData.title,
@@ -834,6 +836,10 @@
                             showConfirmButton: false,
                             timer: 1500
                         }).then(() => {
+                            showLoading(); // Show loading icon
+                            setTimeout(() => {
+                                hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+                            }, 1000); // Adjust the time as needed
                             window.location.reload();
                         });
                     },
@@ -845,6 +851,10 @@
                             showConfirmButton: false,
                             timer: 1500
                         }).then(() => {
+                            showLoading(); // Show loading icon
+                            setTimeout(() => {
+                                hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+                            }, 1000); // Adjust the time as needed
                             window.location.reload();
                         });
                     }
@@ -965,7 +975,10 @@
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-
+                    showLoading(); // Show loading icon
+                    setTimeout(() => {
+                        hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+                    }, 1000); // Adjust the time as needed
                 });
             }
 
@@ -988,4 +1001,10 @@
             interval: false
         });
     });
+    const showLoading = () => {
+        iconLoading.style.display = "flex";
+    };
+    const hideLoading = () => {
+        iconLoading.style.display = "none";
+    };
 </script>

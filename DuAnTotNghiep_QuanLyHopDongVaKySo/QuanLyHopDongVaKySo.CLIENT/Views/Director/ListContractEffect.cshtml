@@ -2,6 +2,9 @@
 @{
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
+<div class="loading" id="loading">
+    <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+</div>
 <div class="container-fluid">
     @if(userRole == "Admin")
     {
@@ -67,7 +70,7 @@
                                 <span>@item.Status</span>
                             </td>
                             <td>
-                                <a asp-controller="Director" asp-action="DetailsContractEffect" asp-route-id="@item.Id">
+                                <a asp-controller="Director" asp-action="DetailsContractEffect" asp-route-id="@item.Id" onclick="updateLoading()">
                                     Chi tiết
                                 </a>
                             </td>
@@ -110,4 +113,28 @@
         }
     });
 
+     const iconLoading = document.getElementById("loading");
+
+    const showLoading = () => {
+        iconLoading.style.display = "flex";
+    };
+
+    const hideLoading = () => {
+        iconLoading.style.display = "none";
+    };
+
+    const updateLoading = () => {
+        showLoading(); // Show loading spinner when the button is clicked
+
+        // You can perform additional logic here before or after the form submission
+        // For example, submit the form programmatically
+        document.querySelector('form').submit();
+
+        // If you want to prevent the form from submitting immediately, you can remove the form submission line
+
+        // Hide loading spinner after the form submission is complete
+        setTimeout(() => {
+            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+        }, 1000);
+    };
 </script>

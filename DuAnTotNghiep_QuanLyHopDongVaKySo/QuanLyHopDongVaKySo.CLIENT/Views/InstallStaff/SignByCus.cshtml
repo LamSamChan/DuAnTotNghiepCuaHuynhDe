@@ -165,6 +165,10 @@
                             showConfirmButton: false,
                             timer: 1500
                         }).then(() => {
+                        showLoading(); // Show loading icon
+                        setTimeout(() => {
+                            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+                        }, 1000); // Adjust the time as needed
                            @* var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
                             window.location.href = redirectToUrl; *@
                         });
@@ -201,5 +205,10 @@
             interval: false
         });
     });
-
+    const showLoading = () => {
+        iconLoading.style.display = "flex";
+    };
+    const hideLoading = () => {
+        iconLoading.style.display = "none";
+    };
 </script>
