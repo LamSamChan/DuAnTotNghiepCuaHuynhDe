@@ -689,8 +689,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             
             pContractList = await _pContractService.getListRefuse();
-            return View(pContractList);
-            
+            return View("ContractListPending", pContractList);
+
         }
 
         //hiển thị danh sách chờ kh ký theo role và theo nhân viên tạo hoặc ng ký
@@ -699,9 +699,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (IsAuthenticate != 3 && IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             pContractList = await _pContractService.getListWaitCustomerSigns();
-            return View(pContractList);
-            
-            
+            return View("ContractListPending", pContractList);
+
+
         }
 
         public async Task<IActionResult> DetailsContractEffect(string id)
@@ -722,7 +722,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
             viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
             viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
-
             return View(viewModel);
             
         }
@@ -736,9 +735,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
             viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
             viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.DirectorSignedId);
+            viewModel.Tille = "HOP DONG TU CHOI";
+            return View("DetailsContractPending", viewModel);
 
-            return View(viewModel);
-            
         }
 
         public async Task<IActionResult> DetailsContractWaitSign(string id)

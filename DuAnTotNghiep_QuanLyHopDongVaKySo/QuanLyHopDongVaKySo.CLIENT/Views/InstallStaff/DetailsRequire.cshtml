@@ -1,6 +1,7 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMDeitalsMinute;
 @{
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
@@ -143,7 +144,7 @@
             <h4 class="typeHead">
                 Thông tin khách hàng
             </h4>
-            @*   <form class="row g-3" style="max-width:950px;">
+               <form class="row g-3" style="max-width:950px;">
             <div class="col-md-6">
             <label for="inputName" class="form-label">Họ và tên</label>
             <input type="text" class="form-input" id="inputName" placeholder="Họ và tên" asp-for="@Model.Customer.FullName">
@@ -177,22 +178,22 @@
             </div>
             <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
-            <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContracts.Id">
+            <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContract.Id">
             </div>
             <div class="col-md-5">
             <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
-            <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.DoneContracts.TypeOfService">
+            <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.DoneContract.TypeOfService">
             </div>
             <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Ngày hiệu lực</label>
-            <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContracts.DateDone">
+            <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContract.DateDone">
             </div>
             <div class="col-md-5">
             <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
-            <input type="text" class="form-input" id="inputAddress" placeholder="ID" asp-for="@Model.DoneContracts.DMinuteID">
+            <input type="text" class="form-input" id="inputAddress" placeholder="ID" asp-for="@Model.DoneContract.DMinuteID">
             </div>
             
-            </form> *@
+            </form> 
         </div>
     </div>
 

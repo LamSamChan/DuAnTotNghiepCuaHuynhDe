@@ -12,6 +12,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.ViewModels
         public API.PendingMinute PendingMinute { get; set; }
         public ViewModel.PContractViewModel PendingContracts { get; set; }
         public ViewModel.DContractViewModel DoneContracts { get; set; }
-        
+        public string Tille { get; set; }
     }
 }

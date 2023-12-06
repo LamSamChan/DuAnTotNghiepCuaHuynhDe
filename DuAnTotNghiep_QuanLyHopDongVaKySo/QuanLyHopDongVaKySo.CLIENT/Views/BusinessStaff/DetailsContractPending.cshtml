@@ -32,10 +32,10 @@
                     <li class="breadcrumb-item"> <a>Trang chủ</a></li>
                     <li class="breadcrumb-item"><a>Nhân viên kinh doanh</a></li>
                     <li class="breadcrumb-item"><a>Quản lý hợp đồng</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Yêu cầu lắp đặt</li>
+                    <li class="breadcrumb-item active" aria-current="page"> @Model.Tille</li>
                 </ol>
             </nav>
-            <h1 class="typeHead">CHI TIẾT YÊU CẦU LẮP</h1>
+            <h1 class="typeHead">@Model.Tille</h1>
             <div class="row">
                 <a class="col-md-2 button-design" asp-action="ContractListPending" asp-controller="BusinessStaff">
                     <i class="ph-bold ph-arrow-left">
@@ -57,10 +57,10 @@
                     <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
                     <li class="breadcrumb-item"> <a>Trang chủ</a></li>
                     <li class="breadcrumb-item"><a>Quản lý hợp đồng</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Yêu cầu lắp đặt</li>
+                    <li class="breadcrumb-item active" aria-current="page"> @Model.Tille</li>
                 </ol>
             </nav>
-            <h1 class="typeHead">CHI TIẾT YÊU CẦU LẮP</h1>
+            <h1 class="typeHead">CHI TIẾT @Model.Tille</h1>
             <div class="row">
                 <a class="col-md-2 button-design" asp-action="ContractListPending" asp-controller="BusinessStaff">
                     <i class="ph-bold ph-arrow-left">
@@ -74,7 +74,7 @@
     <div class="row bg-white mt-4 rounded mx-auto my-auto">
         <div class="col-md-6">
             <div class="showFile">
-                <h4 style="color: #4318FF; display: flex;justify-content: center;padding-top: 10px;">Hợp đồng chờ duyệt </h4>
+                <h4 style="color: #4318FF; display: flex;justify-content: center;padding-top: 10px;">@Model.Tille</h4>
                 <div id="myCarousel" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active " style="width:800px;">
@@ -84,7 +84,7 @@
                             @foreach (var imgPath in imageFilesContract)
                             {
                                 <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                    <img src="@Url.Content("~/ContractImage/"+Model.PendingContracts.PContractID+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                    <img src="@Url.Content("~/PContractImage/"+Model.PendingContracts.PContractID+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                                 </div>
                             }
                         else
@@ -189,6 +189,10 @@
                 <div class="col-md-6">
                     <label for="inputAddress" class="form-label">Số điện thoại</label>
                     <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.PhoneNumber">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Lý do từ chối</label>
+                    <textarea style="width:500px; height:100px;" asp-for="@Model.PendingContracts.Reason"> </textarea>
                 </div>
             </form>
         </div>
