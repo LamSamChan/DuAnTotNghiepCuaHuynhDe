@@ -284,7 +284,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         private async Task<string> GenerateUrl(int contractID)
         {
-            //Tạo token với id khách hàng và id hợp đồng + serial pfx
+            //Tạo token với id hợp đồng
             var token = GenerateToken(contractID);
 
             // Tạo đường link có chứa token
@@ -339,7 +339,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             string urlShort = await _shortLinkHelper.GenerateShortUrl(url);
 
             // Gửi URL cho khách hàng
-            return url;
+            return urlShort;
         }
 
         private async Task<string> SendMailToCustomer(Customer customer, string url)

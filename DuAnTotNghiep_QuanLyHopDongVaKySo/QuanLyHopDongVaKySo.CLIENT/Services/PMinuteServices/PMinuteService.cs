@@ -29,6 +29,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.PMinuteServices
                     token = _httpContextAccessor.HttpContext.Session.GetString("token");
 
                 }
+                else
+                {
+                    token = _httpContextAccessor.HttpContext.Session.GetString(Constants.SessionKey.Customer.CustomerToken);
+                }
                 return token;
             }
             set { this.token = value; }

@@ -42,7 +42,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
             else
             {
-                return BadRequest(typeOfService);
+                return BadRequest();
             }
         }
 

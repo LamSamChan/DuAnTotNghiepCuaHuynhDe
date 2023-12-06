@@ -111,7 +111,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Mã biên bản phải là số !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hãy nhập mã tài liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -130,28 +130,31 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
             // Hiển thị hộp thoại cho phép chọn giữa hai options
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn ký bằng ảnh chữ ký không?", "Lựa chọn kiểu chữ ký", MessageBoxButtons.YesNo);
             float x, y;
+            string reason;
             if (TypeDocument.SelectedItem.ToString() == "Hợp đồng")
             {
                 var tos = await tosRepository.GetTypeOfServiceAsync(DataStore.Instance.PendingContract.TOS_ID);
                 var tcontract = await tContractRepository.GetTContact(tos.templateContractID);
                 SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tcontract.jsonCustomerZone);
-
-                x = customerZone.X - 20;
-                y = customerZone.Y - 60;
+                reason = "Ký hợp đồng";
+                x = customerZone.X - 10;
+                y = customerZone.Y - 55;
             }
             else
             {
+                reason = "Ký biên bản";
                 var dContract = await dContractRepository.GetDoneContract(DataStore.Instance.PendingMinute.DoneContractId.ToString());
-                var tMinuteID = tosRepository.GetTypeOfServiceAsync(dContract.TOS_ID.ToString()).Result.templateMinuteID;
+                var tos = await tosRepository.GetTypeOfServiceAsync(dContract.TOS_ID.ToString());
+                int tMinuteID = tos.templateMinuteID;
                 TemplateMinute tMinute = await tMinuteRepository.GetTContact(tMinuteID);
                 SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tMinute.jsonCustomerZone);
-                x = customerZone.X - 20;
-                y = customerZone.Y - 60;
+                x = customerZone.X - 130;
+                y = customerZone.Y - 880;
             }
 
             if (dialogResult == DialogResult.Yes) // Option A
             {
-                OpenImageFileDialog(x,y);
+                OpenImageFileDialog(x,y, reason);
             }
             else // Option B
             {
@@ -160,7 +163,6 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 X509Certificate2Collection sel = X509Certificate2UI.SelectFromCollection(store.Certificates, null, null, X509SelectionFlag.SingleSelection);
 
                 X509Certificate2 cert = sel[0];
-
                 Org.BouncyCastle.X509.X509CertificateParser cp = new Org.BouncyCastle.X509.X509CertificateParser();
                 Org.BouncyCastle.X509.X509Certificate[] chain = new Org.BouncyCastle.X509.X509Certificate[] {
                     cp.ReadCertificate(cert.RawData)};
@@ -176,8 +178,10 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
                 signatureAppearance.SignDate = DateTime.Now;
                 signatureAppearance.SignatureCreator = DataStore.Instance.Customer.FullName;
+                signatureAppearance.Reason = reason;
 
-                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + 130, y + 130), pdfReader.NumberOfPages, "Signature");
+
+                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + 150, y + 150), pdfReader.NumberOfPages, "Signature");
 
                 signatureAppearance.SignatureRenderingMode = PdfSignatureAppearance.RenderingMode.DESCRIPTION;
 
@@ -192,8 +196,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
             }
         }
 
-        private string serial = null;
-        private async void OpenImageFileDialog(float x, float y)
+        private async void OpenImageFileDialog(float x, float y, string reason)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -224,7 +227,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
 
                         PdfStamper pdfStamper = PdfStamper.CreateSignature(pdfReader, signedPdf, '\0');
                         PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
-
+                        signatureAppearance.Reason = reason;
                         signatureAppearance.SignatureGraphic = iTextSharp.text.Image.GetInstance(selectedFilePath);
                         signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + 130, y + 130), pdfReader.NumberOfPages, "Signature");
                         signatureAppearance.SignatureRenderingMode = PdfSignatureAppearance.RenderingMode.GRAPHIC;
@@ -259,7 +262,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 byte[] fileBytes = System.IO.File.ReadAllBytes(savePathsign.Replace("_sign.pdf", "_signed.pdf"));
                 string base64String = Convert.ToBase64String(fileBytes);
 
-                MessageBox.Show("Quá trình ký số đang diễn ra, vui lòng chờ cho đến khi có thông báo tiếp theo. Xin cảm ơn quý khách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sau khi quý khách nhấn nút [Ok] Quá trình ký số diễn ra, vui lòng chờ cho đến khi có thông báo tiếp theo.\nXin cảm ơn quý khách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 int isSuccess;
                 if (TypeDocument.SelectedItem.ToString() == "Hợp đồng")
                 {

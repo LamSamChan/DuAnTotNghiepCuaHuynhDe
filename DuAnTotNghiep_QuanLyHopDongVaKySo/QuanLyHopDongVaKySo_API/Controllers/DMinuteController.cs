@@ -99,7 +99,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         PutDContract putDContract = new PutDContract()
                         {
                             DContractID = dContract.DContractID.ToString(),
-                            DoneMinuteId = dContract.DoneMinuteId,
+                            IsInEffect = true,
+                            DoneMinuteId = result.DoneMinuteID,
                         };
 
                         var updatedContract = await _doneContractSvc.updateAsnycDMinute(putDContract);

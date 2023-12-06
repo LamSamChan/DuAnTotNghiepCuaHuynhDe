@@ -190,7 +190,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             BaseFont bf2 = BaseFont.CreateFont(@"AppData/Font/texgyretermes-bold.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
             // Thiết lập font và kích thước cho trường văn bản
-            Font font2 = new Font(bf2, 15);
+            Font font2 = new Font(bf2, 12);
 
             foreach (var coordinate in Coordinates)
             {
@@ -246,7 +246,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             System.GC.Collect();
             System.GC.WaitForPendingFinalizers();
 
-            var signedContractPath = await _pfxCertificate.SignContract(imagePath, imagePathStamp, pContract.PContractFile, pContract.PContractFile.Replace(".pdf", "_director_signed.pdf"), certi.Serial, directorZone.X, directorZone.Y, "contract");
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath, imagePathStamp, pContract.PContractFile, pContract.PContractFile.Replace(".pdf", "_director_signed.pdf"), certi.Serial, directorZone.X, directorZone.Y, "contract", director.FullName);
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(pContract.PContractFile.Replace(".pdf", "_director_signed.pdf"));
             string base64String = Convert.ToBase64String(fileBytes);
@@ -381,7 +381,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContractFirst.DContractID}");
             }
 
-            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X+40, customerZone.Y+10,"contract");
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X+40, customerZone.Y+10,"contract", customer.FullName);
 
             string qrCodePath = pContract.PContractFile.Replace("_director_signed.pdf", ".png");
             FileStream fs1 = new FileStream(qrCodePath, FileMode.Open, FileAccess.Read);
@@ -577,7 +577,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             FileStream fsPContract1 = new System.IO.FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
             fsPContract1.Close();
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath,imagePathStamp, pMinute.MinuteFile, pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"), certi.Serial, signatureZone.X + 50, signatureZone.Y - 700, "minute");
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath,imagePathStamp, pMinute.MinuteFile, pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"), certi.Serial, signatureZone.X + 50, signatureZone.Y - 700, "minute", installer.FullName);
 
           byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"));
             string base64String = Convert.ToBase64String(fileBytes);
@@ -679,7 +679,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContract.DContractID}");
             }
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute.Replace("_installer_signed.pdf",".pdf"), certi.Serial, customerZone.X - 20, customerZone.Y - 700 - 20,"minute");
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute.Replace("_installer_signed.pdf",".pdf"), certi.Serial, customerZone.X - 20, customerZone.Y - 700 - 20,"minute", customer.FullName);
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(outputMinute.Replace("_installer_signed.pdf", ".pdf"));
             string base64String = Convert.ToBase64String(fileBytes);

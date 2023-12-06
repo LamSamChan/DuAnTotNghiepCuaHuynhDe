@@ -53,7 +53,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không tìm thấy khách hàng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

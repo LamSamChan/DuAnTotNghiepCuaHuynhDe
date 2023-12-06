@@ -199,7 +199,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
             }
         }
 
-        public async Task<string> SignContract(string imagePath, string? imagePathStamp , string inputPdfPath, string outputPdfPath, string serialCerti, float xCoordinate, float yCoodinate, string typeDoc)
+        public async Task<string> SignContract(string imagePath, string? imagePathStamp , string inputPdfPath, string outputPdfPath, string serialCerti, float xCoordinate, float yCoodinate, string typeDoc, string signedBy)
         {
 
             var certi = await GetById(serialCerti);
@@ -239,6 +239,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 }
 
                 PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
+                signatureAppearance.SignatureCreator = signedBy;
                 signatureAppearance.Reason = "Ký hợp đồng";   
                 signatureAppearance.SignDate = DateTime.Now;
                 // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
@@ -253,7 +254,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 {
                     if (lastPageNumber == 1)
                     {
-                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 100, yCoodinate - 45 - 110 - 70, xCoordinate - 100 + 100, yCoodinate - 45 - 110 + 100), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
+                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 50, yCoodinate - 45 - 110 - 40, xCoordinate - 100 + 70, yCoodinate - 45 - 110 + 70), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
                     }
                     else
