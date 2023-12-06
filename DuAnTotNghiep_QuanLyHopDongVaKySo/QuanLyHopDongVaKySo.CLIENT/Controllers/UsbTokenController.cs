@@ -141,8 +141,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 pdfPath = _uploadHelper.UploadPDF(file, _hostingEnvironment.WebRootPath, "TempFile", ".pdf");
                 _pdfToImageHelper.PdfToPng(pdfPath, int.Parse(split[0]), "minute");
 
-                //xoa anh pcontract
-                var folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
+                //xoa anh pminute
+                var folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PMinuteImage");
 
                 string folderItem = System.IO.Path.Combine(folderPath, split[1]);
 

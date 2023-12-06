@@ -64,6 +64,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return Ok(await _doneContractSvc.getAllAsnyc());
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> getByIdForWinForm(string id)
+        {
+            return Ok(await _doneContractSvc.getByIdAsnyc(id));
+        }
+
         [HttpGet("getById/{id}")]
         public async Task<IActionResult> getById(int id)
         {

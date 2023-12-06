@@ -10,7 +10,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Models
     {
         [Key]
         [Column("Id")]
-        public int? PendingMinuteId { get; set; }
+        public int PendingMinuteId { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
         [Display(Name = "Ngày tạo")]
