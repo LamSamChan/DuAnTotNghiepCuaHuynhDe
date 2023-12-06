@@ -150,16 +150,18 @@
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Chữ ký khách hàng</label>
                     <div class="d-flex align-items-center">
-                        <div style="width: 5px; height: 5px; background-color: yellow; border-radius: 50%; margin-right: 10px;">
-                            @Model.PendingContracts.IsCustomer
+                        <div style="width: 5px; height: 5px; background-color: 
+                             @(Model.PendingContracts.IsCustomer == "Chờ ký"? "yellow":"green"); border-radius: 50%; margin-right: 10px;">
+                             @Model.PendingContracts.IsCustomer
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label for="inputAddress" class="form-label">Chữ ký giám đốc</label>
                     <div class="d-flex align-items-center">
-                        <div style="width: 5px; height: 5px; background-color: yellow; border-radius: 50%; margin-right: 10px;">
-                            @Model.PendingContracts.IsDirector
+                        <div style="width: 5px; height: 5px; background-color: 
+                             @(Model.PendingContracts.IsDirector == "Chờ ký"? "yellow":"green"); border-radius: 50%; margin-right: 10px;">
+                             @Model.PendingContracts.IsDirector
                         </div>
                     </div>
                 </div>

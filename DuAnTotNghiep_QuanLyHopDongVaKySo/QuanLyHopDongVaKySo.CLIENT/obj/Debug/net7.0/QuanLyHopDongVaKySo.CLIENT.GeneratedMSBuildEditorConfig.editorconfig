@@ -108,14 +108,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzaW5lc3NTdGFmZlxDb250cmFjdExpc3RQZW5kaW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/ContractListRefuse.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzaW5lc3NTdGFmZlxDb250cmFjdExpc3RSZWZ1c2UuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/ContractListWaitSign.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzaW5lc3NTdGFmZlxDb250cmFjdExpc3RXYWl0U2lnbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/CreateFormForCus.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzaW5lc3NTdGFmZlxDcmVhdGVGb3JtRm9yQ3VzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -126,14 +118,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/DetailsContractPending.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzaW5lc3NTdGFmZlxEZXRhaWxzQ29udHJhY3RQZW5kaW5nLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/DetailsContractRefuse.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzaW5lc3NTdGFmZlxEZXRhaWxzQ29udHJhY3RSZWZ1c2UuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/DetailsContractWaitSign.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzaW5lc3NTdGFmZlxEZXRhaWxzQ29udHJhY3RXYWl0U2lnbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/luudu/Desktop/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/DetailsCus.cshtml]

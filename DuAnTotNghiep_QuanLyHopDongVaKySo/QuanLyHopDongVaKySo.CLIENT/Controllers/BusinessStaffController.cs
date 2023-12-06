@@ -676,7 +676,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             if (IsAuthenticate != 3 && IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            
+            ViewData["Tille"] = "HOP DONG CHO DUYET";
             pContractList = await _pContractService.getListWaitDirectorSigns();
             return View(pContractList);
             
@@ -689,6 +689,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             
             pContractList = await _pContractService.getListRefuse();
+            ViewData["Tille"] = "HOP DONG TU CHOI";
             return View("ContractListPending", pContractList);
 
         }
@@ -699,9 +700,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (IsAuthenticate != 3 && IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             pContractList = await _pContractService.getListWaitCustomerSigns();
+            ViewData["Tille"] = "HOP DONG CHO KHACH HANG KY";
             return View("ContractListPending", pContractList);
-
-
         }
 
         public async Task<IActionResult> DetailsContractEffect(string id)
@@ -715,13 +715,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             
         }
 
-        public async Task<IActionResult> DetailsContractPending(string id)
+        public async Task<IActionResult> DetailsContractPending(string id, string tille)
         {
             if (IsAuthenticate != 1 && IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             VMDetailsContract viewModel = new VMDetailsContract();
             viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
             viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
             viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
+            viewModel.Tille = tille;
             return View(viewModel);
             
         }
@@ -735,7 +736,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             viewModel.PendingContracts = await _pContractService.getByIdAsnyc(id);
             viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
             viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.DirectorSignedId);
-            viewModel.Tille = "HOP DONG TU CHOI";
+            
             return View("DetailsContractPending", viewModel);
 
         }
