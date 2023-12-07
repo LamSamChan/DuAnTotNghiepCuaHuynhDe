@@ -246,7 +246,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             System.GC.Collect();
             System.GC.WaitForPendingFinalizers();
 
-            var signedContractPath = await _pfxCertificate.SignContract(imagePath, imagePathStamp, pContract.PContractFile, pContract.PContractFile.Replace(".pdf", "_director_signed.pdf"), certi.Serial, directorZone.X, directorZone.Y, "contract", director.FullName);
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath, imagePathStamp, pContract.PContractFile, pContract.PContractFile.Replace(".pdf", "_director_signed.pdf"), certi.Serial, directorZone.X - 20, directorZone.Y + 20, "contract", director.FullName);
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(pContract.PContractFile.Replace(".pdf", "_director_signed.pdf"));
             string base64String = Convert.ToBase64String(fileBytes);
@@ -381,7 +381,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContractFirst.DContractID}");
             }
 
-            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X+40, customerZone.Y+10,"contract", customer.FullName);
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X +20, customerZone.Y,"contract", customer.FullName);
 
             string qrCodePath = pContract.PContractFile.Replace("_director_signed.pdf", ".png");
             FileStream fs1 = new FileStream(qrCodePath, FileMode.Open, FileAccess.Read);
@@ -577,7 +577,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             FileStream fsPContract1 = new System.IO.FileStream(pMinute.MinuteFile, FileMode.Open, FileAccess.Read);
             fsPContract1.Close();
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath,imagePathStamp, pMinute.MinuteFile, pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"), certi.Serial, signatureZone.X + 50, signatureZone.Y - 700, "minute", installer.FullName);
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath,imagePathStamp, pMinute.MinuteFile, pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"), certi.Serial, signatureZone.X + 70, signatureZone.Y - 650, "minute", installer.FullName);
 
           byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"));
             string base64String = Convert.ToBase64String(fileBytes);

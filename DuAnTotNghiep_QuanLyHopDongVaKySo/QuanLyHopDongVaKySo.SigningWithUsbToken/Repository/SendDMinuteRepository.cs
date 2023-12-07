@@ -33,6 +33,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Repository
             int result = 0;
             string token = DataStore.Instance.Token;
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            _httpClient.Timeout = TimeSpan.FromMinutes(5);
             string json = JsonConvert.SerializeObject(doneMinute);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             _httpResponseMessage = await _httpClient.PostAsync($"api/UsbToken/SignMinuteWithUsbToken", content);

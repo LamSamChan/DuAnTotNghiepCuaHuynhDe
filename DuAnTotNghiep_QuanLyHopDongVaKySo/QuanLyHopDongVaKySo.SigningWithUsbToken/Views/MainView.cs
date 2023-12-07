@@ -137,7 +137,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 var tcontract = await tContractRepository.GetTContact(tos.templateContractID);
                 SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tcontract.jsonCustomerZone);
                 reason = "Ký hợp đồng";
-                x = customerZone.X - 10;
+                x = customerZone.X - 30;
                 y = customerZone.Y - 55;
             }
             else
@@ -148,8 +148,8 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 int tMinuteID = tos.templateMinuteID;
                 TemplateMinute tMinute = await tMinuteRepository.GetTContact(tMinuteID);
                 SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tMinute.jsonCustomerZone);
-                x = customerZone.X - 130;
-                y = customerZone.Y - 880;
+                x = customerZone.X - 110;
+                y = customerZone.Y - 865;
             }
 
             if (dialogResult == DialogResult.Yes) // Option A
@@ -162,7 +162,18 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 store.Open(OpenFlags.ReadOnly);
                 X509Certificate2Collection sel = X509Certificate2UI.SelectFromCollection(store.Certificates, null, null, X509SelectionFlag.SingleSelection);
 
-                X509Certificate2 cert = sel[0];
+                X509Certificate2 cert = new X509Certificate2();
+                try
+                {
+                    cert = sel[0];
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Bạn hãy chọn chữ ký số để có thể thực hiện ký!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+
                 Org.BouncyCastle.X509.X509CertificateParser cp = new Org.BouncyCastle.X509.X509CertificateParser();
                 Org.BouncyCastle.X509.X509Certificate[] chain = new Org.BouncyCastle.X509.X509Certificate[] {
                     cp.ReadCertificate(cert.RawData)};
@@ -181,7 +192,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 signatureAppearance.Reason = reason;
 
 
-                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + 150, y + 150), pdfReader.NumberOfPages, "Signature");
+                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + 120, y + 120), pdfReader.NumberOfPages, "Signature");
 
                 signatureAppearance.SignatureRenderingMode = PdfSignatureAppearance.RenderingMode.DESCRIPTION;
 
@@ -212,11 +223,21 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                     X509Certificate2Collection sel = X509Certificate2UI.SelectFromCollection(store.Certificates, null, null, X509SelectionFlag.SingleSelection);
                     if (sel.Count > 0)
                     {
-                        X509Certificate2 cert = sel[0];
+                        X509Certificate2 cert = new X509Certificate2();
+                        try
+                        {
+                            cert = sel[0];
+                        }
+                        catch (Exception)
+                        {
+
+                            MessageBox.Show("Bạn hãy chọn chữ ký số để có thể thực hiện ký!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
 
                         Org.BouncyCastle.X509.X509CertificateParser cp = new Org.BouncyCastle.X509.X509CertificateParser();
                         Org.BouncyCastle.X509.X509Certificate[] chain = new Org.BouncyCastle.X509.X509Certificate[] {
-                    cp.ReadCertificate(cert.RawData)};
+                        cp.ReadCertificate(cert.RawData)};
 
                         IExternalSignature externalSignature = new X509Certificate2Signature(cert, "SHA-1");
 
@@ -229,7 +250,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                         PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
                         signatureAppearance.Reason = reason;
                         signatureAppearance.SignatureGraphic = iTextSharp.text.Image.GetInstance(selectedFilePath);
-                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + 130, y + 130), pdfReader.NumberOfPages, "Signature");
+                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x - 25, y - 35, x + 130, y + 130), pdfReader.NumberOfPages, "Signature");
                         signatureAppearance.SignatureRenderingMode = PdfSignatureAppearance.RenderingMode.GRAPHIC;
 
                         MakeSignature.SignDetached(signatureAppearance, externalSignature, chain, null, null, null, 0, CryptoStandard.CMS);
@@ -262,7 +283,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 byte[] fileBytes = System.IO.File.ReadAllBytes(savePathsign.Replace("_sign.pdf", "_signed.pdf"));
                 string base64String = Convert.ToBase64String(fileBytes);
 
-                MessageBox.Show("Sau khi quý khách nhấn nút [Ok] Quá trình ký số diễn ra, vui lòng chờ cho đến khi có thông báo tiếp theo.\nXin cảm ơn quý khách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sau khi quý khách nhấn nút [Ok] Quá trình ký số diễn ra, vui lòng chờ cho đến khi có thông báo tiếp theo. Quá trình này có thể sẽ diễn ra trong vài phút.\nXin cảm ơn quý khách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 int isSuccess;
                 if (TypeDocument.SelectedItem.ToString() == "Hợp đồng")
                 {
