@@ -318,5 +318,10 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 }
             }
         }
+
+        private void pdfViewer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

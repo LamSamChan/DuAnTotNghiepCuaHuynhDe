@@ -18,29 +18,7 @@
 <!-- SuperSignature : Script (required) -->
 <script language="javascript" type="text/javascript" src="~/Scripts/ss.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<style>
-    .loading {
-        position: absolute;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        background: rgba(0, 0, 0, 0.479);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
 
-        .loading img {
-            width: 7rem;
-        }
-</style>
-<div class="loading" id="loading">
-    <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
-</div>
 <div class="container-fluid" style="height: 100vh;">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -89,11 +67,11 @@
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
                         <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                        <span class="visually-hidden" onclick="updateLoading()">Previous</span>
+                        <span class="visually-hidden" >Previous</span>
                     </button>
                     <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                        <span class="visually-hidden" onclick="updateLoading()">Next</span>
+                        <span class="visually-hidden" >Next</span>
                     </button>
                 </div>
 
@@ -120,11 +98,11 @@
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselModal" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
                                         <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                                        <span class="visually-hidden" onclick="updateLoading()">Previous</span>
+                                        <span class="visually-hidden" >Previous</span>
                                     </button>
                                     <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarouselModal" data-bs-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                                        <span class="visually-hidden" onclick="updateLoading()">Next</span>
+                                        <span class="visually-hidden" >Next</span>
                                     </button>
                                 </div>
                             </div>
@@ -187,10 +165,7 @@
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => {
-                        showLoading(); // Show loading icon
-                        setTimeout(() => {
-                            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-                        }, 1000); // Adjust the time as needed
+                    
     @* var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
                             window.location.href = redirectToUrl; *@
                             });
@@ -227,19 +202,4 @@
             interval: false
         });
     });
-    const iconLoading = document.getElementById("loading");
-
-    const showLoading = () => {
-        iconLoading.style.display = "flex";
-    };
-    const hideLoading = () => {
-        iconLoading.style.display = "none";
-    };
-
-    const updateLoading = () => {
-        showLoading();
-        setTimeout(() => {
-            hideLoading();
-        }, 1000);
-    };
 </script>

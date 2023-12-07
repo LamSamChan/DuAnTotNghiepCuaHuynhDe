@@ -7,9 +7,7 @@
         defaultImg = Model.PFXCertificate.DefaultImageSignature.Replace(@"\", @"/");
     }
 }
-<div class="loading" id="loading">
-    <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
-</div>
+
 <div class="container-fluid">
     @if (userRole == "Admin")
     {
@@ -49,7 +47,7 @@
                                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                                         </div>
                                         <div class="col-mb-5" style="margin: auto;">
-                                            <button class="button-save" onclick="updateLoading()">
+                                            <button class="button-save" >
                                                 Xác nhận
                                             </button>
                                         </div>
@@ -133,10 +131,10 @@
                                     </ul>
                                 </div>
                                 <div class="modal-footer">
-                                    <button class="btn btn-primary" id="signBtn" disabled onclick="updateLoading()">
+                                    <button class="btn btn-primary" id="signBtn" disabled >
                                         DUYỆT
                                     </button>
-                                    <button class="button-save" id="signDefaultBtn" onclick="updateLoading()">
+                                    <button class="button-save" id="signDefaultBtn" >
                                         DUYỆT BẰNG CHỮ KÝ MẶC ĐỊNH
                                     </button>
                                 </div>
@@ -161,7 +159,7 @@
                                             <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
                                         </div>
                                         <div class="col-mb-5" style="margin: auto;">
-                                            <button class="button-save" onclick="updateLoading()">
+                                            <button class="button-save">
                                                 Xác nhận
                                             </button>
                                         </div>
@@ -373,10 +371,7 @@
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-                    showLoading(); // Show loading icon
-                    setTimeout(() => {
-                        hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-                    }, 1000); // Adjust the time as needed
+               
                 });
             }
             if (selectedObjects.length === 0) {
@@ -387,10 +382,7 @@
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-                    showLoading(); // Show loading icon
-                    setTimeout(() => {
-                        hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-                    }, 1000); // Adjust the time as needed
+              
                 });
                 return; // Ngừng thực hiện nếu danh sách trống
             }
@@ -410,10 +402,7 @@
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => {
-                        showLoading(); // Show loading icon
-                        setTimeout(() => {
-                            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-                        }, 1000); // Adjust the time as needed
+                  
                         var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
                         window.location.href = redirectToUrl;
                     });
@@ -429,10 +418,7 @@
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => {
-                        showLoading(); // Show loading icon
-                        setTimeout(() => {
-                            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-                        }, 1000); // Adjust the time as needed
+             
                         var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
                         window.location.href = redirectToUrl;
                     });
@@ -453,10 +439,7 @@
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-                    showLoading(); // Show loading icon
-                    setTimeout(() => {
-                        hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-                    }, 1000); // Adjust the time as needed
+          
                 });
             }else{
                 selectedObjects.forEach(function (obj) {
@@ -490,10 +473,7 @@
                             showConfirmButton: false,
                             timer: 1500
                         }).then(() => {
-                        showLoading(); // Show loading icon
-                        setTimeout(() => {
-                            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-                        }, 1000); // Adjust the time as needed
+                  
                         var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
                         window.location.href = redirectToUrl;
                         });
@@ -518,10 +498,4 @@
         });
     });
 
-    const showLoading = () => {
-        iconLoading.style.display = "flex";
-    };
-    const hideLoading = () => {
-        iconLoading.style.display = "none";
-    };
 </script>
