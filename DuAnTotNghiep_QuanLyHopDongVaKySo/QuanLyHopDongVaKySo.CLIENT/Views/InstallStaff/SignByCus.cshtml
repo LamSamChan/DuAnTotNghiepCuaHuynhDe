@@ -63,7 +63,7 @@
                     <div class="form-inline">
                         <input type="button" id="btnUndo" class="button-design" onclick="UndoSignature('ctlSignature');" value="Hoàn tác" />&nbsp;
                         <input type="button" id="btnClear" class="button-delete" onclick="ClearSignature('ctlSignature');" value="Xóa" />&nbsp;
-                        <input type="button" id="btnSave" class="button-save" onclick="ValidateSign();" value="Xác Nhận Ký"/>&nbsp;
+                        <input type="button" id="btnSave" class="button-save" onclick="ValidateSign();" value="Xác Nhận Ký" />&nbsp;
                     </div>
                 </div>
             </div>
@@ -89,11 +89,11 @@
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
                         <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                        <span class="visually-hidden">Previous</span>
+                        <span class="visually-hidden" onclick="updateLoading()">Previous</span>
                     </button>
                     <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                        <span class="visually-hidden">Next</span>
+                        <span class="visually-hidden" onclick="updateLoading()">Next</span>
                     </button>
                 </div>
 
@@ -120,11 +120,11 @@
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselModal" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
                                         <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                                        <span class="visually-hidden">Previous</span>
+                                        <span class="visually-hidden" onclick="updateLoading()">Previous</span>
                                     </button>
                                     <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarouselModal" data-bs-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                                        <span class="visually-hidden">Next</span>
+                                        <span class="visually-hidden" onclick="updateLoading()">Next</span>
                                     </button>
                                 </div>
                             </div>
@@ -179,22 +179,22 @@
             type: 'POST',
             cache: false,
             success: function (data) {
-                 if (!result.success) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Thành công!',
-                            text: 'Ký biên bản thành công!!',
-                            showConfirmButton: false,
-                            timer: 1500
-                        }).then(() => {
+                if (!result.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thành công!',
+                        text: 'Ký biên bản thành công!!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
                         showLoading(); // Show loading icon
                         setTimeout(() => {
                             hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
                         }, 1000); // Adjust the time as needed
-                           @* var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+    @* var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
                             window.location.href = redirectToUrl; *@
-                        });
-                 }
+                            });
+                }
             },
             error: function (textStatus, errorThrown) {
                 alert();
@@ -210,9 +210,9 @@
 
         btnSave.prop('disabled', false);
         // Chuyển hướng tới trang mong muốn
-       @* var redirectToUrl = '@Url.Action("SignByStaff", "InstallStaff")?pMinuteID=' + @Model.PMinute.PendingMinuteId;
-        window.location.href = redirectToUrl; *@
-    }
+    @* var redirectToUrl = '@Url.Action("SignByStaff", "InstallStaff")?pMinuteID=' + @Model.PMinute.PendingMinuteId;
+            window.location.href = redirectToUrl; *@
+        }
 
     function objctlSignature_status(success, points) {
         $("#liStatus").html("<strong>Signature done? : " + success + ", with " + points + " points.</strong>");
@@ -227,10 +227,19 @@
             interval: false
         });
     });
+    const iconLoading = document.getElementById("loading");
+
     const showLoading = () => {
         iconLoading.style.display = "flex";
     };
     const hideLoading = () => {
         iconLoading.style.display = "none";
+    };
+
+    const updateLoading = () => {
+        showLoading();
+        setTimeout(() => {
+            hideLoading();
+        }, 1000);
     };
 </script>

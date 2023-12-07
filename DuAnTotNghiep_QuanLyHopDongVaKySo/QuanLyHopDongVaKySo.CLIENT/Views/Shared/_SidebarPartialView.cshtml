@@ -1,4 +1,4 @@
-﻿    @*
+﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -7,6 +7,29 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<style>
+    .loading {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.479);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+        .loading img {
+            width: 7rem;
+        }
+</style>
+<div class="loading" id="loading">
+    <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+</div>
 @if (@userRole == "Giám đốc")
 {
     <div class="sidebar">
@@ -17,37 +40,37 @@
             <div class="menu" style="width:100%;">
                 <ul>
                     <li>
-                        <a asp-controller="Director" asp-action="ListContractAwait">
+                        <a asp-controller="Director" asp-action="ListContractAwait" onclick="updateLoading()">
                             <i class="ph-bold ph-list-dashes" style="font-size:26px;"></i>
                             <span class="text">Hợp đồng chờ duyệt</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="Director" asp-action="ListContractActive">
+                        <a asp-controller="Director" asp-action="ListContractActive" onclick="updateLoading()">
                             <i class="ph-bold ph-list-checks" style="font-size:26px;"></i>
                             <span class="text">Hợp đồng đã duyệt</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="Director" asp-action="ListContractRefuseToSign">
+                        <a asp-controller="Director" asp-action="ListContractRefuseToSign" onclick="updateLoading()">
                             <i class="ph-bold ph-list-checks" style="font-size:26px;"></i>
                             <span class="text">Hợp đồng từ chối</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="Director" asp-action="ListContractEffect">
+                        <a asp-controller="Director" asp-action="ListContractEffect" onclick="updateLoading()">
                             <i class="ph-bold ph-list-checks" style="font-size:26px;"></i>
                             <span class="text">Hợp đồng hoạt động</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="Director" asp-action="Index">
+                        <a asp-controller="Director" asp-action="Index" onclick="updateLoading()">
                             <i class="icon ph-bold ph-user"></i>
                             <span class="text">Cá nhân</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="Director" asp-action="HistoryOperation">
+                        <a asp-controller="Director" asp-action="HistoryOperation" onclick="updateLoading()">
                             <i class="icon ph-bold ph-clock-counter-clockwise"></i>
                             <span class="text">Lịch sử hoạt động</span>
                         </a>
@@ -58,7 +81,7 @@
         <div class="menu">
             <ul style="padding-left:10px;">
                 <li>
-                    <a asp-controller="Verify" asp-action="Logout">
+                    <a asp-controller="Verify" asp-action="Logout" onclick="updateLoading()">
                         <i class="icon ph-bold ph-sign-out"></i>
                         <span class="text">Đăng xuất</span>
                     </a>
@@ -85,7 +108,7 @@ else if (@userRole == "Nhân viên kinh doanh")
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="ListCus">
+                                <a asp-controller="BusinessStaff" asp-action="ListCus" onclick="updateLoading()">
                                     <span class="text">Danh sách khách hàng</span>
                                 </a>
                             </li>
@@ -99,22 +122,22 @@ else if (@userRole == "Nhân viên kinh doanh")
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="ContractListPending">
+                                <a asp-controller="BusinessStaff" asp-action="ContractListPending" onclick="updateLoading()">
                                     <span class="text">Yêu cầu lắp đặt</span>
                                 </a>
                             </li>
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="ContractListEffect">
+                                <a asp-controller="BusinessStaff" asp-action="ContractListEffect" onclick="updateLoading()">
                                     <span class="text">Hợp đồng đã duyệt</span>
                                 </a>
                             </li>
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="ContractListWaitSign">
+                                <a asp-controller="BusinessStaff" asp-action="ContractListWaitSign" onclick="updateLoading()">
                                     <span class="text">Hợp đồng chờ khách ký</span>
                                 </a>
                             </li>
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="ContractListRefuse">
+                                <a asp-controller="BusinessStaff" asp-action="ContractListRefuse" onclick="updateLoading()">
                                     <span class="text">Hợp đồng từ chối duyệt</span>
                                 </a>
                             </li>
@@ -129,41 +152,41 @@ else if (@userRole == "Nhân viên kinh doanh")
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="ListContractFormPage">
+                                <a asp-controller="BusinessStaff" asp-action="ListContractFormPage" onclick="updateLoading()">
                                     <span class="text">Danh sách mẫu hợp đồng</span>
                                 </a>
                             </li>
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="ListMinuteFormPage">
+                                <a asp-controller="BusinessStaff" asp-action="ListMinuteFormPage" onclick="updateLoading()">
                                     <span class="text">Danh sách mẫu biên bản</span>
                                 </a>
                             </li>
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="ContractFormPage">
+                                <a asp-controller="BusinessStaff" asp-action="ContractFormPage" onclick="updateLoading()">
                                     <span class="text">Thêm mẫu hợp đồng</span>
                                 </a>
                             </li>
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="MinuteFormPage">
+                                <a asp-controller="BusinessStaff" asp-action="MinuteFormPage" onclick="updateLoading()">
                                     <span class="text">Thêm mẫu biên bản</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a asp-controller="BusinessStaff" asp-action="ContractListEffect">
+                        <a asp-controller="BusinessStaff" asp-action="ContractListEffect" onclick="updateLoading()">
                             <i class="ph-bold ph-list-checks" style="font-size: 26px;"></i>
                             <span class="text">Hợp đồng đã hoàn thành</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="BusinessStaff" asp-action="Index">
+                        <a asp-controller="BusinessStaff" asp-action="Index" onclick="updateLoading()">
                             <i class="icon ph-bold ph-user"></i>
                             <span class="text">Cá nhân</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="BusinessStaff" asp-action="HistoryOperation">
+                        <a asp-controller="BusinessStaff" asp-action="HistoryOperation" onclick="updateLoading()">
                             <i class="icon ph-bold ph-clock-counter-clockwise"></i>
                             <span class="text">Lịch sử hoạt động</span>
                         </a>
@@ -174,14 +197,14 @@ else if (@userRole == "Nhân viên kinh doanh")
         <div class="menu">
             <ul style="padding-left:10px;">
                 <li>
-                    <a asp-controller="Verify" asp-action="Logout">
+                    <a asp-controller="Verify" asp-action="Logout" onclick="updateLoading()">
                         <i class="icon ph-bold ph-sign-out"></i>
                         <span class="text">Đăng xuất</span>
                     </a>
                 </li>
             </ul>
         </div>
-    </div> 
+    </div>
 
 }
 else
@@ -202,12 +225,12 @@ else
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a asp-controller="InstallStaff" asp-action="ListInstallRequire">
+                                <a asp-controller="InstallStaff" asp-action="ListInstallRequire" onclick="updateLoading()">
                                     <span class="text">Danh sách yêu cầu lắp</span>
                                 </a>
                             </li>
                             <li>
-                                <a asp-controller="InstallStaff" asp-action="ListInstallRecord">
+                                <a asp-controller="InstallStaff" asp-action="ListInstallRecord" onclick="updateLoading()">
                                     <span class="text">Biên bản đã nhận lắp</span>
                                 </a>
                             </li>
@@ -221,7 +244,7 @@ else
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a asp-controller="InstallStaff" asp-action="ListTypeOfService">
+                                <a asp-controller="InstallStaff" asp-action="ListTypeOfService" onclick="updateLoading()">
                                     <span class="text">Danh sách dịch vụ</span>
                                 </a>
                             </li>
@@ -229,13 +252,13 @@ else
                         </ul>
                     </li>
                     <li>
-                        <a asp-controller="InstallStaff" asp-action="Index">
+                        <a asp-controller="InstallStaff" asp-action="Index" onclick="updateLoading()">
                             <i class="icon ph-bold ph-user"></i>
                             <span class="text">Cá nhân</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="InstallStaff" asp-action="HistoryOperation">
+                        <a asp-controller="InstallStaff" asp-action="HistoryOperation" onclick="updateLoading()">
                             <i class="icon ph-bold ph-clock-counter-clockwise"></i>
                             <span class="text">Lịch sử hoạt động</span>
                         </a>
@@ -247,7 +270,7 @@ else
 
             <ul style="padding-left:10px;">
                 <li>
-                    <a asp-controller="Verify" asp-action="Logout">
+                    <a asp-controller="Verify" asp-action="Logout" onclick="updateLoading()">
                         <i class="icon ph-bold ph-sign-out"></i>
                         <span class="text">Đăng xuất</span>
                     </a>
@@ -256,4 +279,22 @@ else
         </div>
     </div>
 }
+<script>
+    const iconLoading = document.getElementById("loading");
 
+    const showLoading = () => {
+        iconLoading.style.display = "flex";
+    };
+
+    const hideLoading = () => {
+        iconLoading.style.display = "none";
+    };
+
+    const updateLoading = () => {
+        showLoading(); // Show loading spinner when the button is clicked
+
+        setTimeout(() => {
+            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+        }, 1000);
+    };
+</script>

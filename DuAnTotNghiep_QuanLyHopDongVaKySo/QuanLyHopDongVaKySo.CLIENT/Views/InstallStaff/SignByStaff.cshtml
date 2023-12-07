@@ -11,7 +11,7 @@
 
     string[] imageFiles = Directory.GetFiles(folderItem);
 
-    string defaultImg =null;
+    string defaultImg = null;
     if (Model.PFXCertificate.DefaultImageSignature != null)
     {
         defaultImg = Model.PFXCertificate.DefaultImageSignature.Replace(@"\", @"/");
@@ -50,9 +50,9 @@
     <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
 </div>
 <div class="container-fluid">
-    @if(userRole == "Admin")
+    @if (userRole == "Admin")
     {
-        Layout = "_AdminLayout"; 
+        Layout = "_AdminLayout";
         <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -65,13 +65,13 @@
             </nav>
             <h1 class="typeHead">KÝ XÁC NHẬN</h1>
             <div class="row justify-content-between mx-auto">
-                <a class="col-md-2 button-design" asp-action="ListInStallRecord" asp-controller="InstallStaff">
+                <a class="col-md-2 button-design" asp-action="ListInStallRecord" asp-controller="InstallStaff" onclick="updateLoading()">
                     <i class="ph-bold ph-arrow-left">
                     </i>
                     QUAY LẠI
                 </a>
                 <div class="col-md-4 offset-md-5 d-flex justify-content-end">
-                    <a class="button-design col-md-6" asp-action="SignByCus" asp-route-pMinuteID="@Model.PMinute.PendingMinuteId">
+                    <a class="button-design col-md-6" asp-action="SignByCus" asp-route-pMinuteID="@Model.PMinute.PendingMinuteId" onclick="updateLoading()">
                         CHUYỂN VÙNG KHÁCH KÝ
                     </a>
                     <a class="button-save col-md-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -240,11 +240,11 @@
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
                     <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                    <span class="visually-hidden">Previous</span>
+                    <span class="visually-hidden" onclick="updateLoading()">Previous</span>
                 </button>
                 <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
-                    <span class="visually-hidden">Next</span>
+                    <span class="visually-hidden" onclick="updateLoading()">Next</span>
                 </button>
             </div>
         </div>
@@ -351,7 +351,7 @@
             success: function (result) {
                 if (!result.success) {
                     // Chuyển hướng tới trang mong muốn
-                    
+
                     Swal.fire({
                         icon: 'success',
                         title: 'Lưu thành công!',
@@ -372,20 +372,20 @@
 
                 console.log(xhr);
                 // Hiển thị thông báo lỗi
-                  Swal.fire({
-                        icon: 'error',
-                        title: 'Lỗi!',
-                        text: 'Lỗi khi gửi yêu cầu: ' + error,
-                        showConfirmButton: false,
-                        timer: 1500
-                    }).then(() => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi!',
+                    text: 'Lỗi khi gửi yêu cầu: ' + error,
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
                     showLoading(); // Show loading icon
                     setTimeout(() => {
                         hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
                     }, 1000); // Adjust the time as needed
-                        var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
-                        window.location.href = redirectToUrl;
-                    });
+                    var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
+                    window.location.href = redirectToUrl;
+                });
 
             }
         });
@@ -422,7 +422,7 @@
                 success: function (result) {
                     if (!result.success) {
                         // Chuyển hướng tới trang mong muốn
-                       
+
                         Swal.fire({
                             icon: 'success',
                             title: 'Lưu thành công!',
@@ -443,13 +443,17 @@
 
                     console.log(xhr);
                     // Hiển thị thông báo lỗi
-                      Swal.fire({
+                    Swal.fire({
                         icon: 'error',
                         title: 'Lỗi!',
                         text: 'Lỗi khi gửi yêu cầu: ' + error,
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => {
+                        showLoading(); // Show loading icon
+                        setTimeout(() => {
+                            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+                        }, 1000); // Adjust the time as needed
                         var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
                         window.location.href = redirectToUrl;
                     });
@@ -462,11 +466,20 @@
     function handleButtonClick() {
         alert('Button clicked!');
     }
+    const iconLoading = document.getElementById("loading");
 
     const showLoading = () => {
         iconLoading.style.display = "flex";
     };
+
     const hideLoading = () => {
         iconLoading.style.display = "none";
     };
+    const updateLoading = () => {
+        showLoading();
+        setTimeout(() => {
+            hideLoading();
+        }, 1000);
+    };
+
 </script>
