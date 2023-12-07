@@ -247,14 +247,14 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
 
                 if (typeDoc == "contract")
                 {
-                    signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 + 10 , yCoodinate - 45 - 15, xCoordinate - 100 + 70 + 25, yCoodinate - 45 + 70 + 25), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
+                    signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 , yCoodinate - 45 - 15 - 50, xCoordinate - 100 + 70 + 25, yCoodinate - 45 + 70 + 25), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
                 }
                 else
                 {
                     if (lastPageNumber == 1)
                     {
-                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 50 + 20, yCoodinate - 45 - 110 - 40 - 35, xCoordinate - 100 + 70, yCoodinate - 45 - 110 + 70), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
+                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 50 + 30, yCoodinate - 45 - 110 - 40 - 30, xCoordinate - 100 + 40, yCoodinate - 45 - 110 + 40), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
                     }
                     else

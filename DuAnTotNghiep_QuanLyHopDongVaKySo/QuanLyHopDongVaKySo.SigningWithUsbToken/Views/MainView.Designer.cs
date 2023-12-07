@@ -29,116 +29,109 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
-            this.getContractButton = new System.Windows.Forms.Button();
-            this.inputContractId = new System.Windows.Forms.TextBox();
-            this.idContractLabel = new System.Windows.Forms.Label();
-            this.pdfViewer = new PdfiumViewer.PdfViewer();
-            this.TypeDocument = new System.Windows.Forms.ComboBox();
-            this.typeDocLabel = new System.Windows.Forms.Label();
-            this.signContract = new System.Windows.Forms.Button();
-            this.submitSign = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            getContractButton = new Button();
+            inputContractId = new TextBox();
+            idContractLabel = new Label();
+            pdfViewer = new PdfiumViewer.PdfViewer();
+            TypeDocument = new ComboBox();
+            typeDocLabel = new Label();
+            signContract = new Button();
+            submitSign = new Button();
+            SuspendLayout();
             // 
             // getContractButton
             // 
-            this.getContractButton.Location = new System.Drawing.Point(742, 9);
-            this.getContractButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.getContractButton.Name = "getContractButton";
-            this.getContractButton.Size = new System.Drawing.Size(241, 39);
-            this.getContractButton.TabIndex = 0;
-            this.getContractButton.Text = "Lấy hợp đồng / biên bản";
-            this.getContractButton.UseVisualStyleBackColor = true;
+            getContractButton.Location = new Point(519, 5);
+            getContractButton.Name = "getContractButton";
+            getContractButton.Size = new Size(169, 23);
+            getContractButton.TabIndex = 0;
+            getContractButton.Text = "Lấy hợp đồng / biên bản";
+            getContractButton.UseVisualStyleBackColor = true;
+            getContractButton.Click += getContractButton_Click;
             // 
             // inputContractId
             // 
-            this.inputContractId.Location = new System.Drawing.Point(591, 10);
-            this.inputContractId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.inputContractId.Name = "inputContractId";
-            this.inputContractId.Size = new System.Drawing.Size(142, 31);
-            this.inputContractId.TabIndex = 1;
+            inputContractId.Location = new Point(414, 6);
+            inputContractId.Name = "inputContractId";
+            inputContractId.Size = new Size(101, 23);
+            inputContractId.TabIndex = 1;
             // 
             // idContractLabel
             // 
-            this.idContractLabel.AutoSize = true;
-            this.idContractLabel.Location = new System.Drawing.Point(366, 15);
-            this.idContractLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.idContractLabel.Name = "idContractLabel";
-            this.idContractLabel.Size = new System.Drawing.Size(212, 25);
-            this.idContractLabel.TabIndex = 2;
-            this.idContractLabel.Text = "Mã hợp đồng / biên bản:";
+            idContractLabel.AutoSize = true;
+            idContractLabel.Location = new Point(256, 9);
+            idContractLabel.Name = "idContractLabel";
+            idContractLabel.Size = new Size(139, 15);
+            idContractLabel.TabIndex = 2;
+            idContractLabel.Text = "Mã hợp đồng / biên bản:";
             // 
             // pdfViewer
             // 
-            this.pdfViewer.Location = new System.Drawing.Point(19, 59);
-            this.pdfViewer.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.pdfViewer.Name = "pdfViewer";
-            this.pdfViewer.Size = new System.Drawing.Size(1654, 1226);
-            this.pdfViewer.TabIndex = 3;
-            this.pdfViewer.Load += new System.EventHandler(this.pdfViewer_Load);
+            pdfViewer.Location = new Point(13, 35);
+            pdfViewer.Margin = new Padding(4, 3, 4, 3);
+            pdfViewer.Name = "pdfViewer";
+            pdfViewer.Size = new Size(1158, 736);
+            pdfViewer.TabIndex = 3;
+            pdfViewer.Load += pdfViewer_Load;
             // 
             // TypeDocument
             // 
-            this.TypeDocument.FormattingEnabled = true;
-            this.TypeDocument.Items.AddRange(new object[] {
-            "Hợp đồng",
-            "Biên bản"});
-            this.TypeDocument.Location = new System.Drawing.Point(138, 10);
-            this.TypeDocument.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TypeDocument.Name = "TypeDocument";
-            this.TypeDocument.Size = new System.Drawing.Size(194, 33);
-            this.TypeDocument.TabIndex = 5;
+            TypeDocument.FormattingEnabled = true;
+            TypeDocument.Items.AddRange(new object[] { "Hợp đồng", "Biên bản" });
+            TypeDocument.Location = new Point(97, 6);
+            TypeDocument.Name = "TypeDocument";
+            TypeDocument.Size = new Size(137, 23);
+            TypeDocument.TabIndex = 5;
             // 
             // typeDocLabel
             // 
-            this.typeDocLabel.AutoSize = true;
-            this.typeDocLabel.Location = new System.Drawing.Point(19, 15);
-            this.typeDocLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.typeDocLabel.Name = "typeDocLabel";
-            this.typeDocLabel.Size = new System.Drawing.Size(104, 25);
-            this.typeDocLabel.TabIndex = 6;
-            this.typeDocLabel.Text = "Loại tài liệu:";
+            typeDocLabel.AutoSize = true;
+            typeDocLabel.Location = new Point(13, 9);
+            typeDocLabel.Name = "typeDocLabel";
+            typeDocLabel.Size = new Size(70, 15);
+            typeDocLabel.TabIndex = 6;
+            typeDocLabel.Text = "Loại tài liệu:";
             // 
             // signContract
             // 
-            this.signContract.Location = new System.Drawing.Point(1070, 9);
-            this.signContract.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.signContract.Name = "signContract";
-            this.signContract.Size = new System.Drawing.Size(241, 39);
-            this.signContract.TabIndex = 7;
-            this.signContract.Text = "Ký hợp đồng / biên bản";
-            this.signContract.UseVisualStyleBackColor = true;
+            signContract.Location = new Point(749, 5);
+            signContract.Name = "signContract";
+            signContract.Size = new Size(169, 23);
+            signContract.TabIndex = 7;
+            signContract.Text = "Ký hợp đồng / biên bản";
+            signContract.UseVisualStyleBackColor = true;
+            signContract.Click += signContract_Click;
             // 
             // submitSign
             // 
-            this.submitSign.Location = new System.Drawing.Point(1421, 9);
-            this.submitSign.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.submitSign.Name = "submitSign";
-            this.submitSign.Size = new System.Drawing.Size(178, 36);
-            this.submitSign.TabIndex = 8;
-            this.submitSign.Text = "Hoàn thành ký";
-            this.submitSign.UseVisualStyleBackColor = true;
+            submitSign.Location = new Point(995, 5);
+            submitSign.Margin = new Padding(3, 2, 3, 2);
+            submitSign.Name = "submitSign";
+            submitSign.Size = new Size(125, 22);
+            submitSign.TabIndex = 8;
+            submitSign.Text = "Hoàn thành ký";
+            submitSign.UseVisualStyleBackColor = true;
+            submitSign.Click += submitSign_Click;
             // 
             // MainView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1691, 1319);
-            this.Controls.Add(this.submitSign);
-            this.Controls.Add(this.signContract);
-            this.Controls.Add(this.typeDocLabel);
-            this.Controls.Add(this.TypeDocument);
-            this.Controls.Add(this.pdfViewer);
-            this.Controls.Add(this.idContractLabel);
-            this.Controls.Add(this.inputContractId);
-            this.Controls.Add(this.getContractButton);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "MainView";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TECHSEAL";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1184, 837);
+            Controls.Add(submitSign);
+            Controls.Add(signContract);
+            Controls.Add(typeDocLabel);
+            Controls.Add(TypeDocument);
+            Controls.Add(pdfViewer);
+            Controls.Add(idContractLabel);
+            Controls.Add(inputContractId);
+            Controls.Add(getContractButton);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "MainView";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "TECHSEAL";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

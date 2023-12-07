@@ -64,7 +64,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DMinuteServices
         public async Task<string> SignMinuteWithUSBToken(PostDMinute_Usb dMinute)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-            _httpClient.Timeout = TimeSpan.FromMinutes(5);
             string json = JsonConvert.SerializeObject(dMinute);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             using (var response = await _httpClient.PostAsync("api/DMinute/SignMinuteWithUSBToken", content))

@@ -79,9 +79,9 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 }
                 else
                 {
-                   
+
                     int minuteId = Convert.ToInt32(inputContractId.Text);
-                    var pMinute = await minuteRepository.GetPMinuteById(customerId,minuteId);
+                    var pMinute = await minuteRepository.GetPMinuteById(customerId, minuteId);
                     if (pMinute.PendingMinuteId != null)
                     {
                         DataStore.Instance.PendingMinute = pMinute;
@@ -111,7 +111,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hãy nhập mã tài liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Không tìm thấy tài liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -154,7 +154,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
 
             if (dialogResult == DialogResult.Yes) // Option A
             {
-                OpenImageFileDialog(x,y, reason);
+                OpenImageFileDialog(x, y, reason);
             }
             else // Option B
             {
@@ -189,6 +189,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
                 signatureAppearance.SignDate = DateTime.Now;
                 signatureAppearance.SignatureCreator = DataStore.Instance.Customer.FullName;
+                signatureAppearance.Contact = DataStore.Instance.Customer.Email;
                 signatureAppearance.Reason = reason;
 
 
@@ -249,6 +250,9 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                         PdfStamper pdfStamper = PdfStamper.CreateSignature(pdfReader, signedPdf, '\0');
                         PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
                         signatureAppearance.Reason = reason;
+                        signatureAppearance.SignatureCreator = DataStore.Instance.Customer.FullName;
+                        signatureAppearance.Contact = DataStore.Instance.Customer.Email;
+                        signatureAppearance.SignDate = DateTime.Now;
                         signatureAppearance.SignatureGraphic = iTextSharp.text.Image.GetInstance(selectedFilePath);
                         signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x - 25, y - 35, x + 130, y + 130), pdfReader.NumberOfPages, "Signature");
                         signatureAppearance.SignatureRenderingMode = PdfSignatureAppearance.RenderingMode.GRAPHIC;
@@ -273,7 +277,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
         private async void submitSign_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn hoàn thành ký?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-           
+
             if (result == DialogResult.Yes)
             {
                 pdfViewer.Document.Dispose();
@@ -284,7 +288,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 string base64String = Convert.ToBase64String(fileBytes);
 
                 MessageBox.Show("Sau khi quý khách nhấn nút [Ok] Quá trình ký số diễn ra, vui lòng chờ cho đến khi có thông báo tiếp theo. Quá trình này có thể sẽ diễn ra trong vài phút.\nXin cảm ơn quý khách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                int isSuccess;
+                int isSuccess = 0;
                 if (TypeDocument.SelectedItem.ToString() == "Hợp đồng")
                 {
                     DoneContract doneContract = new DoneContract()
@@ -294,7 +298,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                         Base64File = base64String + "*" + DataStore.Instance.Token,
                     };
 
-                   isSuccess = await sendDContractRepository.PostContract(doneContract);
+                    isSuccess = await sendDContractRepository.PostContract(doneContract);
                 }
                 else
                 {

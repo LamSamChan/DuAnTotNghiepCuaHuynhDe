@@ -37,7 +37,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Repository
             string json = JsonConvert.SerializeObject(doneMinute);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             _httpResponseMessage = await _httpClient.PostAsync($"api/UsbToken/SignMinuteWithUsbToken", content);
-            if (_httpResponseMessage.IsSuccessStatusCode)
+             if (_httpResponseMessage.IsSuccessStatusCode)
             {
                 result = 1;
                 return result;

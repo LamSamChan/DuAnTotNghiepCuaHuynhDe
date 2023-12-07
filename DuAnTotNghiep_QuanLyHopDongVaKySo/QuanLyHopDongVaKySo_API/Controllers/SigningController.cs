@@ -195,8 +195,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             foreach (var coordinate in Coordinates)
             {
                 string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
-                float x = coordinate.X + 30; // Lấy tọa độ X từ bảng toạ độ
-                float y = 834 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
+                float y = 837 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                 var mappingName = ContractInternet.RepresentativeContract.FirstOrDefault(id => id.Key == fieldName).Value;
                 if (mappingName == null)
                 {
@@ -218,8 +218,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             foreach (var coordinate in Coordinates)
             {
                 string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
-                float x = coordinate.X + 30; // Lấy tọa độ X từ bảng toạ độ
-                float y = 834 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
+                float y = 837 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                 var mappingName = ContractInternet.CustomerSignNameInfo.FirstOrDefault(id => id.Key == fieldName).Value;
                 if (mappingName == null)
                 {

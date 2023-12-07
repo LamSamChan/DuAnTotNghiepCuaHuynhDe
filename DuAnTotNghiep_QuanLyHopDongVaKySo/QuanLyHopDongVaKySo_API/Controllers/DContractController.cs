@@ -184,7 +184,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
                         var customer = await _customerSvc.GetByIdAsync(pContract.CustomerId.ToString());
                         var url = await GenerateUrlShowDContract(dContract.DContractID);
-                        var _sendMail = SendMailToCustomer(customer, url);
+
+                        Task.Run(async () =>
+                        {
+                            var _sendMail = await SendMailToCustomer(customer, url);
+                        });
+                       
 
                         return Ok(updateResult.DContractID + "*" + pContract.PContractID);
                     }
