@@ -72,7 +72,8 @@
                                 <i class="ph-bold ph-cloud-arrow-up"></i>
                                 UPLOAD
                             </label>
-                            <button class="Save_btn col-4" role="button" type="submit">LƯU
+                            <button class="Save_btn col-4" role="button" type="submit">
+                                LƯU
                                 @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                 {
                                     <script>
@@ -135,7 +136,8 @@
                                 <img src="~/@Model.PFXCertificate.DefaultImageSignature" alt="@Model.PFXCertificate.DefaultImageSignature" class="gallery-item" width="100%" height="300" />
                                 <div class="overlay">
                                     <div class="row justify-content-around">
-                                        <a class="col button-delete" asp-action="DeleteDefaultSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.DefaultImageSignature">Xóa
+                                        <a class="col button-delete" asp-action="DeleteDefaultSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.DefaultImageSignature">
+                                            Xóa
                                             @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                             {
                                                 <script>
@@ -181,8 +183,9 @@
                             <i class="ph-bold ph-cloud-arrow-up"></i>
                             UPLOAD
                         </label>
-                        <button class="Save_btn col-2" role="button" type="submit">LƯU
-                             @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+                        <button class="Save_btn col-2" role="button" type="submit">
+                            LƯU
+                            @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                             {
                                 <script>
                                     document.addEventListener('DOMContentLoaded', function () {
@@ -220,7 +223,8 @@
                             <img src="~/@Model.PFXCertificate.ImageSignature1" alt="@Model.PFXCertificate.ImageSignature1" class="gallery-item" width="100%" height="300" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
-                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Xóa
+                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">
+                                        Xóa
                                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
                                             <script>
@@ -231,7 +235,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                   
+
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -249,7 +253,8 @@
                                         }
 
                                     </a>
-                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">Đặt mặc định
+                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">
+                                        Đặt mặc định
                                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
                                             <script>
@@ -260,7 +265,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                   
+
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -285,7 +290,7 @@
                     else
                     {
 
-                        <li class="avt" >
+                        <li class="avt">
                             <img src="~/Resource/Image/empty.png" class="gallery-item" width="100%" height="300" />
                         </li>
                     }
@@ -295,7 +300,8 @@
                             <img src="~/@Model.PFXCertificate.ImageSignature2" alt="@Model.PFXCertificate.ImageSignature2" class="gallery-item" width="100%" height="300" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
-                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature2">Xóa
+                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature2">
+                                        Xóa
                                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
                                             <script>
@@ -306,7 +312,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                   
+
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -324,7 +330,8 @@
                                         }
 
                                     </a>
-                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature2">Đặt mặc định
+                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature2">
+                                        Đặt mặc định
                                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
                                             <script>
@@ -335,7 +342,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                   
+
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -366,11 +373,12 @@
                     }
                     @if (Model.PFXCertificate.ImageSignature3 != null)
                     {
-                        <li class="avt" >
+                        <li class="avt">
                             <img src="~/@Model.PFXCertificate.ImageSignature3" alt="@Model.PFXCertificate.ImageSignature3" class="gallery-item" width="100%" height="300" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
-                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature3">Xóa
+                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature3">
+                                        Xóa
                                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
                                             <script>
@@ -381,7 +389,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                   
+
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -399,7 +407,8 @@
                                         }
 
                                     </a>
-                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature3">Đặt mặt định
+                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature3">
+                                        Đặt mặt định
                                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
                                             <script>
@@ -410,7 +419,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                   
+
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -435,18 +444,19 @@
                     else
                     {
 
-                        <li class="avt" >
+                        <li class="avt">
                             <img src="~/Resource/Image/empty.png" class="gallery-item " width="100%" height="300" />
 
                         </li>
                     }
                     @if (Model.PFXCertificate.ImageSignature4 != null)
                     {
-                        <li class="avt" >
+                        <li class="avt">
                             <img src="~/@Model.PFXCertificate.ImageSignature4" alt="@Model.PFXCertificate.ImageSignature4" class="gallery-item" width="100%" height="300" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
-                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature4">Xóa
+                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature4">
+                                        Xóa
                                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
                                             <script>
@@ -457,7 +467,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                  
+
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -475,7 +485,8 @@
                                         }
 
                                     </a>
-                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature4">Đặt mặc định
+                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature4">
+                                        Đặt mặc định
                                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
                                             <script>
@@ -486,7 +497,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                              
+
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -511,7 +522,7 @@
                     else
                     {
 
-                        <li class="avt" >
+                        <li class="avt">
                             <img src="~/Resource/Image/empty.png" class="gallery-item" width="100%" height="300" />
                         </li>
                     }
@@ -521,7 +532,8 @@
                             <img src="~/@Model.PFXCertificate.ImageSignature5" alt="@Model.PFXCertificate.ImageSignature5" class="gallery-item" width="100%" height="300" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
-                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature5">Xóa
+                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature5">
+                                        Xóa
                                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
                                             <script>
@@ -532,7 +544,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                     
+
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -550,7 +562,8 @@
                                         }
 
                                     </a>
-                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature5">Đặt mặc định
+                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="InstallStaff" asp-route-filePath="@Model.PFXCertificate.ImageSignature5">
+                                        Đặt mặc định
                                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
                                             <script>
@@ -561,7 +574,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                          
+
 
                                                     Swal.fire({
                                                         title: sweetData.title,
@@ -586,7 +599,7 @@
                     else
                     {
 
-                        <li class="avt" >
+                        <li class="avt">
                             <img src="~/Resource/Image/empty.png" style="width:100%" class="gallery-item " width="100%" height="300" />
                         </li>
                     }
@@ -636,7 +649,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputRole" class="form-label ">Vai trò</label>
-                        <input type="text" class="form-control border border-2 border-primary  outline-0 shadow-lg"  id=" inputRole" readonly value=" @foreach (var r in Model.Roles)
+                        <input type="text" class="form-control border border-2 border-primary  outline-0 shadow-lg" id=" inputRole" readonly value=" @foreach (var r in Model.Roles)
                                {
                                     if(r.RoleID == Model.Employee.RoleID)
                                     {
@@ -675,33 +688,34 @@
                         <label for="exampleFormControlTextarea1" class="form-label">Ghi chú</label>
                         <textarea type="text" class="form-control" id="exampleFormControlTextarea1" asp-for="Employee.Note" readonly rows="3"></textarea>
                     </div>
-                    <button class="add_cus" style="margin:20px auto; width:50%; padding: 20px; min-height:30px; display:flex; justify-content:center; align-items:center; " type="submit">Lưu thông tin
-                         @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                {
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                            var sweetData = {
-                                title: '@TempData["SweetTitle"]',
-                                text: '@TempData["SweetText"]',
-                                icon: '@TempData["SweetIcon"]'
-                            };
+                    <button class="add_cus" style="margin:20px auto; width:50%; padding: 20px; min-height:30px; display:flex; justify-content:center; align-items:center; " type="submit">
+                        Lưu thông tin
+                        @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+                        {
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    var sweetData = {
+                                        title: '@TempData["SweetTitle"]',
+                                        text: '@TempData["SweetText"]',
+                                        icon: '@TempData["SweetIcon"]'
+                                    };
 
-                    
 
-                            Swal.fire({
-                                title: sweetData.title,
-                                text: sweetData.text,
-                                icon: sweetData.icon,
-                                showCancelButton: false,
-                                allowOutsideClick: false,
-                                confirmButtonColor: "green",
-                                confirmButtonText: "Ok"
-                            }).then(function () {
-                                // Handle any additional logic after the SweetAlert is closed.
-                            });
-                        });
-                    </script>
-                }
+
+                                    Swal.fire({
+                                        title: sweetData.title,
+                                        text: sweetData.text,
+                                        icon: sweetData.icon,
+                                        showCancelButton: false,
+                                        allowOutsideClick: false,
+                                        confirmButtonColor: "green",
+                                        confirmButtonText: "Ok"
+                                    }).then(function () {
+                                        // Handle any additional logic after the SweetAlert is closed.
+                                    });
+                                });
+                            </script>
+                        }
 
                     </button>
                 </form>
@@ -998,10 +1012,29 @@
             interval: false
         });
     });
+    const iconLoading = document.getElementById("loading");
+
     const showLoading = () => {
         iconLoading.style.display = "flex";
     };
+
     const hideLoading = () => {
         iconLoading.style.display = "none";
     };
+
+    const updatePosition = () => {
+        showLoading(); // Show loading spinner when the button is clicked
+
+        // You can perform additional logic here before or after the form submission
+        // For example, submit the form programmatically
+        document.querySelector('form').submit();
+
+        // If you want to prevent the form from submitting immediately, you can remove the form submission line
+
+        // Hide loading spinner after the form submission is complete
+        setTimeout(() => {
+            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+        }, 1000);
+    };
+
 </script>
