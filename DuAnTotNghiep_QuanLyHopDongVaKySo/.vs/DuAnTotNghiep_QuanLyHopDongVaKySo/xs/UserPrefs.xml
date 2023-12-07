@@ -1,12 +1,6 @@
 ﻿<Properties StartupConfiguration="Multiple Projects">
   <MonoDevelop.Ide.ItemProperties.QuanLyHopDongVaKySo__API PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs" relfile="QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs" line="281" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.QuanLyHopDongVaKySo.CLIENT PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
       <Items>
@@ -15,28 +9,34 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
-  <MonoDevelop.Ide.ItemProperties.QuanLyHopDongVaKySo.CLIENT PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/ContractListEffect.cshtml">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/danhkunz/Documents/DuAnTotNghiepCuaHuynhDe/DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs" relfile="QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs" line="281" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="QuanLyHopDongVaKySo.CLIENT/Program.cs">
     <Files>
-      <File FileName="QuanLyHopDongVaKySo_API/appsettings.Development.json" Line="1" Column="1" />
-      <File FileName="QuanLyHopDongVaKySo_API/appsettings.json" Line="8" Column="40" />
-      <File FileName="QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs" Line="1" Column="1" />
-      <File FileName="QuanLyHopDongVaKySo.CLIENT/Program.cs" Line="18" Column="17" />
-      <File FileName="QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/ContractListEffect.cshtml" Line="68" Column="17" />
+      <File FileName="QuanLyHopDongVaKySo_API/appsettings.Development.json" />
+      <File FileName="QuanLyHopDongVaKySo_API/appsettings.json" Line="10" Column="5" />
+      <File FileName="QuanLyHopDongVaKySo_API/Controllers/PFXCertificatesController.cs" />
+      <File FileName="QuanLyHopDongVaKySo.CLIENT/Program.cs" Line="31" Column="34" />
+      <File FileName="QuanLyHopDongVaKySo.CLIENT/Views/BusinessStaff/ContractListEffect.cshtml" />
+      <File FileName="QuanLyHopDongVaKySo.CLIENT/appsettings.client.json" Line="1" Column="1" />
+      <File FileName="QuanLyHopDongVaKySo.CLIENT/Controllers/BusinessStaffController.cs" />
+      <File FileName="QuanLyHopDongVaKySo_API/Program.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DuAnTotNghiep_QuanLyHopDongVaKySo" expanded="True">
             <Node name="QuanLyHopDongVaKySo.CLIENT" expanded="True">
-              <Node name="Views" expanded="True">
-                <Node name="BusinessStaff" expanded="True">
-                  <Node name="ContractListEffect.cshtml" selected="True" />
-                </Node>
-              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Views" expanded="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
             <Node name="QuanLyHopDongVaKySo_API" expanded="True">
-              <Node name="Controllers" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>

@@ -676,7 +676,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             if (IsAuthenticate != 3 && IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
-            ViewData["Tille"] = "HOP DONG CHO DUYET";
+            ViewData["Tille"] = "";
             pContractList = await _pContractService.getListWaitDirectorSigns();
             return View(pContractList);
             
@@ -689,7 +689,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             
             pContractList = await _pContractService.getListRefuse();
-            ViewData["Tille"] = "HOP DONG TU CHOI";
+            ViewData["Tille"] = "HỢP ĐỒNG CHỜ DUYỆT";
             return View("ContractListPending", pContractList);
 
         }
@@ -700,7 +700,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (IsAuthenticate != 3 && IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             pContractList = await _pContractService.getListWaitCustomerSigns();
-            ViewData["Tille"] = "HOP DONG CHO KHACH HANG KY";
+            ViewData["Tille"] = "HỢP ĐỒNG CHỜ KHÁNH KÝ";
             return View("ContractListPending", pContractList);
         }
 
