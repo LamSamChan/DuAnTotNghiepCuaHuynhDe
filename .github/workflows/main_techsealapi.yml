@@ -22,12 +22,12 @@ jobs:
           dotnet-version: '7.x'
           include-prerelease: true
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      - name: Change directory to the API project
+        run: cd DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
-
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp DuAnTotNghiep_QuanLyHopDongVaKySo/QuanLyHopDongVaKySo_API
+        
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
@@ -42,6 +42,25 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+
+    - name: Delete Old Artifacts
+        uses: actions/github-script@v6
+        id: artifact
+        with:
+          script: |
+            const res = await github.rest.actions.listArtifactsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            })
+            res.data.artifacts
+              .forEach(({ id }) => {
+                github.rest.actions.deleteArtifact({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  artifact_id: id,
+                })
+              })
+              
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
