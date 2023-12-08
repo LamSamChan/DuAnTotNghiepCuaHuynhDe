@@ -283,11 +283,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 var respone = _pContractService.updateAsnyc(putPendingContract);
                 if (respone != null)
                 {
+                    TempData["SweetType"] = "success";
+                    TempData["SweetIcon"] = "success";
+                    TempData["SweetTitle"] = "Từ chối duyệt hợp đồng thành công !!";
                     return RedirectToAction("ListContractAwait");
                 }
                 else
                 {
                     //báo lỗi
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Từ chối duyệt hợp đồng thất bại, kiểm tra lại thông tin hợp đồng!!";
                     return RedirectToAction("ListContractAwait");
                 }
             }

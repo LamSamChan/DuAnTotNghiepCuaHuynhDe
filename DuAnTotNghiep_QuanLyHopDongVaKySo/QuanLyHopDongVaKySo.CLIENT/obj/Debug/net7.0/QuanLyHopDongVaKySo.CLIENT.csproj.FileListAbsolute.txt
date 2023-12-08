@@ -1102,3 +1102,4 @@ C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo
 C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.genruntimeconfig.cache
 C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo.CLIENT.dll
 C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.MvcApplicationPartsAssemblyInfo.cs
+C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.MvcApplicationPartsAssemblyInfo.cs
