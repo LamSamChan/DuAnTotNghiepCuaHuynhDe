@@ -1248,26 +1248,56 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (filePath == certificate.ImageSignature1)
             {
                 _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature1));
+
+                if (certificate.DefaultImageSignature == certificate.ImageSignature1)
+                {
+                    certificate.DefaultImageSignature = null;
+                }
+
                 certificate.ImageSignature1 = null;
             }
             else if (filePath == certificate.ImageSignature2)
             {
                 _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature2));
+
+                if (certificate.DefaultImageSignature == certificate.ImageSignature2)
+                {
+                    certificate.DefaultImageSignature = null;
+                }
+
                 certificate.ImageSignature2 = null;
             }
             else if (filePath == certificate.ImageSignature3)
             {
                 _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature3));
+
+                if (certificate.DefaultImageSignature == certificate.ImageSignature3)
+                {
+                    certificate.DefaultImageSignature = null;
+                }
+
                 certificate.ImageSignature3 = null;
             }
             else if (filePath == certificate.ImageSignature4)
             {
                 _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature4));
+
+                if (certificate.DefaultImageSignature == certificate.ImageSignature4)
+                {
+                    certificate.DefaultImageSignature = null;
+                }
+
                 certificate.ImageSignature4 = null;
             }
             else if (filePath == certificate.ImageSignature5)
             {
                 _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, certificate.ImageSignature5));
+
+                if (certificate.DefaultImageSignature == certificate.ImageSignature5)
+                {
+                    certificate.DefaultImageSignature = null;
+                }
+
                 certificate.ImageSignature5 = null;
             }
             var result = await _pfxCertificateServices.Update(certificate);
