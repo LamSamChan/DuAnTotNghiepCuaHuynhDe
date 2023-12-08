@@ -68,7 +68,6 @@ D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\Q
 D:\HUYNHDE_DATN_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.SigningWithUsbToken\bin\Debug\net6.0-windows\itextsharp.dll
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.SigningWithUsbToken\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.SigningWithUsbToken\bin\Debug\net6.0-windows\itextsharp.dll
-D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.SigningWithUsbToken\obj\Debug\net6.0-windows\QuanLyHopDongVaKySo.SigningWithUsbToken.Views.InfoSign.resources
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.SigningWithUsbToken\obj\Debug\net6.0-windows\QuanLyHopDongVaKySo.SigningWithUsbToken.Views.VerifyCustomerView.resources
 C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.SigningWithUsbToken\bin\Debug\net6.0-windows\QuanLyHopDongVaKySo.SigningWithUsbToken.exe
 C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.SigningWithUsbToken\bin\Debug\net6.0-windows\x64\pdfium.dll
