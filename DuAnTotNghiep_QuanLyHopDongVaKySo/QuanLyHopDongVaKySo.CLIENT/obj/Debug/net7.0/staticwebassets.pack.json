@@ -5033,6 +5033,10 @@
       "PackagePath": "staticwebassets\\Avatars\\f774f587.jpeg"
     },
     {
+      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\Avatars\\z4953030472217_da27dcda727183488aa830336f61e77d.jpg",
+      "PackagePath": "staticwebassets\\Avatars\\z4953030472217_da27dcda727183488aa830336f61e77d.jpg"
+    },
+    {
       "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\ContractImage\\1010\\1.png",
       "PackagePath": "staticwebassets\\ContractImage\\1010\\1.png"
     },
@@ -5241,6 +5245,14 @@
       "PackagePath": "staticwebassets\\Images\\spacer.png"
     },
     {
+      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\MinuteImage\\2\\1.png",
+      "PackagePath": "staticwebassets\\MinuteImage\\2\\1.png"
+    },
+    {
+      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\MinuteImage\\2\\2.png",
+      "PackagePath": "staticwebassets\\MinuteImage\\2\\2.png"
+    },
+    {
       "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\MinuteImage\\6\\1.png",
       "PackagePath": "staticwebassets\\MinuteImage\\6\\1.png"
     },
@@ -5335,10 +5347,6 @@
     {
       "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\PMinuteImage\\19\\2.png",
       "PackagePath": "staticwebassets\\PMinuteImage\\19\\2.png"
-    },
-    {
-      "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\PMinuteImage\\20\\1.png",
-      "PackagePath": "staticwebassets\\PMinuteImage\\20\\1.png"
     },
     {
       "Id": "C:\\Users\\luudu\\Desktop\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\PMinuteImage\\21\\1.png",

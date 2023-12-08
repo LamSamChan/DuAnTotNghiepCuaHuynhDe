@@ -87,7 +87,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     // Thiết lập font và kích thước cho trường văn bản
                     Font font = new Font(bf, 10);
 
-                    foreach (var coordinate in Coordinates)
+                    /*foreach (var coordinate in Coordinates)
                     {
                         string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
                         float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
@@ -108,7 +108,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                                 Element.ALIGN_BASELINE, new Phrase(contractValue, font), x, y, 0);
                             }
                         }
-                    }
+                    }*/
 
                     BaseFont bf2 = BaseFont.CreateFont(@"AppData/Font/texgyretermes-bold.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
                     // Thiết lập font và kích thước cho trường văn bản
@@ -120,11 +120,15 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
                         float x = coordinate.X + 35; // Lấy tọa độ X từ bảng toạ độ
                         float y = 834 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
-                        var mappingName = ContractInternet.CustomerSignNameInfo.FirstOrDefault(id => id.Key == fieldName).Value;
-                        if (mappingName == null)
+                        var temp1 = ContractInternet.ContractFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
+                        var temp2 = ContractInternet.CustomerSignNameInfo.FirstOrDefault(id => id.Key == fieldName).Value;
+                         
+                        if (temp1 == null)
                         {
+                            if(temp2 == null)
                             continue;
                         }
+                        var mappingName = temp1 != null ? temp1 : temp2;
                         PropertyInfo property = typeof(ContractInternet).GetProperty(mappingName);
                         if (property != null)
                         {
@@ -133,7 +137,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                             {
                                 string contractValue = value.ToString().ToUpper();
                                 ColumnText.ShowTextAligned(pdfStamper.GetOverContent(coordinate.SignaturePage),
-                                Element.ALIGN_BASELINE, new Phrase(contractValue, font2), x, y, 0);
+                                Element.ALIGN_BASELINE, new Phrase(contractValue, temp1 != null? font:font2), x, y, 0);
                             }
                         }
                     }
