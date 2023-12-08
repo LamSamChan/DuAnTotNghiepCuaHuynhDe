@@ -1001,3 +1001,4 @@ C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong
 C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.csproj.CopyComplete
 C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.genruntimeconfig.cache
 C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\ref\QuanLyHopDongVaKySo.CLIENT.dll
+C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\obj\Debug\net7.0\QuanLyHopDongVaKySo.CLIENT.MvcApplicationPartsAssemblyInfo.cs
