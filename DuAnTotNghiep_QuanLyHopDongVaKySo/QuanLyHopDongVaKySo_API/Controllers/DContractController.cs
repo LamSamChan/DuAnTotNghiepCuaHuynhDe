@@ -205,7 +205,28 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         [HttpPut("UpdateIsEffect")]
         public async Task<IActionResult> UpdateIsEffect([FromBody] PutDContract dContract)
         {
-            return Ok(await _doneContractSvc.updateIsEffect(dContract));
+            var result = await _doneContractSvc.updateIsEffect(dContract);
+
+            if (result == null)
+            {
+                return BadRequest();
+            }
+            //xoa anh pminute
+            var folderPath = System.IO.Path.Combine("AppData", "DContracts");
+
+            string folderItem = System.IO.Path.Combine(folderPath, dContract.DContractID);
+
+            string[] imageFiles = Directory.GetFiles(folderItem);
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
+            foreach (string imageFile in imageFiles)
+            {
+                System.IO.File.Delete(imageFile);
+            }
+            Directory.Delete(folderItem);
+
+            return Ok(result);
         }
 
         [HttpGet("UnEffectContract/{dContractId}")]
@@ -243,9 +264,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
 
                 SendMail mail = new SendMail();
-                string subject = "Xác nhận kết thúc hợp đồng từ yêu cầu của bạn";
-                byte[] bytes1 = Encoding.Convert(Encoding.Unicode, Encoding.UTF8, Encoding.Unicode.GetBytes(subject));
-                mail.Subject = Encoding.UTF8.GetString(bytes1);
+                mail.Subject = "XÁC NHẬN DỪNG HỢP ĐỒNG";
                 mail.ReceiverName = customer.FullName;
                 mail.ToMail = customer.Email;
                 mail.HtmlContent = content;
@@ -291,9 +310,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             //url servcer
             //var url = $"https://techseal.azurewebsites.net/Customer/UnEffectDContract?token={token}";
 
-            string urlShort = await _shortLinkHelper.GenerateShortUrl(url);
             // Gửi URL cho khách hàng
-            return urlShort;
+            return url;
         }
 
         private string GenerateTokenShowDContract(int DContractID)

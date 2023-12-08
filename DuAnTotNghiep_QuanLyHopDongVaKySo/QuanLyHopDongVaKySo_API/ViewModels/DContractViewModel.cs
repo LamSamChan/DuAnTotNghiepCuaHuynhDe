@@ -3,6 +3,7 @@
     public class DContractViewModel 
     {
         public string Id { get; set; }
+        public string DContractName { get; set; }
         public string CustomerName { get; set; }
         public string CustomerEmail { get; set; }
         public string DateDone { get; set; }

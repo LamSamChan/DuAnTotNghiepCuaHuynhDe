@@ -238,23 +238,32 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                     pdfStamper.GetOverContent(lastPageNumber).AddImage(signatureImageStamp);
                 }
 
+                // Đọc hình ảnh từ stream
+                iTextSharp.text.Image signatureImage = iTextSharp.text.Image.GetInstance(imagePath);
+
+                // Chỉnh kích thước của hình ảnh chữ ký
+                float desiredWidth = 0.3f;  // Kích thước mong muốn
+                float scaleFactor = desiredWidth / signatureImage.Width;
+
+                // Áp dụng tỉ lệ để thay đổi kích thước
+                signatureImage.ScalePercent(scaleFactor * 100);
+
                 PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
                 signatureAppearance.SignatureCreator = signedBy;
                 signatureAppearance.Reason = "Ký hợp đồng";   
                 signatureAppearance.SignDate = DateTime.Now;
                 // Tạo đối tượng hình ảnh chữ ký từ tệp hình ảnh
-                signatureAppearance.SignatureGraphic = iTextSharp.text.Image.GetInstance(imagePath);
-
+                signatureAppearance.SignatureGraphic = signatureImage;
                 if (typeDoc == "contract")
                 {
-                    signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 , yCoodinate - 45 - 15 - 50, xCoordinate - 100 + 70 + 25, yCoodinate - 45 + 70 + 25), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
+                    signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 , yCoodinate - 45 - 15 - 50, xCoordinate - 100 + 70, yCoodinate - 45 + 70), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
                 }
                 else
                 {
                     if (lastPageNumber == 1)
                     {
-                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 50 + 30, yCoodinate - 45 - 110 - 40 - 30, xCoordinate - 100 + 40, yCoodinate - 45 - 110 + 40), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
+                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 50 + 30, yCoodinate - 45 - 110 - 40 - 30, xCoordinate - 100 , yCoodinate - 45 - 110), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
                     }
                     else
