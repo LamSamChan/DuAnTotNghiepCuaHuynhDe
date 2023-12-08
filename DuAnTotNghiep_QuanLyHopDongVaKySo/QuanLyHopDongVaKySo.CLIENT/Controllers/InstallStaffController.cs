@@ -263,7 +263,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             vm.Requirement = _iRequirementService.GetAll().Result.Where(r => r.InstallRequireID == int.Parse(id)).FirstOrDefault();
             vm.DoneContract = await _doneContractSvc.getByIdAsnyc(vm.Requirement.DoneContractId.ToString());
             vm.Customer = await _customerService.GetCustomerById(vm.DoneContract.CustomerId.ToString());
-            vm.Employee = await _employeeService.GetEmployeeById(vm.PendingMinute.EmployeeId.ToString());
+            //vm.Employee = await _employeeService.GetEmployeeById(vm.PendingMinute.EmployeeId.ToString());
             return View(vm);
         }
 
