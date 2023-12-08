@@ -93,35 +93,35 @@
         <div class="row" style="margin: 40px auto; width:300px;">
             <button class="add_cus" type="submit">
                 TẠO HỢP ĐỒNG
-                 @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                {
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                            var sweetData = {
-                                title: '@TempData["SweetTitle"]',
-                                text: '@TempData["SweetText"]',
-                                icon: '@TempData["SweetIcon"]'
-                            };
-                            Swal.fire({
-                                title: sweetData.title,
-                                text: sweetData.text,
-                                icon: sweetData.icon,
-                                showCancelButton: false,
-                                allowOutsideClick: false,
-                                confirmButtonColor: "green",
-                                confirmButtonText: "Ok"
-                            }).then(function () {
-                                // Handle any additional logic after the SweetAlert is closed.
-                            });
-                        });
-                    </script>
-                }
+                
 
             </button>
         </div>
     </form>
 
-</div>
+</div> @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var sweetData = {
+                title: '@TempData["SweetTitle"]',
+                text: '@TempData["SweetText"]',
+                icon: '@TempData["SweetIcon"]'
+            };
+            Swal.fire({
+                title: sweetData.title,
+                text: sweetData.text,
+                icon: sweetData.icon,
+                showCancelButton: false,
+                allowOutsideClick: false,
+                confirmButtonColor: "green",
+                confirmButtonText: "Ok"
+            }).then(function () {
+                // Handle any additional logic after the SweetAlert is closed.
+            });
+        });
+    </script>
+}
 <script>
     const provice_url = "https://api.npoint.io/ac646cb54b295b9555be";
     const district_url = "https://api.npoint.io/34608ea16bebc5cffd42";

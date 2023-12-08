@@ -125,28 +125,7 @@
                                             <div class="loading" id="loading">
                                                 <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
                                             </div>
-                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial" onclick="updatePosition()">Gia hạn</a>
-                                            @if (TempData["SwalMessageType"] != null)
-                                            {
-                                                <script>
-                                                    const Toast = Swal.mixin({
-                                                        toast: true,
-                                                        position: "bottom-end",
-                                                        showConfirmButton: false,
-                                                        timer: 3000,
-                                                        timerProgressBar: true,
-                                                        didOpen: (toast) => {
-                                                            toast.onmouseenter = Swal.stopTimer;
-                                                            toast.onmouseleave = Swal.resumeTimer;
-                                                        }
-                                                    });
-                                                    Toast.fire({
-                                                        icon: '@TempData["SwalMessageIcon"]',
-                                                        title: '@TempData["SwalMessageTitle"]'
-                                                    });
-
-                                                </script>
-                                            }
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial" onclick="updatePosition()">Gia hạn</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -191,28 +170,7 @@
                                             <div class="loading" id="loading">
                                                 <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
                                             </div>
-                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial" onclick="updatePosition()">Gia hạn</a>
-                                            @if (TempData["SwalMessageType"] != null)
-                                            {
-                                                <script>
-                                                    const Toast = Swal.mixin({
-                                                        toast: true,
-                                                        position: "bottom-end",
-                                                        showConfirmButton: false,
-                                                        timer: 3000,
-                                                        timerProgressBar: true,
-                                                        didOpen: (toast) => {
-                                                            toast.onmouseenter = Swal.stopTimer;
-                                                            toast.onmouseleave = Swal.resumeTimer;
-                                                        }
-                                                    });
-                                                    Toast.fire({
-                                                        icon: '@TempData["SwalMessageIcon"]',
-                                                        title: '@TempData["SwalMessageTitle"]'
-                                                    });
-
-                                                </script>
-                                            }
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial" onclick="updatePosition()">Gia hạn</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -302,27 +260,7 @@
                                                 <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
                                             </div>
                                             <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial" onclick="updatePosition()">Gia hạn</a>
-                                            @if (TempData["SwalMessageType"] != null)
-                                            {
-                                                <script>
-                                                    const Toast = Swal.mixin({
-                                                        toast: true,
-                                                        position: "bottom-end",
-                                                        showConfirmButton: false,
-                                                        timer: 3000,
-                                                        timerProgressBar: true,
-                                                        didOpen: (toast) => {
-                                                            toast.onmouseenter = Swal.stopTimer;
-                                                            toast.onmouseleave = Swal.resumeTimer;
-                                                        }
-                                                    });
-                                                    Toast.fire({
-                                                        icon: '@TempData["SwalMessageIcon"]',
-                                                        title: '@TempData["SwalMessageTitle"]'
-                                                    });
-
-                                                </script>
-                                            }
+                                           
                                         </div>
                                     </td>
                                 </tr>
@@ -368,27 +306,7 @@
                                                 <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
                                             </div>
                                             <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial" onclick="updatePosition()">Gia hạn</a>
-                                            @if (TempData["SwalMessageType"] != null)
-                                            {
-                                                <script>
-                                                    const Toast = Swal.mixin({
-                                                        toast: true,
-                                                        position: "bottom-end",
-                                                        showConfirmButton: false,
-                                                        timer: 3000,
-                                                        timerProgressBar: true,
-                                                        didOpen: (toast) => {
-                                                            toast.onmouseenter = Swal.stopTimer;
-                                                            toast.onmouseleave = Swal.resumeTimer;
-                                                        }
-                                                    });
-                                                    Toast.fire({
-                                                        icon: '@TempData["SwalMessageIcon"]',
-                                                        title: '@TempData["SwalMessageTitle"]'
-                                                    });
-
-                                                </script>
-                                            }
+                                    
                                         </div>
                                     </td>
                                 </tr>
@@ -401,6 +319,30 @@
 
     </div>
 </div>
+@if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var sweetData = {
+                title: '@TempData["SweetTitle"]',
+                text: '@TempData["SweetText"]',
+                icon: '@TempData["SweetIcon"]'
+            };
+
+            Swal.fire({
+                title: sweetData.title,
+                text: sweetData.text,
+                icon: sweetData.icon,
+                showCancelButton: false,
+                allowOutsideClick: false,
+                confirmButtonColor: "green",
+                confirmButtonText: "Ok"
+            }).then(function () {
+                // Handle any additional logic after the SweetAlert is closed.
+            });
+        });
+    </script>
+}
 
 <script>
 

@@ -88,29 +88,7 @@
                                 <a class="button-design" asp-controller="BusinessStaff" asp-action="EditMinuteFormPage" asp-route-tMinuteId="@item.TMinuteID"><i class="ph-bold ph-pencil-simple-line"></i></a>
                                 <a class="button-save" onclick="confirmDownload('@item.Base64File','@item.TMinuteName')"><i class="ph-bold ph-download-simple"></i></a>
                                 <a class="button-delete" asp-controller="BusinessStaff" asp-action="DeleteTMinute" asp-route-tMinuteId="@item.TMinuteID">
-                                    @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                    {
-                                        <script>
-                                            document.addEventListener('DOMContentLoaded', function () {
-                                                var sweetData = {
-                                                    title: '@TempData["SweetTitle"]',
-                                                    text: '@TempData["SweetText"]',
-                                                    icon: '@TempData["SweetIcon"]'
-                                                };
-                                                Swal.fire({
-                                                    title: sweetData.title,
-                                                    text: sweetData.text,
-                                                    icon: sweetData.icon,
-                                                    showCancelButton: false,
-                                                    allowOutsideClick: false,
-                                                    confirmButtonColor: "green",
-                                                    confirmButtonText: "Ok"
-                                                }).then(function () {
-                                                    // Handle any additional logic after the SweetAlert is closed.
-                                                });
-                                            });
-                                        </script>
-                                    }
+                                    
                                     <i class="ph-bold ph-trash"></i>
                                 </a>
                             </td>
@@ -123,9 +101,30 @@
         </div>
     </div>
 </div>
+@if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var sweetData = {
+                title: '@TempData["SweetTitle"]',
+                text: '@TempData["SweetText"]',
+                icon: '@TempData["SweetIcon"]'
+            };
+            Swal.fire({
+                title: sweetData.title,
+                text: sweetData.text,
+                icon: sweetData.icon,
+                showCancelButton: false,
+                allowOutsideClick: false,
+                confirmButtonColor: "green",
+                confirmButtonText: "Ok"
+            }).then(function () {
+                // Handle any additional logic after the SweetAlert is closed.
+            });
+        });
+    </script>
+}
 <script type="text/javascript">
-
-
     $(document).ready(function () {
         // Khởi tạo DataTable
         $('#myTable').DataTable({
@@ -135,7 +134,6 @@
             "pageLength": 25
         });
     });
-
 
     function downloadPDF(base64String, fileName) {
         var byteCharacters = atob(base64String);
@@ -206,7 +204,8 @@
         }
     });
    
-</scrip>
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
