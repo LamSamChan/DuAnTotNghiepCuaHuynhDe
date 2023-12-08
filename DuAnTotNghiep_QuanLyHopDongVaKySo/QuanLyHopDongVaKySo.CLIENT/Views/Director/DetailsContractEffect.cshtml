@@ -46,7 +46,7 @@
                     <i class="ph-bold ph-arrow-left"></i>
                     QUAY LẠI
                 </a>
-                <a class="col-md-2 button-delete" asp-controller="Director" asp-action="UnEffectContract" asp-route-Id="@Model.DoneContracts.Id">
+                <a class="col-md-2 button-delete" onclick="confirmEndContract()">
                     KẾT THÚC HỢP ĐỒNG
                 </a>
             </div>
@@ -66,11 +66,11 @@
             </nav>
             <h1 class="typeHead">CHI TIẾT HỢP ĐỒNG </h1>
             <div class="row justify-content-between">
-                <a class="col-md-2 button-design">
+                <a class="col-md-2 button-design" asp-controller="Director" asp-action="ListContractEffect">
                     <i class="ph-bold ph-arrow-left"></i>
                     QUAY LẠI
                 </a>
-                <a class="col-md-2 button-delete" asp-controller="Director" asp-action="UnEffectContract" asp-route-Id="@Model.DoneContracts.Id">
+                <a class="col-md-2 button-delete" onclick="confirmEndContract()">
                     KẾT THÚC HỢP ĐỒNG
                 </a>
             </div>
@@ -95,6 +95,10 @@
                                     <i class="ph-bold ph-frame-corners" style="font-size:30px; margin: auto;"></i>
                                 </button>
                             </div>
+                            <div class="row justify-content-between" style="margin:auto;">
+                                <h4 class="typeHead col-5">Tải hợp đồng</h4>
+                                <a class="button-save" onclick="confirmDownload('@Model.DoneContracts.Base64File','@Model.DoneContracts.DContractName')"><i class="ph-bold ph-download-simple"></i></a>
+                            </div>
                             <div id="myCarousel" class="carousel slide" style=" width:100%;height: 750px;">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active ">
@@ -104,7 +108,7 @@
                                         @foreach (var imgPath in imageFilesContract)
                                         {
                                             <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                                <img src="@Url.Content("~/PContractImage/"+Model.DoneContracts.Id+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                                <img src="@Url.Content("~/ContractImage/"+Model.DoneContracts.Id+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                                             </div>
                                         }
                                     else
@@ -251,6 +255,10 @@
                                 <button class="custom-file-upload col-1" data-bs-toggle="modal" data-bs-target="#ShowMinute" style="width:30px; height:30px;">
                                     <i class="ph-bold ph-frame-corners" style="font-size:30px; margin: auto;"></i>
                                 </button>
+                            </div>
+                            <div class="row justify-content-between" style="margin:auto;">
+                                <h4 class="typeHead col-5">Tải biên bản</h4>
+                                <a class="button-save" onclick="confirmDownload('@Model.DoneMinutes.Base64File','@Model.DoneMinutes.MinuteName')"><i class="ph-bold ph-download-simple"></i></a>
                             </div>
                             <div id="myCarousel1" class="carousel slide" style=" width:100%;height: 750px;">
                                 <div class="carousel-inner">
@@ -426,6 +434,62 @@
             interval: false
         });
     });
+
+    function confirmEndContract() {
+        // Sử dụng SweetAlert để xác nhận tải xuống
+        Swal.fire({
+            title: 'Kết thúc hợp đồng',
+            text: 'Bạn có chắc chắn muốn kết thúc hợp đồng này không?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Xác nhận',
+            cancelButtonText: 'Trờ lại'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '@Url.Action("UnEffectContract", "Director")?Id=' + @Model.DoneContracts.Id;
+            }
+        });
+    }
+
+    function downloadPDF(base64String, fileName) {
+        var byteCharacters = atob(base64String);
+        var byteNumbers = new Array(byteCharacters.length);
+        for (var i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        var byteArray = new Uint8Array(byteNumbers);
+        var blob = new Blob([byteArray], { type: 'application/pdf' });
+
+        var blobUrl = URL.createObjectURL(blob);
+
+        var a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
+    function confirmDownload(base64File, tMinuteName) {
+        // Sử dụng SweetAlert để xác nhận tải xuống
+        Swal.fire({
+            title: 'Bạn có muốn tải xuống?',
+            text: 'Hành động này sẽ tải xuống tệp PDF.',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Tải xuống',
+            cancelButtonText: 'Hủy'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Nếu người dùng xác nhận tải xuống, thực hiện hàm tải xuống
+                downloadPDF(base64File, tMinuteName);
+            }
+        });
+    }
 
 </script>
 

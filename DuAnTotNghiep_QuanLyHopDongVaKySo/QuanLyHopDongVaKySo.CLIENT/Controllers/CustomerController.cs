@@ -266,7 +266,42 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (dContract != null)
             {
                 dContract.IsInEffect = false;
-                await _dContractsService.updateIsEffect(dContract);
+                var result = await _dContractsService.updateIsEffect(dContract);
+
+                if (result == null)
+                {
+                    return View("Error");
+                }
+
+                var folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage");
+
+                string folderItem = System.IO.Path.Combine(folderPath, result.DoneMinuteId.ToString());
+
+                string[] imageFiles = Directory.GetFiles(folderItem);
+
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                foreach (string imageFile in imageFiles)
+                {
+                    System.IO.File.Delete(imageFile);
+                }
+                Directory.Delete(folderItem);
+
+
+                folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage");
+
+                folderItem = System.IO.Path.Combine(folderPath, result.DContractID);
+
+                string[] imageContractFiles = Directory.GetFiles(folderItem);
+
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                foreach (string imageFile in imageContractFiles)
+                {
+                    System.IO.File.Delete(imageFile);
+                }
+                Directory.Delete(folderItem);
+
                 return View("Index");
             }
             else

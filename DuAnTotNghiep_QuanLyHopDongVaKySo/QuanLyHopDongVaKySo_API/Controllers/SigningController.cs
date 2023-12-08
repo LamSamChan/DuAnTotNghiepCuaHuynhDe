@@ -281,10 +281,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var url = await GenerateUrl(pContract.PContractID);
             var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
-            Task.Run(() => SendMailToCustomerWithImage(qrPath, url, customer, pContract.PContractID));
-            //_pdfToImageHelper.PdfToPng(pContract.PContractFile, pendingContract.PContractId,"contract");
-
             await _pendingContract.updateAsnyc(pendingContract);
+
+            Task.Run(() => SendMailToCustomerWithImage(qrPath, url, customer, pContract.PContractID));
+          
             _uploadFileHelper.RemoveFile(imagePath);
             _uploadFileHelper.RemoveFile(imagePathStamp);
 
@@ -387,7 +387,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContractFirst.DContractID}");
             }
 
-            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X +20, customerZone.Y,"contract", customer.FullName);
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X +40, customerZone.Y - 20,"contract", customer.FullName);
 
             string qrCodePath = pContract.PContractFile.Replace("_director_signed.pdf", ".png");
             FileStream fs1 = new FileStream(qrCodePath, FileMode.Open, FileAccess.Read);
@@ -438,6 +438,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _uploadFileHelper.RemoveFile(imagePath);
 
             var url = await GenerateUrlShowDContract(dContract.DContractID);
+
             Task.Run(() => SendMailToCustomer(customer, url));
 
             if (result != 0)

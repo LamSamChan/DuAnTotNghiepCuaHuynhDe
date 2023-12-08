@@ -60,11 +60,11 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="RefuseContract">
+                                <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-controller="Director" asp-action="RefuseContract">
                                     <div class=" mb-3">
                                         <label class="form-label" for="floatingTextarea2">Lý do từ chối</label>
                                         <input asp-for="PContract.PContractID" class="d-none" />
-                                        <textarea asp-for="PContract.Reason" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                        <textarea asp-for="PContract.Reason" class="form-control" id="floatingTextarea2" style="height: 100px"></textarea>
                                     </div>
                                     <div class="col-mb-5" style="margin: auto;">
                                         <button class="button-save" type="submit" >
@@ -336,11 +336,11 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-action="RefuseContract">
+                                <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-controller="Director" asp-action="RefuseContract">
                                     <div class="mb-3">
                                         <label class="form-label" for="floatingTextarea2">Lý do từ chối</label>
                                         <input asp-for="PContract.PContractID" class="d-none" />
-                                        <textarea asp-for="PContract.Reason" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                        <textarea asp-for="PContract.Reason" class="form-control" id="floatingTextarea2" style="height: 100px"></textarea>
                                     </div>
                                     <div class="col-mb-5" style="margin: auto;">
                                         <button class="button-save" type="submit" >
@@ -688,3 +688,27 @@
 
     </div>
 </div>
+@if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var sweetData = {
+                title: '@TempData["SweetTitle"]',
+                text: '@TempData["SweetText"]',
+                icon: '@TempData["SweetIcon"]'
+            };
+
+            Swal.fire({
+                title: sweetData.title,
+                text: sweetData.text,
+                icon: sweetData.icon,
+                showCancelButton: false,
+                allowOutsideClick: false,
+                confirmButtonColor: "green",
+                confirmButtonText: "Ok"
+            }).then(function () {
+                // Handle any additional logic after the SweetAlert is closed.
+            });
+        });
+    </script>
+}
