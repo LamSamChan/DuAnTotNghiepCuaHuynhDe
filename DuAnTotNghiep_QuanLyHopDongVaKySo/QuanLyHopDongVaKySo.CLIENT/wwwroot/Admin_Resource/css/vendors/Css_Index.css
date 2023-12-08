@@ -3,6 +3,13 @@
 /*@import url("ListUser.css");
 */
 /*hide and show pass*/
+.logo a:hover {
+    color: #1890FF;
+    transition: all;
+}
+
+
+
 .selected {
     border: 2px solid blue;
 }
@@ -744,11 +751,7 @@ div[class="tab-container"] {
     border: none;
 }
 
-.tab-content div[class="listTable"] {
-    background-color: white;
-    height: 700px;
-    box-shadow: 0px 18px 40px 0px rgba(112, 144, 176, 0.12);
-}
+
 
 div[class="row action"] {
     display: contents;
@@ -760,7 +763,7 @@ div[class="row action"] a {
     color: #8B909A;
 }
 /*css button return*/
-.return {
+/*.return {
     border-radius: 8px;
     background: rgba(44, 168, 221, 0.58);
     display: flex;
@@ -776,12 +779,18 @@ div[class="row action"] a {
 .return a{
     text-decoration:none;
     color: white;
-}
+}*/
 /*css - listTable*/
 .listTable {
-    max-height: 800px;
+    max-height: 700px;
     overflow-y: scroll;
 
+}
+.tab-content div[class="listTable"] {
+    background-color: white;
+    height: 700px;
+    padding: 10px;
+    box-shadow: 0px 18px 40px 0px rgba(112, 144, 176, 0.12);
 }
 .content {
     opacity: 1;
@@ -793,4 +802,5 @@ div[class="row action"] a {
 .content.disabled {
     opacity: 1;
     pointer-events: none;
+    padding:10px;
 }

@@ -5,7 +5,6 @@
 }
     
 @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
-
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -27,7 +26,7 @@
     </div>
     <div class="row bg-white mt-3 rounded mx-auto my-auto">
         <div class="listTable">
-            <table class="table" id="myTable">
+            <table class="table display" id="myTable">
                 <thead>
                     <tr style="color: #8B909A;">
                         <th scope="col">HÀNH ĐỘNG</th>
@@ -39,6 +38,7 @@
                         <th scope="col">CHỨC VỤ</th>
                         <th scope="col">VAI TRÒ</th>
                         <th scope="col">TRẠNG THÁI</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -97,7 +97,16 @@
         </div>
     </div>
 </div>
-<script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Khởi tạo DataTable
+        $('#myTable').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+    });
     // tìm kiếm
     document.addEventListener('DOMContentLoaded', function () {
         // Lấy đối tượng ô tìm kiếm và bảng

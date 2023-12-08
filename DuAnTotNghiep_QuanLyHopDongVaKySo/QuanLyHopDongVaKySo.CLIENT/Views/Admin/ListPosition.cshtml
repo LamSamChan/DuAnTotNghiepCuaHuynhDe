@@ -114,7 +114,7 @@
     </div>
     <div class="tab-content active" id="tab1">
         <div class="listTable">
-            <table class="table" id="myTable1">
+            <table class="table display" id="myTable1">
                 <thead>
                     <tr style="color: #8B909A;">
                         <th>HÀNHĐỘNG</th>
@@ -184,7 +184,7 @@
     </div>
     <div class="tab-content" id="tab2">
         <div class="listTable" style="width:50%; height:300px;">
-            <table class="table" id="myTable2">
+            <table class="table display" id="myTable2">
                 <thead>
                     <tr style="color: #8B909A;">
                         <th scope="col">HÀNH ĐỘNG</th>
@@ -234,7 +234,25 @@
 
     </div>
 </div>
-<script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        // Khởi tạo DataTable
+        $('#myTable1').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+
+
+        $('#myTable2').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+    });
     const iconLoading = document.getElementById("loading");
 
     const showLoading = () => {

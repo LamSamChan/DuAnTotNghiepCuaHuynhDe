@@ -32,6 +32,11 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.logo a:hover {
+    color: #1890FF;
+    transition: all;
+}
+
 
 /*hide and show pass*/
 .password-container {

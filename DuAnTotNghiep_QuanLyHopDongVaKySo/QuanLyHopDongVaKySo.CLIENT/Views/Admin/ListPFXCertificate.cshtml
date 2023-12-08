@@ -50,7 +50,7 @@
         </div>
         <div class="tab-content active" id="tab1-1">
             <div class="listTable">
-                <table class="table" id="myTable1">
+                <table class="table display" id="myTable1">
                     <thead>
                         <tr style="color: #8B909A;">
                             <th scope="col">Serial</th>
@@ -92,7 +92,7 @@
         </div>
         <div class="tab-content" id="tab1-2">
             <div class="listTable">
-                <table class="table" id="myTable2">
+                <table class="table display" id="myTable2">
                     <thead>
                         <tr style="color: #8B909A;">
                             <th scope="col">Serial</th>
@@ -167,7 +167,7 @@
         </div>
         <div class="tab-content" id="tab1-3">
             <div class="listTable">
-                <table class="table" id="myTable3">
+                <table class="table display" id="myTable3">
                     <thead>
                         <tr style="color: #8B909A;">
                             <th scope="col">Serial</th>
@@ -246,7 +246,7 @@
         </div>
         <div class="tab-content active" id="tab2-1">
             <div class="listTable">
-                <table class="table" id="myTable4">
+                <table class="table display" id="myTable4">
                     <thead>
                         <tr style="color: #8B909A;">
                             <th scope="col">Serial</th>
@@ -282,7 +282,7 @@
         </div>
         <div class="tab-content" id="tab2-2">
             <div class="listTable">
-                <table class="table" id="myTable5">
+                <table class="table display" id="myTable5">
                     <thead>
                         <tr style="color: #8B909A;">
                             <th scope="col">Serial</th>
@@ -348,7 +348,7 @@
         </div>
         <div class="tab-content" id="tab2-3">
             <div class="listTable">
-                <table class="table" id="myTable6">
+                <table class="table display" id="myTable6">
                     <thead>
                         <tr style="color: #8B909A;">
                             <th scope="col">Serial</th>
@@ -417,6 +417,53 @@
 </div>
 
 <script>
+
+    $(document).ready(function () {
+        // Khởi tạo DataTable
+        $('#myTable1').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+
+        $('#myTable2').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+
+         $('#myTable3').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+
+        $('#myTable4').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+
+        $('#myTable5').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+
+        $('#myTable6').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+    });
+
+
 
     const iconLoading = document.getElementById("loading");
 
