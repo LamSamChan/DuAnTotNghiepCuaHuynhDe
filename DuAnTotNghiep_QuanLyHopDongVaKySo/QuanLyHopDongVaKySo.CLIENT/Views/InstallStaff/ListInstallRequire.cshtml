@@ -97,32 +97,7 @@
                         </td>
                         <td>
                             <a class="accpet" asp-action="GetTaskFormIR" asp-route-iRequirementID="@r.InstallRequireID" onclick="updatePosition()">
-                                Nhận  @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                {
-                                    <script>
-                                        document.addEventListener('DOMContentLoaded', function () {
-                                            var sweetData = {
-                                                title: '@TempData["SweetTitle"]',
-                                                text: '@TempData["SweetText"]',
-                                                icon: '@TempData["SweetIcon"]'
-                                            };
-
-                                            console.log("Sweet Data:", sweetData);
-
-                                            Swal.fire({
-                                                title: sweetData.title,
-                                                text: sweetData.text,
-                                                icon: sweetData.icon,
-                                                showCancelButton: false,
-                                                allowOutsideClick: false,
-                                                confirmButtonColor: "green",
-                                                confirmButtonText: "Ok"
-                                            }).then(function () {
-                                                // Handle any additional logic after the SweetAlert is closed.
-                                            });
-                                        });
-                                    </script>
-                                }
+                                Nhận  
                             </a>
                         </td>
                     </tr>
@@ -131,6 +106,32 @@
         </table>
     </div>
 </div>
+@if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var sweetData = {
+                title: '@TempData["SweetTitle"]',
+                text: '@TempData["SweetText"]',
+                icon: '@TempData["SweetIcon"]'
+            };
+
+            console.log("Sweet Data:", sweetData);
+
+            Swal.fire({
+                title: sweetData.title,
+                text: sweetData.text,
+                icon: sweetData.icon,
+                showCancelButton: false,
+                allowOutsideClick: false,
+                confirmButtonColor: "green",
+                confirmButtonText: "Ok"
+            }).then(function () {
+                // Handle any additional logic after the SweetAlert is closed.
+            });
+        });
+    </script>
+}
 <script>
     // tìm kiếm
     document.addEventListener('DOMContentLoaded', function () {
