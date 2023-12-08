@@ -4,8 +4,8 @@
 @import url("styleBusiness/AddCusPageStyle.css");
 @import url("styleBusiness/ListCusPage.css");
 @import url("styleBusiness/ContractFormPage.css");
-@import url("styleBusiness/ContractListPage.css");
-@import url("styleBusiness/HistoryOperationPage.css");
+
+
 @import url("styleBusiness/DetailsCusPage.css");
 
 /*cssStyle - InstallationStaff*/
@@ -13,7 +13,7 @@
 @import url("stylesInstaller/SignedByStaff.css");
 @import url("stylesInstaller/ListInstallRecordPage.css");
 @import url("stylesInstaller/SignedByCus.css");
-@import url("stylesInstaller/ConfirmRecordInstall.css");
+
 
 /*cssStyle - Boss*/
 @import url("StyleBoss/InforSign.css");
@@ -79,10 +79,10 @@ body {
     font-family: "YourCustomFont", Arial, sans-serif;
 }
 
-#imageContainer img {
-    width: 100%;
-    border: 1px dotted;
-}
+    #imageContainer img {
+        width: 100%;
+        border: 1px dotted;
+    }
 
 #fontSelect {
     width: 220px;
@@ -115,20 +115,20 @@ body {
     cursor: pointer;
 }
 
-#checkbox:checked {
-    background-color: #333; /* Màu nền khi checkbox được chọn */
-    border-color: #333; /* Màu viền khi checkbox được chọn */
-}
+    #checkbox:checked {
+        background-color: #333; /* Màu nền khi checkbox được chọn */
+        border-color: #333; /* Màu viền khi checkbox được chọn */
+    }
 
-#checkbox:checked::before {
-    content: '\2713'; /* Unicode character for checkmark */
-    font-size: 14px;
-    color: #fff; /* Màu của dấu tích khi checkbox được chọn */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+        #checkbox:checked::before {
+            content: '\2713'; /* Unicode character for checkmark */
+            font-size: 14px;
+            color: #fff; /* Màu của dấu tích khi checkbox được chọn */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
 /*css form details*/
 .row > .col-7 > .showFile {
@@ -212,27 +212,27 @@ input[type="file"] {
     font-size: 18px;
 }
 
-.Save_btn i,
-.custom-file-upload i {
-    margin-right: 10px;
-}
+    .Save_btn i,
+    .custom-file-upload i {
+        margin-right: 10px;
+    }
 
-.Save_btn:focus,
-.custom-file-upload:focus {
-    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-}
+    .Save_btn:focus,
+    .custom-file-upload:focus {
+        box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    }
 
-.Save_btn:hover,
-.custom-file-upload:hover {
-    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-    transform: translateY(-2px);
-}
+    .Save_btn:hover,
+    .custom-file-upload:hover {
+        box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+        transform: translateY(-2px);
+    }
 
-.Save_btn:active,
-.custom-file-upload:active {
-    box-shadow: #3c4fe0 0 3px 7px inset;
-    transform: translateY(2px);
-}
+    .Save_btn:active,
+    .custom-file-upload:active {
+        box-shadow: #3c4fe0 0 3px 7px inset;
+        transform: translateY(2px);
+    }
 /*======*/
 
 /*danh sach chu ky*/
@@ -241,26 +241,26 @@ input[type="file"] {
     overflow-y: auto;
 }
 
-#scrollable-list ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-}
+    #scrollable-list ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+    }
 
-#scrollable-list ul li {
-    position: relative;
-    display: inline-block;
-    border: 1px solid;
-    margin: 10px;
-    width: 100%;
-    box-sizing: border-box;
-}
+        #scrollable-list ul li {
+            position: relative;
+            display: inline-block;
+            border: 1px solid;
+            margin: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
 
-#scrollable-list ul li img {
-    width: 100%;
-    height: 100%;
-}
+            #scrollable-list ul li img {
+                width: 100%;
+                height: 100%;
+            }
 
 body {
     background-color: #dbe2f4;
@@ -295,10 +295,10 @@ body {
     overflow: hidden;
 }
 
-.user-img img {
-    width: 100%;
-    object-fit: cover;
-}
+    .user-img img {
+        width: 100%;
+        object-fit: cover;
+    }
 
 .user-details .title,
 .menu .title {
@@ -324,46 +324,46 @@ body {
     margin-bottom: 5px;
 }
 
-.menu ul li a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    /*font-size: 14px;*/
-    font-weight: 500;
-    color: #757575;
-    text-decoration: none;
-    padding: 15px 12px;
-    /* border-radius: 8px;*/
-    transition: all 0.3s;
-}
+    .menu ul li a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        /*font-size: 14px;*/
+        font-weight: 500;
+        color: #757575;
+        text-decoration: none;
+        padding: 15px 12px;
+        /* border-radius: 8px;*/
+        transition: all 0.3s;
+    }
 
-.menu ul li > a:hover,
-.menu ul li.active > a {
-    color: #1890FF;
-    background-color: #E6F7FF;
-    border-right: 3px solid
-}
+    .menu ul li > a:hover,
+    .menu ul li.active > a {
+        color: #1890FF;
+        background-color: #E6F7FF;
+        border-right: 3px solid
+    }
 
 .menu ul {
     padding-left: 0;
 }
 
-.menu ul li .icon {
-    font-size: 26px;
-}
+    .menu ul li .icon {
+        font-size: 26px;
+    }
 
-.menu ul li .text {
-    flex: 1;
-}
+    .menu ul li .text {
+        flex: 1;
+    }
 
-.menu ul li .arrow {
-    font-size: 14px;
-    transition: all 0.3s;
-}
+    .menu ul li .arrow {
+        font-size: 14px;
+        transition: all 0.3s;
+    }
 
-.menu ul li.active .arrow {
-    transform: rotate(180deg);
-}
+    .menu ul li.active .arrow {
+        transform: rotate(180deg);
+    }
 
 .menu .sub-menu {
     display: none;
@@ -373,10 +373,10 @@ body {
     border-left: 1px solid #f6f6f6;
 }
 
-.menu .sub-menu li a {
-    padding: 10px 8px;
-    font-size: 12px;
-}
+    .menu .sub-menu li a {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
 
 .menu:not(:last-child) {
     padding-bottom: 10px;
@@ -400,86 +400,86 @@ body {
     background-color: #fff;
 }
 
-.menu-btn:hover i {
-    color: #000;
-}
+    .menu-btn:hover i {
+        color: #000;
+    }
 
-.menu-btn i {
-    transition: all 0.3s;
-}
+    .menu-btn i {
+        transition: all 0.3s;
+    }
 
 .sidebar.active {
     width: 100px;
     padding-right: 100px;
 }
 
-.sidebar.active .menu-btn i {
-    transform: rotate(180deg);
-}
+    .sidebar.active .menu-btn i {
+        transform: rotate(180deg);
+    }
 
-.sidebar.active .user-details {
-    display: none;
-}
+    .sidebar.active .user-details {
+        display: none;
+    }
 
-.sidebar.active .menu .title {
-    text-align: center;
-}
+    .sidebar.active .menu .title {
+        text-align: center;
+    }
 
-.sidebar.active .menu ul li .arrow {
-    display: none;
-}
+    .sidebar.active .menu ul li .arrow {
+        display: none;
+    }
 
-.sidebar.active .menu > ul > li > a {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .sidebar.active .menu > ul > li > a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.sidebar.active .menu > ul > li > a .text {
-    position: absolute;
-    left: 70px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 10px;
-    border-radius: 4px;
-    color: #fff;
-    background-color: #000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s;
-}
+        .sidebar.active .menu > ul > li > a .text {
+            position: absolute;
+            left: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            border-radius: 4px;
+            color: #fff;
+            background-color: #000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
 
-.sidebar.active .menu > ul > li > a .text::after {
-    content: "";
-    position: absolute;
-    left: -5px;
-    top: 20%;
-    width: 20px;
-    height: 20px;
-    border-radius: 2px;
-    background-color: #000;
-    transform: rotate(45deg);
-    z-index: -1;
-}
+            .sidebar.active .menu > ul > li > a .text::after {
+                content: "";
+                position: absolute;
+                left: -5px;
+                top: 20%;
+                width: 20px;
+                height: 20px;
+                border-radius: 2px;
+                background-color: #000;
+                transform: rotate(45deg);
+                z-index: -1;
+            }
 
-.sidebar.active .menu > ul > li > a:hover .text {
-    left: 50px;
-    opacity: 1;
-    visibility: visible;
-}
+        .sidebar.active .menu > ul > li > a:hover .text {
+            left: 50px;
+            opacity: 1;
+            visibility: visible;
+        }
 
-.sidebar.active .menu .sub-menu {
-    position: absolute;
-    top: 0;
-    left: 20px;
-    /*width: 200px;*/
-    border-radius: 20px;
-    padding: 10px 20px;
-    border: 1px solid #f6f6f6;
-    background-color: #fff;
-    box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.1);
-}
+    .sidebar.active .menu .sub-menu {
+        position: absolute;
+        top: 0;
+        left: 20px;
+        /*width: 200px;*/
+        border-radius: 20px;
+        padding: 10px 20px;
+        border: 1px solid #f6f6f6;
+        background-color: #fff;
+        box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.1);
+    }
 
 main {
     width: 100%;
@@ -498,39 +498,39 @@ main {
     height: 40px;
 }
 
-.Search_All i {
-    padding: 0 5px;
-    font-size: 20px;
-    margin: auto 0;
-}
+    .Search_All i {
+        padding: 0 5px;
+        font-size: 20px;
+        margin: auto 0;
+    }
 
-.Search_All input {
-    border: none;
-    background-color: transparent;
-    width: 150px;
-}
+    .Search_All input {
+        border: none;
+        background-color: transparent;
+        width: 150px;
+    }
 
-.Search_All input:focus {
-    background-color: none;
-    outline: none;
-}
+        .Search_All input:focus {
+            background-color: none;
+            outline: none;
+        }
 
 .horizontal-list li {
     margin-right: 20px;
 }
 
-.horizontal-list li i {
-    font-size: 20px;
-}
+    .horizontal-list li i {
+        font-size: 20px;
+    }
 
-.horizontal-list li a {
-    display: flex;
-    cursor: pointer;
-}
+    .horizontal-list li a {
+        display: flex;
+        cursor: pointer;
+    }
 
-.horizontal-list li a i {
-    margin: 10px 0;
-}
+        .horizontal-list li a i {
+            margin: 10px 0;
+        }
 /*================================================================*/
 /*css list_table*/
 .listTable {
@@ -571,15 +571,15 @@ input[type="search"] {
     color: white;
 }
 
-.add_Cus a {
-    color: white;
-    text-decoration: none;
-}
+    .add_Cus a {
+        color: white;
+        text-decoration: none;
+    }
 
-.add_Cus > i {
-    margin-left: 10px;
-    font-size: 20px;
-}
+    .add_Cus > i {
+        margin-left: 10px;
+        font-size: 20px;
+    }
 
 .typeHead {
     font-size: 1.5rem;
@@ -607,18 +607,18 @@ input[type="search"] {
     background: white;
 }
 
-.changPassForm .row .col-md-12 {
-    display: flex;
-    flex-direction: column;
-}
+    .changPassForm .row .col-md-12 {
+        display: flex;
+        flex-direction: column;
+    }
 
-.changPassForm form {
-    padding: 50px;
-}
+    .changPassForm form {
+        padding: 50px;
+    }
 
-.changPassForm form button {
-    margin: 40px auto;
-}
+        .changPassForm form button {
+            margin: 40px auto;
+        }
 
 .td {
     padding: 10px;
@@ -670,10 +670,10 @@ input[type="search"] {
     overflow-y: scroll;
 }
 
-.listSVC li {
-    width: 50%;
-    margin-bottom: 25px;
-}
+    .listSVC li {
+        width: 50%;
+        margin-bottom: 25px;
+    }
 /*css butn del*/
 .button-delete {
     background: #FF4742;
@@ -701,16 +701,16 @@ input[type="search"] {
     text-decoration: none;
 }
 
-.button-delete:hover,
-.button-delete:active {
-    background-color: initial;
-    background-position: 0 0;
-    color: #FF4742;
-}
+    .button-delete:hover,
+    .button-delete:active {
+        background-color: initial;
+        background-position: 0 0;
+        color: #FF4742;
+    }
 
-.button-delete:active {
-    opacity: .5;
-}
+    .button-delete:active {
+        opacity: .5;
+    }
 /*=============*/
 /*css btn cấu hình*/
 .button-design {
@@ -739,16 +739,16 @@ input[type="search"] {
     text-decoration: none;
 }
 
-.button-design:hover,
-.button-design:active {
-    background-color: white;
-    background-position: 0 0;
-    color: #1899D6;
-}
+    .button-design:hover,
+    .button-design:active {
+        background-color: white;
+        background-position: 0 0;
+        color: #1899D6;
+    }
 
-.button-design:active {
-    opacity: .5;
-}
+    .button-design:active {
+        opacity: .5;
+    }
 
 /*=======*/
 /*css button save*/
@@ -777,16 +777,16 @@ input[type="search"] {
     text-decoration: none;
 }
 
-.button-save:hover,
-.button-save:active {
-    background-color: white;
-    background-position: 0 0;
-    color: #13aa52;
-}
+    .button-save:hover,
+    .button-save:active {
+        background-color: white;
+        background-position: 0 0;
+        color: #13aa52;
+    }
 
-.button-save:active {
-    opacity: .5;
-}
+    .button-save:active {
+        opacity: .5;
+    }
 
 /* css td action*/
 .action {
@@ -847,9 +847,9 @@ a.accpet {
     cursor: pointer;
 }
 
-a.accpet:hover {
-    background-color: #45a049;
-}
+    a.accpet:hover {
+        background-color: #45a049;
+    }
 /*vùng ký khách hàng*/
 .form_SignedCus .col-4 {
     height: 600px;

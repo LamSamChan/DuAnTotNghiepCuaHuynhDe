@@ -62,13 +62,13 @@
             margin: 10px auto;
         }
 
-        .form_SignedCus .col-4 {
-            width: 400px;
-            height: 100%;
-            border-radius: 40px;
-            background: rgba(217, 217, 217, 0.50);
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        }
+            .form_SignedCus .col-4 {
+                width: 400px;
+                height: 100%;
+                border-radius: 40px;
+                background: rgba(217, 217, 217, 0.50);
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            }
 
         .signing-Zone {
             width: 560px;
@@ -124,39 +124,17 @@
             font-weight: bold;
         }
 
-        div[class="form-inline"]{
+        div[class="form-inline"] {
             display: flex;
             justify-items: center;
             align-items: center;
             justify-content: center;
-
         }
 
-        .loading {
-            position: absolute;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.479);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-            .loading img {
-                width: 7rem;
-            }
     </style>
 
 </head>
 <body>
-    <div class="loading" id="loading">
-        <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
-    </div>
     <header style="background-color:#001529;">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
             <div class="container-fluid">
@@ -186,7 +164,7 @@
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                     
+
                         <div class="col-12" style="display:contents;">
                             <button class="access" id="btnSave" onclick="ValidateSign();">
                                 XÁC NHẬN KÝ
@@ -196,7 +174,7 @@
                 </div>
                 <div class="col-8">
                     <div id="myCarousel" class="carousel slide" style="width: 100%; height:100%;">
-                        <div class="carousel-inner" >
+                        <div class="carousel-inner">
                             <div class="carousel-item active " style="width:800px;">
                                 <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" style="margin:100px auto;" />
                             </div>
@@ -237,7 +215,7 @@
     }
 
     function ValidateSign() {
-       
+
 
         var isValid = ValidateSignature('ctlSignature');
 
@@ -274,15 +252,12 @@
                         text: 'Bạn đã ký hoàn tất. Vui lòng kiểm tra mail để xem hợp đồng.',
                     }).then((result) => {
                         if (result.value) {
-                              showLoading(); // Show loading icon
-                        setTimeout(() => {
-                            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-                        }, 1000); // Adjust the time as needed
+
                             close();
                         }
                     });
                 }
-                
+
             },
             error: function (textStatus, errorThrown) {
                 // Replace confirm with SweetAlert error message
@@ -292,10 +267,7 @@
                     text: 'Đã xảy ra lỗi khi ký. Vui lòng thử lại sau.',
                 }).then((result) => {
                     if (result.value) {
-                          showLoading(); // Show loading icon
-                        setTimeout(() => {
-                            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-                        }, 1000); // Adjust the time as needed
+
                         close();
                     }
                 });
@@ -331,28 +303,4 @@
             interval: false
         });
     });
-        z const iconLoading = document.getElementById("loading");
-
-    const showLoading = () => {
-        iconLoading.style.display = "flex";
-    };
-
-    const hideLoading = () => {
-        iconLoading.style.display = "none";
-    };
-
-    const updatePosition = () => {
-        showLoading(); // Show loading spinner when the button is clicked
-
-        // You can perform additional logic here before or after the form submission
-        // For example, submit the form programmatically
-        document.querySelector('form').submit();
-
-        // If you want to prevent the form from submitting immediately, you can remove the form submission line
-
-        // Hide loading spinner after the form submission is complete
-        setTimeout(() => {
-            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-        }, 1000);
-    };
 </script>

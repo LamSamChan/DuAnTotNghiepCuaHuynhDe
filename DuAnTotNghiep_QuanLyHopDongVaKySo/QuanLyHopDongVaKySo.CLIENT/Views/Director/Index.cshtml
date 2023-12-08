@@ -1,4 +1,4 @@
-﻿ @model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMPersonalPage
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMPersonalPage
 @{
 }
 <!-- ssss-->
@@ -89,7 +89,8 @@
                                 <i class="ph-bold ph-cloud-arrow-up"></i>
                                 UPLOAD
                             </label>
-                            <button class="Save_btn col-4" role="button" type="submit">LƯU
+                            <button class="Save_btn col-4" role="button" type="submit">
+                                LƯU
                                 @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                 {
                                     <script>
@@ -199,7 +200,7 @@
                         <label for="file-upload-id" class="custom-file-upload col-6" role="button">
                             <i class="ph-bold ph-cloud-arrow-up" style="font-size:30px;"></i>
                         </label>
-                        <button class="Save_btn col-2" role="button" type="submit" onclick="updatePosition()">
+                        <button class="Save_btn col-2" role="button" type="submit">
                             LƯU
                             @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                             {
@@ -211,7 +212,7 @@
                                             icon: '@TempData["SweetIcon"]'
                                         };
 
-                                    
+
 
                                         Swal.fire({
                                             title: sweetData.title,
@@ -234,14 +235,14 @@
                 </div>
                 <hr />
                 <h4 class="typeHead">Danh sách chữ ký</h4>
-                <ul class ="d-flex flex-wrap justify-content-center" style="list-style: none;">
+                <ul class="d-flex flex-wrap justify-content-center" style="list-style: none;">
                     @if (Model.PFXCertificate.ImageSignature1 != null)
                     {
                         <li class="avt">
                             <img src="~/@Model.PFXCertificate.ImageSignature1" alt="@Model.PFXCertificate.ImageSignature1" class="gallery-item" width="100%" height="300" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
-                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature1" onclick="updatePosition()">
+                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">
                                         Xóa  @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
                                             <script>
@@ -252,7 +253,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                           
+
                                                     Swal.fire({
                                                         title: sweetData.title,
                                                         text: sweetData.text,
@@ -268,7 +269,7 @@
                                             </script>
                                         }
                                     </a>
-                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature1" onclick="updatePosition()">
+                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature1">
                                         Đặt mặc định  @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                                         {
                                             <script>
@@ -279,7 +280,7 @@
                                                         icon: '@TempData["SweetIcon"]'
                                                     };
 
-                                                 
+
                                                     Swal.fire({
                                                         title: sweetData.title,
                                                         text: sweetData.text,
@@ -312,8 +313,8 @@
                             <img src="~/@Model.PFXCertificate.ImageSignature2" alt="@Model.PFXCertificate.ImageSignature2" class="gallery-item" width="100%" height="300" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
-                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature2" onclick="updatePosition()">Xóa</a>
-                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature2" onclick="updatePosition()">Đặt mặc định</a>
+                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature2">Xóa</a>
+                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature2">Đặt mặc định</a>
                                 </div>
                             </div>
                         </li>
@@ -331,8 +332,8 @@
                             <img src="~/@Model.PFXCertificate.ImageSignature3" alt="@Model.PFXCertificate.ImageSignature3" class="gallery-item" width="100%" height="300" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
-                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature3" onclick="updatePosition()">Xóa</a>
-                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature3" onclick="updatePosition()">Đặt mặt định</a>
+                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature3">Xóa</a>
+                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature3">Đặt mặt định</a>
                                 </div>
                             </div>
                         </li>
@@ -351,8 +352,8 @@
                             <img src="~/@Model.PFXCertificate.ImageSignature4" alt="@Model.PFXCertificate.ImageSignature4" class="gallery-item" width="100%" height="300" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
-                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature4" onclick="updatePosition()">Xóa</a>
-                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature4" onclick="updatePosition()">Đặt mặt định</a>
+                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature4">Xóa</a>
+                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature4">Đặt mặt định</a>
                                 </div>
                             </div>
                         </li>
@@ -370,8 +371,8 @@
                             <img src="~/@Model.PFXCertificate.ImageSignature5" alt="@Model.PFXCertificate.ImageSignature5" class="gallery-item" width="100%" height="300" />
                             <div class="overlay">
                                 <div class="row justify-content-around">
-                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature5" onclick="updatePosition()">Xóa</a>
-                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature5" onclick="updatePosition()">Đặt mặt định</a>
+                                    <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature5">Xóa</a>
+                                    <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Director" asp-route-filePath="@Model.PFXCertificate.ImageSignature5">Đặt mặt định</a>
                                 </div>
                             </div>
                         </li>
@@ -468,7 +469,7 @@
                         <label for="exampleFormControlTextarea1" class="form-label">Ghi chú</label>
                         <textarea type="text" class="form-control" id="exampleFormControlTextarea1" asp-for="Employee.Note" readonly rows="3"></textarea>
                     </div>
-                    <button class="add_cus" style="margin:20px auto; width:50%; padding: 20px; min-height:30px; display:flex; justify-content:center; align-items:center; " type="submit" onclick="updatePosition()">
+                    <button class="add_cus" style="margin:20px auto; width:50%; padding: 20px; min-height:30px; display:flex; justify-content:center; align-items:center; " type="submit">
                         Lưu thông tin  @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
                         {
                             <script>
@@ -479,7 +480,7 @@
                                         icon: '@TempData["SweetIcon"]'
                                     };
 
-                               
+
 
                                     Swal.fire({
                                         title: sweetData.title,
@@ -519,6 +520,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script type="text/javascript">
+
     function convertToImage() {
         var textInput = $("#textInput").val();
         var textColor = $("#textColorPicker").val();
@@ -773,29 +775,4 @@
             interval: false
         });
     });
-
-    const iconLoading = document.getElementById("loading");
-
-    const showLoading = () => {
-        iconLoading.style.display = "flex";
-    };
-
-    const hideLoading = () => {
-        iconLoading.style.display = "none";
-    };
-
-    const updatePosition = () => {
-        showLoading(); // Show loading spinner when the button is clicked
-
-        // You can perform additional logic here before or after the form submission
-        // For example, submit the form programmatically
-        document.querySelector('form').submit();
-
-        // If you want to prevent the form from submitting immediately, you can remove the form submission line
-
-        // Hide loading spinner after the form submission is complete
-        setTimeout(() => {
-            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-        }, 1000);
-    };
 </script>

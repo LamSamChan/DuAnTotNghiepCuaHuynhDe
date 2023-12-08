@@ -847,10 +847,7 @@
                             showConfirmButton: false,
                             timer: 1500
                         }).then(() => {
-                            showLoading(); // Show loading icon
-                            setTimeout(() => {
-                                hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-                            }, 1000); // Adjust the time as needed
+
                             window.location.reload();
                         });
                     },
@@ -862,10 +859,7 @@
                             showConfirmButton: false,
                             timer: 1500
                         }).then(() => {
-                            showLoading(); // Show loading icon
-                            setTimeout(() => {
-                                hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-                            }, 1000); // Adjust the time as needed
+
                             window.location.reload();
                         });
                     }
@@ -986,10 +980,7 @@
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-                    showLoading(); // Show loading icon
-                    setTimeout(() => {
-                        hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-                    }, 1000); // Adjust the time as needed
+
                 });
             }
 
@@ -1012,29 +1003,4 @@
             interval: false
         });
     });
-    const iconLoading = document.getElementById("loading");
-
-    const showLoading = () => {
-        iconLoading.style.display = "flex";
-    };
-
-    const hideLoading = () => {
-        iconLoading.style.display = "none";
-    };
-
-    const updatePosition = () => {
-        showLoading(); // Show loading spinner when the button is clicked
-
-        // You can perform additional logic here before or after the form submission
-        // For example, submit the form programmatically
-        document.querySelector('form').submit();
-
-        // If you want to prevent the form from submitting immediately, you can remove the form submission line
-
-        // Hide loading spinner after the form submission is complete
-        setTimeout(() => {
-            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-        }, 1000);
-    };
-
 </script>
