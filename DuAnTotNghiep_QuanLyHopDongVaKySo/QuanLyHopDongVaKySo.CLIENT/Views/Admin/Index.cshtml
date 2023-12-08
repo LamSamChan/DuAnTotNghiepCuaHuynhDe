@@ -92,31 +92,7 @@
                             </label>
                             <button class="Save_btn col-4" role="button" type="submit" onclick="updatePosition()">
                                 LƯU
-                                @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                {
-                                    <script>
-                                        document.addEventListener('DOMContentLoaded', function () {
-                                            var sweetData = {
-                                                title: '@TempData["SweetTitle"]',
-                                                text: '@TempData["SweetText"]',
-                                                icon: '@TempData["SweetIcon"]'
-                                            };
-
-
-                                            Swal.fire({
-                                                title: sweetData.title,
-                                                text: sweetData.text,
-                                                icon: sweetData.icon,
-                                                showCancelButton: false,
-                                                allowOutsideClick: false,
-                                                confirmButtonColor: "green",
-                                                confirmButtonText: "Ok"
-                                            }).then(function () {
-                                                // Handle any additional logic after the SweetAlert is closed.
-                                            });
-                                        });
-                                    </script>
-                                }
+                               
                             </button>
                             <input id="file-upload-avt" type="file" accept="image/*" asp-for="Employee.ImageFile" />
                             <input type="text" class="form-input d-none" asp-for="Employee.EmployeeId" readonly>
@@ -161,30 +137,7 @@
                                         <div class="row justify-content-around">
                                             <a class="col button-delete" asp-action="DeleteDefaultSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.DefaultImageSignature" onclick="updatePosition()">
                                                 Xóa
-                                                @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                                {
-                                                    <script>
-                                                        document.addEventListener('DOMContentLoaded', function () {
-                                                            var sweetData = {
-                                                                title: '@TempData["SweetTitle"]',
-                                                                text: '@TempData["SweetText"]',
-                                                                icon: '@TempData["SweetIcon"]'
-                                                            };
-
-                                                            Swal.fire({
-                                                                title: sweetData.title,
-                                                                text: sweetData.text,
-                                                                icon: sweetData.icon,
-                                                                showCancelButton: false,
-                                                                allowOutsideClick: false,
-                                                                confirmButtonColor: "green",
-                                                                confirmButtonText: "Ok"
-                                                            }).then(function () {
-                                                                // Handle any additional logic after the SweetAlert is closed.
-                                                            });
-                                                        });
-                                                    </script>
-                                                }
+                                               
                                             </a>
                                         </div>
                                     </div>
@@ -210,32 +163,7 @@
                                         <div class="row justify-content-around">
                                             <a class="col button-delete" asp-action="DeleteStampImage" asp-controller="Admin" asp-route-filePath="@Model.Stamps[0].StampPath">
                                                 Xóa
-                                                @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                                {
-                                                    <script>
-                                                        document.addEventListener('DOMContentLoaded', function () {
-                                                            var sweetData = {
-                                                                title: '@TempData["SweetTitle"]',
-                                                                text: '@TempData["SweetText"]',
-                                                                icon: '@TempData["SweetIcon"]'
-                                                            };
-
-
-
-                                                            Swal.fire({
-                                                                title: sweetData.title,
-                                                                text: sweetData.text,
-                                                                icon: sweetData.icon,
-                                                                showCancelButton: false,
-                                                                allowOutsideClick: false,
-                                                                confirmButtonColor: "green",
-                                                                confirmButtonText: "Ok"
-                                                            }).then(function () {
-                                                                // Handle any additional logic after the SweetAlert is closed.
-                                                            });
-                                                        });
-                                                    </script>
-                                                }
+                                               
                                             </a>
                                         </div>
                                     </div>
@@ -256,32 +184,7 @@
                         </label>
                         <button class="Save_btn col-4" role="button" type="submit" onclick="updatePosition()">
                             LƯU
-                            @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                            {
-                                <script>
-                                    document.addEventListener('DOMContentLoaded', function () {
-                                        var sweetData = {
-                                            title: '@TempData["SweetTitle"]',
-                                            text: '@TempData["SweetText"]',
-                                            icon: '@TempData["SweetIcon"]'
-                                        };
-
-
-
-                                        Swal.fire({
-                                            title: sweetData.title,
-                                            text: sweetData.text,
-                                            icon: sweetData.icon,
-                                            showCancelButton: false,
-                                            allowOutsideClick: false,
-                                            confirmButtonColor: "green",
-                                            confirmButtonText: "Ok"
-                                        }).then(function () {
-                                            // Handle any additional logic after the SweetAlert is closed.
-                                        });
-                                    });
-                                </script>
-                            }
+                           
                         </button>
                         <input id="file-upload-stamp" type="file" asp-for="Stamp.ImageFile" />
                     </form>
@@ -296,29 +199,7 @@
                         </label>
                         <button class="Save_btn col-2" role="button" type="submit" onclick="updatePosition()">
                             LƯU
-                            @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                            {
-                                <script>
-                                    document.addEventListener('DOMContentLoaded', function () {
-                                        var sweetData = {
-                                            title: '@TempData["SweetTitle"]',
-                                            text: '@TempData["SweetText"]',
-                                            icon: '@TempData["SweetIcon"]'
-                                        };
-                                        Swal.fire({
-                                            title: sweetData.title,
-                                            text: sweetData.text,
-                                            icon: sweetData.icon,
-                                            showCancelButton: false,
-                                            allowOutsideClick: false,
-                                            confirmButtonColor: "green",
-                                            confirmButtonText: "Ok"
-                                        }).then(function () {
-                                            // Handle any additional logic after the SweetAlert is closed.
-                                        });
-                                    });
-                                </script>
-                            }
+                          
                         </button>
                         <input id="file-upload-avt" type="file" accept="image/*" asp-for="@Model.PFXCertificate.ImageFile" />
                     </form>
@@ -334,61 +215,11 @@
                                 <div class="row justify-content-around">
                                     <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature1" onclick="updatePosition()">
                                         Xóa
-                                        @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                        {
-                                            <script>
-                                                document.addEventListener('DOMContentLoaded', function () {
-                                                    var sweetData = {
-                                                        title: '@TempData["SweetTitle"]',
-                                                        text: '@TempData["SweetText"]',
-                                                        icon: '@TempData["SweetIcon"]'
-                                                    };
-
-
-
-                                                    Swal.fire({
-                                                        title: sweetData.title,
-                                                        text: sweetData.text,
-                                                        icon: sweetData.icon,
-                                                        showCancelButton: false,
-                                                        allowOutsideClick: false,
-                                                        confirmButtonColor: "green",
-                                                        confirmButtonText: "Ok"
-                                                    }).then(function () {
-                                                        // Handle any additional logic after the SweetAlert is closed.
-                                                    });
-                                                });
-                                            </script>
-                                        }
+                                      
                                     </a>
                                     <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature1" onclick="updatePosition()">
                                         Đặt mặc định
-                                        @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                        {
-                                            <script>
-                                                document.addEventListener('DOMContentLoaded', function () {
-                                                    var sweetData = {
-                                                        title: '@TempData["SweetTitle"]',
-                                                        text: '@TempData["SweetText"]',
-                                                        icon: '@TempData["SweetIcon"]'
-                                                    };
-
-
-
-                                                    Swal.fire({
-                                                        title: sweetData.title,
-                                                        text: sweetData.text,
-                                                        icon: sweetData.icon,
-                                                        showCancelButton: false,
-                                                        allowOutsideClick: false,
-                                                        confirmButtonColor: "green",
-                                                        confirmButtonText: "Ok"
-                                                    }).then(function () {
-                                                        // Handle any additional logic after the SweetAlert is closed.
-                                                    });
-                                                });
-                                            </script>
-                                        }
+                                        
                                     </a>
                                 </div>
                             </div>
@@ -409,61 +240,11 @@
                                 <div class="row justify-content-around">
                                     <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature2" onclick="updatePosition()">
                                         Xóa
-                                        @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                        {
-                                            <script>
-                                                document.addEventListener('DOMContentLoaded', function () {
-                                                    var sweetData = {
-                                                        title: '@TempData["SweetTitle"]',
-                                                        text: '@TempData["SweetText"]',
-                                                        icon: '@TempData["SweetIcon"]'
-                                                    };
-
-
-
-                                                    Swal.fire({
-                                                        title: sweetData.title,
-                                                        text: sweetData.text,
-                                                        icon: sweetData.icon,
-                                                        showCancelButton: false,
-                                                        allowOutsideClick: false,
-                                                        confirmButtonColor: "green",
-                                                        confirmButtonText: "Ok"
-                                                    }).then(function () {
-                                                        // Handle any additional logic after the SweetAlert is closed.
-                                                    });
-                                                });
-                                            </script>
-                                        }
+                                       
                                     </a>
                                     <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature2" onclick="updatePosition()">
                                         Đặt mặc định
-                                        @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                        {
-                                            <script>
-                                                document.addEventListener('DOMContentLoaded', function () {
-                                                    var sweetData = {
-                                                        title: '@TempData["SweetTitle"]',
-                                                        text: '@TempData["SweetText"]',
-                                                        icon: '@TempData["SweetIcon"]'
-                                                    };
-
-
-
-                                                    Swal.fire({
-                                                        title: sweetData.title,
-                                                        text: sweetData.text,
-                                                        icon: sweetData.icon,
-                                                        showCancelButton: false,
-                                                        allowOutsideClick: false,
-                                                        confirmButtonColor: "green",
-                                                        confirmButtonText: "Ok"
-                                                    }).then(function () {
-                                                        // Handle any additional logic after the SweetAlert is closed.
-                                                    });
-                                                });
-                                            </script>
-                                        }
+                                       
                                     </a>
                                 </div>
                             </div>
@@ -484,61 +265,11 @@
                                 <div class="row justify-content-around">
                                     <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature3">
                                         Xóa
-                                        @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                        {
-                                            <script>
-                                                document.addEventListener('DOMContentLoaded', function () {
-                                                    var sweetData = {
-                                                        title: '@TempData["SweetTitle"]',
-                                                        text: '@TempData["SweetText"]',
-                                                        icon: '@TempData["SweetIcon"]'
-                                                    };
-
-
-
-                                                    Swal.fire({
-                                                        title: sweetData.title,
-                                                        text: sweetData.text,
-                                                        icon: sweetData.icon,
-                                                        showCancelButton: false,
-                                                        allowOutsideClick: false,
-                                                        confirmButtonColor: "green",
-                                                        confirmButtonText: "Ok"
-                                                    }).then(function () {
-                                                        // Handle any additional logic after the SweetAlert is closed.
-                                                    });
-                                                });
-                                            </script>
-                                        }
+                                       
                                     </a>
                                     <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature3" onclick="updatePosition()">
                                         Đặt mặt định
-                                        @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                        {
-                                            <script>
-                                                document.addEventListener('DOMContentLoaded', function () {
-                                                    var sweetData = {
-                                                        title: '@TempData["SweetTitle"]',
-                                                        text: '@TempData["SweetText"]',
-                                                        icon: '@TempData["SweetIcon"]'
-                                                    };
-
-
-
-                                                    Swal.fire({
-                                                        title: sweetData.title,
-                                                        text: sweetData.text,
-                                                        icon: sweetData.icon,
-                                                        showCancelButton: false,
-                                                        allowOutsideClick: false,
-                                                        confirmButtonColor: "green",
-                                                        confirmButtonText: "Ok"
-                                                    }).then(function () {
-                                                        // Handle any additional logic after the SweetAlert is closed.
-                                                    });
-                                                });
-                                            </script>
-                                        }
+                                       
                                     </a>
                                 </div>
                             </div>
@@ -560,61 +291,11 @@
                                 <div class="row justify-content-around">
                                     <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature4" onclick="updatePosition()">
                                         Xóa
-                                        @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                        {
-                                            <script>
-                                                document.addEventListener('DOMContentLoaded', function () {
-                                                    var sweetData = {
-                                                        title: '@TempData["SweetTitle"]',
-                                                        text: '@TempData["SweetText"]',
-                                                        icon: '@TempData["SweetIcon"]'
-                                                    };
-
-
-
-                                                    Swal.fire({
-                                                        title: sweetData.title,
-                                                        text: sweetData.text,
-                                                        icon: sweetData.icon,
-                                                        showCancelButton: false,
-                                                        allowOutsideClick: false,
-                                                        confirmButtonColor: "green",
-                                                        confirmButtonText: "Ok"
-                                                    }).then(function () {
-                                                        // Handle any additional logic after the SweetAlert is closed.
-                                                    });
-                                                });
-                                            </script>
-                                        }
+                                      
                                     </a>
                                     <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature4" onclick="updatePosition()">
                                         Đặt mặc định
-                                        @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                        {
-                                            <script>
-                                                document.addEventListener('DOMContentLoaded', function () {
-                                                    var sweetData = {
-                                                        title: '@TempData["SweetTitle"]',
-                                                        text: '@TempData["SweetText"]',
-                                                        icon: '@TempData["SweetIcon"]'
-                                                    };
-
-
-
-                                                    Swal.fire({
-                                                        title: sweetData.title,
-                                                        text: sweetData.text,
-                                                        icon: sweetData.icon,
-                                                        showCancelButton: false,
-                                                        allowOutsideClick: false,
-                                                        confirmButtonColor: "green",
-                                                        confirmButtonText: "Ok"
-                                                    }).then(function () {
-                                                        // Handle any additional logic after the SweetAlert is closed.
-                                                    });
-                                                });
-                                            </script>
-                                        }
+                                        
                                     </a>
                                 </div>
                             </div>
@@ -635,61 +316,11 @@
                                 <div class="row justify-content-around">
                                     <a class="col button-delete" asp-action="DeleteSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature5" onclick="updatePosition()">
                                         Xóa
-                                        @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                        {
-                                            <script>
-                                                document.addEventListener('DOMContentLoaded', function () {
-                                                    var sweetData = {
-                                                        title: '@TempData["SweetTitle"]',
-                                                        text: '@TempData["SweetText"]',
-                                                        icon: '@TempData["SweetIcon"]'
-                                                    };
-
-
-
-                                                    Swal.fire({
-                                                        title: sweetData.title,
-                                                        text: sweetData.text,
-                                                        icon: sweetData.icon,
-                                                        showCancelButton: false,
-                                                        allowOutsideClick: false,
-                                                        confirmButtonColor: "green",
-                                                        confirmButtonText: "Ok"
-                                                    }).then(function () {
-                                                        // Handle any additional logic after the SweetAlert is closed.
-                                                    });
-                                                });
-                                            </script>
-                                        }
+                                      
                                     </a>
                                     <a class="col button-save" asp-action="SetDefaultImageSignature" asp-controller="Admin" asp-route-filePath="@Model.PFXCertificate.ImageSignature5" onclick="updatePosition()">
                                         Đặt mặc định
-                                        @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                                        {
-                                            <script>
-                                                document.addEventListener('DOMContentLoaded', function () {
-                                                    var sweetData = {
-                                                        title: '@TempData["SweetTitle"]',
-                                                        text: '@TempData["SweetText"]',
-                                                        icon: '@TempData["SweetIcon"]'
-                                                    };
-
-
-
-                                                    Swal.fire({
-                                                        title: sweetData.title,
-                                                        text: sweetData.text,
-                                                        icon: sweetData.icon,
-                                                        showCancelButton: false,
-                                                        allowOutsideClick: false,
-                                                        confirmButtonColor: "green",
-                                                        confirmButtonText: "Ok"
-                                                    }).then(function () {
-                                                        // Handle any additional logic after the SweetAlert is closed.
-                                                    });
-                                                });
-                                            </script>
-                                        }
+                                      
                                     </a>
                                 </div>
                             </div>
@@ -792,32 +423,7 @@
                     </div>
                     <button class="add_cus" style="margin:20px auto; width:50%; padding: 20px; min-height:30px; display:flex; justify-content:center; align-items:center; " type="submit" onclick="updatePosition()">
                         Lưu thông tin
-                        @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                        {
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function () {
-                                    var sweetData = {
-                                        title: '@TempData["SweetTitle"]',
-                                        text: '@TempData["SweetText"]',
-                                        icon: '@TempData["SweetIcon"]'
-                                    };
-
-                                    console.log("Sweet Data:", sweetData);
-
-                                    Swal.fire({
-                                        title: sweetData.title,
-                                        text: sweetData.text,
-                                        icon: sweetData.icon,
-                                        showCancelButton: false,
-                                        allowOutsideClick: false,
-                                        confirmButtonColor: "green",
-                                        confirmButtonText: "Ok"
-                                    }).then(function () {
-                                        // Handle any additional logic after the SweetAlert is closed.
-                                    });
-                                });
-                            </script>
-                        }
+                       
                     </button>
                 </form>
             </div>
@@ -842,6 +448,32 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+@if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var sweetData = {
+                title: '@TempData["SweetTitle"]',
+                text: '@TempData["SweetText"]',
+                icon: '@TempData["SweetIcon"]'
+            };
+
+            console.log("Sweet Data:", sweetData);
+
+            Swal.fire({
+                title: sweetData.title,
+                text: sweetData.text,
+                icon: sweetData.icon,
+                showCancelButton: false,
+                allowOutsideClick: false,
+                confirmButtonColor: "green",
+                confirmButtonText: "Ok"
+            }).then(function () {
+                // Handle any additional logic after the SweetAlert is closed.
+            });
+        });
+    </script>
+}
 <script type="text/javascript">
 
     const iconLoading = document.getElementById("loading");

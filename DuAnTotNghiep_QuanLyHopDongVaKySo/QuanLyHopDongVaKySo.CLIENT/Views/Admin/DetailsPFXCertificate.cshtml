@@ -24,31 +24,7 @@
             </a>
             <a class="button-save col-md-2 offset-md-7" asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@Model.Serial">
                 GIA HẠN
-                @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-                {
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                            var sweetData = {
-                                title: '@TempData["SweetTitle"]',
-                                text: '@TempData["SweetText"]',
-                                icon: '@TempData["SweetIcon"]'
-                            };
-
-                            Swal.fire({
-                                title: sweetData.title,
-                                text: sweetData.text,
-                                icon: sweetData.icon,
-                                showCancelButton: false,
-                                allowOutsideClick: false,
-                                confirmButtonColor: "green",
-                                confirmButtonText: "Ok"
-                            }).then(function () {
-                                // Handle any additional logic after the SweetAlert is closed.
-                            });
-                        });
-                    </script>
-                }
-
+                
             </a>
         </div>
     </div>
@@ -125,13 +101,27 @@
 <script src="~/Test/js/bootstrap.bundle.min.js"></script>
 <script src="~/Test/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    // Hàm hiển thị message
-    function showSuccessMessage() {
-        $("#msg_success_filled").ej2Message.show();
-        // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
-        setTimeout(function () {
-            $("#msg_success_filled").ej2Message.hide();
-        }, 5000);
-    }
-</script>
+@if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var sweetData = {
+                title: '@TempData["SweetTitle"]',
+                text: '@TempData["SweetText"]',
+                icon: '@TempData["SweetIcon"]'
+            };
+
+            Swal.fire({
+                title: sweetData.title,
+                text: sweetData.text,
+                icon: sweetData.icon,
+                showCancelButton: false,
+                allowOutsideClick: false,
+                confirmButtonColor: "green",
+                confirmButtonText: "Ok"
+            }).then(function () {
+                // Handle any additional logic after the SweetAlert is closed.
+            });
+        });
+    </script>
+}
