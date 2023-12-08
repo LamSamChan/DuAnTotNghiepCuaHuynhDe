@@ -66,7 +66,7 @@
     }
 
     <div class="listTable_Record mt-4 bg-white" >
-        <table class="table" id="myTable">
+        <table class="table display" id="myTable">
             <thead>
                 <tr style="color: #8B909A;">
                     <th scope="col">ID</th>
@@ -131,7 +131,18 @@
         </table>
     </div>
 </div>
-<script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Khởi tạo DataTable
+        $('#myTable').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+    });
+
+
     // tìm kiếm
     document.addEventListener('DOMContentLoaded', function () {
         // Lấy đối tượng ô tìm kiếm và bảng

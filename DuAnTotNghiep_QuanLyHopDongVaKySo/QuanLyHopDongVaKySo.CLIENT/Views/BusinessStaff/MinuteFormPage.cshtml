@@ -6,26 +6,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
-
-<style>
-    .loading {
-        position: absolute;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        background: rgba(0, 0, 0, 0.479);
-    }
-
-        .loading img {
-            width: 7rem;
-        }
-</style>
-<div class="loading" id="loading">
-    <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
-</div>
 <div class="container-fluid" style="height: 20vh;">
 
     @if (userRole == "Admin")
@@ -46,9 +26,8 @@
     }
     else
     {
-        <link href="~/php/style.css" rel="stylesheet" />
-
         Layout = "_Layout";
+        <link href="~/php/style.css" rel="stylesheet" />
         <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -63,11 +42,11 @@
     }
    
 </div>
-<div class="row mt-4">
+<div class="row mt-4 mx-auto">
     <form class="form" method="post" enctype="multipart/form-data" id="FormPostTContract" asp-action="AddTMinute" asp-controller="BusinessStaff">
         <input asp-for="File" type="file" accept=".pdf" id="pdfInput" style="display:none;" required>
         <img width="64" height="64" style="margin-bottom:15px" src="~/Images/pdf_icon.png" alt="external-pdf-file-types-others-iconmarket" />
-        <button type="button" class="button-22" id="uploadIcon">TẢI PDF</button>
+        <button type="button" class="button-22" id="uploadIcon" >TẢI PDF</button>
         <br />
         <section>
             <div style="display: flex; justify-content: space-evenly;">
@@ -102,27 +81,7 @@
 </div>
 
 
-<script>
-    const iconLoading = document.getElementById("loading");
-
-    const showLoading = () => {
-        iconLoading.style.display = "flex";
-    };
-
-    const hideLoading = () => {
-        iconLoading.style.display = "none";
-    };
-
-    const saveData = () => {
-        // Show loading icon when saving starts
-        showLoading();
-
-        // Simulate a save operation (you should replace this with your actual save logic)
-        setTimeout(() => {
-            // Hide loading icon when save operation is complete
-            hideLoading();
-        }, 3000); // Assuming 2000 milliseconds (2 seconds) for demonstration purposes
-    };
+<script type="text/javascript">
 
     document.getElementById('uploadIcon').addEventListener('click', function () {
         document.getElementById('pdfInput').click();

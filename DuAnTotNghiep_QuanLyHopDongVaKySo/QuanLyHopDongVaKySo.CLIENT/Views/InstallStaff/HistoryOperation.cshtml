@@ -10,10 +10,13 @@
             </ol>
         </nav>
         <h1 class="typeHead">Tất cả lịch sử thao tác</h1>
+        <div class="row">
+            <input type="search" id="searchInput" style="margin-left: 10px;" placeholder="Tìm kiếm..." />
+        </div>
     </div>
     <div class="row bg-white my-auto mt-4 mx-auto">
         <div class="listTable" style="max-height:700px; overflow-y:scroll;">
-            <table class="table">
+            <table class="table display" id="myTable">
                 <thead>
                     <tr style="color: #8B909A;">
                         <th scope="col">ID</th>
@@ -36,3 +39,46 @@
 
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Khởi tạo DataTable
+        $('#myTable').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+    });
+
+
+    // tìm kiếm
+    document.addEventListener('DOMContentLoaded', function () {
+        // Lấy đối tượng ô tìm kiếm và bảng
+        var input = document.getElementById('searchInput');
+        var table = document.getElementById('myTable');
+
+        // Thêm sự kiện 'input' cho ô tìm kiếm
+        input.addEventListener('input', function () {
+            // Gọi hàm filterTable khi người dùng nhập liệu
+            filterTable();
+        });
+
+        function filterTable() {
+            // Lấy giá trị từ ô tìm kiếm và chuyển đổi thành chữ thường
+            var filter = input.value.toLowerCase();
+
+            // Lấy tất cả các dòng trong tbody của bảng
+            var rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            // Lặp qua từng dòng và ẩn hoặc hiển thị dựa trên từ khóa tìm kiếm
+            for (var i = 0; i < rows.length; i++) {
+                var rowData = rows[i].innerText.toLowerCase();
+                if (rowData.includes(filter)) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+    });
+</script>

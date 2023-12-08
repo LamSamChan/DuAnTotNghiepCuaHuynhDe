@@ -57,7 +57,7 @@
     }
     <div class="row bg-white mx-auto my-auto rounded mt-4">
         <div class="listTable">
-            <table class="table" id="myTable">
+            <table class="table display" id="myTable">
                 <thead>
                     <tr style="color: #8B909A;">
 
@@ -115,7 +115,17 @@
     </div>
 
 </div>
-<script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Khởi tạo DataTable
+        $('#myTable').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+    });
+
     function downloadPDF(base64String,fileName) {
         var byteCharacters = atob(base64String);
         var byteNumbers = new Array(byteCharacters.length);

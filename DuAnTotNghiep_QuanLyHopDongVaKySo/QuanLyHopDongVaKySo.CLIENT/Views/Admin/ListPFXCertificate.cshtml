@@ -100,62 +100,53 @@
                             <th scope="col">Tổ chức cung cấp</th>
                             <th scope="col">Ngày hiệu lực</th>
                             <th scope="col">Ngày hết hạn</th>
-                            <th scope="col" colspan="2">Hành động</th>
+                            <th scope="col">Hành động</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                        @foreach (var nv in Model.PFXCertificatesATE)
+                        @foreach (var kh in Model.PFXCertificatesATE)
                         {
-                            if (nv.IsEmployee)
+                            if (!kh.IsEmployee)
                             {
                                 <tr>
-                                    <th>@nv.Serial</th>
-                                    @foreach (var emp in Model.Employees)
+                                    <th>@kh.Serial</th>
+                                    @foreach (var cus in Model.Customers)
                                     {
-                                        if (emp.SerialPFX == nv.Serial)
+                                        if (cus.SerialPFX == kh.Serial)
                                         {
-                                            <td><a asp-action="DetailsEmpAccount" asp-controller="Admin" asp-route-empId="@emp.EmployeeId">@nv.Subject</a></td>
+                                            <td><a asp-action="DetailsCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId">@kh.Subject</a></td>
                                         }
                                     }
-                                    <td>@nv.Issuer</td>
-                                    <td>@nv.ValidFrom.ToString("dd/MM/yyyy")</td>
-                                    <td>@nv.ValidUntil.ToString("dd/MM/yyyy")</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <a asp-action="DetailsPFXCertificate" asp-controller="Admin" asp-route-serial="@nv.Serial">Chi tiết</a>
-                                        </div>
-                                    </td>
+                                    <td>@kh.Issuer</td>
+                                    <td>@kh.ValidFrom.ToString("dd/MM/yyyy")</td>
+                                    <td>@kh.ValidUntil.ToString("dd/MM/yyyy")</td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="loading" id="loading">
                                                 <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
                                             </div>
-                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial" onclick="updatePosition()">Gia hạn</a>
-                                            @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial" onclick="updatePosition()">Gia hạn</a>
+                                            @if (TempData["SwalMessageType"] != null)
                                             {
                                                 <script>
-                                                    document.addEventListener('DOMContentLoaded', function () {
-                                                        var sweetData = {
-                                                            title: '@TempData["SweetTitle"]',
-                                                            text: '@TempData["SweetText"]',
-                                                            icon: '@TempData["SweetIcon"]'
-                                                        };
-
-                                                        Swal.fire({
-                                                            title: sweetData.title,
-                                                            text: sweetData.text,
-                                                            icon: sweetData.icon,
-                                                            showCancelButton: false,
-                                                            allowOutsideClick: false,
-                                                            confirmButtonColor: "green",
-                                                            confirmButtonText: "Ok"
-                                                        }).then(function () {
-                                                            // Handle any additional logic after the SweetAlert is closed.
-                                                        });
+                                                    const Toast = Swal.mixin({
+                                                        toast: true,
+                                                        position: "bottom-end",
+                                                        showConfirmButton: false,
+                                                        timer: 3000,
+                                                        timerProgressBar: true,
+                                                        didOpen: (toast) => {
+                                                            toast.onmouseenter = Swal.stopTimer;
+                                                            toast.onmouseleave = Swal.resumeTimer;
+                                                        }
                                                     });
+                                                    Toast.fire({
+                                                        icon: '@TempData["SwalMessageIcon"]',
+                                                        title: '@TempData["SwalMessageTitle"]'
+                                                    });
+
                                                 </script>
                                             }
-
                                         </div>
                                     </td>
                                 </tr>
@@ -175,37 +166,32 @@
                             <th scope="col">Tổ chức cung cấp</th>
                             <th scope="col">Ngày hiệu lực</th>
                             <th scope="col">Ngày hết hạn</th>
-                            <th scope="col" colspan="2">Hành động</th>
+                            <th scope="col">Hành động</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                        @foreach (var nv in Model.PFXCertificatesE)
+                        @foreach (var kh in Model.PFXCertificatesE)
                         {
-                            if (nv.IsEmployee)
+                            if (!kh.IsEmployee)
                             {
                                 <tr>
-                                    <th>@nv.Serial</th>
-                                    @foreach (var emp in Model.Employees)
+                                    <th>@kh.Serial</th>
+                                    @foreach (var cus in Model.Customers)
                                     {
-                                        if (emp.SerialPFX == nv.Serial)
+                                        if (cus.SerialPFX == kh.Serial)
                                         {
-                                            <td><a asp-action="DetailsEmpAccount" asp-controller="Admin" asp-route-empId="@emp.EmployeeId">@nv.Subject</a></td>
+                                            <td><a asp-action="DetailsCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId">@kh.Subject</a></td>
                                         }
                                     }
-                                    <td>@nv.Issuer</td>
-                                    <td>@nv.ValidFrom.ToString("dd/MM/yyyy")</td>
-                                    <td>@nv.ValidUntil.ToString("dd/MM/yyyy")</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <a asp-action="DetailsPFXCertificate" asp-controller="Admin" asp-route-serial="@nv.Serial">Chi tiết</a>
-                                        </div>
-                                    </td>
+                                    <td>@kh.Issuer</td>
+                                    <td>@kh.ValidFrom.ToString("dd/MM/yyyy")</td>
+                                    <td>@kh.ValidUntil.ToString("dd/MM/yyyy")</td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="loading" id="loading">
                                                 <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
                                             </div>
-                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial" onclick="updatePosition()">Gia hạn</a>
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial" onclick="updatePosition()">Gia hạn</a>
                                             @if (TempData["SwalMessageType"] != null)
                                             {
                                                 <script>

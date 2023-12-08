@@ -76,7 +76,7 @@
         <div class="tab-content" id="nav-tabContent" style="display:flex;">
             <div class="tab-pane fade show active w-100" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                 <div class="row" style="margin: auto;">
-                    <table class="table" id="myTable1">
+                    <table class="table display" id="myTable1">
                         <thead>
                             <tr style="color: #8B909A;">
                                 <th scope="col">MÃ BIÊN BẢN</th>
@@ -120,7 +120,7 @@
             </div>
             <div class="tab-pane fade w-100" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
                 <div class="row" style="margin: auto;">
-                    <table class="table" id="myTable2">
+                    <table class="table display" id="myTable2">
                         <thead>
                             <tr style="color: #8B909A;">
                                 <th scope="col">MÃ BIÊN BẢN</th>
@@ -159,7 +159,25 @@
         
     </div>
 </div>
-<script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        // Khởi tạo DataTable
+        $('#myTable1').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+
+        $('#myTable2').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25
+        });
+
+    });
 
 
     // tìm kiếm
