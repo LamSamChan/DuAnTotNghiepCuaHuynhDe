@@ -122,11 +122,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
                         var customer = await _customerSvc.GetByIdAsync(dContract.CustomerId.ToString());
 
-                        Task.Run(async () =>
-                        {
-                            string sendmail = await SendMailToCustomerWithFile(System.IO.File.ReadAllBytes(dContract.DContractFile), System.IO.File.ReadAllBytes(result.MinuteFile), customer);
-                        });
-                       
+
+                        Task.Run(() => SendMailToCustomerWithFile(System.IO.File.ReadAllBytes(dContract.DContractFile), System.IO.File.ReadAllBytes(result.MinuteFile), customer));
+
                         return Ok(result.DoneMinuteID + "*" + pMinute.PendingMinuteId);
                     }
                     return BadRequest();

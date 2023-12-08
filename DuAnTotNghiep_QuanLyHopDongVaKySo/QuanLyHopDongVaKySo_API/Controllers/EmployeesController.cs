@@ -115,15 +115,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 mail.ReceiverName = employee.FullName;
                 mail.ToMail = employee.Email;
                 mail.HtmlContent = content;
-                string isSuccess = await _sendMailHelper.SendMail(mail);
-                if (isSuccess != null)
-                {
-                    return Ok(isError);
-                }
-                else
-                {
-                    return BadRequest(isError);
-                }
+
+                Task.Run(() => _sendMailHelper.SendMail(mail));
+
+                return Ok(isError);
+
             }
             else {
                 if (isError == "-1")

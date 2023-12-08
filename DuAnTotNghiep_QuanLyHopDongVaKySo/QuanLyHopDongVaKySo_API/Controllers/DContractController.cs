@@ -185,11 +185,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         var customer = await _customerSvc.GetByIdAsync(pContract.CustomerId.ToString());
                         var url = await GenerateUrlShowDContract(dContract.DContractID);
 
-                        Task.Run(async () =>
-                        {
-                            var _sendMail = await SendMailToCustomer(customer, url);
-                        });
-                       
+                        Task.Run(() => SendMailToCustomer(customer, url));
 
                         return Ok(updateResult.DContractID + "*" + pContract.PContractID);
                     }
@@ -253,15 +249,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 mail.ReceiverName = customer.FullName;
                 mail.ToMail = customer.Email;
                 mail.HtmlContent = content;
-                string isSuccess = await _sendMailHelper.SendMail(mail);
-                if (isSuccess != null)
-                {
-                    return isSuccess;
-                }
-                else
-                {
-                    return null;
-                }
+                Task.Run(() => _sendMailHelper.SendMail(mail));
+
+                return "Success";
             }
         }
 

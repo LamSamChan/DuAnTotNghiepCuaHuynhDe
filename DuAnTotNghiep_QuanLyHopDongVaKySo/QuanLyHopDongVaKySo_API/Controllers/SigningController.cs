@@ -274,8 +274,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var url = await GenerateUrl(pContract.PContractID);
             var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
-            var sendMail = SendMailToCustomerWithImage(qrPath,url, customer, pContract.PContractID);
-
+            Task.Run(() => SendMailToCustomerWithImage(qrPath, url, customer, pContract.PContractID));
             //_pdfToImageHelper.PdfToPng(pContract.PContractFile, pendingContract.PContractId,"contract");
 
             await _pendingContract.updateAsnyc(pendingContract);
@@ -432,7 +431,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             _uploadFileHelper.RemoveFile(imagePath);
 
             var url = await GenerateUrlShowDContract(dContract.DContractID);
-            var _sendMail = SendMailToCustomer(customer, url);
+            Task.Run(() => SendMailToCustomer(customer, url));
+
             if (result != 0)
             {
                 return Ok(base64String +"*" + dContract.DContractID+"*"+ pContract.PContractID);
@@ -708,7 +708,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             int resutl = await _pendingMinuteSvc.DeletePMinute(pMinute.PendingMinuteId);
 
-            var sendMail = SendMailToCustomerWithFile(System.IO.File.ReadAllBytes(dContract.DContractFile), System.IO.File.ReadAllBytes(outputMinute.Replace("_installer_signed.pdf", ".pdf")),customer);
+            Task.Run(() => SendMailToCustomerWithFile(System.IO.File.ReadAllBytes(dContract.DContractFile), System.IO.File.ReadAllBytes(outputMinute.Replace("_installer_signed.pdf", ".pdf")), customer));
 
             System.GC.Collect();
             System.GC.WaitForPendingFinalizers();
