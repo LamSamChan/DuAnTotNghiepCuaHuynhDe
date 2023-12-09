@@ -429,6 +429,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     vm.EmployeeCreated = await _employeeService.GetEmployeeById(vm.PContract.EmployeeCreatedId);
                     vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
                     vm.Customer = await _customerService.GetCustomerById(vm.PContract.CustomerId);
+
+                    if (vm.PContract.IsDirector == "Đã ký")
+                    {
+                        ViewBag.hide = "d-none";
+                    }
+                    else
+                    {
+                        ViewBag.hide = "";
+                    }
+                   
+
                     return View(vm);
                 }
                 catch

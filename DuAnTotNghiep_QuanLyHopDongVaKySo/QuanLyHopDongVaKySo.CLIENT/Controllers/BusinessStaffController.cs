@@ -305,9 +305,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 vm.DoneContracts = await _dContractService.getListByCusId(customerID);
                 if (vm.Customer.IsLocked)
                 {
-                    ViewBag.block = "disable";
+                    ViewBag.block = "d-none";
                 }
-                ViewBag.block = "";
+                else
+                {
+                    ViewBag.block = "";
+                }
+              
                 return View(vm);
             }
             else
