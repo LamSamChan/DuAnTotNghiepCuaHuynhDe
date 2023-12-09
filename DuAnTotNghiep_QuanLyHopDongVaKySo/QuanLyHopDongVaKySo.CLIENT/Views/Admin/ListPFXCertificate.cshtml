@@ -125,7 +125,7 @@
                                             <div class="loading" id="loading">
                                                 <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
                                             </div>
-                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial" onclick="updatePosition()">Gia hạn</a>
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial" onclick="updatePosition()">Gia hạn</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -170,7 +170,7 @@
                                             <div class="loading" id="loading">
                                                 <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
                                             </div>
-                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@nv.Serial" onclick="updatePosition()">Gia hạn</a>
+                                            <a asp-action="UpdateNotAfterPFX" asp-controller="Admin" asp-route-serial="@kh.Serial" onclick="updatePosition()">Gia hạn</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -344,7 +344,7 @@
     </script>
 }
 
-<script>
+<script type="text/javascript">
 
     $(document).ready(function () {
         // Khởi tạo DataTable
@@ -352,42 +352,108 @@
             "searching": false,
             "info": false,
             "lengthMenu": [10, 25, 50, 100],
-            "pageLength": 25
+            "pageLength": 25,
+            "language": {
+                "decimal": "",
+                "paginate": {
+                    "first": "Đầu tiên",
+                    "last": "Cuối cùng",
+                    "next": "Sau",
+                    "previous": "Trước"
+                },
+                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
+                "emptyTable": "Không có dữ liệu"
+            }
         });
 
         $('#myTable2').DataTable({
             "searching": false,
             "info": false,
             "lengthMenu": [10, 25, 50, 100],
-            "pageLength": 25
+            "pageLength": 25,
+            "language": {
+                "decimal": "",
+                "paginate": {
+                    "first": "Đầu tiên",
+                    "last": "Cuối cùng",
+                    "next": "Sau",
+                    "previous": "Trước"
+                },
+                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
+                "emptyTable": "Không có dữ liệu"
+            }
         });
 
          $('#myTable3').DataTable({
             "searching": false,
             "info": false,
             "lengthMenu": [10, 25, 50, 100],
-            "pageLength": 25
+            "pageLength": 25,
+            "language": {
+                "decimal": "",
+                "paginate": {
+                    "first": "Đầu tiên",
+                    "last": "Cuối cùng",
+                    "next": "Sau",
+                    "previous": "Trước"
+                },
+                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
+                "emptyTable": "Không có dữ liệu"
+            }
         });
 
         $('#myTable4').DataTable({
             "searching": false,
             "info": false,
             "lengthMenu": [10, 25, 50, 100],
-            "pageLength": 25
+            "pageLength": 25,
+            "language": {
+                "decimal": "",
+                "paginate": {
+                    "first": "Đầu tiên",
+                    "last": "Cuối cùng",
+                    "next": "Sau",
+                    "previous": "Trước"
+                },
+                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
+                "emptyTable": "Không có dữ liệu"
+            }
         });
 
         $('#myTable5').DataTable({
             "searching": false,
             "info": false,
             "lengthMenu": [10, 25, 50, 100],
-            "pageLength": 25
+            "pageLength": 25,
+            "language": {
+                "decimal": "",
+                "paginate": {
+                    "first": "Đầu tiên",
+                    "last": "Cuối cùng",
+                    "next": "Sau",
+                    "previous": "Trước"
+                },
+                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
+                "emptyTable": "Không có dữ liệu"
+            }
         });
 
         $('#myTable6').DataTable({
             "searching": false,
             "info": false,
             "lengthMenu": [10, 25, 50, 100],
-            "pageLength": 25
+            "pageLength": 25, "language": {
+                "decimal": "",
+                "paginate": {
+                    "first": "Đầu tiên",
+                    "last": "Cuối cùng",
+                    "next": "Sau",
+                    "previous": "Trước"
+                },
+                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
+                "emptyTable": "Không có dữ liệu"
+            }
+
         });
     });
 

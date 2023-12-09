@@ -541,6 +541,7 @@ main {
 .listTable {
     width: 100%;
     height: 871px;
+    padding:15px;
 }
 
 /*css - Mic*/
