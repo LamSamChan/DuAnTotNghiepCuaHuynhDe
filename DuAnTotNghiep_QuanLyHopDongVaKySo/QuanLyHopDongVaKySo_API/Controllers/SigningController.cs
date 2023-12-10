@@ -196,7 +196,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
                 float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
-                float y = 837 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
+                float y = 839 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                 var temp1 = ContractInternet.ContractFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
                 var temp2 = ContractInternet.RepresentativeContract.FirstOrDefault(id => id.Key == fieldName).Value;
                 var temp3 = ContractInternet.CustomerSignNameInfo.FirstOrDefault(id => id.Key == fieldName).Value;
@@ -254,6 +254,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             System.GC.WaitForPendingFinalizers();
 
             var signedContractPath = await _pfxCertificate.SignContract(imagePath, imagePathStamp, pContract.PContractFile, pContract.PContractFile.Replace(".pdf", "_director_signed.pdf"), certi.Serial, directorZone.X - 20, directorZone.Y + 20, "contract", director.FullName);
+
+            if (!signedContractPath.StartsWith("AppData"))
+            {
+                return BadRequest();
+            }
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(pContract.PContractFile.Replace(".pdf", "_director_signed.pdf"));
             string base64String = Convert.ToBase64String(fileBytes);
@@ -387,7 +392,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContractFirst.DContractID}");
             }
 
-            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X +40, customerZone.Y - 20,"contract", customer.FullName);
+            var signedContractPath = await _pfxCertificate.SignContract(imagePath,null, pContract.PContractFile, outputContract, certi.Serial, customerZone.X +45, customerZone.Y + 20,"contract", customer.FullName);
+
+            if (!signedContractPath.StartsWith("AppData"))
+            {
+                return BadRequest();
+            }
 
             string qrCodePath = pContract.PContractFile.Replace("_director_signed.pdf", ".png");
             FileStream fs1 = new FileStream(qrCodePath, FileMode.Open, FileAccess.Read);
@@ -594,7 +604,12 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var signedMinutePath = await _pfxCertificate.SignContract(imagePath,imagePathStamp, pMinute.MinuteFile, pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"), certi.Serial, signatureZone.X + 70, signatureZone.Y - 650, "minute", installer.FullName);
 
-          byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"));
+            if (!signedMinutePath.StartsWith("AppData"))
+            {
+                return BadRequest();
+            }
+
+            byte[] fileBytes = System.IO.File.ReadAllBytes(pMinute.MinuteFile.Replace(".pdf", "_installer_signed.pdf"));
             string base64String = Convert.ToBase64String(fileBytes);
 
             PutPMinute pendingMinute = new PutPMinute
@@ -695,6 +710,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             }
 
             var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute.Replace("_installer_signed.pdf",".pdf"), certi.Serial, customerZone.X - 20, customerZone.Y - 700 - 20,"minute", customer.FullName);
+
+            if (!signedMinutePath.StartsWith("AppData"))
+            {
+                return BadRequest();
+            }
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(outputMinute.Replace("_installer_signed.pdf", ".pdf"));
             string base64String = Convert.ToBase64String(fileBytes);

@@ -93,7 +93,7 @@
             </div>
         </div>
         <div class="inforCus col-5 mt-4" style="max-height:700px; overflow-y: scroll; ">
-            <h4 style="color: #4318FF;">
+            <h4 class="typeHead">
                 Thông tin khách hàng
             </h4>
             @* form khách hàng *@
@@ -147,7 +147,7 @@
                     <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
                     <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.PContract.TOS_ID">
                 </div>
-                <h4 style="color: #4318FF;font-family: Source Sans Pro; padding-top:30px;">
+                <h4 class="typeHead">
                     Thông tin nhân viên tạo hợp đồng
                 </h4>
                 <div class="col-md-6">
@@ -176,7 +176,7 @@
 
     </div>
 </div>
-<script>
+<script type="text/javascript">
     $(document).ready(function () {
         $('#myCarousel').carousel({
             interval: false

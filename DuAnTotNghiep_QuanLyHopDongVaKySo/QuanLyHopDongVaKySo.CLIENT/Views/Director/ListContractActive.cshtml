@@ -24,6 +24,23 @@
         </div>
 
     }
+    else if(userRole == "Nhân viên kinh doanh")
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng đã duyệt</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH </h1>
+            <div class="row justify-content-between">
+                <input type="search" id="searchInput" placeholder="Tìm kiếm hợp đồng" style="margin-left:10px;" />
+            </div>
+        </div>
+    }
     else
     {
         Layout = "_Layout";
