@@ -757,7 +757,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
             viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
             
-            return View(viewModel);
+            return View("DetailsContractPending", viewModel);
         }
 
         public async Task<IActionResult> EditCus(string customerID)

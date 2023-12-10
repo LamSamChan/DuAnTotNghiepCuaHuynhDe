@@ -10,8 +10,14 @@
     string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
     string folderPathDMinute = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage"); // + thêm ID của minute
     string? folderItemDMinute = null;
+    string? basefile = null; 
+    
     if (Model.DoneMinutes != null)
     {
+        if (Model.DoneMinutes.Base64File != null)
+        {
+            basefile = Model.DoneMinutes.Base64File;
+        }
         folderItemDMinute = System.IO.Path.Combine(folderPathDMinute, Model.DoneMinutes.DoneMinuteID.ToString());
     }
     if (folderItemDMinute != null)
@@ -258,7 +264,7 @@
                             </div>
                             <div class="row justify-content-between" style="margin:auto;">
                                 <h4 class="typeHead col-5">Tải biên bản</h4>
-                                <a class="button-save" onclick="confirmDownload('@Model.DoneMinutes.Base64File','@Model.DoneMinutes.MinuteName')"><i class="ph-bold ph-download-simple"></i></a>
+                                <a class="button-save" onclick="confirmDownload('@basefile','@Model.DoneMinutes.MinuteName')"><i class="ph-bold ph-download-simple"></i></a>
                             </div>
                             <div id="myCarousel1" class="carousel slide" style=" width:100%;height: 750px;">
                                 <div class="carousel-inner">
