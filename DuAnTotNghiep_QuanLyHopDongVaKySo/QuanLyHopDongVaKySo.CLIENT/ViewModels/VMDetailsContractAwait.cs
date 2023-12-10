@@ -1,6 +1,5 @@
 ﻿using QuanLyHopDongVaKySo.CLIENT.Models;
-using QuanLyHopDongVaKySo_API.ViewModels;
-using API = QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 
 namespace QuanLyHopDongVaKySo.CLIENT.ViewModels
 {
@@ -9,6 +8,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.ViewModels
         public PContractViewModel PContract { get; set; }
         public Employee EmployeeCreated { get; set; }
         public Customer Customer { get; set; }
-        public API.PFXCertificate PFXCertificate { get; set; }
+        public PFXCertificate PFXCertificate { get; set; }
     }
 }

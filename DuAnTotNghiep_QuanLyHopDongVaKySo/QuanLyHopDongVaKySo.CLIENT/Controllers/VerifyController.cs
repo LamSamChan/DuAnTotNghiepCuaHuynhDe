@@ -6,12 +6,10 @@ using QuanLyHopDongVaKySo.CLIENT.Services;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 using QuanLyHopDongVaKySo.CLIENT.Constants;
-using QuanLyHopDongVaKySo_API.ViewModels;
 using QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
-using API= QuanLyHopDongVaKySo_API.Models;
-using Azure;
 using QuanLyHopDongVaKySo.CLIENT.Models;
+using Azure;
 using RestSharp.Serializers;
 using QuanLyHopDongVaKySo.CLIENT.Services.EmployeesServices;
 
@@ -108,7 +106,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
                 if (role == "Admin")
                 {
-                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                     {
                         OperationName = $"{reponse.FullName} - ID:{reponse.EmployeeId.ToString().Substring(0, 8)} đã đăng nhập vào hệ thống.",
                         EmployeeID = reponse.EmployeeId
@@ -129,7 +127,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 else if (role == "Giám đốc")
                 {
-                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                     {
                         OperationName = $"{reponse.FullName} - ID:{reponse.EmployeeId.ToString().Substring(0, 8)} đã đăng nhập vào hệ thống.",
                         EmployeeID = reponse.EmployeeId
@@ -150,7 +148,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 else if (role =="Nhân viên kinh doanh")
                 {
-                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                     {
                         OperationName = $"{reponse.FullName} - ID:{reponse.EmployeeId.ToString().Substring(0, 8)} đã đăng nhập vào hệ thống.",
                         EmployeeID = reponse.EmployeeId
@@ -170,7 +168,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 }
                 else
                 {
-                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                     {
                         OperationName = $"{reponse.FullName} - ID:{reponse.EmployeeId.ToString().Substring(0, 8)} đã đăng nhập vào hệ thống.",
                         EmployeeID = reponse.EmployeeId
@@ -203,7 +201,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             string role = HttpContext.Session.GetString(SessionKey.Employee.Role);
             var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-            API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+            OperationHistoryEmp historyEmp = new OperationHistoryEmp()
             {
                 OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã đăng xuất khỏi hệ thống.",
                 EmployeeID = employeeDoing.EmployeeId

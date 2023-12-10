@@ -1,7 +1,6 @@
-﻿using QuanLyHopDongVaKySo_API.Models.ContractInfo;
-using QuanLyHopDongVaKySo_API.Models;
-using QuanLyHopDongVaKySo_API.ViewModels;
-
+﻿using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
+using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 namespace QuanLyHopDongVaKySo.CLIENT.Services.PContractServices
 {
     public interface IPContractService

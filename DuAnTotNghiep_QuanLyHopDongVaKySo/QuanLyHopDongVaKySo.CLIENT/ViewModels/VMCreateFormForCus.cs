@@ -1,11 +1,10 @@
 ﻿using QuanLyHopDongVaKySo.CLIENT.Models;
-using API = QuanLyHopDongVaKySo_API.Models;
-
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 namespace QuanLyHopDongVaKySo.CLIENT.ViewModels
 {
     public class VMCreateFormForCus
     {
         public List<TypeOfService> TypeOfServices { get; set; }
-        public API.PostPendingContract PostPendingContract { get; set; }
+        public PostPendingContract PostPendingContract { get; set; }
     }
 }

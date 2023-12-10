@@ -7,9 +7,8 @@ using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.PFXCertificateServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
-using VMAPI = QuanLyHopDongVaKySo_API.ViewModels;
-using API = QuanLyHopDongVaKySo_API.Models;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using QuanLyHopDongVaKySo.CLIENT.Models;
 using QuanLyHopDongVaKySo.CLIENT.Constants;
 using QuanLyHopDongVaKySo.CLIENT.Services.PMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DMinuteServices;
@@ -97,7 +96,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 System.IO.File.Delete(pdfPath);
 
 
-                API.OperationHistoryCus historyCus = new API.OperationHistoryCus()
+                OperationHistoryCus historyCus = new OperationHistoryCus()
                 {
                     OperationName = $"{customerDoing.FullName} - ID:{customerDoing.CustomerId.ToString().Substring(0, 8)} đã ký hợp đồng bằng USBToken - ID:{split[1]}.",
                     CustomerID = customerDoing.CustomerId
@@ -158,7 +157,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 System.IO.File.Delete(pdfPath);
 
 
-                API.OperationHistoryCus historyCus = new API.OperationHistoryCus()
+                OperationHistoryCus historyCus = new OperationHistoryCus()
                 {
                     OperationName = $"{customerDoing.FullName} - ID:{customerDoing.CustomerId.ToString().Substring(0, 8)} đã ký biên bản lắp đặt bằng USBToken - ID:{split[1]}.",
                     CustomerID = customerDoing.CustomerId

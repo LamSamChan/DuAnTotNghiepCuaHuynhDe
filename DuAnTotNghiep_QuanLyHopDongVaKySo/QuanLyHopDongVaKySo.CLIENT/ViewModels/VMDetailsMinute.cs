@@ -1,10 +1,10 @@
-﻿using API = QuanLyHopDongVaKySo_API.Models;
+﻿using QuanLyHopDongVaKySo.CLIENT.Models;
 namespace QuanLyHopDongVaKySo.CLIENT.ViewModels
 {
     public class VMDetailsMinute
     {
-        public API.DoneMinute DoneMinute { get; set; }
-        public API.PendingMinute PendingMinute { get; set; }
+        public DoneMinute DoneMinute { get; set; }
+        public PendingMinute PendingMinute { get; set; }
         public Models.Employee Employee { get; set; }
         public Models.Customer Customer { get; set; }
     }

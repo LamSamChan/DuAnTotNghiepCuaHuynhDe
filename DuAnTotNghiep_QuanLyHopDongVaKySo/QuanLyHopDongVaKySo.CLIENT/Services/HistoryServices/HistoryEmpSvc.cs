@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo.CLIENT.Models;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;

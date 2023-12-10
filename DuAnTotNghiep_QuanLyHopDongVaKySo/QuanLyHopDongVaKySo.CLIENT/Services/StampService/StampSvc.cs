@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using QuanLyHopDongVaKySo_API.Database;
-using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo.CLIENT.Models;
 using System.Data;
 using System.Net.Http.Headers;
 using System.Text;

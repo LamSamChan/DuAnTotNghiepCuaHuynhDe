@@ -1,6 +1,6 @@
 ﻿using Azure;
 using Microsoft.IdentityModel.Tokens;
-using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo.CLIENT.Models;
 using System.Net.Http.Headers;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Services.InstallationDevicesServices

@@ -1,4 +1,4 @@
-﻿using QuanLyHopDongVaKySo_API.ViewModels;
+﻿using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices
 {

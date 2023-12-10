@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 using QuanLyHopDongVaKySo.CLIENT.Constants;
-using QuanLyHopDongVaKySo_API.Models;
-using QuanLyHopDongVaKySo_API.Models.ViewPost;
-using QuanLyHopDongVaKySo_API.Services.PFXCertificateService;
+using QuanLyHopDongVaKySo.CLIENT.Models;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;

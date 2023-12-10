@@ -1,5 +1,5 @@
 ﻿using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
-using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo.CLIENT.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.ViewModels
 {

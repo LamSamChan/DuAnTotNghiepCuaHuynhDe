@@ -1,11 +1,11 @@
-﻿using API = QuanLyHopDongVaKySo_API.Models;
-using VMAPI = QuanLyHopDongVaKySo_API.ViewModels;
+﻿using QuanLyHopDongVaKySo.CLIENT.Models;
+using QuanLyHopDongVaKySo.CLIENT.ViewModels;
 
 namespace QuanLyHopDongVaKySo.CLIENT.ViewModels
 {
     public class VMListContractAwait
     {
-        public List<VMAPI.PContractViewModel> PContracts { get; set; }
-        public API.PFXCertificate PFXCertificate { get; set; }
+        public List<PContractViewModel> PContracts { get; set; }
+        public PFXCertificate PFXCertificate { get; set; }
     }
 }

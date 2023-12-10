@@ -1,17 +1,15 @@
 ﻿using QuanLyHopDongVaKySo.CLIENT.Models;
-using ViewModel = QuanLyHopDongVaKySo_API.ViewModels;
-using API = QuanLyHopDongVaKySo_API.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.ViewModels
 {
     public class VMDetailsContract
     {
-        public Models.Employee Employee { get; set; }
+        public Employee Employee { get; set; }
         public Models.Customer Customer { get; set; }
-        public API.DoneMinute DoneMinutes { get; set; }
-        public API.PendingMinute PendingMinute { get; set; }
-        public ViewModel.PContractViewModel PendingContracts { get; set; }
-        public ViewModel.DContractViewModel DoneContracts { get; set; }
+        public DoneMinute DoneMinutes { get; set; }
+        public PendingMinute PendingMinute { get; set; }
+        public PContractViewModel PendingContracts { get; set; }
+        public DContractViewModel DoneContracts { get; set; }
         public string Tille { get; set; }
     }
 }

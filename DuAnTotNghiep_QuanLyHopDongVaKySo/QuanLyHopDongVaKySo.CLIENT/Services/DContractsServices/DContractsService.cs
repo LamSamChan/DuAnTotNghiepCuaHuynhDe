@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
-using API = QuanLyHopDongVaKySo_API.Models;
-using QuanLyHopDongVaKySo_API.ViewModels;
 using System.Net.Http;
 using System.Text;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
+using QuanLyHopDongVaKySo.CLIENT.Models;
+using QuanLyHopDongVaKySo.CLIENT.ViewModels;
+
 using System.Net.Http.Headers;
 using QuanLyHopDongVaKySo.CLIENT.Constants;
 
@@ -40,10 +42,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
             set { this.token = value; }
         }
 
-        public async Task<List<API.DoneContract>> getAll()
+        public async Task<List<DoneContract>> getAll()
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-            var response = await _httpClient.GetFromJsonAsync<List<API.DoneContract>>($"api/DContract/getAll");
+            var response = await _httpClient.GetFromJsonAsync<List<DoneContract>>($"api/DContract/getAll");
             return response;
         }
 
@@ -61,10 +63,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
             return response;
         }
 
-        public async Task<API.PutDContract> getByIdUnEffect(string id)
+        public async Task<PutDContract> getByIdUnEffect(string id)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-            var response = await _httpClient.GetFromJsonAsync<API.PutDContract>($"api/DContract/getByIdUnEffect/{id}");
+            var response = await _httpClient.GetFromJsonAsync<PutDContract>($"api/DContract/getByIdUnEffect/{id}");
             return response;
         }
 
@@ -126,7 +128,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
            
         }
 
-        public async Task<string> updateAsnyc(API.PutDContract dContract)
+        public async Task<string> updateAsnyc(PutDContract dContract)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             var content = new StringContent(JsonConvert.SerializeObject(dContract), Encoding.UTF8, "application/json");
@@ -148,7 +150,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
                 return null;
             }
         }
-        public async Task<API.PutDContract> updateIsEffect(API.PutDContract dContract)
+        public async Task<PutDContract> updateIsEffect(PutDContract dContract)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             var content = new StringContent(JsonConvert.SerializeObject(dContract), Encoding.UTF8, "application/json");

@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using QuanLyHopDongVaKySo.CLIENT.Constants;
 using QuanLyHopDongVaKySo.CLIENT.Helpers;
 using QuanLyHopDongVaKySo.CLIENT.Models;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 using QuanLyHopDongVaKySo.CLIENT.Services.CustomerServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices;
@@ -19,12 +20,9 @@ using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
-using QuanLyHopDongVaKySo_API.Models.ViewPost;
-using VMAPI = QuanLyHopDongVaKySo_API.ViewModels;
 using Syncfusion.EJ2.Maps;
 using System.Drawing.Imaging;
 using test.Models;
-using API = QuanLyHopDongVaKySo_API.Models; 
 using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.DMinuteServices;
 
@@ -155,7 +153,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ChangePassAction([FromBody] VMAPI.ChangePassword change)
+        public async Task<IActionResult> ChangePassAction([FromBody] ChangePassword change)
         {
             change.EmployeeID = EmployeeId;
             var respone = await _passwordService.ChangePasswordAsync(change);
@@ -169,7 +167,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
                     var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                     Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                     {
                         OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã thay đổi mật khẩu cá nhân.",
                         EmployeeID = employeeDoing.EmployeeId
@@ -236,7 +234,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
                     var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                     Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                     {
                         OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã nhận 1 yêu cầu lắp đặt - ID Biên Bản: {split[1]}.",
                         EmployeeID = employeeDoing.EmployeeId
@@ -338,7 +336,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                 {
                     OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã cập nhật thông tin cá nhân.",
                     EmployeeID = employeeDoing.EmployeeId
@@ -432,7 +430,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignContract([FromBody] VMAPI.SigningModel signing)
+        public async Task<IActionResult> SignContract([FromBody] SigningModel signing)
         {
             byte[] fileBytes = System.IO.File.ReadAllBytes(Path.Combine(_hostingEnvironment.WebRootPath, signing.ImagePath));
             signing.Base64StringFile = Convert.ToBase64String(fileBytes);
@@ -543,7 +541,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             bmpSign.Save(filePath, ImageFormat.Png);
 
 
-            VMAPI.SigningModel signing = new VMAPI.SigningModel();
+            SigningModel signing = new SigningModel();
             signing.IdFile = pMinuteID;
             signing.Serial = serial;
 
@@ -581,7 +579,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 System.IO.File.Delete(pdfPath);
 
                 Customer customerDoing = await _customerService.GetCustomerById(HttpContext.Session.GetString(SessionKey.Customer.CustomerID));
-                API.OperationHistoryCus historyCus = new API.OperationHistoryCus()
+                OperationHistoryCus historyCus = new OperationHistoryCus()
                 {
                     OperationName = $"{customerDoing.FullName} đã ký biên bản - ID:{pMinuteID}.",
                     CustomerID = customerDoing.CustomerId
@@ -665,14 +663,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             if (IsAuthenticate == 1 || IsAuthenticate == 4)
             {
-                API.InstallationDevice device = new API.InstallationDevice();
+                InstallationDevice device = new InstallationDevice();
                 device = vm.InstallationDevice;
                 var respone = await _installationDevicesService.AddNewDevice(device);
                 if (respone != null)
                 {
                     var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                     Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                     {
                         OperationName = $"{employee.FullName} đã thêm thiết bị {device.DeviceName} vào dịch vụ {_tosService.GetAll().Result.FirstOrDefault(s => s.TOS_ID == device.TOS_ID).ServiceName}.",
                         EmployeeID = employee.EmployeeId
@@ -697,14 +695,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> EditDeviceAction([FromBody] API.InstallationDevice device)
+        public async Task<IActionResult> EditDeviceAction([FromBody] InstallationDevice device)
         {
             var respone = await _installationDevicesService.UpdateDevice(device);
             if (respone != null)
             {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                 {
                     OperationName = $"{employee.FullName} đã cập nhật thông tin thiết bị {device.DeviceName} của dịch vụ {_tosService.GetAll().Result.FirstOrDefault(s => s.TOS_ID == device.TOS_ID).ServiceName}.",
                     EmployeeID = employee.EmployeeId
@@ -735,7 +733,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                 {
                     OperationName = $"{employee.FullName} đã xoá thiết bị {deviceName.DeviceName} khỏi dịch vụ {serviceName}.",
                     EmployeeID = employee.EmployeeId
@@ -829,7 +827,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                 {
                     OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0,8)} đã tạo 1 chữ ký cá nhân.",
                     EmployeeID = employeeDoing.EmployeeId
@@ -850,7 +848,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
         public async Task<ActionResult> UploadSignature(VMPersonalPage vm)
         {
-            API.PFXCertificate certificate = new API.PFXCertificate();
+            PFXCertificate certificate = new PFXCertificate();
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
 
@@ -916,7 +914,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                 {
                     OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã tải lên 1 chữ ký cá nhân.",
                     EmployeeID = employeeDoing.EmployeeId
@@ -1015,7 +1013,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                     Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                    OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                     {
                         OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã tạo 1 chữ ký cá nhân.",
                         EmployeeID = employeeDoing.EmployeeId
@@ -1107,7 +1105,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
                 var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
+                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
                 {
                     OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã xoá 1 chữ ký cá nhân.",
                     EmployeeID = employeeDoing.EmployeeId

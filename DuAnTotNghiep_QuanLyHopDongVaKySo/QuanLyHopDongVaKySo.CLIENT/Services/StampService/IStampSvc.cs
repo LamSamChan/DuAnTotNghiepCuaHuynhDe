@@ -1,4 +1,4 @@
-﻿using QuanLyHopDongVaKySo_API.Models;
+﻿using QuanLyHopDongVaKySo.CLIENT.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Services.StampService
 {

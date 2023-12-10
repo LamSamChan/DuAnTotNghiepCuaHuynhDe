@@ -1,7 +1,6 @@
 ﻿using QuanLyHopDongVaKySo.CLIENT.Models;
-using QuanLyHopDongVaKySo_API.Models.ViewPost;
-using QuanLyHopDongVaKySo_API.Models.ViewPuts;
-using API = QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
 
 namespace QuanLyHopDongVaKySo.CLIENT.ViewModels
 {
@@ -10,7 +9,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.ViewModels
         public List<TypeOfService> TypeOfServices { get; set; }
         public PostTOS PostTOS { get; set; }
         public PutTOS PutTOS { get; set; }
-        public List<API.TemplateMinute> TemplateMinutes { get; set; }
-        public List<API.TemplateContract> TemplateContracts { get; set; }
+        public List<TemplateMinute> TemplateMinutes { get; set; }
+        public List<TemplateContract> TemplateContracts { get; set; }
     }
 }
