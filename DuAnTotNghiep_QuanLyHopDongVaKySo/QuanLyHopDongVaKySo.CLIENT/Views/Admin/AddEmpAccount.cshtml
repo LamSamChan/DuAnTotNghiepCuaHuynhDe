@@ -2,7 +2,7 @@
 @{
     Layout = "_AdminLayout";
 }
-<style>
+@* <style>
     .loading {
         position: absolute;
         z-index: 1;
@@ -21,7 +21,7 @@
         .loading img {
             width: 7rem;
         }
-</style>
+</style> *@
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -39,13 +39,13 @@
             <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
                 <div class="col-md-6">
                     <div class="avt">
-                        <img src="~/Avatars/empty_avatar.jpg" alt="" style="width:100%; height:100%;" />
+                        <img id="preview-image" src="/Resource/Image/empty.png" alt="Avatar" style="width:100%; height:100%;" />
                         <div class="overlay">
                             <label for="file-upload" class="custom-file-upload col-7" role="button">
                                 <i class="ph-bold ph-cloud-arrow-up"></i>
                                 UPLOAD
                             </label>
-                            <input id="file-upload" type="file" accept="image/*" asp-for="Employee.ImageFile" />
+                            <input id="file-upload" type="file" accept="image/*" asp-for="Employee.ImageFile" onchange="previewImage(this)" />
                             <span class="text-danger" asp-validation-for="Employee.ImageFile"></span>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                 <div class="col-md-6">
                     <label class="form-label">Họ và tên</label>
                     <input class="form-control" id="inputName" placeholder="Họ và tên" asp-for="Employee.FullName" required>
-                    <span class="text-danger" asp-validation-for="Employee.FullName"></span>
+                    <span class="text-danger" asp-validation-for="Employee.FullName"></span>x`
 
                     <label for="inputDateStart" class="form-label" style="padding-top:60px;">Email</label>
                     <input class="form-control" type="email" asp-for="Employee.Email" placeholder="abc123@gmail.com" required>
@@ -157,8 +157,24 @@
         });
     </script>
 }
+<script type="text/javascript">
+    function previewImage(input) {
+        var preview = document.getElementById('preview-image');
+        var file = input.files[0];
+        var reader = new FileReader();
 
-<script>
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "/Resource/Image/empty.png"; // Đặt ảnh mặc định nếu không có tệp được chọn
+        }
+    }
+</script>
+@* <script>
 
     const iconLoading = document.getElementById("loading");
 
@@ -212,4 +228,4 @@
             });
         });
     });
-</script>
+</script> *@
