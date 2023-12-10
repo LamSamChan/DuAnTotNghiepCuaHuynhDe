@@ -506,9 +506,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             else
             {
                 //báo lỗi ký có nhiều cái tui sẽ nói chỉ sau
-                TempData["SweetType"] = "error";
+          /*      TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Ký quá nhiều lần !!";
+                TempData["SweetTitle"] = "Ký quá nhiều lần !!";*/
                 return RedirectToAction("ListInstallRecord");
             }
 

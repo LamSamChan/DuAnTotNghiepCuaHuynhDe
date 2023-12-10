@@ -222,16 +222,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
 
-                TempData["SweetType"] = "success";
-                TempData["SweetIcon"] = "success";
-                TempData["SweetTitle"] = "Tạo hợp đồng thành công !!";
+        
 
                 if (IsAuthenticate == 1)
                 {
+                    TempData["SweetType"] = "success";
+                    TempData["SweetIcon"] = "success";
+                    TempData["SweetTitle"] = "Tạo hợp đồng thành công !!";
                     return RedirectToAction("ListCusAccount", "Admin");
                 }
                 else
                 {
+                    TempData["SweetType"] = "success";
+                    TempData["SweetIcon"] = "success";
+                    TempData["SweetTitle"] = "Tạo hợp đồng thành công !!";
                     return RedirectToAction("ListCus");
                 }
             }
