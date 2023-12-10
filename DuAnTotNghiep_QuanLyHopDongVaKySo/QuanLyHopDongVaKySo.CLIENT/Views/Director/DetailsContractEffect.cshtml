@@ -97,7 +97,7 @@
                             </div>
                             <div class="row justify-content-between" style="margin:auto;">
                                 <h4 class="typeHead col-5">Tải hợp đồng</h4>
-                                <a class="button-save" onclick="confirmDownload('@Model.DoneContracts.Base64File','@Model.DoneContracts.DContractName')"><i class="ph-bold ph-download-simple"></i></a>
+                                <a class="custom-file-upload col-1" onclick="confirmDownload('@Model.DoneContracts.Base64File','@Model.DoneContracts.DContractName')"><i class="ph-bold ph-download-simple"></i></a>
                             </div>
                             <div id="myCarousel" class="carousel slide" style=" width:100%;height: 750px;">
                                 <div class="carousel-inner">
@@ -256,10 +256,14 @@
                                     <i class="ph-bold ph-frame-corners" style="font-size:30px; margin: auto;"></i>
                                 </button>
                             </div>
-                            <div class="row justify-content-between" style="margin:auto;">
-                                <h4 class="typeHead col-5">Tải biên bản</h4>
-                                <a class="button-save" onclick="confirmDownload('@Model.DoneMinutes.Base64File','@Model.DoneMinutes.MinuteName')"><i class="ph-bold ph-download-simple"></i></a>
-                            </div>
+
+                            @if (!String.IsNullOrEmpty(Model.DoneMinutes.Base64File))
+                            {
+                                <div class="row justify-content-between" style="margin:auto;">
+                                    <h4 class="typeHead col-5">Tải biên bản</h4>
+                                    <a class="custom-file-upload col-1" onclick="confirmDownload('@Model.DoneMinutes.Base64File','@Model.DoneMinutes.MinuteName')"><i class="ph-bold ph-download-simple"></i></a>
+                                </div>
+                            }
                             <div id="myCarousel1" class="carousel slide" style=" width:100%;height: 750px;">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active ">
