@@ -247,7 +247,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 if (typeDoc == "contract")
                 {
                    // signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 15 , yCoodinate - 45 - 15 - 50 - 80, xCoordinate - 100 + 150, yCoodinate - 45 + 70 - 50), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
-                    signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 15 , yCoodinate - 45 - 15 - 50 - 50, xCoordinate - 100 + 150, yCoodinate - 45 + 70 - 50), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
+                    signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 15 , yCoodinate - 45 - 15 - 60, xCoordinate - 100 + 150, yCoodinate - 45 + 70 + 30), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
                 }
                 else
