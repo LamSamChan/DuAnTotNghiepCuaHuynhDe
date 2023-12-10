@@ -8,13 +8,13 @@
     List<string> imageFilesContract = new List<string>();
     string fileDMinuteNull = "Resource/Image/empty.png";
 
-    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
-    string folderPathDMinute = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PMinuteImage"); // + thêm ID của minute
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+    string folderPathDMinute = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage"); // + thêm ID của minute
     string? folderItemDMinute = null;
 
-    if (!String.IsNullOrEmpty(Model.DoneMinutes.DoneMinuteID.ToString()))
+    if (!String.IsNullOrEmpty(Model.DoneContracts.DMinuteID.ToString()))
     {
-        folderItemDMinute = System.IO.Path.Combine(folderPathDMinute, Model.DoneMinutes.DoneMinuteID.ToString());
+        folderItemDMinute = System.IO.Path.Combine(folderPathDMinute, Model.DoneContracts.DMinuteID.ToString());
     }
     if (folderItemDMinute != null)
     {
