@@ -254,7 +254,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 {
                     if (lastPageNumber == 1)
                     {
-                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 15 - 20, yCoodinate - 45 - 15 - 320, xCoordinate - 100 + 120, yCoodinate - 45 + 70 + 30), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
+                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 15 - 20, yCoodinate - 45 + 70 + 30 + 30 - 200, xCoordinate - 100 + 120, yCoodinate - 45 - 15 + 260 - 170), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
                     }
                     else

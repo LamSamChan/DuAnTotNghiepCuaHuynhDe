@@ -149,7 +149,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 TemplateMinute tMinute = await tMinuteRepository.GetTContact(tMinuteID);
                 SignatureZone customerZone = JsonConvert.DeserializeObject<SignatureZone>(tMinute.jsonCustomerZone);
                 x = customerZone.X - 110;
-                y = customerZone.Y - 865;
+                y = customerZone.Y - 850;
             }
 
             if (dialogResult == DialogResult.Yes) // Option A
@@ -254,7 +254,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                         signatureAppearance.Contact = DataStore.Instance.Customer.Email;
                         signatureAppearance.SignDate = DateTime.Now;
                         signatureAppearance.SignatureGraphic = iTextSharp.text.Image.GetInstance(selectedFilePath);
-                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x - 25, y - 35, x + 130, y + 130), pdfReader.NumberOfPages, "Signature");
+                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x - 25, y - 35, x + 130, y + 100), pdfReader.NumberOfPages, "Signature");
                         signatureAppearance.SignatureRenderingMode = PdfSignatureAppearance.RenderingMode.GRAPHIC;
 
                         MakeSignature.SignDetached(signatureAppearance, externalSignature, chain, null, null, null, 0, CryptoStandard.CMS);
