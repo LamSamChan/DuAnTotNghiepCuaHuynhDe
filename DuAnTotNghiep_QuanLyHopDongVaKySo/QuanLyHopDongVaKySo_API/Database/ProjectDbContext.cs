@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Asn1.X509;
 using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Models.ModelProcedure;
 
 namespace QuanLyHopDongVaKySo_API.Database
 {
@@ -54,6 +55,5 @@ namespace QuanLyHopDongVaKySo_API.Database
             modelBuilder.Entity<InstallationDevice>().ToTable("InstallationDevice");
             modelBuilder.Entity<Stamp>().ToTable("Stamp");
         }
-
     }
 }

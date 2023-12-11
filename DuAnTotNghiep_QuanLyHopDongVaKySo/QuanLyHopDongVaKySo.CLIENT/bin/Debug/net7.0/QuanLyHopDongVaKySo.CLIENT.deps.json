@@ -59,6 +59,14 @@
           }
         }
       },
+      "Dapper/2.1.24": {
+        "runtime": {
+          "lib/net7.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.24.50284"
+          }
+        }
+      },
       "Ghostscript.NET/1.2.3.1": {
         "runtime": {
           "lib/net40/Ghostscript.NET.dll": {
@@ -720,6 +728,7 @@
       "QuanLyHopDongVaKySo_API/1.0.0": {
         "dependencies": {
           "BouncyCastle": "1.8.9",
+          "Dapper": "2.1.24",
           "Ghostscript.NET": "1.2.3.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.13",
           "Microsoft.EntityFrameworkCore": "7.0.12",
@@ -776,6 +785,13 @@
       "sha512": "sha512-axnBgvdD5n+FnEG6efk/tfKuMFru7R/EoISH9zjh319yb3HD24TEHSAbNN/lTRT2ulOGRxDgOsCjkuk08iwWPg==",
       "path": "bouncycastle/1.8.9",
       "hashPath": "bouncycastle.1.8.9.nupkg.sha512"
+    },
+    "Dapper/2.1.24": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/2t2vsdJyZRsk13AsWigZpsuFvEwK+o3v862cEULXoww905gyKhJFSuwmZI/4Ui9COX9ZCFCI09UHyH4wVYl3A==",
+      "path": "dapper/2.1.24",
+      "hashPath": "dapper.2.1.24.nupkg.sha512"
     },
     "Ghostscript.NET/1.2.3.1": {
       "type": "package",
