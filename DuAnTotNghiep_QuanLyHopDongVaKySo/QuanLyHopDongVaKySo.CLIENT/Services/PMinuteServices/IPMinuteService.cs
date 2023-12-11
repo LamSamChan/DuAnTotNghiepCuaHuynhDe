@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using QuanLyHopDongVaKySo.CLIENT.Models;
-using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Models.ViewPost;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Services.PMinuteServices
 {

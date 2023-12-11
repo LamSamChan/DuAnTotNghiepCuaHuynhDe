@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using QuanLyHopDongVaKySo.CLIENT.Constants;
-using QuanLyHopDongVaKySo.CLIENT.ViewModels;
-using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
-using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
+using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Models.ContractInfo;
+using QuanLyHopDongVaKySo_API.ViewModels;
 using System.Net.Http.Headers;
 using System.Text;
 

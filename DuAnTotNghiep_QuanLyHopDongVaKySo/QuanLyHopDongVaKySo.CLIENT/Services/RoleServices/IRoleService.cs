@@ -1,4 +1,4 @@
-﻿using QuanLyHopDongVaKySo.CLIENT.Models;
+﻿using QuanLyHopDongVaKySo_API.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Services.RoleServices
 {

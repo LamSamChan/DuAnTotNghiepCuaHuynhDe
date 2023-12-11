@@ -20,8 +20,13 @@ using QuanLyHopDongVaKySo.CLIENT.Services.TContractServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.TOSServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
+using QuanLyHopDongVaKySo_API.Models.ViewPuts;
+using QuanLyHopDongVaKySo_API.ViewModels;
 using System.Drawing.Imaging;
 using test.Models;
+using API = QuanLyHopDongVaKySo_API.Models;
+using APIPost = QuanLyHopDongVaKySo_API.Models.ViewPost;
+using APITPut = QuanLyHopDongVaKySo_API.Models.ViewPuts;
 using PutEmployee = QuanLyHopDongVaKySo.CLIENT.Models.ModelPut.PutEmployee;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
@@ -141,7 +146,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             var respone = await _historyEmpSvc.GetListById(employee.EmployeeId.ToString());
 
-            List<OperationHistoryEmp> historyEmps = new List<OperationHistoryEmp>();
+            List<API.OperationHistoryEmp> historyEmps = new List<API.OperationHistoryEmp>();
             historyEmps = await _historyEmpSvc.GetAll();
 
             foreach (var item in historyEmps)
@@ -182,7 +187,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                     Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                    OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                     {
                         OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã thay đổi mật khẩu cá nhân.",
                         EmployeeID = employeeDoing.EmployeeId
@@ -250,7 +255,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> AddTOSAction(VMListTOS vm)
         {
             if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
-            PostTOS tos = new PostTOS();
+            APIPost.PostTOS tos = new APIPost.PostTOS();
             tos = vm.PostTOS;
             var repone = await _tosService.AddNew(tos);
             if (repone != 0)
@@ -258,7 +263,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employee.FullName} - ID:{employee.EmployeeId.ToString().Substring(0, 8)} đã thêm 1 dịch vụ :{tos.ServiceName}.",
                     EmployeeID = employee.EmployeeId
@@ -282,14 +287,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> UpdateTOSAction(VMListTOS vm)
         {
             if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
-            PutTOS tos = new PutTOS();
+            APITPut.PutTOS tos = new APITPut.PutTOS();
             tos = vm.PutTOS;
             var repone = await _tosService.Update(tos);
             if (repone != 0)
             {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employee.FullName} - ID:{employee.EmployeeId.ToString().Substring(0, 8)} đã cập nhật thông tin dịch vụ {tos.ServiceName}.",
                     EmployeeID = employee.EmployeeId
@@ -325,14 +330,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> AddDeviceAction(VMDetailsTypeOfService vm)
         {
             if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
-            InstallationDevice device = new InstallationDevice();
+            API.InstallationDevice device = new API.InstallationDevice();
             device = vm.InstallationDevice;
             var respone = await _installationDevicesService.AddNewDevice(device);
             if (respone != null)
             {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employee.FullName} - ID:{employee.EmployeeId.ToString().Substring(0, 8)} đã thêm thiết bị {device.DeviceName} vào dịch vụ {_tosService.GetAll().Result.FirstOrDefault(s => s.TOS_ID == device.TOS_ID).ServiceName}.",
                     EmployeeID = employee.EmployeeId
@@ -365,7 +370,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employee.FullName} - ID:{employee.EmployeeId.ToString().Substring(0, 8)} đã xoá thiết bị {deviceName.DeviceName} khỏi dịch vụ {serviceName}.",
                     EmployeeID = employee.EmployeeId
@@ -387,7 +392,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> EditDeviceAction([FromBody] InstallationDevice device)
+        public async Task<IActionResult> EditDeviceAction([FromBody] API.InstallationDevice device)
         {
             if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var respone = await _installationDevicesService.UpdateDevice(device);
@@ -395,7 +400,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employee.FullName} - ID:{employee.EmployeeId.ToString().Substring(0, 8)} đã cập nhật thông tin thiết bị {device.DeviceName} của dịch vụ {_tosService.GetAll().Result.FirstOrDefault(s => s.TOS_ID == device.TOS_ID).ServiceName}.",
                     EmployeeID = employee.EmployeeId
@@ -463,7 +468,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employee.FullName} - ID:{employee.EmployeeId.ToString().Substring(0, 8)} đã gia hạn thời gian hiệu lực của chứng chỉ số PFX {serial}.",
                     EmployeeID = employee.EmployeeId
@@ -554,7 +559,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContext);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã cập nhật thông tin của nhân viên {employee.FullName} - ID:{employee.EmployeeId.ToString().Substring(0,8)}.",
                     EmployeeID = employeeDoing.EmployeeId
@@ -614,7 +619,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContext);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã thêm 1 nhân viên mới - {employee.FullName}.",
                     EmployeeID = employeeDoing.EmployeeId
@@ -681,7 +686,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             
         }
 
-        public async Task<IActionResult> AddPosition(Position position)
+        public async Task<IActionResult> AddPosition(API.Position position)
         {
             if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             int reponse = await _positionService.AddPositionAsync(position);
@@ -689,7 +694,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employee.FullName} đã thêm 1 chức vụ mới - {position.PositionName}.",
                     EmployeeID = employee.EmployeeId
@@ -729,7 +734,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             
         }
 
-        public async Task<IActionResult> UpdatePosition(Position position)
+        public async Task<IActionResult> UpdatePosition(API.Position position)
         {
             if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var update = await _positionService.UpdatePositionAsync(position);
@@ -737,7 +742,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employee.FullName} đã cập nhật thông tin chức vụ {position.PositionName}.",
                     EmployeeID = employee.EmployeeId
@@ -759,7 +764,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-        public async Task<IActionResult> AddRole(Role role)
+        public async Task<IActionResult> AddRole(API.Role role)
         {
             if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             int reponse = await _roleService.AddRoleAsync(role);
@@ -767,7 +772,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employee.FullName} - ID:{employee.EmployeeId.ToString().Substring(0, 8)} đã thêm 1 vai trò mới - {role.RoleName}.",
                     EmployeeID = employee.EmployeeId
@@ -805,7 +810,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-        public async Task<IActionResult> UpdateRole(Role role)
+        public async Task<IActionResult> UpdateRole(API.Role role)
         {
             if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             var update = await _roleService.UpdateRoleAsync(role);
@@ -813,7 +818,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employee = JsonConvert.DeserializeObject<Employee>(empContext);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employee.FullName} - ID:{employee.EmployeeId.ToString().Substring(0, 8)} đã cập nhật thông tin vai trò {role.RoleName}.",
                     EmployeeID = employee.EmployeeId
@@ -869,7 +874,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContext);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã cập nhật lại thông tin của bản thân.",
                     EmployeeID = employeeDoing.EmployeeId
@@ -964,7 +969,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã tạo 1 chữ ký cá nhân.",
                     EmployeeID = employeeDoing.EmployeeId
@@ -986,7 +991,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<ActionResult> UploadSignature(VMAdminIndex vm)
         {
             if (IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
-            PFXCertificate certificate = new PFXCertificate();
+            API.PFXCertificate certificate = new API.PFXCertificate();
             var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
             var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
 
@@ -1052,7 +1057,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã tải lên 1 chữ ký cá nhân.",
                     EmployeeID = employeeDoing.EmployeeId
@@ -1152,7 +1157,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                     Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                    OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                    API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                     {
                         OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã tạo 1 chữ ký cá nhân.",
                         EmployeeID = employeeDoing.EmployeeId
@@ -1186,14 +1191,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 if (temp.ContentType.StartsWith("image/"))
                 {
                     string imagePath = _uploadHelper.UploadImage(temp, _hostingEnvironment.WebRootPath, "StampImage");
-                    Stamp stamp = new Stamp();
+                    API.Stamp stamp = new API.Stamp();
                     stamp.StampPath = imagePath.Replace(_hostingEnvironment.WebRootPath + @"\", "");
                     var result = await _stampSvc.AddNew(stamp);
                     if (result != 0)
                     {
                         var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                         Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                        OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                        API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                         {
                             OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã tải lên ảnh dấu mộc công ty.",
                             EmployeeID = employeeDoing.EmployeeId
@@ -1301,7 +1306,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã xoá 1 chữ ký cá nhân.",
                     EmployeeID = employeeDoing.EmployeeId
@@ -1332,7 +1337,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 var empContextDoing = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
                 Employee employeeDoing = JsonConvert.DeserializeObject<Employee>(empContextDoing);
-                OperationHistoryEmp historyEmp = new OperationHistoryEmp()
+                API.OperationHistoryEmp historyEmp = new API.OperationHistoryEmp()
                 {
                     OperationName = $"{employeeDoing.FullName} - ID:{employeeDoing.EmployeeId.ToString().Substring(0, 8)} đã tải xoá ảnh dấu mộc công ty.",
                     EmployeeID = employeeDoing.EmployeeId

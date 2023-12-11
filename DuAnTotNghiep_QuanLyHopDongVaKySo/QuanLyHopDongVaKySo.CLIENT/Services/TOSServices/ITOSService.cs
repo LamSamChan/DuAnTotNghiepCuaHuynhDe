@@ -1,7 +1,8 @@
 ﻿
 using QuanLyHopDongVaKySo.CLIENT.Models;
-using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
-using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using QuanLyHopDongVaKySo_API.Models.ViewPost;
+using QuanLyHopDongVaKySo_API.Models.ViewPuts;
+
 namespace QuanLyHopDongVaKySo.CLIENT.Services.TOSServices
 {
     public interface ITOSService

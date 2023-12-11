@@ -1,6 +1,5 @@
-﻿using QuanLyHopDongVaKySo.CLIENT.Models;
-using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
-using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+﻿using QuanLyHopDongVaKySo_API.Models;
+
 namespace QuanLyHopDongVaKySo.CLIENT.Services.TMinuteServices
 {
     public interface ITMinuteService

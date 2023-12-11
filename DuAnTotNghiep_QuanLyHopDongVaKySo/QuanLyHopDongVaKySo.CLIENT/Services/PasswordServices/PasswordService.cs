@@ -1,136 +1,136 @@
 ﻿using Newtonsoft.Json;
-using QuanLyHopDongVaKySo.CLIENT.ViewModels;
+using QuanLyHopDongVaKySo_API.ViewModels;
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices;
-
-public class PasswordService : IPasswordService
+namespace QuanLyHopDongVaKySo.CLIENT.Services.PasswordServices
 {
-    private readonly HttpClient _httpClient;
-    private readonly IHttpContextAccessor _httpContextAccessor;
-
-
-    private string token;
-
-    public PasswordService(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
+    public class PasswordService : IPasswordService
     {
-        _httpClient = httpClient;
-        _httpContextAccessor = httpContextAccessor;
-    }
-    public string Token
-    {
-        get
+        private readonly HttpClient _httpClient;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+
+        private string token;
+
+        public PasswordService(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
         {
-            if (!String.IsNullOrEmpty(_httpContextAccessor.HttpContext.Session.GetString("token")))
-            {
-                token = _httpContextAccessor.HttpContext.Session.GetString("token");
-
-            }
-            return token;
+            _httpClient = httpClient;
+            _httpContextAccessor = httpContextAccessor;
         }
-        set { this.token = value; }
-    }
-
-    public async Task<string> ChangePasswordAsync(ChangePassword changePassword)
-    {
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-        try
+        public string Token
         {
-            var content = new StringContent(JsonConvert.SerializeObject(changePassword), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync($"api/Password/ChangePassword", content);
+            get
+            {
+                if (!String.IsNullOrEmpty(_httpContextAccessor.HttpContext.Session.GetString("token")))
+                {
+                    token = _httpContextAccessor.HttpContext.Session.GetString("token");
 
-            if (response.IsSuccessStatusCode)
-            {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                return responseContent;
+                }
+                return token;
             }
-            else
+            set { this.token = value; }
+        }
+
+        public async Task<string> ChangePasswordAsync(ChangePassword changePassword)
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+            try
             {
-                // Chưa có code xử lý lỗi
+                var content = new StringContent(JsonConvert.SerializeObject(changePassword), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync($"api/Password/ChangePassword", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    return responseContent;
+                }
+                else
+                {
+                    // Chưa có code xử lý lỗi
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có ngoại lệ
                 return null;
             }
         }
-        catch (Exception ex)
-        {
-            // Xử lý lỗi nếu có ngoại lệ
-            return null;
-        }
-    }
 
-    public async Task<string> ForgotPasswordAsync(string comfirmOTP)
-    {
-        try
+        public async Task<string> ForgotPasswordAsync(string comfirmOTP)
         {
-            var content = new StringContent(JsonConvert.SerializeObject(comfirmOTP), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync($"api/Password/ForgotPassword", content);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                return responseContent;
+                var content = new StringContent(JsonConvert.SerializeObject(comfirmOTP), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync($"api/Password/ForgotPassword", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    return responseContent;
+                }
+                else
+                {
+                    // Chưa có code xử lý lỗi
+                    return null;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // Chưa có code xử lý lỗi
                 return null;
             }
         }
-        catch (Exception ex)
-        {
-            return null;
-        }
-    }
 
-    public async Task<string> GetOTPChangeAsync(string employeeId)
-    {
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-        try
+        public async Task<string> GetOTPChangeAsync(string employeeId)
         {
-            var content = new StringContent(JsonConvert.SerializeObject(employeeId), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync($"api/Password/GetOTPChange", content);
-
-            if (response.IsSuccessStatusCode)
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+            try
             {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                return responseContent;
+                var content = new StringContent(JsonConvert.SerializeObject(employeeId), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync($"api/Password/GetOTPChange", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    return responseContent;
+                }
+                else
+                {
+                    // Code xử lý lỗi chưa có
+                    return null;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // Code xử lý lỗi chưa có
                 return null;
             }
         }
-        catch (Exception ex)
-        {
-            return null;
-        }
-    }
 
-    public async Task<string> GetOTPForgotAsync(ForgotPassword forgotPassword)
-    {
-        try
+        public async Task<string> GetOTPForgotAsync(ForgotPassword forgotPassword)
         {
-            var content = new StringContent(JsonConvert.SerializeObject(forgotPassword), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync($"api/Password/GetOTPForgot", content);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                return responseContent;
+                var content = new StringContent(JsonConvert.SerializeObject(forgotPassword), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync($"api/Password/GetOTPForgot", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    return responseContent;
+                }
+                else
+                {
+                    // Chưa có code xử lý lỗi
+                    return null;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // Chưa có code xử lý lỗi
+
                 return null;
             }
         }
-        catch (Exception ex)
-        {
-
-            return null;
-        }
     }
-}
-
+}  
 

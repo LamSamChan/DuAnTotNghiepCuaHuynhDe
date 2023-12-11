@@ -1,11 +1,12 @@
 ﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMCreateFormForCus
+<link rel="stylesheet" href="~/lib/libs/select2/select2.css" />
+<script src="~/lib/libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="~/lib/libs/select2/select2.full.min.js"></script>
 @{
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 
-<link rel="stylesheet" href="~/lib/libs/select2/select2.css" />
-<script src="~/lib/libs/jquery/jquery-3.6.0.min.js"></script>
-<script src="~/lib/libs/select2/select2.full.min.js"></script>
+
 <div class="container-fluid">
 
     @if (userRole == "Admin")

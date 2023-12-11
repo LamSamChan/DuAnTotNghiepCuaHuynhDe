@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
-using QuanLyHopDongVaKySo.CLIENT.Models;
+using QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Models.ViewPost;
+
 namespace QuanLyHopDongVaKySo.CLIENT.Services.DMinuteServices
 {
     public interface IDMinuteService

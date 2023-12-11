@@ -1,7 +1,8 @@
 ﻿using Newtonsoft.Json;
 using QuanLyHopDongVaKySo.CLIENT.Models;
-using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
-using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using API = QuanLyHopDongVaKySo_API.Models;
+using QuanLyHopDongVaKySo_API.Models.ViewPost;
+using QuanLyHopDongVaKySo_API.Models.ViewPuts;
 using System.Net.Http;
 using System.Text;
 using System.Net.Http.Headers;

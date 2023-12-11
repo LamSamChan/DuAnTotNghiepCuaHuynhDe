@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using QuanLyHopDongVaKySo.CLIENT.ViewModels;
+using QuanLyHopDongVaKySo_API.ViewModels;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Services.SigningServices
 {

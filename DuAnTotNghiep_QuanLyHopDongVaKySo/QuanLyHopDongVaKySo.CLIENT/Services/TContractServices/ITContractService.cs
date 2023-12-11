@@ -1,6 +1,5 @@
-﻿using QuanLyHopDongVaKySo.CLIENT.Models;
-using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
-using QuanLyHopDongVaKySo.CLIENT.Models.ModelPut;
+﻿using QuanLyHopDongVaKySo_API.Models;
+
 namespace QuanLyHopDongVaKySo.CLIENT.Services.TContractServices
 {
     public interface ITContractService

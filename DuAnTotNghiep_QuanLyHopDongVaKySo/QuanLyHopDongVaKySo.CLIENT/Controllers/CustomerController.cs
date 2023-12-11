@@ -13,12 +13,14 @@ using QuanLyHopDongVaKySo.CLIENT.Services.PositionServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.RoleServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
 using QuanLyHopDongVaKySo.CLIENT.ViewModels;
+using VMAPI = QuanLyHopDongVaKySo_API.ViewModels;
 using System.Drawing.Imaging;
 using System.IdentityModel.Tokens.Jwt;
 using test.Models;
 using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
 using QuanLyHopDongVaKySo.CLIENT.Models;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
+using API = QuanLyHopDongVaKySo_API.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
@@ -121,7 +123,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
             bmpSign.Save(filePath, ImageFormat.Png);
 
-            SigningModel signing = new SigningModel();
+            VMAPI.SigningModel signing = new VMAPI.SigningModel();
             signing.IdFile = pContractID;
             signing.Serial = serial;
 
@@ -168,7 +170,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
 
             Customer customerDoing = await _customerService.GetCustomerById(HttpContext.Session.GetString(SessionKey.Customer.CustomerID));
-            OperationHistoryCus historyCus = new OperationHistoryCus()
+            API.OperationHistoryCus historyCus = new API.OperationHistoryCus()
             {
                 OperationName = $"{customerDoing.FullName} - ID:{customerDoing.CustomerId.ToString().Substring(0, 8)} đã ký hợp đồng - ID:{idDContract[1]}.",
                 CustomerID = customerDoing.CustomerId
@@ -221,7 +223,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 System.IO.File.Delete(pdfPath);
 
 
-                OperationHistoryCus historyCus = new OperationHistoryCus()
+                API.OperationHistoryCus historyCus = new API.OperationHistoryCus()
                 {
                     OperationName = $"{customerDoing.FullName} - ID:{customerDoing.CustomerId.ToString().Substring(0, 8)} đã ký hợp đồng bằng USBToken - ID:{split[1]}.",
                     CustomerID = customerDoing.CustomerId
