@@ -7,7 +7,25 @@
         defaultImg = Model.PFXCertificate.DefaultImageSignature.Replace(@"\", @"/");
     }
 }
+<style>
+    #loading-spinner {
+        display: none;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        position: fixed;
+        top: 100%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
 
+        #loading-spinner > img {
+            width: 10rem;
+        }
+</style>
 <div class="container-fluid">
     @if (userRole == "Admin")
     {
@@ -205,8 +223,14 @@
         </div>
 
     </div>
+    <div id="loading-spinner">
+        <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+    </div>
 </div>
 <script type="text/javascript">
+
+    document.getElementById('loading-spinner').style.display = 'none';
+
     $(document).ready(function () {
         // Khởi tạo DataTable
         $('#myTable').DataTable({
@@ -372,6 +396,18 @@
 
         // Xử lý sự kiện khi nút Gửi được nhấn
         $("#signBtn").on("click", function () {
+
+            var myDiv = document.getElementById('staticBackdrop');
+
+            // Thêm hoặc xóa class
+            myDiv.classList.toggle('show');
+            myDiv.classList.toggle('hide');
+
+            // Thay đổi giá trị của thuộc tính style
+            myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+            document.getElementById('loading-spinner').style.display = 'block';
+
             // Gửi danh sách đối tượng đã chọn lên server qua Ajax
             if(imagePath != ''){
                 selectedObjects.forEach(function (obj) {
@@ -444,6 +480,18 @@
 
         $("#signDefaultBtn").on("click", function () {
             // Gửi danh sách đối tượng đã chọn lên server qua Ajax
+
+            var myDiv = document.getElementById('staticBackdrop');
+
+            // Thêm hoặc xóa class
+            myDiv.classList.toggle('show');
+            myDiv.classList.toggle('hide');
+
+            // Thay đổi giá trị của thuộc tính style
+            myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+            document.getElementById('loading-spinner').style.display = 'block';
+
             var defaultImg = '@Html.Raw(defaultImg)';
             if(defaultImg == ''){
                 Swal.fire({

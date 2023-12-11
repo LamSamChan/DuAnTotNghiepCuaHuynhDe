@@ -195,7 +195,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             foreach (var coordinate in Coordinates)
             {
                 string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
-                float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
+                float x = coordinate.X + 20; // Lấy tọa độ X từ bảng toạ độ
                 float y = 839 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                 var temp1 = ContractInternet.ContractFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
                 var temp2 = ContractInternet.RepresentativeContract.FirstOrDefault(id => id.Key == fieldName).Value;

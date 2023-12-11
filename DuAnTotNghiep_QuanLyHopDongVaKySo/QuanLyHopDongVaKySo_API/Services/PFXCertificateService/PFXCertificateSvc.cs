@@ -254,12 +254,12 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                 {
                     if (lastPageNumber == 1)
                     {
-                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 50 + 30, yCoodinate - 45 - 110 - 40 - 30, xCoordinate - 100 , yCoodinate - 45 - 110), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
+                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 15 - 20, yCoodinate - 45 - 15 - 320, xCoordinate - 100 + 120, yCoodinate - 45 + 70 + 30), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
                     }
                     else
                     {
-                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 50 + 60, yCoodinate - 45 + 700 + 115, xCoordinate - 100 - 50 + 60 + 100, yCoodinate - 45 + 700 + 115 + 100), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
+                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 15 - 40, yCoodinate - 45 + 700 + 115, xCoordinate - 100 + 120, yCoodinate - 45 + 70 + 30), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
                     }
                 }

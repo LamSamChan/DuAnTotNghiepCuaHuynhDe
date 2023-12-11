@@ -19,6 +19,27 @@
 
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
+
+<style>
+    #loading-spinner {
+        display: none;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        position: fixed;
+        top: 100%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+        #loading-spinner > img {
+            width: 10rem;
+        }
+</style>
+
 <!-- ssss-->
 <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
 
@@ -51,7 +72,7 @@
                     <a class="button-design col-md-6" asp-action="SignByCus" asp-route-pMinuteID="@Model.PMinute.PendingMinuteId" >
                         CHUYỂN VÙNG KHÁCH KÝ
                     </a>
-                    <a class="button-save col-md-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <a class="button-save col-md-4 @ViewBag.block" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         KÝ XÁC NHẬN
                     </a>
                 </div>
@@ -137,7 +158,7 @@
                     <a class="button-design col-md-8" asp-action="SignByCus" asp-route-pMinuteID="@Model.PMinute.PendingMinuteId">
                         CHUYỂN VÙNG KHÁCH KÝ
                     </a>
-                    <a class="button-save col-md-6" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <a class="button-save col-md-6 @ViewBag.block" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         KÝ XÁC NHẬN
                     </a>
                 </div>
@@ -281,8 +302,14 @@
             </form>
         </div>
     </div>
+    <div id="loading-spinner">
+        <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+    </div>
 </div>
 <script type="text/javascript">
+
+    document.getElementById('loading-spinner').style.display = 'none';
+
     var imagePath;
 
     $(document).ready(function () {
@@ -311,6 +338,18 @@
     }
 
     function signWithSelectedImg() {
+
+        var myDiv = document.getElementById('staticBackdrop');
+
+        // Thêm hoặc xóa class
+        myDiv.classList.toggle('show');
+        myDiv.classList.toggle('hide');
+
+        // Thay đổi giá trị của thuộc tính style
+        myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+        document.getElementById('loading-spinner').style.display = 'block';
+
         var signing = {
             Serial: '@Model.PFXCertificate.Serial',
             IdFile: '@Model.PMinute.PendingMinuteId',
@@ -364,6 +403,18 @@
     var defaultImg = '@Html.Raw(defaultImg)';
 
     function signWithDefaultImg() {
+
+        var myDiv = document.getElementById('staticBackdrop');
+
+        // Thêm hoặc xóa class
+        myDiv.classList.toggle('show');
+        myDiv.classList.toggle('hide');
+
+        // Thay đổi giá trị của thuộc tính style
+        myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+        document.getElementById('loading-spinner').style.display = 'block';
+
         if (defaultImg == '') {
             Swal.fire({
                 icon: 'error',

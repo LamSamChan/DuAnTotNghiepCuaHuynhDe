@@ -418,6 +418,16 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     string tosName = _tosService.GetById(dContract.TOS_ID).Result.ServiceName;
                     ViewBag.DContracID = dContract.DContractID;
                     ViewBag.ServiceName = tosName;
+
+                    if (vm.PMinute.IsIntallation)
+                    {
+                        ViewBag.block = "d-none";
+                    }
+                    else
+                    {
+                        ViewBag.block = "";
+                    }
+
                 }
                 catch (Exception)
                 {
