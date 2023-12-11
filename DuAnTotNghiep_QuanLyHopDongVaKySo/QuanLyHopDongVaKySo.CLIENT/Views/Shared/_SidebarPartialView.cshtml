@@ -40,25 +40,25 @@
             <div class="menu" style="width:100%;">
                 <ul>
                     <li>
-                        <a asp-controller="Director" asp-action="ListContractAwait" onclick="updateLoading()">
+                        <a asp-controller="Director" asp-action="Contracts_PendingApproval" onclick="updateLoading()">
                             <i class="ph-bold ph-list-dashes" style="font-size:26px;"></i>
                             <span class="text">Hợp đồng chờ duyệt</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="Director" asp-action="ListContractActive" onclick="updateLoading()">
+                        <a asp-controller="Director" asp-action="Contracts_Approved" onclick="updateLoading()">
                             <i class="ph-bold ph-list-checks" style="font-size:26px;"></i>
                             <span class="text">Hợp đồng đã duyệt</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="Director" asp-action="ListContractRefuseToSign" onclick="updateLoading()">
+                        <a asp-controller="Director" asp-action="Contracts_Rejected" onclick="updateLoading()">
                             <i class="ph-bold ph-list-checks" style="font-size:26px;"></i>
                             <span class="text">Hợp đồng từ chối</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="Director" asp-action="ListContractEffect" onclick="updateLoading()">
+                        <a asp-controller="Director" asp-action="Contracts_Active" onclick="updateLoading()">
                             <i class="ph-bold ph-list-checks" style="font-size:26px;"></i>
                             <span class="text">Hợp đồng hoạt động</span>
                         </a>

@@ -145,7 +145,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return View();
         }
         
-        public async Task<IActionResult> ListContractActive()
+        public async Task<IActionResult> Contracts_Approved()
         {
             if (IsAuthenticate == 2 || IsAuthenticate == 1)
             {
@@ -162,7 +162,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
             return RedirectToAction("Index", "Verify");
         }
-        public async Task<IActionResult> DetailsRefuseToSign(string id)
+        public async Task<IActionResult> Details_Contract_Approved(string id)
         {
             if (IsAuthenticate == 2 || IsAuthenticate == 1) {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
@@ -189,7 +189,17 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return RedirectToAction("Index", "Verify");
             
         }
-        public async Task<IActionResult> DetailsContractActive(string id)
+        public async Task<IActionResult> Contracts_Rejected()
+        {
+            List<VMAPI.PContractViewModel> pContractList = new List<VMAPI.PContractViewModel>();
+            if (IsAuthenticate == 2 || IsAuthenticate == 1)
+            {
+                pContractList = await _pContractService.getListRefuse();
+                return View(pContractList);
+            }
+            return RedirectToAction("Index", "Verify");
+        }
+        public async Task<IActionResult> Details_Contract_Rejected(string id)
         {
             if (IsAuthenticate == 2 || IsAuthenticate == 1) {
                 var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
@@ -216,6 +226,95 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             return RedirectToAction("Index", "Verify");
             
         }
+        public async Task<IActionResult> Contracts_Active()
+        {
+            List<VMAPI.DContractViewModel> contractList = new List<VMAPI.DContractViewModel>();
+            if (IsAuthenticate == 2)
+            {
+                contractList = await _dContractService.getListByDirectorId(EmployeeId);
+
+                return View(contractList);
+            }
+            if(IsAuthenticate == 1)
+            {
+                contractList = await _dContractService.getAllView();
+                return View(contractList);
+            }
+             return RedirectToAction("Index","Verify");
+        }
+        public async Task<IActionResult> Details_Contract_Active(string Id)
+        {
+            VMDetailsContract viewModel = new VMDetailsContract();
+            try
+            {
+                viewModel.DoneContracts = await _dContractService.getByIdAsnyc(Id);
+                viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
+                viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.DoneContracts.DirectorSignedId);
+                if(viewModel.DoneContracts.DMinuteID != null)
+                {
+                    viewModel.DoneMinutes = await _dMinuteService.GetById(int.Parse(viewModel.DoneContracts.DMinuteID));
+                }
+                
+            }
+            catch
+            {
+                return RedirectToAction("Index");
+            }
+            return View(viewModel);
+        }
+        public async Task<IActionResult> Contracts_PendingApproval()
+        {
+            if (IsAuthenticate == 2 || IsAuthenticate == 1)
+            {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+                VMListContractAwait vm = new VMListContractAwait();
+            
+                vm.PContracts = await _pContractService.getListWaitDirectorSigns();
+                vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
+                return View(vm);
+            }
+            return RedirectToAction("Index", "Verify");
+        }
+        public async Task<IActionResult> Details_Contract_PendingApproval(string pContractId)
+        {
+            if (IsAuthenticate == 2 || IsAuthenticate == 1)
+            {
+                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
+                var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
+
+                VMDetailsContractAwait vm = new VMDetailsContractAwait();
+                try
+                {
+                    vm.PContract = await _pContractService.getByIdAsnyc(pContractId);
+                    vm.EmployeeCreated = await _employeeService.GetEmployeeById(vm.PContract.EmployeeCreatedId);
+                    vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
+                    vm.Customer = await _customerService.GetCustomerById(vm.PContract.CustomerId);
+
+                    if (vm.PContract.IsDirector == "Đã ký")
+                    {
+                        ViewBag.hide = "d-none";
+                    }
+                    else
+                    {
+                        ViewBag.hide = "";
+                    }
+                   
+
+                    return View(vm);
+                }
+                catch
+                {
+                    //báo lỗi
+                    TempData["SweetType"] = "error";
+                    TempData["SweetIcon"] = "error";
+                    TempData["SweetTitle"] = "Không tìm thấy hợp đồng !!";
+                    return RedirectToAction("Index");
+                }
+            }
+            return RedirectToAction("Index", "Verify");
+        }
+       
 
         [HttpGet]
         public async Task<IActionResult> GetOTP()
@@ -286,7 +385,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     TempData["SweetType"] = "success";
                     TempData["SweetIcon"] = "success";
                     TempData["SweetTitle"] = "Từ chối duyệt hợp đồng thành công !!";
-                    return RedirectToAction("ListContractAwait");
+                    return RedirectToAction("Contracts_PendingApproval");
                 }
                 else
                 {
@@ -294,7 +393,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     TempData["SweetType"] = "error";
                     TempData["SweetIcon"] = "error";
                     TempData["SweetTitle"] = "Từ chối duyệt hợp đồng thất bại, kiểm tra lại thông tin hợp đồng!!";
-                    return RedirectToAction("ListContractAwait");
+                    return RedirectToAction("Contracts_PendingApproval");
                 }
             }
              return RedirectToAction("Index", "Verify"); 
@@ -354,46 +453,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return RedirectToAction("Index","Verify");
             }
         }
-        public async Task<IActionResult> ListContractRefuseToSign()
-        {
-            List<VMAPI.PContractViewModel> pContractList = new List<VMAPI.PContractViewModel>();
-            if (IsAuthenticate == 2 || IsAuthenticate == 1)
-            {
-                pContractList = await _pContractService.getListRefuse();
-                return View(pContractList);
-            }
-            return RedirectToAction("Index", "Verify");
-        }
-        public async Task<IActionResult> ListContractEffect()
-        {
-            List<VMAPI.DContractViewModel> contractList = new List<VMAPI.DContractViewModel>();
-            if (IsAuthenticate == 2)
-            {
-                contractList = await _dContractService.getListByDirectorId(EmployeeId);
-
-                return View(contractList);
-            }
-            if(IsAuthenticate == 1)
-            {
-                contractList = await _dContractService.getAllView();
-                return View(contractList);
-            }
-             return RedirectToAction("Index","Verify");
-        }
-        public async Task<IActionResult> ListContractAwait()
-        {
-            if (IsAuthenticate == 2 || IsAuthenticate == 1)
-            {
-                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
-                var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
-                VMListContractAwait vm = new VMListContractAwait();
-            
-                vm.PContracts = await _pContractService.getListWaitDirectorSigns();
-                vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
-                return View(vm);
-            }
-            return RedirectToAction("Index", "Verify");
-        }
 
         public async Task<IActionResult> HistoryOperation()
         {
@@ -415,44 +474,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             }
         }
 
-        public async Task<IActionResult> DetailsContractAwait(string pContractId)
-        {
-            if (IsAuthenticate == 2 || IsAuthenticate == 1)
-            {
-                var empContext = HttpContext.Session.GetString(SessionKey.Employee.EmployeeContext);
-                var serialPFX = JsonConvert.DeserializeObject<Employee>(empContext).SerialPFX;
-
-                VMDetailsContractAwait vm = new VMDetailsContractAwait();
-                try
-                {
-                    vm.PContract = await _pContractService.getByIdAsnyc(pContractId);
-                    vm.EmployeeCreated = await _employeeService.GetEmployeeById(vm.PContract.EmployeeCreatedId);
-                    vm.PFXCertificate = await _pfxCertificateServices.GetById(serialPFX);
-                    vm.Customer = await _customerService.GetCustomerById(vm.PContract.CustomerId);
-
-                    if (vm.PContract.IsDirector == "Đã ký")
-                    {
-                        ViewBag.hide = "d-none";
-                    }
-                    else
-                    {
-                        ViewBag.hide = "";
-                    }
-                   
-
-                    return View(vm);
-                }
-                catch
-                {
-                    //báo lỗi
-                    TempData["SweetType"] = "error";
-                    TempData["SweetIcon"] = "error";
-                    TempData["SweetTitle"] = "Không tìm thấy hợp đồng !!";
-                    return RedirectToAction("Index");
-                }
-            }
-            return RedirectToAction("Index", "Verify");
-        }
 
         [HttpPost]
         public async Task<IActionResult> SignContract([FromBody] VMAPI.SigningModel signing)
@@ -476,7 +497,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     TempData["SweetType"] = "error";
                     TempData["SweetIcon"] = "error";
                     TempData["SweetTitle"] = "Không tồn tại ảnh mộc!!";
-                    return View("DetailsContractAwait", signing.IdFile);
+                    return View("Details_Contract_PendingApproval", signing.IdFile);
                 }
                 else
                 {
@@ -490,7 +511,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
                 TempData["SweetTitle"] = "Không tồn tại ảnh mộc!!";
-                return View("DetailsContractAwait", signing.IdFile);
+                return View("Details_Contract_PendingApproval", signing.IdFile);
             }
 
             var respone = await _signingService.SignContractByDirector(signing);
@@ -531,7 +552,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     EmployeeID = employeeDoing.EmployeeId
                 };
                 await _historyEmpSvc.AddNew(historyEmp);
-                return RedirectToAction("ListContractAwait");
+                return RedirectToAction("Contracts_PendingApproval");
             }
             else
             {
@@ -539,7 +560,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
                 TempData["SweetTitle"] = "Duyệt hợp đồng thất bại!!";
-                return View("DetailsContractAwait", signing.IdFile);
+                return View("Details_Contract_PendingApproval", signing.IdFile);
             }
         }
 
@@ -630,7 +651,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
                 TempData["SweetTitle"] = "Không có hợp đồng được chọn!!";
-                return RedirectToAction("ListContractAwait");
+                return RedirectToAction("Contracts_PendingApproval");
             }
             foreach (var item in signing)
             {
@@ -641,50 +662,30 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     TempData["SweetType"] = "error";
                     TempData["SweetIcon"] = "error";
                     TempData["SweetTitle"] = "Không có ảnh mộc nào cả!!";
-                    return RedirectToAction("ListContractAwait");
+                    return RedirectToAction("Contracts_PendingApproval");
                 }else if (respone == 3)
                 {
                     //báo lỗi ko có mộc
                     TempData["SweetType"] = "error";
                     TempData["SweetIcon"] = "error";
                     TempData["SweetTitle"] = "Ký thất bại, kiểm tra lại thông tin ký!!";
-                    return RedirectToAction("ListContractAwait");
+                    return RedirectToAction("Contracts_PendingApproval");
                 }
             }
             TempData["SweetType"] = "success";
             TempData["SweetIcon"] = "success";
             TempData["SweetTitle"] = "Ký hợp đồng thành công!!";
-            return RedirectToAction("ListContractAwait");
+            return RedirectToAction("Contracts_PendingApproval");
         }
 
 
-        public async Task<IActionResult> DetailsContractEffect(string Id)
-        {
-            VMDetailsContract viewModel = new VMDetailsContract();
-            try
-            {
-                viewModel.DoneContracts = await _dContractService.getByIdAsnyc(Id);
-                viewModel.Customer = await _customerService.GetCustomerById(viewModel.DoneContracts.CustomerId);
-                viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.DoneContracts.DirectorSignedId);
-                if(viewModel.DoneContracts.DMinuteID != null)
-                {
-                    viewModel.DoneMinutes = await _dMinuteService.GetById(int.Parse(viewModel.DoneContracts.DMinuteID));
-                }
-                
-            }
-            catch
-            {
-                return RedirectToAction("Index");
-            }
-            return View(viewModel);
-        }
 
         public async Task<IActionResult> UnEffectContract(int Id)
         {
             var respone = await _dContractService.UnEffectContract(Id);
             if (respone != null)
             {
-                return RedirectToAction("ListContractEffect");
+                return RedirectToAction("Contracts_Active");
             }
             else
             {

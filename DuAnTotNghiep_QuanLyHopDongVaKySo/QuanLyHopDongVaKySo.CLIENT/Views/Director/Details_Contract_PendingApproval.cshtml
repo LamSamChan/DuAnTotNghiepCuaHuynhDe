@@ -1,0 +1,782 @@
+﻿@model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMDetailsContractAwait
+
+@using Microsoft.AspNetCore.Hosting
+@inject IWebHostEnvironment _hostingEnvironment
+
+@{
+    // Lấy link trực ảnh từ file tỉnh
+    List<string> imageFilesContract = new List<string>();
+    string fileDMinuteNull = "Resource/Image/empty.png";
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PContractImage"); // + thêm ID của contract
+
+    string? folderItemContract = System.IO.Path.Combine(folderPath, Model.PContract.PContractID);
+
+    if (folderItemContract != null)
+    {
+        imageFilesContract = Directory.GetFiles(folderItemContract).ToList();
+    }
+
+    string defaultImg = null;
+    if (Model.PFXCertificate.DefaultImageSignature != null)
+    {
+        defaultImg = Model.PFXCertificate.DefaultImageSignature.Replace(@"\", @"/");
+    }
+
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
+}
+<style>
+    #loading-spinner {
+        display: none;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        position: fixed;
+        top: 100%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+        #loading-spinner > img {
+            width: 10rem;
+        }
+</style>
+<div class="container-fluid">
+    @if (userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"> <a>Giám đốc</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng chờ duyệt </li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">CHI TIẾT HỢP ĐỒNG </h1>
+            <div class="row justify-content-between">
+                <a class="col-md-2 button-design" asp-action="ListContractAwait" asp-controller="Director" >
+                    <i class="ph-bold ph-arrow-left">
+                    </i>
+                    QUAY LẠI
+                </a>
+                <div class="col-md-3 offset-md-6 d-flex justify-content-end @ViewBag.hide">
+                    <a class="button-save" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Duyệt
+                    </a>
+                    <a class="button-delete" data-bs-toggle="modal" data-bs-target="#RefuseSign">
+                        Từ chối duyệt
+                    </a>
+                </div>
+                <div class="modal fade" id="RefuseSign" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-controller="Director" asp-action="RefuseContract">
+                                    <div class=" mb-3">
+                                        <label class="form-label" for="floatingTextarea2">Lý do từ chối</label>
+                                        <input asp-for="PContract.PContractID" class="d-none" />
+                                        <textarea asp-for="PContract.Reason" class="form-control" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    </div>
+                                    <div class="col-mb-5" style="margin: auto;">
+                                        <button class="button-save" type="submit" >
+                                            Xác nhận
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @* modal duyet *@
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">DUYỆT HỢP ĐỒNG</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>
+                                    Chọn chữ ký khác
+                                </h5>
+                                <ul class="p-0 mx-auto " style="max-height:400px; overflow-y:scroll;">
+                                    @if (Model.PFXCertificate.ImageSignature1 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")" width="390" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature2 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")" width="390" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature3 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")" width="390" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature4 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")" width="390" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature5 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('button2', this,'@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")" width="390" height="200" />
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" id="button2" disabled onclick="signWithSelectedImg()">
+                                    DUYỆT
+                                </button>
+                                <button class="button-save" id="button1" onclick="signWithDefaultImg()">
+                                    DUYỆT BẰNG CHỮ KÝ MẶC ĐỊNH
+                                </button>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            document.getElementById('loading-spinner').style.display = 'none';
+                            var imagePath = '';
+
+                            function enableButton(buttonId, imageContainer, imageSelected) {
+                                imagePath = imageSelected;
+
+                                // Lấy button và hình ảnh được chọn
+                                var button = document.getElementById(buttonId);
+
+                                // Loại bỏ thuộc tính disabled nếu hình ảnh được chọn
+                                button.removeAttribute('disabled');
+
+                                // Loại bỏ lớp 'selected' từ tất cả các hình ảnh khác
+                                var allImageContainers = document.querySelectorAll('.image-container');
+                                allImageContainers.forEach(function (container) {
+                                    container.classList.remove('selected');
+                                });
+
+                                // Thêm lớp 'selected' cho hình ảnh được chọn để tạo hiệu ứng
+                                imageContainer.classList.add('selected');
+                            }
+                            function signWithSelectedImg() {
+                                // Lấy thẻ div bằng ID
+                                var myDiv = document.getElementById('staticBackdrop');
+
+                                // Thêm hoặc xóa class
+                                myDiv.classList.toggle('show');
+                                myDiv.classList.toggle('hide');
+
+                                // Thay đổi giá trị của thuộc tính style
+                                myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                                document.getElementById('loading-spinner').style.display = 'block';
+                                
+                                var signing = {
+                                    Serial: '@Model.PFXCertificate.Serial',
+                                    IdFile: '@Model.PContract.PContractID',
+                                    Base64StringFile: '',
+                                    ImagePath: imagePath,
+                                    Base64StringFileStamp: '',
+                                    ImagePathStamp: ''
+                                };
+
+                                $.ajax({
+                                    url: '@Url.Action("SignContract")',
+                                    type: 'POST',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify(signing),
+                                    success: function (result) {
+
+                                        if (!result.success) {
+                                            // Chuyển hướng tới trang mong muốn
+
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: 'Duyệt hợp đồng thành công!',
+                                                showConfirmButton: false,
+                                                timer: 1500
+                                            }).then(() => {
+                                    
+                                                var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+                                                window.location.href = redirectToUrl;
+                                            });
+
+                                        }
+                                        else {
+                                            // SweetAlert for failure
+                                            Swal.fire({
+                                                title: 'Error!',
+                                                text: 'Duyệt hợp đồng thất bại.',
+                                                icon: 'error',
+                                                confirmButtonColor: '#d33',
+                                                confirmButtonText: 'OK'
+                                            });
+                                        }
+                                    },
+                                    error: function (xhr, textStatus, error) {
+
+                                        console.error(xhr);
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Lỗi!',
+                                            text: 'Lỗi khi gửi yêu cầu:', error,
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        }).then(() => {
+                                     
+                                            var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
+                                            window.location.href = redirectToUrl;
+                                        });
+                                    }
+                                });
+                            }
+
+                            var defaultImg = '@Html.Raw(defaultImg)';
+                            function signWithDefaultImg() {
+                                // Lấy thẻ div bằng ID
+                                var myDiv = document.getElementById('staticBackdrop');
+
+                                // Thêm hoặc xóa class
+                                myDiv.classList.toggle('show');
+                                myDiv.classList.toggle('hide');
+
+                                // Thay đổi giá trị của thuộc tính style
+                                myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                                document.getElementById('loading-spinner').style.display = 'block';
+
+                                if (defaultImg == '') {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Lỗi!',
+                                        text: 'Bạn chưa cài đặt chữ ký mặc định!!',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    }).then(() => {
+                               
+                                    });
+                                } else {
+                                    var signingDefault = {
+                                        Serial: '@Model.PFXCertificate.Serial',
+                                        IdFile: '@Model.PContract.PContractID',
+                                        Base64StringFile: '',
+                                        ImagePath: defaultImg,
+                                        Base64StringFileStamp: '',
+                                        ImagePathStamp: ''
+                                    };
+                                    $.ajax({
+                                        url: '@Url.Action("SignContract")',
+                                        type: 'POST',
+                                        contentType: 'application/json',
+                                        data: JSON.stringify(signingDefault),
+                                        success: function (result) {
+                                            if (!result.success) {
+                                                Swal.fire({
+                                                    icon: 'success',
+                                                    title: 'Thành công!',
+                                                    text: 'Duyệt hợp đồng thành công!!',
+                                                    showConfirmButton: false,
+                                                    timer: 1500
+                                                }).then(() => {
+                                                   
+                                                 
+                                                 
+                                                    var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+                                                    window.location.href = redirectToUrl;
+                                                });
+                                                // Chuyển hướng tới trang mong muốn
+                                            }
+                                            else {
+                                                // SweetAlert for failure
+                                                Swal.fire({
+                                                    title: 'Error!',
+                                                    text: 'Duyệt hợp đồng thất bại.',
+                                                    icon: 'error',
+                                                    confirmButtonColor: '#d33',
+                                                    confirmButtonText: 'OK'
+                                                });
+                                            }
+
+                                            setTimeout(function () {
+                                                location.reload(true);
+                                            }, 3000);
+
+                                        },
+                                        error: function (xhr, status, error) {
+                                            //console.error('Lỗi khi gửi yêu cầu:', error);
+
+                                            console.log(xhr);
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Lỗi!',
+                                                text: 'Lỗi khi gửi yêu cầu:', error,
+                                                showConfirmButton: false,
+                                                timer: 1500
+                                            }).then(() => {
+                                               
+                                          
+                                            });
+                                        }
+
+
+                                    });
+                                }
+                            }
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng chờ duyệt </li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">CHI TIẾT HỢP ĐỒNG </h1>
+            <div class="row justify-content-between mx-auto">
+                <a class="col-md-2 button-design" asp-action="ListContractAwait" asp-controller="Director">
+                    <i class="ph-bold ph-arrow-left">
+                    </i>
+                    QUAY LẠI
+                </a>
+                <div class="col-md-3 offset-md-6 d-flex justify-content-end @ViewBag.hide">
+                    <a class="button-save" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Duyệt
+                    </a>
+                    <a class="button-delete" data-bs-toggle="modal" data-bs-target="#RefuseSign">
+                        Từ chối duyệt
+                    </a>
+                </div>
+
+                <div class="modal fade" id="RefuseSign" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="row justify-content-around" style=" margin: 0 auto;" method="post" asp-controller="Director" asp-action="RefuseContract">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="floatingTextarea2">Lý do từ chối</label>
+                                        <input asp-for="PContract.PContractID" class="d-none" />
+                                        <textarea asp-for="PContract.Reason" class="form-control" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    </div>
+                                    <div class="col-mb-5" style="margin: auto;">
+                                        <button class="button-save" type="submit" >
+                                            Xác nhận
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">DUYỆT HỢP ĐỒNG</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>
+                                    Chọn chữ ký khác
+                                </h5>
+                                <ul style="max-height:400px; overflow-y:scroll;">
+                                    @if (Model.PFXCertificate.ImageSignature1 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature1.Replace(@"\",@"/")" width="390" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature2 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature2.Replace(@"\",@"/")" width="390" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature3 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature3.Replace(@"\",@"/")" width="390" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature4 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature4.Replace(@"\",@"/")" width="390" height="200" />
+                                        </li>
+                                    }
+                                    @if (Model.PFXCertificate.ImageSignature5 != null)
+                                    {
+                                        <li class="image-container" onclick="enableButton('signBtn', this,'@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")')">
+                                            <img src="~/@Model.PFXCertificate.ImageSignature5.Replace(@"\",@"/")" width="390" height="200" />
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" id="signBtn" disabled onclick="signWithSelectedImg()">
+                                    DUYỆT
+                                </button>
+                                <button class="button-save" id="button1" onclick="signWithDefaultImg()">
+                                    DUYỆT BẰNG CHỮ KÝ MẶC ĐỊNH
+                                </button>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            document.getElementById('loading-spinner').style.display = 'none';
+                            var imagePath = '';
+
+                            function enableButton(buttonId, imageContainer, imageSelected) {
+                                imagePath = imageSelected;
+
+                                // Lấy button và hình ảnh được chọn
+                                var button = document.getElementById(buttonId);
+
+                                // Loại bỏ thuộc tính disabled nếu hình ảnh được chọn
+                                button.removeAttribute('disabled');
+
+                                // Loại bỏ lớp 'selected' từ tất cả các hình ảnh khác
+                                var allImageContainers = document.querySelectorAll('.image-container');
+                                allImageContainers.forEach(function (container) {
+                                    container.classList.remove('selected');
+                                });
+
+                                // Thêm lớp 'selected' cho hình ảnh được chọn để tạo hiệu ứng
+                                imageContainer.classList.add('selected');
+                            }
+                            function signWithSelectedImg() {
+
+                                // Lấy thẻ div bằng ID
+                                var myDiv = document.getElementById('staticBackdrop');
+
+                                // Thêm hoặc xóa class
+                                myDiv.classList.toggle('show');
+                                myDiv.classList.toggle('hide');
+
+                                // Thay đổi giá trị của thuộc tính style
+                                myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                                document.getElementById('loading-spinner').style.display = 'block';
+                                var signing = {
+                                    Serial: '@Model.PFXCertificate.Serial',
+                                    IdFile: '@Model.PContract.PContractID',
+                                    Base64StringFile: '',
+                                    ImagePath: imagePath,
+                                    Base64StringFileStamp: '',
+                                    ImagePathStamp: ''
+                                };
+
+                                $.ajax({
+                                    url: '@Url.Action("SignContract")',
+                                    type: 'POST',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify(signing),
+                                    success: function (result) {
+
+                                        if (!result.success) {
+                                            // Chuyển hướng tới trang mong muốn
+
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: 'Duyệt chữ ký thành công!',
+                                                showConfirmButton: false,
+                                                timer: 1500
+                                            }).then(() => {
+                                            
+                                                var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+                                                window.location.href = redirectToUrl;
+                                            });
+
+                                        }
+                                        else {
+                                            // SweetAlert for failure
+                                            Swal.fire({
+                                                title: 'Error!',
+                                                text: 'Duyệt chữ ký thất bại.',
+                                                icon: 'error',
+                                                confirmButtonColor: '#d33',
+                                                confirmButtonText: 'OK'
+                                            });
+                                        }
+                                    },
+                                    error: function (xhr, textStatus, error) {
+
+                                        console.error(xhr);
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Lỗi!',
+                                            text: 'Lỗi khi gửi yêu cầu:', error,
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        }).then(() => {
+                                       
+                                            var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
+                                            window.location.href = redirectToUrl;
+                                        });
+                                    }
+                                });
+                            }
+
+                            var defaultImg = '@Html.Raw(defaultImg)';
+
+                            function signWithDefaultImg() {
+
+                                // Lấy thẻ div bằng ID
+                                var myDiv = document.getElementById('staticBackdrop');
+
+                                // Thêm hoặc xóa class
+                                myDiv.classList.toggle('show');
+                                myDiv.classList.toggle('hide');
+
+                                // Thay đổi giá trị của thuộc tính style
+                                myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                                document.getElementById('loading-spinner').style.display = 'block';
+                                if (defaultImg == '') {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Lỗi!',
+                                        text: 'Bạn chưa cài đặt chữ ký mặc định!!',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    }).then(() => {
+
+                                    });
+                                } else {
+                                    var signingDefault = {
+                                        Serial: '@Model.PFXCertificate.Serial',
+                                        IdFile: '@Model.PContract.PContractID',
+                                        Base64StringFile: '',
+                                        ImagePath: defaultImg,
+                                        Base64StringFileStamp: '',
+                                        ImagePathStamp: ''
+                                    };
+                                    $.ajax({
+                                        url: '@Url.Action("SignContract")',
+                                        type: 'POST',
+                                        contentType: 'application/json',
+                                        data: JSON.stringify(signingDefault),
+                                        success: function (result) {
+                                            if (!result.success) {
+                                                Swal.fire({
+                                                    icon: 'success',
+                                                    title: 'Thành công!',
+                                                    text: 'Duyệt hợp đồng thành công!!',
+                                                    showConfirmButton: false,
+                                                    timer: 1500
+                                                }).then(() => {
+                                    
+                                                    var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
+                                                    window.location.href = redirectToUrl;
+                                                });
+                                                // Chuyển hướng tới trang mong muốn
+                                            }
+                                            else {
+                                                // SweetAlert for failure
+                                                Swal.fire({
+                                                    title: 'Error!',
+                                                    text: 'Duyệt hợp đồng thất bại.',
+                                                    icon: 'error',
+                                                    confirmButtonColor: '#d33',
+                                                    confirmButtonText: 'OK'
+                                                });
+                                            }
+
+                                            setTimeout(function () {
+                                                location.reload(true);
+                                            }, 3000);
+
+                                        },
+                                        error: function (xhr, status, error) {
+                                            //console.error('Lỗi khi gửi yêu cầu:', error);
+
+                                            console.log(xhr);
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Lỗi!',
+                                                text: 'Lỗi khi gửi yêu cầu:', error,
+                                                showConfirmButton: false,
+                                                timer: 1500
+                                            }).then(() => {
+                                      
+                                            });
+                                        }
+
+
+                                    });
+                                }
+                            }
+                       
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    <div class="row bg-white mx-auto my-auto rounded mt-4">
+        <div class="col-6">
+            <div class="showFile">
+                <h4 class="typeHead">Hợp đồng đang chờ duyệt </h4>
+                <div id="myCarousel" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active " style="width:800px;">
+                            <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" style="margin:100px auto;" />
+                        </div>
+                        @if (folderItemContract != null)
+                        {
+                            @foreach (var imgPath in imageFilesContract)
+                            {
+                                <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                    <img src="@Url.Content("~/PContractImage/"+Model.PContract.PContractID+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                </div>
+                            }
+                        }
+
+                        else
+                        {
+                            <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
+                                <img src="~/@fileDMinuteNull" alt="Hình ảnh" width="100%" />
+                            </div>
+                        }
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
+                        <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                        <span class="visually-hidden" >Previous</span>
+                    </button>
+                    <button style="margin: auto;background-color: black;font-size: 100px; width: 50px;height: 100px;" class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
+                        <span class="visually-hidden" >Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="inforCus col-md-6 mt-4" style="max-height:700px; overflow-y: scroll; ">
+            <h4 class="typeHead">
+                Thông tin khách hàng
+            </h4>
+            <form class="row g-3" style="max-width:950px;">
+                <div class="col-md-6">
+                    <label for="inputName" class="form-label">Họ và tên</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="Họ và tên" asp-for="@Model.Customer.FullName">
+                </div>
+                <div class="col-md-3">
+                    <label for="inputState" class="form-label">Giới tính</label>
+                    @if (Model.Customer.Gender == 1)
+                    {
+                        <input type="text" class="form-control" id="inputName" readonly value="Nam">
+                    }
+                    else
+                    {
+                        <input type="text" class="form-control" id="inputName" readonly value="Nữ">
+                    }
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCCCD" class="form-label">CCCD/CMND</label>
+                    <input type="text" class="form-control" id="inputCCCD" placeholder="CCCD/CMND" asp-for="@Model.Customer.Identification">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPhone" class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-control" id="inputPhone" placeholder="Số điện thoại" asp-for="@Model.Customer.PhoneNumber">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Địa chỉ Email" asp-for="@Model.Customer.Email">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputAddress" class="form-label">Nơi ở</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Địa chỉ nơi ở" asp-for="@Model.Customer.Address">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PContract.PContractID">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.PContract.TOS_ID">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Ngày tạo</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PContract.DateCreated">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.PContract.TOS_ID">
+                </div>
+                <h4 class="typeHead">
+                    Thông tin nhân viên tạo hợp đồng
+                </h4>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Mã nhân viên</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.EmployeeCreated.EmployeeId">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputAddress" class="form-label">Họ và tên</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.EmployeeCreated.FullName">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.EmployeeCreated.Email">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputAddress" class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.EmployeeCreated.PhoneNumber">
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div id="loading-spinner">
+        <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+    </div>
+</div>
+@if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var sweetData = {
+                title: '@TempData["SweetTitle"]',
+                text: '@TempData["SweetText"]',
+                icon: '@TempData["SweetIcon"]'
+            };
+
+            Swal.fire({
+                title: sweetData.title,
+                text: sweetData.text,
+                icon: sweetData.icon,
+                showCancelButton: false,
+                allowOutsideClick: false,
+                confirmButtonColor: "green",
+                confirmButtonText: "Ok"
+            }).then(function () {
+                // Handle any additional logic after the SweetAlert is closed.
+            });
+        });
+    </script>
+}

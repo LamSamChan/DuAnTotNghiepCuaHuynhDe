@@ -433,10 +433,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             
         }
 
-        public IActionResult ListDevice()
-        {
-            return View();
-        }
+        
 
         public async Task<IActionResult> ListPFXCertificate()
         {

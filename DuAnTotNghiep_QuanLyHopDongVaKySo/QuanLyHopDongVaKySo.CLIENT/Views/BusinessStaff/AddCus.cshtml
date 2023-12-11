@@ -3,7 +3,7 @@
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 
 }
-<style>
+@* <style>
     .loading {
         position: absolute;
         z-index: 1;
@@ -22,7 +22,7 @@
         .loading img {
             width: 7rem;
         }
-</style>
+</style> *@
 <div class="container-fluid">
 
 
@@ -229,10 +229,8 @@
                     <div class="loading" id="loading">
                         <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
                     </div>
-                    <button class="add_cus" type="submit" onclick="updatePosition()">
+                    <button class="add_cus" type="submit" >
                         Thêm
-                       
-
                     </button>
                 </div>
             </div>
@@ -266,32 +264,32 @@
     </script>
 }
 <script src="~/js/AddCus.js" type="text/javascript"></script>
-<script>
+<script type="text/javascript">
 
-     const iconLoading = document.getElementById("loading");
+    //  const iconLoading = document.getElementById("loading");
 
-    const showLoading = () => {
-        iconLoading.style.display = "flex";
-    };
+    // const showLoading = () => {
+    //     iconLoading.style.display = "flex";
+    // };
 
-    const hideLoading = () => {
-        iconLoading.style.display = "none";
-    };
+    // const hideLoading = () => {
+    //     iconLoading.style.display = "none";
+    // };
 
-    const updatePosition = () => {
-        showLoading(); // Show loading spinner when the button is clicked
+    // const updatePosition = () => {
+    //     showLoading(); // Show loading spinner when the button is clicked
 
-        // You can perform additional logic here before or after the form submission
-        // For example, submit the form programmatically
-        document.querySelector('form').submit();
+    //     // You can perform additional logic here before or after the form submission
+    //     // For example, submit the form programmatically
+    //     document.querySelector('form').submit();
 
-        // If you want to prevent the form from submitting immediately, you can remove the form submission line
+    //     // If you want to prevent the form from submitting immediately, you can remove the form submission line
 
-        // Hide loading spinner after the form submission is complete
-        setTimeout(() => {
-            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-        }, 1000);
-    };
+    //     // Hide loading spinner after the form submission is complete
+    //     setTimeout(() => {
+    //         hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+    //     }, 1000);
+    // };
 
     $(document).ready(function () {
         // Lắng nghe sự kiện khi checkbox được thay đổi
