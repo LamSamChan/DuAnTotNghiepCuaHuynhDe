@@ -19,6 +19,9 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Column("Id")]
         public Guid? CustomerId { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime? DateAdded { get; set; }
+
         [Column(TypeName = "nvarchar(100)"), AllowNull]
         [Display(Name = "Tên doanh nghiệp")]
         public string? BuisinessName { get; set; }

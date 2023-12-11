@@ -91,6 +91,9 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<DateTime?>("DateAdded")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
@@ -178,7 +181,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<string>("Base64File")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("CustomerId")
+                    b.Property<Guid?>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DConTractName")
@@ -186,19 +189,21 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("DContractFile")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateDone")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("DirectorSignedId")
+                    b.Property<DateTime>("DateUnEffect")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DirectorSignedId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("DoneMinuteId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("EmployeeCreatedId")
+                    b.Property<Guid?>("EmployeeCreatedId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("InstallationAddress")
@@ -243,7 +248,6 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MinuteFile")
-                        .IsRequired()
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("MinuteName")
@@ -429,7 +433,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HistoryID"));
 
-                    b.Property<Guid>("CustomerID")
+                    b.Property<Guid?>("CustomerID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("Date")
@@ -443,7 +447,10 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.HasIndex("CustomerID");
 
-                    b.ToTable("OperationHistoryCus", (string)null);
+                    b.ToTable("OperationHistoryCus", t =>
+                        {
+                            t.HasTrigger("tr_DeleteOldCusHistoryRecords");
+                        });
                 });
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.OperationHistoryEmp", b =>
@@ -458,7 +465,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("EmployeeID")
+                    b.Property<Guid?>("EmployeeID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("OperationName")
@@ -469,7 +476,10 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.HasIndex("EmployeeID");
 
-                    b.ToTable("OperationHistoryEmp", (string)null);
+                    b.ToTable("OperationHistoryEmp", t =>
+                        {
+                            t.HasTrigger("tr_DeleteOldEmpHistoryRecords");
+                        });
                 });
 
             modelBuilder.Entity("QuanLyHopDongVaKySo_API.Models.PFXCertificate", b =>
@@ -843,9 +853,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 {
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.Customer", "Customer")
                         .WithMany("DoneContract")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CustomerId");
 
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.DoneMinute", "DoneMinute")
                         .WithMany()
@@ -853,9 +861,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.Employee", "Employee")
                         .WithMany("DoneContract")
-                        .HasForeignKey("EmployeeCreatedId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployeeCreatedId");
 
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.TypeOfService", "TypeOfService")
                         .WithMany()
@@ -945,9 +951,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 {
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.Customer", "Customer")
                         .WithMany("OperationHistoryCus")
-                        .HasForeignKey("CustomerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CustomerID");
 
                     b.Navigation("Customer");
                 });
@@ -956,9 +960,7 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                 {
                     b.HasOne("QuanLyHopDongVaKySo_API.Models.Employee", "Employee")
                         .WithMany("OperationHistoryEmp")
-                        .HasForeignKey("EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployeeID");
 
                     b.Navigation("Employee");
                 });

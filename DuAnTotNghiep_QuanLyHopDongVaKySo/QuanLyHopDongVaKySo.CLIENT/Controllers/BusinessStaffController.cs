@@ -343,6 +343,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 customer.typeofCustomer = "Cá nhân";
             }
+            customer.DateAdded = DateTime.Now;
             int reponse = await _customerService.AddNewCustomer(customer);
 
             if (reponse != 0)

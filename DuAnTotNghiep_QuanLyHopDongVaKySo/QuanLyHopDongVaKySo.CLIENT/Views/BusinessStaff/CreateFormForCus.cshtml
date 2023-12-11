@@ -5,7 +5,25 @@
 @{
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
+<style>
+    #loading-spinner {
+        display: none;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        position: fixed;
+        top: 100%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
 
+    #loading-spinner>img {
+        width: 10rem;
+    }
+</style>
 
 <div class="container-fluid">
 
@@ -43,7 +61,7 @@
         </div>
 
     }
-    <form method="post" asp-action="CreatePContract">
+    <form method="post" asp-action="CreatePContract" id="myForm">
         <div style="margin-top: 30px;" class="row justify-content-center">
             <div class="col-4 bg-white rounded">
                 <div class="row g-3">
@@ -96,12 +114,20 @@
                 TẠO HỢP ĐỒNG              
             </button>
         </div>
+        <div id="loading-spinner">
+            <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+        </div>
     </form>
 
 </div> 
 
 <script>
+    document.getElementById('loading-spinner').style.display = 'none';
 
+    document.getElementById('myForm').addEventListener('submit', function (event) {
+        // Hiển thị hiệu ứng loading
+        document.getElementById('loading-spinner').style.display = 'block';
+    });
 
     const provice_url = "https://api.npoint.io/ac646cb54b295b9555be";
     const district_url = "https://api.npoint.io/34608ea16bebc5cffd42";

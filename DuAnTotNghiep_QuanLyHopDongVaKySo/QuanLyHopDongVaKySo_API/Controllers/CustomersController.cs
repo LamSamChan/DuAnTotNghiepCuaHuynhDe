@@ -61,6 +61,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             Customer customer = new Customer
             {
                 CustomerId = Guid.NewGuid(),
+                DateAdded = postCustomer.DateAdded,
                 BuisinessName = postCustomer.BuisinessName,
                 FullName = postCustomer.FullName,
                 Position = postCustomer.Position,

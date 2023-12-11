@@ -475,7 +475,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     //báo lỗi ko có ảnh mộc
                     TempData["SweetType"] = "error";
                     TempData["SweetIcon"] = "error";
-                    TempData["SweetTitle"] = "Không có ảnh mộc nào cả!!";
+                    TempData["SweetTitle"] = "Không tồn tại ảnh mộc!!";
                     return View("DetailsContractAwait", signing.IdFile);
                 }
                 else
@@ -489,16 +489,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 //báo lỗi ko có mộc
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Không có ảnh mộc nào cả!!";
+                TempData["SweetTitle"] = "Không tồn tại ảnh mộc!!";
                 return View("DetailsContractAwait", signing.IdFile);
             }
 
             var respone = await _signingService.SignContractByDirector(signing);
 
-           
-
              if (respone != null)
-            {
+             {
                 string[] split = respone.Split('*');
 
                 System.GC.Collect();
@@ -535,11 +533,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 await _historyEmpSvc.AddNew(historyEmp);
                 return RedirectToAction("ListContractAwait");
             }
-
             else
             {
-               
-                return RedirectToAction("ListContractAwait");
+                //báo lỗi ko có mộc
+                TempData["SweetType"] = "error";
+                TempData["SweetIcon"] = "error";
+                TempData["SweetTitle"] = "Duyệt hợp đồng thất bại!!";
+                return View("DetailsContractAwait", signing.IdFile);
             }
         }
 

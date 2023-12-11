@@ -39,7 +39,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.SigningServices
         public async Task<string> SignContractByCustomer(SigningModel signing)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-            _httpClient.Timeout = TimeSpan.FromMinutes(5);
+            _httpClient.Timeout = TimeSpan.FromMinutes(2);
             string json = JsonConvert.SerializeObject(signing);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             using (var response = await _httpClient.PostAsync("api/Signing/CustomerSignContract", content))
@@ -56,7 +56,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.SigningServices
         public async Task<string> SignContractByDirector(SigningModel signing)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-            _httpClient.Timeout = TimeSpan.FromMinutes(5);
+            _httpClient.Timeout = TimeSpan.FromMinutes(2);
             string json = JsonConvert.SerializeObject(signing);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             using (var response = await _httpClient.PostAsync("api/Signing/DirectorSignContract", content))
@@ -73,7 +73,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.SigningServices
         public async Task<string> SignMinuteByCustomer(SigningModel signing)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-            _httpClient.Timeout = TimeSpan.FromMinutes(5);
+            _httpClient.Timeout = TimeSpan.FromMinutes(2);
             string json = JsonConvert.SerializeObject(signing);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             using (var response = await _httpClient.PostAsync("api/Signing/CustomerSignMinute", content))
@@ -90,7 +90,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.SigningServices
         public async Task<string> SignMinuteByInstaller(SigningModel signing)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-            _httpClient.Timeout = TimeSpan.FromMinutes(5);
+            _httpClient.Timeout = TimeSpan.FromMinutes(2);
             string json = JsonConvert.SerializeObject(signing);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             using (var response = await _httpClient.PostAsync("api/Signing/InstallerSignMinute", content))

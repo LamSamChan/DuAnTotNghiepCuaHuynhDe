@@ -22,6 +22,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                 DoneContract add = new DoneContract()
                 {
                     DateDone = DateTime.Now,
+                    DateUnEffect = default,
                     DConTractName = pContract.PContractName,
                     DContractFile = pContract.PContractFile,
                     InstallationAddress = pContract.InstallationAddress,
@@ -65,6 +66,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     CustomerName = dc.Customer.FullName,
                     CustomerEmail = dc.Customer.Email,
                     DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    DateUnEffect = !String.IsNullOrEmpty(dc.DateUnEffect.ToString()) ? dc.DateUnEffect.ToString("dd/MM/yyyy") : null,
                     TypeOfService = dc.TypeOfService.ServiceName,
                     Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc",
                     EmployeeCreatedId = dc.EmployeeCreatedId.ToString().ToLower(),
@@ -93,6 +95,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     CustomerName = dc.Customer.FullName,
                     CustomerEmail = dc.Customer.Email,
                     DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    DateUnEffect = !String.IsNullOrEmpty(dc.DateUnEffect.ToString()) ? dc.DateUnEffect.ToString("dd/MM/yyyy") : null,
                     TypeOfService = dc.TypeOfService.ServiceName,
                     Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc",
                     EmployeeCreatedId = dc.EmployeeCreatedId.ToString().ToLower(),
@@ -118,6 +121,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     CustomerName = dc.Customer.FullName,
                     CustomerEmail = dc.Customer.Email,
                     DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    DateUnEffect = !String.IsNullOrEmpty(dc.DateUnEffect.ToString()) ? dc.DateUnEffect.ToString("dd/MM/yyyy") : null,
                     TypeOfService = dc.TypeOfService.ServiceName,
                     Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc",
                     EmployeeCreatedId = dc.EmployeeCreatedId.ToString().ToLower(),
@@ -143,6 +147,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     CustomerName = dc.Customer.FullName,
                     CustomerEmail = dc.Customer.Email,
                     DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    DateUnEffect = !String.IsNullOrEmpty(dc.DateUnEffect.ToString()) ? dc.DateUnEffect.ToString("dd/MM/yyyy") : null,
                     TypeOfService = dc.TypeOfService.ServiceName,
                     Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc",
                     EmployeeCreatedId = dc.EmployeeCreatedId.ToString().ToLower(),
@@ -167,6 +172,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     CustomerName = dc.Customer.FullName,
                     CustomerEmail = dc.Customer.Email,
                     DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    DateUnEffect = !String.IsNullOrEmpty(dc.DateUnEffect.ToString()) ? dc.DateUnEffect.ToString("dd/MM/yyyy") : null,
                     TypeOfService = dc.TypeOfService.ServiceName,
                     Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã kết thúc",
                     EmployeeCreatedId = dc.EmployeeCreatedId.ToString().ToLower(),
@@ -193,6 +199,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     CustomerName = dc.Customer.FullName,
                     CustomerEmail = dc.Customer.Email,
                     DateDone = dc.DateDone.ToString("dd/MM/yyyy"),
+                    DateUnEffect = !String.IsNullOrEmpty(dc.DateUnEffect.ToString()) ? dc.DateUnEffect.ToString("dd/MM/yyyy") : null,
                     TypeOfService = dc.TypeOfService.ServiceName,
                     Status = dc.IsInEffect ? "Đang hiệu lực" : "Đã dừng hiệu lực",
                     Base64File = dc.Base64File,
@@ -265,6 +272,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
             {
                 if (update != null)
                 {
+                    update.DateUnEffect = DateTime.Now;
                     update.IsInEffect = false;                    
                 }
                 _context.DoneContracts.Update(update);

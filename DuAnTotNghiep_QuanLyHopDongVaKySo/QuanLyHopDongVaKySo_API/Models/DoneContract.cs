@@ -16,6 +16,11 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Ngày hoàn thành")]
         public DateTime DateDone { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:HH:mm:ss dd/MM/yyyy}")]
+        [Display(Name = "Ngày kết thúc hợp đồng")]
+        [AllowNull]
+        public DateTime DateUnEffect { get; set; }
+
         [Column(TypeName = "nvarchar(100)")]
         [Display(Name = "Tên hợp đồng")]
         public string DConTractName { get; set; }
