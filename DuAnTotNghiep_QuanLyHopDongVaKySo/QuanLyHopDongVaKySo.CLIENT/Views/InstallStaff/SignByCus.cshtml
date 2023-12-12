@@ -202,6 +202,7 @@
                 }
             },
             error: function (textStatus, errorThrown) {
+                document.getElementById('loading-spinner').style.display = 'none';
                 alert();
                 Swal.fire({
                     icon: 'error',

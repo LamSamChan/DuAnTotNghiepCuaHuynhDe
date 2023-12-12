@@ -603,7 +603,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 //báo lỗi
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
-                TempData["SweetTitle"] = "Chưa ký biên bản nào cả!!";
+                TempData["SweetTitle"] = "Ký không thành công!!";
                 return BadRequest();
             }
 

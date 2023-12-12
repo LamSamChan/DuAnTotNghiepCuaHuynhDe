@@ -4,29 +4,28 @@
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-@* <style>
-    .loading {
-        position: absolute;
+<style>
+    #loading-spinner {
+        display: none;
         z-index: 1;
         width: 100%;
         height: 100%;
-        display: none;
         align-items: center;
         justify-content: center;
-        background: rgba(0, 0, 0, 0.479);
-        position: absolute;
-        top: 50%;
-        left: 50%;
+        background-color: transparent;
+        position: fixed;
+        top: 100%;
+        left: 100%;
         transform: translate(-50%, -50%);
     }
 
-        .loading img {
-            width: 7rem;
+        #loading-spinner > img {
+            width: 10rem;
         }
 </style>
-<div class="loading" id="loading">
+<div class="loading-spinner" id="loading-spinner">
     <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
-</div> *@
+</div> 
 <div class="container-fluid">
     @if(userRole == "Admin")
     {
@@ -110,7 +109,7 @@
                                     </td>
                                     <td> <a class="button-save" onclick="confirmDownload('@p.Base64File','@p.MinuteName')"><i class="ph-bold ph-download-simple"></i></a></td>
                                     <td>
-                                        <a asp-action="SignByStaff" asp-controller="InstallStaff" asp-route-pMinuteID="@p.PendingMinuteId">Chi tiết</a>
+                                        <a asp-action="SignByStaff" asp-controller="InstallStaff" asp-route-pMinuteID="@p.PendingMinuteId" onclick="handleLinkClick(event)" >Chi tiết</a>
                                     </td>
                                 </tr>
                             }
@@ -160,6 +159,11 @@
     </div>
 </div>
 <script type="text/javascript">
+    document.getElementById('loading-spinner').style.display = 'none';
+
+    function handleLinkClick(event) {
+        document.getElementById('loading-spinner').style.display = 'block';
+    }
 
     $(document).ready(function () {
         // Khởi tạo DataTable

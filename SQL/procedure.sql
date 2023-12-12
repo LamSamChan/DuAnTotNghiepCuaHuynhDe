@@ -6,7 +6,7 @@ CREATE PROCEDURE CountCustomersByTypeAndDate
 AS
 BEGIN
     SELECT
-        CAST(DateAdded AS DATE) AS [Date],
+        FORMAT(DateAdded, 'dd/MM/yyyy') AS [Date],
         COUNT(Id) AS [TotalCustomers],
         SUM(CASE WHEN typeofCustomer = N'Doanh nghiệp' THEN 1 ELSE 0 END) AS [EnterpriseCustomers],
         SUM(CASE WHEN typeofCustomer = N'Cá nhân' THEN 1 ELSE 0 END) AS [IndividualCustomers]
@@ -15,7 +15,7 @@ BEGIN
     WHERE
         CAST(DateAdded AS DATE) BETWEEN @StartDate AND @EndDate
     GROUP BY
-        CAST(DateAdded AS DATE);
+         FORMAT(DateAdded, 'dd/MM/yyyy')
 END;
 go
 
@@ -28,11 +28,12 @@ AS
 BEGIN
     SELECT
         TOS.ServiceName AS [ServiceTypeName],
-        CONVERT(DATE, PC.DateCreated) AS [Date],
+        FORMAT(PC.DateCreated, 'dd/MM/yyyy') AS [Date],
         COUNT(PC.Id) AS [TotalContracts],
         SUM(CASE WHEN PC.IsDirector = 1 THEN 1 ELSE 0 END) AS [DirectorApproved],
         SUM(CASE WHEN PC.IsRefuse = 1 THEN 1 ELSE 0 END) AS [DirectorRefused],
-        SUM(CASE WHEN PC.IsCustomer = 0 THEN 1 ELSE 0 END) AS [CustomerNotSigned]
+        SUM(CASE WHEN PC.IsRefuse = 0 AND PC.IsCustomer = 0 AND PC.IsDirector = 1 THEN 1 ELSE 0 END) AS [CustomerNotSigned],
+        SUM(CASE WHEN PC.IsDirector = 0 AND PC.IsRefuse = 0 THEN 1 ELSE 0 END) AS [DirectorNotChecked]
     FROM
         PendingContract PC
     LEFT JOIN TypeOfService TOS ON PC.TOS_ID = TOS.Id
@@ -40,7 +41,7 @@ BEGIN
         PC.DateCreated BETWEEN @StartDate AND @EndDate
     GROUP BY
         TOS.ServiceName,
-        CONVERT(DATE, PC.DateCreated);
+        FORMAT(PC.DateCreated, 'dd/MM/yyyy');
 END;
 go
 
@@ -50,14 +51,14 @@ CREATE PROCEDURE SumPendingContractByDate
 AS
 BEGIN
     SELECT
-        CONVERT(DATE, DateCreated) AS [Date],
+        FORMAT(DateCreated, 'dd/MM/yyyy') AS [Date],
         COUNT(Id) AS [TotalContracts]
     FROM
         PendingContract
     WHERE
         DateCreated BETWEEN @StartDate AND @EndDate
     GROUP BY
-        CONVERT(DATE, DateCreated);
+        FORMAT(DateCreated, 'dd/MM/yyyy');
 END;
 go
 
@@ -68,7 +69,7 @@ AS
 BEGIN
     SELECT
         LEFT(E.Id, 8) + ' - ' + E.FullName AS [EmployeeInfo],
-        CONVERT(DATE, PC.DateCreated) AS [Date],
+        FORMAT(PC.DateCreated, 'dd/MM/yyyy') AS [Date],
         COUNT(PC.Id) AS [TotalContracts]
     FROM
         PendingContract PC
@@ -77,7 +78,7 @@ BEGIN
         PC.DateCreated BETWEEN @StartDate AND @EndDate
     GROUP BY
         LEFT(E.Id, 8) + ' - ' + E.FullName,
-        CONVERT(DATE, PC.DateCreated);
+        FORMAT(PC.DateCreated, 'dd/MM/yyyy');
 END;
 go
 
@@ -89,7 +90,7 @@ CREATE PROCEDURE CountTotalContractsInEffect
 AS
 BEGIN
     SELECT
-	    CONVERT(DATE, DoneContract.DateDone) AS [Date],
+	    FORMAT(DoneContract.DateDone, 'dd/MM/yyyy') AS [Date],
         COUNT(Id) AS [TotalContractsInEffect]
     FROM
         DoneContract
@@ -97,7 +98,7 @@ BEGIN
         IsInEffect = 1
         AND DateDone BETWEEN @Start AND @End
     GROUP BY
-	 CONVERT(DATE, DoneContract.DateDone);
+	FORMAT(DoneContract.DateDone, 'dd/MM/yyyy');
 END;
 go
 
@@ -108,7 +109,7 @@ CREATE PROCEDURE CountContractsInEffectByService
 AS
 BEGIN
     SELECT
-	    CONVERT(DATE, DC.DateDone) AS [Date],
+	    FORMAT(DC.DateDone, 'dd/MM/yyyy') AS [Date],
         TOS.ServiceName AS [ServiceName],
         COUNT(DC.Id) AS [TotalContractsInEffect]
     FROM
@@ -118,7 +119,7 @@ BEGIN
         DC.IsInEffect = 1
         AND DC.DateDone BETWEEN @Start AND @End
     GROUP BY
-	    CONVERT(DATE, DC.DateDone),
+	    FORMAT(DC.DateDone, 'dd/MM/yyyy') ,
         TOS.ServiceName;
 END;
 go
@@ -129,7 +130,7 @@ CREATE PROCEDURE CountContractsInEffectByEmployee
 AS
 BEGIN
     SELECT
-	    CONVERT(DATE, DC.DateDone) AS [Date],
+	    FORMAT(DC.DateDone, 'dd/MM/yyyy')  AS [Date],
         LEFT(E.Id, 8) + ' - ' + E.FullName AS [EmployeeInfo],
         COUNT(DC.Id) AS [TotalContractsInEffect]
     FROM
@@ -139,7 +140,7 @@ BEGIN
         DC.IsInEffect = 1
         AND DC.DateDone BETWEEN @Start AND @End
     GROUP BY
-	      CONVERT(DATE, DC.DateDone),
+	    FORMAT(DC.DateDone, 'dd/MM/yyyy'),
         LEFT(E.Id, 8) + ' - ' + E.FullName;
 END;
 go
@@ -151,15 +152,15 @@ CREATE PROCEDURE CountTotalContractsUnEffect
 AS
 BEGIN
     SELECT
-	    CONVERT(DATE, DoneContract.DateUnEffect) AS [Date],
-        COUNT(Id) AS [TotalContractsInEffect]
+	   FORMAT(DoneContract.DateUnEffect, 'dd/MM/yyyy') AS [Date],
+       COUNT(Id) AS [TotalContractsInEffect]
     FROM
         DoneContract
     WHERE
         IsInEffect = 0
         AND DateDone BETWEEN @Start AND @End
     GROUP BY
-	 CONVERT(DATE, DoneContract.DateUnEffect);
+	 FORMAT(DoneContract.DateUnEffect, 'dd/MM/yyyy');
 END;
 go
 
@@ -169,7 +170,7 @@ CREATE PROCEDURE CountContractsNotInEffectByService
 AS
 BEGIN
     SELECT
-	    CONVERT(DATE, DC.DateUnEffect) AS [Date],
+	    FORMAT(DC.DateUnEffect, 'dd/MM/yyyy') AS [Date],
         TOS.ServiceName AS [ServiceName],
         COUNT(DC.Id) AS [TotalContractsNotInEffect]
     FROM
@@ -179,7 +180,7 @@ BEGIN
         DC.IsInEffect = 0
         AND DC.DateUnEffect BETWEEN @Start AND @End
     GROUP BY
-	    CONVERT(DATE, DC.DateUnEffect) ,
+	    FORMAT(DC.DateUnEffect, 'dd/MM/yyyy'),
         TOS.ServiceName;
 END;
 go
@@ -188,6 +189,6 @@ go
 
 
 
-Exec CountCustomersByTypeAndDate '09/11/2022','01/01/2024'
+Exec CountContractsByTypeAndDate '09/11/2022','01/01/2024'
 
 drop procedure CountCustomersByTypeAndDate
