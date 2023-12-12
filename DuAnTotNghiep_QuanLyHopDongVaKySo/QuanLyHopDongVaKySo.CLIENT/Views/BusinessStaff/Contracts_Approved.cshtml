@@ -1,0 +1,139 @@
+﻿@model List<QuanLyHopDongVaKySo_API.ViewModels.DContractViewModel>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
+}
+<div class="container-fluid">
+    @if(userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
+
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"> <a>Nhân viên kinh doanh</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng đã hoành thành</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH </h1>
+            <div class="row">
+                <input type="search" id="searchInput" style="margin-left: 10px;" placeholder="Tìm kiếm hợp đồng hoàn thành" />
+            </div>
+        </div>
+
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Hợp đồng đã hoàn thành</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH </h1>
+            <div class="row">
+                <input type="search" id="searchInput" style="margin-left: 10px;" placeholder="Tìm kiếm hợp đồng hoàn thành" />
+            </div>
+        </div>
+
+    }
+    <div class="row bg-white mx-auto my-auto mt-4 rounded">
+        <div class="listTable">
+            <table class="table display" id="myTable">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th scope="col">ID</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">NGÀY ĐĂNG KÝ DỊCH VỤ</th>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">LOẠI HỢP ĐỒNG ĐĂNG KÝ</th>
+                        <th scope="col">TRẠNG THÁI</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.Id </th>
+                            <td>@item.CustomerEmail</td>
+                            <td>@item.DateDone</td>
+                            <td>@item.CustomerName</td>
+                            <td>@item.TypeOfService</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                    <span>@item.Status</span>
+                                </div>
+                            </td>
+                            <td>
+                                <a asp-controller="BusinessStaff" asp-action="Details_Contract_Approved" asp-route-id="@item.Id">Chi tiết</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Khởi tạo DataTable
+        $('#myTable').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25,
+            "language": {
+                "decimal": "",
+                "paginate": {
+                    "first": "Đầu tiên",
+                    "last": "Cuối cùng",
+                    "next": "Sau",
+                    "previous": "Trước"
+                },
+                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
+                "emptyTable": "Không có dữ liệu"
+            }
+            }
+        });
+    });
+    // tìm kiếm
+    document.addEventListener('DOMContentLoaded', function () {
+        // Lấy đối tượng ô tìm kiếm và bảng
+        var input = document.getElementById('searchInput');
+        var table = document.getElementById('myTable');
+
+        // Thêm sự kiện 'input' cho ô tìm kiếm
+        input.addEventListener('input', function () {
+            // Gọi hàm filterTable khi người dùng nhập liệu
+            filterTable();
+        });
+
+        function filterTable() {
+            // Lấy giá trị từ ô tìm kiếm và chuyển đổi thành chữ thường
+            var filter = input.value.toLowerCase();
+
+            // Lấy tất cả các dòng trong tbody của bảng
+            var rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            // Lặp qua từng dòng và ẩn hoặc hiển thị dựa trên từ khóa tìm kiếm
+            for (var i = 0; i < rows.length; i++) {
+                var rowData = rows[i].innerText.toLowerCase();
+                if (rowData.includes(filter)) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+    });
+</script>

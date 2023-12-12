@@ -724,7 +724,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             
         }
 
-        public async Task<IActionResult> DetailsContractPending(string id, string tille)
+        public async Task<IActionResult> Details_Contract_Approved(string id, string tille)
         {
             if (IsAuthenticate != 1 && IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             VMDetailsContract viewModel = new VMDetailsContract();
@@ -746,7 +746,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
             viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.DirectorSignedId);
             
-            return View("DetailsContractPending", viewModel);
+            return View("Details_Contract_Approved", viewModel);
 
         }
 
@@ -758,7 +758,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
             viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
             
-            return View("DetailsContractPending", viewModel);
+            return View("Details_Contract_Approved", viewModel);
         }
 
         public async Task<IActionResult> EditCus(string customerID)

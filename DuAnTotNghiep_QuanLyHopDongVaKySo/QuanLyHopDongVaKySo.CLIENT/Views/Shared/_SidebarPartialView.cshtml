@@ -122,22 +122,17 @@ else if (@userRole == "Nhân viên kinh doanh")
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="ContractListPending" onclick="updateLoading()">
-                                    <span class="text">Yêu cầu lắp đặt</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a asp-controller="BusinessStaff" asp-action="ContractListEffect" onclick="updateLoading()">
+                                <a asp-controller="BusinessStaff" asp-action="Contracts_Approved" onclick="updateLoading()">
                                     <span class="text">Hợp đồng đã duyệt</span>
                                 </a>
                             </li>
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="ContractListWaitSign" onclick="updateLoading()">
+                                <a asp-controller="BusinessStaff" asp-action="ContractListPending" onclick="updateLoading()">
                                     <span class="text">Hợp đồng chờ khách ký</span>
                                 </a>
                             </li>
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="ContractListRefuse" onclick="updateLoading()">
+                                <a asp-controller="BusinessStaff" asp-action="ContractListPending" onclick="updateLoading()">
                                     <span class="text">Hợp đồng từ chối duyệt</span>
                                 </a>
                             </li>

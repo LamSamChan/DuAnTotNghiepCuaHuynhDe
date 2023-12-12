@@ -41,17 +41,38 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <div class="container-fluid" style="height: 100vh;">
-    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Biên bản đã nhận lắp</li>
-            </ol>
-        </nav>
-        <h1 class="typeHead">KÝ XÁC NHẬN</h1>
-    </div>
+    @if(userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Nhân viên lắp đặt</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Biên bản đã nhận lắp</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">KÝ XÁC NHẬN</h1>
+        </div>
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Biên bản đã nhận lắp</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">KÝ XÁC NHẬN</h1>
+        </div>
+
+    }
     <div class="row mt-4 bg-white rounded" style="margin:auto;">
         <div class="col-5">
             <div class="changPassForm">

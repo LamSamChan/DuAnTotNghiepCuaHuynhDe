@@ -215,25 +215,19 @@
                 </a>
                 <ul class="nav-group-items">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListPending" onclick="Loading()">
-                            <span class="nav-icon"></span>
-                            Yêu cầu lắp đặt
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListEffect" onclick="Loading()">
+                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="Contracts_Approved" onclick="Loading()">
                             <span class="nav-icon"></span>
                             Hợp đồng đã duyệt
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListWaitSign" onclick="Loading()">
+                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListPending" onclick="Loading()">
                             <span class="nav-icon"></span>
                             Hợp đồng chờ khách ký
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListRefuse" onclick="Loading()">
+                        <a class="nav-link" asp-controller="BusinessStaff" asp-action="ContractListPending" onclick="Loading()">
                             <span class="nav-icon"></span>
                             Hợp đồng từ chối duyệt
                         </a>
@@ -274,7 +268,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Director" asp-action="ListContractEffect" onclick="Loading()">
+                <a class="nav-link" asp-controller="Director" asp-action="Contracts_Active" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Hợp đồng hoạt động
