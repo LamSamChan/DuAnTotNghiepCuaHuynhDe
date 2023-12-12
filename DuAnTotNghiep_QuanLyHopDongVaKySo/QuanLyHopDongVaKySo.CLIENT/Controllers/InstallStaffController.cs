@@ -274,7 +274,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             vm.DoneMinute = await _dMinuteService.GetById(int.Parse(id));
             vm.DoneContract = _doneContractSvc.getAllView().Result.Where(d => d.DMinuteID == id).FirstOrDefault();
             vm.Customer = await _customerService.GetCustomerById(vm.DoneContract.CustomerId.ToString());
-            vm.Employee = await _employeeService.GetEmployeeById(vm.PendingMinute.EmployeeId.ToString());
+            vm.Employee = await _employeeService.GetEmployeeById(EmployeeId);
             return View(vm);
         }
 

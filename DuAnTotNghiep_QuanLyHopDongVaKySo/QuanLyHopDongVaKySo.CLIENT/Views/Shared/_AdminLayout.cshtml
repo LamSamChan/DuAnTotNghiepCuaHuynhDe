@@ -179,28 +179,28 @@
             </li>
             <li class="nav-title">GIÁM ĐỐC</li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Director" asp-action="ListContractAwait" onclick="Loading()">
+                <a class="nav-link" asp-controller="Director" asp-action="Contracts_PendingApproval" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Hợp đồng chờ duyệt
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Director" asp-action="ListContractActive" onclick="Loading()">
+                <a class="nav-link" asp-controller="Director" asp-action="Contracts_Approved" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Hợp đồng đã duyệt
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Director" asp-action="ListContractRefuseToSign" onclick="Loading()">
+                <a class="nav-link" asp-controller="Director" asp-action="Contracts_rejected" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Hợp đồng từ chối
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Director" asp-action="ListContractEffect" onclick="Loading()">
+                <a class="nav-link" asp-controller="Director" asp-action="Contracts_Active" onclick="Loading()">
                     <svg class="nav-icon">
                         <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-list "></use>
                     </svg> Hợp đồng hoạt động

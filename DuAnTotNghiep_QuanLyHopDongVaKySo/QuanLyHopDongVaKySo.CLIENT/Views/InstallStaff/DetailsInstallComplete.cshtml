@@ -6,9 +6,9 @@
 @{
     List<string> imageFilesMinute = new List<string>();
     string fileDMinuteNull = "Resource/Image/empty.png";
-    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "PMinuteImage"); // + thêm ID của contract
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage"); // + thêm ID của contract
 
-    string? folderItemMinute = System.IO.Path.Combine(folderPath, Model.PendingMinute.PendingMinuteId.ToString());
+    string? folderItemMinute = System.IO.Path.Combine(folderPath, Model.DoneMinute.DoneMinuteID.ToString());
 
     if (folderItemMinute != null)
     {
@@ -119,7 +119,7 @@
                                             @foreach (var imgPath in imageFilesMinute)
                                             {
                                                 <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                                    <img src="@Url.Content("~/ContractImage/"+Model.DoneMinute.DoneMinuteID+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                                    <img src="@Url.Content("~/MinuteImage/"+Model.DoneMinute.DoneMinuteID+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                                                 </div>
                                             }
                                         }
@@ -207,15 +207,15 @@
                 </div>
                 <div class="col-md-5">
                     <label for="inputAddress" class="form-label">Họ và tên</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Customer.FullName">
+                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.FullName">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Customer.Email">
+                    <input type="email" class="form-input" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.Email">
                 </div>
                 <div class="col-md-5">
                     <label for="inputAddress" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Customer.PhoneNumber">
+                    <input type="text" class="form-input" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.PhoneNumber">
                 </div>
             </form> 
         </div>

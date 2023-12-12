@@ -209,9 +209,10 @@
                                                 showConfirmButton: false,
                                                 timer: 1500
                                             }).then(() => {
-                                    
-                                                var redirectToUrl = '@Url.Action("DetailsContractAwait", "Director")?pContractId=' + @Model.PContract.PContractID;
-                                                window.location.href = redirectToUrl;
+                                                setTimeout(() => {
+                                                    var redirectToUrl = '@Url.Action("Details_Contract_Approved", "Director")?pContractId=' + @Model.PContract.PContractID;
+                                                    window.location.href = redirectToUrl;
+                                                }, 3000);
                                             });
 
                                         }
@@ -237,7 +238,7 @@
                                             timer: 1500
                                         }).then(() => {
                                      
-                                            var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
+                                            var redirectToUrl = '@Url.Action("Contracts_PendingAppred", "Director")';
                                             window.location.href = redirectToUrl;
                                         });
                                     }
@@ -356,7 +357,7 @@
             </nav>
             <h1 class="typeHead">CHI TIẾT HỢP ĐỒNG </h1>
             <div class="row justify-content-between mx-auto">
-                <a class="col-md-2 button-design" asp-action="ListContractAwait" asp-controller="Director">
+                <a class="col-md-2 button-design" asp-action="Contracts_PendingApproval" asp-controller="Director">
                     <i class="ph-bold ph-arrow-left">
                     </i>
                     QUAY LẠI
@@ -536,7 +537,7 @@
                                             timer: 1500
                                         }).then(() => {
                                        
-                                            var redirectToUrl = '@Url.Action("ListContractAwait", "Director")';
+                                            var redirectToUrl = '@Url.Action("Contracts_PendingApproval", "Director")';
                                             window.location.href = redirectToUrl;
                                         });
                                     }

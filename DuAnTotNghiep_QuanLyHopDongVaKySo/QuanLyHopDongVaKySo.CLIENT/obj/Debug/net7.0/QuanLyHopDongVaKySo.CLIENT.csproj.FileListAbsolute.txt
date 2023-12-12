@@ -1106,3 +1106,4 @@ C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDong
 E:\FPT Polytechnic\DATN_HUYNHDE_2023\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\bin\Debug\net7.0\Dapper.dll
 D:\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\bin\Debug\net7.0\Dapper.dll
 C:\Learn\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\bin\Debug\net7.0\Dapper.dll
+C:\Users\luudu\Desktop\DuAnTotNghiepCuaHuynhDe\DuAnTotNghiep_QuanLyHopDongVaKySo\QuanLyHopDongVaKySo.CLIENT\bin\Debug\net7.0\Dapper.dll
