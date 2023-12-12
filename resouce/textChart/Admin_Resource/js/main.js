@@ -240,8 +240,34 @@ const cardChart4 = new Chart(document.getElementById("card-chart4"), {
   },
 });
 
+//client chart
+const option1 = document.getElementById("option1");
+const option2 = document.getElementById("option2");
+const option3 = document.getElementById("option3");
+const datePickerContainer = document.getElementById("datePickerContainer");
+const weekPickerContainer = document.getElementById("weekPickerContainer");
+const yearPickerContainer = document.getElementById("yearPickerContainer");
+
+option1.addEventListener("change", function () {
+  datePickerContainer.style.display = option1.checked ? "block" : "none";
+  weekPickerContainer.style.display = "none";
+  yearPickerContainer.style.display = "none";
+});
+
+option2.addEventListener("change", function () {
+  datePickerContainer.style.display = "none";
+  weekPickerContainer.style.display = option2.checked ? "block" : "none";
+  yearPickerContainer.style.display = "none";
+});
+
+option3.addEventListener("change", function () {
+  datePickerContainer.style.display = "none";
+  weekPickerContainer.style.display = "none";
+  yearPickerContainer.style.display = option3.checked ? "block" : "none";
+});
+
 // Lấy JWT từ session
-//const jwtToken = sessionStorage.getItem('jwt');
+//const jwtToken = sessionStorage.getItem('token');
 
 // Thiết lập header Bearer
 //const headers = new Headers();
@@ -256,8 +282,39 @@ headers.append("Content-Type", `application/json`);
 headers.append("Access-Control-Allow-Origin", `*`);
 headers.append("Access-Control-Allow-Methods", "POST,PATCH,OPTIONS,GET,PUT");
 
-function getDataCountCustomer() {
-  fetch("https://localhost:7286/api/ExecProcedure/CountCustomerAdded", {
+document.addEventListener("DOMContentLoaded", function () {
+  // Khi trang được load, thiết lập giá trị mặc định cho startDate và endDate
+  const startDateInput = document.getElementById("startDate");
+  const endDateInput = document.getElementById("endDate");
+
+  const currentDate = new Date();
+  const sevenDaysAgo = new Date(currentDate);
+  sevenDaysAgo.setDate(currentDate.getDate() - 7);
+
+  startDateInput.valueAsDate = sevenDaysAgo; // Giá trị mặc định là ngày hôm nay
+  endDateInput.valueAsDate = currentDate; // Giá trị mặc định là 7 ngày trước
+  callDataCustomerByDate();
+});
+
+function callDataCustomerByDate() {
+  $("#client-chart").remove();
+  $("#div-client-chart").append(
+    '<canvas class="chart" id="client-chart" height="300"></canvas>'
+  );
+
+  const url =
+    "https://localhost:7286/api/ExecProcedure/CountCustomerAddedByDate";
+  const startDateInput = document.getElementById("startDate").value;
+  const endDateInput = document.getElementById("endDate").value;
+
+  // Chuyển đổi chuỗi đầu vào thành đối tượng Date
+  const startDate = new Date(startDateInput);
+  const endDate = new Date(endDateInput);
+
+  const startDateFormat = startDate.toISOString().substring(0, 10);
+  const endDateFormat = endDate.toISOString().substring(0, 10);
+
+  fetch(url + `?startDate=${startDateFormat}&endDate=${endDateFormat}`, {
     method: "GET",
     headers: headers,
   })
@@ -335,4 +392,188 @@ function getDataCountCustomer() {
     });
 }
 
-getDataCountCustomer();
+function callDataCustomerByWeek() {
+  $("#client-chart").remove();
+  $("#div-client-chart").append(
+    '<canvas class="chart" id="client-chart" height="300"></canvas>'
+  );
+
+  const url =
+    "https://localhost:7286/api/ExecProcedure/CountCustomerAddedByWeek";
+  const month = document.getElementById("weekpicker").value;
+
+  // Chuyển đổi chuỗi đầu vào thành đối tượng Date
+  const monthConvert = new Date(month);
+
+  const monthFormat = monthConvert.toISOString().substring(0, 10);
+
+  fetch(url + `?month=${monthFormat}`, {
+    method: "GET",
+    headers: headers,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const dateArray = [];
+      const totalCustomersArray = [];
+      const enterpriseCustomersArray = [];
+      const individualCustomersArray = [];
+
+      data.result.forEach((item) => {
+        // Lưu giá trị từ các trường vào các mảng tương ứng
+        dateArray.push(item.date);
+        totalCustomersArray.push(item.totalCustomers);
+        enterpriseCustomersArray.push(item.enterpriseCustomers);
+        individualCustomersArray.push(item.individualCustomers);
+      });
+
+      const maxCustomers = Math.max(...totalCustomersArray);
+
+      const mainChart = new Chart(document.getElementById("client-chart"), {
+        type: "bar",
+        data: {
+          labels: dateArray,
+          datasets: [
+            {
+              label: "Tổng",
+              backgroundColor: coreui.Utils.getStyle("--cui-info"),
+              data: totalCustomersArray,
+            },
+            {
+              label: "Cá nhân",
+              backgroundColor: coreui.Utils.getStyle("--cui-success"),
+              data: individualCustomersArray,
+            },
+            {
+              label: "Doanh nghiệp",
+              backgroundColor: coreui.Utils.getStyle("--cui-danger"),
+              data: enterpriseCustomersArray,
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: true,
+            },
+          },
+          scales: {
+            x: {
+              grid: {
+                drawOnChartArea: false,
+              },
+            },
+            y: {
+              ticks: {
+                beginAtZero: true,
+                maxTicksLimit: 5,
+                stepSize: Math.ceil(maxCustomers / 5),
+                max: maxCustomers,
+              },
+            },
+          },
+        },
+      });
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
+}
+
+function callDataCustomerByMonth() {
+  $("#client-chart").remove();
+  $("#div-client-chart").append(
+    '<canvas class="chart" id="client-chart" height="300"></canvas>'
+  );
+
+  const url =
+    "https://localhost:7286/api/ExecProcedure/CountCustomerAddedByMonth";
+  const month = document.getElementById("monthpicker").value;
+
+  // Chuyển đổi chuỗi đầu vào thành đối tượng Date
+  const monthData = new Date(month);
+
+  const monthConvert = monthData.toISOString().substring(0, 10);
+
+  fetch(url + `?month=${monthConvert}`, {
+    method: "GET",
+    headers: headers,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const dateArray = [];
+      const totalCustomersArray = [];
+      const enterpriseCustomersArray = [];
+      const individualCustomersArray = [];
+
+      data.result.forEach((item) => {
+        // Lưu giá trị từ các trường vào các mảng tương ứng
+        dateArray.push(item.date);
+        totalCustomersArray.push(item.totalCustomers);
+        enterpriseCustomersArray.push(item.enterpriseCustomers);
+        individualCustomersArray.push(item.individualCustomers);
+      });
+
+      const maxCustomers = Math.max(...totalCustomersArray);
+
+      const mainChart = new Chart(document.getElementById("client-chart"), {
+        type: "bar",
+        data: {
+          labels: dateArray,
+          datasets: [
+            {
+              label: "Tổng",
+              backgroundColor: coreui.Utils.getStyle("--cui-info"),
+              data: totalCustomersArray,
+            },
+            {
+              label: "Cá nhân",
+              backgroundColor: coreui.Utils.getStyle("--cui-success"),
+              data: individualCustomersArray,
+            },
+            {
+              label: "Doanh nghiệp",
+              backgroundColor: coreui.Utils.getStyle("--cui-danger"),
+              data: enterpriseCustomersArray,
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: true,
+            },
+          },
+          scales: {
+            x: {
+              grid: {
+                drawOnChartArea: false,
+              },
+            },
+            y: {
+              ticks: {
+                beginAtZero: true,
+                maxTicksLimit: 5,
+                stepSize: Math.ceil(maxCustomers / 5),
+                max: maxCustomers,
+              },
+            },
+          },
+        },
+      });
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
+}

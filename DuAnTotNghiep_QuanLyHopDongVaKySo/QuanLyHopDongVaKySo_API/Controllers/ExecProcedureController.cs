@@ -19,10 +19,34 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         }
 
 
-        [HttpGet("CountCustomerAdded")]
-        public IActionResult GetNumberCustomer()
+        [HttpGet("CountCustomerAddedByDate")]
+        public IActionResult GetNumberCustomer([FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
         {
-            var result = _exec.CountCustomerAdded();
+            var result = _exec.CountCustomerAddedByDate(startDate, endDate);
+
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return NotFound();
+        }
+
+        [HttpGet("CountCustomerAddedByWeek")]
+        public IActionResult GetNumberCustomerWeek([FromQuery] DateTime month)
+        {
+            var result = _exec.CountCustomerAddedByWeek(month);
+
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return NotFound();
+        }
+
+        [HttpGet("CountCustomerAddedByMonth")]
+        public IActionResult GetNumberCustomerMonth([FromQuery] DateTime month)
+        {
+            var result = _exec.CountCustomerAddedByMonth(month);
 
             if (result != null)
             {

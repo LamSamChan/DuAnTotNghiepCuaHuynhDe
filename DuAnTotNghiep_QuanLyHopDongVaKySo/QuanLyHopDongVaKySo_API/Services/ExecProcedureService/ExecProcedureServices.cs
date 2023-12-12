@@ -19,11 +19,8 @@ namespace QuanLyHopDongVaKySo_API.Services.ExecProcedureService
             _configuration = configuration;
         }
 
-        public async Task<List<CountCustomerAdded>> CountCustomerAdded()
+        public async Task<List<CountCustomerAdded>> CountCustomerAddedByDate(DateTime startDate,DateTime endDate)
         {
-            DateTime endDate = DateTime.Today.AddDays(1);
-            DateTime startDate = DateTime.Today.AddMonths(-3).AddDays(-1);
-
             using (var connection = new SqlConnection(_configuration.GetConnectionString("connection")))
             {
                 connection.Open();
@@ -32,6 +29,44 @@ namespace QuanLyHopDongVaKySo_API.Services.ExecProcedureService
                 parameters.Add("@EndDate", endDate.ToString("yyyy/MM/dd"));
 
                 var result = connection.Query<CountCustomerAdded>("CountCustomersByTypeAndDate", parameters, commandType: CommandType.StoredProcedure);
+
+                return result.ToList();
+            }
+        }
+        public async Task<List<CountCustomerAdded>> CountCustomerAddedByWeek(DateTime monthData)
+        {
+            string year = monthData.Year.ToString();
+            string month = monthData.Month.ToString();
+            if (int.Parse(month) < 10)
+            {
+                month = "0" + month;
+            }
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("connection")))
+            {
+                connection.Open();
+                var parameters = new DynamicParameters();
+                parameters.Add("@MonthYear", year+"-"+month);
+
+                var result = connection.Query<CountCustomerAdded>("CountCustomersByWeekAndMonth", parameters, commandType: CommandType.StoredProcedure);
+
+                return result.ToList();
+            }
+        }
+        public async Task<List<CountCustomerAdded>> CountCustomerAddedByMonth(DateTime monthData)
+        {
+            string year = monthData.Year.ToString();
+            string month = monthData.Month.ToString();
+            if (int.Parse(month) < 10)
+            {
+                month = "0" + month;
+            }
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("connection")))
+            {
+                connection.Open();
+                var parameters = new DynamicParameters();
+                parameters.Add("@ReferenceMonth", year+"-"+month+"-01");
+
+                var result = connection.Query<CountCustomerAdded>("CountMonthsInLastSixMonths", parameters, commandType: CommandType.StoredProcedure);
 
                 return result.ToList();
             }

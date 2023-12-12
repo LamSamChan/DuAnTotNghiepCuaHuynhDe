@@ -22,6 +22,47 @@ END;
 go
 
 
+CREATE PROCEDURE CountCustomersByWeekAndMonth
+    @MonthYear NVARCHAR(7) -- Ví dụ: '2023-09'
+AS
+BEGIN
+    SELECT
+        ROW_NUMBER() OVER (ORDER BY DATEPART(ISO_WEEK, DateAdded)) AS [Date], -- Sử dụng ROW_NUMBER()
+        COUNT(Id) AS [TotalCustomers],
+        SUM(CASE WHEN typeofCustomer = N'Doanh nghiệp' THEN 1 ELSE 0 END) AS [EnterpriseCustomers],
+        SUM(CASE WHEN typeofCustomer = N'Cá nhân' THEN 1 ELSE 0 END) AS [IndividualCustomers]
+    FROM
+        Customer
+    WHERE
+        FORMAT(DateAdded, 'yyyy-MM') = @MonthYear
+    GROUP BY
+        DATEPART(ISO_WEEK, DateAdded)
+    ORDER BY
+        [Date]; -- Sắp xếp theo số thứ tự của tuần
+END;
+go
+
+CREATE PROCEDURE CountMonthsInLastSixMonths
+    @ReferenceMonth DATE -- Thay đổi kiểu dữ liệu của tham số này
+AS
+BEGIN
+    SELECT
+        FORMAT(DateAdded, 'yyyy-MM') AS [Date],
+        COUNT(Id) AS [TotalCustomers],
+        SUM(CASE WHEN typeofCustomer = N'Doanh nghiệp' THEN 1 ELSE 0 END) AS [EnterpriseCustomers],
+        SUM(CASE WHEN typeofCustomer = N'Cá nhân' THEN 1 ELSE 0 END) AS [IndividualCustomers]
+    FROM
+        Customer
+    WHERE
+        DateAdded BETWEEN DATEADD(MONTH, -5, @ReferenceMonth) AND DATEADD(DAY, -1, DATEADD(MONTH, 1, @ReferenceMonth))
+    GROUP BY
+        FORMAT(DateAdded, 'yyyy-MM')
+    ORDER BY
+        FORMAT(DateAdded, 'yyyy-MM'); -- Sắp xếp theo tháng tăng dần
+END;
+go
+
+
 --Pending Contract
 CREATE PROCEDURE CountContractsByTypeAndDate
     @StartDate DATETIME2,
@@ -207,6 +248,7 @@ go
 
 
 
-Exec CountCustomersByTypeAndDate '2023/09/12','2023/12/12'
+Exec CountMonthsInLastSixMonths '2023-12-01'
+go
 
-drop procedure CountCustomersByTypeAndDate
+drop procedure CountCustomersByWeekAndMonth
