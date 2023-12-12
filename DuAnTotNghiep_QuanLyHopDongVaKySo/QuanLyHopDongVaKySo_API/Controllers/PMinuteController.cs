@@ -136,17 +136,15 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                             }
                         }
                     }
+                    pdfStamper.Close();
+                    pdfReader.Close();
 
-                pdfStamper.Close();
-                pdfReader.Close();
-
-                byte[] fileBytes = System.IO.File.ReadAllBytes(outputPdfFile);
-                base64String = Convert.ToBase64String(fileBytes);
+                    byte[] fileBytes = System.IO.File.ReadAllBytes(outputPdfFile);
+                    base64String = Convert.ToBase64String(fileBytes);
                 
-                await _pMinuteSvc.updatePMinuteFile(pMinute, outputPdfFile, base64String);
-                await _installationRequirementSvc.DeleteIRequirement(task.IRequirementId);
-               
-            }
+                    await _pMinuteSvc.updatePMinuteFile(pMinute, outputPdfFile, base64String);
+                    await _installationRequirementSvc.DeleteIRequirement(task.IRequirementId);
+                }
             return Ok(base64String+"*"+ pMinute);
         }
     }

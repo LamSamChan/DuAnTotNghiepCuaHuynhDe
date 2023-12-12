@@ -10,13 +10,14 @@
     string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
     string folderPathDMinute = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage"); // + thêm ID của minute
     string? folderItemDMinute = null;
-    string? basefile = null; 
-    
+    string? basefile = null;
+    string? mName = null;
     if (Model.DoneMinutes != null)
     {
         if (Model.DoneMinutes.Base64File != null)
         {
             basefile = Model.DoneMinutes.Base64File;
+            mName = Model.DoneMinutes.MinuteName;
         }
         folderItemDMinute = System.IO.Path.Combine(folderPathDMinute, Model.DoneMinutes.DoneMinuteID.ToString());
     }
@@ -101,13 +102,12 @@
                                     <i class="ph-bold ph-frame-corners" style="font-size:30px; margin: auto;"></i>
                                 </button>
                             </div>
-                            @if (!String.IsNullOrEmpty(Model.DoneMinutes.Base64File))
-                            {
-                                <div class="row justify-content-between" style="margin:auto;">
-                                    <h4 class="typeHead col-5">Tải hợp đồng</h4>
-                                    <a class="custom-file-upload col-1" onclick="confirmDownload('@Model.DoneContracts.Base64File','@Model.DoneContracts.DContractName')"><i class="ph-bold ph-download-simple"></i></a>
-                                </div>
-                            }
+                            
+                            <div class="row justify-content-between" style="margin:auto;">
+                                <h4 class="typeHead col-5">Tải hợp đồng</h4>
+                                <a class="custom-file-upload col-1" onclick="confirmDownload('@Model.DoneContracts.Base64File','@Model.DoneContracts.DContractName')"><i class="ph-bold ph-download-simple"></i></a>
+                            </div>
+                            
                             <div id="myCarousel" class="carousel slide" style=" width:100%;height: 750px;">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active ">
@@ -267,7 +267,7 @@
                             </div>
                             <div class="row justify-content-between" style="margin:auto;">
                                 <h4 class="typeHead col-5">Tải biên bản</h4>
-                                <a class="button-save" onclick="confirmDownload('@basefile','@Model.DoneMinutes.MinuteName')"><i class="ph-bold ph-download-simple"></i></a>
+                                <a class="button-save" onclick="confirmDownload('@basefile','@mName')"><i class="ph-bold ph-download-simple"></i></a>
                             </div>
                             <div id="myCarousel1" class="carousel slide" style=" width:100%;height: 750px;">
                                 <div class="carousel-inner">

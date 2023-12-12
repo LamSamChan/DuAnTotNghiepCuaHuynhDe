@@ -210,7 +210,7 @@
                                                 timer: 1500
                                             }).then(() => {
                                                 setTimeout(() => {
-                                                    var redirectToUrl = '@Url.Action("Details_Contract_Approved", "Director")?pContractId=' + @Model.PContract.PContractID;
+                                                    var redirectToUrl = '@Url.Action("Details_Contract_Approved", "Director")?id=' + @Model.PContract.PContractID;
                                                     window.location.href = redirectToUrl;
                                                 }, 3000);
                                             });

@@ -81,34 +81,11 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
                     PdfReader pdfReader = new PdfReader(pdfFilePath);
                     PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(outputPdfFile, FileMode.Create));
+
                     // Tạo một font cho trường văn bản
                     BaseFont bf = BaseFont.CreateFont(@"AppData/Font/texgyretermes-regular.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-                    //BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
                     // Thiết lập font và kích thước cho trường văn bản
-                    Font font = new Font(bf, 10);
-
-                    /*foreach (var coordinate in Coordinates)
-                    {
-                        string fieldName = coordinate.FieldName; // Tên trường từ bảng toạ độ
-                        float x = coordinate.X + 22; // Lấy tọa độ X từ bảng toạ độ
-                        float y = 839 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
-                        var mappingName = ContractInternet.ContractFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
-                        if (mappingName == null)
-                        {
-                            continue;
-                        }
-                        PropertyInfo property = typeof(ContractInternet).GetProperty(mappingName);
-                        if (property != null)
-                        {
-                            object value = property.GetValue(contract);
-                            if (value != null)
-                            {
-                                string contractValue = value.ToString();
-                                ColumnText.ShowTextAligned(pdfStamper.GetOverContent(coordinate.SignaturePage),
-                                Element.ALIGN_BASELINE, new Phrase(contractValue, font), x, y, 0);
-                            }
-                        }
-                    }*/
+                    Font font1 = new Font(bf, 10);
 
                     BaseFont bf2 = BaseFont.CreateFont(@"AppData/Font/texgyretermes-bold.otf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
                     // Thiết lập font và kích thước cho trường văn bản
@@ -122,12 +99,15 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                         float y = 839 - coordinate.Y; // Lấy tọa độ Y từ bảng toạ độ
                         var temp1 = ContractInternet.ContractFieldName.FirstOrDefault(id => id.Key == fieldName).Value;
                         var temp2 = ContractInternet.CustomerSignNameInfo.FirstOrDefault(id => id.Key == fieldName).Value;
-                         
+                        
                         if (temp1 == null)
                         {
                             if(temp2 == null)
-                            continue;
+                            {
+                                continue;
+                            }
                         }
+                        var font = temp1 == null ? font2 : font1;
                         var mappingName = temp1 != null ? temp1 : temp2;
                         PropertyInfo property = typeof(ContractInternet).GetProperty(mappingName);
                         if (property != null)
@@ -137,7 +117,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                             {
                                 string contractValue = value.ToString().ToUpper();
                                 ColumnText.ShowTextAligned(pdfStamper.GetOverContent(coordinate.SignaturePage),
-                                Element.ALIGN_BASELINE, new Phrase(contractValue, temp1 != null? font:font2), x, y, 0);
+                                Element.ALIGN_BASELINE, new Phrase(contractValue, font), x, y, 0);
                             }
                         }
                     }
