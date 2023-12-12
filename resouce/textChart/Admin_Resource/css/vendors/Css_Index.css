@@ -1,0 +1,807 @@
+﻿
+
+/*@import url("ListUser.css");
+*/
+/*hide and show pass*/
+.logo a:hover {
+    color: #1890FF;
+    transition: all;
+}
+
+
+
+.selected {
+    border: 2px solid blue;
+}
+.password-container {
+    position: relative;
+    width: 400px;
+    margin: auto;
+}
+
+.input-container {
+    position: relative;
+}
+
+
+#ConfirmPassNew,
+#passNew,
+#passOld{
+    padding-right: 30px;
+}
+
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+#eyeIcon,
+#eyeIcon1,
+#eyeIcon2 {
+    font-size: 20px;
+}
+/*=========*/
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-label {
+    font-size: 16px;
+    color: #333;
+    margin-right: 8px;
+}
+
+#checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 40px; 
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 10px; 
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+#checkbox:checked {
+    background-color: #333; /* Màu nền khi checkbox được chọn */
+    border-color: #333; /* Màu viền khi checkbox được chọn */
+}
+
+#checkbox:checked::before {
+    content: '\2713'; /* Unicode character for checkmark */
+    font-size: 14px;
+    color: #fff; /* Màu của dấu tích khi checkbox được chọn */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/**/
+.form {
+    height: 467px;
+    display: flex;
+    cursor: pointer;
+    margin: 30px 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 2px dashed #6990F2;
+    width:400px;
+    margin: auto;
+   background-color:#fff;
+}
+
+.button-22 {
+    align-items: center;
+    appearance: button;
+    background-color: #0276FF;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    font-family: "RM Neue", sans-serif;
+    margin: 0;
+    padding: 5px 10px; /* Adjusted padding for a smaller size */
+    text-align: center;
+    text-transform: none;
+    transition: color .13s ease-in-out, background .13s ease-in-out, opacity .13s ease-in-out, box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-22:active {
+    background-color: #006AE8;
+}
+
+.button-22:hover {
+    background-color: #1C84FF;
+}
+
+@font-face {
+    font-family: "YourCustomFont";
+    src: url("/holligate-signature-demo/HolligateSignatureDemo.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+#imageContainer {
+    margin-top: 20px;
+    font-family: "YourCustomFont", Arial, sans-serif;
+}
+#imageContainer img{
+    width:100%;
+    border:1px dotted;
+}
+/**/
+#fontSelect {
+    width: 220px;
+    margin-left: 10px;
+}
+
+#nav-home,
+#nav-profile {
+    width: 100%;
+}
+
+.row{
+    margin: auto;
+}
+
+.otp-container {
+    display: flex;
+    justify-content: center;
+}
+
+.otp-input {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    text-align: center;
+    font-size: 18px;
+}
+/*=============*/
+.changPassForm {
+    margin: 50px auto;
+    width: 600px;
+    background: white;
+}
+
+.changPassForm .row .col-md-12 {
+    display: flex;
+    flex-direction: column;
+}
+
+.changPassForm form {
+    padding: 50px;
+}
+
+.changPassForm form button {
+    margin: 40px auto;
+}
+
+.td {
+    padding: 10px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: #1890FF;
+}
+
+.disabled {
+    border-radius: 8px;
+    background: #2CDDBD;
+    display: flex;
+    width: 240px;
+    height: 40px;
+    padding: 8px 12px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin: 20px;
+    border: 2px solid;
+    color: white;
+    font-weight: bold;
+}
+/*css ChangePass*/
+#message {
+    font-style: italic;
+    display: inline-block;
+}
+
+.mismatch {
+    color: red;
+}
+
+.match {
+    color: green;
+}
+/*css create contract for cus*/
+
+.box_Svd {
+    background-color: white;
+    height: 400px;
+}
+
+.listSVC {
+    list-style: none;
+    max-height: 300px;
+    border: 1px solid;
+    margin: 50px 10px;
+    overflow-y: scroll;
+}
+
+.listSVC li {
+    width: 50%;
+    margin-bottom: 25px;
+}
+
+
+
+
+/*css information*/
+input[type="file"] {
+    display: none;
+}
+
+/* Thiết lập giao diện tùy chỉnh cho input type="file" */
+
+.Save_btn {
+    margin-left:10px;
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(100% 100% at 100% 0, #457fca 0, #5691c8 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+}
+
+
+
+.custom-file-upload {
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+}
+.Save_btn i,
+.custom-file-upload i {
+    margin-right: 10px;
+}
+.Save_btn:focus,
+.custom-file-upload:focus {
+    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+.Save_btn:hover,
+.custom-file-upload:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.Save_btn:active,
+.custom-file-upload:active {
+    box-shadow: #3c4fe0 0 3px 7px inset;
+    transform: translateY(2px);
+}
+/*======*/
+
+/*danh sach chu ky*/
+#scrollable-list {
+    max-height: 400px;
+    overflow-y: auto; 
+}
+
+#scrollable-list ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.a,
+#scrollable-list ul li {
+    position: relative;
+    display: inline-block;
+    border: 1px solid;
+    margin: 10px;
+    width:100%;
+    box-sizing: border-box;
+}
+.a,
+#scrollable-list ul li img {
+    width: 100%;
+    height: 100%;
+}
+div[class="overlay"] {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    transition: opacity 0.3s;
+    padding: 10px;
+    opacity: 0;
+}
+div[class="overlay"] .row{
+    margin: auto;
+}
+.a:hover div[class="overlay"] {
+    opacity: 1;
+}
+.avt:hover div[class="overlay"] {
+    opacity: 1;
+}
+
+/*css butn del*/
+.button-delete {
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    margin: auto 10px;
+    text-decoration: none;
+}
+
+.button-delete:hover,
+.button-delete:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+}
+
+.button-delete:active {
+    opacity: .5;
+}
+
+
+
+/*css btn cấu hình*/
+.button-design {
+    background: #1899D6;
+    border: 1px solid #1899D6;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    margin: auto 10px;
+    text-decoration: none;
+}
+
+.button-design:hover,
+.button-design:active {
+    background-color: white;
+    background-position: 0 0;
+    color: #1899D6;
+}
+
+.button-design:active {
+    opacity: .5;
+}
+
+
+.button-save {
+    background: #13aa52;
+    border: 1px solid #13aa52;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.button-save:hover,
+.button-save:active {
+    background-color: white;
+    background-position: 0 0;
+    color: #13aa52;
+}
+
+.button-save:active {
+    opacity: .5;
+}
+/*================*/
+/*vùng ký*/
+#action_Sign{
+    margin:auto;
+}
+#action_Sign .form-inline {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+/*============*/
+.Search_All {
+    width: 250px;
+    display: flex;
+    flex: revert-layer;
+    background-color: azure;
+    position: absolute;
+    left: 300px;
+    border-radius: 4px;
+    height: 40px;
+}
+
+.Search_All i {
+    padding: 0 5px;
+    font-size: 20px;
+    margin: auto 0;
+}
+
+.Search_All input {
+    border: none;
+    background-color: transparent;
+    width: 150px;
+}
+
+.Search_All input:focus {
+    background-color: none;
+    outline: none;
+}
+
+.horizontal-list li {
+    margin-right: 20px;
+}
+
+.horizontal-list li i {
+    font-size: 20px;
+}
+
+.horizontal-list li a {
+    display: flex;
+    cursor: pointer;
+}
+
+.horizontal-list li a i {
+    margin: 10px 0;
+}
+
+
+.SearchBox {
+    height: 61px;
+    width: 400px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #FFF;
+    box-shadow: 14px 17px 40px 4px rgba(112, 144, 176, 0.08);
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+}
+
+input[type="search"] {
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    opacity: 0.6;
+}
+
+.btn-addRole {
+    border-radius: 8px;
+    background: #2CDDBD;
+    display: flex;
+    width: 100px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 2px solid;
+    color: white;
+    font-weight: bold;
+}
+
+
+.add_Cus {
+    font-weight: bold;
+    border: 1px solid white;
+    width: 300px;
+    border-radius: 12px;
+    background: #2CA8DD;
+    padding: 0px 8px;
+    height: 30px;
+    align-items: end;
+    color: white;
+}
+.btn-addRole a,
+.add_Cus a {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-addRole > i,
+.add_Cus > i {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.typeHead {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: #1890FF;
+}
+
+/*css -detailsACc*/
+form .col-md-5 div[class="box2 row justify-content-between g-3 "],
+form .col-md-5 div[class="box1 row justify-content-between g-3 "] {
+    width: 650px;
+    height: 750px;
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 6px 4px 13px 0px rgba(0, 0, 0, 0.25);
+}
+
+form .col-md-5 div[class="box2 row justify-content-between g-3 "] .col-md-6,
+form .col-md-5 div[class="box1 row justify-content-between g-3 "] .col-md-6 {
+    padding: 10px;
+}
+
+form .col-md-5 div[class="box2 row justify-content-between g-3 "] .col-md-12 label,
+form .col-md-5 div[class="box1 row justify-content-between g-3 "] .col-md-12 label,
+form .col-md-5 div[class="box2 row justify-content-between g-3 "] .col-md-6 label,
+form .col-md-5 div[class="box1 row justify-content-between g-3 "] .col-md-6 label {
+    color: #525252;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+
+
+form .col-md-5 div[class="box2 row justify-content-between g-3 "] .col-md-6 input,
+form .col-md-5 div[class="box1 row justify-content-between g-3 "] .col-md-6 input {
+    border-radius: 8px;
+    background: #EDEDED;
+    border: none;
+}
+
+.avt {
+    position: relative;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    border: 1px solid;
+    margin: auto 50px;
+}
+button[class="add_cus"] {
+    border-radius: 8px;
+    background: #2CDDBD;
+    border: none;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    height: 30px;
+}
+
+button[class="add_cus"] a {
+    text-decoration: none;
+    color: white;
+}
+
+button[class="addmore"] {
+    border-radius: 8px;
+    background: #1588c3;
+    border: none;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    height: 30px;
+}
+
+button[class="addmore"] a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/*css btn-role*/
+button[class="btn-addRole"] {
+    border-radius: 8px;
+    background: #2CDDBD;
+    display: flex;
+    width: 240px;
+    height: 40px;
+    padding: 8px 12px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin: 20px;
+    border: 2px solid;
+    color: white;
+    font-weight: bold;
+}
+/*css listUser*/
+div[class="tab-container"] {
+    display: flex;
+    margin-top: 20px;
+}
+
+
+.tab-content {
+    display: none;
+    margin-top: 10px;
+    height: 870px;
+}
+
+.active {
+    display: block;
+}
+
+.tab-button {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: rgba(171, 181, 190, 0.37);
+    box-shadow: 0px -3px 0px 0px #CFD4DA inset;
+}
+
+.tab-button.active {
+    font-weight: bold;
+    border: 1px solid #333;
+    background-color: #fff;
+    box-shadow: 0px -3px 0px 0px #DF4949 inset;
+    border: none;
+}
+
+
+
+div[class="row action"] {
+    display: contents;
+    font-size: 20px;
+}
+
+div[class="row action"] a {
+    text-decoration: none;
+    color: #8B909A;
+}
+/*css button return*/
+/*.return {
+    border-radius: 8px;
+    background: rgba(44, 168, 221, 0.58);
+    display: flex;
+    width: 100px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 2px solid;
+    color: white;
+    font-weight: bold;
+}
+.return a{
+    text-decoration:none;
+    color: white;
+}*/
+/*css - listTable*/
+.listTable {
+    max-height: 700px;
+    overflow-y: scroll;
+    padding:15px;
+}
+.tab-content div[class="listTable"] {
+    background-color: white;
+    height: 700px;
+    padding: 10px;
+    box-shadow: 0px 18px 40px 0px rgba(112, 144, 176, 0.12);
+    padding:15px;
+}
+.content {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    border-radius: 5px;
+    border: 1px solid #000;
+    height: 100px;
+}
+.content.disabled {
+    opacity: 1;
+    pointer-events: none;
+    padding:10px;
+}

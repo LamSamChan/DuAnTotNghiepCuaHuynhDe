@@ -11,7 +11,7 @@ namespace QuanLyHopDongVaKySo_API.Services.ExecProcedureService
     public class ExecProcedureServices : IExecProcedureServices
     {
         private readonly ProjectDbContext _context;
-        private readonly IConfiguration _configuration;
+        private readonly IConfiguration _configuration; 
 
         public ExecProcedureServices(ProjectDbContext context, IConfiguration configuration)
         {
@@ -28,8 +28,8 @@ namespace QuanLyHopDongVaKySo_API.Services.ExecProcedureService
             {
                 connection.Open();
                 var parameters = new DynamicParameters();
-                parameters.Add("@StartDate", startDate);
-                parameters.Add("@EndDate", endDate);
+                parameters.Add("@StartDate", startDate.ToString("yyyy/MM/dd"));
+                parameters.Add("@EndDate", endDate.ToString("yyyy/MM/dd"));
 
                 var result = connection.Query<CountCustomerAdded>("CountCustomersByTypeAndDate", parameters, commandType: CommandType.StoredProcedure);
 

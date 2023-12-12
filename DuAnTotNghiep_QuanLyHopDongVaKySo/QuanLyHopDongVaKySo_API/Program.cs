@@ -95,9 +95,16 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
                 builder.Configuration["AppSettings:Token"]!))
     };
 });
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
+
+app.UseCors(x => x
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .SetIsOriginAllowed(origin => true) // allow any origin
+                    .AllowCredentials()); // allow credentials
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
