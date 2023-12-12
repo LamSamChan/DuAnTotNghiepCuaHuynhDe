@@ -633,7 +633,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
                 TempData["SweetTitle"] = "Thêm thất bại, kiểm tra lại thông tin nhân viên!!";
-                return RedirectToAction("AddEmpAccount");
+                return RedirectToAction("ListEmpAccount");
             }
         }
 

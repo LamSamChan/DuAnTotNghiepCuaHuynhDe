@@ -33,6 +33,12 @@
             </ol>
         </nav>
         <h1 class="typeHead">THÊM NHÂN VIÊN</h1>
+        <div class="row">
+            <a class="col-md-2 button-design" asp-action="ListEmpAccount" asp-controller="Admin">
+                <i class="ph-bold ph-arrow-left"></i>
+                QUAY LẠI
+            </a>
+        </div>
     </div>
     <form class="row justify-content-around mx-auto my-auto mt-5" method="post" enctype="multipart/form-data" asp-action="AddEmpAction" asp-controller="Admin">
         <div class="col-md-5">
@@ -206,3 +212,26 @@
         });
     });
 </script>
+@if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var sweetData = {
+                title: '@TempData["SweetTitle"]',
+                text: '@TempData["SweetText"]',
+                icon: '@TempData["SweetIcon"]'
+            };
+            Swal.fire({
+                title: sweetData.title,
+                text: sweetData.text,
+                icon: sweetData.icon,
+                showCancelButton: false,
+                allowOutsideClick: false,
+                confirmButtonColor: "green",
+                confirmButtonText: "Ok"
+            }).then(function () {
+                // Handle any additional logic after the SweetAlert is closed.
+            });
+        });
+    </script>
+}
