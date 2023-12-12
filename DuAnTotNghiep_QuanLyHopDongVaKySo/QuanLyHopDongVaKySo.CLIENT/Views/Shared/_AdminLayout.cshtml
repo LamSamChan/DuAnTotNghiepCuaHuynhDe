@@ -284,15 +284,21 @@
                 </a>
                 <ul class="nav-group-items">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="InstallStaff" asp-action="ListInstallRequire" onclick="Loading()">
+                        <a class="nav-link" asp-controller="InstallStaff" asp-action="Record_Install_Require" onclick="Loading()">
                             <span class="nav-icon"></span>
                             Danh sách yêu cầu lắp
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="InstallStaff" asp-action="ListInstallRecord" onclick="Loading()">
+                        <a class="nav-link" asp-controller="InstallStaff" asp-action="Record_Install_Pendding" onclick="Loading()">
                             <span class="nav-icon"></span>
-                            Biên bản đã nhận lắp
+                            Biên bản chờ lắp
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="InstallStaff" asp-action="Record_Install_Complete" onclick="Loading()">
+                            <span class="nav-icon"></span>
+                            Biên bản đã lắp
                         </a>
                     </li>
                 </ul>

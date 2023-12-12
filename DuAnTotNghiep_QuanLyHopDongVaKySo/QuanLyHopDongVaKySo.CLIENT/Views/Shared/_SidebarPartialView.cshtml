@@ -220,13 +220,18 @@ else
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a asp-controller="InstallStaff" asp-action="ListInstallRequire" onclick="updateLoading()">
+                                <a asp-controller="InstallStaff" asp-action="Record_Install_Require" onclick="updateLoading()">
                                     <span class="text">Danh sách yêu cầu lắp</span>
                                 </a>
                             </li>
                             <li>
-                                <a asp-controller="InstallStaff" asp-action="ListInstallRecord" onclick="updateLoading()">
-                                    <span class="text">Biên bản đã nhận lắp</span>
+                                <a asp-controller="InstallStaff" asp-action="Record_Install_Pendding" onclick="updateLoading()">
+                                    <span class="text">Biên bản chờ lắp</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="InstallStaff" asp-action="Record_Install_Complete" onclick="updateLoading()">
+                                    <span class="text">Biên bản đã lắp</span>
                                 </a>
                             </li>
                         </ul>

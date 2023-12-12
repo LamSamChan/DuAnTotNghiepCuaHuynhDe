@@ -196,8 +196,11 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 return BadRequest();
             }
         }
-
-        public async Task<IActionResult> ListInstallRequire()
+        public IActionResult Record_Install_Pendding()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Record_Install_Require()
         {
             VMListIRequire vm = new VMListIRequire();
             if (IsAuthenticate == 1 || IsAuthenticate == 4)
@@ -246,12 +249,12 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     TempData["SweetType"] = "success";
                     TempData["SweetIcon"] = "success";
                     TempData["SweetTitle"] = "Đã nhận yêu cầu lắp đặt !!";
-                    return RedirectToAction("ListInstallRecord");
+                    return RedirectToAction("Record_Install_Complete");
                 }
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
                 TempData["SweetTitle"] = "loi he thong !!";
-                return RedirectToAction("ListInstallRecord");
+                return RedirectToAction("Record_Install_Complete");
             }
             return RedirectToAction("Index", "Verify");
         }
@@ -359,7 +362,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
       
 
-        public async Task<IActionResult> ListInstallRecord()
+        public async Task<IActionResult> Record_Install_Complete()
         {
             if (IsAuthenticate == 1 || IsAuthenticate == 4)
             {
@@ -511,7 +514,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
                 TempData["SweetTitle"] = "Ký chữ ký thành công !!";
-                return RedirectToAction("ListInstallRecord");
+                return RedirectToAction("Record_Install_Complete");
             }
             else
             {
@@ -519,7 +522,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
           /*      TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
                 TempData["SweetTitle"] = "Ký quá nhiều lần !!";*/
-                return RedirectToAction("ListInstallRecord");
+                return RedirectToAction("Record_Install_Complete");
             }
 
            

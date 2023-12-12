@@ -1,0 +1,209 @@
+﻿ @model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMListInstallRecord
+
+@{
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<style>
+    #loading-spinner {
+        display: none;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        position: fixed;
+        top: 100%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+        #loading-spinner > img {
+            width: 10rem;
+        }
+</style>
+<div class="loading-spinner" id="loading-spinner">
+    <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+</div> 
+<div class="container-fluid">
+    @if(userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Nhân viên lắp đặt</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Biên bản đã lắp</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+            <div class="row">
+                <input type="search" id="searchInput" style="margin-left: 10px;" placeholder="Tìm kiếm.." />
+            </div>
+        </div>
+
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a>Quản lý yêu cầu lắp</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Biên bản đã lắp</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">TẤT CẢ DANH SÁCH</h1>
+            <div class="row">
+                <input type="search" id="searchInput" style="margin-left: 10px;" placeholder="Tìm kiếm.." />
+            </div>
+        </div>
+    }
+    <div class="row mt-3 bg-white rounded mx-auto my-auto">
+        <div class="row" style="margin: auto;">
+            <table class="table display" id="myTable2">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th scope="col">MÃ BIÊN BẢN</th>
+                        <th scope="col">NGÀY HOÀN THÀNH</th>
+                        <th scope="col">TÊM BIÊN BẢN</th>
+                        <th scope="col">TRẠNG THÁI</th>
+                        <th scope="col">BIÊN BẢN</th>
+                        <th scope="col">HOẠT ĐỘNG</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @foreach (var p in Model.doneMinutes)
+                    {
+                        <tr>
+                            <th scope="row">@p.DoneMinuteID</th>
+                            <td>@p.DateDone.ToString("dd/MM/yyyy")</td>
+                            <td>@p.MinuteName</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                    <span>Đã lắp đặt</span>
+                                </div>
+                            </td>
+                            <td> <a class="button-save" onclick="confirmDownload('@p.Base64File','@p.MinuteName')"><i class="ph-bold ph-download-simple"></i></a></td>
+                            <td>
+                                <a asp-action="DetailsInstallComplete" asp-controller="InstallStaff" asp-route-id="@p.DoneMinuteID" onclick="updatePosition()">Chi tiết</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    document.getElementById('loading-spinner').style.display = 'none';
+
+    function handleLinkClick(event) {
+        document.getElementById('loading-spinner').style.display = 'block';
+    }
+
+    $(document).ready(function () {
+        $('#myTable2').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25,
+            "language": {
+                "decimal": "",
+                "paginate": {
+                    "first": "Đầu tiên",
+                    "last": "Cuối cùng",
+                    "next": "Sau",
+                    "previous": "Trước"
+                },
+                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
+                "emptyTable": "Không có dữ liệu"
+            }
+        });
+
+    });
+
+
+    // tìm kiếm
+    document.addEventListener('DOMContentLoaded', function () {
+        // Lấy đối tượng ô tìm kiếm chung
+        var searchInput = document.getElementById('searchInput');
+
+        // Thêm sự kiện 'input' cho ô tìm kiếm chung
+        searchInput.addEventListener('input', function () {
+            filterAllTables(searchInput);
+        });
+
+        // Lấy đối tượng bảng và ô tìm kiếm cho Tab 1
+        var table1 = document.getElementById('myTable1');
+
+        // Lấy đối tượng bảng và ô tìm kiếm cho Tab 2
+        var table2 = document.getElementById('myTable2');
+    });
+
+    function filterAllTables(input) {
+        var filter = input.value.toLowerCase();
+
+        // Lấy tất cả các bảng trong tất cả các tab
+        var tables = document.getElementsByClassName('table');
+
+        for (var t = 0; t < tables.length; t++) {
+            var rows = tables[t].getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            for (var i = 0; i < rows.length; i++) {
+                var rowData = rows[i].innerText.toLowerCase();
+                if (rowData.includes(filter)) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+    }
+
+    function downloadPDF(base64String, fileName) {
+        var byteCharacters = atob(base64String);
+        var byteNumbers = new Array(byteCharacters.length);
+        for (var i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        var byteArray = new Uint8Array(byteNumbers);
+        var blob = new Blob([byteArray], { type: 'application/pdf' });
+
+        var blobUrl = URL.createObjectURL(blob);
+
+        var a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
+    function confirmDownload(base64File, tMinuteName) {
+        // Sử dụng SweetAlert để xác nhận tải xuống
+        Swal.fire({
+            title: 'Bạn có muốn tải xuống?',
+            text: 'Hành động này sẽ tải xuống tệp PDF.',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Tải xuống',
+            cancelButtonText: 'Hủy'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Nếu người dùng xác nhận tải xuống, thực hiện hàm tải xuống
+                downloadPDF(base64File, tMinuteName);
+            }
+        });
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
