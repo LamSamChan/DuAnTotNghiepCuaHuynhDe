@@ -237,9 +237,15 @@
                                             showConfirmButton: false,
                                             timer: 1500
                                         }).then(() => {
-                                     
-                                            var redirectToUrl = '@Url.Action("Contracts_PendingAppred", "Director")';
-                                            window.location.href = redirectToUrl;
+
+                                            // Thêm hoặc xóa class
+                                            myDiv.classList.toggle('show');
+                                            myDiv.classList.toggle('hide');
+
+                                            // Thay đổi giá trị của thuộc tính style
+                                            myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                                            document.getElementById('loading-spinner').style.display = 'none';
                                         });
                                     }
                                 });
@@ -259,7 +265,7 @@
 
                                 document.getElementById('loading-spinner').style.display = 'block';
 
-                                if (defaultImg == '') {
+                                if (defaultImg == null) {
                                     Swal.fire({
                                         icon: 'error',
                                         title: 'Lỗi!',
@@ -267,7 +273,14 @@
                                         showConfirmButton: false,
                                         timer: 1500
                                     }).then(() => {
-                               
+                                        // Thêm hoặc xóa class
+                                        myDiv.classList.toggle('show');
+                                        myDiv.classList.toggle('hide');
+
+                                        // Thay đổi giá trị của thuộc tính style
+                                        myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                                        document.getElementById('loading-spinner').style.display = 'none';
                                     });
                                 } else {
                                     var signingDefault = {
@@ -327,7 +340,14 @@
                                                 showConfirmButton: false,
                                                 timer: 1500
                                             }).then(() => {
-                                               
+                                                // Thêm hoặc xóa class
+                                                myDiv.classList.toggle('show');
+                                                myDiv.classList.toggle('hide');
+
+                                                // Thay đổi giá trị của thuộc tính style
+                                                myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                                                document.getElementById('loading-spinner').style.display = 'none';
                                           
                                             });
                                         }
@@ -536,9 +556,15 @@
                                             showConfirmButton: false,
                                             timer: 1500
                                         }).then(() => {
-                                       
-                                            var redirectToUrl = '@Url.Action("Contracts_PendingApproval", "Director")';
-                                            window.location.href = redirectToUrl;
+
+                                            // Thêm hoặc xóa class
+                                            myDiv.classList.toggle('show');
+                                            myDiv.classList.toggle('hide');
+
+                                            // Thay đổi giá trị của thuộc tính style
+                                            myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                                            document.getElementById('loading-spinner').style.display = 'none';
                                         });
                                     }
                                 });
@@ -559,7 +585,7 @@
                                 myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
 
                                 document.getElementById('loading-spinner').style.display = 'block';
-                                if (defaultImg == '') {
+                                if (defaultImg == null) {
                                     Swal.fire({
                                         icon: 'error',
                                         title: 'Lỗi!',
@@ -567,7 +593,14 @@
                                         showConfirmButton: false,
                                         timer: 1500
                                     }).then(() => {
+                                        // Thêm hoặc xóa class
+                                        myDiv.classList.toggle('show');
+                                        myDiv.classList.toggle('hide');
 
+                                        // Thay đổi giá trị của thuộc tính style
+                                        myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                                        document.getElementById('loading-spinner').style.display = 'none';
                                     });
                                 } else {
                                     var signingDefault = {
@@ -625,7 +658,14 @@
                                                 showConfirmButton: false,
                                                 timer: 1500
                                             }).then(() => {
-                                      
+                                                // Thêm hoặc xóa class
+                                                myDiv.classList.toggle('show');
+                                                myDiv.classList.toggle('hide');
+
+                                                // Thay đổi giá trị của thuộc tính style
+                                                myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                                                document.getElementById('loading-spinner').style.display = 'none';
                                             });
                                         }
 

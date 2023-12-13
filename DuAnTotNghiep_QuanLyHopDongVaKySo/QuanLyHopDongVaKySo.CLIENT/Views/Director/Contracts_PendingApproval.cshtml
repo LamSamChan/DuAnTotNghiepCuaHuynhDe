@@ -213,7 +213,7 @@
                                 </div>
                             </td>
                             <td>
-                                <a asp-action="Details_Contract_PendingApproval" asp-controller="Director" asp-route-pContractId="@item.PContractID">Chi tiết</a>
+                                <a asp-action="Details_Contract_PendingApproval" asp-controller="Director" asp-route-pContractId="@item.PContractID" onclick="handleLinkClick(event)">Chi tiết</a>
                             </td>
                         </tr>
                     }
@@ -230,6 +230,10 @@
 <script type="text/javascript">
 
     document.getElementById('loading-spinner').style.display = 'none';
+
+    function handleLinkClick(event) {
+        document.getElementById('loading-spinner').style.display = 'block';
+    }
 
     $(document).ready(function () {
         // Khởi tạo DataTable
@@ -421,7 +425,14 @@
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-               
+                    // Thêm hoặc xóa class
+                    myDiv.classList.toggle('show');
+                    myDiv.classList.toggle('hide');
+
+                    // Thay đổi giá trị của thuộc tính style
+                    myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                    document.getElementById('loading-spinner').style.display = 'none';
                 });
             }
             if (selectedObjects.length === 0) {
@@ -432,11 +443,18 @@
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-              
+                    // Thêm hoặc xóa class
+                    myDiv.classList.toggle('show');
+                    myDiv.classList.toggle('hide');
+
+                    // Thay đổi giá trị của thuộc tính style
+                    myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                    document.getElementById('loading-spinner').style.display = 'none';
                 });
                 return; // Ngừng thực hiện nếu danh sách trống
             }
-            console.log(JSON.stringify(selectedObjects));
+
             $.ajax({
                 url: '/Director/SignListContract',
                 type: 'POST',
@@ -469,8 +487,14 @@
                         timer: 1500
                     }).then(() => {
              
-                        var redirectToUrl = '@Url.Action("Contracts_PendingApproval", "Director")';
-                        window.location.href = redirectToUrl;
+                        // Thêm hoặc xóa class
+                        myDiv.classList.toggle('show');
+                        myDiv.classList.toggle('hide');
+
+                        // Thay đổi giá trị của thuộc tính style
+                        myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                        document.getElementById('loading-spinner').style.display = 'none';
                     });
                     console.error('Error:', error);
 
@@ -501,7 +525,14 @@
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-          
+                    // Thêm hoặc xóa class
+                    myDiv.classList.toggle('show');
+                    myDiv.classList.toggle('hide');
+
+                    // Thay đổi giá trị của thuộc tính style
+                    myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                    document.getElementById('loading-spinner').style.display = 'none';
                 });
             }else{
                 selectedObjects.forEach(function (obj) {
@@ -517,6 +548,15 @@
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
+
+                    // Thêm hoặc xóa class
+                    myDiv.classList.toggle('show');
+                    myDiv.classList.toggle('hide');
+
+                    // Thay đổi giá trị của thuộc tính style
+                    myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                    document.getElementById('loading-spinner').style.display = 'none';
                 });
                 return; // Ngừng thực hiện nếu danh sách trống
             }
@@ -551,8 +591,14 @@
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => {
-                        var redirectToUrl = '@Url.Action("Contracts_PendingApproval", "Director")';
-                        window.location.href = redirectToUrl;
+                        // Thêm hoặc xóa class
+                        myDiv.classList.toggle('show');
+                        myDiv.classList.toggle('hide');
+
+                        // Thay đổi giá trị của thuộc tính style
+                        myDiv.style.display = myDiv.style.display === 'block' ? 'none' : 'block';
+
+                        document.getElementById('loading-spinner').style.display = 'none';
                     });
                     console.error('Error:', error);
                 }

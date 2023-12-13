@@ -259,7 +259,7 @@ namespace QuanLyHopDongVaKySo_API.Services.PFXCertificateService
                     }
                     else
                     {
-                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 15 - 10, yCoodinate - 45 + 70 + 30 + 30 - 200, xCoordinate - 100 + 130, yCoodinate - 45 + 70 + 30 + 30 - 300), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
+                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(xCoordinate - 100 - 15 - 20, yCoodinate - 45 + 700 + 55, xCoordinate - 100 + 120, yCoodinate - 45  + 700 + 155), pdfReader.NumberOfPages, Guid.NewGuid().ToString());
 
                     }
                 }

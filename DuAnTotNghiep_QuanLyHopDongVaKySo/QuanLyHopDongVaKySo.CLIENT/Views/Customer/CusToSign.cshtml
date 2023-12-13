@@ -277,8 +277,7 @@
                         text: 'Bạn đã ký hoàn tất. Vui lòng kiểm tra mail để xem hợp đồng.',
                     }).then((result) => {
                         if (result.value) {
-
-                            close();
+                            window.close('', '_parent', '');
                         }
                     });
                 }
@@ -292,7 +291,7 @@
                 }).then((result) => {
                     if (result.value) {
 
-                        close();
+                        window.close('', '_parent', '');
                     }
                 });
             }
@@ -304,16 +303,6 @@
         // if (confirm("Bạn đã ký hoàn tất nhấn \"OK\" để đóng cửa số ")) {
         //     close();
         // }
-
-        // Replace the confirm block with SweetAlert message
-        Swal.fire({
-            title: 'Ký hoàn tất',
-            text: 'Bạn đã ký hoàn tất. Vui lòng kiểm tra mail để xem hợp đồng.',
-        }).then((result) => {
-            if (result.value) {
-                close();
-            }
-        });
     }
 
     function objctlSignature_status(success, points) {
