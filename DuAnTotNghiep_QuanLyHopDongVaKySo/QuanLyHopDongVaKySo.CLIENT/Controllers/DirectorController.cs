@@ -232,9 +232,9 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             VMContractsActive vm = new VMContractsActive();
 
-            if (IsAuthenticate == 2)
+            if (IsAuthenticate == 3)
             {
-                var contractList = await _dContractService.getListByDirectorId(EmployeeId);
+                var contractList = await _dContractService.getListByEmpId(EmployeeId);
 
                 foreach (var item in contractList)
                 {
@@ -250,7 +250,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
                 return View(vm);
             }
-            if(IsAuthenticate == 1)
+            if(IsAuthenticate == 1 || IsAuthenticate == 2)
             {
                 var contractList = await _dContractService.getAllView();
 

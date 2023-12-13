@@ -122,17 +122,17 @@ else if (@userRole == "Nhân viên kinh doanh")
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="Contracts_Approved" onclick="updateLoading()">
-                                    <span class="text">Hợp đồng đã duyệt</span>
+                                <a asp-controller="BusinessStaff" asp-action="Contracts_PendingApproval" onclick="updateLoading()">
+                                    <span class="text">Yeu cau lap dat</span>
                                 </a>
                             </li>
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="ContractListPending" onclick="updateLoading()">
+                                <a asp-controller="BusinessStaff" asp-action="ContractListWaitSign" onclick="updateLoading()">
                                     <span class="text">Hợp đồng chờ khách ký</span>
                                 </a>
                             </li>
                             <li>
-                                <a asp-controller="BusinessStaff" asp-action="ContractListPending" onclick="updateLoading()">
+                                <a asp-controller="BusinessStaff" asp-action="ContractListRefuse" onclick="updateLoading()">
                                     <span class="text">Hợp đồng từ chối duyệt</span>
                                 </a>
                             </li>
@@ -169,7 +169,7 @@ else if (@userRole == "Nhân viên kinh doanh")
                         </ul>
                     </li>
                     <li>
-                        <a asp-controller="Director" asp-action="ListContractActive" onclick="updateLoading()">
+                        <a asp-controller="Director" asp-action="Contracts_Active" onclick="updateLoading()">
                             <i class="ph-bold ph-list-checks" style="font-size: 26px;"></i>
                             <span class="text">Hợp đồng đã hoàn thành</span>
                         </a>
