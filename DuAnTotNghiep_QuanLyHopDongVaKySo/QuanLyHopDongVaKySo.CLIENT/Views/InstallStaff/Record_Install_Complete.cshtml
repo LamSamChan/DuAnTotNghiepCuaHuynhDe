@@ -19,9 +19,10 @@
         transform: translate(-50%, -50%);
     }
 
-        #loading-spinner > img {
-            width: 10rem;
-        }
+    #loading-spinner > img {
+        width: 10rem;
+    }
+       
 </style>
 <div class="loading-spinner" id="loading-spinner">
     <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
@@ -66,7 +67,7 @@
         </div>
     }
     <div class="row mt-3 bg-white rounded mx-auto my-auto">
-        <div class="row" style="margin: auto;">
+        <div class="row listTable" style="margin: auto;">
             <table class="table display" id="myTable2">
                 <thead>
                     <tr style="color: #8B909A;">
@@ -78,7 +79,7 @@
                         <th scope="col">HOẠT ĐỘNG</th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody class="table-group-divider align-middle">
                     @foreach (var p in Model.doneMinutes)
                     {
                         <tr>
@@ -91,7 +92,7 @@
                                     <span>Đã lắp đặt</span>
                                 </div>
                             </td>
-                            <td> <a class="button-save" onclick="confirmDownload('@p.Base64File','@p.MinuteName')"><i class="ph-bold ph-download-simple"></i></a></td>
+                            <td> <a class="button-design" onclick="confirmDownload('@p.Base64File','@p.MinuteName')"><i class="ph-bold ph-download-simple"></i></a></td>
                             <td>
                                 <a asp-action="DetailsInstallComplete" asp-controller="InstallStaff" asp-route-id="@p.DoneMinuteID" onclick="handleLinkClick(event)">Chi tiết</a>
                             </td>

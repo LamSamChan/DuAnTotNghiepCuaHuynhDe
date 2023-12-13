@@ -24,7 +24,7 @@
                         <th scope="col">THAO TÁC</th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody class="table-group-divider align-middle">
                     @foreach (var item in Model)
                     {
                         <tr>
@@ -47,6 +47,7 @@
             "info": false,
             "lengthMenu": [10, 25, 50, 100],
             "pageLength": 25,
+            "order": [[0, 'desc']],
             "language": {
                 "decimal": "",
                 "paginate": {

@@ -57,7 +57,7 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody class="table-group-divider align-middle">
                     @foreach (var item in Model)
                     {
                         <tr>
@@ -75,8 +75,9 @@
                                 }
                                 else if (item.IsDirector == "Chờ ký" || item.IsCustomer == "Chờ ký")
                                 {
-                                    <div style="background: rgba(255, 198, 0, 0.20); color:#FFC600;display: flex;align-items: center;justify-content: center;">
-                                        Chờ ký
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: #FFCA2C; border-radius: 50%; margin-right: 10px;"></div>
+                                        <span>Chờ ký</span>
                                     </div>
                                 }
                             </td>

@@ -17,9 +17,9 @@
         transform: translate(-50%, -50%);
     }
 
-        #loading-spinner > img {
-            width: 10rem;
-        }
+    #loading-spinner > img {
+        width: 10rem;
+    }
 </style>
 
 <div class="loading" id="loading">
@@ -65,7 +65,7 @@
 
     }
 
-    <div class="listTable_Record mt-4 bg-white" >
+    <div class="listTable mt-4 bg-white" >
         <table class="table display" id="myTable">
             <thead>
                 <tr style="color: #8B909A;">
@@ -77,7 +77,7 @@
                     <th scope="col">HÀNH ĐỘNG</th>
                 </tr>
             </thead>
-            <tbody class="table-group-divider">
+            <tbody class="table-group-divider align-middle">
                 @foreach (var r in Model.IRequirements)
                 {
                     <tr>
@@ -89,7 +89,7 @@
                             <a asp-action="DetailsRequire" asp-controller="InstallStaff" asp-route-id="@r.InstallRequireID" onclick="handleLinkClick(event)">Chi tiết</a>
                         </td>
                         <td>
-                            <a class="accpet" asp-action="GetTaskFormIR" asp-route-iRequirementID="@r.InstallRequireID" onclick="handleLinkClick(event)">
+                            <a class="button-design" asp-action="GetTaskFormIR" asp-route-iRequirementID="@r.InstallRequireID" onclick="handleLinkClick(event)">
                                 Nhận  
                             </a>
                         </td>
@@ -131,9 +131,7 @@
 }
 <script type="text/javascript">
 
-    function handleLinkClick(event) {
-        document.getElementById('loading-spinner').style.display = 'block';
-    }
+    
 
     $(document).ready(function () {
         // Khởi tạo DataTable
@@ -155,6 +153,11 @@
             }
         });
     });
+
+
+    function handleLinkClick(event) {
+        document.getElementById('loading-spinner').style.display = 'block';
+    }
 
     // tìm kiếm
     document.addEventListener('DOMContentLoaded', function () {

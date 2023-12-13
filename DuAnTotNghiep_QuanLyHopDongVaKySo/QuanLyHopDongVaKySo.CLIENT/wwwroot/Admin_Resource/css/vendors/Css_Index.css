@@ -625,6 +625,7 @@ input[type="search"] {
     font-size: 1.5rem;
     line-height: 2rem;
     color: #1890FF;
+    font-weight:bold;
 }
 
 /*css -detailsACc*/

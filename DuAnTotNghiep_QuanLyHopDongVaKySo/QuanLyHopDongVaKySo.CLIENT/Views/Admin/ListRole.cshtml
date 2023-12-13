@@ -102,7 +102,7 @@
                         <th>TRẠNG THÁI</th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody class="table-group-divider align-middle">
                     @foreach (var emp in Model.Employees)
                     {
                         <tr>
@@ -317,9 +317,6 @@
 
         // Lấy đối tượng bảng và ô tìm kiếm cho Tab 2
         var table2 = document.getElementById('myTable2');
-
-        // Mặc định hiển thị Tab 1
-        changeTab(0);
     });
 
     function filterAllTables(input) {

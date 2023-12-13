@@ -66,7 +66,7 @@
         </div>
     }
     <div class="row mt-3 bg-white rounded mx-auto my-auto">
-        <div class="row" style="margin: auto;">
+        <div class="row listTable" style="margin: auto;">
             <table class="table display" id="myTable1">
                 <thead>
                     <tr style="color: #8B909A;">
@@ -79,7 +79,7 @@
                         <th scope="col">HÀNH ĐỘNG</th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody class="table-group-divider align-middle">
                     @foreach (var p in Model.pendingMinutes)
                     {
                         <tr>
@@ -93,7 +93,7 @@
                                     <span>Đang chờ lắp đặt</span>
                                 </div>
                             </td>
-                            <td> <a class="button-save" onclick="confirmDownload('@p.Base64File','@p.MinuteName')"><i class="ph-bold ph-download-simple"></i></a></td>
+                            <td> <a class="button-design" onclick="confirmDownload('@p.Base64File','@p.MinuteName')"><i class="ph-bold ph-download-simple"></i></a></td>
                             <td>
                                 <a asp-action="SignByStaff" asp-controller="InstallStaff" asp-route-pMinuteID="@p.PendingMinuteId" onclick="handleLinkClick(event)">Chi tiết</a>
                             </td>
