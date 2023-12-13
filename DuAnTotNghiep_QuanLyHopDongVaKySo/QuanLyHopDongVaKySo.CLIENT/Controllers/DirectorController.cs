@@ -588,7 +588,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
                 TempData["SweetTitle"] = "Duyệt hợp đồng thất bại!!";
-                return View("Details_Contract_PendingApproval", signing.IdFile);
+                return RedirectToAction("Details_Contract_PendingApproval", signing.IdFile);
             }
         }
 
