@@ -6,6 +6,7 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
     {
         
         Task<DoneContract> getByIdAsnyc(string id);
+        Task<List<DoneContract>> getNotInstallYet();
         Task<DoneContract> addAsnyc(PutPendingContract Pcontract);
         Task<DoneContract> updateAsnyc(PutDContract dContract);
         Task<DoneContract> updateIsEffect(PutDContract dContract);

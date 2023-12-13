@@ -20,11 +20,14 @@ namespace QuanLyHopDongVaKySo_API.Models
         [Display(Name = "Tên biên bản")]
         public string MinuteName { get; set; }
 
+        [Column(TypeName = "nvarchar(100)")]
+        [Display(Name = "Địa chỉ lắp đặt")]
+        public string InstallationAddress { get; set; }
+
         //tạo liên kết
         [ForeignKey("DoneContract")]
         public int DoneContractId { get; set; }
 
-        [JsonIgnore]
         public DoneContract? DoneContract { get; set; }
 
 

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System.Data;
+using Microsoft.IdentityModel.Tokens;
 
 namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
 {
@@ -310,6 +311,19 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
             catch (Exception)
             {
                 return null;
+            }
+        }
+
+        public async Task<List<DoneContract>> getNotInstallYet()
+        {
+            try
+            {
+                return _context.DoneContracts.ToListAsync().Result.Where(d => d.DoneMinuteId == null).ToList();
+            }
+            catch (Exception ex)
+            {
+
+                return new List<DoneContract>();
             }
         }
     }

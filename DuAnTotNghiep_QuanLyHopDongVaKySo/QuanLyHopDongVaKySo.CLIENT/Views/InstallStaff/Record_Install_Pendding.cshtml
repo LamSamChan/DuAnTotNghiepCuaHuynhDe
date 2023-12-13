@@ -86,13 +86,7 @@
                             <th scope="row">@p.PendingMinuteId</th>
                             <td>@p.DateCreated.ToString("dd/MM/yyyy")</td>
                             <td>@p.MinuteName</td>
-                            @foreach (var add in Model.DContracts)
-                            {
-                                if (p.DoneContractId == add.DContractID)
-                                {
-                                    <td>@add.InstallationAddress</td>
-                                }
-                            }
+                            <td>@p.InstallationAddress</td>
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div style="width: 5px; height: 5px; background-color: #FFCA2C; border-radius: 50%; margin-right: 10px;"></div>

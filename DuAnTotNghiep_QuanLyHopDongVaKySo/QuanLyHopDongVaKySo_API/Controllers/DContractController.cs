@@ -52,6 +52,13 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(await _doneContractSvc.getListIsEffect());
         }
+
+        [HttpGet("getAllNotInstallYet")]
+        public async Task<IActionResult> GetAllNotInstallYet()
+        {
+            return Ok(await _doneContractSvc.getNotInstallYet());
+        }
+
         [HttpGet("getAll")]
         public async Task<IActionResult> GetAll()
         {
@@ -160,6 +167,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                             DateCreated = DateTime.Now,
                             MinuteName = "Biên bản lắp đặt hợp đồng " + serviceName,
                             DoneContractId = dContract.DContractID,
+                            InstallationAddress = dContract.InstallationAddress
                         };
 
                         int resultRequirement = await _requirementSvc.CreateIRequirement(requirement);

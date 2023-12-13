@@ -31,6 +31,10 @@ namespace QuanLyHopDongVaKySo_API.Models
         public string MinuteFile { get; set; }
         public string? Base64File { get; set; }
 
+        [Column(TypeName = "nvarchar(100)")]
+        [Display(Name = "Địa chỉ lắp đặt")]
+        public string InstallationAddress { get; set; }
+
         //tạo liên kết
         [ForeignKey("Employee")]
         public Guid EmployeeId { get; set; }

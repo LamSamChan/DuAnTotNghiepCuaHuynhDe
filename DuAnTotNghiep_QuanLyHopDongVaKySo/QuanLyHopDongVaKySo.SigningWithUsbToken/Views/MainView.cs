@@ -142,7 +142,7 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
             }
             else
             {
-                reason = "Ký biên bản";
+                reason = "Ký biên bản lắp đặt";
                 var dContract = await dContractRepository.GetDoneContract(DataStore.Instance.PendingMinute.DoneContractId.ToString());
                 var tos = await tosRepository.GetTypeOfServiceAsync(dContract.TOS_ID.ToString());
                 int tMinuteID = tos.templateMinuteID;
@@ -192,8 +192,17 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                 signatureAppearance.Contact = DataStore.Instance.Customer.Email;
                 signatureAppearance.Reason = reason;
 
+                if (reason == "Ký biên bản lắp đặt" && pdfReader.NumberOfPages > 1)
+                {
+                    x = x + 110;
+                    y = y + 850 - 700 + 50;
 
-                signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + 120, y + 120), pdfReader.NumberOfPages, "Signature");
+                    signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x - 100 - 15 - 20, y - 45 + 700 + 65 , x - 100 + 120, y - 45 + 700 + 165), pdfReader.NumberOfPages, "Signature");
+                }
+                else
+                {
+                    signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + 120, y + 120), pdfReader.NumberOfPages, "Signature");
+                }
 
                 signatureAppearance.SignatureRenderingMode = PdfSignatureAppearance.RenderingMode.DESCRIPTION;
 
@@ -254,7 +263,19 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Views
                         signatureAppearance.Contact = DataStore.Instance.Customer.Email;
                         signatureAppearance.SignDate = DateTime.Now;
                         signatureAppearance.SignatureGraphic = iTextSharp.text.Image.GetInstance(selectedFilePath);
-                        signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x - 25, y - 35, x + 130, y + 100), pdfReader.NumberOfPages, "Signature");
+
+                        if (reason == "Ký biên bản lắp đặt" && pdfReader.NumberOfPages > 1)
+                        {
+                            x = x + 110;
+                            y = y + 850 - 700 + 50;
+
+                            signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x - 100 - 15 - 20, y - 45 + 700 + 55, x - 100 + 120, y - 45 + 700 + 155), pdfReader.NumberOfPages, "Signature");
+                        }
+                        else
+                        {
+                            signatureAppearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x - 25, y - 35, x + 130, y + 100), pdfReader.NumberOfPages, "Signature");
+                        }
+
                         signatureAppearance.SignatureRenderingMode = PdfSignatureAppearance.RenderingMode.GRAPHIC;
 
                         MakeSignature.SignDetached(signatureAppearance, externalSignature, chain, null, null, null, 0, CryptoStandard.CMS);

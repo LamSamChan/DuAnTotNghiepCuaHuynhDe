@@ -442,6 +442,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 DateCreated = DateTime.Now,
                 MinuteName = "Biên bản lắp đặt hợp đồng " + serviceName,
                 DoneContractId = dContract.DContractID,
+                InstallationAddress = dContract.InstallationAddress
             };
             int result = await _requirementSvc.CreateIRequirement(requirement);
 
@@ -709,7 +710,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContract.DContractID}");
             }
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute.Replace("_installer_signed.pdf",".pdf"), certi.Serial, customerZone.X - 20, customerZone.Y - 700 + 50,"minute", customer.FullName);
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute.Replace("_installer_signed.pdf",".pdf"), certi.Serial, customerZone.X, customerZone.Y - 700 + 50,"minute", customer.FullName);
 
             if (!signedMinutePath.StartsWith("AppData"))
             {
@@ -881,18 +882,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private async Task<string> SendMailToCustomerWithImage(byte[] qrPath, string url, Customer customer, int idContract)
         {
             string imageBase64 = Convert.ToBase64String(qrPath);
-            string content = $"<body>" +
-                                 $"<div style=\"font-family: Arial, sans-serif; background-color: #f2f2f2; margin: 0; padding: 0;\"" +
-                                    $"<div style=\"background-color: #fff; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1;\"" +
-                                        $"<h1 style=\"color: #653AFE;\">Chào {customer.FullName}, cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</h1>" +
-                                            $"<p style=\"color: #333;\">Mã hợp đồng: {idContract}</p>" +
-                                        $"<p style=\"color: #333;\">Dưới đây là đường dẫn để xem và ký hợp đồng:</p>" +
-                                                $"<div style=\"text-align: center;\">" +
-                                                      $"<p><a style=\"display: inline-block; padding: 10px 20px; background-color: #33BDFE; color: #fff; text-decoration: none; border: none; border-radius: 5px;\" href=\"{url}\">Ký Hợp Đồng</a></p>" +
-                                                $"</div>" +
-                                      $"</div>" +
-                                 $"</div>"+
-                             $"</body>";
+            string content = System.IO.File.ReadAllText("AppData\\TemplateSendMail\\kyhd.html").Replace("[TENKHACHHANG]",customer.FullName).Replace("[MAHOPDONG]",idContract.ToString())
+                .Replace("[URL]",url);
 
             SendMail mail = new SendMail();
             mail.Subject = "Hợp đồng Từ TechSeal";

@@ -82,7 +82,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 IsCustomer = false,
                 MinuteFile = "",
                 DoneContractId = ir.DoneContractId,
-                EmployeeId = Guid.Parse(task.EmployeeID)
+                EmployeeId = Guid.Parse(task.EmployeeID),
+                InstallationAddress = ir.InstallationAddress
             };
 
             int pMinute = await _pMinuteSvc.addAsnyc(pendingMinute);

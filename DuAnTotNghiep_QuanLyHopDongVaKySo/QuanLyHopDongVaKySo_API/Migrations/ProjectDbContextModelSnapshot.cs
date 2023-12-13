@@ -381,6 +381,10 @@ namespace QuanLyHopDongVaKySo_API.Migrations
                     b.Property<int>("DoneContractId")
                         .HasColumnType("int");
 
+                    b.Property<string>("InstallationAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("MinuteName")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
@@ -630,6 +634,10 @@ namespace QuanLyHopDongVaKySo_API.Migrations
 
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("InstallationAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("IsCustomer")
                         .HasColumnType("bit");

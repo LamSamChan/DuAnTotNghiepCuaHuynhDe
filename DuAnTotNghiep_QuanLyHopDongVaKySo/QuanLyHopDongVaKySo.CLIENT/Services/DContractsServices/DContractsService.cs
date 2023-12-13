@@ -6,6 +6,7 @@ using System.Text;
 using QuanLyHopDongVaKySo.CLIENT.Models.ModelPost;
 using System.Net.Http.Headers;
 using QuanLyHopDongVaKySo.CLIENT.Constants;
+using QuanLyHopDongVaKySo_API.Models;
 
 namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
 {
@@ -44,6 +45,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             var response = await _httpClient.GetFromJsonAsync<List<API.DoneContract>>($"api/DContract/getAll");
+            return response;
+        }
+
+        public async Task<List<DoneContract>> getAllNotInstallYet()
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+            var response = await _httpClient.GetFromJsonAsync<List<API.DoneContract>>($"api/DContract/getAllNotInstallYet");
             return response;
         }
 
