@@ -62,7 +62,7 @@ BEGIN
 END;
 go
 
-
+--chua done
 --Pending Contract
 CREATE PROCEDURE CountContractsByTypeAndDate
     @StartDate DATETIME2,
