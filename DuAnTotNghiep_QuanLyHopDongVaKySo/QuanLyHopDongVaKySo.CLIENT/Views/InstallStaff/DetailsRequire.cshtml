@@ -1,8 +1,20 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@using Microsoft.AspNetCore.Hosting
+@inject IWebHostEnvironment _hostingEnvironment
 @model QuanLyHopDongVaKySo.CLIENT.ViewModels.VMDeitalsMinute;
 @{
+    List<string> imageFilesContract = new List<string>();
+    string fileDMinuteNull = "Resource/Image/empty.png";
+
+    string folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage"); // + thêm ID của contract
+    string? folderItemContract = System.IO.Path.Combine(folderPath, Model.DoneContract.Id);
+
+    if (folderItemContract != null)
+    {
+        imageFilesContract = Directory.GetFiles(folderItemContract).ToList();
+    }
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 
@@ -58,7 +70,7 @@
         <div class="col-6" style="margin: 20px;">
             <div class="showFile">
                 <div class="row justify-content-between" style="margin:auto;">
-                    <h4 class="col-5 typeHead">Biên bản lắp đặt</h4>
+                    <h4 class="col-5 typeHead">Chi tiet hop dong</h4>
                     <button class="custom-file-upload col-1" data-bs-toggle="modal" data-bs-target="#ShowMinute" style="width:30px; height:30px;">
                         <i class="ph-bold ph-frame-corners" style="font-size:30px; margin: auto;"></i>
                     </button>
@@ -68,12 +80,12 @@
                         <div class="carousel-item active ">
                             <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
                         </div>
-                        @*   @if (folderItemDMinute != null)
+                        @if (folderItemContract != null)
                         {
-                        @foreach (var imgPath in imageFilesDMinute)
+                            @foreach (var imgPath in imageFilesContract)
                         {
                         <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                        <img src="@Url.Content("~/MinuteImage/"+Model.DoneMinutes.DoneMinuteID+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                        <img src="@Url.Content("~/ContractImage/"+Model.DoneContract.Id+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                         </div>
                         }
                         }
@@ -82,7 +94,7 @@
                         <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
                         <img src="~/@fileDMinuteNull" alt="Hình ảnh" width="100%" />
                         </div>
-                        } *@
+                        } 
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel1" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
                         <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
@@ -108,22 +120,22 @@
                                         <div class="carousel-item active ">
                                             <img src="~/Resource/Image/LOGO/1.png" alt="Hình ảnh" width="100%" />
                                         </div>
-                                        @*   @if (folderItemContract != null)
+                                           @if (folderItemContract != null)
                                         {
                                         @foreach (var imgPath in imageFilesContract)
                                         {
                                         <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
-                                        <img src="@Url.Content("~/ContractImage/"+Model.DoneContracts.Id+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
+                                        <img src="@Url.Content("~/ContractImage/"+Model.DoneContract.Id+"/" + System.IO.Path.GetFileName(imgPath))" alt="Hình ảnh" style="width:100%;" />
                                         </div>
                                         }
-                                        }\
+                                        }
 
                                         else
                                         {
                                         <div class="carousel-item" style="max-height: 800px;overflow-y: scroll;">
                                         <img src="~/@fileDMinuteNull" alt="Hình ảnh" width="100%" />
                                         </div>
-                                        } *@
+                                        } 
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselModal1" data-bs-slide="prev" style="margin: auto;background-color: black;font-size: 100px;width: 50px;height: 100px;">
                                         <span class="carousel-control-prev-icon" aria-hidden="true" style="width:20px; height:20px;"></span>
