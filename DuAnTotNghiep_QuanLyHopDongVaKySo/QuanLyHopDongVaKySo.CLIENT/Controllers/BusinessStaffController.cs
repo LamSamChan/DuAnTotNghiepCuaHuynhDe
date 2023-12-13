@@ -670,12 +670,20 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
 
         //done contract
-        public async Task<IActionResult> ContractListEffect()
+        public async Task<IActionResult> Contracts_Approved()
         {
             if (IsAuthenticate != 3 && IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             List<DContractViewModel> contractList = new List<DContractViewModel>();
+
+            if (IsAuthenticate == 1)
+            {
+                contractList = await _dContractService.getListIsEffect();
+            }
+            else
+            {
+                contractList = _dContractService.getListIsEffect().Result.Where(d => d.EmployeeCreatedId == EmployeeId).ToList();
+            }
             
-            contractList = await _dContractService.getListIsEffect();
             return View(contractList);
             
         }
@@ -698,7 +706,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             
             pContractList = await _pContractService.getListRefuse();
-            ViewData["Tille"] = "HỢP ĐỒNG CHỜ DUYỆT";
+            ViewData["Tille"] = "HỢP ĐỒNG BỊ TỪ CHỐI";
             return View("ContractListPending", pContractList);
 
         }
@@ -709,7 +717,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (IsAuthenticate != 3 && IsAuthenticate != 1) { return RedirectToAction("Index", "Verify"); }
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             pContractList = await _pContractService.getListWaitCustomerSigns();
-            ViewData["Tille"] = "HỢP ĐỒNG CHỜ KHÁNH KÝ";
+            ViewData["Tille"] = "HỢP ĐỒNG CHỜ KHÁCH KÝ";
             return View("ContractListPending", pContractList);
         }
 

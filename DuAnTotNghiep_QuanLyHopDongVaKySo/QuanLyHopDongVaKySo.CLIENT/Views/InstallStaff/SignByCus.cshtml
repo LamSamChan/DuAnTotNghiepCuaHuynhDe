@@ -207,7 +207,7 @@
             contentType: "application/json",
             type: 'POST',
             cache: false,
-            success: function (data) {
+            success: function (result) {
                 if (!result.success) {
                     Swal.fire({
                         icon: 'success',
@@ -217,7 +217,7 @@
                         timer: 1500
                     }).then(() => {
 
-                        var redirectToUrl = '@Url.Action("ListInstallRecord")';
+                        var redirectToUrl = '@Url.Action("Record_Install_Complete")';
                         window.location.href = redirectToUrl;
                     });
                 }
@@ -236,9 +236,6 @@
         });
 
         btnSave.prop('disabled', false);
-        // Chuyển hướng tới trang mong muốn
-        var redirectToUrl = '@Url.Action("ListInstallRecord")';
-        window.location.href = redirectToUrl;
     }
 
     function objctlSignature_status(success, points) {

@@ -96,14 +96,17 @@
                     <ul class="listSVC">
                         @foreach (var tos in Model.TypeOfServices)
                         {
-                            <li>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" asp-for="PostPendingContract.TOS_ID" value="@tos.TOS_ID" required>
-                                    <label class="form-check-label">
-                                        @tos.ServiceName
-                                    </label>
-                                </div>
-                            </li>
+                            if (!tos.isHidden)
+                            {
+                                <li>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" asp-for="PostPendingContract.TOS_ID" value="@tos.TOS_ID" required>
+                                        <label class="form-check-label">
+                                            @tos.ServiceName
+                                        </label>
+                                    </div>
+                                </li>
+                            }
                         }
                     </ul>
                 </div>

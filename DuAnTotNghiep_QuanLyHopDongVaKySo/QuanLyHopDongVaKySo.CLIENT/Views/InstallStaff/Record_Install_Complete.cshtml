@@ -93,7 +93,7 @@
                             </td>
                             <td> <a class="button-save" onclick="confirmDownload('@p.Base64File','@p.MinuteName')"><i class="ph-bold ph-download-simple"></i></a></td>
                             <td>
-                                <a asp-action="DetailsInstallComplete" asp-controller="InstallStaff" asp-route-id="@p.DoneMinuteID" onclick="updatePosition()">Chi tiết</a>
+                                <a asp-action="DetailsInstallComplete" asp-controller="InstallStaff" asp-route-id="@p.DoneMinuteID" onclick="handleLinkClick(event)">Chi tiết</a>
                             </td>
                         </tr>
                     }

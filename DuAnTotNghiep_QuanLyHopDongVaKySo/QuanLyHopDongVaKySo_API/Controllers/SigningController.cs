@@ -709,7 +709,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContract.DContractID}");
             }
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute.Replace("_installer_signed.pdf",".pdf"), certi.Serial, customerZone.X - 20, customerZone.Y - 700 - 20 - 40,"minute", customer.FullName);
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute.Replace("_installer_signed.pdf",".pdf"), certi.Serial, customerZone.X - 20, customerZone.Y - 700 + 50,"minute", customer.FullName);
 
             if (!signedMinutePath.StartsWith("AppData"))
             {
@@ -776,7 +776,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
             var token = new JwtSecurityToken(
                     claims: claims,
-                    expires: DateTime.Now.AddDays(1),
+                    expires: DateTime.Now.AddDays(3),
                     signingCredentials: creads
                 );
 

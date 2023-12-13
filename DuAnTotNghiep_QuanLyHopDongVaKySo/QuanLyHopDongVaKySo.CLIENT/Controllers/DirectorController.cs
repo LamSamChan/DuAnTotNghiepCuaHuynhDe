@@ -22,6 +22,8 @@ using QuanLyHopDongVaKySo.CLIENT.Services.SigningServices;
 using QuanLyHopDongVaKySo.CLIENT.Services.HistoryServices;
 using QuanLyHopDongVaKySo_API.ViewModels;
 using QuanLyHopDongVaKySo.CLIENT.Services.DMinuteServices;
+using static iTextSharp.text.pdf.AcroFields;
+
 namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 {
     public class DirectorController : Controller
@@ -228,17 +230,43 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         }
         public async Task<IActionResult> Contracts_Active()
         {
-            List<VMAPI.DContractViewModel> contractList = new List<VMAPI.DContractViewModel>();
+            VMContractsActive vm = new VMContractsActive();
+
             if (IsAuthenticate == 2)
             {
-                contractList = await _dContractService.getListByDirectorId(EmployeeId);
+                var contractList = await _dContractService.getListByDirectorId(EmployeeId);
 
-                return View(contractList);
+                foreach (var item in contractList)
+                {
+                    if (item.Status == "Đang hiệu lực")
+                    {
+                        vm.DContractsInEffect.Add(item);
+                    }
+                    else
+                    {
+                        vm.DContractsNotInEffect.Add(item);
+                    }
+                }
+
+                return View(vm);
             }
             if(IsAuthenticate == 1)
             {
-                contractList = await _dContractService.getAllView();
-                return View(contractList);
+                var contractList = await _dContractService.getAllView();
+
+                foreach(var item in contractList)
+                {
+                    if (item.Status == "Đang hiệu lực")
+                    {
+                        vm.DContractsInEffect.Add(item);
+                    }
+                    else
+                    {
+                        vm.DContractsNotInEffect.Add(item);
+                    }
+                }
+
+                return View(vm);
             }
              return RedirectToAction("Index","Verify");
         }

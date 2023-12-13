@@ -321,6 +321,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             VMDetailsTypeOfService vm = new VMDetailsTypeOfService();
             
             vm.InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID);
+            vm.InstallationDevice = null;
             HttpContext.Session.SetString("tosID", tosID.ToString());
             return View(vm);
             
