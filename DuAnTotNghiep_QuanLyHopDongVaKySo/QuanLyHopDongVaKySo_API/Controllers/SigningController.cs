@@ -442,6 +442,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 DateCreated = DateTime.Now,
                 MinuteName = "Biên bản lắp đặt hợp đồng " + serviceName,
                 DoneContractId = dContract.DContractID,
+                DoneContract = dContract
             };
             int result = await _requirementSvc.CreateIRequirement(requirement);
 
@@ -709,7 +710,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 Directory.CreateDirectory($"AppData/DContracts/{dContract.DContractID}");
             }
 
-            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute.Replace("_installer_signed.pdf",".pdf"), certi.Serial, customerZone.X - 20, customerZone.Y - 700 + 50,"minute", customer.FullName);
+            var signedMinutePath = await _pfxCertificate.SignContract(imagePath, null,pMinute.MinuteFile, outputMinute.Replace("_installer_signed.pdf",".pdf"), certi.Serial, customerZone.X, customerZone.Y - 700 + 50,"minute", customer.FullName);
 
             if (!signedMinutePath.StartsWith("AppData"))
             {

@@ -18,5 +18,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Services.DContractsServices
         Task<List<APIVM.DContractViewModel>> getListByDirectorId(string id);
         Task<List<API.DoneContract>> getAll();
 
+        Task<List<API.DoneContract>> getAllNotInstallYet();
+
+
     }
 }

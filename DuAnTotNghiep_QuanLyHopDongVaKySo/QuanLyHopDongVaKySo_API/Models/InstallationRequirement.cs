@@ -24,7 +24,6 @@ namespace QuanLyHopDongVaKySo_API.Models
         [ForeignKey("DoneContract")]
         public int DoneContractId { get; set; }
 
-        [JsonIgnore]
         public DoneContract? DoneContract { get; set; }
 
 

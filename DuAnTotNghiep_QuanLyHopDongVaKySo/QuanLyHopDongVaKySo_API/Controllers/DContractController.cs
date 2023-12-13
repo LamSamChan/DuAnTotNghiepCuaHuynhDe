@@ -52,6 +52,13 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         {
             return Ok(await _doneContractSvc.getListIsEffect());
         }
+
+        [HttpGet("getAllNotInstallYet")]
+        public async Task<IActionResult> GetAllNotInstallYet()
+        {
+            return Ok(await _doneContractSvc.getNotInstallYet());
+        }
+
         [HttpGet("getAll")]
         public async Task<IActionResult> GetAll()
         {

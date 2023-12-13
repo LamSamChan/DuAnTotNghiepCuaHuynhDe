@@ -155,7 +155,7 @@
                     QUAY LẠI
                 </a>
                 <div class="col-md-3 offset-md-6 d-flex justify-content-end">
-                    <a class="button-design col-md-8" asp-action="SignByCus" asp-route-pMinuteID="@Model.PMinute.PendingMinuteId">
+                    <a class="button-design col-md-8" asp-action="SignByCus" asp-route-pMinuteID="@Model.PMinute.PendingMinuteId" onclick="handleLinkClick(event)">
                         CHUYỂN VÙNG KHÁCH KÝ
                     </a>
                     <a class="button-save col-md-6 @ViewBag.block" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -307,8 +307,6 @@
     </div>
 </div>
 <script type="text/javascript">
-
-    document.getElementById('loading-spinner').style.display = 'none';
 
     function handleLinkClick(event) {
         document.getElementById('loading-spinner').style.display = 'block';

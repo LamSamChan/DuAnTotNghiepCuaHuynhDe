@@ -3,25 +3,25 @@
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
 <style>
-    .loading {
-        position: absolute;
+    #loading-spinner {
+        display: none;
         z-index: 1;
         width: 100%;
         height: 100%;
-        display: none;
         align-items: center;
         justify-content: center;
-        background: rgba(0, 0, 0, 0.479);
-        position: absolute;
-        top: 50%;
-        left: 50%;
+        background-color: transparent;
+        position: fixed;
+        top: 100%;
+        left: 100%;
         transform: translate(-50%, -50%);
     }
 
-        .loading img {
-            width: 7rem;
+        #loading-spinner > img {
+            width: 10rem;
         }
 </style>
+
 <div class="loading" id="loading">
     <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
 </div>
@@ -96,7 +96,7 @@
                            <a asp-action="DetailsRequire" asp-controller="InstallStaff" asp-route-id="@r.InstallRequireID">Chi tiết</a>
                         </td>
                         <td>
-                            <a class="accpet" asp-action="GetTaskFormIR" asp-route-iRequirementID="@r.InstallRequireID" onclick="updatePosition()">
+                            <a class="accpet" asp-action="GetTaskFormIR" asp-route-iRequirementID="@r.InstallRequireID" onclick="handleLinkClick(event)">
                                 Nhận  
                             </a>
                         </td>
@@ -105,6 +105,9 @@
             </tbody>
         </table>
     </div>
+    <div id="loading-spinner">
+    <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+</div>
 </div>
 
 @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
@@ -134,6 +137,11 @@
     </script>
 }
 <script type="text/javascript">
+
+    function handleLinkClick(event) {
+        document.getElementById('loading-spinner').style.display = 'block';
+    }
+
     $(document).ready(function () {
         // Khởi tạo DataTable
         $('#myTable').DataTable({
@@ -185,28 +193,5 @@
             }
         }
     });
-     const iconLoading = document.getElementById("loading");
 
-    const showLoading = () => {
-        iconLoading.style.display = "flex";
-    };
-
-    const hideLoading = () => {
-        iconLoading.style.display = "none";
-    };
-
-    const updatePosition = () => {
-        showLoading(); // Show loading spinner when the button is clicked
-
-        // You can perform additional logic here before or after the form submission
-        // For example, submit the form programmatically
-        document.querySelector('form').submit();
-
-        // If you want to prevent the form from submitting immediately, you can remove the form submission line
-
-        // Hide loading spinner after the form submission is complete
-        setTimeout(() => {
-            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-        }, 1000);
-    };
 </script>

@@ -214,10 +214,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             VMListIRequire vm = new VMListIRequire();
             if (IsAuthenticate == 1 || IsAuthenticate == 4)
             {
-
-
                 vm.IRequirements = await _iRequirementService.GetAll();
-                vm.DContracts = await _doneContractSvc.getAll();
+                vm.DContracts = await _doneContractSvc.getAllNotInstallYet();
                 return View(vm);
             }
             return RedirectToAction("Index", "Verify");
