@@ -442,7 +442,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                 DateCreated = DateTime.Now,
                 MinuteName = "Biên bản lắp đặt hợp đồng " + serviceName,
                 DoneContractId = dContract.DContractID,
-                DoneContract = dContract
+                InstallationAddress = dContract.InstallationAddress
             };
             int result = await _requirementSvc.CreateIRequirement(requirement);
 

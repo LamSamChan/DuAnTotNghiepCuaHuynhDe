@@ -167,6 +167,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                             DateCreated = DateTime.Now,
                             MinuteName = "Biên bản lắp đặt hợp đồng " + serviceName,
                             DoneContractId = dContract.DContractID,
+                            InstallationAddress = dContract.InstallationAddress
                         };
 
                         int resultRequirement = await _requirementSvc.CreateIRequirement(requirement);

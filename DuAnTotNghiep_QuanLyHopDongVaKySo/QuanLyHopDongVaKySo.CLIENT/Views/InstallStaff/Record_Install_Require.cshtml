@@ -84,16 +84,9 @@
                         <th scope="row">@r.InstallRequireID</th>
                         <td>@r.DateCreated.ToString("dd/MM/yyyy")</td>
                         <td>@r.MinuteName</td>
-                        @foreach (var add in Model.DContracts)
-                        {
-                            if (r.DoneContractId == add.DContractID)
-                            {
-                                <td>@add.InstallationAddress</td>
-                            }
-                        }
-                        
+                        <td>@r.InstallationAddress</td>
                         <td>
-                           <a asp-action="DetailsRequire" asp-controller="InstallStaff" asp-route-id="@r.InstallRequireID">Chi tiết</a>
+                            <a asp-action="DetailsRequire" asp-controller="InstallStaff" asp-route-id="@r.InstallRequireID" onclick="handleLinkClick(event)">Chi tiết</a>
                         </td>
                         <td>
                             <a class="accpet" asp-action="GetTaskFormIR" asp-route-iRequirementID="@r.InstallRequireID" onclick="handleLinkClick(event)">

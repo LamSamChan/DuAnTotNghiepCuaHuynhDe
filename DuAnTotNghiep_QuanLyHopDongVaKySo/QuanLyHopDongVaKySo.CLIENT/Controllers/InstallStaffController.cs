@@ -203,7 +203,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 VMListInstallRecord vm = new VMListInstallRecord()
                 {
                     pendingMinutes = await _pMinuteService.GetByEmpId(EmployeeId),
-                    DContracts = await _doneContractSvc.getAll(),
                 };
                 return View(vm);
             }
@@ -215,7 +214,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             if (IsAuthenticate == 1 || IsAuthenticate == 4)
             {
                 vm.IRequirements = await _iRequirementService.GetAll();
-                vm.DContracts = await _doneContractSvc.getAllNotInstallYet();
                 return View(vm);
             }
             return RedirectToAction("Index", "Verify");
@@ -282,7 +280,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             VMDeitalsMinute vm = new VMDeitalsMinute();
 
             vm.DoneMinute = await _dMinuteService.GetById(int.Parse(id));
-            vm.DoneContract = _doneContractSvc.getAllView().Result.Where(d => d.DMinuteID == id).FirstOrDefault();
+            vm.DoneContract = _doneContractSvc.getAllView().Result.FirstOrDefault(d => d.DMinuteID == id);
             vm.Customer = await _customerService.GetCustomerById(vm.DoneContract.CustomerId.ToString());
             vm.Employee = await _employeeService.GetEmployeeById(EmployeeId);
             return View(vm);
@@ -680,7 +678,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 VMDetailsTypeOfService vm = new VMDetailsTypeOfService()
                 {
-                    InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID)
+                    InstallationDevices = await _installationDevicesService.GetAllByServiceId(tosID),
+                    InstallationDevice = new API.InstallationDevice()
                 };
                 HttpContext.Session.SetString("tosID", tosID.ToString());
                 return View(vm);
@@ -708,7 +707,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
 
                     TempData["SweetType"] = "success";
                     TempData["SweetIcon"] = "success";
-                    TempData["SweetTitle"] = "Thêm dịch vụ thành công !!";
+                    TempData["SweetTitle"] = "Thêm thiết bị thành công !!";
 
                     return RedirectToAction("DetailsTypeOfService", new { tosID = device.TOS_ID });
                 }
@@ -716,8 +715,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 {
                     TempData["SweetType"] = "error";
                     TempData["SweetIcon"] = "error";
-                    TempData["SweetTitle"] = "Thêm thất bại, kiểm tra lại thông tin dịch vụ!!!!";
-                    return RedirectToAction("index");
+                    TempData["SweetTitle"] = "Thêm thất bại, kiểm tra lại thông tin thiết bị và số lượng !!!!";
+                    return RedirectToAction("DetailsTypeOfService", new { tosID = device.TOS_ID });
                 }
             }
             return RedirectToAction("Index", "Verify");
@@ -747,7 +746,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetType"] = "error";
                 TempData["SweetIcon"] = "error";
                 TempData["SweetTitle"] = "Cập nhật thất bại, kiểm tra lại thông tin thiết bị!!";
-                return RedirectToAction("Index");
+                return RedirectToAction("DetailsTypeOfService", device.TOS_ID);
             }
         }
 

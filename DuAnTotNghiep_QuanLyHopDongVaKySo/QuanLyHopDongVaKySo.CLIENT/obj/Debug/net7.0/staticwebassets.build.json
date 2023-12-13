@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2+uhxRf/HN0fc8Sk1ptabM1Yc/6rc2cYiXqa7/nC71M=",
+  "Hash": "BSC9yzziK+TK1beNUROzYwxac4O1Bgyay3x4zmvuivE=",
   "Source": "QuanLyHopDongVaKySo.CLIENT",
   "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
   "Mode": "Default",
@@ -14375,6 +14375,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\MinuteImage\\5\\1.png"
+    },
+    {
+      "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\MinuteImage\\5\\2.png",
+      "SourceId": "QuanLyHopDongVaKySo.CLIENT",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\",
+      "BasePath": "_content/QuanLyHopDongVaKySo.CLIENT",
+      "RelativePath": "MinuteImage/5/2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\MinuteImage\\5\\2.png"
     },
     {
       "Identity": "E:\\FPT Polytechnic\\DATN_HUYNHDE_2023\\DuAnTotNghiepCuaHuynhDe\\DuAnTotNghiep_QuanLyHopDongVaKySo\\QuanLyHopDongVaKySo.CLIENT\\wwwroot\\MinuteImage\\6\\1.png",
