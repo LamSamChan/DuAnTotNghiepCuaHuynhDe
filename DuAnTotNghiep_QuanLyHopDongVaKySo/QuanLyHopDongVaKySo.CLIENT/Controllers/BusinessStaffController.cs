@@ -737,7 +737,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 ViewData["Tille"] = "HỢP ĐỒNG CHỜ KHÁCH KÝ";
                 return View("Contracts_PendingApproval", pContractList);
             }
-            if (IsAuthenticate == 3) {
+            if (IsAuthenticate == 1) {
                 pContractList = await _pContractService.getListWaitCustomerSigns();
                 ViewData["Tille"] = "HỢP ĐỒNG CHỜ KHÁCH KÝ";
                 return View("Contracts_PendingApproval", pContractList);
