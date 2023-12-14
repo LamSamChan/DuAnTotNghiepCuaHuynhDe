@@ -8,6 +8,7 @@ using QuanLyHopDongVaKySo_API.Services.DoneContractService;
 using QuanLyHopDongVaKySo_API.Services.InstallationRequirementService;
 using QuanLyHopDongVaKySo_API.Services.PendingContractService;
 using QuanLyHopDongVaKySo_API.Services.TypeOfServiceService;
+using System.Diagnostics.Contracts;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -250,25 +251,8 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 string url = await GenerateUrl(dContractId);
 
-                string content =
-
-   $"<p>Xin chào <b>{customer.FullName}</b>,</p>" +
-   $"<h3>Bạn hãy đọc kỹ trước khi nhấn nút</h3>" +
-   $"<h2>Dưới đây là đường dẫn sẽ dừng hợp đồng khi bạn nhấn vào:</h2>" +
-   $"<div style=\"text-align: center;\">" +
-          $"<ul> " +
-            $"<li>Mã hợp đồng: {respone.DContractID}</li>" +
-            $"<li>Tên hợp đồng: {respone.DConTractName}</li>" +
-            $"<li>Ngày hiệu lực: {respone.DateDone}</li>" +
-            $"<li>Ngày kết thúc: {DateTime.Now.ToString("dd/MM/yyyy")}</li>" +
-         $"</ul> " +
-        $"<p><a style=\"display: inline-block; padding: 10px 20px; background-color: red; color: #fff; text-decoration: none; border: none; border-radius: 5px;\" href=\"{url}\">Xác nhận dừng hợp đồng</a></p>" +
-   $"</div>" +
-   $"<p>Vui lòng lưu trữ thông tin này một cách an toàn.</p>" +
-   $"<p>Nếu bạn gặp bất kỳ vấn đề hoặc có câu hỏi, hãy liên hệ với chúng tôi tại <b>techseal.digitalsignature@gmail.com Hoặc Liên Hệ: 0339292975.</b></p>" +
-   $"<p>Chúng tôi rất trân trọng và biết ơn vì bạn đã sử dụng <b>TechSeal - Contract Management & Digital Signature</b> và chúc bạn có một ngày tốt lành!</p> " +
-   $"<p>Trân trọng,</p> " +
-   $"<p>Tech Seal.</p>";
+                string content = System.IO.File.ReadAllText("AppData\\TemplateSendMail\\xacnhandunghd.html").Replace("[TENKHACHHANG]", customer.FullName).Replace("[MAHOPDONG]", respone.DContractID.ToString())
+                    .Replace("[TENHOPDONG]", respone.DConTractName).Replace("[NGAYHIEULUC]", respone.DateDone.ToString()).Replace("[NGAYKETTHUC]", DateTime.Now.ToString("dd/MM/yyyy")).Replace("[URL]",url);
 
 
                 SendMail mail = new SendMail();
@@ -365,19 +349,9 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         private async Task<string> SendMailToCustomer(Customer customer, string url)
         {
-            string content =
+            string content = System.IO.File.ReadAllText("AppData\\TemplateSendMail\\xemhd.html").Replace("[TENKHACHHANG]", customer.FullName).Replace("[URL]", url);
+            
 
-    $"<p>Xin chào <b>{customer.FullName}</b>,</p>" +
-    $"<p>Chúc mừng bạn đã ký thành công hợp đồng!</p>" +
-    $"<p>Dưới đây là đường dẫn để xem hợp đồng trực tuyến của bạn (ngoài ra sau khi hoàn tất lắp đặt bạn sẽ nhận được <b>hợp đồng</b> và <b>biên bản lắp đặt</b> PDF):</p>" +
-    $"<div style=\"text-align: center;\">" +
-         $"<p><a style=\"display: inline-block; padding: 10px 20px; background-color: #33BDFE; color: #fff; text-decoration: none; border: none; border-radius: 5px;\" href=\"{url}\">Xem hợp đồng trực tuyến</a></p>" +
-    $"</div>" +
-    $"<p>Vui lòng lưu trữ thông tin này một cách an toàn.</p>" +
-    $"<p>Nếu bạn gặp bất kỳ vấn đề hoặc có câu hỏi, hãy liên hệ với chúng tôi tại <b>techseal.digitalsignature@gmail.com Hoặc Liên Hệ: 0339292975.</b></p>" +
-    $"<p>Chúng tôi rất trân trọng và biết ơn vì bạn đã sử dụng <b>TechSeal - Contract Management & Digital Signature</b> và chúc bạn có một ngày tốt lành!</p> " +
-    $"<p>Trân trọng,</p> " +
-    $"<p>Tech Seal.</p>";
 
             SendMail mail = new SendMail();
             mail.Subject = "Chúc mừng bạn đã ký hợp đồng thành công";
