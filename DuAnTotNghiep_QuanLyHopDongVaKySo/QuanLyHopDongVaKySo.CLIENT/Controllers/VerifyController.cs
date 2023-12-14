@@ -48,7 +48,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 if (role == "Admin")
                 {
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("Index1", "Admin");
                 }
                 else if (role == "Giám đốc")
                 {

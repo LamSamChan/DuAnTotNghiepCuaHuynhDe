@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuanLyHopDongVaKySo.SigningWithUsbToken")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95e849f00d612def88bc6f3f07f85ba697d6b9b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuanLyHopDongVaKySo.SigningWithUsbToken")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuanLyHopDongVaKySo.SigningWithUsbToken")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

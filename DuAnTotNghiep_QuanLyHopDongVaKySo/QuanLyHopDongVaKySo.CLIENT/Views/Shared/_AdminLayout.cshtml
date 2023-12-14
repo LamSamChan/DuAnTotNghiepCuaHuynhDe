@@ -31,7 +31,7 @@
     <meta http-equiv="expires" content="0" />
     <title>TECHSEAL - Quản lý hợp đồng và chữ ký số</title>
     <link rel="icon" href="/2.ico" type="image/x-icon">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
     <!--css - cho từng page -->
     <link href="~/Admin_Resource/css/vendors/Css_Index.css?v=2" rel="stylesheet" type="text/css">
 
@@ -42,16 +42,13 @@
     <link href="~/Admin_Resource/css/style.css" rel="stylesheet">
     <!-- We use those styles to show code examples, you should remove them in your application.-->
     <link href="~/Admin_Resource/css/examples.css" rel="stylesheet">
-    <link href="~/Admin_Resource/vendors/_coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+   @*  <link href="~/Admin_Resource/vendors/_coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet"> *@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/@@phosphor-icons/web"></script>
-
-    <!-- Sử dụng SweetAlert2 từ CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
 
     @* Thư viện phân trang trong table  *@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
@@ -355,44 +352,45 @@
             </div>
         </div>
     </div>
-    <script>
-        const iconLoading = document.getElementById("loading");
-
-        const showLoading = () => {
-            iconLoading.style.display = "flex";
-        };
-
-        const hideLoading = () => {
-            iconLoading.style.display = "none";
-        };
-
-        const Loading = () => {
-            showLoading(); // Show loading spinner when the button is clicked
-
-            // You can perform additional logic here before or after the form submission
-            // For example, submit the form programmatically
-            document.querySelector('form').submit();
-
-            // If you want to prevent the form from submitting immediately, you can remove the form submission line
-
-            // Hide loading spinner after the form submission is complete
-            setTimeout(() => {
-                hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-            }, 1000);
-        };
-    </script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- CoreUI and necessary plugins-->
-    <script src="~/Admin_Resource/vendors/_coreui/coreui/js/coreui.bundle.min.js"></script>
+    @* <script src="~/Admin_Resource/vendors/_coreui/coreui/js/coreui.bundle.min.js"></script>
     <script src="~/Admin_Resource/vendors/simplebar/js/simplebar.min.js"></script>
     <!-- Plugins and scripts required by this view-->
     <script src="~/Admin_Resource/vendors/chart.js/js/chart.min.js"></script>
     <script src="~/Admin_Resource/vendors/_coreui/chartjs/js/coreui-chartjs.js"></script>
     <script src="~/Admin_Resource/vendors/_coreui/utils/js/coreui-utils.js"></script>
-    <script src="~/Admin_Resource/js/main.js"></script>
+    <!-- CoreUI and necessary plugins-->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+    @* <script src="~/Admin_Resource/js/main.js" ></script>   *@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<script type="text/javascript">
+    const iconLoading = document.getElementById("loading");
+
+    const showLoading = () => {
+        iconLoading.style.display = "flex";
+    };
+
+    const hideLoading = () => {
+        iconLoading.style.display = "none";
+    };
+
+    const Loading = () => {
+        showLoading(); // Show loading spinner when the button is clicked
+
+        // You can perform additional logic here before or after the form submission
+        // For example, submit the form programmatically
+        document.querySelector('form').submit();
+
+        // If you want to prevent the form from submitting immediately, you can remove the form submission line
+
+        // Hide loading spinner after the form submission is complete
+        setTimeout(() => {
+            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+        }, 1000);
+    };
+</script>
