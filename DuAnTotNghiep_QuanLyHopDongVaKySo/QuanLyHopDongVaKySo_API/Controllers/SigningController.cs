@@ -27,6 +27,7 @@ using QuanLyHopDongVaKySo_API.ViewModels;
 using static QRCoder.PayloadGenerator.SwissQrCode;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using Microsoft.AspNetCore.Authorization;
+using static QRCoder.PayloadGenerator;
 
 namespace QuanLyHopDongVaKySo_API.Controllers
 {
@@ -849,19 +850,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         private async Task<string> SendMailToCustomer(Customer customer, string url)
         {
-            string content =
-
-    $"<p>Xin chào <b>{customer.FullName}</b>,</p>" +
-    $"<p>Chúc mừng bạn đã ký thành công hợp đồng!</p>" +
-    $"<p>Dưới đây là đường dẫn để xem hợp đồng trực tuyến của bạn (ngoài ra sau khi hoàn tất lắp đặt bạn sẽ nhận được <b>hợp đồng</b> và <b>biên bản lắp đặt</b> PDF):</p>" +
-    $"<div style=\"text-align: center;\">" +
-         $"<p><a style=\"display: inline-block; padding: 10px 20px; background-color: #33BDFE; color: #fff; text-decoration: none; border: none; border-radius: 5px;\" href=\"{url}\">Xem hợp đồng trực tuyến</a></p>" +
-    $"</div>" +                                                                                        
-    $"<p>Vui lòng lưu trữ thông tin này một cách an toàn.</p>" +
-    $"<p>Nếu bạn gặp bất kỳ vấn đề hoặc có câu hỏi, hãy liên hệ với chúng tôi tại <b>techseal.digitalsignature@gmail.com Hoặc Liên Hệ: 0339292975.</b></p>" +
-    $"<p>Chúng tôi rất trân trọng và biết ơn vì bạn đã sử dụng <b>TechSeal - Contract Management & Digital Signature</b> và chúc bạn có một ngày tốt lành!</p> " +
-    $"<p>Trân trọng,</p> " +
-    $"<p>Tech Seal.</p>";
+            string content = System.IO.File.ReadAllText("AppData\\TemplateSendMail\\xemhd.html").Replace("[TENKHACHHANG]", customer.FullName).Replace("[URL]", url);
 
             SendMail mail = new SendMail();
             mail.Subject = "Chúc mừng bạn đã ký hợp đồng thành công";
@@ -904,15 +893,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private async Task<string> SendMailToCustomerWithFile(byte[] bytesContract, byte[] bytesMinute, Customer customer)
         {
 
-            string content = $"<body>" +
-                $"<div class=\"container\" style=\"max-width: 600px; margin: 0 auto; padding: 20px; text-align: center; background-color: #f7f7f7;\">" +
-                $"<p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Kính gửi khách hàng {customer.FullName},</p>" +
-                $"<p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Xin mời tải hợp đồng của bạn</p>" +
-                $" <p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Nếu bạn có bất kỳ câu hỏi hoặc cần thêm thông tin, xin vui lòng liên hệ với chúng tôi.</p>" +
-                $" <p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Xin cảm ơn!</p>" +
-                $" <p style=\"font-size: 16px; line-height: 1.6; color: #333;\">TechSeal</p>" +
-                $"</div>" +
-                $"<body>";
+            string content = System.IO.File.ReadAllText("AppData\\TemplateSendMail\\camon.html").Replace("[TENKHACHHANG]", customer.FullName);
 
 
             SendMail mail = new SendMail();

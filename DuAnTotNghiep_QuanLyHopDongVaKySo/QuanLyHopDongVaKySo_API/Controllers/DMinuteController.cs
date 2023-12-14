@@ -137,15 +137,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
         private async Task<string> SendMailToCustomerWithFile(byte[] bytesContract, byte[] bytesMinute, Customer customer)
         {
 
-            string content = $"<body>" +
-                $"<div class=\"container\" style=\"max-width: 600px; margin: 0 auto; padding: 20px; text-align: center; background-color: #f7f7f7;\">" +
-                $"<p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Kính gửi khách hàng {customer.FullName},</p>" +
-                $"<p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Xin mời tải hợp đồng của bạn</p>" +
-                $" <p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Nếu bạn có bất kỳ câu hỏi hoặc cần thêm thông tin, xin vui lòng liên hệ với chúng tôi.</p>" +
-                $" <p style=\"font-size: 16px; line-height: 1.6; color: #333;\">Xin cảm ơn!</p>" +
-                $" <p style=\"font-size: 16px; line-height: 1.6; color: #333;\">TechSeal</p>" +
-                $"</div>" +
-                $"<body>";
+            string content = System.IO.File.ReadAllText("AppData\\TemplateSendMail\\camon.html").Replace("[TENKHACHHANG]", customer.FullName);
 
 
             SendMail mail = new SendMail();
