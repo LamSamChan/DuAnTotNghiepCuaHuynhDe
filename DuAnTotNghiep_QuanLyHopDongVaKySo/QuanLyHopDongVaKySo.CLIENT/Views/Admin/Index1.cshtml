@@ -215,6 +215,8 @@
                                         Xem dữ liệu
                                     </button>
                                 </div>
+                                <div id="countdown" class=" mt-2 fw-bold d-block mb-1 text-primary">
+                                </div>
                             </div>
 
                             <div id="weekPickerContainer" style="display: none">
@@ -574,6 +576,8 @@
         const startDateFormat = startDate.toISOString().substring(0, 10);
         const endDateFormat = endDate.toISOString().substring(0, 10);
 
+        const countdownElement = document.getElementById("countdown");
+
         fetch(url + `?startDate=${startDateFormat}&endDate=${endDateFormat}`, {
             method: "GET",
             headers: headers,
@@ -648,12 +652,14 @@
 
                     },
                 });
-
+                // Ẩn thời gian đếm ngược khi dữ liệu đã được tải
+                // countdownElement.style.display = "none";
                
             })
             .catch((error) => {
                 console.error("Fetch error:", error);
-               
+                // Ẩn thời gian đếm ngược khi dữ liệu đã được tải
+                countdownElement.style.display = "none";
             });
     }
 
@@ -1175,4 +1181,19 @@
     // Đặt Interval để gọi lại hàm sau mỗi 2 hoặc 3 phút
     const reloadInterval = 3 * 60 * 1000; // hoặc 3 * 60 * 1000
     setInterval(callDataCustomerByDate, reloadInterval);
+    // Hiển thị thời gian đếm ngược
+    const countdownElement = document.getElementById("countdown");
+    countdownElement.style.display = "block";
+
+    let countdownTime = reloadInterval / 1000; // chuyển đổi thành giây
+
+    // Cập nhật thời gian đếm ngược mỗi giây
+    const countdownInterval = setInterval(() => {
+        countdownTime -= 1;
+        countdownElement.textContent = `Dữ liệu sẽ load sau ${countdownTime} giây`;
+
+        if (countdownTime <= 0) {
+            countdownTime = reloadInterval / 1000; // reset đếm ngược
+        }
+    }, 1000);
 </script> 
