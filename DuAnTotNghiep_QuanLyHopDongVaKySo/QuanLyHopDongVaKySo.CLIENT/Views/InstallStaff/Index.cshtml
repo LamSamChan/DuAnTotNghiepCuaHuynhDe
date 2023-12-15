@@ -386,32 +386,6 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-@* @if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-{
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var sweetData = {
-                title: '@TempData["SweetTitle"]',
-                text: '@TempData["SweetText"]',
-                icon: '@TempData["SweetIcon"]'
-            };
-
-
-
-            Swal.fire({
-                title: sweetData.title,
-                text: sweetData.text,
-                icon: sweetData.icon,
-                showCancelButton: false,
-                allowOutsideClick: false,
-                confirmButtonColor: "green",
-                confirmButtonText: "Ok"
-            }).then(function () {
-                // Handle any additional logic after the SweetAlert is closed.
-            });
-        });
-    </script>
-} *@
 
 <script type="text/javascript">
 

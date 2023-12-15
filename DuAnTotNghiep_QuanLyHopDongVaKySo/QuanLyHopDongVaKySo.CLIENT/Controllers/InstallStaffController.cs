@@ -1166,7 +1166,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 TempData["SweetType"] = "success";
                 TempData["SweetIcon"] = "success";
-                TempData["SweetTitle"] = "Đặt mặt định thành công !!";
+                TempData["SweetTitle"] = "Đặt mặc định thành công !!";
                 return RedirectToAction("Index");
             }
             else

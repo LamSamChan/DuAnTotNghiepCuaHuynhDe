@@ -245,30 +245,6 @@
     </form>
 
 </div>
-@if (TempData["SweetType"] != null && TempData["SweetIcon"] != null && TempData["SweetTitle"] != null)
-{
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var sweetData = {
-                title: '@TempData["SweetTitle"]',
-                text: '@TempData["SweetText"]',
-                icon: '@TempData["SweetIcon"]'
-            };
-
-            Swal.fire({
-                title: sweetData.title,
-                text: sweetData.text,
-                icon: sweetData.icon,
-                showCancelButton: false,
-                allowOutsideClick: false,
-                confirmButtonColor: "green",
-                confirmButtonText: "Ok"
-            }).then(function () {
-                // Handle any additional logic after the SweetAlert is closed.
-            });
-        });
-    </script>
-}
 <script src="~/js/AddCus.js" type="text/javascript"></script>
 <script type="text/javascript">
 
