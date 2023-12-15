@@ -7,6 +7,16 @@
  * --------------------------------------------------------------------------
  */
 
+const jwtToken =
+  "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZG8yNzI0NDNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiTmjDom4gdmnDqm4gbOG6r3AgxJHhurd0IiwiZXhwIjoxNzAyNjQ0NzY3fQ.jhV4OXc8SirO5G2wy93y-ObekFx7d2_xe0xdJrO828AITEg3etYh8wACL0JnqzYBU8ZqTI5YJZI9y9UWFzLSWA";
+//"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiY2hhbjk0MTcwQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik5ow6JuIHZpw6puIGzhuq9wIMSR4bq3dCIsImV4cCI6MTcwMjQ3NDM5N30.jG0E4Rx6USK3ClhFBgmReWMbdEY1Hb08gUGvAh852mFD0N1Ihtkqi4tHnt9jrIryuU8bHiC3xy65veWgC8mulQ";
+// Thiết lập header Bearer
+const headers = new Headers();
+headers.append("Authorization", `Bearer ${jwtToken}`);
+headers.append("Content-Type", `application/json`);
+headers.append("Access-Control-Allow-Origin", `*`);
+headers.append("Access-Control-Allow-Methods", "POST,PATCH,OPTIONS,GET,PUT");
+
 // Disable the on-canvas tooltip
 Chart.defaults.pointHitDetectionRadius = 1;
 Chart.defaults.plugins.tooltip.enabled = false;
@@ -14,124 +24,319 @@ Chart.defaults.plugins.tooltip.mode = "index";
 Chart.defaults.plugins.tooltip.position = "nearest";
 Chart.defaults.plugins.tooltip.external = coreui.ChartJS.customTooltips;
 Chart.defaults.defaultFontColor = "#646470";
-const random = (min, max) =>
-  // eslint-disable-next-line no-mixed-operators
-  Math.floor(Math.random() * (max - min + 1) + min);
 
-// eslint-disable-next-line no-unused-vars
-const cardChart1 = new Chart(document.getElementById("card-chart1"), {
-  type: "line",
-  data: {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [
-      {
-        label: "My First dataset",
-        backgroundColor: "transparent",
-        borderColor: "rgba(255,255,255,.55)",
-        pointBackgroundColor: coreui.Utils.getStyle("--cui-primary"),
-        data: [65, 59, 84, 84, 51, 55, 40],
-      },
-    ],
-  },
-  options: {
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-    maintainAspectRatio: false,
-    scales: {
-      x: {
-        grid: {
-          display: false,
-          drawBorder: false,
-        },
-        ticks: {
-          display: false,
-        },
-      },
-      y: {
-        min: 30,
-        max: 89,
-        display: false,
-        grid: {
-          display: false,
-        },
-        ticks: {
-          display: false,
-        },
-      },
-    },
-    elements: {
-      line: {
-        borderWidth: 1,
-        tension: 0.4,
-      },
-      point: {
-        radius: 4,
-        hitRadius: 10,
-        hoverRadius: 4,
-      },
-    },
-  },
-});
+function callDataPContractByDate() {
+  $("#pContract-chart").remove();
+  $("#div-pContract-chart").append(
+    ' <canvas class="chart" id="pContract-chart" height="70"></canvas>'
+  );
 
-// eslint-disable-next-line no-unused-vars
-const cardChart2 = new Chart(document.getElementById("card-chart2"), {
-  type: "line",
-  data: {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [
-      {
-        label: "My First dataset",
-        backgroundColor: "transparent",
-        borderColor: "rgba(255,255,255,.55)",
-        pointBackgroundColor: coreui.Utils.getStyle("--cui-info"),
-        data: [1, 18, 9, 17, 34, 22, 11],
-      },
-    ],
-  },
-  options: {
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-    maintainAspectRatio: false,
-    scales: {
-      x: {
-        grid: {
-          display: false,
-          drawBorder: false,
+  const url =
+    "https://localhost:7286/api/ExecProcedure/CountPContractCreatedByDate";
+
+  const endDateInput = new Date();
+  const startDateInput = new Date(endDateInput);
+  startDateInput.setDate(endDateInput.getDate() - 7);
+
+  // Chuyển đổi chuỗi đầu vào thành đối tượng Date
+  const startDate = new Date(startDateInput);
+  const endDate = new Date(endDateInput);
+
+  const startDateFormat = startDate.toISOString().substring(0, 10);
+  const endDateFormat = endDate.toISOString().substring(0, 10);
+
+  fetch(url + `?startDate=${startDateFormat}&endDate=${endDateFormat}`, {
+    method: "GET",
+    headers: headers,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const dateArray = [];
+      const totalsArray = [];
+
+      data.result.forEach((item) => {
+        // Lưu giá trị từ các trường vào các mảng tương ứng
+        dateArray.push(item.date);
+        totalsArray.push(item.totals);
+      });
+
+      const sum = totalsArray.reduceRight((acc, cur) => acc + cur, 0);
+
+      document.getElementById("sumPContract").innerHTML = sum;
+
+      const maxValue = Math.max(...totalsArray);
+      const minValue = Math.min(...totalsArray);
+
+      const cardChart1 = new Chart(document.getElementById("pContract-chart"), {
+        type: "line",
+        data: {
+          labels: dateArray,
+          datasets: [
+            {
+              label: "Tổng",
+              backgroundColor: "transparent",
+              borderColor: "rgba(255,255,255,.55)",
+              pointBackgroundColor: coreui.Utils.getStyle("--cui-primary"),
+              data: totalsArray,
+            },
+          ],
         },
-        ticks: {
-          display: false,
+        options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              grid: {
+                display: false,
+                drawBorder: false,
+              },
+              ticks: {
+                display: false,
+              },
+            },
+            y: {
+              min: minValue + 2,
+              max: maxValue - 2,
+              display: false,
+              grid: {
+                display: false,
+              },
+              ticks: {
+                display: false,
+              },
+            },
+          },
+          elements: {
+            line: {
+              borderWidth: 1,
+              tension: 0.4,
+            },
+            point: {
+              radius: 4,
+              hitRadius: 10,
+              hoverRadius: 4,
+            },
+          },
         },
-      },
-      y: {
-        min: -9,
-        max: 39,
-        display: false,
-        grid: {
-          display: false,
+      });
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
+}
+
+function callDataPContractByWeek() {
+  $("#pContract-chart").remove();
+  $("#div-pContract-chart").append(
+    ' <canvas class="chart" id="pContract-chart" height="70"></canvas>'
+  );
+
+  const url =
+    "https://localhost:7286/api/ExecProcedure/CountPContractCreatedByWeek";
+
+  const month = new Date();
+
+  var monthFormat = month.toISOString().substring(0, 10);
+
+  fetch(url + `?month=${monthFormat}`, {
+    method: "GET",
+    headers: headers,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const dateArray = [];
+      const totalsArray = [];
+
+      data.result.forEach((item) => {
+        // Lưu giá trị từ các trường vào các mảng tương ứng
+        dateArray.push(item.date);
+        totalsArray.push(item.totals);
+      });
+
+      const sum = totalsArray.reduceRight((acc, cur) => acc + cur, 0);
+
+      document.getElementById("sumPContract").innerHTML = sum;
+
+      const maxValue = Math.max(...totalsArray);
+      const minValue = Math.min(...totalsArray);
+
+      const cardChart1 = new Chart(document.getElementById("pContract-chart"), {
+        type: "line",
+        data: {
+          labels: dateArray,
+          datasets: [
+            {
+              label: "Tổng",
+              backgroundColor: "transparent",
+              borderColor: "rgba(255,255,255,.55)",
+              pointBackgroundColor: coreui.Utils.getStyle("--cui-primary"),
+              data: totalsArray,
+            },
+          ],
         },
-        ticks: {
-          display: false,
+        options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              grid: {
+                display: false,
+                drawBorder: false,
+              },
+              ticks: {
+                display: false,
+              },
+            },
+            y: {
+              min: minValue + 10,
+              max: maxValue - 10,
+              display: false,
+              grid: {
+                display: false,
+              },
+              ticks: {
+                display: false,
+              },
+            },
+          },
+          elements: {
+            line: {
+              borderWidth: 1,
+              tension: 0.4,
+            },
+            point: {
+              radius: 4,
+              hitRadius: 10,
+              hoverRadius: 4,
+            },
+          },
         },
-      },
-    },
-    elements: {
-      line: {
-        borderWidth: 1,
-      },
-      point: {
-        radius: 4,
-        hitRadius: 10,
-        hoverRadius: 4,
-      },
-    },
-  },
-});
+      });
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
+}
+
+function callDataPContractByMonth() {
+  $("#pContract-chart").remove();
+  $("#div-pContract-chart").append(
+    ' <canvas class="chart" id="pContract-chart" height="70"></canvas>'
+  );
+
+  const url =
+    "https://localhost:7286/api/ExecProcedure/CountPContractCreatedByMonth";
+
+  const month = new Date();
+
+  var monthFormat = month.toISOString().substring(0, 10);
+
+  fetch(url + `?month=${monthFormat}`, {
+    method: "GET",
+    headers: headers,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const dateArray = [];
+      const totalsArray = [];
+
+      data.result.forEach((item) => {
+        // Lưu giá trị từ các trường vào các mảng tương ứng
+        dateArray.push(item.date);
+        totalsArray.push(item.totals);
+      });
+
+      const sum = totalsArray.reduceRight((acc, cur) => acc + cur, 0);
+
+      document.getElementById("sumPContract").innerHTML = sum;
+
+      const maxValue = Math.max(...totalsArray);
+      const minValue = Math.min(...totalsArray);
+
+      const cardChart1 = new Chart(document.getElementById("pContract-chart"), {
+        type: "line",
+        data: {
+          labels: dateArray,
+          datasets: [
+            {
+              label: "Tổng",
+              backgroundColor: "transparent",
+              borderColor: "rgba(255,255,255,.55)",
+              pointBackgroundColor: coreui.Utils.getStyle("--cui-primary"),
+              data: totalsArray,
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              grid: {
+                display: false,
+                drawBorder: false,
+              },
+              ticks: {
+                display: false,
+              },
+            },
+            y: {
+              min: minValue + 20,
+              max: maxValue - 20,
+              display: false,
+              grid: {
+                display: false,
+              },
+              ticks: {
+                display: false,
+              },
+            },
+          },
+          elements: {
+            line: {
+              borderWidth: 1,
+              tension: 0.4,
+            },
+            point: {
+              radius: 4,
+              hitRadius: 10,
+              hoverRadius: 4,
+            },
+          },
+        },
+      });
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
+}
 
 // eslint-disable-next-line no-unused-vars
 const cardChart3 = new Chart(document.getElementById("card-chart3"), {
@@ -273,16 +478,6 @@ option3.addEventListener("change", function () {
 //const headers = new Headers();
 //headers.append('Authorization', `Bearer ${jwtToken}`);
 
-const jwtToken =
-  "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZG8yNzI0NDNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiTmjDom4gdmnDqm4gbOG6r3AgxJHhurd0IiwiZXhwIjoxNzAyNjQ0NzY3fQ.jhV4OXc8SirO5G2wy93y-ObekFx7d2_xe0xdJrO828AITEg3etYh8wACL0JnqzYBU8ZqTI5YJZI9y9UWFzLSWA";
-//"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiY2hhbjk0MTcwQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik5ow6JuIHZpw6puIGzhuq9wIMSR4bq3dCIsImV4cCI6MTcwMjQ3NDM5N30.jG0E4Rx6USK3ClhFBgmReWMbdEY1Hb08gUGvAh852mFD0N1Ihtkqi4tHnt9jrIryuU8bHiC3xy65veWgC8mulQ";
-// Thiết lập header Bearer
-const headers = new Headers();
-headers.append("Authorization", `Bearer ${jwtToken}`);
-headers.append("Content-Type", `application/json`);
-headers.append("Access-Control-Allow-Origin", `*`);
-headers.append("Access-Control-Allow-Methods", "POST,PATCH,OPTIONS,GET,PUT");
-
 document.addEventListener("DOMContentLoaded", function () {
   // Khi trang được load, thiết lập giá trị mặc định cho startDate và endDate
   const startDateInput = document.getElementById("startDate");
@@ -295,6 +490,8 @@ document.addEventListener("DOMContentLoaded", function () {
   startDateInput.valueAsDate = sevenDaysAgo; // Giá trị mặc định là ngày hôm nay
   endDateInput.valueAsDate = currentDate; // Giá trị mặc định là 7 ngày trước
   callDataCustomerByDate();
+
+  callDataPContractByDate();
 });
 
 function callDataCustomerByDate() {

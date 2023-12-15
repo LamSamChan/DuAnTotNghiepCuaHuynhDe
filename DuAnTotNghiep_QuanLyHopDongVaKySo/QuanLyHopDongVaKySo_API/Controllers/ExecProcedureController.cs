@@ -55,5 +55,45 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             return NotFound();
         }
 
+
+
+
+        //Count PContract
+        [HttpGet("CountPContractCreatedByDate")]
+        public IActionResult CountPContractCreatedByDate([FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
+        {
+            var result = _exec.CountPContractByDate(startDate, endDate);
+
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return NotFound();
+        }
+
+        [HttpGet("CountPContractCreatedByWeek")]
+        public IActionResult CountPContractAddedByWeek([FromQuery] DateTime month)
+        {
+            var result = _exec.CountPContractByWeek(month);
+
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return NotFound();
+        }
+
+        [HttpGet("CountPContractCreatedByMonth")]
+        public IActionResult CountPContractCreatedByMonth([FromQuery] DateTime month)
+        {
+            var result = _exec.CountPContractByMonth(month);
+
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return NotFound();
+        }
+
     }
 }

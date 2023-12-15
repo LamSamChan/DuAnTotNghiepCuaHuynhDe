@@ -19,7 +19,6 @@ namespace QuanLyHopDongVaKySo.SigningWithUsbToken.Repository
         {
             _httpClient = new HttpClient();
             //api
-            //_httpClient.BaseAddress = new Uri("https://localhost:7286/");
             _httpClient.BaseAddress = new Uri("https://localhost:7063/");
             //
             //_httpClient.BaseAddress = new Uri("https://techseal.azurewebsites.net/");

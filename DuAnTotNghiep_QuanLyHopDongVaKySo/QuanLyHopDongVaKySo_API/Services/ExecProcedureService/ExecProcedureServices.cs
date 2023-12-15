@@ -71,5 +71,64 @@ namespace QuanLyHopDongVaKySo_API.Services.ExecProcedureService
                 return result.ToList();
             }
         }
+
+
+
+
+
+        public async Task<List<CountPendingContractCreadted>> CountPContractByDate(DateTime startDate, DateTime endDate)
+        {
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("connection")))
+            {
+                connection.Open();
+                var parameters = new DynamicParameters();
+                parameters.Add("@StartDate", startDate.ToString("yyyy/MM/dd"));
+                parameters.Add("@EndDate", endDate.ToString("yyyy/MM/dd"));
+
+                var result = connection.Query<CountPendingContractCreadted>("SumPendingContractByDate", parameters, commandType: CommandType.StoredProcedure);
+
+                return result.ToList();
+            }
+        }
+
+        public async Task<List<CountPendingContractCreadted>> CountPContractByWeek(DateTime monthData)
+        {
+            string year = monthData.Year.ToString();
+            string month = monthData.Month.ToString();
+            if (int.Parse(month) < 10)
+            {
+                month = "0" + month;
+            }
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("connection")))
+            {
+                connection.Open();
+                var parameters = new DynamicParameters();
+                parameters.Add("@MonthYear", year + "-" + month);
+
+                var result = connection.Query<CountPendingContractCreadted>("CountPendingContractByWeekAndMonth", parameters, commandType: CommandType.StoredProcedure);
+
+                return result.ToList();
+            }
+        }
+
+        public async Task<List<CountPendingContractCreadted>> CountPContractByMonth(DateTime monthData)
+        {
+            string year = monthData.Year.ToString();
+            string month = monthData.Month.ToString();
+            if (int.Parse(month) < 10)
+            {
+                month = "0" + month;
+            }
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("connection")))
+            {
+                connection.Open();
+                var parameters = new DynamicParameters();
+                parameters.Add("@ReferenceMonth", year + "-" + month + "-01");
+
+                var result = connection.Query<CountPendingContractCreadted>("CountPContractMonthsInLastSixMonths", parameters, commandType: CommandType.StoredProcedure);
+
+                return result.ToList();
+            }
+        }
     }
 }

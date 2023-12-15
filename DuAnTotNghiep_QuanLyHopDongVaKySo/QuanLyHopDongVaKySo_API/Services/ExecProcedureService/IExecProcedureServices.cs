@@ -8,5 +8,10 @@ namespace QuanLyHopDongVaKySo_API.Services.ExecProcedureService
         Task<List<CountCustomerAdded>> CountCustomerAddedByWeek(DateTime month);
         Task<List<CountCustomerAdded>> CountCustomerAddedByMonth(DateTime month);
 
+
+        Task<List<CountPendingContractCreadted>> CountPContractByDate(DateTime startDate, DateTime endDate);
+        Task<List<CountPendingContractCreadted>> CountPContractByWeek(DateTime month);
+        Task<List<CountPendingContractCreadted>> CountPContractByMonth(DateTime month);
+
     }
 }

@@ -1,4 +1,6 @@
 ﻿--done
+use HUYNHDE_DATN_2023
+go
 
 CREATE PROCEDURE CountCustomersByTypeAndDate
     @StartDate DATETIME2,
@@ -62,6 +64,68 @@ BEGIN
 END;
 go
 
+
+
+
+CREATE PROCEDURE SumPendingContractByDate
+    @StartDate DATETIME2,
+    @EndDate DATETIME2
+AS
+BEGIN
+    SELECT
+        MIN(FORMAT(DateCreated, 'dd/MM/yyyy')) AS [Date],
+        COUNT(Id) AS [Totals]
+    FROM
+        PendingContract
+    WHERE
+        DateCreated BETWEEN @StartDate AND @EndDate
+    GROUP BY
+        FORMAT(DateCreated, 'dd/MM/yyyy')
+	ORDER BY
+        MIN(DateCreated);
+END;
+go
+
+CREATE PROCEDURE CountPendingContractByWeekAndMonth
+    @MonthYear NVARCHAR(7) -- Ví dụ: '2023-09'
+AS
+BEGIN
+    SELECT
+        ROW_NUMBER() OVER (ORDER BY DATEPART(ISO_WEEK, DateCreated)) AS [Date], -- Sử dụng ROW_NUMBER()
+        COUNT(Id) AS [Totals]
+    FROM
+        PendingContract
+    WHERE
+        FORMAT(DateCreated, 'yyyy-MM') = @MonthYear
+    GROUP BY
+        DATEPART(ISO_WEEK, DateCreated)
+    ORDER BY
+        [Date]; -- Sắp xếp theo số thứ tự của tuần
+END;
+go
+
+CREATE PROCEDURE CountPContractMonthsInLastSixMonths
+    @ReferenceMonth DATE -- Thay đổi kiểu dữ liệu của tham số này
+AS
+BEGIN
+    SELECT
+        FORMAT(DateCreated, 'yyyy-MM') AS [Date],
+        COUNT(Id) AS [Totals]
+    FROM
+        PendingContract
+    WHERE
+        DateCreated BETWEEN DATEADD(MONTH, -5, @ReferenceMonth) AND DATEADD(DAY, -1, DATEADD(MONTH, 1, @ReferenceMonth))
+    GROUP BY
+        FORMAT(DateCreated, 'yyyy-MM')
+    ORDER BY
+        FORMAT(DateCreated, 'yyyy-MM'); -- Sắp xếp theo tháng tăng dần
+END;
+go
+
+
+
+
+
 --chua done
 --Pending Contract
 CREATE PROCEDURE CountContractsByTypeAndDate
@@ -90,24 +154,8 @@ BEGIN
 END;
 go
 
-CREATE PROCEDURE SumPendingContractByDate
-    @StartDate DATETIME2,
-    @EndDate DATETIME2
-AS
-BEGIN
-    SELECT
-        MIN(FORMAT(DateCreated, 'dd/MM/yyyy')) AS [Date],
-        COUNT(Id) AS [TotalContracts]
-    FROM
-        PendingContract
-    WHERE
-        DateCreated BETWEEN @StartDate AND @EndDate
-    GROUP BY
-        FORMAT(DateCreated, 'dd/MM/yyyy')
-	ORDER BY
-        MIN(DateCreated);
-END;
-go
+
+
 
 CREATE PROCEDURE CountContractsByEmployeeAndDate
     @StartDate DATETIME2,
@@ -245,6 +293,11 @@ END;
 go
 --test
 
+
+Exec SumPendingContractByDate '2023/12/08', '2023/12/15'
+go
+
+select * from PendingContract Where DateCreated Between '2023-10-30' and '2023-11-01'
 
 
 
