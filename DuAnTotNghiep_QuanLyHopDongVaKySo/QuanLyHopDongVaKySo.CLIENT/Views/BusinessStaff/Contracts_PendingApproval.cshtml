@@ -69,8 +69,9 @@
                             <td>
                                 @if (item.IsRefuse == "Từ chối")
                                 {
-                                    <div style="background: rgba(250, 44, 44, 0.16); color:#FF000F;display: flex;align-items: center;justify-content: center;">
-                                        @item.IsRefuse
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: #FF000F; border-radius: 50%; margin-right: 10px;"></div>
+                                        <span> @item.IsRefuse</span>
                                     </div>
                                 }
                                 else if (item.IsDirector == "Chờ ký" || item.IsCustomer == "Chờ ký")
