@@ -21,15 +21,10 @@
                         <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                             <div>
                                 <div class="fs-4 fw-semibold">
-                                    26K
-                                    <span class="fs-6 fw-normal">
-                                        (-12.4%
-                                        <svg class="icon">
-                                            <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-arrow-bottom"></use>
-                                        </svg>)
-                                    </span>
+                                    <span>Tổng</span>
+                                    <span id="sumPContract"></span>
                                 </div>
-                                <div>Users</div>
+                                <div>Số lượng hợp đồng được tạo</div>
                             </div>
                             <div class="dropdown">
                                 <button class="btn btn-transparent text-white p-0"
@@ -42,12 +37,16 @@
                                     </svg>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end">
-                                    <a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="#" onclick="callDataPContractByDate()">Ngày</a>
+                                    <a class="dropdown-item" href="#" onclick="callDataPContractByWeek()">Tuần</a>
+                                    <a class="dropdown-item" href="#" onclick="callDataPContractByMonth()">Tháng</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="c-chart-wrapper mt-3 mx-3" style="height: 70px">
-                            <canvas class="chart" id="card-chart1" height="70"></canvas>
+                        <div class="c-chart-wrapper mt-3 mx-3"
+                             style="height: 70px"
+                             id="div-pContract-chart">
+                            <canvas class="chart" id="pContract-chart" height="70"></canvas>
                         </div>
                     </div>
                 </div>
@@ -251,17 +250,18 @@
                         <canvas class="chart" id="client-chart" height="300"></canvas>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
-    <script src="/Admin_Resource/vendors/_coreui/coreui/js/coreui.bundle.min.js"></script>
-    <script src="/Admin_Resource/vendors/simplebar/js/simplebar.min.js"></script>
-    <!-- Plugins and scripts required by this view-->
-    <script src="/Admin_Resource/vendors/chart.js/js/chart.min.js"></script>
-    <script src="/Admin_Resource/vendors/_coreui/chartjs/js/coreui-chartjs.js"></script>
-    <script src="/Admin_Resource/vendors/_coreui/utils/js/coreui-utils.js"></script>
-    @* <script src="/Admin_Resource/js/main.js"></script> *@
-     <script type="text/javascript">
+<script src="/Admin_Resource/vendors/_coreui/coreui/js/coreui.bundle.min.js"></script>
+<script src="/Admin_Resource/vendors/simplebar/js/simplebar.min.js"></script>
+<!-- Plugins and scripts required by this view-->
+<script src="/Admin_Resource/vendors/chart.js/js/chart.min.js"></script>
+<script src="/Admin_Resource/vendors/_coreui/chartjs/js/coreui-chartjs.js"></script>
+<script src="/Admin_Resource/vendors/_coreui/utils/js/coreui-utils.js"></script>
+@* <script src="/Admin_Resource/js/main.js"></script> *@
+<script type="text/javascript">
 
     Chart.defaults.pointHitDetectionRadius = 1;
     Chart.defaults.plugins.tooltip.enabled = false;
@@ -530,7 +530,7 @@
 
     const jwtToken =
         "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZG8yNzI0NDNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MDI2NTU1NDV9.tIneUnKmWzLcIVX7sXsn-SGJiDozKgT_PD6zr2HtW-iiXeL_dBd_2cQWXromigYcRFYWyGxw5rA37pM_hn5KKA";
-        //"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiY2hhbjk0MTcwQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik5ow6JuIHZpw6puIGzhuq9wIMSR4bq3dCIsImV4cCI6MTcwMjQ3NDM5N30.jG0E4Rx6USK3ClhFBgmReWMbdEY1Hb08gUGvAh852mFD0N1Ihtkqi4tHnt9jrIryuU8bHiC3xy65veWgC8mulQ";
+    //"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiY2hhbjk0MTcwQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik5ow6JuIHZpw6puIGzhuq9wIMSR4bq3dCIsImV4cCI6MTcwMjQ3NDM5N30.jG0E4Rx6USK3ClhFBgmReWMbdEY1Hb08gUGvAh852mFD0N1Ihtkqi4tHnt9jrIryuU8bHiC3xy65veWgC8mulQ";
     // Thiết lập header Bearer
     const headers = new Headers();
     headers.append("Authorization", `Bearer ${jwtToken}`);
@@ -550,7 +550,11 @@
         startDateInput.valueAsDate = sevenDaysAgo; // Giá trị mặc định là ngày hôm nay
         endDateInput.valueAsDate = currentDate; // Giá trị mặc định là 7 ngày trước
         callDataCustomerByDate();
+
+        callDataPContractByDate();
     });
+
+
 
     function callDataCustomerByDate() {
         $("#client-chart").remove();
@@ -640,13 +644,16 @@
                                 },
                             },
                         },
-                       
-                           
+
+
                     },
                 });
+
+               
             })
             .catch((error) => {
                 console.error("Fetch error:", error);
+               
             });
     }
 
@@ -725,7 +732,7 @@
                                 grid: {
                                     drawOnChartArea: false,
                                 },
-                                  
+
                             },
                             y: {
                                 ticks: {
@@ -737,11 +744,13 @@
                             },
                         },
                     },
-                        
+
                 });
+               
             })
             .catch((error) => {
                 console.error("Fetch error:", error);
+               
             });
     }
 
@@ -830,12 +839,340 @@
                                 },
                             },
                         },
-                          
+
                     },
+                });
+
+               
+            })
+            .catch((error) => {
+                console.error("Fetch error:", error);
+               
+            });
+    }
+
+    // Pcontract
+    function callDataPContractByDate() {
+        $("#pContract-chart").remove();
+        $("#div-pContract-chart").append(
+            ' <canvas class="chart" id="pContract-chart" height="70"></canvas>'
+        );
+
+        const url =
+            "https://localhost:7286/api/ExecProcedure/CountPContractCreatedByDate";
+
+        const endDateInput = new Date();
+        const startDateInput = new Date(endDateInput);
+        startDateInput.setDate(endDateInput.getDate() - 7);
+
+        // Chuyển đổi chuỗi đầu vào thành đối tượng Date
+        const startDate = new Date(startDateInput);
+        const endDate = new Date(endDateInput);
+
+        const startDateFormat = startDate.toISOString().substring(0, 10);
+        const endDateFormat = endDate.toISOString().substring(0, 10);
+
+        fetch(url + `?startDate=${startDateFormat}&endDate=${endDateFormat}`, {
+            method: "GET",
+            headers: headers,
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                const dateArray = [];
+                const totalsArray = [];
+
+                data.result.forEach((item) => {
+                    // Lưu giá trị từ các trường vào các mảng tương ứng
+                    dateArray.push(item.date);
+                    totalsArray.push(item.totals);
+                });
+
+                const sum = totalsArray.reduceRight((acc, cur) => acc + cur, 0);
+
+                document.getElementById("sumPContract").innerHTML = sum;
+
+                const maxValue = Math.max(...totalsArray);
+                const minValue = Math.min(...totalsArray);
+
+                const cardChart1 = new Chart(document.getElementById("pContract-chart"), {
+                    type: "line",
+                    data: {
+                        labels: dateArray,
+                        datasets: [
+                            {
+                                label: "Tổng",
+                                backgroundColor: "transparent",
+                                borderColor: "rgba(255,255,255,.55)",
+                                pointBackgroundColor: coreui.Utils.getStyle("--cui-primary"),
+                                data: totalsArray,
+                            },
+                        ],
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false,
+                            },
+                        },
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    display: false,
+                                    drawBorder: false,
+                                },
+                                ticks: {
+                                    display: false,
+                                },
+                            },
+                            y: {
+                                min: minValue + 2,
+                                max: maxValue - 2,
+                                display: false,
+                                grid: {
+                                    display: false,
+                                },
+                                ticks: {
+                                    display: false,
+                                },
+                            },
+                        },
+                        elements: {
+                            line: {
+                                borderWidth: 1,
+                                tension: 0.4,
+                            },
+                            point: {
+                                radius: 4,
+                                hitRadius: 10,
+                                hoverRadius: 4,
+                            },
+                        },
+                    },
+                });
+               
+            })
+            .catch((error) => {
+                console.error("Fetch error:", error);
+               
+            });
+    }
+
+    function callDataPContractByWeek() {
+        $("#pContract-chart").remove();
+        $("#div-pContract-chart").append(
+            ' <canvas class="chart" id="pContract-chart" height="70"></canvas>'
+        );
+
+        const url =
+            "https://localhost:7286/api/ExecProcedure/CountPContractCreatedByWeek";
+
+        const month = new Date();
+
+        var monthFormat = month.toISOString().substring(0, 10);
+
+        fetch(url + `?month=${monthFormat}`, {
+            method: "GET",
+            headers: headers,
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                const dateArray = [];
+                const totalsArray = [];
+
+                data.result.forEach((item) => {
+                    // Lưu giá trị từ các trường vào các mảng tương ứng
+                    dateArray.push(item.date);
+                    totalsArray.push(item.totals);
+                });
+
+                const sum = totalsArray.reduceRight((acc, cur) => acc + cur, 0);
+
+                document.getElementById("sumPContract").innerHTML = sum;
+
+                const maxValue = Math.max(...totalsArray);
+                const minValue = Math.min(...totalsArray);
+
+                const cardChart1 = new Chart(document.getElementById("pContract-chart"), {
+                    type: "line",
+                    data: {
+                        labels: dateArray,
+                        datasets: [
+                            {
+                                label: "Tổng",
+                                backgroundColor: "transparent",
+                                borderColor: "rgba(255,255,255,.55)",
+                                pointBackgroundColor: coreui.Utils.getStyle("--cui-primary"),
+                                data: totalsArray,
+                            },
+                        ],
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false,
+                            },
+                        },
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    display: false,
+                                    drawBorder: false,
+                                },
+                                ticks: {
+                                    display: false,
+                                },
+                            },
+                            y: {
+                                min: minValue + 10,
+                                max: maxValue - 10,
+                                display: false,
+                                grid: {
+                                    display: false,
+                                },
+                                ticks: {
+                                    display: false,
+                                },
+                            },
+                        },
+                        elements: {
+                            line: {
+                                borderWidth: 1,
+                                tension: 0.4,
+                            },
+                            point: {
+                                radius: 4,
+                                hitRadius: 10,
+                                hoverRadius: 4,
+                            },
+                        },
+                    },
+                });
+               
+            })
+            .catch((error) => {
+                console.error("Fetch error:", error);
+               
+            });
+    }
+
+    function callDataPContractByMonth() {
+        $("#pContract-chart").remove();
+        $("#div-pContract-chart").append(
+            ' <canvas class="chart" id="pContract-chart" height="70"></canvas>'
+        );
+
+        const url =
+            "https://localhost:7286/api/ExecProcedure/CountPContractCreatedByMonth";
+
+        const month = new Date();
+
+        var monthFormat = month.toISOString().substring(0, 10);
+
+        fetch(url + `?month=${monthFormat}`, {
+            method: "GET",
+            headers: headers,
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                const dateArray = [];
+                const totalsArray = [];
+
+                data.result.forEach((item) => {
+                    // Lưu giá trị từ các trường vào các mảng tương ứng
+                    dateArray.push(item.date);
+                    totalsArray.push(item.totals);
+                });
+
+                const sum = totalsArray.reduceRight((acc, cur) => acc + cur, 0);
+
+                document.getElementById("sumPContract").innerHTML = sum;
+
+                const maxValue = Math.max(...totalsArray);
+                const minValue = Math.min(...totalsArray);
+
+                const cardChart1 = new Chart(document.getElementById("pContract-chart"), {
+                    type: "line",
+                    data: {
+                        labels: dateArray,
+                        datasets: [
+                            {
+                                label: "Tổng",
+                                backgroundColor: "transparent",
+                                borderColor: "rgba(255,255,255,.55)",
+                                pointBackgroundColor: coreui.Utils.getStyle("--cui-primary"),
+                                data: totalsArray,
+                            },
+                        ],
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false,
+                            },
+                        },
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    display: false,
+                                    drawBorder: false,
+                                },
+                                ticks: {
+                                    display: false,
+                                },
+                            },
+                            y: {
+                                min: minValue + 20,
+                                max: maxValue - 20,
+                                display: false,
+                                grid: {
+                                    display: false,
+                                },
+                                ticks: {
+                                    display: false,
+                                },
+                            },
+                        },
+                        elements: {
+                            line: {
+                                borderWidth: 1,
+                                tension: 0.4,
+                            },
+                            point: {
+                                radius: 4,
+                                hitRadius: 10,
+                                hoverRadius: 4,
+                            },
+                        },
+                    },
+                   
                 });
             })
             .catch((error) => {
                 console.error("Fetch error:", error);
+             
             });
     }
+
+
+    // Đặt Interval để gọi lại hàm sau mỗi 2 hoặc 3 phút
+    const reloadInterval = 3 * 60 * 1000; // hoặc 3 * 60 * 1000
+    setInterval(callDataCustomerByDate, reloadInterval);
 </script> 
