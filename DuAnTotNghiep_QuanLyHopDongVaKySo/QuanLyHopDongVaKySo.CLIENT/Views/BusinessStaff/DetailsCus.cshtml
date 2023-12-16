@@ -270,7 +270,7 @@
                                     <button class="button-design" onclick="downloadPDF('@item.Base64File','@item.PContractName')"><i class="ph-bold ph-download-simple"></i></button>
                                 </td>
                                 <td>
-                                    <a asp-action="Details_Contract_PendingApproved" asp-controller="BusinessStaff" asp-route-id="@item.PContractID">Chi tiết</a>
+                                    <a asp-action="Details_Contract_PendingApproved" asp-controller="BusinessStaff" asp-route-id="@item.PContractID" asp-route-tille="Yêu cầu lắp đặt">Chi tiết</a>
                                 </td>
                             </tr>
                         }

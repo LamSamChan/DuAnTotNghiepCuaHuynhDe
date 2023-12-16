@@ -72,14 +72,22 @@
             </nav>
             <h1 class="typeHead">CHI TIẾT HỢP ĐỒNG </h1>
             <div class="row justify-content-between">
-                <a class="col-md-2 button-design" asp-controller="Director" asp-action="Contracts_Active">
-                    <i class="ph-bold ph-arrow-left"></i>
-                    QUAY LẠI
-                </a>
+                
                 @if(userRole == "Giám đốc")
                 {
+                    <a class="col-md-2 button-design" asp-controller="Director" asp-action="Contracts_Active">
+                        <i class="ph-bold ph-arrow-left"></i>
+                        QUAY LẠI
+                    </a>
                     <a class="col-md-2 button-delete" onclick="confirmEndContract()">
                         KẾT THÚC HỢP ĐỒNG
+                    </a>
+                }
+                else
+                {
+                    <a class="col-md-2 button-design" asp-controller="BusinessStaff" asp-action="ListCus">
+                        <i class="ph-bold ph-arrow-left"></i>
+                        QUAY LẠI
                     </a>
                 }
             </div>

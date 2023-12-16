@@ -21,7 +21,6 @@
     <EmbeddedResource Remove="wwwroot\php\files\**" />
     <EmbeddedResource Remove="wwwroot\TempSignatures\**" />
     <EmbeddedResource Remove="wwwroot\TMinuteImg\**" />
-    <None Remove="wwwroot\assetsEmail\**" />
     <None Remove="wwwroot\php\files\**" />
     <None Remove="wwwroot\TempSignatures\**" />
     <None Remove="wwwroot\TMinuteImg\**" />
