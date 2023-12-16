@@ -694,7 +694,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             ViewData["Tille"] = "Yêu cầu lắp đặt";
-
+            ViewData["ViewBack"] = "Contracts_PendingApproval";
             if (IsAuthenticate == 3  ) 
             {
                 pContractList = await _pContractService.getListWaitDirSignsEmpId(EmployeeId);
@@ -713,6 +713,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             ViewData["Tille"] = "Hợp đồng bị từ chối";
+            ViewData["ViewBack"] = "ContractListRefuse";
             if (IsAuthenticate == 3)
             {
                 pContractList = await _pContractService.getListRefuseByEmpId(EmployeeId);
@@ -732,7 +733,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
             ViewData["Tille"] = "Hợp đồng chờ khách ký";
-
+            ViewData["ViewBack"] = "ContractListWaitSign";
             if (IsAuthenticate == 3) {
                 pContractList = await _pContractService.getListWaitCusSignsByEmpId(EmployeeId);
                 return View("Contracts_PendingApproval", pContractList);
@@ -757,7 +758,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             
         }*/
 
-        public async Task<IActionResult> Details_Contract_PendingApproved(string id, string tille)
+        public async Task<IActionResult> Details_Contract_PendingApproved(string id, string tille, string viewBack)
         {
             if (IsAuthenticate != 1 && IsAuthenticate != 3) { return RedirectToAction("Index", "Verify"); }
             VMDetailsContract viewModel = new VMDetailsContract();
@@ -765,6 +766,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             viewModel.Customer = await _customerService.GetCustomerById(viewModel.PendingContracts.CustomerId);
             viewModel.Employee = await _employeeService.GetEmployeeById(viewModel.PendingContracts.EmployeeCreatedId);
             viewModel.Tille = tille;
+            viewModel.ViewBack = viewBack;
             return View(viewModel);
             
         }

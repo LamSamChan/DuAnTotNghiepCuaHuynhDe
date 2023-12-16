@@ -83,7 +83,7 @@
                                 }
                             </td>
                             <td>
-                                <a asp-action="Details_Contract_PendingApproved" asp-controller="BusinessStaff" asp-route-id="@item.PContractID" asp-route-tille="@ViewData["Tille"]">Chi tiết</a>
+                                <a asp-action="Details_Contract_PendingApproved" asp-controller="BusinessStaff" asp-route-id="@item.PContractID" asp-route-tille="@ViewData["Tille"]" asp-route-viewBack="@ViewData["ViewBack"]">Chi tiết</a>
                             </td>
                         </tr>
                     }

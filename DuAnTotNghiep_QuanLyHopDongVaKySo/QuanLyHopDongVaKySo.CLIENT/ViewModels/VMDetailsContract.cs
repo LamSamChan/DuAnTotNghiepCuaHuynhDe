@@ -13,5 +13,6 @@ namespace QuanLyHopDongVaKySo.CLIENT.ViewModels
         public ViewModel.PContractViewModel PendingContracts { get; set; }
         public ViewModel.DContractViewModel DoneContracts { get; set; }
         public string Tille { get; set; }
+        public string ViewBack {get;set;}
     }
 }
