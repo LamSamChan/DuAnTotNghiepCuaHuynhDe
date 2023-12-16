@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuanLyHopDongVaKySo.CLIENT"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuanLyHopDongVaKySo.SigningWithUsbToken", "QuanLyHopDongVaKySo.SigningWithUsbToken\QuanLyHopDongVaKySo.SigningWithUsbToken.csproj", "{2339A279-A9F8-4CE7-A44D-1E770B4C7BD2}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TechSeal", "TechSeal\TechSeal.vdproj", "{850D3813-1C27-4B8E-85E2-584E6154E68B}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TechSealApp", "TechSealApp\TechSealApp.vdproj", "{A7E805B8-3A57-43AA-8D5D-E866B058DE24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,8 +29,8 @@ Global
 		{2339A279-A9F8-4CE7-A44D-1E770B4C7BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2339A279-A9F8-4CE7-A44D-1E770B4C7BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2339A279-A9F8-4CE7-A44D-1E770B4C7BD2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{850D3813-1C27-4B8E-85E2-584E6154E68B}.Debug|Any CPU.ActiveCfg = Debug
-		{850D3813-1C27-4B8E-85E2-584E6154E68B}.Release|Any CPU.ActiveCfg = Release
+		{A7E805B8-3A57-43AA-8D5D-E866B058DE24}.Debug|Any CPU.ActiveCfg = Debug
+		{A7E805B8-3A57-43AA-8D5D-E866B058DE24}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

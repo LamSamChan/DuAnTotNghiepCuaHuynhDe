@@ -899,7 +899,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
 
         private async Task<string> SendMailToCustomerWithImageAndZip(byte[] qrPath, string url, Customer customer, int idContract)
         {
-            string appUrl = @"https://drive.google.com/file/d/1db6-iYXtNgzVMB1MSgV5ysr8UTEg_dVm/view?usp=drive_link";
+            string appUrl = @"https://drive.google.com/file/d/1JfF3oeHKliTYUJUQWmP0S9Z5DvptFyS6/view?usp=sharing";
             string content = System.IO.File.ReadAllText("AppData\\TemplateSendMail\\kyhddoanhnghiep.html").Replace("[TENKHACHHANG]", customer.FullName).Replace("[MAHOPDONG]", idContract.ToString())
                 .Replace("[URL]", url).Replace("[URLAPP]", appUrl);
 
