@@ -280,8 +280,8 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             VMDeitalsMinute vm = new VMDeitalsMinute();
 
             vm.DoneMinute = await _dMinuteService.GetById(int.Parse(id));
-            vm.DoneContract = _doneContractSvc.getAllView().Result.FirstOrDefault(d => d.DMinuteID == id);
-            vm.Customer = await _customerService.GetCustomerById(vm.DoneContract.CustomerId.ToString());
+            //vm.DoneContract = _doneContractSvc.getAllView().Result.FirstOrDefault(d => d.DMinuteID == id);
+            //vm.Customer = await _customerService.GetCustomerById(vm.DoneContract.CustomerId.ToString());
             vm.Employee = await _employeeService.GetEmployeeById(EmployeeId);
             return View(vm);
         }
