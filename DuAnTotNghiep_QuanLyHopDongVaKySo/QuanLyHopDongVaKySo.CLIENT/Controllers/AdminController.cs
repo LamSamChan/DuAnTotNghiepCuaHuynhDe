@@ -1216,19 +1216,19 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                     else
                     {
                         _uploadHelper.RemoveImage(Path.Combine(_hostingEnvironment.WebRootPath, imagePath));
-                   /*     TempData["SweetType"] = "error";
+                        TempData["SweetType"] = "error";
                         TempData["SweetIcon"] = "error";
-                        TempData["SweetTitle"] = "Hiện tại đang có dấu mộc tồn tại hãy xoá để có thể tải ảnh mộc mới!!";*/
-                        return RedirectToAction("Index", "Verify");
+                        TempData["SweetTitle"] = "Hiện tại đang có dấu mộc tồn tại hãy xoá để có thể tải ảnh mộc mới!!";
+                        return RedirectToAction("Index");
                     }
                 }
                 else
                 {
                     // ko phải file ảnh
-/*                    TempData["SweetType"] = "warning";
+                    TempData["SweetType"] = "warning";
                     TempData["SweetIcon"] = "warning";
-                    TempData["SweetTitle"] = "Hãy chọn file ảnh!!";*/
-                    return RedirectToAction("Index", "Verify");
+                    TempData["SweetTitle"] = "Hãy chọn file ảnh!!";
+                    return RedirectToAction("Index");
                 }
             }
             else
