@@ -62,26 +62,26 @@
             <div class="col-md-5">
                 <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
                     <div class="col-md-6">
-                        <label class="form-label">ID khách hàng</label>
+                        <label class="form-label fw-bold">ID khách hàng</label>
                         <input class="form-control" id="inputName" asp-for="Customer.CustomerId" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Họ và tên</label>
+                        <label class="form-label fw-bold">Họ và tên</label>
                         <input class="form-control" id="inputName" asp-for="Customer.FullName" readonly>
 
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Năm sinh</label>
+                        <label class="form-label fw-bold">Năm sinh</label>
                         <input class="form-control" type="date" asp-for="Customer.DateOfBirth" readonly>
 
                     </div>
 
                     <div class="col-md-6">
-                        <label for="inputName" class="form-label">Số điện thoại</label>
+                        <label for="inputName" class="form-label fw-bold">Số điện thoại</label>
                         <input class="form-control" asp-for="Customer.PhoneNumber" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputGender" class="form-label">Giới tính</label>
+                        <label for="inputGender" class="form-label fw-bold">Giới tính</label>
                         @if (Model.Customer.Gender == 1)
                         {
                             <input class="form-control" value="Nam" readonly>
@@ -93,50 +93,50 @@
                         }
                         </div>
                     <div class="col-md-6">
-                        <label for="inputCCCD" class="form-label">Giấy ủy quyền</label>
+                        <label for="inputCCCD" class="form-label fw-bold">Giấy ủy quyền</label>
                         <input class="form-control" asp-for="Customer.PowerOfAttorneyNum" readonly>
 
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Ngày ủy quyền</label>
+                        <label for="inputDateStart" class="form-label fw-bold">Ngày ủy quyền</label>
                         <input type="date" class="form-control" asp-for="Customer.DatePOA" readonly>
 
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">Người ủy quyền</label>
+                        <label for="inputDateEnd" class="form-label fw-bold">Người ủy quyền</label>
                         <input class="form-control" asp-for="Customer.WhoPOA" readonly>
 
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Email</label>
+                        <label for="inputDateStart" class="form-label fw-bold">Email</label>
                         <input class="form-control" asp-for="Customer.Email" placeholder="abc123@gmail.com" readonly>
 
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">FAX</label>
+                        <label for="inputDateEnd" class="form-label fw-bold">FAX</label>
                         <input class="form-control" asp-for="Customer.FAX" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">CCCD/CMND</label>
+                        <label for="inputDateStart" class="form-label fw-bold">CCCD/CMND</label>
                         <input class="form-control" asp-for="Customer.Identification" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">Ngày cấp</label>
+                        <label for="inputDateEnd" class="form-label fw-bold">Ngày cấp</label>
                         <input type="date" class="form-control" asp-for="Customer.IssuedDate" readonly>
 
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateStart" class="form-label">Nơi cấp</label>
+                        <label for="inputDateStart" class="form-label fw-bold">Nơi cấp</label>
                         <input class="form-control" asp-for="Customer.IssuedPlace" readonly>
 
                     </div>
                     <div class="col-md-6">
-                        <label for="inputNational" class="form-label">Quốc tịch</label>
+                        <label for="inputNational" class="form-label fw-bold">Quốc tịch</label>
                         <input class="form-control" asp-for="Customer.Nationality" readonly>
 
                     </div>
                     <div class="col-md-12">
-                        <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
+                        <label for="inputEmail" class="form-label fw-bold">Địa chỉ thường trú</label>
                         <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Customer.Address" readonly></textarea>
 
                     </div>
@@ -146,27 +146,27 @@
             <div class="col-md-5">
                 <div class="box2 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
                     <div class="col-md-6">
-                        <label for="inputTaxCode" class="form-label">Số tài khoản</label>
+                        <label for="inputTaxCode" class="form-label fw-bold">Số tài khoản</label>
                         <input class="form-control" asp-for="Customer.BankAccount" readonly>
                         
                     </div>
                     <div class="col-md-6">
-                        <label for="inputAddress2" class="form-label">Ngân hàng</label>
+                        <label for="inputAddress2" class="form-label fw-bold">Ngân hàng</label>
                         <input class="form-control" asp-for="Customer.BankName" readonly>
                        
                     </div>
                     <div class="col-md-12">
-                        <label for="inputPass" class="form-label">Mã số thuế</label>
+                        <label for="inputPass" class="form-label fw-bold">Mã số thuế</label>
                         <input style="background-color: #F3F3F3;" class="form-control" asp-for="Customer.TaxIDNumber">
                       
                     </div>
                     <div class="col-md-12">
-                        <label for="adReport" class="form-label">Địa chỉ báo cước</label>
+                        <label for="adReport" class="form-label fw-bold">Địa chỉ báo cước</label>
                         <input style="background-color: #F3F3F3;" class="form-control" asp-for="Customer.ChargeNoticeAddress" readonly />
                        
                     </div>
                     <div class="col-12">
-                        <label for="adInvoice" class="form-label" style="color: #525252;
+                        <label for="adInvoice" class="form-label fw-bold" style="color: #525252;
         font-size: 18px;
         font-family: Joxt;
         font-style: normal;
@@ -184,27 +184,27 @@
                             </div>
                             <div class="content row" style="height: 300px;width: 95%;margin: 10px auto; ">
                                 <div class="col-md-5" style="margin:0 auto;">
-                                    <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
+                                    <label for="inputNameBuss" class="form-label fw-bold">Tên doanh nghiệp</label>
                                 <input class="form-control" id="inputNameBuss" asp-for="Customer.BuisinessName" readonly>
                                    
                                 </div>
                                 <div class="col-md-5" style="margin:0 auto;">
-                                    <label for="inputPosition" class="form-label">Chức vụ</label>
+                                    <label for="inputPosition" class="form-label fw-bold">Chức vụ</label>
                                 <input class="form-control" id="inputPosition" asp-for="Customer.Position" readonly>
                                     
                                 </div>
                                 <div class="col-md-5" style="margin:0 auto;">
-                                    <label for="certi" class="form-label">Số chứng nhận doanh nghiệp</label>
+                                    <label for="certi" class="form-label fw-bold">Số chứng nhận doanh nghiệp</label>
                                 <input class="form-control" id="certi" asp-for="Customer.BuisinessNumber" readonly>
                                     
                                 </div>
                                 <div class="col-md-5" style="margin:0 auto;">
-                                    <label for="dateSDN" class="form-label">Ngày cấp SDN</label>
+                                    <label for="dateSDN" class="form-label fw-bold">Ngày cấp SDN</label>
                                 <input type="date" class="form-control" id="dateSDN" asp-for="Customer.BNDate" readonly>
                                    
                                 </div>
                                 <div class="col-md-10" style="margin:0 auto;">
-                                    <label for="adSDN" class="form-label">Nơi cấp SDN</label>
+                                    <label for="adSDN" class="form-label fw-bold">Nơi cấp SDN</label>
                                 <input class="form-control" id="adSDN" asp-for="Customer.BNPlace" readonly>
                                    
                                 </div>
@@ -227,7 +227,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="note" class="form-label">Ghi chú</label>
+                        <label for="note" class="form-label fw-bold">Ghi chú</label>
                         <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Customer.Note" readonly></textarea>
                     </div>
                 </div>

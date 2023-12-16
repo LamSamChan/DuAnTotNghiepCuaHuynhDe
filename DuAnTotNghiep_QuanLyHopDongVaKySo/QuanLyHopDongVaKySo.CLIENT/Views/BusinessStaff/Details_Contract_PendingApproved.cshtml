@@ -74,7 +74,7 @@
     <div class="row bg-white mt-4 rounded mx-auto my-auto">
         <div class="col-md-6">
             <div class="showFile">
-                <h4 style="color: #4318FF; display: flex;justify-content: center;padding-top: 10px;">@Model.Tille</h4>
+                <h4 class="typeHead">@Model.Tille</h4>
                 <div id="myCarousel" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active " style="width:800px;">
@@ -113,90 +113,91 @@
             </h4>
             <form class="row g-3" style="max-width:950px;">
                 <div class="col-md-6">
-                    <label for="inputName" class="form-label">Họ và tên</label>
-                    <input type="text" class="form-control" id="inputName" placeholder="Họ và tên" asp-for="@Model.Customer.FullName">
-                </div>
-                <div class="col-md-3">
-                    <label for="inputState" class="form-label">Giới tính</label>
-                    <select id="inputState" class="form-select">
-                        <option selected>Nam</option>
-                        <option>Nữ</option>
-                    </select>
+                    <label for="inputName" class="form-label fw-bold">Họ và tên</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="Họ và tên" asp-for="@Model.Customer.FullName" readonly>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputCCCD" class="form-label">CCCD/CMND</label>
-                    <input type="text" class="form-control" id="inputCCCD" placeholder="CCCD/CMND" asp-for="@Model.Customer.Identification">
+                    <label for="inputState" class="form-label fw-bold ">Giới tính</label>
+                    @if (Model.Customer.Gender == 1)
+                    {
+                        <input class="form-control" value="Nam" readonly>
+                    }
+                    else
+                    {
+
+                        <input class="form-control" value="Nữ" readonly>
+                    }
                 </div>
                 <div class="col-md-6">
-                    <label for="inputPhone" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-control" id="inputPhone" placeholder="Số điện thoại" asp-for="@Model.Customer.PhoneNumber">
+                    <label for="inputCCCD" class="form-label fw-bold ">CCCD/CMND</label>
+                    <input type="text" class="form-control" id="inputCCCD" placeholder="CCCD/CMND" asp-for="@Model.Customer.Identification" readonly>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Địa chỉ Email" asp-for="@Model.Customer.Email">
+                    <label for="inputPhone" class="form-label fw-bold ">Số điện thoại</label>
+                    <input type="text" class="form-control" id="inputPhone" placeholder="Số điện thoại" asp-for="@Model.Customer.PhoneNumber" readonly>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputAddress" class="form-label">Nơi ở</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="Địa chỉ nơi ở" asp-for="@Model.Customer.Address">
+                    <label for="inputEmail4" class="form-label fw-bold">Địa chỉ Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Địa chỉ Email" asp-for="@Model.Customer.Email" readonly>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.PContractID">
+                    <label for="inputAddress" class="form-label fw-bold ">Nơi ở</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Địa chỉ nơi ở" asp-for="@Model.Customer.Address" readonly>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.TOS_ID">
+                    <label for="inputEmail4" class="form-label fw-bold">Mã hợp đồng</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.PContractID" readonly>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Chữ ký khách hàng</label>
+                    <label for="inputAddress" class="form-label fw-bold">Loại dịch vụ đã đăng ký</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.TOS_ID" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label fw-bold">Chữ ký khách hàng</label>
                     <div class="d-flex align-items-center">
-                        <div style="width: 5px; height: 5px; background-color: 
-                             @(Model.PendingContracts.IsCustomer == "Chờ ký"? "yellow":"green"); border-radius: 50%; margin-right: 10px;">
-                             @Model.PendingContracts.IsCustomer
-                        </div>
+                        <input style="width: 15px; height: 15px; background-color: @(Model.PendingContracts.IsCustomer == "Chờ ký"? "yellow":"green"); border-radius: 50%; margin-right: 10px;">
+                         @Model.PendingContracts.IsCustomer
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputAddress" class="form-label">Chữ ký giám đốc</label>
+                    <label for="inputAddress" class="form-label fw-bold">Chữ ký giám đốc</label>
                     <div class="d-flex align-items-center">
-                        <div style="width: 5px; height: 5px; background-color: 
-                             @(Model.PendingContracts.IsDirector == "Chờ ký"? "yellow":"green"); border-radius: 50%; margin-right: 10px;">
-                             @Model.PendingContracts.IsDirector
-                        </div>
+                        <input style="width: 15px; height: 15px; background-color: @(Model.PendingContracts.IsDirector == "Chờ ký"? "yellow":"green"); border-radius: 50%; margin-right: 10px;">
+                         @Model.PendingContracts.IsDirector
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Ngày tạo</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.DateCreated">
+                    <label for="inputEmail4" class="form-label fw-bold">Ngày tạo</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.DateCreated" readonly>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.DateCreated">
+                    <label for="inputAddress" class="form-label fw-bold">Mã Biên bản lắp </label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.PendingContracts.DateCreated" readonly>
                 </div>
                 <h4 class="typeHead mt-3">
                     Thông tin nhân viên tạo hợp đồng
                 </h4>
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Mã nhân viên</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.EmployeeCreatedId">
+                    <label for="inputEmail4" class="form-label fw-bold">Mã nhân viên</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.PendingContracts.EmployeeCreatedId" readonly>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputAddress" class="form-label">Họ và tên</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.FullName">
+                    <label for="inputAddress" class="form-label fw-bold">Họ và tên</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.FullName" readonly>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.Email">
+                    <label for="inputEmail4" class="form-label fw-bold">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.Email" readonly>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputAddress" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.PhoneNumber">
+                    <label for="inputAddress" class="form-label fw-bold">Số điện thoại</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.PhoneNumber" readonly>
                 </div>
                 @if (Model.PendingContracts.Reason != null)
                 {
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="inputEmail4" class="form-label">Lý do từ chối</label>
-                        <textarea style="width:500px; height:100px;" asp-for="@Model.PendingContracts.Reason"> </textarea>
+                        <textarea style="width:500px; height:100px;" asp-for="@Model.PendingContracts.Reason" readonly> </textarea>
                     </div>
                 }
             </form>

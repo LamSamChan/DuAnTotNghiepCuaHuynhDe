@@ -45,26 +45,26 @@
             <div class="col-md-5">
                 <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll; height:500px;">
                     <div class="col-md-6">
-                        <label class="form-label">ID</label>
+                        <label class="form-label fw-bold">ID</label>
                         <input class="form-control" id="inputName" placeholder="Id" readonly asp-for="PutTOS.TOS_ID">
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Tên loại dịch vụ</label>
+                        <label class="form-label fw-bold">Tên loại dịch vụ</label>
                         <input class="form-control" id="inputName" asp-for="PutTOS.ServiceName" required>
                         <span class="text-danger" asp-validation-for="PutTOS.ServiceName"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputName" class="form-label">Giá</label>
+                        <label for="inputName" class="form-label fw-bold">Giá</label>
                         <input class="form-control" type="number" step="0.5" asp-for="PutTOS.Price" required>
                         <span class="text-danger" asp-validation-for="PutTOS.Price"></span>
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Đơn vị thời gian</label>
+                        <label class="form-label fw-bold">Đơn vị thời gian</label>
                         <input class="form-control" id="inputName" asp-for="PutTOS.PerTime" required>
                         <span class="text-danger" asp-validation-for="PutTOS.PerTime"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputGender" class="form-label">Hợp đồng mẫu</label>
+                        <label for="inputGender" class="form-label fw-bold">Hợp đồng mẫu</label>
                         <select style="background-color: #F3F3F3;" required class="form-control" asp-for="PutTOS.TContractID">
                             <option value="" disabled selected>...chọn mẫu hợp đồng</option>
                             @foreach (var c in Model.TemplateContracts)
@@ -75,7 +75,7 @@
                         <span class="text-danger" asp-validation-for="PutTOS.TContractID"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputGender" class="form-label">Biên bản lắp đặt mẫu</label>
+                        <label for="inputGender" class="form-label fw-bold">Biên bản lắp đặt mẫu</label>
                         <select style="background-color: #F3F3F3;" required class="form-control" asp-for="PutTOS.TMinuteID">
                             <option value="" disabled selected>...chọn mẫu biên bản lắp đặt</option>
                             @foreach (var m in Model.TemplateMinutes)
@@ -86,7 +86,7 @@
                         <span class="text-danger" asp-validation-for="PutTOS.TMinuteID"></span>
                     </div>
                     <div class="col-md-6">
-                        <label class="mb-3 mr-1" for="Status" asp-for="PutTOS.isHidden">Trạng thái: </label>
+                        <label class="mb-3 mr-1 form-label fw-bold" for="Status" asp-for="PutTOS.isHidden">Trạng thái: </label>
                         <div>
                             <input type="radio" class="btn-check " id="false" asp-for="PutTOS.isHidden" value="false" autocomplete="off" required>
                             <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hiển thị</label>

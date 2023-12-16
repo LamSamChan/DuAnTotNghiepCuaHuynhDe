@@ -57,21 +57,21 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label">Họ và tên</label>
+                    <label class="form-label fw-bold">Họ và tên</label>
                     <input class="form-control" id="inputName" placeholder="Họ và tên" asp-for="Employee.FullName" required>
                     <span class="text-danger" asp-validation-for="Employee.FullName"></span>
 
-                    <label for="inputDateStart" class="form-label" style="padding-top:60px;">Email</label>
+                    <label for="inputDateStart" class="form-label fw-bold" style="padding-top:60px;">Email</label>
                     <input class="form-control" type="email" asp-for="Employee.Email" placeholder="abc123@gmail.com" required>
                     <span class="text-danger" asp-validation-for="Employee.Email"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputName" class="form-label">Số điện thoại</label>
+                    <label for="inputName" class="form-label fw-bold">Số điện thoại</label>
                     <input class="form-control" maxlength="12" required asp-for="Employee.PhoneNumber">
                     <span class="text-danger" asp-validation-for="Employee.PhoneNumber"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputGender" class="form-label">Giới tính</label>
+                    <label for="inputGender" class="form-label fw-bold">Giới tính</label>
                     <select style="background-color: #F3F3F3;" required class="form-control" asp-for="Employee.Gender">
                         <option value="" disabled selected>...Chọn giới tính</option>
                         <option value="1">Nam</option>
@@ -80,7 +80,7 @@
                     <span class="text-danger" asp-validation-for="Employee.Gender"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputRole" class="form-label">Vai trò</label>
+                    <label for="inputRole" class="form-label fw-bold">Vai trò</label>
                     <select style="background-color: #F3F3F3;" required class="form-control" asp-for="Employee.RoleID">
                         <option value="" disabled selected>...Chọn vai trò trên hệ thống</option>
                         @foreach (var r in Model.Roles)
@@ -93,7 +93,7 @@
                     </select>
                     <span class="text-danger" asp-validation-for="Employee.RoleID"></span>
                 </div> <div class="col-md-6">
-                    <label for="inputPosition" class="form-label">Chức vụ</label>
+                    <label for="inputPosition" class="form-label fw-bold">Chức vụ</label>
                     <select style="background-color: #F3F3F3;" required class="form-control" asp-for="Employee.PositionID">
                         <option value="" disabled selected>...Chọn chức vụ trong công ty</option>
                         @foreach (var p in Model.Positions)
@@ -107,22 +107,22 @@
                     <span class="text-danger" asp-validation-for="Employee.PositionID"></span>
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label">Năm sinh</label>
+                    <label class="form-label fw-bold">Năm sinh</label>
                     <input type="date" class="form-control" required asp-for="Employee.DateOfBirth">
                     <span class="text-danger" asp-validation-for="Employee.DateOfBirth"></span>
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label">CMND / CCCD</label>
+                    <label class="form-label fw-bold">CMND / CCCD</label>
                     <input class="form-control" required asp-for="Employee.Identification">
                     <span class="text-danger" asp-validation-for="Employee.Identification"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
+                    <label for="inputEmail" class="form-label fw-bold">Địa chỉ thường trú</label>
                     <textarea style="background-color: #F3F3F3;" class="form-control" required asp-for="Employee.Address"></textarea>
                     <span class="text-danger" asp-validation-for="Employee.Address"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="note" class="form-label">Ghi chú</label>
+                    <label for="note" class="form-label fw-bold">Ghi chú</label>
                     <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Employee.Note"></textarea>
                 </div>
                 <div class="col-md-5" style="margin:auto; padding: 20px 0;">

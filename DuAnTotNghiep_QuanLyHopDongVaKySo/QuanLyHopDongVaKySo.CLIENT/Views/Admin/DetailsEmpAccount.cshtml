@@ -50,26 +50,26 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateEnd" class="form-label">ID nhân viên</label>
+                        <label for="inputDateEnd" class="form-label fw-bold">ID nhân viên</label>
                         <input class="form-control" readonly asp-for="Employee.EmployeeId">
 
-                        <label class="form-label" style="padding-top:60px;">Họ và tên</label>
+                        <label class="form-label fw-bold" style="padding-top:60px;">Họ và tên</label>
                         <input class="form-control" id="inputName" placeholder="Họ và tên" asp-for="Employee.FullName" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputEmail" class="form-label">Email</label>
+                        <label for="inputEmail" class="form-label fw-bold">Email</label>
                         <input class="form-control" type="email" asp-for="Employee.Email" placeholder="abc123@gmail.com" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDateOfBirth" class="form-label">Năm sinh</label>
+                        <label for="inputDateOfBirth" class="form-label fw-bold">Năm sinh</label>
                         <input type="date" class="form-control" required asp-for="Employee.DateOfBirth">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputPhone" class="form-label">Số điện thoại</label>
+                        <label for="inputPhone" class="form-label fw-bold">Số điện thoại</label>
                         <input class="form-control" asp-for="Employee.PhoneNumber" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputGender" class="form-label">Giới tính</label>
+                        <label for="inputGender" class="form-label fw-bold">Giới tính</label>
                         @if (Model.Employee.Gender == 1)
                         {
                             <input class="form-control" value="Nam" readonly>
@@ -81,11 +81,11 @@
                         }
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">CMND / CCCD</label>
+                        <label class="form-label fw-bold">CMND / CCCD</label>
                         <input class="form-control" readonly asp-for="Employee.Identification">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputRole" class="form-label">Vị trí</label>
+                        <label for="inputRole" class="form-label fw-bold">Vị trí</label>
                             @foreach (var r in Model.Roles)
                             {
                                 @if (r.RoleID == Model.Employee.RoleID)
@@ -95,7 +95,7 @@
                             }
                     </div>
                     <div class="col-md-6">
-                        <label for="inputRole" class="form-label">Chức vụ</label>
+                        <label for="inputRole" class="form-label fw-bold">Chức vụ</label>
                         @foreach (var p in Model.Positions)
                         {
                             @if (p.PositionID == Model.Employee.PositionID)
@@ -105,15 +105,15 @@
                         }
                     </div>
                     <div class="col-md-6">
-                        <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
+                        <label for="inputEmail" class="form-label fw-bold">Địa chỉ thường trú</label>
                         <textarea style="background-color: #F3F3F3;" class="form-control" readonly asp-for="Employee.Address"></textarea>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputSeri" class="form-label">Serial PFX</label>
+                        <label for="inputSeri" class="form-label fw-bold">Serial PFX</label>
                         <input style="background-color: #F3F3F3;" class="form-control" readonly asp-for="Employee.SerialPFX" />
                     </div>
                     <div class="col-md-6 mt-3">
-                        <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
+                        <label class="mb-3 mr-1 form-label fw-bold" for="Status">Trạng thái tài khoản: </label>
                         <div>
                             @if (!Model.Employee.IsLocked)
                             {
@@ -128,7 +128,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <label for="note" class="form-label">Ghi chú</label>
+                        <label for="note" class="form-label fw-bold">Ghi chú</label>
                         <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Employee.Note" readonly></textarea>
                     </div>
                 </div>

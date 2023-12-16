@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<QuanLyHopDongVaKySo.CLIENT.Models.Customer>
+@{
     Layout = "_AdminLayout";
 }
 <link href="~/Admin_Resource/vendors/_coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
@@ -7,10 +8,10 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
-                <li class="breadcrumb-item active"> <a>Trang chủ</a></li>
+                <li class="breadcrumb-item active"> <a>Biểu đồ thống kê dữ liệu theo thời gian</a></li>
             </ol>
         </nav>
-        <h1 class="typeHead">TRANG CHỦ</h1>
+        <h1 class="typeHead">TẤT CẢ BIỂU ĐỒ</h1>
 
     </div>
     <div class="body flex-grow-1 px-3 mt-4">
@@ -256,17 +257,95 @@
             </div>
         </div>
     </div>
+
+
+    <div class="row mx-auto bg-white mt-4 rounded">
+        <h4 class="mb-0 mt-2 typeHead">
+            Danh sách khách hàng
+        </h4>
+        <div class="listTable">
+            <table class="table display" id="myTable">
+                <thead>
+                    <tr style="color: #8B909A;">
+                        <th></th>
+                        <th scope="col">ID</th>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">SĐT</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">ĐỊA CHỈ</th>
+                        <th scope="col">TRẠNG THÁI HOẠT ĐỘNG</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @foreach (var cus in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="row action">
+                                    <a asp-action="EditCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId"><i class="ph-bold ph-note-pencil"></i></a>
+                                </div>
+                            </td>
+                            <th scope="row">@cus.CustomerId.ToString().Substring(0, 8)</th>
+                            <td>@cus.FullName</td>
+                            <td>@cus.PhoneNumber</td>
+                            <td>@cus.Email</td>
+                            <td>@cus.Address</td>
+                            @if (@cus.IsLocked)
+                            {
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+                                        <div>Khóa</div>
+                                    </div>
+                                </td>
+
+                            }
+                            else
+                            {
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 5px; height: 5px; background-color: #00C9A7; border-radius: 50%; margin-right: 10px;"></div>
+                                        <div>Bình thường</div>
+                                    </div>
+                                </td>
+
+                            }
+                            <td>
+                                <a asp-action="DetailsCus" asp-controller="BusinessStaff" asp-route-customerID="@cus.CustomerId" onclick="handleLinkClick(event)">Chi tiết</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-<script src="/Admin_Resource/vendors/_coreui/coreui/js/coreui.bundle.min.js"></script>
-<script src="/Admin_Resource/vendors/simplebar/js/simplebar.min.js"></script>
-<!-- Plugins and scripts required by this view-->
 <script src="/Admin_Resource/vendors/chart.js/js/chart.min.js"></script>
 <script src="/Admin_Resource/vendors/_coreui/chartjs/js/coreui-chartjs.js"></script>
 <script src="/Admin_Resource/vendors/_coreui/utils/js/coreui-utils.js"></script>
-@* <script src="/Admin_Resource/js/main.js"></script> *@
 <script type="text/javascript">
 
-
+    $(document).ready(function () {
+        // Khởi tạo DataTable
+        $('#myTable').DataTable({
+            "searching": false,
+            "info": false,
+            "lengthMenu": [10, 25, 50, 100],
+            "pageLength": 25,
+            "language": {
+                "decimal": "",
+                "paginate": {
+                    "first": "Đầu tiên",
+                    "last": "Cuối cùng",
+                    "next": "Sau",
+                    "previous": "Trước"
+                },
+                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
+                "emptyTable": "Không có dữ liệu"
+            }
+        });
+    });
     
     // Lấy JWT từ session
     const jwtToken = sessionStorage.getItem('token');

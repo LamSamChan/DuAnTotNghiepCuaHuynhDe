@@ -134,10 +134,13 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
-
-        public IActionResult Index1()
+        public async Task<IActionResult> Index1()
         {
-            return View();
+            List<Models.Customer> customersList = new List<Models.Customer>();
+
+            customersList = await _customerService.GetAllCustomers();
+            return View(customersList);
+
         }
         public async Task<IActionResult> HistoryOperation()
         {
