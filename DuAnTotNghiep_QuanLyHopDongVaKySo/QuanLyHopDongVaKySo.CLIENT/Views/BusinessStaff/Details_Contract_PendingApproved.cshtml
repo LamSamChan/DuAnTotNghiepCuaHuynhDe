@@ -192,10 +192,13 @@
                     <label for="inputAddress" class="form-label">Số điện thoại</label>
                     <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.Employee.PhoneNumber">
                 </div>
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Lý do từ chối</label>
-                    <textarea style="width:500px; height:100px;" asp-for="@Model.PendingContracts.Reason"> </textarea>
-                </div>
+                @if (Model.PendingContracts.Reason != null)
+                {
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Lý do từ chối</label>
+                        <textarea style="width:500px; height:100px;" asp-for="@Model.PendingContracts.Reason"> </textarea>
+                    </div>
+                }
             </form>
         </div>
 

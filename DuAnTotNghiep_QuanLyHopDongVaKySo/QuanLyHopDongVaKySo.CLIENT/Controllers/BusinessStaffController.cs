@@ -303,10 +303,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
             {
                 VMDetailsCus vm = new VMDetailsCus();
                 vm.Customer = respone;
-
                 //truyền thêm
                 vm.PendingContracts = await _pContractService.getListCusId(customerID);
                 vm.DoneContracts = await _dContractService.getListByCusId(customerID);
+                
                 if (vm.Customer.IsLocked)
                 {
                     ViewBag.block = "d-none";
