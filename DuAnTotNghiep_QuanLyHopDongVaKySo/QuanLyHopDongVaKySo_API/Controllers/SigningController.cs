@@ -289,7 +289,14 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
             await _pendingContract.updateAsnyc(pendingContract);
 
-            Task.Run(() => SendMailToCustomerWithImage(qrPath, url, customer, pContract.PContractID));
+            if (customer.typeofCustomer == "Cá nhân")
+            {
+                Task.Run(() => SendMailToCustomerWithImage(qrPath, url, customer, pContract.PContractID));
+            }
+            else
+            {
+                Task.Run(() => SendMailToCustomerWithImageAndZip(qrPath, url, customer, pContract.PContractID));
+            }
           
             _uploadFileHelper.RemoveFile(imagePath);
             _uploadFileHelper.RemoveFile(imagePathStamp);
@@ -880,6 +887,28 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             mail.ToMail = customer.Email;
             mail.HtmlContent = content;
             string isSuccess = await _sendMailHelper.SendMailWithImage(mail, qrPath);
+            if (isSuccess != null)
+            {
+                return "Đã gửi thành công";
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private async Task<string> SendMailToCustomerWithImageAndZip(byte[] qrPath, string url, Customer customer, int idContract)
+        {
+            byte[] zipFile = System.IO.File.ReadAllBytes("AppData\\TechSealSigningWithUsbTokenApp.zip");
+            string content = System.IO.File.ReadAllText("AppData\\TemplateSendMail\\kyhddoanhnghiep.html").Replace("[TENKHACHHANG]", customer.FullName).Replace("[MAHOPDONG]", idContract.ToString())
+                .Replace("[URL]", url);
+
+            SendMail mail = new SendMail();
+            mail.Subject = "Hợp đồng Từ TechSeal";
+            mail.ReceiverName = customer.FullName;
+            mail.ToMail = customer.Email;
+            mail.HtmlContent = content;
+            string isSuccess = await _sendMailHelper.SendMailWithImageAndZip(mail, qrPath, zipFile);
             if (isSuccess != null)
             {
                 return "Đã gửi thành công";
