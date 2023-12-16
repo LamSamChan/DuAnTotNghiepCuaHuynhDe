@@ -272,35 +272,35 @@
                 <h4 class="typeHead">Thông tin cá nhân</h4>
                 <form class="row justify-content-around g-3" method="post" asp-action="UpdateInfo" asp-controller="Director">
                     <div class="col-md-6">
-                        <label for="inputName" class="form-label">ID</label>
+                        <label for="inputName" class="form-label fw-bold">ID</label>
                         <input type="text" class="form-control" asp-for="Employee.EmployeeId" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputName" class="form-label">Họ tên</label>
+                        <label for="inputName" class="form-label fw-bold">Họ tên</label>
                         <input type="text" class="form-control" id="inputName" asp-for="Employee.FullName" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputEmail" class="form-label">Email</label>
+                        <label for="inputEmail" class="form-label fw-bold">Email</label>
                         <input type="email" class="form-control" id="inputEmail" asp-for="Employee.Email" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputPhone" class="form-label">Số điện thoại</label>
+                        <label for="inputPhone" class="form-label fw-bold">Số điện thoại</label>
                         <input type="text" class="form-control" id="inputPhone" maxlength="12" asp-for="Employee.PhoneNumber" required>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputAddress" class="form-label">CMND / CCCD</label>
+                        <label for="inputAddress" class="form-label fw-bold">CMND / CCCD</label>
                         <input type="text" placeholder="Add" class="form-control" id="inputAddress" asp-for="Employee.Identification" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputAddress" class="form-label">Địa chỉ</label>
+                        <label for="inputAddress" class="form-label fw-bold">Địa chỉ</label>
                         <textarea type="text" placeholder="Add" class="form-control" id="inputAddress" asp-for="Employee.Address" required></textarea>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputDate" class="form-label">Ngày sinh</label>
+                        <label for="inputDate" class="form-label fw-bold">Ngày sinh</label>
                         <input type="date" class="form-control" id="inputDate" asp-for="Employee.DateOfBirth" required>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputGender" class="form-label">Giới tính</label>
+                        <label for="inputGender" class="form-label fw-bold">Giới tính</label>
                         <select id="inpuGender" class="form-select" required asp-for="Employee.Gender">
                             <option value="" disabled selected>...Chọn giới tính</option>
                             <option value="1">Nam</option>
@@ -308,7 +308,7 @@
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputRole" class="form-label">Vai trò</label>
+                        <label for="inputRole" class="form-label fw-bold">Vai trò</label>
                         <input type="text" class="form-control border border-2 border-primary  outline-0 shadow-lg" id="inputRole" readonly value=" @foreach (var r in Model.Roles)
                                {
                                     if(r.RoleID == Model.Employee.RoleID)
@@ -319,7 +319,7 @@
                         <input class="d-none" readonly asp-for="Employee.RoleID">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputPosition" class="form-label">Chức danh</label>
+                        <label for="inputPosition" class="form-label fw-bold">Chức danh</label>
                         <input type="text" class="form-control " id="inputPosition" readonly value="@foreach (var p in Model.Positions)
                                {
                                     if(p.PositionID == Model.Employee.PositionID)
@@ -330,7 +330,7 @@
                         <input class="d-none" readonly asp-for="Employee.PositionID">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputPhone" class="form-label">Trạng thái tài khoản</label>
+                        <label for="inputPhone" class="form-label fw-bold">Trạng thái tài khoản</label>
                         <div>
                             @if (!Model.Employee.IsLocked)
                             {
@@ -345,7 +345,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="exampleFormControlTextarea1" class="form-label">Ghi chú</label>
+                        <label for="exampleFormControlTextarea1" class="form-label fw-bold">Ghi chú</label>
                         <textarea type="text" class="form-control" id="exampleFormControlTextarea1" asp-for="Employee.Note" readonly rows="3"></textarea>
                     </div>
                     <button class="add_cus" style="margin:20px auto; width:50%; padding: 20px; min-height:30px; display:flex; justify-content:center; align-items:center; " type="submit">

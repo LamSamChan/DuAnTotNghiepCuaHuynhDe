@@ -185,11 +185,11 @@
                         </h4>
                         <form class="row g-3" style="max-width:950px;">
                             <div class="col-md-6">
-                                <label for="inputName" class="form-label">Họ và tên</label>
+                                <label for="inputName" class="form-label fw-bold">Họ và tên</label>
                                 <input type="text" class="form-control" id="inputName" placeholder="Họ và tên" asp-for="@Model.Customer.FullName">
                             </div>
                             <div class="col-md-3">
-                                <label for="inputState" class="form-label">Giới tính</label>
+                                <label for="inputState" class="form-label fw-bold">Giới tính</label>
                                 @if (Model.Customer.Gender == 1)
                                 {
                                     <input type="text" class="form-control" id="inputName" readonly value="Nam">
@@ -200,54 +200,54 @@
                                 }
                             </div>
                             <div class="col-md-6">
-                                <label for="inputCCCD" class="form-label">CCCD/CMND</label>
+                                <label for="inputCCCD" class="form-label fw-bold">CCCD/CMND</label>
                                 <input type="text" class="form-control" id="inputCCCD" placeholder="CCCD/CMND" asp-for="@Model.Customer.Identification">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputPhone" class="form-label">Số điện thoại</label>
+                                <label for="inputPhone" class="form-label fw-bold">Số điện thoại</label>
                                 <input type="text" class="form-control" id="inputPhone" placeholder="Số điện thoại" asp-for="@Model.Customer.PhoneNumber">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
+                                <label for="inputEmail4" class="form-label fw-bold">Địa chỉ Email</label>
                                 <input type="email" class="form-control" id="inputEmail4" placeholder="Địa chỉ Email"asp-for="@Model.Customer.Email">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputAddress" class="form-label">Nơi ở</label>
+                                <label for="inputAddress" class="form-label fw-bold">Nơi ở</label>
                                 <input type="text" class="form-control" id="inputAddress" placeholder="Địa chỉ nơi ở" asp-for="@Model.Customer.Address">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
+                                <label for="inputEmail4" class="form-label fw-bold">Mã hợp đồng</label>
                                 <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContracts.Id">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
+                                <label for="inputAddress" class="form-label fw-bold">Loại dịch vụ đã đăng ký</label>
                                 <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.DoneContracts.TypeOfService">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Ngày hiệu lực</label>
+                                <label for="inputEmail4" class="form-label fw-bold">Ngày hiệu lực</label>
                                 <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContracts.DateDone">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
+                                <label for="inputAddress" class="form-label fw-bold">Mã Biên bản lắp </label>
                                 <input type="text" class="form-control" id="inputAddress" placeholder="ID" asp-for="@Model.DoneContracts.DMinuteID">
                             </div>
                             <h4 class="typeHead mt-3">
                                 Thông tin nhân viên tạo hợp đồng
                             </h4>
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Mã nhân viên</label>
+                                <label for="inputEmail4" class="form-label fw-bold">Mã nhân viên</label>
                                 <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.EmployeeId">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputAddress" class="form-label">Họ và tên</label>
+                                <label for="inputAddress" class="form-label fw-bold">Họ và tên</label>
                                 <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.Customer.FullName">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Email</label>
+                                <label for="inputEmail4" class="form-label fw-bold">Email</label>
                                 <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Customer.Email">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputAddress" class="form-label">Số điện thoại</label>
+                                <label for="inputAddress" class="form-label fw-bold">Số điện thoại</label>
                                 <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.Customer.PhoneNumber">
                             </div>
                         </form>
@@ -344,11 +344,11 @@
                         </h4>
                         <form class="row g-3" style="max-width:950px;">
                             <div class="col-md-6">
-                                <label for="inputName" class="form-label">Họ và tên</label>
-                                <input type="text" class="form-control" id="inputName" placeholder="Họ và tên" asp-for="@Model.Customer.FullName">
+                                <label for="inputName" class="form-label fw-bold">Họ và tên</label>
+                                <input type="text" class="form-control" id="inputName" asp-for="@Model.Customer.FullName" readonly>
                             </div>
-                            <div class="col-md-3">
-                                <label for="inputState" class="form-label">Giới tính</label>
+                            <div class="col-md-6">
+                                <label for="inputState" class="form-label fw-bold">Giới tính</label>
                                 @if (Model.Customer.Gender == 1)
                                 {
                                     <input type="text" class="form-control" id="inputName" readonly value="Nam">
@@ -359,55 +359,55 @@
                                 }
                             </div>
                             <div class="col-md-6">
-                                <label for="inputCCCD" class="form-label">CCCD/CMND</label>
-                                <input type="text" class="form-control" id="inputCCCD" placeholder="CCCD/CMND" asp-for="@Model.Customer.Identification">
+                                <label for="inputCCCD" class="form-label fw-bold">CCCD/CMND</label>
+                                <input type="text" class="form-control" id="inputCCCD" asp-for="@Model.Customer.Identification" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputPhone" class="form-label">Số điện thoại</label>
-                                <input type="text" class="form-control" id="inputPhone" placeholder="Số điện thoại" asp-for="@Model.Customer.PhoneNumber">
+                                <label for="inputPhone" class="form-label fw-bold">Số điện thoại</label>
+                                <input type="text" class="form-control" id="inputPhone"  asp-for="@Model.Customer.PhoneNumber" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Địa chỉ Email</label>
-                                <input type="email" class="form-control" id="inputEmail4" placeholder="Địa chỉ Email" asp-for="@Model.Customer.Email">
+                                <label for="inputEmail4" class="form-label fw-bold">Địa chỉ Email</label>
+                                <input type="email" class="form-control" id="inputEmail4"  asp-for="@Model.Customer.Email" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputAddress" class="form-label">Nơi ở</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="Địa chỉ nơi ở" asp-for="@Model.Customer.Address">
+                                <label for="inputAddress" class="form-label fw-bold">Nơi ở</label>
+                                <input type="text" class="form-control" id="inputAddress"  asp-for="@Model.Customer.Address" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Mã hợp đồng</label>
-                                <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContracts.Id">
+                                <label for="inputEmail4" class="form-label fw-bold">Mã hợp đồng</label>
+                                <input type="email" class="form-control" id="inputEmail4"  asp-for="@Model.DoneContracts.Id" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputAddress" class="form-label">Loại dịch vụ đã đăng ký</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.DoneContracts.TypeOfService">
+                                <label for="inputAddress" class="form-label fw-bold">Loại dịch vụ đã đăng ký</label>
+                                <input type="text" class="form-control" id="inputAddress"  asp-for="@Model.DoneContracts.TypeOfService" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Ngày hiệu lực</label>
-                                <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.DoneContracts.DateDone">
+                                <label for="inputEmail4" class="form-label fw-bold">Ngày hiệu lực</label>
+                                <input type="email" class="form-control" id="inputEmail4"  asp-for="@Model.DoneContracts.DateDone" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputAddress" class="form-label">Mã Biên bản lắp </label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="ID" asp-for="@Model.DoneContracts.DMinuteID">
+                                <label for="inputAddress" class="form-label fw-bold">Mã Biên bản lắp </label>
+                                <input type="text" class="form-control" id="inputAddress"  asp-for="@Model.DoneContracts.DMinuteID" readonly>
                             </div>
                             <h4 class="typeHead mt-3">
                                 Thông tin nhân viên lắp đặt
                             </h4>
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Mã nhân viên</label>
-                                <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Employee.EmployeeId">
+                                <label for="inputEmail4" class="form-label fw-bold">Mã nhân viên</label>
+                                <input type="email" class="form-control" id="inputEmail4"  asp-for="@Model.Employee.EmployeeId" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputAddress" class="form-label">Họ và tên</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.Customer.FullName">
+                                <label for="inputAddress" class="form-label fw-bold">Họ và tên</label>
+                                <input type="text" class="form-control" id="inputAddress"  asp-for="@Model.Customer.FullName" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="inputEmail4" placeholder="IDxxx" asp-for="@Model.Customer.Email">
+                                <label for="inputEmail4" class="form-label fw-bold">Email</label>
+                                <input type="email" class="form-control" id="inputEmail4"  asp-for="@Model.Customer.Email" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputAddress" class="form-label">Số điện thoại</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="WIFI" asp-for="@Model.Customer.PhoneNumber">
+                                <label for="inputAddress" class="form-label fw-bold">Số điện thoại</label>
+                                <input type="text" class="form-control" id="inputAddress" asp-for="@Model.Customer.PhoneNumber" readonly>
                             </div>
                         </form>
                     </div>

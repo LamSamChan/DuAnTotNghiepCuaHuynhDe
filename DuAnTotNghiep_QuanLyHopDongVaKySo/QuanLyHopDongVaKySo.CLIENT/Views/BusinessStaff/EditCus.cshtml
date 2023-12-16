@@ -42,27 +42,27 @@
         <div class="col-md-5">
             <div class="box1 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
                 <div class="col-md-6">
-                    <label class="form-label">ID khách hàng</label>
+                    <label class="form-label fw-bold">ID khách hàng</label>
                     <input class="form-control" id="inputName" asp-for="CustomerId" placeholder="Họ và tên" readonly>
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label">Họ và tên</label>
+                    <label class="form-label fw-bold">Họ và tên</label>
                     <input class="form-control" id="inputName" asp-for="FullName" placeholder="Họ và tên" required>
                     <span class="text-danger" asp-validation-for="FullName"></span>
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label">Năm sinh</label>
+                    <label class="form-label fw-bold">Năm sinh</label>
                     <input type="date" class="form-control" asp-for="DateOfBirth" required>
                     <span class="text-danger" asp-validation-for="DateOfBirth"></span>
                 </div>
 
                 <div class="col-md-6">
-                    <label for="inputName" class="form-label">Số điện thoại</label>
+                    <label for="inputName" class="form-label fw-bold">Số điện thoại</label>
                     <input class="form-control" asp-for="PhoneNumber" maxlength="12" required>
                     <span class="text-danger" asp-validation-for="PhoneNumber"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputGender" class="form-label">Giới tính</label>
+                    <label for="inputGender" class="form-label fw-bold">Giới tính</label>
                     <select style="background-color: #F3F3F3;" required asp-for="Gender" class="form-control">
                         <option value="" disabled selected>...chọn giới tính</option>
                         <option value="1">Nam</option>
@@ -70,52 +70,52 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputCCCD" class="form-label">Giấy ủy quyền</label>
+                    <label for="inputCCCD" class="form-label fw-bold">Giấy ủy quyền</label>
                     <input class="form-control" asp-for="PowerOfAttorneyNum" maxlength="12">
                     <span class="text-danger" asp-validation-for="PowerOfAttorneyNum"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputDateStart" class="form-label">Ngày ủy quyền</label>
+                    <label for="inputDateStart" class="form-label fw-bold">Ngày ủy quyền</label>
                     <input type="date" class="form-control" asp-for="DatePOA">
                     <span class="text-danger" asp-validation-for="DatePOA"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputDateEnd" class="form-label">Người ủy quyền</label>
+                    <label for="inputDateEnd" class="form-label fw-bold">Người ủy quyền</label>
                     <input class="form-control" asp-for="WhoPOA">
                     <span class="text-danger" asp-validation-for="WhoPOA"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputDateStart" class="form-label">Email</label>
+                    <label for="inputDateStart" class="form-label fw-bold">Email</label>
                     <input class="form-control" type="email" asp-for="Email" placeholder="abc123@gmail.com" required>
                     <span class="text-danger" asp-validation-for="Email"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputDateEnd" class="form-label">FAX</label>
+                    <label for="inputDateEnd" class="form-label fw-bold">FAX</label>
                     <input class="form-control" asp-for="FAX">
                     <span class="text-danger" asp-validation-for="FAX"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputDateStart" class="form-label">CCCD/CMND</label>
+                    <label for="inputDateStart" class="form-label fw-bold">CCCD/CMND</label>
                     <input class="form-control" asp-for="Identification" required>
                     <span class="text-danger" asp-validation-for="Identification"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputDateEnd" class="form-label">Ngày cấp</label>
+                    <label for="inputDateEnd" class="form-label fw-bold">Ngày cấp</label>
                     <input type="date" class="form-control" asp-for="IssuedDate" required>
                     <span class="text-danger" asp-validation-for="IssuedDate"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputDateStart" class="form-label">Nơi cấp</label>
+                    <label for="inputDateStart" class="form-label fw-bold">Nơi cấp</label>
                     <input class="form-control" asp-for="IssuedPlace" required>
                     <span class="text-danger" asp-validation-for="IssuedPlace"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputNational" class="form-label">Quốc tịch</label>
+                    <label for="inputNational" class="form-label fw-bold">Quốc tịch</label>
                     <input class="form-control" asp-for="Nationality" required>
                     <span class="text-danger" asp-validation-for="Nationality"></span>
                 </div>
                 <div class="col-md-12">
-                    <label for="inputEmail" class="form-label">Địa chỉ thường trú</label>
+                    <label for="inputEmail" class="form-label fw-bold">Địa chỉ thường trú</label>
                     <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Address" required></textarea>
                     <span class="text-danger" asp-validation-for="Address"></span>
                 </div>
@@ -125,27 +125,27 @@
         <div class="col-md-5">
             <div class="box2 row justify-content-between g-3 " style=" max-height: 800px;overflow-y: scroll;">
                 <div class="col-md-6">
-                    <label for="inputTaxCode" class="form-label">Số tài khoản</label>
+                    <label for="inputTaxCode" class="form-label fw-bold">Số tài khoản</label>
                     <input class="form-control" asp-for="BankAccount">
                     <span class="text-danger" asp-validation-for="BankAccount"></span>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputAddress2" class="form-label">Ngân hàng</label>
+                    <label for="inputAddress2" class="form-label fw-bold">Ngân hàng</label>
                     <input class="form-control" asp-for="BankName">
                     <span class="text-danger" asp-validation-for="BankName"></span>
                 </div>
                 <div class="col-md-12">
-                    <label for="inputPass" class="form-label">Mã số thuế</label>
+                    <label for="inputPass" class="form-label fw-bold">Mã số thuế</label>
                     <input style="background-color: #F3F3F3;" class="form-control" asp-for="TaxIDNumber">
                     <span class="text-danger" asp-validation-for="TaxIDNumber"></span>
                 </div>
                 <div class="col-md-12">
-                    <label for="adReport" class="form-label">Địa chỉ báo cước</label>
+                    <label for="adReport" class="form-label fw-bold">Địa chỉ báo cước</label>
                     <input style="background-color: #F3F3F3;" class="form-control" asp-for="ChargeNoticeAddress" required>
                     <span class="text-danger" asp-validation-for="ChargeNoticeAddress"></span>
                 </div>
                 <div class="col-12">
-                    <label for="adInvoice" class="form-label" style="color: #525252;
+                    <label for="adInvoice" class="form-label fw-bold" style="color: #525252;
         font-size: 18px;
         font-family: Joxt;
         font-style: normal;
@@ -163,27 +163,27 @@
                         </div>
                         <div class="content row" style="height: 300px;width: 95%;margin: 10px auto; ">
                             <div class="col-md-5" style="margin:0 auto;">
-                                <label for="inputNameBuss" class="form-label">Tên doanh nghiệp</label>
+                                <label for="inputNameBuss" class="form-label fw-bold">Tên doanh nghiệp</label>
                                 <input class="form-control" id="inputNameBuss" asp-for="BuisinessName" disabled>
                                 <span class="text-danger" asp-validation-for="BuisinessName"></span>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
-                                <label for="inputPosition" class="form-label">Chức vụ</label>
+                                <label for="inputPosition" class="form-label fw-bold">Chức vụ</label>
                                 <input class="form-control" id="inputPosition" asp-for="Position">
                                 <span class="text-danger" asp-validation-for="Position"></span>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
-                                <label for="certi" class="form-label">Số chứng nhận doanh nghiệp</label>
+                                <label for="certi" class="form-label fw-bold">Số chứng nhận doanh nghiệp</label>
                                 <input class="form-control" id="certi" asp-for="BuisinessNumber">
                                 <span class="text-danger" asp-validation-for="BuisinessNumber"></span>
                             </div>
                             <div class="col-md-5" style="margin:0 auto;">
-                                <label for="dateSDN" class="form-label">Ngày cấp SDN</label>
+                                <label for="dateSDN" class="form-label fw-bold">Ngày cấp SDN</label>
                                 <input type="date" class="form-control" id="dateSDN" asp-for="BNDate">
                                 <span class="text-danger" asp-validation-for="BNDate"></span>
                             </div>
                             <div class="col-md-10" style="margin:0 auto;">
-                                <label for="adSDN" class="form-label">Nơi cấp SDN</label>
+                                <label for="adSDN" class="form-label fw-bold">Nơi cấp SDN</label>
                                 <input class="form-control" id="adSDN" asp-for="BNPlace">
                                 <span class="text-danger" asp-validation-for="BNPlace"></span>
                             </div>
@@ -191,7 +191,7 @@
                     </div>
                 }
                 <div class="col-md-6 mt-3">
-                    <label class="mb-3 mr-1" for="Status">Trạng thái tài khoản: </label>
+                    <label class="mb-3 mr-1 form-label fw-bold" for="Status">Trạng thái tài khoản: </label>
                     <div>
                         <input type="radio" class="btn-check " asp-for="IsLocked" id="false" value="false" autocomplete="off" required>
                         <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hoạt động</label>
@@ -201,7 +201,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="note" class="form-label">Ghi chú</label>
+                    <label for="note" class="form-label fw-bold">Ghi chú</label>
                     <textarea style="background-color: #F3F3F3;" class="form-control" asp-for="Note"></textarea>
                     <span class="text-danger" asp-validation-for="Note"></span>
                 </div>

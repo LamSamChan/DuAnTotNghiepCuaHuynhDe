@@ -39,17 +39,17 @@
             <div class="col-md-5">
                 <div class="box1 row justify-content-between g-3 " style="max-height: 800px;overflow-y: scroll; height: 300px; margin: 40px auto;">
                     <div class="col-md-12">
-                        <label class="form-label" asp-for="PositionID">Id</label>
+                        <label class="form-label fw-bold" asp-for="PositionID">Id</label>
                         <input class="form-control" readonly asp-for="PositionID">
                         <span class="text-danger" asp-validation-for="PositionID"></span>
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label" asp-for="PositionName">Tên chức danh</label>
+                        <label class="form-label fw-bold" asp-for="PositionName">Tên chức danh</label>
                         <input class="form-control" id="inputName" asp-for="PositionName" required>
                         <span class="text-danger" asp-validation-for="PositionName"></span>
                     </div>
                     <div class="col-md-6">
-                        <label class="mb-3 mr-1" for="Status" asp-for="isHidden">Trạng thái: </label>
+                        <label class="mb-3 mr-1 fw-bold" for="Status" asp-for="isHidden">Trạng thái: </label>
                         <div>
                             <input type="radio" class="btn-check " id="false" asp-for="isHidden" value="false" autocomplete="off" required>
                             <label class="btn btn-sm btn-outline-success text-light" id="false-label" for="false">Hiển thị</label>
