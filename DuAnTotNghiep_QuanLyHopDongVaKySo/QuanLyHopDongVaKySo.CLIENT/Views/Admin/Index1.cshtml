@@ -1,8 +1,10 @@
 ﻿@model List<QuanLyHopDongVaKySo.CLIENT.Models.Customer>
 @{
     Layout = "_AdminLayout";
+    string tk = Context.Request.HttpContext.Session.GetString("token");
 }
-<link href="~/Admin_Resource/vendors/_coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+<link href="/Admin_Resource/vendors/_coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+
 <div class="container-fluid">
     <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex">
         <nav aria-label="breadcrumb">
@@ -321,9 +323,9 @@
         </div>
     </div>
 </div>
-<script src="/Admin_Resource/vendors/chart.js/js/chart.min.js"></script>
 <script src="/Admin_Resource/vendors/_coreui/chartjs/js/coreui-chartjs.js"></script>
-<script src="/Admin_Resource/vendors/_coreui/utils/js/coreui-utils.js"></script>
+<script  src="/Admin_Resource/vendors/chart.js/js/chart.min.js"></script>
+<script  src="/Admin_Resource/vendors/_coreui/utils/js/coreui-utils.js"></script>
 <script type="text/javascript">
 
     $(document).ready(function () {
@@ -348,7 +350,7 @@
     });
     
     // Lấy JWT từ session
-    const jwtToken = sessionStorage.getItem('token');
+    const jwtToken = '@Html.Raw(tk)';
 
     // Thiết lập header Bearer
     //const headers = new Headers();
@@ -2029,3 +2031,4 @@
     // Bắt đầu đếm ngược và load lại dữ liệu
     countdownAndLoadData(reloadInterval / 1000);
 </script> 
+

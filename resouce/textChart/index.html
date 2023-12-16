@@ -1,1062 +1,689 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Document</title>
-    <link
-      href="/Admin_Resource/css/vendors/Css_Index.css?v=2"
-      rel="stylesheet"
-      type="text/css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Vendors styles-->
-    <link
-      rel="stylesheet"
-      href="/Admin_Resource/vendors/simplebar/css/simplebar.css"
-    />
-    <link rel="stylesheet" href="/Admin_Resource/css/vendors/simplebar.css" />
-    <!-- Main styles for this application-->
-    <link href="/Admin_Resource/css/style.css" rel="stylesheet" />
-    <!-- We use those styles to show code examples, you should remove them in your application.-->
-    <link href="/Admin_Resource/css/examples.css" rel="stylesheet" />
-    <link
-      href="/Admin_Resource/vendors/_coreui/chartjs/css/coreui-chartjs.css"
-      rel="stylesheet"
-    />
-    <script src="./Admin_Resource/js/jquery-3.6.0.min.js"></script>
-  </head>
+  <title>Document</title>
+  <link href="/Admin_Resource/css/vendors/Css_Index.css?v=2" rel="stylesheet" type="text/css" />
 
-  <body>
-    <div class="body flex-grow-1 px-3 mt-4">
-      <div class="container-lg">
-        <div class="row">
-          <div class="col-sm-6 col-lg-3">
-            <div class="card mb-4 text-white bg-primary">
-              <div
-                class="card-body pb-0 d-flex justify-content-between align-items-start"
-              >
-                <div>
-                  <div class="fs-4 fw-semibold">
-                    <span>Tổng:</span>
-                    <span id="sumPContract"></span>
-                  </div>
-                  <div>Số lượng hợp đồng được tạo</div>
-                </div>
-                <div class="dropdown">
-                  <button
-                    class="btn btn-transparent text-white p-0"
-                    type="button"
-                    data-coreui-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <svg class="icon">
-                      <use
-                        xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-options"
-                      ></use>
-                    </svg>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-end">
-                    <a
-                      class="dropdown-item"
-                      href="#"
-                      onclick="callDataPContractByDate()"
-                      >Ngày</a
-                    ><a
-                      class="dropdown-item"
-                      href="#"
-                      onclick="callDataPContractByWeek()"
-                      >Tuần</a
-                    ><a
-                      class="dropdown-item"
-                      href="#"
-                      onclick="callDataPContractByMonth()"
-                      >Tháng</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div
-                class="c-chart-wrapper mt-3 mx-3"
-                style="height: 70px"
-                id="div-pContract-chart"
-              >
-                <canvas class="chart" id="pContract-chart" height="70"></canvas>
-              </div>
-            </div>
-          </div>
-          <!-- /.col-->
+  <!-- Vendors styles-->
+  <link rel="stylesheet" href="/Admin_Resource/vendors/simplebar/css/simplebar.css" />
+  <link rel="stylesheet" href="/Admin_Resource/css/vendors/simplebar.css" />
+  <!-- Main styles for this application-->
+  <link href="/Admin_Resource/css/style.css" rel="stylesheet" />
+  <!-- We use those styles to show code examples, you should remove them in your application.-->
+  <link href="/Admin_Resource/css/examples.css" rel="stylesheet" />
 
-          <div class="col-sm-6 col-lg-3">
-            <div class="card mb-4 text-white bg-warning">
-              <div
-                class="card-body pb-0 d-flex justify-content-between align-items-start"
-              >
-                <div>
-                  <div class="fs-4 fw-semibold">
-                    <span>Tổng: </span>
-                    <span id="sumPContractWaitCus"></span>
-                  </div>
-                  <div>Số lượng hợp đồng chờ khách ký</div>
-                </div>
-                <div class="dropdown">
-                  <button
-                    class="btn btn-transparent text-white p-0"
-                    type="button"
-                    data-coreui-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <svg class="icon">
-                      <use
-                        xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-options"
-                      ></use>
-                    </svg>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-end">
-                    <a
-                      class="dropdown-item"
-                      href="#"
-                      onclick="callDataPContractWaitCusByDate()"
-                      >Ngày</a
-                    ><a
-                      class="dropdown-item"
-                      href="#"
-                      onclick="callDataPContractWaitCusByWeek()"
-                      >Tuần</a
-                    ><a
-                      class="dropdown-item"
-                      href="#"
-                      onclick="callDataPContractWaitCusByMonth()"
-                      >Tháng</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div
-                id="div-pContractWaitCus-chart"
-                class="c-chart-wrapper mt-3 mx-3"
-                style="height: 70px"
-              >
-                <canvas
-                  class="chart"
-                  id="pContractWaitCus-chart"
-                  height="70"
-                ></canvas>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <div class="card mb-4 text-white bg-success">
-              <div
-                class="card-body pb-0 d-flex justify-content-between align-items-start"
-              >
-                <div>
-                  <div class="fs-4 fw-semibold">
-                    <span>Tổng: </span>
-                    <span id="sumDContract"></span>
-                  </div>
-                  <div>Số lượng hợp đồng khách đã ký</div>
-                </div>
-                <div class="dropdown">
-                  <button
-                    class="btn btn-transparent text-white p-0"
-                    type="button"
-                    data-coreui-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <svg class="icon">
-                      <use
-                        xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-options"
-                      ></use>
-                    </svg>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-end">
-                    <a
-                      class="dropdown-item"
-                      href="#"
-                      onclick="callDataDContractByDate()"
-                      >Ngày</a
-                    ><a
-                      class="dropdown-item"
-                      href="#"
-                      onclick="callDataDContractByWeek()"
-                      >Tuần</a
-                    ><a
-                      class="dropdown-item"
-                      href="#"
-                      onclick="callDataDContractByMonth()"
-                      >Tháng</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div
-                id="div-dContract-chart"
-                class="c-chart-wrapper mt-3 mx-3"
-                style="height: 70px"
-              >
-                <canvas class="chart" id="dContract-chart" height="70"></canvas>
-              </div>
-            </div>
-          </div>
-          <!-- /.col-->
-          <div class="col-sm-6 col-lg-3">
-            <div class="card mb-4 text-white bg-danger">
-              <div
-                class="card-body pb-0 d-flex justify-content-between align-items-start"
-              >
-                <div>
-                  <div class="fs-4 fw-semibold">
-                    <span>Tổng: </span>
-                    <span id="sumUnEffect"></span>
-                  </div>
-                  <div>Số lượng hợp đã kết thúc</div>
-                </div>
-                <div class="dropdown">
-                  <button
-                    class="btn btn-transparent text-white p-0"
-                    type="button"
-                    data-coreui-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <svg class="icon">
-                      <use
-                        xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-options"
-                      ></use>
-                    </svg>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-end">
-                    <a
-                      class="dropdown-item"
-                      href="#"
-                      onclick="callDataUnEffectByDate()"
-                      >Ngày</a
-                    ><a
-                      class="dropdown-item"
-                      href="#"
-                      onclick="callDataUnEffectByWeek()"
-                      >Tuần</a
-                    ><a
-                      class="dropdown-item"
-                      href="#"
-                      onclick="callDataUnEffectByMonth()"
-                      >Tháng</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div
-                id="div-dContractUneffect-chart"
-                class="c-chart-wrapper mt-3 mx-3"
-                style="height: 70px"
-              >
-                <canvas
-                  class="chart"
-                  id="dContractUneffect-chart"
-                  height="70"
-                ></canvas>
-              </div>
-            </div>
-          </div>
-          <!-- /.col-->
-        </div>
-        <!-- /.row-->
-        <div class="card mb-4">
-          <div class="card-body">
-            <div class="d-flex justify-content-between">
+  <script src="./Admin_Resource/js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <div class="body flex-grow-1 px-3 mt-4">
+    <div class="container-lg">
+      <div class="row">
+        <div class="col-sm-6 col-lg-3">
+          <div class="card mb-4 text-white bg-primary">
+            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
               <div>
-                <h4 class="card-title mb-0">
-                  Biểu đồ theo dõi lượng khách hàng
-                </h4>
+                <div class="fs-4 fw-semibold">
+                  <span>Tổng:</span>
+                  <span id="sumPContract"></span>
+                </div>
+                <div>Số lượng hợp đồng được tạo</div>
               </div>
-              <div
-                class="btn-toolbar d-none d-md-block"
-                role="toolbar"
-                aria-label="Toolbar with buttons"
-              >
-                <div
-                  class="btn-group btn-group-toggle mx-3"
-                  data-coreui-toggle="buttons"
-                >
-                  <input
-                    class="btn-check"
-                    id="option1"
-                    type="radio"
-                    name="options"
-                    autocomplete="off"
-                    checked="true"
-                  />
-                  <label class="btn btn-outline-secondary" for="option1">
-                    Ngày</label
-                  >
-                  <input
-                    class="btn-check"
-                    id="option2"
-                    type="radio"
-                    name="options"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-outline-secondary" for="option2">
-                    Tuần</label
-                  >
-                  <input
-                    class="btn-check"
-                    id="option3"
-                    type="radio"
-                    name="options"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-outline-secondary" for="option3">
-                    Tháng</label
-                  >
+              <div class="dropdown">
+                <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <svg class="icon">
+                    <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-options"></use>
+                  </svg>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <a class="dropdown-item" href="#" onclick="callDataPContractByDate()">Ngày</a><a class="dropdown-item"
+                    href="#" onclick="callDataPContractByWeek()">Tuần</a><a class="dropdown-item" href="#"
+                    onclick="callDataPContractByMonth()">Tháng</a>
                 </div>
-                <div id="datePickerContainer" style="display: block">
-                  <!-- Nội dung bạn muốn hiển thị -->
-                  <div>
-                    <label for="datepicker">Từ ngày:</label>
-                    <input type="date" id="startDate" />
-                  </div>
-                  <div>
-                    <label for="datepicker">Đến ngày:</label>
-                    <input type="date" id="endDate" />
-                  </div>
-                  <div>
-                    <button onclick="callDataCustomerByDate()">
-                      Xem dữ liệu
-                    </button>
-                  </div>
-                </div>
+              </div>
+            </div>
+            <div class="c-chart-wrapper mt-3 mx-3" style="height: 70px" id="div-pContract-chart">
+              <canvas class="chart" id="pContract-chart" height="70"></canvas>
+            </div>
+          </div>
+        </div>
 
-                <div id="weekPickerContainer" style="display: none">
-                  <!-- Nội dung bạn muốn hiển thị -->
-                  <label for="weekpicker">Chọn tháng:</label>
-                  <input type="month" id="weekpicker" />
-                  <div>
-                    <button onclick="callDataCustomerByWeek()">
-                      Xem dữ liệu
-                    </button>
-                  </div>
-                </div>
 
-                <div id="yearPickerContainer" style="display: none">
-                  <!-- Nội dung bạn muốn hiển thị -->
-                  <label for="monthpicker">Chọn tháng:</label>
-                  <input type="month" id="monthpicker" />
-                  <div>
-                    <button onclick="callDataCustomerByMonth()">
-                      Xem dữ liệu
-                    </button>
-                  </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="card mb-4 text-white bg-warning">
+            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+              <div>
+                <div class="fs-4 fw-semibold">
+                  <span>Tổng: </span>
+                  <span id="sumPContractWaitCus"></span>
+                </div>
+                <div>Số lượng hợp đồng chờ khách ký</div>
+              </div>
+              <div class="dropdown">
+                <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <svg class="icon">
+                    <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-options"></use>
+                  </svg>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <a class="dropdown-item" href="#" onclick="callDataPContractWaitCusByDate()">Ngày</a><a
+                    class="dropdown-item" href="#" onclick="callDataPContractWaitCusByWeek()">Tuần</a><a
+                    class="dropdown-item" href="#" onclick="callDataPContractWaitCusByMonth()">Tháng</a>
                 </div>
               </div>
             </div>
-            <div
-              id="div-client-chart"
-              class="c-chart-wrapper"
-              style="height: 300px; margin-top: 40px"
-            >
-              <canvas class="chart" id="client-chart" height="300"></canvas>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="row row-cols-1 row-cols-md-5 text-center">
-              <div class="col mb-sm-2 mb-0">
-                <div class="text-medium-emphasis">Visits</div>
-                <div class="fw-semibold">29.703 Users (40%)</div>
-                <div class="progress progress-thin mt-2">
-                  <div
-                    class="progress-bar bg-success"
-                    role="progressbar"
-                    style="width: 40%"
-                    aria-valuenow="40"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-              <div class="col mb-sm-2 mb-0">
-                <div class="text-medium-emphasis">Unique</div>
-                <div class="fw-semibold">24.093 Users (20%)</div>
-                <div class="progress progress-thin mt-2">
-                  <div
-                    class="progress-bar bg-info"
-                    role="progressbar"
-                    style="width: 20%"
-                    aria-valuenow="20"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-              <div class="col mb-sm-2 mb-0">
-                <div class="text-medium-emphasis">Pageviews</div>
-                <div class="fw-semibold">78.706 Views (60%)</div>
-                <div class="progress progress-thin mt-2">
-                  <div
-                    class="progress-bar bg-warning"
-                    role="progressbar"
-                    style="width: 60%"
-                    aria-valuenow="60"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-              <div class="col mb-sm-2 mb-0">
-                <div class="text-medium-emphasis">New Users</div>
-                <div class="fw-semibold">22.123 Users (80%)</div>
-                <div class="progress progress-thin mt-2">
-                  <div
-                    class="progress-bar bg-danger"
-                    role="progressbar"
-                    style="width: 80%"
-                    aria-valuenow="80"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-              <div class="col mb-sm-2 mb-0">
-                <div class="text-medium-emphasis">Bounce Rate</div>
-                <div class="fw-semibold">40.15%</div>
-                <div class="progress progress-thin mt-2">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 40%"
-                    aria-valuenow="40"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
+            <div id="div-pContractWaitCus-chart" class="c-chart-wrapper mt-3 mx-3" style="height: 70px">
+              <canvas class="chart" id="pContractWaitCus-chart" height="70"></canvas>
             </div>
           </div>
         </div>
-        <!-- /.card.mb-4-->
-        <div class="row">
-          <div class="col-sm-6 col-lg-4">
-            <div class="card mb-4">
-              <div
-                class="card-header position-relative d-flex justify-content-center align-items-center"
-                style="background-color: #3b5998"
-              >
-                <svg class="icon icon-3xl text-white my-4">
-                  <use
-                    xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-facebook-f"
-                  ></use>
-                </svg>
-                <div
-                  class="chart-wrapper position-absolute top-0 start-0 w-100 h-100"
-                >
-                  <canvas id="social-box-chart-1" height="90"></canvas>
+        <!-- /.col-->
+        <div class="col-sm-6 col-lg-3">
+          <div class="card mb-4 text-white bg-success">
+            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+              <div>
+                <div class="fs-4 fw-semibold">
+                  <span>Tổng: </span>
+                  <span id="sumDContract"></span>
                 </div>
+                <div>Số lượng hợp đồng khách đã ký</div>
               </div>
-              <div class="card-body row text-center">
-                <div class="col">
-                  <div class="fs-5 fw-semibold">89k</div>
-                  <div class="text-uppercase text-medium-emphasis small">
-                    friends
-                  </div>
-                </div>
-                <div class="vr"></div>
-                <div class="col">
-                  <div class="fs-5 fw-semibold">459</div>
-                  <div class="text-uppercase text-medium-emphasis small">
-                    feeds
-                  </div>
+              <div class="dropdown">
+                <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <svg class="icon">
+                    <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-options"></use>
+                  </svg>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <a class="dropdown-item" href="#" onclick="callDataDContractByDate()">Ngày</a><a class="dropdown-item"
+                    href="#" onclick="callDataDContractByWeek()">Tuần</a><a class="dropdown-item" href="#"
+                    onclick="callDataDContractByMonth()">Tháng</a>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- /.col-->
-          <div class="col-sm-6 col-lg-4">
-            <div class="card mb-4">
-              <div
-                class="card-header position-relative d-flex justify-content-center align-items-center"
-                style="background-color: #00aced"
-              >
-                <svg class="icon icon-3xl text-white my-4">
-                  <use
-                    xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-twitter"
-                  ></use>
-                </svg>
-                <div
-                  class="chart-wrapper position-absolute top-0 start-0 w-100 h-100"
-                >
-                  <canvas id="social-box-chart-2" height="90"></canvas>
-                </div>
-              </div>
-              <div class="card-body row text-center">
-                <div class="col">
-                  <div class="fs-5 fw-semibold">973k</div>
-                  <div class="text-uppercase text-medium-emphasis small">
-                    followers
-                  </div>
-                </div>
-                <div class="vr"></div>
-                <div class="col">
-                  <div class="fs-5 fw-semibold">1.792</div>
-                  <div class="text-uppercase text-medium-emphasis small">
-                    tweets
-                  </div>
-                </div>
-              </div>
+            <div id="div-dContract-chart" class="c-chart-wrapper mt-3 mx-3" style="height: 70px">
+              <canvas class="chart" id="dContract-chart" height="70"></canvas>
             </div>
           </div>
-          <!-- /.col-->
-          <div class="col-sm-6 col-lg-4">
-            <div class="card mb-4">
-              <div
-                class="card-header position-relative d-flex justify-content-center align-items-center"
-                style="background-color: #4875b4"
-              >
-                <svg class="icon icon-3xl text-white my-4">
-                  <use
-                    xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-linkedin"
-                  ></use>
-                </svg>
-                <div
-                  class="chart-wrapper position-absolute top-0 start-0 w-100 h-100"
-                >
-                  <canvas id="social-box-chart-3" height="90"></canvas>
-                </div>
-              </div>
-              <div class="card-body row text-center">
-                <div class="col">
-                  <div class="fs-5 fw-semibold">500+</div>
-                  <div class="text-uppercase text-medium-emphasis small">
-                    contacts
-                  </div>
-                </div>
-                <div class="vr"></div>
-                <div class="col">
-                  <div class="fs-5 fw-semibold">292</div>
-                  <div class="text-uppercase text-medium-emphasis small">
-                    feeds
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- /.col-->
         </div>
-        <!-- /.row-->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card mb-4">
-              <div class="card-header">Traffic &amp; Sales</div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="row">
-                      <div class="col-6">
-                        <div
-                          class="border-start border-start-4 border-start-info px-3 mb-3"
-                        >
-                          <small class="text-medium-emphasis"
-                            >New Clients</small
-                          >
-                          <div class="fs-5 fw-semibold">9.123</div>
-                        </div>
-                      </div>
-                      <!-- /.col-->
-                      <div class="col-6">
-                        <div
-                          class="border-start border-start-4 border-start-danger px-3 mb-3"
-                        >
-                          <small class="text-medium-emphasis"
-                            >Recuring Clients</small
-                          >
-                          <div class="fs-5 fw-semibold">22.643</div>
-                        </div>
-                      </div>
-                      <!-- /.col-->
-                    </div>
-                    <!-- /.row-->
-                    <hr class="mt-0" />
-                    <div class="progress-group mb-4">
-                      <div class="progress-group-prepend">
-                        <span class="text-medium-emphasis small">Monday</span>
-                      </div>
-                      <div class="progress-group-bars">
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-info"
-                            role="progressbar"
-                            style="width: 34%"
-                            aria-valuenow="34"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-danger"
-                            role="progressbar"
-                            style="width: 78%"
-                            aria-valuenow="78"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="progress-group mb-4">
-                      <div class="progress-group-prepend">
-                        <span class="text-medium-emphasis small">Tuesday</span>
-                      </div>
-                      <div class="progress-group-bars">
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-info"
-                            role="progressbar"
-                            style="width: 56%"
-                            aria-valuenow="56"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-danger"
-                            role="progressbar"
-                            style="width: 94%"
-                            aria-valuenow="94"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="progress-group mb-4">
-                      <div class="progress-group-prepend">
-                        <span class="text-medium-emphasis small"
-                          >Wednesday</span
-                        >
-                      </div>
-                      <div class="progress-group-bars">
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-info"
-                            role="progressbar"
-                            style="width: 12%"
-                            aria-valuenow="12"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-danger"
-                            role="progressbar"
-                            style="width: 67%"
-                            aria-valuenow="67"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="progress-group mb-4">
-                      <div class="progress-group-prepend">
-                        <span class="text-medium-emphasis small">Thursday</span>
-                      </div>
-                      <div class="progress-group-bars">
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-info"
-                            role="progressbar"
-                            style="width: 43%"
-                            aria-valuenow="43"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-danger"
-                            role="progressbar"
-                            style="width: 91%"
-                            aria-valuenow="91"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="progress-group mb-4">
-                      <div class="progress-group-prepend">
-                        <span class="text-medium-emphasis small">Friday</span>
-                      </div>
-                      <div class="progress-group-bars">
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-info"
-                            role="progressbar"
-                            style="width: 22%"
-                            aria-valuenow="22"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-danger"
-                            role="progressbar"
-                            style="width: 73%"
-                            aria-valuenow="73"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="progress-group mb-4">
-                      <div class="progress-group-prepend">
-                        <span class="text-medium-emphasis small">Saturday</span>
-                      </div>
-                      <div class="progress-group-bars">
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-info"
-                            role="progressbar"
-                            style="width: 53%"
-                            aria-valuenow="53"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-danger"
-                            role="progressbar"
-                            style="width: 82%"
-                            aria-valuenow="82"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="progress-group mb-4">
-                      <div class="progress-group-prepend">
-                        <span class="text-medium-emphasis small">Sunday</span>
-                      </div>
-                      <div class="progress-group-bars">
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-info"
-                            role="progressbar"
-                            style="width: 9%"
-                            aria-valuenow="9"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-danger"
-                            role="progressbar"
-                            style="width: 69%"
-                            aria-valuenow="69"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.col-->
-                  <div class="col-sm-6">
-                    <div class="row">
-                      <div class="col-6">
-                        <div
-                          class="border-start border-start-4 border-start-warning px-3 mb-3"
-                        >
-                          <small class="text-medium-emphasis">Pageviews</small>
-                          <div class="fs-5 fw-semibold">78.623</div>
-                        </div>
-                      </div>
-                      <!-- /.col-->
-                      <div class="col-6">
-                        <div
-                          class="border-start border-start-4 border-start-success px-3 mb-3"
-                        >
-                          <small class="text-medium-emphasis">Organic</small>
-                          <div class="fs-5 fw-semibold">49.123</div>
-                        </div>
-                      </div>
-                      <!-- /.col-->
-                    </div>
-                    <!-- /.row-->
-                    <hr class="mt-0" />
-                    <div class="progress-group">
-                      <div class="progress-group-header">
-                        <svg class="icon icon-lg me-2">
-                          <use
-                            xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-user"
-                          ></use>
-                        </svg>
-                        <div>Male</div>
-                        <div class="ms-auto fw-semibold">43%</div>
-                      </div>
-                      <div class="progress-group-bars">
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-warning"
-                            role="progressbar"
-                            style="width: 43%"
-                            aria-valuenow="43"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="progress-group mb-5">
-                      <div class="progress-group-header">
-                        <svg class="icon icon-lg me-2">
-                          <use
-                            xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-user-female"
-                          ></use>
-                        </svg>
-                        <div>Female</div>
-                        <div class="ms-auto fw-semibold">37%</div>
-                      </div>
-                      <div class="progress-group-bars">
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-warning"
-                            role="progressbar"
-                            style="width: 43%"
-                            aria-valuenow="43"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="progress-group">
-                      <div class="progress-group-header">
-                        <svg class="icon icon-lg me-2">
-                          <use
-                            xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-google"
-                          ></use>
-                        </svg>
-                        <div>Organic Search</div>
-                        <div class="ms-auto fw-semibold me-2">191.235</div>
-                        <div class="text-medium-emphasis small">(56%)</div>
-                      </div>
-                      <div class="progress-group-bars">
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-success"
-                            role="progressbar"
-                            style="width: 56%"
-                            aria-valuenow="56"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="progress-group">
-                      <div class="progress-group-header">
-                        <svg class="icon icon-lg me-2">
-                          <use
-                            xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-facebook-f"
-                          ></use>
-                        </svg>
-                        <div>Facebook</div>
-                        <div class="ms-auto fw-semibold me-2">51.223</div>
-                        <div class="text-medium-emphasis small">(15%)</div>
-                      </div>
-                      <div class="progress-group-bars">
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-success"
-                            role="progressbar"
-                            style="width: 15%"
-                            aria-valuenow="15"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="progress-group">
-                      <div class="progress-group-header">
-                        <svg class="icon icon-lg me-2">
-                          <use
-                            xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-twitter"
-                          ></use>
-                        </svg>
-                        <div>Twitter</div>
-                        <div class="ms-auto fw-semibold me-2">37.564</div>
-                        <div class="text-medium-emphasis small">(11%)</div>
-                      </div>
-                      <div class="progress-group-bars">
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-success"
-                            role="progressbar"
-                            style="width: 11%"
-                            aria-valuenow="11"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="progress-group">
-                      <div class="progress-group-header">
-                        <svg class="icon icon-lg me-2">
-                          <use
-                            xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-linkedin"
-                          ></use>
-                        </svg>
-                        <div>LinkedIn</div>
-                        <div class="ms-auto fw-semibold me-2">27.319</div>
-                        <div class="text-medium-emphasis small">(8%)</div>
-                      </div>
-                      <div class="progress-group-bars">
-                        <div class="progress progress-thin">
-                          <div
-                            class="progress-bar bg-success"
-                            role="progressbar"
-                            style="width: 8%"
-                            aria-valuenow="8"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.col-->
+        <!-- /.col-->
+        <div class="col-sm-6 col-lg-3">
+          <div class="card mb-4 text-white bg-danger">
+            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+              <div>
+                <div class="fs-4 fw-semibold">
+                  <span>Tổng: </span>
+                  <span id="sumUnEffect"></span>
                 </div>
-                <!-- /.row--><br />
-                <div class="table-responsive">
-                  <table class="table border mb-0">
-                    <thead class="table-light fw-semibold">
-                      <tr class="align-middle">
-                        <th class="text-center">
-                          <svg class="icon">
-                            <use
-                              xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-people"
-                            ></use>
-                          </svg>
-                        </th>
-                        <th>User</th>
-                        <th class="text-center">Country</th>
-                        <th>Usage</th>
-                        <th class="text-center">Payment Method</th>
-                        <th>Activity</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr class="align-middle">
-                        <td class="text-center">
-                          <div class="avatar avatar-md">
-                            <img
-                              class="avatar-img"
-                              href="~/assets/images/1.png"
-                              alt="user@email.com"
-                            /><span class="avatar-status bg-success"></span>
-                          </div>
-                        </td>
-                        <td>
-                          <div>Yiorgos Avraamu</div>
-                          <div class="small text-medium-emphasis">
-                            <span>New</span> | Registered: Jan 1, 2020
-                          </div>
-                        </td>
-                        <td class="text-center">
-                          <svg class="icon icon-xl">
-                            <use
-                              xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/flag.svg#cif-us"
-                            ></use>
-                          </svg>
-                        </td>
-                        <td>
-                          <div class="clearfix">
-                            <div class="float-start">
-                              <div class="fw-semibold">50%</div>
-                            </div>
-                            <div class="float-end">
-                              <small class="text-medium-emphasis"
-                                >Jun 11, 2020 - Jul 10, 2020</small
-                              >
-                            </div>
-                          </div>
-                          <div class="progress progress-thin">
-                            <div
-                              class="progress-bar bg-success"
-                              role="progressbar"
-                              style="width: 50%"
-                              aria-valuenow="50"
-                              aria-valuemin="0"
-                              aria-valuemax="100"
-                            ></div>
-                          </div>
-                        </td>
-                        <td class="text-center">
-                          <svg class="icon icon-xl">
-                            <use
-                              xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-cc-mastercard"
-                            ></use>
-                          </svg>
-                        </td>
-                        <td>
-                          <div class="small text-medium-emphasis">
-                            Last login
-                          </div>
-                          <div class="fw-semibold">10 sec ago</div>
-                        </td>
-                        <td>
-                          <div class="dropdown">
-                            <button
-                              class="btn btn-transparent p-0"
-                              type="button"
-                              data-coreui-toggle="dropdown"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <svg class="icon">
-                                <use
-                                  xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-options"
-                                ></use>
-                              </svg>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end">
-                              <a class="dropdown-item" href="#">Info</a
-                              ><a class="dropdown-item" href="#">Edit</a
-                              ><a class="dropdown-item text-danger" href="#"
-                                >Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div>Số lượng hợp đã kết thúc</div>
+              </div>
+              <div class="dropdown">
+                <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <svg class="icon">
+                    <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-options"></use>
+                  </svg>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <a class="dropdown-item" href="#" onclick="callDataUnEffectByDate()">Ngày</a><a class="dropdown-item"
+                    href="#" onclick="callDataUnEffectByWeek()">Tuần</a><a class="dropdown-item" href="#"
+                    onclick="callDataUnEffectByMonth()">Tháng</a>
                 </div>
               </div>
             </div>
+            <div id="div-dContractUneffect-chart" class="c-chart-wrapper mt-3 mx-3" style="height: 70px">
+              <canvas class="chart" id="dContractUneffect-chart" height="70"></canvas>
+            </div>
           </div>
-          <!-- /.col-->
         </div>
-        <!-- /.row-->
+        <!-- /.col-->
       </div>
+      <!-- /.row-->
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h4 class="card-title mb-0">
+                Biểu đồ theo dõi lượng khách hàng
+              </h4>
+            </div>
+            <div class="btn-toolbar d-none d-md-block" role="toolbar" aria-label="Toolbar with buttons">
+              <div class="btn-group btn-group-toggle mx-3" data-coreui-toggle="buttons">
+                <input class="btn-check" id="option1" type="radio" name="options" autocomplete="off" checked="true" />
+                <label class="btn btn-outline-secondary" for="option1">
+                  Ngày</label>
+                <input class="btn-check" id="option2" type="radio" name="options" autocomplete="off" />
+                <label class="btn btn-outline-secondary" for="option2">
+                  Tuần</label>
+                <input class="btn-check" id="option3" type="radio" name="options" autocomplete="off" />
+                <label class="btn btn-outline-secondary" for="option3">
+                  Tháng</label>
+              </div>
+              <div id="datePickerContainer" style="display: block">
+                <!-- Nội dung bạn muốn hiển thị -->
+                <div>
+                  <label for="datepicker">Từ ngày:</label>
+                  <input type="date" id="startDate" />
+                </div>
+                <div>
+                  <label for="datepicker">Đến ngày:</label>
+                  <input type="date" id="endDate" />
+                </div>
+                <div>
+                  <button onclick="callDataCustomerByDate()">
+                    Xem dữ liệu
+                  </button>
+                </div>
+              </div>
+
+              <div id="weekPickerContainer" style="display: none">
+                <!-- Nội dung bạn muốn hiển thị -->
+                <label for="weekpicker">Chọn tháng:</label>
+                <input type="month" id="weekpicker" />
+                <div>
+                  <button onclick="callDataCustomerByWeek()">
+                    Xem dữ liệu
+                  </button>
+                </div>
+              </div>
+
+              <div id="yearPickerContainer" style="display: none">
+                <!-- Nội dung bạn muốn hiển thị -->
+                <label for="monthpicker">Chọn tháng:</label>
+                <input type="month" id="monthpicker" />
+                <div>
+                  <button onclick="callDataCustomerByMonth()">
+                    Xem dữ liệu
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="div-client-chart" class="c-chart-wrapper" style="height: 300px; margin-top: 40px">
+            <canvas class="chart" id="client-chart" height="300"></canvas>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="row row-cols-1 row-cols-md-5 text-center">
+            <div class="col mb-sm-2 mb-0">
+              <div class="text-medium-emphasis">Visits</div>
+              <div class="fw-semibold">29.703 Users (40%)</div>
+              <div class="progress progress-thin mt-2">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="col mb-sm-2 mb-0">
+              <div class="text-medium-emphasis">Unique</div>
+              <div class="fw-semibold">24.093 Users (20%)</div>
+              <div class="progress progress-thin mt-2">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="col mb-sm-2 mb-0">
+              <div class="text-medium-emphasis">Pageviews</div>
+              <div class="fw-semibold">78.706 Views (60%)</div>
+              <div class="progress progress-thin mt-2">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="col mb-sm-2 mb-0">
+              <div class="text-medium-emphasis">New Users</div>
+              <div class="fw-semibold">22.123 Users (80%)</div>
+              <div class="progress progress-thin mt-2">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="col mb-sm-2 mb-0">
+              <div class="text-medium-emphasis">Bounce Rate</div>
+              <div class="fw-semibold">40.15%</div>
+              <div class="progress progress-thin mt-2">
+                <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0"
+                  aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.card.mb-4-->
+      <div class="row">
+        <div class="col-sm-6 col-lg-4">
+          <div class="card mb-4">
+            <div class="card-header position-relative d-flex justify-content-center align-items-center"
+              style="background-color: #3b5998">
+              <svg class="icon icon-3xl text-white my-4">
+                <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-facebook-f"></use>
+              </svg>
+              <div class="chart-wrapper position-absolute top-0 start-0 w-100 h-100">
+                <canvas id="social-box-chart-1" height="90"></canvas>
+              </div>
+            </div>
+            <div class="card-body row text-center">
+              <div class="col">
+                <div class="fs-5 fw-semibold">89k</div>
+                <div class="text-uppercase text-medium-emphasis small">
+                  friends
+                </div>
+              </div>
+              <div class="vr"></div>
+              <div class="col">
+                <div class="fs-5 fw-semibold">459</div>
+                <div class="text-uppercase text-medium-emphasis small">
+                  feeds
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card mb-4">
+            <div class="card-header position-relative d-flex justify-content-center align-items-center"
+              style="background-color: #00aced">
+              <svg class="icon icon-3xl text-white my-4">
+                <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-twitter"></use>
+              </svg>
+              <div class="chart-wrapper position-absolute top-0 start-0 w-100 h-100">
+                <canvas id="social-box-chart-2" height="90"></canvas>
+              </div>
+            </div>
+            <div class="card-body row text-center">
+              <div class="col">
+                <div class="fs-5 fw-semibold">973k</div>
+                <div class="text-uppercase text-medium-emphasis small">
+                  followers
+                </div>
+              </div>
+              <div class="vr"></div>
+              <div class="col">
+                <div class="fs-5 fw-semibold">1.792</div>
+                <div class="text-uppercase text-medium-emphasis small">
+                  tweets
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card mb-4">
+            <div class="card-header position-relative d-flex justify-content-center align-items-center"
+              style="background-color: #4875b4">
+              <svg class="icon icon-3xl text-white my-4">
+                <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-linkedin"></use>
+              </svg>
+              <div class="chart-wrapper position-absolute top-0 start-0 w-100 h-100">
+                <canvas id="social-box-chart-3" height="90"></canvas>
+              </div>
+            </div>
+            <div class="card-body row text-center">
+              <div class="col">
+                <div class="fs-5 fw-semibold">500+</div>
+                <div class="text-uppercase text-medium-emphasis small">
+                  contacts
+                </div>
+              </div>
+              <div class="vr"></div>
+              <div class="col">
+                <div class="fs-5 fw-semibold">292</div>
+                <div class="text-uppercase text-medium-emphasis small">
+                  feeds
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-->
+      </div>
+      <!-- /.row-->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card mb-4">
+            <div class="card-header">Traffic &amp; Sales</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="border-start border-start-4 border-start-info px-3 mb-3">
+                        <small class="text-medium-emphasis">New Clients</small>
+                        <div class="fs-5 fw-semibold">9.123</div>
+                      </div>
+                    </div>
+                    <!-- /.col-->
+                    <div class="col-6">
+                      <div class="border-start border-start-4 border-start-danger px-3 mb-3">
+                        <small class="text-medium-emphasis">Recuring Clients</small>
+                        <div class="fs-5 fw-semibold">22.643</div>
+                      </div>
+                    </div>
+                    <!-- /.col-->
+                  </div>
+                  <!-- /.row-->
+                  <hr class="mt-0" />
+                  <div class="progress-group mb-4">
+                    <div class="progress-group-prepend">
+                      <span class="text-medium-emphasis small">Monday</span>
+                    </div>
+                    <div class="progress-group-bars">
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 34%" aria-valuenow="34"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 78%" aria-valuenow="78"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress-group mb-4">
+                    <div class="progress-group-prepend">
+                      <span class="text-medium-emphasis small">Tuesday</span>
+                    </div>
+                    <div class="progress-group-bars">
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 56%" aria-valuenow="56"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 94%" aria-valuenow="94"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress-group mb-4">
+                    <div class="progress-group-prepend">
+                      <span class="text-medium-emphasis small">Wednesday</span>
+                    </div>
+                    <div class="progress-group-bars">
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 12%" aria-valuenow="12"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 67%" aria-valuenow="67"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress-group mb-4">
+                    <div class="progress-group-prepend">
+                      <span class="text-medium-emphasis small">Thursday</span>
+                    </div>
+                    <div class="progress-group-bars">
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 43%" aria-valuenow="43"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 91%" aria-valuenow="91"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress-group mb-4">
+                    <div class="progress-group-prepend">
+                      <span class="text-medium-emphasis small">Friday</span>
+                    </div>
+                    <div class="progress-group-bars">
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 22%" aria-valuenow="22"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 73%" aria-valuenow="73"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress-group mb-4">
+                    <div class="progress-group-prepend">
+                      <span class="text-medium-emphasis small">Saturday</span>
+                    </div>
+                    <div class="progress-group-bars">
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 53%" aria-valuenow="53"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 82%" aria-valuenow="82"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress-group mb-4">
+                    <div class="progress-group-prepend">
+                      <span class="text-medium-emphasis small">Sunday</span>
+                    </div>
+                    <div class="progress-group-bars">
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 9%" aria-valuenow="9"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 69%" aria-valuenow="69"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.col-->
+                <div class="col-sm-6">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="border-start border-start-4 border-start-warning px-3 mb-3">
+                        <small class="text-medium-emphasis">Pageviews</small>
+                        <div class="fs-5 fw-semibold">78.623</div>
+                      </div>
+                    </div>
+                    <!-- /.col-->
+                    <div class="col-6">
+                      <div class="border-start border-start-4 border-start-success px-3 mb-3">
+                        <small class="text-medium-emphasis">Organic</small>
+                        <div class="fs-5 fw-semibold">49.123</div>
+                      </div>
+                    </div>
+                    <!-- /.col-->
+                  </div>
+                  <!-- /.row-->
+                  <hr class="mt-0" />
+                  <div class="progress-group">
+                    <div class="progress-group-header">
+                      <svg class="icon icon-lg me-2">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-user"></use>
+                      </svg>
+                      <div>Male</div>
+                      <div class="ms-auto fw-semibold">43%</div>
+                    </div>
+                    <div class="progress-group-bars">
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 43%" aria-valuenow="43"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress-group mb-5">
+                    <div class="progress-group-header">
+                      <svg class="icon icon-lg me-2">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-user-female"></use>
+                      </svg>
+                      <div>Female</div>
+                      <div class="ms-auto fw-semibold">37%</div>
+                    </div>
+                    <div class="progress-group-bars">
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 43%" aria-valuenow="43"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress-group">
+                    <div class="progress-group-header">
+                      <svg class="icon icon-lg me-2">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-google"></use>
+                      </svg>
+                      <div>Organic Search</div>
+                      <div class="ms-auto fw-semibold me-2">191.235</div>
+                      <div class="text-medium-emphasis small">(56%)</div>
+                    </div>
+                    <div class="progress-group-bars">
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 56%" aria-valuenow="56"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress-group">
+                    <div class="progress-group-header">
+                      <svg class="icon icon-lg me-2">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-facebook-f"></use>
+                      </svg>
+                      <div>Facebook</div>
+                      <div class="ms-auto fw-semibold me-2">51.223</div>
+                      <div class="text-medium-emphasis small">(15%)</div>
+                    </div>
+                    <div class="progress-group-bars">
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 15%" aria-valuenow="15"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress-group">
+                    <div class="progress-group-header">
+                      <svg class="icon icon-lg me-2">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-twitter"></use>
+                      </svg>
+                      <div>Twitter</div>
+                      <div class="ms-auto fw-semibold me-2">37.564</div>
+                      <div class="text-medium-emphasis small">(11%)</div>
+                    </div>
+                    <div class="progress-group-bars">
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 11%" aria-valuenow="11"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress-group">
+                    <div class="progress-group-header">
+                      <svg class="icon icon-lg me-2">
+                        <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-linkedin"></use>
+                      </svg>
+                      <div>LinkedIn</div>
+                      <div class="ms-auto fw-semibold me-2">27.319</div>
+                      <div class="text-medium-emphasis small">(8%)</div>
+                    </div>
+                    <div class="progress-group-bars">
+                      <div class="progress progress-thin">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 8%" aria-valuenow="8"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.col-->
+              </div>
+              <!-- /.row--><br />
+              <div class="table-responsive">
+                <table class="table border mb-0">
+                  <thead class="table-light fw-semibold">
+                    <tr class="align-middle">
+                      <th class="text-center">
+                        <svg class="icon">
+                          <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-people"></use>
+                        </svg>
+                      </th>
+                      <th>User</th>
+                      <th class="text-center">Country</th>
+                      <th>Usage</th>
+                      <th class="text-center">Payment Method</th>
+                      <th>Activity</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="align-middle">
+                      <td class="text-center">
+                        <div class="avatar avatar-md">
+                          <img class="avatar-img" href="~/assets/images/1.png" alt="user@email.com" /><span
+                            class="avatar-status bg-success"></span>
+                        </div>
+                      </td>
+                      <td>
+                        <div>Yiorgos Avraamu</div>
+                        <div class="small text-medium-emphasis">
+                          <span>New</span> | Registered: Jan 1, 2020
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon icon-xl">
+                          <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/flag.svg#cif-us"></use>
+                        </svg>
+                      </td>
+                      <td>
+                        <div class="clearfix">
+                          <div class="float-start">
+                            <div class="fw-semibold">50%</div>
+                          </div>
+                          <div class="float-end">
+                            <small class="text-medium-emphasis">Jun 11, 2020 - Jul 10, 2020</small>
+                          </div>
+                        </div>
+                        <div class="progress progress-thin">
+                          <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon icon-xl">
+                          <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/brand.svg#cib-cc-mastercard"></use>
+                        </svg>
+                      </td>
+                      <td>
+                        <div class="small text-medium-emphasis">
+                          Last login
+                        </div>
+                        <div class="fw-semibold">10 sec ago</div>
+                      </td>
+                      <td>
+                        <div class="dropdown">
+                          <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <svg class="icon">
+                              <use xlink:href="/Admin_Resource/vendors/_coreui/icons/svg/free.svg#cil-options"></use>
+                            </svg>
+                          </button>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">Info</a><a class="dropdown-item" href="#">Edit</a><a
+                              class="dropdown-item text-danger" href="#">Delete</a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-->
+      </div>
+      <!-- /.row-->
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
 <script src="/Admin_Resource/vendors/_coreui/coreui/js/coreui.bundle.min.js"></script>
 <script src="/Admin_Resource/vendors/simplebar/js/simplebar.min.js"></script>

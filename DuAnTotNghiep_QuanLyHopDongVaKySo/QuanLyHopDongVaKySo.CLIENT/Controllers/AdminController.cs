@@ -134,6 +134,10 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         {
             return View();
         }
+        public IActionResult Index2()
+        {
+            return View();
+        }
         public async Task<IActionResult> Index1()
         {
             List<Models.Customer> customersList = new List<Models.Customer>();

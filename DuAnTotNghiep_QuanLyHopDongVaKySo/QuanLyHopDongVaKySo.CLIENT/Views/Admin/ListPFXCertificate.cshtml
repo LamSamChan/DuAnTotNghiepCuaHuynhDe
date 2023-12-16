@@ -53,12 +53,12 @@
                 <table class="table display" id="myTable1">
                     <thead>
                         <tr style="color: #8B909A;">
-                            <th scope="col">Serial</th>
-                            <th scope="col">Người sỡ hữu</th>
-                            <th scope="col">Tổ chức cung cấp</th>
-                            <th scope="col">Ngày hiệu lực</th>
-                            <th scope="col">Ngày hết hạn</th>
-                            <th scope="col">Hành động</th>
+                            <th scope="col">SERIAL</th>
+                            <th scope="col">NƯỜI SỞ HỮU</th>
+                            <th scope="col">TỔ CHỨC CUNG CẤP</th>
+                            <th scope="col">NGÀY HIỆU LỰC</th>
+                            <th scope="col">NGÀY HẾT HẠN</th>
+                            <th scope="col">HÀNH ĐỘNG</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider align-middle">
@@ -95,12 +95,12 @@
                 <table class="table display" id="myTable2">
                     <thead>
                         <tr style="color: #8B909A;">
-                            <th scope="col">Serial</th>
-                            <th scope="col">Người sỡ hữu</th>
-                            <th scope="col">Tổ chức cung cấp</th>
-                            <th scope="col">Ngày hiệu lực</th>
-                            <th scope="col">Ngày hết hạn</th>
-                            <th scope="col">Hành động</th>
+                            <th scope="col">SERIAL</th>
+                            <th scope="col">NƯỜI SỞ HỮU</th>
+                            <th scope="col">TỔ CHỨC CUNG CẤP</th>
+                            <th scope="col">NGÀY HIỆU LỰC</th>
+                            <th scope="col">NGÀY HẾT HẠN</th>
+                            <th scope="col">HÀNH ĐỘNG</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider align-middle">
@@ -140,12 +140,12 @@
                 <table class="table display" id="myTable3">
                     <thead>
                         <tr style="color: #8B909A;">
-                            <th scope="col">Serial</th>
-                            <th scope="col">Người sỡ hữu</th>
-                            <th scope="col">Tổ chức cung cấp</th>
-                            <th scope="col">Ngày hiệu lực</th>
-                            <th scope="col">Ngày hết hạn</th>
-                            <th scope="col">Hành động</th>
+                            <th scope="col">SERIAL</th>
+                            <th scope="col">NƯỜI SỞ HỮU</th>
+                            <th scope="col">TỔ CHỨC CUNG CẤP</th>
+                            <th scope="col">NGÀY HIỆU LỰC</th>
+                            <th scope="col">NGÀY HẾT HẠN</th>
+                            <th scope="col">HÀNH ĐỘNG</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider align-middle">
@@ -182,7 +182,6 @@
         </div>
     </div>
     <div class="tab-content" id="tab2">
-
         <div class="tab-container">
             <div class="tab-button" onclick="showTabChild('tab2-1')">Danh sách chứng chỉ số</div>
             <div class="tab-button" onclick="showTabChild('tab2-2')">Danh sách chứng chỉ số sắp hết hạn</div>
@@ -193,14 +192,15 @@
                 <table class="table display" id="myTable4">
                     <thead>
                         <tr style="color: #8B909A;">
-                            <th scope="col">Serial</th>
-                            <th scope="col">Người sỡ hữu</th>
-                            <th scope="col">Tổ chức cung cấp</th>
-                            <th scope="col">Ngày hiệu lực</th>
-                            <th scope="col">Ngày hết hạn</th>
+                            <th scope="col">SERIAL</th>
+                            <th scope="col">NƯỜI SỞ HỮU</th>
+                            <th scope="col">TỔ CHỨC CUNG CẤP</th>
+                            <th scope="col">NGÀY HIỆU LỰC</th>
+                            <th scope="col">NGÀY HẾT HẠN</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider align-middle">
+                         
                         @foreach (var kh in Model.PFXCertificates)
                         {
                             if (!kh.IsEmployee)
@@ -217,6 +217,7 @@
                                     <td>@kh.Issuer</td>
                                     <td>@kh.ValidFrom.ToString("dd/MM/yyyy")</td>
                                     <td>@kh.ValidUntil.ToString("dd/MM/yyyy")</td>
+
                                 </tr>
                             }
                         }
@@ -229,12 +230,12 @@
                 <table class="table display" id="myTable5">
                     <thead>
                         <tr style="color: #8B909A;">
-                            <th scope="col">Serial</th>
-                            <th scope="col">Người sỡ hữu</th>
-                            <th scope="col">Tổ chức cung cấp</th>
-                            <th scope="col">Ngày hiệu lực</th>
-                            <th scope="col">Ngày hết hạn</th>
-                            <th scope="col">Hành động</th>
+                            <th scope="col">SERIAL</th>
+                            <th scope="col">NƯỜI SỞ HỮU</th>
+                            <th scope="col">TỔ CHỨC CUNG CẤP</th>
+                            <th scope="col">NGÀY HIỆU LỰC</th>
+                            <th scope="col">NGÀY HẾT HẠN</th>
+                            <th scope="col">HÀNH ĐỘNG</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider align-middle">
@@ -275,12 +276,12 @@
                 <table class="table display" id="myTable6">
                     <thead>
                         <tr style="color: #8B909A;">
-                            <th scope="col">Serial</th>
-                            <th scope="col">Người sỡ hữu</th>
-                            <th scope="col">Tổ chức cung cấp</th>
-                            <th scope="col">Ngày hiệu lực</th>
-                            <th scope="col">Ngày hết hạn</th>
-                            <th scope="col">Hành động</th>
+                            <th scope="col">SERIAL</th>
+                            <th scope="col">NƯỜI SỞ HỮU</th>
+                            <th scope="col">TỔ CHỨC CUNG CẤP</th>
+                            <th scope="col">NGÀY HIỆU LỰC</th>
+                            <th scope="col">NGÀY HẾT HẠN</th>
+                            <th scope="col">HÀNH ĐỘNG</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider align-middle">
@@ -324,142 +325,62 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        // Khởi tạo DataTable
-        $('#myTable1').DataTable({
-            "searching": false,
-            "info": false,
-            "lengthMenu": [10, 25, 50, 100],
-            "pageLength": 25,
-            "language": {
-                "decimal": "",
-                "paginate": {
-                    "first": "Đầu tiên",
-                    "last": "Cuối cùng",
-                    "next": "Sau",
-                    "previous": "Trước"
-                },
-                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
-                "emptyTable": "Không có dữ liệu"
-            }
-        });
+        // Hàm khởi tạo DataTable
+        function initializeDataTable(tableId) {
+            $('#' + tableId).DataTable({
+                "searching": false,
+                "info": false,
+                "lengthMenu": [10, 25, 50, 100],
+                "pageLength": 25,
+                "language": {
+                    "decimal": "",
+                    "paginate": {
+                        "first": "Đầu tiên",
+                        "last": "Cuối cùng",
+                        "next": "Sau",
+                        "previous": "Trước"
+                    },
+                    "lengthMenu": "Hiển thị _MENU_ dữ liệu",
+                    "emptyTable": "Không có dữ liệu"
+                }
+            });
+        }
 
-        $('#myTable2').DataTable({
-            "searching": false,
-            "info": false,
-            "lengthMenu": [10, 25, 50, 100],
-            "pageLength": 25,
-            "language": {
-                "decimal": "",
-                "paginate": {
-                    "first": "Đầu tiên",
-                    "last": "Cuối cùng",
-                    "next": "Sau",
-                    "previous": "Trước"
-                },
-                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
-                "emptyTable": "Không có dữ liệu"
-            }
-        });
-
-         $('#myTable3').DataTable({
-            "searching": false,
-            "info": false,
-            "lengthMenu": [10, 25, 50, 100],
-            "pageLength": 25,
-            "language": {
-                "decimal": "",
-                "paginate": {
-                    "first": "Đầu tiên",
-                    "last": "Cuối cùng",
-                    "next": "Sau",
-                    "previous": "Trước"
-                },
-                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
-                "emptyTable": "Không có dữ liệu"
-            }
-        });
-
-        $('#myTable4').DataTable({
-            "searching": false,
-            "info": false,
-            "lengthMenu": [10, 25, 50, 100],
-            "pageLength": 25,
-            "language": {
-                "decimal": "",
-                "paginate": {
-                    "first": "Đầu tiên",
-                    "last": "Cuối cùng",
-                    "next": "Sau",
-                    "previous": "Trước"
-                },
-                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
-                "emptyTable": "Không có dữ liệu"
-            }
-        });
-
-        $('#myTable5').DataTable({
-            "searching": false,
-            "info": false,
-            "lengthMenu": [10, 25, 50, 100],
-            "pageLength": 25,
-            "language": {
-                "decimal": "",
-                "paginate": {
-                    "first": "Đầu tiên",
-                    "last": "Cuối cùng",
-                    "next": "Sau",
-                    "previous": "Trước"
-                },
-                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
-                "emptyTable": "Không có dữ liệu"
-            }
-        });
-
-        $('#myTable6').DataTable({
-            "searching": false,
-            "info": false,
-            "lengthMenu": [10, 25, 50, 100],
-            "pageLength": 25, "language": {
-                "decimal": "",
-                "paginate": {
-                    "first": "Đầu tiên",
-                    "last": "Cuối cùng",
-                    "next": "Sau",
-                    "previous": "Trước"
-                },
-                "lengthMenu": "Hiển thị _MENU_ dữ liệu",
-                "emptyTable": "Không có dữ liệu"
-            }
-
-        });
+        // Khởi tạo DataTable cho các bảng cụ thể
+        initializeDataTable('myTable1');
+        initializeDataTable('myTable2');
+        initializeDataTable('myTable3');
+        initializeDataTable('myTable4');
+        initializeDataTable('myTable5');
+        initializeDataTable('myTable6');
     });
 
 
 
-    const iconLoading = document.getElementById("loading");
+    // const iconLoading = document.getElementById("loading");
 
-    const showLoading = () => {
-        iconLoading.style.display = "flex";
-    };
+    // const showLoading = () => {
+    //     iconLoading.style.display = "flex";
+    // };
 
-    const hideLoading = () => {
-        iconLoading.style.display = "none";
-    };
+    // const hideLoading = () => {
+    //     iconLoading.style.display = "none";
+    // };
 
-    const updatePosition = () => {
-        showLoading(); // Show loading spinner when the button is clicked
+    // const updatePosition = () => {
+    //     showLoading(); // Show loading spinner when the button is clicked
 
-        // You can perform additional logic here before or after the form submission
-        // For example, submit the form programmatically
-        document.querySelector('form').submit();
+    //     // You can perform additional logic here before or after the form submission
+    //     // For example, submit the form programmatically
+    //     document.querySelector('form').submit();
 
-        // If you want to prevent the form from submitting immediately, you can remove the form submission line
+    //     // If you want to prevent the form from submitting immediately, you can remove the form submission line
 
-        // Hide loading spinner after the form submission is complete
-        setTimeout(() => {
-            hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
-        }, 1000);
-    };
+    //     // Hide loading spinner after the form submission is complete
+    //     setTimeout(() => {
+    //         hideLoading(); // Hide loading icon after some time (replace this with your actual logic)
+    //     }, 1000);
+    // };
 
     // tìm kiếm
     document.addEventListener('DOMContentLoaded', function () {
@@ -557,13 +478,13 @@
 
     }
 
-    // Hàm hiển thị message
-    function showSuccessMessage() {
-        $("#msg_success_filled").ej2Message.show();
-        // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
-        setTimeout(function () {
-            $("#msg_success_filled").ej2Message.hide();
-        }, 5000);
-    }
+    // // Hàm hiển thị message
+    // function showSuccessMessage() {
+    //     $("#msg_success_filled").ej2Message.show();
+    //     // Ẩn message sau một khoảng thời gian, ví dụ sau 5 giây
+    //     setTimeout(function () {
+    //         $("#msg_success_filled").ej2Message.hide();
+    //     }, 5000);
+    // }
 
 </script>

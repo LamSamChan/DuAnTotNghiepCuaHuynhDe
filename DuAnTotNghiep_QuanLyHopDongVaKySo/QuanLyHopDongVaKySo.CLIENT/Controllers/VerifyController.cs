@@ -121,7 +121,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                         TempData["SweetType"] = "success";
                         TempData["SweetIcon"] = "success";
                         TempData["SweetTitle"] = $"Đăng nhập {role} thành công... Bạn hãy thay đổi mật khẩu !!";
-                        return RedirectToAction("ChangePass", "Admin");
+                        return RedirectToAction("Index1", "Admin");
                     }
 
                    
