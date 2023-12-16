@@ -693,15 +693,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> Contracts_PendingApproval()
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
+            ViewData["Tille"] = "Yêu cầu lắp đặt";
+
             if (IsAuthenticate == 3  ) 
             {
                 pContractList = await _pContractService.getListWaitDirSignsEmpId(EmployeeId);
-                ViewData["Tille"] = "yeu cau lap dat";
                 return View(pContractList);
             }
             if(IsAuthenticate == 1)
             {
-                ViewData["Tille"] = "yeu cau lap dat";
                 pContractList = await _pContractService.getListWaitDirectorSigns();
                 return View(pContractList);
             }
@@ -712,16 +712,15 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListRefuse()
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
+            ViewData["Tille"] = "Hợp đồng bị từ chối";
             if (IsAuthenticate == 3)
             {
                 pContractList = await _pContractService.getListRefuseByEmpId(EmployeeId);
-                ViewData["Tille"] = "HỢP ĐỒNG BỊ TỪ CHỐI";
                 return View("Contracts_PendingApproval", pContractList);
             }
             if (IsAuthenticate == 1)
             {
                 pContractList = await _pContractService.getListRefuse();
-                ViewData["Tille"] = "HỢP ĐỒNG BỊ TỪ CHỐI";
                 return View("Contracts_PendingApproval", pContractList);
             }
              return RedirectToAction("Index", "Verify"); 
@@ -732,14 +731,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
         public async Task<IActionResult> ContractListWaitSign()
         {
             List<PContractViewModel> pContractList = new List<PContractViewModel>();
+            ViewData["Tille"] = "Hợp đồng chờ khách ký";
+
             if (IsAuthenticate == 3) {
                 pContractList = await _pContractService.getListWaitCusSignsByEmpId(EmployeeId);
-                ViewData["Tille"] = "HỢP ĐỒNG CHỜ KHÁCH KÝ";
                 return View("Contracts_PendingApproval", pContractList);
             }
             if (IsAuthenticate == 1) {
                 pContractList = await _pContractService.getListWaitCustomerSigns();
-                ViewData["Tille"] = "HỢP ĐỒNG CHỜ KHÁCH KÝ";
                 return View("Contracts_PendingApproval", pContractList);
             }
             
