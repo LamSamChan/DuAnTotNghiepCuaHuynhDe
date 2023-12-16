@@ -266,6 +266,28 @@
 @* <script src="/Admin_Resource/js/main.js"></script> *@
 <script type="text/javascript">
 
+
+    
+    // Lấy JWT từ session
+    const jwtToken = sessionStorage.getItem('token');
+
+    // Thiết lập header Bearer
+    //const headers = new Headers();
+    //headers.append('Authorization', `Bearer ${jwtToken}`);
+
+    //const jwtToken =
+        //"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZG8yNzI0NDNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MDI3NTMyOTl9.EnRBgZ6yA0gqG-caVE15GQqH4GFFiM9YHHXvUzHILKnoAKqkmdapXxfRQmTr34DHd2feKX7atOfJ1TiG-x3o9g";
+        //"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZG8yNzI0NDNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MDI2NTU1NDV9.tIneUnKmWzLcIVX7sXsn-SGJiDozKgT_PD6zr2HtW-iiXeL_dBd_2cQWXromigYcRFYWyGxw5rA37pM_hn5KKA";
+    //"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiY2hhbjk0MTcwQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik5ow6JuIHZpw6puIGzhuq9wIMSR4bq3dCIsImV4cCI6MTcwMjQ3NDM5N30.jG0E4Rx6USK3ClhFBgmReWMbdEY1Hb08gUGvAh852mFD0N1Ihtkqi4tHnt9jrIryuU8bHiC3xy65veWgC8mulQ";
+    
+    // Thiết lập header Bearer
+    const headers = new Headers();
+    headers.append("Authorization", `Bearer ${jwtToken}`);
+    headers.append("Content-Type", `application/json`);
+    headers.append("Access-Control-Allow-Origin", `*`);
+    headers.append("Access-Control-Allow-Methods", "POST,PATCH,OPTIONS,GET,PUT");
+
+
     Chart.defaults.pointHitDetectionRadius = 1;
     Chart.defaults.plugins.tooltip.enabled = false;
     Chart.defaults.plugins.tooltip.mode = "index";
@@ -298,24 +320,6 @@
         weekPickerContainer.style.display = "none";
         yearPickerContainer.style.display = option3.checked ? "block" : "none";
     });
-
-    // Lấy JWT từ session
-    //const jwtToken = sessionStorage.getItem('token');
-
-    // Thiết lập header Bearer
-    //const headers = new Headers();
-    //headers.append('Authorization', `Bearer ${jwtToken}`);
-
-    const jwtToken =
-        "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZG8yNzI0NDNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MDI3NTMyOTl9.EnRBgZ6yA0gqG-caVE15GQqH4GFFiM9YHHXvUzHILKnoAKqkmdapXxfRQmTr34DHd2feKX7atOfJ1TiG-x3o9g";
-        //"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZG8yNzI0NDNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MDI2NTU1NDV9.tIneUnKmWzLcIVX7sXsn-SGJiDozKgT_PD6zr2HtW-iiXeL_dBd_2cQWXromigYcRFYWyGxw5rA37pM_hn5KKA";
-    //"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiY2hhbjk0MTcwQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik5ow6JuIHZpw6puIGzhuq9wIMSR4bq3dCIsImV4cCI6MTcwMjQ3NDM5N30.jG0E4Rx6USK3ClhFBgmReWMbdEY1Hb08gUGvAh852mFD0N1Ihtkqi4tHnt9jrIryuU8bHiC3xy65veWgC8mulQ";
-    // Thiết lập header Bearer
-    const headers = new Headers();
-    headers.append("Authorization", `Bearer ${jwtToken}`);
-    headers.append("Content-Type", `application/json`);
-    headers.append("Access-Control-Allow-Origin", `*`);
-    headers.append("Access-Control-Allow-Methods", "POST,PATCH,OPTIONS,GET,PUT");
 
     document.addEventListener("DOMContentLoaded", function () {
         // Khi trang được load, thiết lập giá trị mặc định cho startDate và endDate
@@ -716,8 +720,8 @@
                                 },
                             },
                             y: {
-                                min: minValue + 2,
-                                max: maxValue - 2,
+                                min: Math.ceil(minValue / 2),
+                                max: Math.ceil(maxValue * 2),
                                 display: false,
                                 grid: {
                                     display: false,
@@ -820,8 +824,8 @@
                                 },
                             },
                             y: {
-                                min: minValue + 10,
-                                max: maxValue - 10,
+                                min: Math.ceil(minValue / 2),
+                                max: Math.ceil(maxValue * 2),
                                 display: false,
                                 grid: {
                                     display: false,
@@ -924,8 +928,8 @@
                                 },
                             },
                             y: {
-                                min: minValue + 20,
-                                max: maxValue - 20,
+                                min: Math.ceil(minValue / 2),
+                                max: Math.ceil(maxValue * 2),
                                 display: false,
                                 grid: {
                                     display: false,
@@ -1039,8 +1043,8 @@
                                     },
                                 },
                                 y: {
-                                    min: minValue + 2,
-                                    max: maxValue - 2,
+                                    min: Math.ceil(minValue / 2),
+                                    max: Math.ceil(maxValue * 2),
                                     display: false,
                                     grid: {
                                         display: false,

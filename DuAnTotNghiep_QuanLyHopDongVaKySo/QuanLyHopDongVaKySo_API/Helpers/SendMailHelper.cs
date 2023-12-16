@@ -1,9 +1,6 @@
-﻿using Microsoft.Extensions.Options;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using QuanLyHopDongVaKySo_API.Models;
 using RestSharp;
-using Spire.Pdf.Attachments;
-using System.Runtime;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -14,23 +11,22 @@ namespace QuanLyHopDongVaKySo_API.Helpers
         Task<string> BuildMessage(string subject, string senderName, string receiverName, string from, string to, string htmlContent);
 
         Task<string> BuildMessageWithImage(string subject, string senderName, string receiverName, string from, string to, string htmlContent, byte[] bytesImage);
-        Task<string> BuildMessageWithImageAndZip(string subject, string senderName, string receiverName, string from, string to, string htmlContent, byte[] bytesImage, byte[] zipFile);
 
         Task<string> BuildMessageWithFile(string subject, string senderName, string receiverName, string from, string to, string htmlContent, byte[] bytesPdf1, byte[] bytesPdf2);
 
         Task<string> GetTokenAsync();
 
         Task<string> SendMail(SendMail mail);
+
         Task<string> SendMailWithImage(SendMail mail, byte[] image);
-        Task<string> SendMailWithImageAndZip(SendMail mail, byte[] image, byte[] zip);
 
         Task<string> SendMailWithFile(SendMail mail, byte[] pdf1, byte[] pdf2);
-
     }
 
     public class SendMailHelper : ISendMailHelper
     {
         private readonly IConfiguration _configuration;
+
         public SendMailHelper(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -158,56 +154,6 @@ namespace QuanLyHopDongVaKySo_API.Helpers
             return base64UrlMimeMessage;
         }
 
-        public async Task<string> BuildMessageWithImageAndZip(string subject, string senderName, string receiverName, string from, string to, string htmlContent, byte[] bytesImage, byte[] zipFile)
-        {
-            // First, base64 encode the HTML content
-            var base64HtmlContent = Convert.ToBase64String(Encoding.UTF8.GetBytes(htmlContent));
-            var inputBytes = Encoding.UTF8.GetBytes(Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(subject)));
-            var base64Subject = Convert.ToBase64String(inputBytes)
-              .Replace('+', '-')
-              .Replace('/', '_')
-              .Replace("=", "");
-
-            // Create a boundary for the multipart message
-            var boundary = Guid.NewGuid().ToString("N");
-
-            // Create the MIME message with both HTML content and the image attachment
-            var mimeMessage = new StringBuilder();
-            mimeMessage.AppendLine("MIME-Version: 1.0");
-            mimeMessage.AppendLine($"From: {senderName} <{from}>");
-            mimeMessage.AppendLine($"To: {receiverName} <{to}>");
-            mimeMessage.AppendLine($"Subject: =?UTF-8?B?{base64Subject}?=");
-            mimeMessage.AppendLine($"Content-Type: multipart/mixed; boundary=\"{boundary}\"");
-            mimeMessage.AppendLine();
-            mimeMessage.AppendLine($"--{boundary}");
-            mimeMessage.AppendLine("Content-Type: text/html; charset=utf-8");
-            mimeMessage.AppendLine("Content-Transfer-Encoding: base64");
-            mimeMessage.AppendLine();
-            mimeMessage.AppendLine(base64HtmlContent);
-            mimeMessage.AppendLine();
-            mimeMessage.AppendLine($"--{boundary}");
-            mimeMessage.AppendLine("Content-Type: image/png; name=\"QRCodeSignContract.png\"");
-            mimeMessage.AppendLine("Content-Disposition: attachment; filename=\"QRCodeSignContract.png\"");
-            mimeMessage.AppendLine("Content-Transfer-Encoding: base64");
-            mimeMessage.AppendLine();
-            mimeMessage.AppendLine(Convert.ToBase64String(bytesImage));
-            mimeMessage.AppendLine($"--{boundary}");
-            mimeMessage.AppendLine("Content-Type: application/zip; name=\"TechSealSigningWithUsbTokenApp.zip\"");
-            mimeMessage.AppendLine("Content-Disposition: attachment; filename=\"TechSealSigningWithUsbTokenApp.zip\"");
-            mimeMessage.AppendLine("Content-Transfer-Encoding: base64");
-            mimeMessage.AppendLine();
-            mimeMessage.AppendLine(Convert.ToBase64String(zipFile));
-            mimeMessage.AppendLine($"--{boundary}--");
-
-            // Finally, base64url encode the entire MIME message
-            var base64MimeMessage = Convert.ToBase64String(Encoding.UTF8.GetBytes(mimeMessage.ToString()));
-            var base64UrlMimeMessage = Regex.Replace(base64MimeMessage, @"\+", "-");
-            base64UrlMimeMessage = Regex.Replace(base64UrlMimeMessage, @"\/", "_");
-            base64UrlMimeMessage = Regex.Replace(base64UrlMimeMessage, @"=+$", "");
-
-            return base64UrlMimeMessage;
-        }
-
         public async Task<string> GetTokenAsync()
         {
             var client = new RestClient(_configuration["GmailAPI:Oauth2"] + "/token");
@@ -245,16 +191,14 @@ namespace QuanLyHopDongVaKySo_API.Helpers
 
                 var response = await client.ExecuteAsync(request);
 
-               var json = JObject.Parse(response.Content);
+                var json = JObject.Parse(response.Content);
 
                 return json.ToString();
             }
             catch (Exception ex)
             {
-
                 return null;
             }
-            
         }
 
         public async Task<string> SendMailWithFile(SendMail mail, byte[] byteContract, byte[] byteMinute)
@@ -283,7 +227,6 @@ namespace QuanLyHopDongVaKySo_API.Helpers
             }
             catch (Exception ex)
             {
-
                 return null;
             }
         }
@@ -296,7 +239,7 @@ namespace QuanLyHopDongVaKySo_API.Helpers
                 var client = new RestClient(_configuration["GmailAPI:GmailAPIUrl"] + "/users/me/messages/send");
                 var request = new RestRequest() { Method = Method.Post };
                 var messageTask = BuildMessageWithImage(mail.Subject, _configuration["GmailAPI:SenderName"], mail.ReceiverName,
-                    _configuration["GmailAPI:From"], mail.ToMail, mail.HtmlContent,img);
+                    _configuration["GmailAPI:From"], mail.ToMail, mail.HtmlContent, img);
 
                 var message = await messageTask;
 
@@ -314,39 +257,6 @@ namespace QuanLyHopDongVaKySo_API.Helpers
             }
             catch (Exception ex)
             {
-
-                return null;
-            }
-
-        }
-
-        public async Task<string> SendMailWithImageAndZip(SendMail mail, byte[] image, byte[] zip)
-        {
-            try
-            {
-                var accessToken = await GetTokenAsync();
-                var client = new RestClient(_configuration["GmailAPI:GmailAPIUrl"] + "/users/me/messages/send");
-                var request = new RestRequest() { Method = Method.Post };
-                var messageTask = BuildMessageWithImageAndZip(mail.Subject, _configuration["GmailAPI:SenderName"], mail.ReceiverName,
-                    _configuration["GmailAPI:From"], mail.ToMail, mail.HtmlContent, image, zip);
-
-                var message = await messageTask;
-
-                request.AddHeader("Authorization", "Bearer " + accessToken);
-                request.AddJsonBody(new
-                {
-                    raw = message
-                });
-
-                var response = await client.ExecuteAsync(request);
-
-                var json = JObject.Parse(response.Content);
-
-                return json.ToString();
-            }
-            catch (Exception ex)
-            {
-
                 return null;
             }
         }
