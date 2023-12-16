@@ -163,7 +163,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
                     if (updateResult != null)
                     {
                         string serviceName = _typeOfServiceSvc.GetById(dContract.TOS_ID).Result.ServiceName;
-                        InstallationRequirement requirement = new InstallationRequirement()
+                           InstallationRequirement requirement = new InstallationRequirement()
                         {
                             DateCreated = DateTime.Now,
                             MinuteName = "Biên bản lắp đặt hợp đồng " + serviceName,
