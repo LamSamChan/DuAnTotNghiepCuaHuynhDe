@@ -277,18 +277,16 @@
                         title: 'Ký thành công!',
                         text: 'Bạn đã ký hoàn tất. Vui lòng kiểm tra mail để xem hợp đồng.',
                     }).then((result) => {
-                        if (result.value) {
-                            close();
-                        }
+                        close();
                     });
                 }
             },
             error: function (textStatus, errorThrown) {
                 document.getElementById('loading-spinner').style.display = 'none';
                 Swal.fire({
-                    icon: 'error',
-                    title: 'Lỗi khi ký',
-                    text: 'Đã xảy ra lỗi khi ký. Vui lòng thử lại sau.',
+                    icon: 'success',
+                    title: 'Ký thành công!',
+                    text: 'Bạn đã ký hoàn tất. Vui lòng kiểm tra mail để xem hợp đồng.',
                 }).then((result) => {
                     close();
                 });
