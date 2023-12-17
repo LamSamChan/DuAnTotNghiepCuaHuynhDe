@@ -206,7 +206,6 @@ namespace QuanLyHopDongVaKySo_API.Services.DoneContractService
                     Base64File = dc.Base64File,
                     DMinuteID = dc.DoneMinuteId.ToString(),
                     DContractName = dc.DConTractName
-
                 }).ToListAsync();
             return viewModel;
         }

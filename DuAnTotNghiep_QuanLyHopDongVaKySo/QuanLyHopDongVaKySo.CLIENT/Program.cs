@@ -31,7 +31,7 @@ builder.Configuration
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllersWithViews().AddDataAnnotationsLocalization();
-
+    
 //api server
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://techsealapi.azurewebsites.net/") });
 

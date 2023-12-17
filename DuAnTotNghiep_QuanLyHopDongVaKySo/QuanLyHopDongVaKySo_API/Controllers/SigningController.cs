@@ -289,14 +289,14 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
             await _pendingContract.updateAsnyc(pendingContract);
 
-            if (customer.typeofCustomer == "Cá nhân")
+            /*if (customer.typeofCustomer == "Cá nhân")
             {
                 Task.Run(() => SendMailToCustomerWithImage(qrPath, url, customer, pContract.PContractID));
             }
             else
-            {
+            {*/
                 Task.Run(() => SendMailToCustomerWithImageAndZip(qrPath, url, customer, pContract.PContractID));
-            }
+            //}
           
             _uploadFileHelper.RemoveFile(imagePath);
             _uploadFileHelper.RemoveFile(imagePathStamp);
@@ -746,6 +746,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 DContractID = dContract.DContractID.ToString(),
                 DoneMinuteId = dContract.DoneMinuteId,
+                IsInEffect = true
             };
 
             var updatedContract = await _dContractSvc.updateAsnycDMinute(putDContract);
