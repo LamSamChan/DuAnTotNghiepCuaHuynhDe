@@ -84,11 +84,10 @@
                             <th scope="row">@item.TMinuteID </th>
                             <td>@item.DateAdded</td>
                             <td>@item.TMinuteName</td>
-                            <td class="action">
+                            <td class="action text-center" >
                                 <a class="button-design" asp-controller="BusinessStaff" asp-action="EditMinuteFormPage" asp-route-tMinuteId="@item.TMinuteID"><i class="ph-bold ph-pencil-simple-line"></i></a>
                                 <a class="button-save" onclick="confirmDownload('@item.Base64File','@item.TMinuteName')"><i class="ph-bold ph-download-simple"></i></a>
                                 <a class="button-delete" asp-controller="BusinessStaff" asp-action="DeleteTMinute" asp-route-tMinuteId="@item.TMinuteID">
-                                    
                                     <i class="ph-bold ph-trash"></i>
                                 </a>
                             </td>

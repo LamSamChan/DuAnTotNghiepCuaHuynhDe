@@ -47,7 +47,16 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Avatars\" />
+    <Folder Include="wwwroot\ContractImage\" />
+    <Folder Include="wwwroot\MinuteImage\" />
+    <Folder Include="wwwroot\PContractImage\" />
+    <Folder Include="wwwroot\PMinuteImage\" />
+    <Folder Include="wwwroot\SignatureImages\" />
+    <Folder Include="wwwroot\StampImage\" />
+    <Folder Include="wwwroot\TContractImage\" />
     <Folder Include="wwwroot\TempFile\" />
+    <Folder Include="wwwroot\TempSignature\" />
+    <Folder Include="wwwroot\TMinuteImage\" />
   </ItemGroup>
 
 </Project>

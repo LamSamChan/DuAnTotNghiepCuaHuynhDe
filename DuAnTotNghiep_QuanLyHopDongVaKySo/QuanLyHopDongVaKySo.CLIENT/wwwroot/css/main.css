@@ -540,7 +540,8 @@ main {
 /*css list_table*/
 .listTable {
     width: 100%;
-    height: 871px;
+    max-height: 700px;
+    overflow: scroll;
     padding:15px;
 }
 

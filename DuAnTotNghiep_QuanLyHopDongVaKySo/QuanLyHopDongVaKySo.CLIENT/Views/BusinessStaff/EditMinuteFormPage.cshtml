@@ -3,7 +3,7 @@
 
 @model QuanLyHopDongVaKySo_API.Models.TemplateMinute
 @{
-
+    string userRole = Context.Request.HttpContext.Session.GetString("Role");
     SignatureZone customerZone = new SignatureZone();
     SignatureZone intallerZone = new SignatureZone();
     float xCustomer, yCustomer, xIntaller, yIntaller;
@@ -32,9 +32,8 @@
     imagePath = Directory.GetFiles(directoryPath).ToList();
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-<link href="~/php/style.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-
+<link href="~/php/style.css" rel="stylesheet" />
 <script src="https://unpkg.com/konva@9/konva.min.js"></script>
 
 <style>
@@ -57,23 +56,44 @@
     <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
 </div>
 <div class="container-fluid">
-    <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded mb-4">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
-                <li class="breadcrumb-item"> <a>Trang chủ</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Danh sách mẫu biên bản</li>
-            </ol>
-        </nav>
-        <h1 class="typeHead">CẤU HÌNH BIÊN BẢN MẪU</h1>
-        <h6 class="typeHead">Mã biên bản:_ @Model.TMinuteID</h6>
-    </div>
-    
-    <div style="display: flex; justify-content: space-evenly; gap: 20px;">
+    @if(userRole == "Admin")
+    {
+        Layout = "_AdminLayout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item"> <a>Nhân viên kinh doanh</a></li>
+                    <li class="breadcrumb-item"> <a>Hợp đồng - Biên bản mẫu</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Danh sách mẫu biên bản</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">CẤU HÌNH BIÊN BẢN MẪU</h1>
+            <h6 class="typeHead">Mã biên bản:_ @Model.TMinuteID</h6>
+        </div>
+    }
+    else
+    {
+        Layout = "_Layout";
+        <div class=" block justify-between items-center p-4  mt-4 mb-6 bg-white rounded-2xl shadow-xl shadow-gray-200 lg:p-5 sm:flex rounded mb-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <i class="ph-bold ph-house" style="font-size: 20px; margin: auto 5px;"></i>
+                    <li class="breadcrumb-item"> <a>Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Danh sách mẫu biên bản</li>
+                </ol>
+            </nav>
+            <h1 class="typeHead">CẤU HÌNH BIÊN BẢN MẪU</h1>
+            <h6 class="typeHead">Mã biên bản:_ @Model.TMinuteID</h6>
+        </div>
+    }
+   
+    <div class="mt-4" style="display: flex; justify-content: space-evenly; gap: 20px;">
         <button id="addDirectorSignatureButton"  class="button-22 d-none">
             Thêm vùng ký Nhân viên (ĐỎ)
         </button>
-        <button id="getCoordinatesButton"  class="number" >Lưu</button>
+        <button id="getCoordinatesButton" class="button-design" style="font-family:Roboto;" >Lưu</button>
         <button id="addCustomerSignatureButton" class="button-22 d-none">
             Thêm vùng ký Khách hàng (XANH)
         </button>

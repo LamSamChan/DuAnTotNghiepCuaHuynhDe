@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
-<div class="container-fluid" style="height: 20vh;">
+<div class="container-fluid">
 
     @if (userRole == "Admin")
     {
@@ -42,7 +42,7 @@
     }
    
 </div>
-<div class="row mt-4 mx-auto">
+<div class="row mt-2 mx-auto">
     <form class="form" method="post" enctype="multipart/form-data" id="FormPostTContract" asp-action="AddTMinute" asp-controller="BusinessStaff">
         <input asp-for="File" type="file" accept=".pdf" id="pdfInput" style="display:none;" required>
         <img width="64" height="64" style="margin-bottom:15px" src="~/Images/pdf_icon.png" alt="external-pdf-file-types-others-iconmarket" />

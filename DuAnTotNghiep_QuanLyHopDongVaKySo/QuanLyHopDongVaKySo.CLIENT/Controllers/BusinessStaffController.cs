@@ -361,7 +361,14 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 TempData["SweetIcon"] = "success";
                 TempData["SweetTitle"] = "Thêm khách hàng thành công !!";
 
-                return RedirectToAction("ListCus");
+                if(isAuthenticate == 1)
+                {
+                    return RedirectToAction("ListCusAccount");
+                }
+                else
+                {
+                     return RedirectToAction("ListCus");
+                }
             }
             else
             {
