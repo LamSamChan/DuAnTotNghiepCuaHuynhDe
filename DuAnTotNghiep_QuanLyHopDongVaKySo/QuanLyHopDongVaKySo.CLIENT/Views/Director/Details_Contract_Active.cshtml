@@ -34,6 +34,25 @@
 
     string userRole = Context.Request.HttpContext.Session.GetString("Role");
 }
+<style>
+    #loading-spinner {
+        display: none;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        position: fixed;
+        top: 100%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+        #loading-spinner > img {
+            width: 10rem;
+        }
+</style>
 <div class="container-fluid">
     @if(userRole == "Admin")
     {
@@ -423,6 +442,9 @@
             </div>
         </div>
     </div>
+    <div id="loading-spinner">
+        <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="loading">
+    </div>
 </div>
 <script type="text/javascript">
 
@@ -450,7 +472,6 @@
     });
 
     function confirmEndContract() {
-        // Sử dụng SweetAlert để xác nhận tải xuống
         Swal.fire({
             title: 'Kết thúc hợp đồng',
             text: 'Bạn có chắc chắn muốn kết thúc hợp đồng này không?',
@@ -458,11 +479,14 @@
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
+            cancelButtonText: 'Trờ lại',
             confirmButtonText: 'Xác nhận',
-            cancelButtonText: 'Trờ lại'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = '@Url.Action("UnEffectContract", "Director")?Id=' + @Model.DoneContracts.Id;
+                document.getElementById('loading-spinner').style.display = 'block';
+                window.location.href = '@Url.Action("UnEffectContract", "Director")?Id=' + @Model.DoneContracts.Id;     
+            }else{
+                document.getElementById('loading-spinner').style.display = 'none';
             }
         });
     }

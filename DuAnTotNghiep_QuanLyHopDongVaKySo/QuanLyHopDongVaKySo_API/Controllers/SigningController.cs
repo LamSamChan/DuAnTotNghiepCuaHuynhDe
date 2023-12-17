@@ -289,14 +289,14 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             var qrPath = _generateQRCodeHelper.GenerateQRCode(url, pContract.PContractID);
             await _pendingContract.updateAsnyc(pendingContract);
 
-            if (customer.typeofCustomer == "Cá nhân")
+            /*if (customer.typeofCustomer == "Cá nhân")
             {
                 Task.Run(() => SendMailToCustomerWithImage(qrPath, url, customer, pContract.PContractID));
             }
             else
-            {
+            {*/
                 Task.Run(() => SendMailToCustomerWithImageAndZip(qrPath, url, customer, pContract.PContractID));
-            }
+            //}
           
             _uploadFileHelper.RemoveFile(imagePath);
             _uploadFileHelper.RemoveFile(imagePathStamp);
@@ -746,6 +746,7 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             {
                 DContractID = dContract.DContractID.ToString(),
                 DoneMinuteId = dContract.DoneMinuteId,
+                IsInEffect = true
             };
 
             var updatedContract = await _dContractSvc.updateAsnycDMinute(putDContract);
@@ -803,10 +804,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
 
             //url locallhost
-            var url = $"https://localhost:7063/Customer/CusToSign?token={token}";
+            //var url = $"https://localhost:7063/Customer/CusToSign?token={token}";
 
             //url servcer
-            //var url = $"https://techseal.azurewebsites.net/Customer/CusToSign?token={token}";
+            var url = $"https://techseal.azurewebsites.net/Customer/CusToSign?token={token}";
 
             string urlShort = await _shortLinkHelper.GenerateShortUrl(url);
 
@@ -845,10 +846,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
 
             //url locallhost
-            var url = $"https://localhost:7063/Customer/ShowDContract?token={token}";
+            //var url = $"https://localhost:7063/Customer/ShowDContract?token={token}";
 
             //url servcer
-            //var url = $"https://techseal.azurewebsites.net/Customer/ShowDContract?token={token}";
+            var url = $"https://techseal.azurewebsites.net/Customer/ShowDContract?token={token}";
 
             string urlShort = await _shortLinkHelper.GenerateShortUrl(url);
             // Gửi URL cho khách hàng

@@ -297,10 +297,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
 
             //url locallhost
-            var url = $"https://localhost:7063/Customer/UnEffectDContract?token={token}";
+           // var url = $"https://localhost:7063/Customer/UnEffectDContract?token={token}";
 
             //url servcer
-            //var url = $"https://techseal.azurewebsites.net/Customer/UnEffectDContract?token={token}";
+            var url = $"https://techseal.azurewebsites.net/Customer/UnEffectDContract?token={token}";
 
             // Gửi URL cho khách hàng
             return url;
@@ -337,10 +337,10 @@ namespace QuanLyHopDongVaKySo_API.Controllers
             // Đường dẫn đến nơi hiển thị hợp đồng (Client)
 
             //url locallhost
-             var url = $"https://localhost:7063/Customer/ShowDContract?token={token}";
+             //var url = $"https://localhost:7063/Customer/ShowDContract?token={token}";
 
             //url servcer
-            //var url = $"https://techseal.azurewebsites.net/Customer/ShowDContract?token={token}";
+           var url = $"https://techseal.azurewebsites.net/Customer/ShowDContract?token={token}";
             string urlShort = await _shortLinkHelper.GenerateShortUrl(url);
 
             // Gửi URL cho khách hàng
