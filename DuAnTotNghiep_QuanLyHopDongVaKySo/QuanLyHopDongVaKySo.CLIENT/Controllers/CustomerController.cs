@@ -288,7 +288,7 @@ namespace QuanLyHopDongVaKySo.CLIENT.Controllers
                 Directory.Delete(folderItem);
 
 
-                folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "MinuteImage");
+                folderPath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "ContractImage");
 
                 folderItem = System.IO.Path.Combine(folderPath, result.DContractID);
 
